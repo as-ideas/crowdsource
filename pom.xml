@@ -20,7 +20,9 @@
         <module>crowdsource-frontend</module>
         <module>crowdsource-core</module>
         <module>crowdsource-example</module>
+        <!--
         <module>crowdsource-integrationtests</module>
+        -->
     </modules>
 
     <build>

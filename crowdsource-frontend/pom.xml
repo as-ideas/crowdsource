@@ -38,12 +38,12 @@
                             <goal>install-node-and-npm</goal>
                         </goals>
                         <configuration>
-                            <nodeVersion>v6.15.1</nodeVersion>
-                            <npmVersion>3.10.10</npmVersion>
+                            <nodeVersion>v11.4.0</nodeVersion>
+                            <npmVersion>6.4.1</npmVersion>
                         </configuration>
                     </execution>
 
-                    <!-- 2. Install karma and karma plugins -->
+                    <!-- 2. Install node dependencies -->
                     <execution>
                         <id>npm install</id>
                         <goals>
@@ -53,13 +53,13 @@
 
                     <!-- 3. Build FE -->
                     <execution>
-                        <id>npm run package</id>
+                        <id>npm run build</id>
                         <goals>
                             <goal>npm</goal>
                         </goals>
 
                         <configuration>
-                            <arguments>run package</arguments>
+                            <arguments>run build</arguments>
                         </configuration>
                     </execution>
 
@@ -88,16 +88,11 @@
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${build.outputDirectory}</outputDirectory>
+                            <outputDirectory>${build.outputDirectory}/public</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>src/main</directory>
-                                    <includes><include>**/*.scss</include></includes>
-                                    <filtering>false</filtering>
-                                </resource>
-                                <resource>
-                                    <directory>${project.basedir}</directory>
-                                    <includes><include>config.js</include></includes>
+                                    <directory>build</directory>
+                                    <includes><include>**/*</include></includes>
                                     <filtering>false</filtering>
                                 </resource>
                             </resources>

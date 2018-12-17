@@ -1,34 +1,25 @@
 {
+  "name": "crowdsource-frontend",
+  "version": "0.1.0",
   "private": true,
-  "devDependencies": {
-    "bower": "~1.3.12",
-    "gulp": "~3.8.10",
-    "gulp-autoprefixer": "^2.1.0",
-    "gulp-concat": "~2.4.2",
-    "gulp-if": "^2.0.0",
-    "gulp-ng-annotate": "~0.5.0",
-    "gulp-plumber": "~0.6.6",
-    "gulp-sass": "^2.1.1",
-    "gulp-sourcemaps": "~1.3.0",
-    "gulp-uglify": "~1.0.2",
-    "karma": "~0.12.28",
-    "karma-chrome-launcher": "^0.2.1",
-    "karma-cli": "~0.0.4",
-    "karma-firefox-launcher": "^0.1.6",
-    "karma-jasmine": "~0.3.2",
-    "karma-jasmine-jquery": "~0.1.1",
-    "karma-junit-reporter": "~0.2.2",
-    "karma-ng-html2js-preprocessor": "~0.1.2",
-    "karma-phantomjs-launcher": "~0.1.4",
-    "merge-stream": "~0.1.6",
-    "yargs": "^3.31.0"
+  "dependencies": {
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-scripts": "2.1.1"
   },
   "scripts": {
-    "postinstall": "bower install --allow-root --config.interactive=false",
-    "test": "karma start src/test/javascript/karma.conf.js --single-run --browsers PhantomJS",
-    "test-watch": "karma start src/test/javascript/karma.conf.js --browsers Chrome",
-    "package": "gulp",
-    "watch": "gulp && gulp watch",
-    "watch-dev": "gulp --development && gulp watch --development"
-  }
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
