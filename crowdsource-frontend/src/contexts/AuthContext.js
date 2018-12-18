@@ -14,7 +14,7 @@ class AuthProvider extends React.Component {
         this.logout = this.logout.bind(this)
     }
 
-    login() {
+    login(referrer) {
         setTimeout(() => this.setState({isAuth: true, role: 'user'}), 1000)
     }
 
