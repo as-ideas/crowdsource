@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { AuthProvider } from './contexts/AuthContext'
-import { Route, Redirect } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import ProtectedRoute from './components/ProtectedRoute'
 import LoginView from './views/LoginView'
 import ProjectsView from './views/ProjectsView'
