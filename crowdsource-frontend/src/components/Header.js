@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import {AuthConsumer} from "../contexts/AuthContext";
+import { AuthConsumer } from "../contexts/AuthContext";
+import PrimaryButton from "../atoms/PrimaryButton.js"
 
 
 class Header extends React.Component {
@@ -10,6 +11,7 @@ class Header extends React.Component {
                 <AuthConsumer>
                     {({ isAuth, login, logout }) => (
                         <div>
+                            <PrimaryButton label="Login"/>
                             {isAuth ? (
                                     <ul>
                                         <li><Link to="logout">Logout</Link></li>
