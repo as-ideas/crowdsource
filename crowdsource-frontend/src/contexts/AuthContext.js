@@ -24,7 +24,7 @@ class AuthProvider extends React.Component {
     }
 
     login(username, password) {
-        this.requestAPI('http://localhost:8080/oauth/token', { username, password, client_id: 'web', grant_type: 'password'})
+        this.requestAPI('/oauth/token', { username, password, client_id: 'web', grant_type: 'password'})
             .then(response => console.log(`Login: ${response}`)
             )
     }
@@ -68,8 +68,8 @@ class AuthProvider extends React.Component {
     async requestAPI(url, params, options, method = "POST") {
         // performs api calls sending the required authentication headers
         const headers = {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/x-www-form-urlencoded'
         }
 
         // Setting Authorization header
@@ -79,19 +79,24 @@ class AuthProvider extends React.Component {
         }
 
 // TODO: Remove no-cors? For testing only
-         return fetch(url, {
+        return fetch(url, {
                 method,
                 headers,
-                mode: "no-cors",
                 body: param(params),
                 ...options
             })
                 .then(response => {
-                    if(response.status >= 200 && response.status < 300) {
-                        response.json()
+                    if(response.ok) {
+                        console.log('ok')
+                        return response.json()
+                    } else {
+                        console.log(`error: ${response.status}`)
+                        return response.text()
                     }
                 })
-
+                .then(data => {
+                    console.log(`data: ${JSON.stringify(data)}`)
+                })
     }
 
     checkResponseStatus(response) {
