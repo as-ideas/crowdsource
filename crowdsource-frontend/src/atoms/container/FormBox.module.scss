@@ -1,0 +1,20 @@
+@import "../../globals";
+
+.form-box {
+  background-color: $color-white;
+  border-width: 0;
+  border-radius: $border-radius;
+  box-shadow: 0 2px 0 0 rgba(0,0,0,0.1), 0 0 2px 0 rgba(0,0,0,0.1);
+  margin: 0 auto;
+  max-width: 31.25rem;
+  padding: 1rem;
+
+  a {
+    font-size: $font-size-small;
+    color: $color-black-shade-2;
+
+    &:hover {
+      color: $color-grey;
+    }
+  }
+}

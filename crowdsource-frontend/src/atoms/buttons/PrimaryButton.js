@@ -4,7 +4,7 @@ import styles from './PrimaryButton.module.scss';
 class PrimaryButton extends React.Component {
     render() {
         return (
-            <button type="button" className={styles["primary-button"]}>{this.props.label}</button>
+            <button type="button" className={styles["primary-button"]} onClick={this.props.onClick}>{this.props.label}</button>
         )
     }
 }
