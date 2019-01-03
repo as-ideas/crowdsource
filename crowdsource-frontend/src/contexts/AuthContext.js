@@ -25,7 +25,15 @@ class AuthProvider extends React.Component {
 
     login(username, password) {
         this.requestAPI('/oauth/token', { username, password, client_id: 'web', grant_type: 'password'})
-            .then(response => console.log(`Login: ${response}`)
+            .then(response => {
+                console.log(`Login: ${response}`)
+                let token = response.access_token
+                    this.setState({
+                        token,
+                        isAuth: true
+                    })
+                    this.saveToken(token)
+                }
             )
     }
 
@@ -86,16 +94,13 @@ class AuthProvider extends React.Component {
                 ...options
             })
                 .then(response => {
-                    if(response.ok) {
+                    if(re)sponse.ok) {
                         console.log('ok')
-                        return response.json()
+                        return response.json(
                     } else {
                         console.log(`error: ${response.status}`)
                         return response.text()
                     }
-                })
-                .then(data => {
-                    console.log(`data: ${JSON.stringify(data)}`)
                 })
     }
 
