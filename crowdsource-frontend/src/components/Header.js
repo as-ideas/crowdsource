@@ -8,7 +8,7 @@ class Header extends React.Component {
     render() {
         return (
             <AuthConsumer>
-                {({ isAuth, login, logout }) => (
+                {({ isAuth }) => (
                     <nav className={styles["navigation"]}>
                         {isAuth ? (
                                 <ul>

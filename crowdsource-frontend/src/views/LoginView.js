@@ -40,9 +40,9 @@ class LoginView extends React.Component {
                                     }
                                     <Form>
                                         <label htmlFor="email">Email-Adresse</label>
-                                        <input id="email" placeholder="max.mustermann" autoComplete="username" value="crowdsource@crowd.source.de" onChange={event => this.setState({ email: event.target.value })} />
+                                        <input id="email" placeholder="max.mustermann" autoComplete="username" onChange={event => this.setState({ email: event.target.value })} />
                                         <label htmlFor="password">Passwort</label>
-                                        <input id="password" type="password" autoComplete="current-password" value="einEselGehtZumBaecker!" onChange={ event => this.setState({password: event.target.value}) }/>
+                                        <input id="password" type="password" autoComplete="current-password" onChange={ event => this.setState({password: event.target.value}) }/>
                                         <PrimaryButton label="Login" onClick={ () => login(this.state.email,this.state.password)}/>
                                     </Form>
                                     <Link to="signup">oder hier registrieren</Link>

@@ -3,7 +3,6 @@ import Header from '../components/Header.js'
 import {AuthConsumer} from "../contexts/AuthContext";
 import FormBox from "../atoms/container/FormBox";
 import {Link, Redirect} from "react-router-dom";
-import AlertBox from "../atoms/forms/AlertBox";
 import Form from "../atoms/forms/Form";
 import PrimaryButton from "../atoms/buttons/PrimaryButton";
 

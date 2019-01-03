@@ -10,10 +10,13 @@ class LogoutView extends React.Component {
             <div>
                 <Header />
                 <AuthConsumer>
+                    {({ logout }) => (
+                    logout(),
                     <FormBox>
                         <h1>Du wurdest ausgeloggt</h1>
                         <p>Du kannst Dich <Link to="login">hier</Link> wieder einloggen.</p>
                     </FormBox>
+                    )}
                 </AuthConsumer>
             </div>
         )
