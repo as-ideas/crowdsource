@@ -55,7 +55,7 @@ class AuthProvider extends React.Component {
 
     logout() {
         this.clearToken()
-        this.setState({isAuth: false, role: 'guest', token: null})
+        this.setState({isAuth: false, role: 'guest', token: null, error: null})
     }
 
     loadToken() {

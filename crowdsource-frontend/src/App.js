@@ -17,7 +17,6 @@ class App extends Component {
               <Route path="/login" component={LoginView}/>
               <Route path="/logout" component={LogoutView} />
               <Route path="/signup" component={RegisterView} />
-
           </AuthProvider>
       </div>
     );

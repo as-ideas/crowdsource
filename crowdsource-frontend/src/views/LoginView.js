@@ -16,7 +16,7 @@ class LoginView extends React.Component {
 
     render() {
         // Referrer is passed in by ProtectedRoute component
-        let referrer = { pathname: '/' }
+        let referrer = { pathname: '/projects' }
         if(this.props.location.state) referrer = this.props.location.state.referrer
         return (
             <div>

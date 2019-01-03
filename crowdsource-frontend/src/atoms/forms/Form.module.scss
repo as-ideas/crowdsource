@@ -2,7 +2,7 @@
 
 .form {
 
-  input {
+  input:not([type]), input[type='text'], input[type='password'] {
     background-color: $color-white;
     border-color: #cccccc;
     border-style: solid;
@@ -16,6 +16,11 @@
     height: 2.3125rem;
     width: 100%;
     box-sizing: border-box;
+    transition: box-shadow 0.45s, border-color 0.45s ease-in-out;
+  }
+
+  input[type='checkbox'] {
+    display: block;
     transition: box-shadow 0.45s, border-color 0.45s ease-in-out;
   }
 
