@@ -5,6 +5,7 @@ import {Link, Redirect} from "react-router-dom";
 import FormBox from "../atoms/container/FormBox";
 import Form from "../atoms/forms/Form";
 import PrimaryButton from "../atoms/buttons/PrimaryButton"
+import AlertBox from "../atoms/forms/AlertBox";
 
 class LoginView extends React.Component {
 
@@ -21,7 +22,7 @@ class LoginView extends React.Component {
             <div>
                 <Header />
                 <AuthConsumer>
-                    {({ isAuth, login }) => (
+                    {({ isAuth, login, error }) => (
                         <FormBox>
                         {isAuth ? (
                                 <div>
@@ -31,6 +32,12 @@ class LoginView extends React.Component {
                                 <div>
                                     <h1>Login</h1>
                                     <Link to="password-recovery">Passwort vergessen</Link>
+                                    {error === 'bad_credentials' &&
+                                    <AlertBox message="Deine Anmeldeinformationen sind ungültig. Bitte überprüfe die eingegebenen Daten." />
+                                    }
+                                    {(error && error === 'unknown') &&
+                                    <AlertBox message="Ein unerwarteter Fehler ist aufgetreten. Bitte versuche es später erneut." />
+                                    }
                                     <Form>
                                         <label htmlFor="email">Email-Adresse</label>
                                         <input id="email" placeholder="max.mustermann" autoComplete="username" value="crowdsource@crowd.source.de" onChange={event => this.setState({ email: event.target.value })} />

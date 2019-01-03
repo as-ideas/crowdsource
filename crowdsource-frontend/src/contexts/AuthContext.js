@@ -8,7 +8,8 @@ class AuthProvider extends React.Component {
     state = {
         isAuth: false,
         role: 'guest',
-        token: null
+        token: null,
+        error: null
     }
 
     constructor() {
@@ -29,12 +30,27 @@ class AuthProvider extends React.Component {
                 console.log(`Login: ${response}`)
                 let token = response.access_token
                     this.setState({
+                        error: null,
                         token,
                         isAuth: true
                     })
                     this.saveToken(token)
+                })
+            .catch(error => {
+                let response = error.response
+
+                if (response.status === 400) {
+                    response.json().then( data => {
+                        if(data.error && data.error === 'invalid_grant') {
+                            this.setState({error: 'bad_credentials'})
+                        } else {
+                            this.setState({error: 'unknown'})
+                        }
+                    })
+                } else {
+                    this.setState({error: 'unknown'})
                 }
-            )
+            })
     }
 
     logout() {
@@ -94,12 +110,13 @@ class AuthProvider extends React.Component {
                 ...options
             })
                 .then(response => {
-                    if(re)sponse.ok) {
-                        console.log('ok')
-                        return response.json(
+                    if(response.ok) {
+                        return response.json()
                     } else {
                         console.log(`error: ${response.status}`)
-                        return response.text()
+                        let error = new Error(response.statusText)
+                        error.response = response
+                        throw error
                     }
                 })
     }
@@ -109,15 +126,13 @@ class AuthProvider extends React.Component {
         if (response.status >= 200 && response.status < 300) { // Success status lies between 200 to 300
             return response
         } else {
-            var error = new Error(response.statusText)
-            error.response = response
-            throw error
         }
     }
 
     render() {
         return (
             <AuthContext.Provider value={{
+                error: this.state.error,
                 isAuth: this.state.isAuth,
                 login: this.login,
                 logout: this.logout,

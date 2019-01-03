@@ -1,0 +1,12 @@
+@import "../../globals";
+
+.alert-box {
+  background-color: $color-red;
+  border-radius: $border-radius;
+  border-style: none;
+  color: $color-white;
+  font-size: 1rem;
+  font-weight: normal;
+  margin-bottom: 1.25rem;
+  padding: 1.25rem 1.875rem 1.25rem 1.25rem;
+}
