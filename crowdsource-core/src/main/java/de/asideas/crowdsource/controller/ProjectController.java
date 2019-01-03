@@ -61,7 +61,8 @@ public class ProjectController {
     private List<MediaType> attachmentTypesAllowed;
 
     @Secured({Roles.ROLE_TRUSTED_ANONYMOUS, Roles.ROLE_USER})
-    @RequestMapping(value = "/projects", method = RequestMethod.GET)
+    // this is temporarily disabled until it is renamed either in the frontend or the backend
+//    @RequestMapping(value = "/projects", method = RequestMethod.GET)
     @JsonView(Project.ProjectSummaryView.class)
     public List<Project> getProjects(Authentication auth) {
         UserEntity userEntity = userFromAuthentication(auth);

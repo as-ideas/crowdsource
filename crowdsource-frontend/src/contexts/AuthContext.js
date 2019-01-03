@@ -26,7 +26,7 @@ class AuthProvider extends React.Component {
     login(username, password) {
         this.requestAPI('/oauth/token', { username, password, client_id: 'web', grant_type: 'password'})
             .then(response => {
-                console.log(`Login: ${response}`)
+//                console.log(`Access Token: ${response.access_token}`)
                 let token = response.access_token
                     this.setState({
                         token,
@@ -39,7 +39,9 @@ class AuthProvider extends React.Component {
 
     logout() {
         this.clearToken()
-        this.setState({isAuth: false, role: 'guest', token: null})
+        if(this.state.isAuth){
+            this.setState({isAuth: false})
+        }
     }
 
     loadToken() {
@@ -94,9 +96,9 @@ class AuthProvider extends React.Component {
                 ...options
             })
                 .then(response => {
-                    if(re)sponse.ok) {
+                    if(response.ok) {
                         console.log('ok')
-                        return response.json(
+                        return response.json()
                     } else {
                         console.log(`error: ${response.status}`)
                         return response.text()
