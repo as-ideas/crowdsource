@@ -16,8 +16,10 @@ public class StaticResourceConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addRedirectViewController("/", "/login");
         registry.addViewController("/login").setViewName("forward:/index.html");
         registry.addViewController("/signup").setViewName("forward:/index.html");
+        registry.addViewController("/projects").setViewName("forward:/index.html");
     }
 
 }
