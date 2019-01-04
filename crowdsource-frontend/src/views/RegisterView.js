@@ -14,6 +14,14 @@ class RegisterView extends React.Component {
     }
   }
 
+  toggleAGBBox = () => {
+    this.setState({acceptAGB: !this.state.acceptAGB})
+  }
+
+  signup = (email, acceptAGB) => {
+    alert("email: " + email + ", acceptAGB: " + acceptAGB)
+  }
+
   render () {
     return (
       <div>
@@ -31,9 +39,9 @@ class RegisterView extends React.Component {
                   <Form>
                     <label htmlFor='email'>Email-Adresse</label>
                     <input type='text' id='email' placeholder='max.mustermann' autoComplete='username' value='crowdsource@crowd.source.de' onChange={event => this.setState({ email: event.target.value })} />
-                    <input id='agb' type='checkbox' onChange={event => this.setState({ acceptAGB: event.target.value })} />
+                    <input id='agb' type='checkbox' checked={this.state.acceptAGB} onChange={this.toggleAGBBox} />
                     <label htmlFor='agb'>Ich akzeptiere die <Link to='#'>AGB</Link></label>
-                    <PrimaryButton label='Registrieren' onClick={() => window.alert('Not implemented yet')} />
+                    <PrimaryButton label='Registrieren' onClick={() => this.signup(this.state.email, this.state.acceptAGB)} />
                   </Form>
                   <Link to='login'>oder hier anmelden</Link>
                 </div>
