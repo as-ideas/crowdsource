@@ -9,7 +9,7 @@ class RegisterView extends React.Component {
   constructor () {
     super()
     this.state = {
-      email: '',
+      email: 'crowdsource@crowd.source.de',
       acceptAGB: false
     }
   }
@@ -38,7 +38,7 @@ class RegisterView extends React.Component {
                   <h1>Registrierung</h1>
                   <Form>
                     <label htmlFor='email'>Email-Adresse</label>
-                    <input type='text' id='email' placeholder='max.mustermann' autoComplete='username' value='crowdsource@crowd.source.de' onChange={event => this.setState({ email: event.target.value })} />
+                    <input type='text' id='email' placeholder='max.mustermann' autoComplete='username' value={this.state.email} onChange={event => this.setState({ email: event.target.value })} />
                     <input id='agb' type='checkbox' checked={this.state.acceptAGB} onChange={this.toggleAGBBox} />
                     <label htmlFor='agb'>Ich akzeptiere die <Link to='#'>AGB</Link></label>
                     <PrimaryButton label='Registrieren' onClick={() => this.signup(this.state.email, this.state.acceptAGB)} />
