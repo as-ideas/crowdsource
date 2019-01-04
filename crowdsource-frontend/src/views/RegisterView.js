@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from '../components/Header.js'
 import { AuthConsumer } from '../contexts/AuthContext'
 import FormBox from '../atoms/container/FormBox'
 import { Link, Redirect } from 'react-router-dom'
@@ -18,7 +17,6 @@ class RegisterView extends React.Component {
   render () {
     return (
       <div>
-        <Header />
         <AuthConsumer>
           {({ isAuth }) => (
             <FormBox>

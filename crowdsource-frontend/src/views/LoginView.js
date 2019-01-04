@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from '../components/Header.js'
 import { AuthConsumer } from '../contexts/AuthContext'
 import { Link, Redirect } from 'react-router-dom'
 import FormBox from '../atoms/container/FormBox'
@@ -23,7 +22,6 @@ class LoginView extends React.Component {
 
     return (
       <div>
-        <Header />
         <AuthConsumer>
           {({ isAuth, login, error }) => (
             <FormBox>

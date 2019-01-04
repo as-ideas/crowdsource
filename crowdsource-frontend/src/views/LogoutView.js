@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from '../components/Header.js'
 import { AuthConsumer } from '../contexts/AuthContext'
 import { Link } from 'react-router-dom'
 import FormBox from '../atoms/container/FormBox'
@@ -8,10 +7,9 @@ class LogoutView extends React.Component {
   render () {
     return (
       <div>
-        <Header />
         <AuthConsumer>
-          {({ isAuth, logout }) => (
-            isAuth ? logout() : {}
+          {({ logout }) => (
+            logout()
           )}
         </AuthConsumer>
         <FormBox>
