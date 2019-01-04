@@ -8,6 +8,7 @@ import ProjectsView from './views/ProjectsView'
 import RegisterView from './views/RegisterView'
 import LogoutView from './views/LogoutView'
 import Header from "./components/Header";
+import PasswortRecoveryView from "./views/PasswortRecoveryView";
 
 class App extends Component {
   render () {
@@ -18,6 +19,7 @@ class App extends Component {
           <ProtectedRoute path='/projects' component={ProjectsView} />
           <Route path='/login' component={LoginView} />
           <Route path='/logout' component={LogoutView} />
+          <Route path='/password-recovery' component={PasswortRecoveryView} />
           <Route path='/signup' component={RegisterView} />
         </AuthProvider>
       </div>
