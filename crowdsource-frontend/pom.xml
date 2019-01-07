@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <parent>
         <artifactId>crowdsource-parent</artifactId>
@@ -29,7 +30,7 @@
             <plugin>
                 <groupId>com.github.eirslett</groupId>
                 <artifactId>frontend-maven-plugin</artifactId>
-                <version>0.0.23</version>
+                <version>1.0</version>
                 <executions>
                     <!-- 1. Install node and npm locally -->
                     <execution>
@@ -38,8 +39,8 @@
                             <goal>install-node-and-npm</goal>
                         </goals>
                         <configuration>
-                            <nodeVersion>v0.10.18</nodeVersion>
-                            <npmVersion>1.3.8</npmVersion>
+                            <nodeVersion>v6.15.1</nodeVersion>
+                            <npmVersion>3.10.10</npmVersion>
                         </configuration>
                     </execution>
 
@@ -92,12 +93,16 @@
                             <resources>
                                 <resource>
                                     <directory>src/main</directory>
-                                    <includes><include>**/*.scss</include></includes>
+                                    <includes>
+                                        <include>**/*.scss</include>
+                                    </includes>
                                     <filtering>false</filtering>
                                 </resource>
                                 <resource>
                                     <directory>${project.basedir}</directory>
-                                    <includes><include>config.js</include></includes>
+                                    <includes>
+                                        <include>config.js</include>
+                                    </includes>
                                     <filtering>false</filtering>
                                 </resource>
                             </resources>
