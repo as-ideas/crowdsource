@@ -28,6 +28,8 @@ public class RegisterUserControllerTest extends AbstractUserControllerTest {
     public void registerUser_shouldReturnSuccessfullyWhenEmailAndTosOkOnSave() throws Exception {
 
         userRegistration.setEmail(NEW_USER_MAIL_ADDRESS);
+        userRegistration.setFirstName(USER_FIRST_NAME);
+        userRegistration.setLastName(USER_LAST_NAME);
         userRegistration.setTermsOfServiceAccepted(true);
 
         registerUserAndExpect(status().isCreated());
@@ -37,6 +39,8 @@ public class RegisterUserControllerTest extends AbstractUserControllerTest {
     public void registerUser_shouldCallAllRelevantMethodsOnSave() throws Exception {
 
         userRegistration.setEmail(NEW_USER_MAIL_ADDRESS);
+        userRegistration.setFirstName(USER_FIRST_NAME);
+        userRegistration.setLastName(USER_LAST_NAME);
         userRegistration.setTermsOfServiceAccepted(true);
 
         registerUserAndExpect(status().isCreated());
@@ -51,6 +55,8 @@ public class RegisterUserControllerTest extends AbstractUserControllerTest {
     public void registerUser_shouldAddNewUserIntoDatabase() throws Exception {
 
         userRegistration.setEmail(NEW_USER_MAIL_ADDRESS);
+        userRegistration.setFirstName(USER_FIRST_NAME);
+        userRegistration.setLastName(USER_LAST_NAME);
         userRegistration.setTermsOfServiceAccepted(true);
 
         registerUserAndExpect(status().isCreated());
@@ -69,6 +75,8 @@ public class RegisterUserControllerTest extends AbstractUserControllerTest {
         String originalActivationToken = existingButNotYetActivatedUser.getActivationToken();
 
         userRegistration.setEmail(EXISTING_BUT_NOT_YET_ACTIVATED_USER_MAIL_ADDRESS);
+        userRegistration.setFirstName(USER_FIRST_NAME);
+        userRegistration.setLastName(USER_LAST_NAME);
         userRegistration.setTermsOfServiceAccepted(true);
 
         registerUserAndExpect(status().isCreated());
@@ -88,6 +96,8 @@ public class RegisterUserControllerTest extends AbstractUserControllerTest {
     public void registerUser_shouldReturnErroneouslyWhenEmailNotAxelspringerOnSave() throws Exception {
 
         userRegistration.setEmail(INVALID_USER_MAIL_ADDRESS);
+        userRegistration.setFirstName(USER_FIRST_NAME);
+        userRegistration.setLastName(USER_LAST_NAME);
         userRegistration.setTermsOfServiceAccepted(true);
 
         final MvcResult mvcResult = registerUserAndExpect(status().isBadRequest());
@@ -96,9 +106,37 @@ public class RegisterUserControllerTest extends AbstractUserControllerTest {
     }
 
     @Test
+    public void registerUser_shouldReturnErroneouslyWhenFirstNameIsEmptyOnSave() throws Exception {
+
+        userRegistration.setEmail(NEW_USER_MAIL_ADDRESS);
+        userRegistration.setFirstName("");
+        userRegistration.setLastName(USER_LAST_NAME);
+        userRegistration.setTermsOfServiceAccepted(true);
+
+        final MvcResult mvcResult = registerUserAndExpect(status().isBadRequest());
+
+        assertEquals("{\"errorCode\":\"field_errors\",\"fieldViolations\":{\"firstName\":\"may not be empty\"}}", mvcResult.getResponse().getContentAsString());
+    }
+
+    @Test
+    public void registerUser_shouldReturnErroneouslyWhenLastNameIsEmptyOnSave() throws Exception {
+
+        userRegistration.setEmail(NEW_USER_MAIL_ADDRESS);
+        userRegistration.setFirstName(USER_FIRST_NAME);
+        userRegistration.setLastName("");
+        userRegistration.setTermsOfServiceAccepted(true);
+
+        final MvcResult mvcResult = registerUserAndExpect(status().isBadRequest());
+
+        assertEquals("{\"errorCode\":\"field_errors\",\"fieldViolations\":{\"lastName\":\"may not be empty\"}}", mvcResult.getResponse().getContentAsString());
+    }
+
+    @Test
     public void registerUser_shouldReturnErroneouslyWhenTocNotAcceptedOnSave() throws Exception {
 
         userRegistration.setEmail(NEW_USER_MAIL_ADDRESS);
+        userRegistration.setFirstName(USER_FIRST_NAME);
+        userRegistration.setLastName(USER_LAST_NAME);
         userRegistration.setTermsOfServiceAccepted(false);
 
         final MvcResult mvcResult = registerUserAndExpect(status().isBadRequest());
@@ -110,6 +148,8 @@ public class RegisterUserControllerTest extends AbstractUserControllerTest {
     public void registerUser_shouldReturnErroneouslyWhenUserAlreadyActivated() throws Exception {
 
         userRegistration.setEmail(ACTIVATED_USER_MAIL_ADDRESS);
+        userRegistration.setFirstName(USER_FIRST_NAME);
+        userRegistration.setLastName(USER_LAST_NAME);
         userRegistration.setTermsOfServiceAccepted(true);
 
         final MvcResult mvcResult = registerUserAndExpect(status().isBadRequest());
