@@ -18,7 +18,7 @@ public class Comment {
 
     public Comment(CommentEntity commentEntity) {
         this.created = commentEntity.getCreatedDate();
-        this.userName = commentEntity.getUser().fullNameFromEmail();
+        this.userName = commentEntity.getUser().getFullName();
         this.comment = commentEntity.getComment();
     }
 

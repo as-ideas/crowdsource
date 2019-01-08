@@ -19,7 +19,7 @@ public class User {
         this.email = userEntity.getEmail();
         this.budget = userEntity.getBudget();
         this.roles = userEntity.getRoles();
-        this.name = userEntity.fullNameFromEmail();
+        this.name = userEntity.getFullName();
     }
 
     public User() {

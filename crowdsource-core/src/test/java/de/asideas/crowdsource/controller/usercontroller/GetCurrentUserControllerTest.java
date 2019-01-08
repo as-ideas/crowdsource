@@ -27,7 +27,7 @@ public class GetCurrentUserControllerTest extends AbstractUserControllerTest {
                 .andReturn();
 
         assertThat(mvcResult.getResponse().getContentAsString(),
-                is("{\"email\":\"existing.and.activated@crowd.source.de\",\"roles\":[\"ROLE_USER\"],\"budget\":500,\"name\":\"Existing And Activated\"}"));
+                is("{\"email\":\"existing.and.activated@crowd.source.de\",\"roles\":[\"ROLE_USER\"],\"budget\":500,\"name\":\"Karl Ranseier\"}"));
     }
 
     @Test
@@ -42,7 +42,7 @@ public class GetCurrentUserControllerTest extends AbstractUserControllerTest {
                 .andReturn();
 
         assertThat(mvcResult.getResponse().getContentAsString(),
-                is("{\"email\":\"existing.and.activated@crowd.source.de\",\"roles\":[\"ROLE_USER\"],\"budget\":0,\"name\":\"Existing And Activated\"}"));
+                is("{\"email\":\"existing.and.activated@crowd.source.de\",\"roles\":[\"ROLE_USER\"],\"budget\":0,\"name\":\"Karl Ranseier\"}"));
     }
 
     @Test

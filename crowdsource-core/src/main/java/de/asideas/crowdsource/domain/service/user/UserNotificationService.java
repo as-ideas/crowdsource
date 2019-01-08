@@ -85,7 +85,7 @@ public class UserNotificationService {
 
         StandardEvaluationContext context = new StandardEvaluationContext();
         context.setVariable("link", activationLink);
-        context.setVariable("userName", user.fullNameFromEmail());
+        context.setVariable("userName", user.getFullName());
         final String mailContent = activationEmailTemplate.getValue(context, String.class);
 
         sendMail(user.getEmail(), SUBJECT_ACTIVATION, mailContent);
@@ -98,7 +98,7 @@ public class UserNotificationService {
 
         StandardEvaluationContext context = new StandardEvaluationContext();
         context.setVariable("link", passwordRecoveryLink);
-        context.setVariable("userName", user.fullNameFromEmail());
+        context.setVariable("userName", user.getFullName());
         final String mailContent = passwordForgottenEmailTemplate.getValue(context, String.class);
 
         sendMail(user.getEmail(), SUBJECT_PASSWORD_FORGOTTEN, mailContent);
@@ -110,7 +110,7 @@ public class UserNotificationService {
         final String projectLink = getProjectLink(project.getId());
 
         context.setVariable("link", projectLink);
-        context.setVariable("userName", project.getCreator().fullNameFromEmail());
+        context.setVariable("userName", project.getCreator().getFullName());
 
         switch (project.getStatus()) {
             case PUBLISHED:
@@ -147,9 +147,9 @@ public class UserNotificationService {
         UserEntity recipient = project.getCreator();
 
         StandardEvaluationContext context = new StandardEvaluationContext();
-        context.setVariable("recipientName", recipient.fullNameFromEmail());
+        context.setVariable("recipientName", recipient.getFullName());
         context.setVariable("projectName", project.getTitle());
-        context.setVariable("commentingUser", comment.getUser().fullNameFromEmail());
+        context.setVariable("commentingUser", comment.getUser().getFullName());
         context.setVariable("commentExcerpt", commentExcerpt(comment));
         context.setVariable("link", projectLink);
         final String mailContent = projectCommentedEmailTemplate.getValue(context, String.class);
@@ -170,8 +170,8 @@ public class UserNotificationService {
 
             StandardEvaluationContext context = new StandardEvaluationContext();
             context.setVariable("link", projectLink);
-            context.setVariable("recipientName", recipient.fullNameFromEmail());
-            context.setVariable("modifierName", modifier.fullNameFromEmail());
+            context.setVariable("recipientName", recipient.getFullName());
+            context.setVariable("modifierName", modifier.getFullName());
 
             final String mailContent = projectModifiedEmailTemplate.getValue(context, String.class);
 
