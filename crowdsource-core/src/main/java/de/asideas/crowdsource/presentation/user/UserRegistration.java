@@ -17,7 +17,11 @@ public class UserRegistration {
     @NotActivated
     @EligibleEmail
     private String email;
+
+    @NotEmpty
     private String firstName;
+
+    @NotEmpty
     private String lastName;
 
     @AssertTrue
