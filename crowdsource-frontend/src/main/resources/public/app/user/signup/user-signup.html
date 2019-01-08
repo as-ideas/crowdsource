@@ -13,8 +13,30 @@
         </div>
 
         <div class="row">
-            <input type="text" name="firstName" ng-model="signup.user.firstName" field-name="firstName" required />
-            <input type="text" name="lastName" ng-model="signup.user.lastName" field-name="lastName" required />
+            <div class="small-12 columns form-controls-firstName">
+                <label form-group="firstName">
+
+                    <span form-label-valid="firstName">Vorname</span>
+
+                    <span form-label-invalid="firstName" ng-messages="signup.form.firstName.$error">
+                        <span ng-message="required">Bitte gib Deinen Vornamen ein</span>
+                    </span>
+
+                    <input type="text" name="firstName" ng-model="signup.user.firstName" field-name="firstName" required reset-remote-validation />
+                </label>
+            </div>
+            <div class="small-12 columns form-controls-lastName">
+                <label form-group="lastName">
+
+                    <span form-label-valid="lastName">Nachname</span>
+
+                    <span form-label-invalid="lastName" ng-messages="signup.form.lastName.$error">
+                        <span ng-message="required">Bitte gib Deinen Nachnamen ein</span>
+                    </span>
+
+                    <input type="text" name="lastName" ng-model="signup.user.lastName" field-name="lastName" required reset-remote-validation />
+                </label>
+            </div>
         </div>
 
         <div class="row">
