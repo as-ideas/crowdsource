@@ -216,7 +216,7 @@ public class UserNotificationServiceTest {
     public void notifyCreatorAndAdminOnProjectModification() {
         final UserEntity creator = aProjectCreator();
         final UserEntity modifier = aUser("test_id_modifier");
-        final UserEntity admin = aUser("test_id_admin_0", "admin.0@email.com");
+        final UserEntity admin = aUser("test_id_admin_0", "admin.0@email.com", "Karl", "Ranseier");
         final List<UserEntity> admins = Arrays.asList(admin);
         final ProjectEntity project = project("proj3ctId", ProjectStatus.PUBLISHED, creator, "My Super Project");
 
@@ -238,7 +238,7 @@ public class UserNotificationServiceTest {
     public void notifyCreatorAndAdminOnProjectModification_NoOneGetsNotifiedTwiceBeeingAlsoAdmin() {
         final UserEntity creator = aProjectCreator();
         final UserEntity modifier = aUser("test_id_modifier");
-        final UserEntity admin = aUser("test_id_admin_0", "admin.0@email.com");
+        final UserEntity admin = aUser("test_id_admin_0", "admin.0@email.com", "Karl", "Ranseier");
         final List<UserEntity> admins = Arrays.asList(admin, modifier, creator);
         final ProjectEntity project = project("proj3ctId", ProjectStatus.PUBLISHED, creator, "My Super Project");
 
@@ -346,17 +346,17 @@ public class UserNotificationServiceTest {
     }
 
     private UserEntity aProjectCreator() {
-        return aUser("test_id_Creator", "some.creator@email.com");
+        return aUser("test_id_Creator", "some.creator@email.com", "Guybrush", "Threepwood");
     }
 
     private UserEntity aUser(String userId) {
-        final UserEntity res = new UserEntity("some.one@email.com");
+        final UserEntity res = new UserEntity("some.one@email.com", "Karl", "Ranseier");
         res.setId(userId);
         return res;
     }
 
-    private UserEntity aUser(String userId, String email) {
-        final UserEntity res = new UserEntity(email);
+    private UserEntity aUser(String userId, String email, String firstName, String lastName) {
+        final UserEntity res = new UserEntity(email, firstName, lastName);
         res.setId(userId);
         return res;
     }

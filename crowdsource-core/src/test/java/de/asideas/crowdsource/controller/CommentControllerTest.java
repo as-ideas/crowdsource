@@ -68,7 +68,7 @@ public class CommentControllerTest {
 
         reset(commentService);
 
-        final UserEntity userEntity = new UserEntity("test.name@test.de", "password");
+        final UserEntity userEntity = new UserEntity("test.name@test.de", "password", "Franz", "Ferdinant");
 
         aComment = new Comment(new DateTime(), userEntity.fullNameFromEmail(), "some comment");
         when(commentService.loadCommentsByProject(EXISTING_PROJECT_ID)).thenReturn(Collections.singletonList(aComment));

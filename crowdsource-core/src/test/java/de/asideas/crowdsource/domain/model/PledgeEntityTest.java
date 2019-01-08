@@ -10,9 +10,13 @@ import static org.hamcrest.core.Is.is;
 
 public class PledgeEntityTest {
 
+    private final static String EMAIL = "usr0@la.de";
+    private final static String FIRST_NAME = "Karl";
+    private final static String LAST_NAME = "Ranseier";
+
     @Test
     public void add_bothHavingSameProjectFinancingRoundAndUser() throws Exception {
-        UserEntity user = user("usr0@la.de");
+        UserEntity user = user(EMAIL, FIRST_NAME, LAST_NAME);
         FinancingRoundEntity financingRound = new FinancingRoundEntity();
         ProjectEntity project = new ProjectEntity();
 
@@ -32,7 +36,7 @@ public class PledgeEntityTest {
 
     @Test
     public void add_bothHavingDifferentProjectFinancingRoundAndUser() throws Exception {
-        UserEntity user = user("usr0@la.de");
+        UserEntity user = user(EMAIL, FIRST_NAME, LAST_NAME);
         FinancingRoundEntity financingRound0 = new FinancingRoundEntity();
         financingRound0.setId("test_id0");
         FinancingRoundEntity financingRound1 = new FinancingRoundEntity();
@@ -59,7 +63,7 @@ public class PledgeEntityTest {
 
     @Test
     public void add_otherIsNullShouldReturnThisCopy() throws Exception {
-        UserEntity user = user("usr0@la.de");
+        UserEntity user = user(EMAIL, FIRST_NAME, LAST_NAME);
         FinancingRoundEntity financingRound0 = new FinancingRoundEntity();
         financingRound0.setId("test_id0");
         ProjectEntity project0 = new ProjectEntity();
@@ -77,7 +81,7 @@ public class PledgeEntityTest {
 
     @Test
     public void add_thisMembersAreNullOthersNotResultShouldContainOthers() throws Exception {
-        UserEntity user = user("usr0@la.de");
+        UserEntity user = user(EMAIL, FIRST_NAME, LAST_NAME);
         FinancingRoundEntity financingRound = new FinancingRoundEntity();
         ProjectEntity project = new ProjectEntity();
 
@@ -97,7 +101,7 @@ public class PledgeEntityTest {
 
     @Test
     public void add_thisMembersAreNotNullButOthersResultShouldContainNulls() throws Exception {
-        UserEntity user = user("usr0@la.de");
+        UserEntity user = user(EMAIL, FIRST_NAME, LAST_NAME);
         FinancingRoundEntity financingRound = new FinancingRoundEntity();
         ProjectEntity project = new ProjectEntity();
 
@@ -174,8 +178,8 @@ public class PledgeEntityTest {
         return res;
     }
 
-    private UserEntity user(String email) {
-        UserEntity userEntity = new UserEntity(email);
+    private UserEntity user(String email, String firstName, String lastName) {
+        UserEntity userEntity = new UserEntity(email, firstName, lastName);
         userEntity.setId("id_" + email);
         userEntity.setBudget(0);
         return userEntity;

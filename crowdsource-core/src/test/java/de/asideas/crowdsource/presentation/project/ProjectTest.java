@@ -40,9 +40,9 @@ public class ProjectTest {
         projectEntity = new ProjectEntity(creator, project, activeFinancingRoundEntity);
         projectEntity.addAttachment(new AttachmentValue("test_fileRef", "test_contentType", "test_filename", 17, DateTime.now()));
 
-        user1 = new UserEntity("user1@xyz.com");
+        user1 = new UserEntity("user1@xyz.com", "Karl", "Ranseier");
         user1.setId("test_id1");
-        user2 = new UserEntity("user2@xyz.com");
+        user2 = new UserEntity("user2@xyz.com", "Guybrush", "Threepwood");
         user2.setId("test_id2");
 
         pledges = new ArrayList<>();

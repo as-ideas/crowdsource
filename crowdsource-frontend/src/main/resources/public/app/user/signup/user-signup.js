@@ -14,7 +14,7 @@ angular.module('crowdsource')
 
             var promise = User.register(vm.user);
             promise.then(function () {
-                $location.path('/signup/' + vm.user.email + '/success');
+                $location.path('/signup/' + vm.user.email + '/' + vm.user.firstName + '/' + vm.user.lastName + '/success');
             });
             promise.catch(function (response) {
                 RemoteFormValidation.applyServerErrorResponse(vm, vm.form, response);

@@ -54,11 +54,16 @@ public class UserController {
     public void registerUser(@RequestBody @Valid UserRegistration userRegistration) {
 
         final String email = userRegistration.getEmail().toLowerCase();
+        final String firstName = userRegistration.getFirstName();
+        final String lastName = userRegistration.getLastName();
 
         UserEntity userEntity = userRepository.findByEmail(email);
 
+        LOG.info("First Name: " + firstName);
+        LOG.info("Last Name: " + lastName);
+
         if (userEntity == null) {
-            userEntity = new UserEntity(email);
+            userEntity = new UserEntity(email, firstName, lastName);
         } else {
             LOG.debug("A user with the address {} already exists, assigning a new activation token", email);
         }

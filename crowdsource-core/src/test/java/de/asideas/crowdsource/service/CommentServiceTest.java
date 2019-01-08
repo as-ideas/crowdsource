@@ -54,7 +54,7 @@ public class CommentServiceTest {
     public void init(){
         reset(projectService, userService, commentRepository);
         projectEntity = new ProjectEntity(userEntity, new Project(), new FinancingRoundEntity());
-        userEntity = new UserEntity("test.name@test.de", "password");
+        userEntity = new UserEntity("test.name@test.de", "password", "Karl", "Ranseier");
         aComment = new CommentEntity(projectEntity, userEntity, "some comment");
     }
 

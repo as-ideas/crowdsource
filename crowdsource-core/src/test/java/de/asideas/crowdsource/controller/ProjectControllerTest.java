@@ -66,8 +66,21 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SuppressWarnings("Duplicates")
 public class ProjectControllerTest {
 
+    private final static String USER_EMAIL = "some@mail.com";
+    private final static String USER_FIRST_NAME = "Thomas";
+    private final static String USER_LAST_NAME = "Anderson";
+
+    private final static String ADMIN1_EMAIL = "creator@mail.com";
+    private final static String ADMIN1_FIRST_NAME = "Obiwan";
+    private final static String ADMIN1_LAST_NAME = "Kenobi";
+
+    private final static String ADMIN2_EMAIL = "creator2@mail.com";
+    private final static String ADMIN2_FIRST_NAME = "Peter";
+    private final static String ADMIN2_LAST_NAME = "Griffin";
+
     @Autowired
     private UserRepository userRepository;
+
     @Autowired
     private ProjectService projectService;
 
@@ -91,8 +104,7 @@ public class ProjectControllerTest {
 
     @Test
     public void addProject_shouldReturnSuccessfully() throws Exception {
-        final String email = "some@mail.com";
-        final UserEntity user = userEntity(email, Roles.ROLE_USER);
+        final UserEntity user = userEntity(USER_EMAIL, USER_FIRST_NAME, USER_LAST_NAME, Roles.ROLE_USER);
         final Project project = project("myTitle", "theFullDescription", "theShortDescription", 50, ProjectStatus.PROPOSED);
         final Project expFullProjcet = toCreatedProject(project, user);
         when(projectService.addProject(project, user)).thenReturn(expFullProjcet);
@@ -121,8 +133,7 @@ public class ProjectControllerTest {
     @Test
     public void addProject_shouldRespondWith400IfRequestWasInvalid() throws Exception {
         final Project project = new Project();
-        final String email = "some@mail.com";
-        final UserEntity user = userEntity(email, Roles.ROLE_USER);
+        final UserEntity user = userEntity(USER_EMAIL, USER_FIRST_NAME, USER_LAST_NAME, Roles.ROLE_USER);
 
         mockMvc.perform(post("/project")
                 .principal(authentication(user))
@@ -133,8 +144,7 @@ public class ProjectControllerTest {
 
     @Test
     public void addProject_shouldRespondWith400IfProjectWasMissing() throws Exception {
-        final String email = "some@mail.com";
-        final UserEntity user = userEntity(email, Roles.ROLE_USER);
+        final UserEntity user = userEntity(USER_EMAIL, USER_FIRST_NAME, USER_LAST_NAME, Roles.ROLE_USER);
 
         mockMvc.perform(post("/project")
                 .principal(authentication(user))
@@ -151,8 +161,8 @@ public class ProjectControllerTest {
 
     @Test
     public void getProject_shouldRespondWith403IfTheUserMayNotSeeThisProject() throws Exception {
-        final UserEntity userEntity = userEntity("some@mail.com", Roles.ROLE_USER);
-        final UserEntity creator = userEntity("creator@mail.com", Roles.ROLE_USER);
+        final UserEntity userEntity = userEntity(USER_EMAIL, USER_FIRST_NAME, USER_LAST_NAME, Roles.ROLE_USER);
+        final UserEntity creator = userEntity(ADMIN1_EMAIL, ADMIN1_FIRST_NAME, ADMIN1_LAST_NAME, Roles.ROLE_USER);
 
         final String projectId = "existingProjectId";
         when(projectService.getProject(eq(projectId), eq(userEntity)))
@@ -165,8 +175,8 @@ public class ProjectControllerTest {
 
     @Test
     public void getProject_shouldReturnSingleProjectSuccessfullyWhenProjectIsPublished() throws Exception {
-        final UserEntity userEntity = userEntity("some@mail.com", Roles.ROLE_USER);
-        final UserEntity creator = userEntity("creator@mail.com", Roles.ROLE_USER);
+        final UserEntity userEntity = userEntity(USER_EMAIL, USER_FIRST_NAME, USER_LAST_NAME, Roles.ROLE_USER);
+        final UserEntity creator = userEntity(ADMIN1_EMAIL, ADMIN1_FIRST_NAME, ADMIN1_LAST_NAME, Roles.ROLE_USER);
         final String projectId = "existingProjectId";
         final Project expProjcet = toCreatedProject(project("title", "descr", "shortDescr", 44, ProjectStatus.PUBLISHED), creator);
 
@@ -182,7 +192,7 @@ public class ProjectControllerTest {
 
     @Test
     public void getProject_shouldReturnSingleProjectSuccessfullyWhenProjectIsPublishedForAnonymousToo() throws Exception {
-        final UserEntity creator = userEntity("creator@mail.com", Roles.ROLE_USER);
+        final UserEntity creator = userEntity(ADMIN1_EMAIL, ADMIN1_FIRST_NAME, ADMIN1_LAST_NAME, Roles.ROLE_USER);
         final String projectId = "existingProjectId";
         final Project expProjcet = toCreatedProject(project("title", "descr", "shortDescr", 44, ProjectStatus.PUBLISHED), creator);
 
@@ -198,7 +208,7 @@ public class ProjectControllerTest {
 
     @Test
     public void getProject_shouldReturnProjectLikeCountAndUserLikeStatus() throws Exception {
-        final UserEntity creator = userEntity("creator@mail.com", Roles.ROLE_USER);
+        final UserEntity creator = userEntity(ADMIN1_EMAIL, ADMIN1_FIRST_NAME, ADMIN1_LAST_NAME, Roles.ROLE_USER);
         final String projectId = "existingProjectId";
         final Project expProjcet = toCreatedProject(project("title", "descr", "shortDescr", 44, ProjectStatus.PUBLISHED), creator);
 
@@ -213,8 +223,8 @@ public class ProjectControllerTest {
 
     @Test
     public void getProjects_shouldReturnPublishedProjectsOnly() throws Exception {
-        final UserEntity user = userEntity("some@mail.com", Roles.ROLE_USER);
-        final UserEntity creator = userEntity("creator@mail.com", Roles.ROLE_USER);
+        final UserEntity user = userEntity(USER_EMAIL, USER_FIRST_NAME, USER_LAST_NAME, Roles.ROLE_USER);
+        final UserEntity creator = userEntity(ADMIN1_EMAIL, ADMIN1_FIRST_NAME, ADMIN1_LAST_NAME, Roles.ROLE_USER);
 
         final String projectId = "existingProjectId";
         final Project expProjcet_0 = toCreatedProject(project("title0", "descr", "shortDescr", 44, ProjectStatus.PUBLISHED), creator);
@@ -235,8 +245,8 @@ public class ProjectControllerTest {
 
     @Test
     public void getProjects_shouldReturnPublishedProjectsForAnonymousUsersToo() throws Exception {
-        final UserEntity user = userEntity("some@mail.com", Roles.ROLE_USER);
-        final UserEntity creator = userEntity("creator@mail.com", Roles.ROLE_USER);
+        final UserEntity user = userEntity(USER_EMAIL, USER_FIRST_NAME, USER_LAST_NAME, Roles.ROLE_USER, Roles.ROLE_USER);
+        final UserEntity creator = userEntity(ADMIN1_EMAIL, ADMIN1_FIRST_NAME, ADMIN1_LAST_NAME, Roles.ROLE_USER);
 
         final String projectId = "existingProjectId";
         final Project expProjcet = toCreatedProject(project("title", "descr", "shortDescr", 44, ProjectStatus.PUBLISHED), creator);
@@ -255,8 +265,8 @@ public class ProjectControllerTest {
     @Test
     public void getProjects_shouldReturnNothingWhenProjectNotPublishedAndProjectCreatorNotRequestor() throws Exception {
 
-        final UserEntity user = userEntity("some@mail.com", Roles.ROLE_USER);
-        final UserEntity creator = userEntity("creator@mail.com", Roles.ROLE_USER);
+        final UserEntity user = userEntity(USER_EMAIL, USER_FIRST_NAME, USER_LAST_NAME, Roles.ROLE_USER, Roles.ROLE_USER);
+        final UserEntity creator = userEntity(ADMIN1_EMAIL, ADMIN1_FIRST_NAME, ADMIN1_LAST_NAME, Roles.ROLE_USER);
 
         final String projectId = "existingProjectId";
         final Project expProjcet = toCreatedProject(project("title", "descr", "shortDescr", 44, ProjectStatus.PROPOSED), creator);
@@ -273,8 +283,8 @@ public class ProjectControllerTest {
 
     @Test
     public void getProjects_shouldReturnUnpublishedProjectsWhenRequestorIsAdmin() throws Exception {
-        final UserEntity user = userEntity("some@mail.com", Roles.ROLE_ADMIN);
-        final UserEntity creator = userEntity("creator@mail.com", Roles.ROLE_USER);
+        final UserEntity user = userEntity(USER_EMAIL, USER_FIRST_NAME, USER_LAST_NAME, Roles.ROLE_USER, Roles.ROLE_ADMIN);
+        final UserEntity creator = userEntity(ADMIN1_EMAIL, ADMIN1_FIRST_NAME, ADMIN1_LAST_NAME, Roles.ROLE_USER);
         final String projectId = "existingProjectId";
         final Project expProjcet = toCreatedProject(project("title", "descr", "shortDescr", 44, ProjectStatus.PROPOSED), creator);
         when(projectService.getProjects(user)).thenReturn(Collections.singletonList(expProjcet));
@@ -290,8 +300,8 @@ public class ProjectControllerTest {
 
     @Test
     public void getProjects_shouldReturnUnpublishedProjectWhenRequestorIsCreator() throws Exception {
-        final UserEntity creator = userEntity("creator@mail.com", Roles.ROLE_USER);
-        final UserEntity anotherCreator = userEntity("creator2@mail.com", Roles.ROLE_USER);
+        final UserEntity creator = userEntity(ADMIN1_EMAIL, ADMIN1_FIRST_NAME, ADMIN1_LAST_NAME, Roles.ROLE_USER);
+        final UserEntity anotherCreator = userEntity(ADMIN2_EMAIL, ADMIN2_FIRST_NAME, ADMIN2_LAST_NAME, Roles.ROLE_USER);
         final String projectId = "existingProjectId";
         final Project expProjcet = toCreatedProject(project("title", "descr", "shortDescr", 44, ProjectStatus.PROPOSED), creator);
         final Project nonExpProjcet = toCreatedProject(project("title2", "descr2", "shortDescr2", 45, ProjectStatus.PROPOSED), anotherCreator);
@@ -310,9 +320,8 @@ public class ProjectControllerTest {
 
     @Test
     public void pledgeProject() throws Exception {
-        final String email = "some@mail.com";
         final String projectId = "some_id";
-        final UserEntity user = userEntity(email, Roles.ROLE_USER);
+        final UserEntity user = userEntity(USER_EMAIL, USER_FIRST_NAME, USER_LAST_NAME, Roles.ROLE_USER);
         Pledge pledge = new Pledge(13);
 
         mockMvc.perform(post("/project/{projectId}/pledges", projectId)
@@ -337,10 +346,9 @@ public class ProjectControllerTest {
     @Test
     public void pledgeProject_shouldRespondWith404IfTheProjectWasNotFound() throws Exception {
 
-        final String email = "some@mail.com";
         final String projectId = "some_foo_id";
         final Pledge pledge = new Pledge(1);
-        final UserEntity user = userEntity(email, Roles.ROLE_USER);
+        final UserEntity user = userEntity(USER_EMAIL, USER_FIRST_NAME, USER_LAST_NAME, Roles.ROLE_USER);
         doThrow(ResourceNotFoundException.class).when(projectService).pledge(projectId, user, pledge);
 
         mockMvc.perform(post("/project/{projectId}/pledges", projectId)
@@ -352,8 +360,7 @@ public class ProjectControllerTest {
 
     @Test
     public void pledgeProject_shouldRespondWith400IfTheRequestObjectIsInvalid() throws Exception {
-        final String email = "some@mail.com";
-        final UserEntity user = userEntity(email, Roles.ROLE_USER);
+        final UserEntity user = userEntity(USER_EMAIL, USER_FIRST_NAME, USER_LAST_NAME, Roles.ROLE_USER);
 
         mockMvc.perform(post("/project/{projectId}/pledges", "some_id")
                 .principal(authentication(user))
@@ -365,8 +372,7 @@ public class ProjectControllerTest {
 
     @Test
     public void pledgeProject_shouldRespondWith400WhenProjectServiceThrowsInvalidRequestEx() throws Exception {
-        final String email = "some@mail.com";
-        final UserEntity user = userEntity(email, Roles.ROLE_USER);
+        final UserEntity user = userEntity(USER_EMAIL, USER_FIRST_NAME, USER_LAST_NAME, Roles.ROLE_USER);
         doThrow(InvalidRequestException.pledgeGoalExceeded()).when(projectService).pledge(anyString(), eq(user), any(Pledge.class));
 
         MvcResult mvcResult = mockMvc.perform(post("/project/{projectId}/pledges", "some_id")
@@ -581,7 +587,7 @@ public class ProjectControllerTest {
 
     @Test
     public void serveProjectAttachment_ReturnsResponseWithCorrectMediaType() throws Exception {
-        final UserEntity user = userEntity("u@s.er", Roles.ROLE_USER);
+        final UserEntity user = userEntity(USER_EMAIL, USER_FIRST_NAME, USER_LAST_NAME, Roles.ROLE_USER);
         final String expContent = "someContent";
         final ProjectEntity project = aPersistedProjectEntity();
         final Attachment expectedAttachment = anExpectedAttachmentWithPayload(project, Optional.of(expContent));
@@ -601,7 +607,7 @@ public class ProjectControllerTest {
 
     @Test
     public void deleteAttachment_callsProjectServiceAndReturnsNoContent() throws Exception {
-        final UserEntity user = userEntity("u@s.er", Roles.ROLE_USER);
+        final UserEntity user = userEntity(USER_EMAIL, USER_FIRST_NAME, USER_LAST_NAME, Roles.ROLE_USER);
         final String expContent = "someContent";
         final ProjectEntity project = aPersistedProjectEntity();
         final Attachment expectedAttachment = anExpectedAttachmentWithPayload(project, Optional.of(expContent));
@@ -675,9 +681,9 @@ public class ProjectControllerTest {
                 Collections.singletonList(new SimpleGrantedAuthority(Roles.ROLE_TRUSTED_ANONYMOUS)));
     }
 
-    private UserEntity userEntity(String email, String... roles) {
+    private UserEntity userEntity(String email, String firstName, String lastName, String... roles) {
 
-        UserEntity userEntity = new UserEntity(email);
+        UserEntity userEntity = new UserEntity(email, firstName, lastName);
         userEntity.setId("id_" + email);
         userEntity.setRoles(Arrays.asList(roles));
         userEntity.setBudget(4000);

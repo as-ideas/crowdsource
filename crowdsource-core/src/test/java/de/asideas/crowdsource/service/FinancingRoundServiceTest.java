@@ -61,6 +61,14 @@ public class FinancingRoundServiceTest {
     public static final int POST_ROUND_BUDGET = 400;
     public static final int ROUND_BUDGET = 1000;
 
+    private final static String USER1_EMAIL = "test1@mail.com";
+    private final static String USER1_FIRST_NAME = "Karl";
+    private final static String USER1_LAST_NAME = "Ranseier";
+
+    private final static String USER2_EMAIL = "test2@mail.com";
+    private final static String USER2_FIRST_NAME = "Gubrush";
+    private final static String USER2_LAST_NAME = "Threepwood";
+
     private DateTime fixedDate;
     private List<FinancingRoundEntity> financingRoundEntities;
 
@@ -221,8 +229,8 @@ public class FinancingRoundServiceTest {
         when(projectRepository.findAll()).thenReturn(Arrays.asList(publishedProject));
 
 
-        UserEntity user = createUser("test1@mail.com");
-        UserEntity deletedUser = createDeletedUser("test2@mail.com");
+        UserEntity user = createUser(USER1_EMAIL, USER2_FIRST_NAME, USER1_LAST_NAME);
+        UserEntity deletedUser = createDeletedUser(USER2_EMAIL, USER2_FIRST_NAME, USER2_LAST_NAME);
 
         givenUsersInDatabase(user, deletedUser);
 
@@ -340,8 +348,8 @@ public class FinancingRoundServiceTest {
 
     private void givenTwoUsersInDatabase() {
         List<UserEntity> userEntities = new ArrayList<>();
-        userEntities.add(new UserEntity("test1@mail.com"));
-        userEntities.add(new UserEntity("test2@mail.com"));
+        userEntities.add(new UserEntity(USER1_EMAIL, USER1_FIRST_NAME, USER1_LAST_NAME));
+        userEntities.add(new UserEntity(USER2_EMAIL, USER2_FIRST_NAME, USER2_LAST_NAME));
         when(userRepository.findAll()).thenReturn(userEntities);
     }
 
@@ -392,15 +400,15 @@ public class FinancingRoundServiceTest {
         return res;
     }
 
-    private UserEntity createDeletedUser(String s) {
-        UserEntity user = createUser(s);
+    private UserEntity createDeletedUser(String email, String firstName, String lastName) {
+        UserEntity user = createUser(email, firstName, lastName);
         user.setDeleted(true);
         return user;
 
     }
 
-    private UserEntity createUser(String s) {
-        return new UserEntity(s);
+    private UserEntity createUser(String email, String firstName, String lastName) {
+        return new UserEntity(email, firstName, lastName);
     }
 
 }

@@ -63,7 +63,7 @@
                     controller: 'UserSignupController as signup',
                     title: 'Registrierung'
                 })
-                .when('/signup/:email/success', {
+                .when('/signup/:email/:firstName/:lastName/success', {
                     templateUrl: 'app/user/signup/user-signup-success.html',
                     controller: 'UserSignupSuccessController as signupSuccess',
                     title: 'Registrierung erfolgreich'

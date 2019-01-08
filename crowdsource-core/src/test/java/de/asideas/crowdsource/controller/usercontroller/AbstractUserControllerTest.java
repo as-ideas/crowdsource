@@ -46,6 +46,8 @@ public abstract class AbstractUserControllerTest {
     protected static final String ACTIVATED_USER_MAIL_ADDRESS = "existing.and.activated@crowd.source.de";
     protected static final String INVALID_USER_MAIL_ADDRESS = "test@test.de";
     protected static final String ENCODED_PASSWORD = "3nc0d3d";
+    protected static final String USER_FIRST_NAME = "Karl";
+    protected static final String USER_LAST_NAME = "Ranseier";
 
     @Autowired
     protected UserRepository userRepository;
@@ -77,12 +79,12 @@ public abstract class AbstractUserControllerTest {
 
         when(userRepository.findByEmail(eq(NEW_USER_MAIL_ADDRESS))).thenReturn(null);
 
-        existingButNotYetActivatedUser = new UserEntity(EXISTING_BUT_NOT_YET_ACTIVATED_USER_MAIL_ADDRESS);
+        existingButNotYetActivatedUser = new UserEntity(EXISTING_BUT_NOT_YET_ACTIVATED_USER_MAIL_ADDRESS, USER_FIRST_NAME, USER_LAST_NAME);
         existingButNotYetActivatedUser.setId("some-database-generated-id");
         existingButNotYetActivatedUser.setActivationToken("activationToken");
         when(userRepository.findByEmail(eq(EXISTING_BUT_NOT_YET_ACTIVATED_USER_MAIL_ADDRESS))).thenReturn(existingButNotYetActivatedUser);
 
-        activatedUser = new UserEntity(ACTIVATED_USER_MAIL_ADDRESS);
+        activatedUser = new UserEntity(ACTIVATED_USER_MAIL_ADDRESS, USER_FIRST_NAME, USER_LAST_NAME);
         activatedUser.setActivated(true);
         activatedUser.setActivationToken("");
         activatedUser.setBudget(500);

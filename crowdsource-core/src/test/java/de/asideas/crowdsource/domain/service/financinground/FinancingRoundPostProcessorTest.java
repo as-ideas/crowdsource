@@ -42,6 +42,10 @@ public class FinancingRoundPostProcessorTest {
 
     final int EXPECTED_REMAINING_BUDGET_AFTER_ROUND = 44444 + 444444 - ((22222 - 11111) + (222222 - 111111));
 
+    private final static String SOME_EMAIL = "test_email";
+    private final static String SOME_FIRST_NAME = "Karl";
+    private final static String SOME_LAST_NAME = "Ranseier";
+
     private ProjectEntity project_0;
     private ProjectEntity project_1;
     private ProjectEntity project_2;
@@ -67,11 +71,11 @@ public class FinancingRoundPostProcessorTest {
     public void init() {
         reset(financingRoundRepository, projectRepository, pledgeRepository);
 
-        project_0 = projectEntity(new UserEntity("test_email"), "test_projectId_0", "title", 44, "short description", "description", ProjectStatus.DEFERRED, null);
-        project_1 = projectEntity(new UserEntity("test_email"), "test_projectId_1", "title", 444, "short description", "description", ProjectStatus.FULLY_PLEDGED, null);
-        project_2 = projectEntity(new UserEntity("test_email"), "test_projectId_2", "title", 4444, "short description", "description", ProjectStatus.DEFERRED, null);
-        project_3 = projectEntity(new UserEntity("test_email"), "test_projectId_3", "title", 44444, "short description", "description", ProjectStatus.PUBLISHED, null);
-        project_4 = projectEntity(new UserEntity("test_email"), "test_projectId_4", "title", 444444, "short description", "description", ProjectStatus.PUBLISHED, null);
+        project_0 = projectEntity(new UserEntity(SOME_EMAIL, SOME_FIRST_NAME, SOME_LAST_NAME), "test_projectId_0", "title", 44, "short description", "description", ProjectStatus.DEFERRED, null);
+        project_1 = projectEntity(new UserEntity(SOME_EMAIL, SOME_FIRST_NAME, SOME_LAST_NAME), "test_projectId_1", "title", 444, "short description", "description", ProjectStatus.FULLY_PLEDGED, null);
+        project_2 = projectEntity(new UserEntity(SOME_EMAIL, SOME_FIRST_NAME, SOME_LAST_NAME), "test_projectId_2", "title", 4444, "short description", "description", ProjectStatus.DEFERRED, null);
+        project_3 = projectEntity(new UserEntity(SOME_EMAIL, SOME_FIRST_NAME, SOME_LAST_NAME), "test_projectId_3", "title", 44444, "short description", "description", ProjectStatus.PUBLISHED, null);
+        project_4 = projectEntity(new UserEntity(SOME_EMAIL, SOME_FIRST_NAME, SOME_LAST_NAME), "test_projectId_4", "title", 444444, "short description", "description", ProjectStatus.PUBLISHED, null);
         this.mockedProjects = Arrays.asList(project_0, project_1, project_2, project_3, project_4);
 
         when(financingRoundRepository.save(any(FinancingRoundEntity.class))).then(i -> i.getArguments()[0]);

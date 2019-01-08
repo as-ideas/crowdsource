@@ -83,8 +83,8 @@ public class FinancingRoundControllerMockMvcTest {
         when(financingRoundRepository.findAll()).thenReturn(financingRoundEntities);
 
         List<UserEntity> userEntities = new ArrayList<>();
-        userEntities.add(new UserEntity("test1@mail.com"));
-        userEntities.add(new UserEntity("test2@mail.com"));
+        userEntities.add(new UserEntity("test1@mail.com", "Karl", "Ranseier"));
+        userEntities.add(new UserEntity("test2@mail.com", "Guybrush", "Threepwood"));
 
         mapper.registerModule(new JodaModule());
     }

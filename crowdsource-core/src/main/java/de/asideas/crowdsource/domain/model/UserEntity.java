@@ -27,6 +27,10 @@ public class UserEntity {
     @Indexed(unique = true)
     private String email;
 
+    private String firstName;
+
+    private String lastName;
+
     private String password;
 
     private String activationToken;
@@ -46,12 +50,14 @@ public class UserEntity {
     @LastModifiedDate
     private DateTime lastModifiedDate;
 
-    public UserEntity(String email) {
-        this(email, null);
+    public UserEntity(String email, String firstName, String lastName) {
+        this(email, null, firstName, lastName);
     }
 
-    public UserEntity(String email, String password) {
+    public UserEntity(String email, String password, String firstName, String lastName) {
         this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.password = password;
     }
 
@@ -92,6 +98,15 @@ public class UserEntity {
 
     public String getEmail() {
         return this.email;
+    }
+
+    public String getFirstName() {
+
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
     }
 
     public boolean isDeleted() {
@@ -136,6 +151,14 @@ public class UserEntity {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public void setPassword(String password) {

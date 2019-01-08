@@ -13,6 +13,11 @@
         </div>
 
         <div class="row">
+            <input type="text" name="firstName" ng-model="signup.user.firstName" field-name="firstName" required />
+            <input type="text" name="lastName" ng-model="signup.user.lastName" field-name="lastName" required />
+        </div>
+
+        <div class="row">
             <email-form-group model="signup.user.email" field-name="email"
                               class="small-12 columns form-controls-email"/>
         </div>

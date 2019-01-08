@@ -45,14 +45,14 @@ public class ProjectEntityTest {
         UserEntity creator = new UserEntity();
         creator.setId("id");
 
-        aUser = new UserEntity("aUser@xyz.com");
+        aUser = new UserEntity("aUser@xyz.com", "Karl", "Ranseier");
         aUser.setId("test_id1");
         aUser.setBudget(100);
-        adminUser = new UserEntity("adminUser@xyz.com");
+        adminUser = new UserEntity("adminUser@xyz.com", "Guybrush", "Threepwood");
         adminUser.setId("test_id2");
         adminUser.setBudget(200);
         adminUser.setRoles(Arrays.asList(Roles.ROLE_USER, Roles.ROLE_ADMIN));
-        projectCreator = new UserEntity("projectCreator@xyz.com");
+        projectCreator = new UserEntity("projectCreator@xyz.com", "John", "Wick");
         projectCreator.setId("test_id3");
 
         Project project = new Project();

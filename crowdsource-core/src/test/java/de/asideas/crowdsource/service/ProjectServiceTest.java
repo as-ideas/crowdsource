@@ -44,8 +44,17 @@ import static org.mockito.internal.verification.VerificationModeFactory.times;
 public class ProjectServiceTest {
 
     private static final String USER_EMAIL = "user@some.host";
+    private static final String USER_FIRST_NAME = "Karl";
+    private static final String USER_LAST_NAME = "Ranseier";
+
     private static final String ADMIN1_EMAIL = "admin1@some.host";
+    private static final String ADMIN1_FIRST_NAME = "Guybrush";
+    private static final String ADMIN1_LAST_NAME = "Threepwood";
+
     private static final String ADMIN2_EMAIL = "admin2@some.host";
+    private static final String ADMIN2_FIRST_NAME = "Jimmy";
+    private static final String ADMIN2_LAST_NAME = "Humuhumunukunukuapuaa";
+
     public static final int USER_BUDGED = 4000;
     public static final int FINANCING_ROUND_BUDGET = 10000;
 
@@ -88,7 +97,7 @@ public class ProjectServiceTest {
         ReflectionTestUtils.setField(projectService, "thisInstance", thisInstance);
         reset(projectRepository, pledgeRepository, userRepository, financingRoundRepository, thisInstance, likeRepository, projectAttachmentRepository);
         when(pledgeRepository.findByProjectAndFinancingRound(any(ProjectEntity.class), any(FinancingRoundEntity.class))).thenReturn(new ArrayList<>());
-        when(userRepository.findAllAdminUsers()).thenReturn(Arrays.asList(admin(ADMIN1_EMAIL), admin(ADMIN2_EMAIL)));
+        when(userRepository.findAllAdminUsers()).thenReturn(Arrays.asList(admin(ADMIN1_EMAIL, ADMIN1_FIRST_NAME, ADMIN1_LAST_NAME), admin(ADMIN2_EMAIL, ADMIN2_FIRST_NAME, ADMIN2_LAST_NAME)));
         when(projectRepository.save(any(ProjectEntity.class))).thenAnswer(invocation -> invocation.getArguments()[0]);
         when(likeRepository.countByProjectAndStatus(any(ProjectEntity.class), eq(LIKE))).thenReturn(0L);
         when(likeRepository.findOneByProjectAndUser(any(ProjectEntity.class), any(UserEntity.class))).thenReturn(Optional.of(new LikeEntity()));
@@ -741,13 +750,21 @@ public class ProjectServiceTest {
     }
 
     private UserEntity admin(String email) {
-        final UserEntity userEntity = user(email);
+        return admin(email, ADMIN1_FIRST_NAME, ADMIN1_LAST_NAME);
+    }
+
+    private UserEntity user(String email) {
+        return user(email, USER_FIRST_NAME, USER_LAST_NAME);
+    }
+
+    private UserEntity admin(String email, String firstName, String lastName) {
+        final UserEntity userEntity = user(email, firstName, lastName);
         userEntity.setRoles(Collections.singletonList(Roles.ROLE_ADMIN));
         return userEntity;
     }
 
-    private UserEntity user(String email) {
-        UserEntity userEntity = new UserEntity(email);
+    private UserEntity user(String email, String firstName, String lastName) {
+        UserEntity userEntity = new UserEntity(email, firstName, lastName);
         userEntity.setId("id_" + email);
         userEntity.setBudget(USER_BUDGED);
         return userEntity;
