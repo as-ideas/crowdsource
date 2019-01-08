@@ -59,9 +59,6 @@ public class UserController {
 
         UserEntity userEntity = userRepository.findByEmail(email);
 
-        LOG.info("First Name: " + firstName);
-        LOG.info("Last Name: " + lastName);
-
         if (userEntity == null) {
             userEntity = new UserEntity(email, firstName, lastName);
         } else {
