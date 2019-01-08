@@ -76,7 +76,7 @@ public class UserNotificationServiceTest {
         assertThat(mail.getTo(), arrayContaining(user.getEmail()));
         assertThat(mail.getSubject(), is(UserNotificationService.SUBJECT_ACTIVATION));
         assertThat(replaceLineBreaksIfWindows(mail.getText()), is(
-                "Hallo Some Creator,\n\n" +
+                "Hallo Guybrush Threepwood,\n\n" +
                         "Du hast Dich gerade auf der CrowdSource Platform angemeldet.\n" +
                         "Um Deine Registrierung abzuschließen, öffne bitte diesen Link und setze Dein Passwort:\n\n" +
                         "https://crowd.asideas.de#/signup/some.creator@email.com/activation/activationTok3n\n\n" +
@@ -95,7 +95,7 @@ public class UserNotificationServiceTest {
         assertThat(mail.getTo(), arrayContaining(user.getEmail()));
         assertThat(mail.getSubject(), is(UserNotificationService.SUBJECT_PASSWORD_FORGOTTEN));
         assertThat(replaceLineBreaksIfWindows(mail.getText()), is(
-                "Hallo Some Creator,\n\n" +
+                "Hallo Guybrush Threepwood,\n\n" +
                         "Du hast soeben ein neues Passwort für Dein Konto bei der CrowdSource Plattform angefordert.\n\n" +
                         "Bitte öffne diesen Link:\n\n" +
                         "https://crowd.asideas.de#/login/password-recovery/some.creator@email.com/activation/activationTok3n\n\n" +
@@ -115,7 +115,7 @@ public class UserNotificationServiceTest {
         assertThat(mail.getTo(), arrayContaining(user.getEmail()));
         assertThat(mail.getSubject(), is(UserNotificationService.SUBJECT_PROJECT_PUBLISHED));
         assertThat(replaceLineBreaksIfWindows(mail.getText()), is(
-                "Hallo Some Creator,\n\n" +
+                "Hallo Guybrush Threepwood,\n\n" +
                         "Dein Projekt wurde erfolgreich freigegeben!\n" +
                         "Weitere Informationen hinsichtlich des Prozesses kannst Du der FAQ entnehmen.\n\n" +
                         "Zu Deinem Projekt:\n\n" +
@@ -135,7 +135,7 @@ public class UserNotificationServiceTest {
         assertThat(mail.getTo(), arrayContaining(user.getEmail()));
         assertThat(mail.getSubject(), is(UserNotificationService.SUBJECT_PROJECT_REJECTED));
         assertThat(replaceLineBreaksIfWindows(mail.getText()), is(
-                "Hallo Some Creator,\n\n" +
+                "Hallo Guybrush Threepwood,\n\n" +
                         "Dein Projekt wurde leider abgelehnt.\n" +
                         "Das CrowdSource Team wird in Kürze mit Dir in Kontakt treten, um die nächsten Schritte zu besprechen.\n\n" +
                         "Zu Deinem Projekt:\n\n" +
@@ -154,7 +154,7 @@ public class UserNotificationServiceTest {
         assertThat(mail.getTo(), arrayContaining(user.getEmail()));
         assertThat(mail.getSubject(), is(UserNotificationService.SUBJECT_PROJECT_DEFERRED));
         assertThat(replaceLineBreaksIfWindows(mail.getText()), is(
-                "Hallo Some Creator,\n\n" +
+                "Hallo Guybrush Threepwood,\n\n" +
                         "Dein Projekt wurde leider zurückgestellt und nimmt daher nicht an der nächsten Finanzierungsrunde teil.\n" +
                         "Das Projekt wird jedoch für die darauf folgende Finanzierungsrunde automatisch freigegeben.\n\n" +
                         "Zu Deinem Projekt:\n\n" +
@@ -173,7 +173,7 @@ public class UserNotificationServiceTest {
         assertThat(mail.getTo(), arrayContaining(user.getEmail()));
         assertThat(mail.getSubject(), is(UserNotificationService.SUBJECT_PROJECT_DEFERRED));
         assertThat(replaceLineBreaksIfWindows(mail.getText()), is(
-                "Hallo Some Creator,\n\n" +
+                "Hallo Guybrush Threepwood,\n\n" +
                         "Dein Projekt wurde leider zurückgestellt und nimmt daher nicht an der nächsten Finanzierungsrunde teil.\n" +
                         "Das Projekt wird jedoch für die darauf folgende Finanzierungsrunde automatisch freigegeben.\n\n" +
                         "Zu Deinem Projekt:\n\n" +
@@ -276,7 +276,7 @@ public class UserNotificationServiceTest {
         final SimpleMailMessage capturedMessage = getMessageFromMailSender();
 
         assertThat(capturedMessage.getText(), is(String.format(expMessage,
-                project.getCreator().fullNameFromEmail(), project.getTitle(), commentingUser.fullNameFromEmail(),
+                project.getCreator().getFullName(), project.getTitle(), commentingUser.getFullName(),
                 testComment.substring(0, UserNotificationService.COMMENT_EXCERPT_LENGTH) + " ...", projectLink)));
 
         assertThat(capturedMessage.getFrom(), is(UserNotificationService.FROM_ADDRESS));
@@ -308,9 +308,9 @@ public class UserNotificationServiceTest {
         final SimpleMailMessage modifierMail = capturedMessages.stream().filter(m -> m.getTo()[0].equals(modifier.getEmail())).findFirst().get();
         final SimpleMailMessage adminMail = capturedMessages.stream().filter(m -> m.getTo()[0].equals(admin.getEmail())).findFirst().get();
 
-        assertThat(creatorMail.getText(), is(String.format(expMessage, creator.fullNameFromEmail(), modifier.fullNameFromEmail(), projectLink)));
-        assertThat(modifierMail.getText(), is(String.format(expMessage, modifier.fullNameFromEmail(), modifier.fullNameFromEmail(), projectLink)));
-        assertThat(adminMail.getText(), is(String.format(expMessage, admin.fullNameFromEmail(), modifier.fullNameFromEmail(), projectLink)));
+        assertThat(creatorMail.getText(), is(String.format(expMessage, creator.getFullName(), modifier.getFullName(), projectLink)));
+        assertThat(modifierMail.getText(), is(String.format(expMessage, modifier.getFullName(), modifier.getFullName(), projectLink)));
+        assertThat(adminMail.getText(), is(String.format(expMessage, admin.getFullName(), modifier.getFullName(), projectLink)));
     }
 
     private SimpleMailMessage getMessageFromMailSender() {

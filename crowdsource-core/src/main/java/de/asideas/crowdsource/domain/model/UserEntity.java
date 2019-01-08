@@ -72,26 +72,6 @@ public class UserEntity {
         budget -= pledge.getAmount();
     }
 
-    public String fullNameFromEmail() {
-        if (email == null) {
-            return null;
-        }
-
-        int atPos = email.indexOf('@');
-        if (atPos < 1) {
-            return null;
-        }
-
-        String localPart = email.substring(0, atPos);
-        List<String> localParts = Arrays.asList(localPart.split("\\."));
-
-        return localParts.stream()
-                .map(s -> s.replaceAll("\\d+", ""))
-                .map(StringUtils::capitalize)
-                .collect(joining(" "));
-    }
-
-
     public String getId() {
         return this.id;
     }
@@ -108,6 +88,8 @@ public class UserEntity {
     public String getLastName() {
         return lastName;
     }
+
+    public String getFullName() { return firstName + " " + lastName; }
 
     public boolean isDeleted() {
         return deleted;

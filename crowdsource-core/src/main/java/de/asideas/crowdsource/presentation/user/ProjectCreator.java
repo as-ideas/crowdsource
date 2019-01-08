@@ -19,7 +19,7 @@ public class ProjectCreator {
 
     public ProjectCreator(UserEntity user) {
         this.id = user.getId();
-        this.name = user.fullNameFromEmail();
+        this.name = user.getFullName();
         this.email = user.getEmail();
     }
 
