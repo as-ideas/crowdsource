@@ -11,7 +11,7 @@
     <artifactId>crowdsource-core</artifactId>
 
     <properties>
-        <spring.security.version>3.2.5.RELEASE</spring.security.version>
+        <spring.security.version>4.2.10.RELEASE</spring.security.version>
         <github.global.server>github</github.global.server>
         <deploy.to.git>true</deploy.to.git>
 
@@ -88,12 +88,12 @@
         <dependency>
             <groupId>org.springframework.security.oauth</groupId>
             <artifactId>spring-security-oauth2</artifactId>
-            <version>2.0.4.RELEASE</version>
+            <version>2.3.4.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-jwt</artifactId>
-            <version>1.0.2.RELEASE</version>
+            <version>1.0.9.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>javax.mail</groupId>
