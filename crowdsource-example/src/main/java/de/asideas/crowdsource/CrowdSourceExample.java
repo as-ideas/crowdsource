@@ -23,7 +23,7 @@ public class CrowdSourceExample {
 
     private static void extractHerokuMongoLabsArgs() {
 
-        String mongolabUriProperty = System.getenv("MONGOLAB_URI");
+        String mongolabUriProperty = System.getenv("MONGODB_URI");
         if (StringUtils.isNotBlank(mongolabUriProperty)) {
             final String mongolab_uri = mongolabUriProperty.replace("mongodb://", "");
             System.setProperty("de.asideas.crowdsource.db.username", extractMongoUser(mongolab_uri));
