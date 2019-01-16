@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/datetime")
 public class DateTimeController {
 
-    @Secured({Roles.ROLE_TRUSTED_ANONYMOUS, Roles.ROLE_USER})
+    @Secured({Roles.ROLE_USER})
     @RequestMapping(method = RequestMethod.GET)
     public DateTimeWrapper getDatetime() {
 

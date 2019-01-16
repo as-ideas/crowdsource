@@ -60,7 +60,7 @@ public class ProjectController {
     @Value("#{T(org.springframework.http.MediaType).parseMediaTypes('${de.asideas.crowdsource.attachment.allowedmediatypes}')}")
     private List<MediaType> attachmentTypesAllowed;
 
-    @Secured({Roles.ROLE_TRUSTED_ANONYMOUS, Roles.ROLE_USER})
+    @Secured({Roles.ROLE_USER})
     @RequestMapping(value = "/projects", method = RequestMethod.GET)
     @JsonView(Project.ProjectSummaryView.class)
     public List<Project> getProjects(Authentication auth) {
@@ -71,7 +71,7 @@ public class ProjectController {
         return projects.stream().filter(project -> mayViewProjectFilter(project, auth)).collect(Collectors.toList());
     }
 
-    @Secured({Roles.ROLE_TRUSTED_ANONYMOUS, Roles.ROLE_USER})
+    @Secured({Roles.ROLE_USER})
     @RequestMapping(value = "/project/{projectId}", method = RequestMethod.GET)
     public Project getProject(@PathVariable String projectId, Authentication auth) {
         UserEntity userEntity = userFromAuthentication(auth);

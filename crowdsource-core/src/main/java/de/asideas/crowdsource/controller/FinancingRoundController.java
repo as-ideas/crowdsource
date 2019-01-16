@@ -33,14 +33,14 @@ public class FinancingRoundController {
 
     @JsonView(PublicFinancingRoundInformationView.class)
     @RequestMapping(value = "/financingrounds/active", method = RequestMethod.GET)
-    @Secured({Roles.ROLE_TRUSTED_ANONYMOUS, Roles.ROLE_USER, Roles.ROLE_ADMIN})
+    @Secured({Roles.ROLE_USER, Roles.ROLE_ADMIN})
     public FinancingRound getActive() {
         return financingRoundService.currentlyActiveRound();
     }
 
     @JsonView(PublicFinancingRoundInformationView.class)
     @RequestMapping(value = "/financingrounds/mostRecent", method = RequestMethod.GET)
-    @Secured({Roles.ROLE_TRUSTED_ANONYMOUS, Roles.ROLE_USER, Roles.ROLE_ADMIN})
+    @Secured({Roles.ROLE_USER, Roles.ROLE_ADMIN})
     public FinancingRound getMostRecent() {
         return financingRoundService.mostRecentRound();
     }

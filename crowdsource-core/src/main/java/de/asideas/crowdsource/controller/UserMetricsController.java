@@ -19,7 +19,7 @@ public class UserMetricsController {
     @Autowired
     private UserRepository userRepository;
 
-    @Secured({Roles.ROLE_TRUSTED_ANONYMOUS, Roles.ROLE_USER})
+    @Secured({Roles.ROLE_USER})
     @RequestMapping(method = RequestMethod.GET)
     public UserMetrics getUserMetrics() {
 
