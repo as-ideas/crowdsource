@@ -142,16 +142,6 @@ In order to decorate HTML elements, like buttons or links with tracking actions 
  * `analytics-category="<yourCategory>" `
  * `analytics-event="yourEvent"`
 
-Issue Tracking / Feedback Form
--------------------------
-
-The Crowdsource application supports tracking, utilizing the [JIRA issue collector](https://confluence.atlassian.com/jira/using-the-issue-collector-288657654.html).
-In order to activate tracking set the following properties in your `application.properties`:
-
- * `de.asideas.crowdsource.jira.issuecollector.url=//your-jic.url`
-
-See link above for details on how to get your issue collector setup properly.
-
 AT-Browsers: PHANTOMJS/CHROME/FIREFOX
 -------------------------------------
 
