@@ -2,46 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <body>
     <div th:fragment="footer_scripts" th:remove="tag">
-        <!-- Jira Issue Collector -->
-        <script id="jiraIssueCollector"
-                type="text/javascript"
-                th:if="${@environment.getProperty('de.asideas.crowdsource.jira.issuecollector.url') != null}"
-                src="#" th:src="${@environment.getProperty('de.asideas.crowdsource.jira.issuecollector.url')}">
-        </script>
-
-        <!-- Piwik Tracking -->
-
-        <!--/* Now things getting weired with thymeleaf:
-            First, store properties values into local variables used by thymeleaf.
-            Then, check if local variables are valid (not-null). If not, do not render piwik script at all - piwik tracking is optional.
-            If set, use local thymeleaf variables to render their values into javascript variables.
-            Additionally, use local thymeleaf variables to render proper img-src value as needed for no-script tracking.
-        */-->
-        <div th:with="trackurl=${@environment.getProperty('de.asideas.crowdsource.tracking.piwik.trackurl')},trackSiteId=${@environment.getProperty('de.asideas.crowdsource.tracking.piwik.siteid')}"
-            th:remove="tag">
-            <script id="piwikTracking"
-                    type="text/javascript"
-                    th:inline="javascript"
-                    th:if="${trackurl != null and trackSiteId != null}">
-            /*<![CDATA[*/
-                var piwik = piwik || {},
-                    _paq = _paq || [];
-                /*[+
-                 piwik.url = [[${trackurl}]];
-                 piwik.siteid = [[${trackSiteId}]];
-                +]*/
-                _paq.push(['enableLinkTracking']);
-                (function() {
-                    _paq.push(['setTrackerUrl', piwik.url + 'piwik.php']);
-                    _paq.push(['setSiteId', piwik.siteid]);
-                    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-                    g.type='text/javascript'; g.async=true; g.defer=true; g.src=piwik.url + 'piwik.js'; s.parentNode.insertBefore(g,s);
-                })();
-            /*]]>*/
-            </script>
-            <noscript><p><img th:src="${trackurl + 'piwik.php?' + 'idsite=' + trackSiteId}" style="border:0;" alt="" /></p></noscript>
-            <!-- End Piwik Code -->
-        </div>
+        <!-- add your analytics here -->
     </div>
 </body>
 </html>

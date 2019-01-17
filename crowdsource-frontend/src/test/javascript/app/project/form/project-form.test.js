@@ -5,11 +5,6 @@ describe('project form', function () {
     beforeEach(function () {
         module('crowdsource');
         module('crowdsource.templates');
-        module(function (_$analyticsProvider_) {
-            _$analyticsProvider_.virtualPageviews(false);
-            _$analyticsProvider_.firstPageview(false);
-            _$analyticsProvider_.developerMode(true);
-        });
 
         localStorage.clear(); // reset
 
@@ -122,9 +117,6 @@ describe('project form', function () {
 
         expect(projectForm.getSubmitButton()).toHaveText('Absenden');
         expect(projectForm.getSubmitButton()).not.toBeDisabled();
-        expect(projectForm.getSubmitButton()).toHaveAttr('analytics-on');
-        expect(projectForm.getSubmitButton()).toHaveAttr('analytics-category', 'Projects');
-        expect(projectForm.getSubmitButton()).toHaveAttr('analytics-event', 'ProjectIdeaSubmitted');
 
         fillAndSubmitForm('Title', 'Short description', '12500', 'Looong description');
 

@@ -5,11 +5,8 @@ describe('authentication service', function () {
     beforeEach(function () {
         module('crowdsource');
         module('crowdsource.templates');
-        module(function(_$analyticsProvider_) {
-            _$analyticsProvider_.virtualPageviews(false);
-            _$analyticsProvider_.firstPageview(false);
-            _$analyticsProvider_.developerMode(true);
-        });
+
+        localStorage.clear();
 
         inject(function (_$rootScope_, _$httpBackend_, _$http_, _Authentication_) {
             $rootScope = _$rootScope_;
@@ -19,8 +16,6 @@ describe('authentication service', function () {
         });
 
         $httpBackend.whenGET('/user/current').respond(200, {});
-
-        localStorage.clear(); // reset
     });
 
     it('should request an access token from the backend and include the access token in every following request', function () {

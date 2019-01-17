@@ -99,9 +99,7 @@
                 <li class="finance__li--cta">
                     <button class="finance__btn crwd-success radius shadow"
                             ng-click="pledgingForm.pledgeProject()"
-                            ng-disabled="pledgingForm.form.$invalid || pledgingForm.saving || pledgingForm.isZeroPledge() "
-                            analytics-on="click" analytics-category="Projects"
-                            analytics-event="{{ pledgingForm.isReversePledge() ? 'ProjectUnPledged' : 'ProjectPledged' }}">
+                            ng-disabled="pledgingForm.form.$invalid || pledgingForm.saving || pledgingForm.isZeroPledge() ">
                         {{ pledgingForm.financeButtonLabel() }}
                     </button>
                 </li>

@@ -2,17 +2,16 @@
     <nav class="top-bar" data-topbar role="navigation">
         <ul class="title-area">
             <li class="name">
-                <h1><a href="#/projects"><img class="site-logo" src="images/logo-crowd-beta.png" height="25" alt="Crowdsource Beta"></a></h1>
+                <h1><a href="#/intro"><img class="site-logo" src="images/logo-crowd.png" height="25" alt="Crowdsource"></a></h1>
             </li>
             <li class="toggle-topbar menu-icon"><a><span></span></a></li>
         </ul>
 
         <section class="top-bar-section">
             <ul class="right">
-                <li ng-class="nav.getClassForMenuItem('/project/new')" class="border new-project"><a href="#/project/new" analytics-on analytics-category="Projects" analytics-event="GoToStartNewProjectFromNavbar">Neues Projekt</a></li>
                 <li ng-if="!nav.auth.currentUser.loggedIn" ng-class="nav.getClassForMenuItem('/login')" class="login"><a href="#/login">Login</a></li>
                 <li ng-if="!nav.auth.currentUser.loggedIn" ng-class="nav.getClassForMenuItem('/signup')" class="register"><a href="#/signup">Registrieren</a></li>
-                <li ng-if="nav.auth.currentUser.loggedIn" ng-class="nav.getClassForMenuItem('/logout')" class="logout"><a href="#/logout" analytics-on analytics-category="UserActions" analytics-event="Logout">Logout</a></li>
+                <li ng-if="nav.auth.currentUser.loggedIn" ng-class="nav.getClassForMenuItem('/logout')" class="logout"><a href="#/logout">Logout</a></li>
             </ul>
         </section>
     </nav>

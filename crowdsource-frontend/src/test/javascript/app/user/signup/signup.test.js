@@ -9,11 +9,6 @@ describe('user signup view', function () {
             $provide.value('emailDomain', '@crowd.source.de');
             $provide.value('emailBlacklistPatterns', ["_extern"])
         });
-        module(function(_$analyticsProvider_) {
-            _$analyticsProvider_.virtualPageviews(false);
-            _$analyticsProvider_.firstPageview(false);
-            _$analyticsProvider_.developerMode(true);
-        });
 
         localStorage.clear(); // reset
 
@@ -51,6 +46,8 @@ describe('user signup view', function () {
     }
 
     function fillAndSubmitForm() {
+        signupForm.getFirstName().val('vorname_test').trigger('input');
+        signupForm.getLastName().val('nachname_test').trigger('input');
         signupForm.email.getInputField().val('test').trigger('input');
         signupForm.termsOfServiceAccepted.getInputField().click();
 
@@ -58,7 +55,7 @@ describe('user signup view', function () {
     }
 
     function expectBackendCallAndRespond(statusCode, responseBody) {
-        $httpBackend.expectPOST('/user', {"email": "test@crowd.source.de", "termsOfServiceAccepted": true}).respond(statusCode, responseBody);
+        $httpBackend.expectPOST('/user', {"firstName":"vorname_test","lastName":"nachname_test","email": "test@crowd.source.de", "termsOfServiceAccepted": true}).respond(statusCode, responseBody);
     }
 
 
@@ -73,9 +70,6 @@ describe('user signup view', function () {
 
         // expect a valid call and return "created"
         expectBackendCallAndRespond(201);
-        expect(signupForm.getSubmitButton()).toHaveAttr('analytics-on');
-        expect(signupForm.getSubmitButton()).toHaveAttr('analytics-category', 'UserActions');
-        expect(signupForm.getSubmitButton()).toHaveAttr('analytics-event', 'SignUp');
 
         fillAndSubmitForm();
 
@@ -83,7 +77,7 @@ describe('user signup view', function () {
         $httpBackend.flush();
 
         // make sure location was changed
-        expect($location.path()).toBe('/signup/test@crowd.source.de/success');
+        expect($location.path()).toBe('/signup/test@crowd.source.de/vorname_test/nachname_test/success');
     });
 
     it('should disable the submit button and change it\'s text while loading', function () {

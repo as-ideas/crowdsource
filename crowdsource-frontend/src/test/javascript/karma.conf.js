@@ -17,8 +17,6 @@ module.exports = function (config) {
             'bower_components/ngScrollTo/ng-scrollto.js',
             'bower_components/moment/moment.js',
             'bower_components/moment-timezone/builds/moment-timezone-with-data.js',
-            'bower_components/angulartics/src/angulartics.js',
-            'bower_components/angulartics/src/angulartics-piwik.js',
             'bower_components/showdown/dist/showdown.min.js',
             'bower_components/ng-showdown/dist/ng-showdown.min.js',
             'bower_components/ng-file-upload/ng-file-upload-all.min.js',
@@ -34,13 +32,10 @@ module.exports = function (config) {
             'src/test/javascript/testsupport/mocked-libraries.testsupport.js',
             'src/main/resources/public/app/crowdsource.js',
             'src/main/resources/public/app/**/*.js',
-
             'src/test/javascript/**/*.js',
 
             // Selective test execution -> comment line above uncomment lines below
-            //'src/test/javascript/testsupport/**/*.js',
-            //'src/test/javascript/app/components/attachments/*.js',
-
+            // 'src/test/javascript/app/user/signup/**/*.js',
             'src/main/resources/public/app/**/*.html'
         ],
 
@@ -57,16 +52,18 @@ module.exports = function (config) {
             stripPrefix: 'src/main/resources/public/'
         },
 
-        autoWatch: true,
+        client: {
+            jasmine: {
+                random: false
+            }
+        },
 
         frameworks: ['jasmine'],
 
-        browsers: ['PhantomJS', 'Firefox', 'Chrome'],
+        browsers: ['PhantomJS2'],
 
         plugins: [
-            'karma-phantomjs-launcher',
-            'karma-firefox-launcher',
-            'karma-chrome-launcher',
+            'karma-phantomjs2-launcher',
             'karma-ng-html2js-preprocessor',
             'karma-jasmine',
             'karma-jasmine-jquery',

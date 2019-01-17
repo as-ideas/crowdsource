@@ -6,11 +6,6 @@ describe('project attachements', function () {
     beforeEach(function () {
         module('crowdsource.templates');
         module('crowdsource');
-        module(function (_$analyticsProvider_) {
-            _$analyticsProvider_.virtualPageviews(false);
-            _$analyticsProvider_.firstPageview(false);
-            _$analyticsProvider_.developerMode(true);
-        });
 
         inject(function (_$compile_, _$rootScope_, _$httpBackend_, _$filter_, _$timeout_, _$browser_, _$location_, Bowser) {
             $rootScope = _$rootScope_;

@@ -55,8 +55,7 @@
                 <div class="small-3 columns">
                     <button type="submit" class="newround-start crwd-success radius shadow flush--bottom"
                             ng-click="financingRounds.start()"
-                            ng-disabled="financingRounds.form.$invalid || financingRounds.saving || !financingRounds.canStartNewRound()"
-                            analytics-on="click" analytics-category="FinancingRound" analytics-event="NewFinancingRoundStarted">
+                            ng-disabled="financingRounds.form.$invalid || financingRounds.saving || !financingRounds.canStartNewRound()">
                         {{ financingRounds.saving ? 'Starten...' : 'Starten!' }}
                     </button>
                 </div>
@@ -85,8 +84,7 @@
             <td class="action">
                 <div ng-if="fr.active">
                     <button class="stop-button radius shadow alert flush--bottom"
-                            ng-click="financingRounds.stop(fr)"
-                            analytics-on="click" analytics-category="FinancingRound" analytics-event="FinancingRoundAborted">
+                            ng-click="financingRounds.stop(fr)">
                         {{ financingRounds.stopping ? 'Beenden...' : 'Beenden' }}
                     </button>
                 </div>

@@ -5,11 +5,6 @@ describe('project likes', function () {
     beforeEach(function () {
         module('crowdsource');
         module('crowdsource.templates');
-        module(function (_$analyticsProvider_) {
-            _$analyticsProvider_.virtualPageviews(false);
-            _$analyticsProvider_.firstPageview(false);
-            _$analyticsProvider_.developerMode(true);
-        });
 
         inject(function (_$compile_, _$rootScope_, _$httpBackend_) {
             $compile = _$compile_;

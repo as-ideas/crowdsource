@@ -15,7 +15,6 @@
            ng-model="uploads.currentAttachment"
            ngf-select
            ngf-change="clearErrors(); uploads.lastUploadSuccessful = false;"
-           analytics-category="Projects" analytics-event="AttachmentUploaded"
            accept="image/*, .pdf, text/plain" ngf-max-size="20MB" required>
 
     <div class="file-info margin-bottom-small" ng-show="attachments_form.attachment.$valid">

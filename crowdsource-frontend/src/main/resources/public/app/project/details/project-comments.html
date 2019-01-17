@@ -28,8 +28,7 @@
 
         <button type="submit" class="crwd-success radius shadow margin-top newcomment-submit"
                 ng-click="projectComments.storeComment(projectComments.newComment)"
-                ng-disabled="projectComments.form.$invalid || projectComments.loading"
-                analytics-on="click" analytics-category="Projects" analytics-event="Comment">
+                ng-disabled="projectComments.form.$invalid || projectComments.loading">
 
             {{ projectComments.loading ? 'Kommentieren...' : 'Kommentieren' }}
         </button>

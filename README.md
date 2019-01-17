@@ -107,42 +107,8 @@ If you want to skip uglifying of your javascript (app AND libs), run
 npm run watch-dev
 ```
 
-Tracking
---------
 
-The Crowdsource application supports tracking, utilizing [PIWIK](http://http://piwik.org/) over [Angulartics](https://luisfarzati.github.io/angulartics/).
-In order to activate tracking set the following properties in your `application.properties`:
- 
- * `de.asideas.crowdsource.tracking.piwik.trackurl=//your-piwik.domain`
- * `de.asideas.crowdsource.tracking.piwik.siteid=1`
-
-This will cause the tracking snippet to be rendered in the index.html.
-Tracking includes virtual page views (all the angular anchor links) and the following actions with their respective category:
-
- * | Rejected   | Projects        
- * | Deferred   | Projects        
- * | Comment    | Projects        
- * | ProjectIdeaSubmitted   | Projects        
- * | ProjectPledged | Projects        
- * | MailToPublisherIconClicked | Projects        
- * | GoToStartNewProjectFromNavbar  | Projects        
- * | GoToStartNewProjectFromTeaser  | Projects        
- * | GoToFinancing  | Projects        
- * | AttachmentUploaded  | Projects        
- * | NewFinancingRoundStarted   | FinancingRound 
- * | FinancingRoundAborted  | FinancingRound  
- * | SignIn | UserActions     
- * | SignUp | UserActions     
- * | Logout | UserActions      
- * | AccountActivated   | UserActions     
- * | FaqEntryOpened | UserActions | Label - faq_entry | Value - faq title     
-   
-In order to decorate HTML elements, like buttons or links with tracking actions just add the following properties to the respective tag:
- * `analytics-on="click"`
- * `analytics-category="<yourCategory>" `
- * `analytics-event="yourEvent"`
-
-Issue Tracking / Feedback Form
+Issue Tracking / Feedback Form (2018: deprecated and disabled)
 -------------------------
 
 The Crowdsource application supports tracking, utilizing the [JIRA issue collector](https://confluence.atlassian.com/jira/using-the-issue-collector-288657654.html).

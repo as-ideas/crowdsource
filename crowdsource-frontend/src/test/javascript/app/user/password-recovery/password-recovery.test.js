@@ -9,11 +9,6 @@ describe('password recovery view', function () {
             $provide.value('emailDomain', '@crowd.source.de');
             $provide.value('emailBlacklistPatterns', ["_extern"])
         });
-        module(function(_$analyticsProvider_) {
-            _$analyticsProvider_.virtualPageviews(false);
-            _$analyticsProvider_.firstPageview(false);
-            _$analyticsProvider_.developerMode(true);
-        });
 
         localStorage.clear(); // reset
 

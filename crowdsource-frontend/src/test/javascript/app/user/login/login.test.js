@@ -10,11 +10,6 @@ describe('user login view', function () {
             $provide.value('emailDomain', '@crowd.source.de');
             $provide.value('emailBlacklistPatterns', ["_extern"])
         });
-        module(function(_$analyticsProvider_) {
-            _$analyticsProvider_.virtualPageviews(false);
-            _$analyticsProvider_.firstPageview(false);
-            _$analyticsProvider_.developerMode(true);
-        });
 
         localStorage.clear(); // reset
 
@@ -74,10 +69,6 @@ describe('user login view', function () {
     it('should request an access token from the server and redirect to index page', function () {
         expectBackendCallAndRespond(200);
         spyOn(Authentication, 'reloadUser');
-
-        expect(loginForm.getSubmitButton()).toHaveAttr('analytics-on');
-        expect(loginForm.getSubmitButton()).toHaveAttr('analytics-category', 'UserActions');
-        expect(loginForm.getSubmitButton()).toHaveAttr('analytics-event', 'SignIn');
 
         fillAndSubmitForm();
 

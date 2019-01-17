@@ -5,11 +5,6 @@ describe('project comments directive', function () {
     beforeEach(function () {
         module('crowdsource');
         module('crowdsource.templates');
-        module(function(_$analyticsProvider_) {
-            _$analyticsProvider_.virtualPageviews(false);
-            _$analyticsProvider_.firstPageview(false);
-            _$analyticsProvider_.developerMode(true);
-        });
 
         localStorage.clear(); // reset
 
@@ -83,9 +78,6 @@ describe('project comments directive', function () {
 
         expect(elements.submitButton).toBeDisabled();
         expect(elements.submitButton).toHaveText('Kommentieren');
-        expect(elements.submitButton).toHaveAttr('analytics-on', 'click');
-        expect(elements.submitButton).toHaveAttr('analytics-category', 'Projects');
-        expect(elements.submitButton).toHaveAttr('analytics-event', 'Comment');
 
         elements.commentControls.getInputField().val('new comment').trigger('input');
         expect(elements.submitButton).not.toBeDisabled();

@@ -7,11 +7,6 @@ describe('project details', function () {
     beforeEach(function () {
         module('crowdsource');
         module('crowdsource.templates');
-        module(function (_$analyticsProvider_) {
-            _$analyticsProvider_.virtualPageviews(false);
-            _$analyticsProvider_.firstPageview(false);
-            _$analyticsProvider_.developerMode(true);
-        });
 
         localStorage.clear(); // reset, makes the user not logged in
 
@@ -76,9 +71,6 @@ describe('project details', function () {
         expect(projectDetails.find('.project-description').text()).toBe('Looong description');
         expect(projectDetails.find('.to-pledging-form-button').text()).not.toBeDisabled();
         expect(projectDetails.find('.to-pledging-form-button').text().trim()).toBe('Zur Finanzierung');
-        expect(projectDetails.find('.to-pledging-form-button')).toHaveAttr('analytics-on');
-        expect(projectDetails.find('.to-pledging-form-button')).toHaveAttr('analytics-category', 'Projects');
-        expect(projectDetails.find('.to-pledging-form-button')).toHaveAttr('analytics-event', 'GoToFinancing');
 
         expect(projectDetails.find('project-comments')).not.toExist();
     });
@@ -116,9 +108,6 @@ describe('project details', function () {
         expect(projectDetails.find('.pd-creator a').attr('href')).toBe('mailto:foo.bar@axel.de');
         expect(projectDetails.find('.pd-creator a').attr('href')).toBe('mailto:foo.bar@axel.de');
 
-        expect(projectDetails.find('.pd-creator a')).toHaveAttr('analytics-on');
-        expect(projectDetails.find('.pd-creator a')).toHaveAttr('analytics-category', 'Projects');
-        expect(projectDetails.find('.pd-creator a')).toHaveAttr('analytics-event', 'MailToPublisherIconClicked');
     });
 
     it("should show a not found page if no project was found", function () {
@@ -867,9 +856,6 @@ describe('project details', function () {
     function thenPublishButtonIsVisible(visible) {
         if (visible) {
             expect(projectDetails.find('.publish-button')).toExist();
-            expect(projectDetails.find('.publish-button')).toHaveAttr('analytics-category', 'Projects');
-            expect(projectDetails.find('.publish-button')).toHaveAttr('analytics-on');
-            expect(projectDetails.find('.publish-button')).toHaveAttr('analytics-event', 'Published');
         } else {
             expect(projectDetails.find('.publish-button')).not.toExist();
         }
@@ -878,9 +864,6 @@ describe('project details', function () {
     function thenRejectButtonIsVisible(visible) {
         if (visible) {
             expect(projectDetails.find('.reject-button')).toExist();
-            expect(projectDetails.find('.reject-button')).toHaveAttr('analytics-on');
-            expect(projectDetails.find('.reject-button')).toHaveAttr('analytics-category', 'Projects');
-            expect(projectDetails.find('.reject-button')).toHaveAttr('analytics-event', 'Rejected');
         } else {
             expect(projectDetails.find('.reject-button')).not.toExist();
         }
@@ -889,9 +872,6 @@ describe('project details', function () {
     function thenDeferButtonIsVisible(visible) {
         if (visible) {
             expect(projectDetails.find('.defer-button')).toExist();
-            expect(projectDetails.find('.defer-button')).toHaveAttr('analytics-on');
-            expect(projectDetails.find('.defer-button')).toHaveAttr('analytics-category', 'Projects');
-            expect(projectDetails.find('.defer-button')).toHaveAttr('analytics-event', 'Deferred');
         } else {
             expect(projectDetails.find('.defer-button')).not.toExist();
         }
@@ -900,9 +880,6 @@ describe('project details', function () {
     function thenPublishedDeferButtonIsVsible(expectedToBeVisible) {
         if (expectedToBeVisible) {
             expect(projectDetails.find('.publish-defer-button')).toExist();
-            expect(projectDetails.find('.publish-defer-button')).toHaveAttr('analytics-on');
-            expect(projectDetails.find('.publish-defer-button')).toHaveAttr('analytics-category', 'Projects');
-            expect(projectDetails.find('.publish-defer-button')).toHaveAttr('analytics-event', 'PublishedDeferred');
         } else {
             expect(projectDetails.find('.publish-defer-button')).not.toExist();
         }
