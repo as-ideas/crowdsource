@@ -24,6 +24,7 @@ var config = {
             'bower_components/moment/min/moment.min.js',
             'bower_components/moment-timezone/builds/moment-timezone-with-data.min.js',
             'bower_components/bowser/bowser.min.js',
+            'bower_components/angulartics/dist/angulartics.min.js',
             'bower_components/showdown/dist/showdown.min.js',
             'bower_components/ng-showdown/dist/ng-showdown.min.js',
             'bower_components/ng-file-upload/ng-file-upload-all.min.js',
