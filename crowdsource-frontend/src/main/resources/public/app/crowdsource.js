@@ -24,6 +24,11 @@
                     'angulartics', 'angulartics.piwik', 'ngSanitize', 'ng-showdown', 'ngFileUpload', 'ngclipboard', 'chart.js'])
         .config(function ($routeProvider, $locationProvider, $httpProvider, $analyticsProvider, $showdownProvider) {
             $routeProvider
+                .when('/intro', {
+                    templateUrl: 'app/intro/intro.html',
+                    // controller: 'IntroController as intro',
+                    title: 'Vorstellung'
+                })
                 .when('/projects', {
                     templateUrl: 'app/project/list/project-list.html',
                     controller: 'ProjectListController as projectList',
@@ -129,7 +134,7 @@
                     templateUrl: 'app/error/error-unknown.html',
                     title: 'Technischer Fehler'
                 })
-                .otherwise({redirectTo: '/projects'});
+                .otherwise({redirectTo: '/intro'});
 
             $httpProvider.interceptors.push('UnauthorizedInterceptor');
             $httpProvider.interceptors.push('LoggingInterceptor');
