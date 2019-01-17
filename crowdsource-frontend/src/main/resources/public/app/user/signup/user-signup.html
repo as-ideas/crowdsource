@@ -13,7 +13,7 @@
         </div>
 
         <div class="row">
-            <div class="small-12 columns form-controls-firstName">
+            <div class="small-12 columns form-controls-firstname">
                 <label form-group="firstName">
 
                     <span form-label-valid="firstName">Vorname</span>
@@ -25,7 +25,7 @@
                     <input type="text" name="firstName" ng-model="signup.user.firstName" field-name="firstName" required reset-remote-validation />
                 </label>
             </div>
-            <div class="small-12 columns form-controls-lastName">
+            <div class="small-12 columns form-controls-lastname">
                 <label form-group="lastName">
 
                     <span form-label-valid="lastName">Nachname</span>
@@ -76,8 +76,7 @@
             <div class="small-12 columns text-center">
                 <div>
                     <button type="submit" class="crwd-success radius shadow margin-top"
-                            ng-click="signup.signUp()" ng-disabled="signup.loading"
-                            analytics-on="click" analytics-category="UserActions" analytics-event="SignUp">
+                            ng-click="signup.signUp()" ng-disabled="signup.loading">
                         {{ signup.loading ? 'Registrieren...' : 'Registrieren' }}
                     </button>
                 </div>

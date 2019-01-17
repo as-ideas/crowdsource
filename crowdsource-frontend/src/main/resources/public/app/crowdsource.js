@@ -21,8 +21,8 @@
      * global application configuration
      */
     angular.module('crowdsource', ['ngRoute', 'ngResource', 'ngMessages', 'dibari.angular-ellipsis', 'ngScrollTo',
-                    'angulartics', 'angulartics.piwik', 'ngSanitize', 'ng-showdown', 'ngFileUpload', 'ngclipboard', 'chart.js'])
-        .config(function ($routeProvider, $locationProvider, $httpProvider, $analyticsProvider, $showdownProvider) {
+                    'ngSanitize', 'ng-showdown', 'ngFileUpload', 'ngclipboard', 'chart.js'])
+        .config(function ($routeProvider, $locationProvider, $httpProvider, $showdownProvider) {
             $routeProvider
                 .when('/projects', {
                     templateUrl: 'app/project/list/project-list.html',
@@ -133,8 +133,6 @@
 
             $httpProvider.interceptors.push('UnauthorizedInterceptor');
             $httpProvider.interceptors.push('LoggingInterceptor');
-
-            $analyticsProvider.firstPageview(false);
 
             $showdownProvider.setOption("tables", true);
             $showdownProvider.setOption("literalMidWordUnderscores", true);

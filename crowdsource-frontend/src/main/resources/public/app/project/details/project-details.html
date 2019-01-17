@@ -4,8 +4,7 @@
     <p class="pd-creator">
         von <strong class="text--strong">{{ projectDetails.project.creator.name }}</strong>
         <a href="mailto:{{ projectDetails.project.creator.email }}"
-                ng-if="projectDetails.auth.currentUser.hasRole('ADMIN')"
-                analytics-on analytics-category="Projects" analytics-event="MailToPublisherIconClicked" >
+                ng-if="projectDetails.auth.currentUser.hasRole('ADMIN')">
             <span class="pd-icon-mail"></span>
         </a>
     </p>
@@ -38,8 +37,7 @@
                     <div>
                         <button class="pm-btn-simple  to-pledging-form-button"
                                 scroll-to="project-pledging-form"
-                                ng-disabled="projectDetails.toPledgingFormButtonDisabled()"
-                                analytics-on="click" analytics-category="Projects" analytics-event="GoToFinancing">
+                                ng-disabled="projectDetails.toPledgingFormButtonDisabled()">
                             <span ng-if="projectDetails.project.status == 'FULLY_PLEDGED'">Zu 100% finanziert!</span>
                             <span ng-if="projectDetails.project.status == 'DEFERRED'">Zurückgestellt</span>
                             <span ng-if="projectDetails.project.status == 'PUBLISHED_DEFERRED'">Zurückgestellt</span>
@@ -67,7 +65,6 @@
 
             <div ng-if="projectDetails.isDeferrable() && projectDetails.auth.currentUser.hasRole('ADMIN')">
                 <button class="pm-btn--alert defer-button" ng-click="projectDetails.defer()" ng-disabled="projectDetails.deferring"
-                        analytics-on="click" analytics-category="Projects" analytics-event="Deferred"
                         title="Das Projekt nimmt nicht an der nächsten Finanzierungsrunde teil und ist nicht öffetnlich sichtbar.">
                     {{ projectDetails.deferring ? 'Zurückstellen...' : 'Zurückstellen' }}
                 </button>
@@ -75,21 +72,18 @@
             <div ng-if="projectDetails.isPublishDeferrable() && projectDetails.auth.currentUser.hasRole('ADMIN')">
                 <button class="pm-btn--success publish-defer-button"
                         ng-click="projectDetails.publishAndDefer()" ng-disabled="projectDetails.publishingAndDeferring"
-                        analytics-on="click" analytics-category="Projects" analytics-event="PublishedDeferred"
                         title="Das Projekt nimmt nicht an der aktuellen oder nächsten Finanzierungsrunde teil und ist öffetnlich sichtbar">
                     {{ projectDetails.publishingAndDeferring ? 'Veröffentlichen und zurückstellen ...' : 'Veröffentlichen und zurückstellen' }}
                 </button>
             </div>
             <div ng-if="projectDetails.isRejectable() && projectDetails.auth.currentUser.hasRole('ADMIN')">
-                <button class="pm-btn--alert reject-button" ng-click="projectDetails.reject()" ng-disabled="projectDetails.rejecting"
-                        analytics-on="click" analytics-category="Projects" analytics-event="Rejected">
+                <button class="pm-btn--alert reject-button" ng-click="projectDetails.reject()" ng-disabled="projectDetails.rejecting">
                     {{ projectDetails.rejecting ? 'Ablehnen...' : 'Ablehnen' }}
                 </button>
             </div>
             <div ng-if="projectDetails.isPublishable() && projectDetails.auth.currentUser.hasRole('ADMIN')">
                 <button class="pm-btn--success publish-button"
-                        ng-click="projectDetails.publish()" ng-disabled="projectDetails.publishing"
-                        analytics-on="click" analytics-category="Projects" analytics-event="Published">
+                        ng-click="projectDetails.publish()" ng-disabled="projectDetails.publishing">
                     {{ projectDetails.publishing ? 'Veröffentlichen...' : 'Veröffentlichen' }}
                 </button>
             </div>

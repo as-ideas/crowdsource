@@ -10,16 +10,12 @@ angular.module('crowdsource')
             transclude: true,
             controllerAs: 'accordion',
             bindToController: true,
-            template: '<li class="accordion-navigation" ng-class="{ \'accordion-active\': accordion.showContent }" ' +
-            'analytics-category="{{ accordion.trackingcat }}" analytics-event="{{ accordion.trackingevt }}" analytics-label="{{ accordion.trackingvalue }}" analytics-on="click" >' +
+            template: '<li class="accordion-navigation" ng-class="{ \'accordion-active\': accordion.showContent }">' +
             '<a ng-click="accordion.showContent = !accordion.showContent" >{{ accordion.title }}</a>' +
             '<div class="content" ng-transclude ng-if="accordion.showContent"></div>' +
             '</li>',
             scope: {
                 title: '@',
-                trackingcat: '@',
-                trackingevt: '@',
-                trackingvalue: '@?'
             },
             controller: function () {
                 // no-op, do not remove!

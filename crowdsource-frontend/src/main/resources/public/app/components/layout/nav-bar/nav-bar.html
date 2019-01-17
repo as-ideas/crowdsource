@@ -9,10 +9,10 @@
 
         <section class="top-bar-section">
             <ul class="right">
-                <li ng-class="nav.getClassForMenuItem('/project/new')" class="border new-project"><a href="#/project/new" analytics-on analytics-category="Projects" analytics-event="GoToStartNewProjectFromNavbar">Neues Projekt</a></li>
+                <li ng-class="nav.getClassForMenuItem('/project/new')" class="border new-project"><a href="#/project/new">Neues Projekt</a></li>
                 <li ng-if="!nav.auth.currentUser.loggedIn" ng-class="nav.getClassForMenuItem('/login')" class="login"><a href="#/login">Login</a></li>
                 <li ng-if="!nav.auth.currentUser.loggedIn" ng-class="nav.getClassForMenuItem('/signup')" class="register"><a href="#/signup">Registrieren</a></li>
-                <li ng-if="nav.auth.currentUser.loggedIn" ng-class="nav.getClassForMenuItem('/logout')" class="logout"><a href="#/logout" analytics-on analytics-category="UserActions" analytics-event="Logout">Logout</a></li>
+                <li ng-if="nav.auth.currentUser.loggedIn" ng-class="nav.getClassForMenuItem('/logout')" class="logout"><a href="#/logout">Logout</a></li>
             </ul>
         </section>
     </nav>

@@ -5,11 +5,6 @@ describe('status bar', function () {
     beforeEach(function () {
         module('crowdsource.templates');
         module('crowdsource');
-        module(function (_$analyticsProvider_) {
-            _$analyticsProvider_.virtualPageviews(false);
-            _$analyticsProvider_.firstPageview(false);
-            _$analyticsProvider_.developerMode(true);
-        });
 
         inject(function (_$compile_, _$rootScope_, _FinancingRound_, _Authentication_) {
             $rootScope = _$rootScope_;
