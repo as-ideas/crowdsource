@@ -57,7 +57,6 @@ module.exports = function (config) {
             stripPrefix: 'src/main/resources/public/'
         },
 
-        autoWatch: true,
 
         frameworks: ['jasmine'],
 
