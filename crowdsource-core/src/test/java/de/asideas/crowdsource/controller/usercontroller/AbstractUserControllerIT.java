@@ -38,8 +38,8 @@ import static org.mockito.Mockito.when;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration(classes = AbstractUserControllerTest.Config.class)
-public abstract class AbstractUserControllerTest {
+@ContextConfiguration(classes = AbstractUserControllerIT.Config.class)
+public abstract class AbstractUserControllerIT {
 
     protected static final String NEW_USER_MAIL_ADDRESS = "new@crowd.source.de";
     protected static final String EXISTING_BUT_NOT_YET_ACTIVATED_USER_MAIL_ADDRESS = "existing.not.yet.activated@crowd.source.de";

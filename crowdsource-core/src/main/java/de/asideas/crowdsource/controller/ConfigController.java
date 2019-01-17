@@ -12,15 +12,12 @@ import java.util.List;
 @RestController
 public class ConfigController {
 
-    private String allowedEmailDomain;
     private List<String> emailBlacklistPatterns;
 
     @Autowired
     public ConfigController(
-            @Deprecated @Value("${de.asideas.crowdsource.content.allowed.email.domain}") String allowedEmailDomain,
             @Value("#{'${de.asideas.crowdsource.content.email.blacklist.patterns}'.split(',')}") List<String> emailBlacklistPatterns) {
 
-        this.allowedEmailDomain = allowedEmailDomain;
         this.emailBlacklistPatterns = emailBlacklistPatterns;
     }
 
@@ -29,7 +26,6 @@ public class ConfigController {
     @RequestMapping("/config.js")
     public String config() throws JsonProcessingException {
         return "angular.module('crowdsource')"
-                + ".value('emailDomain', '@" + allowedEmailDomain + "')"
                 + ".value('emailBlacklistPatterns', " + objectMapper.writeValueAsString(emailBlacklistPatterns) + ")";
     }
 

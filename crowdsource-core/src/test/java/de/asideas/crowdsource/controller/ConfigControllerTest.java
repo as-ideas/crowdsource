@@ -48,7 +48,7 @@ public class ConfigControllerTest extends TestCase {
                 .andReturn();
 
         assertThat(mvcResult.getResponse().getContentAsString(),
-                is("angular.module('crowdsource').value('emailDomain', '@crowd.source.de').value('emailBlacklistPatterns', [\"_extern\",\"foo\"])"));
+                is("angular.module('crowdsource').value('emailBlacklistPatterns', [\"_extern\",\"foo\"])"));
     }
 
     @Configuration
@@ -57,7 +57,7 @@ public class ConfigControllerTest extends TestCase {
 
         @Bean
         public ConfigController configController() {
-            return new ConfigController("crowd.source.de", Arrays.asList("_extern", "foo"));
+            return new ConfigController(Arrays.asList("_extern", "foo"));
         }
     }
 }

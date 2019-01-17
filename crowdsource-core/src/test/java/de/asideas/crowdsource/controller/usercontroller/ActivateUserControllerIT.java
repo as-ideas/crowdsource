@@ -17,7 +17,7 @@ import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-public class ActivateUserControllerTest extends AbstractUserControllerTest {
+public class ActivateUserControllerIT extends AbstractUserControllerIT {
 
     @Test
     public void testActivateUser() throws Exception {

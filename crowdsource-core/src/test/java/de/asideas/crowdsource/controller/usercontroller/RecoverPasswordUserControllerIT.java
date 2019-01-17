@@ -14,11 +14,10 @@ import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-public class RecoverPasswordUserControllerTest extends AbstractUserControllerTest {
+public class RecoverPasswordUserControllerIT extends AbstractUserControllerIT {
 
     @Test
     public void happyPath() throws Exception {
-
         String oldActivationToken = activatedUser.getActivationToken();
 
         recoverPasswordAndExpect(ACTIVATED_USER_MAIL_ADDRESS, status().isNoContent());
@@ -31,7 +30,6 @@ public class RecoverPasswordUserControllerTest extends AbstractUserControllerTes
 
     @Test
     public void expect404IfUserNotFound() throws Exception {
-
         recoverPasswordAndExpect(NEW_USER_MAIL_ADDRESS, status().isNotFound());
         verify(userRepository).findByEmail(any());
         verify(userNotificationService, never()).sendPasswordRecoveryMail(any());
