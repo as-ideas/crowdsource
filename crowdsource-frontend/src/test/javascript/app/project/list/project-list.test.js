@@ -6,7 +6,7 @@ describe('project list', function () {
         module('crowdsource');
         module('crowdsource.templates');
 
-        localStorage.clear(); // reset
+        localStorage.clear();
 
         inject(function ($compile, $rootScope, $templateCache, $controller, $q, _$httpBackend_, _$location_, Project, Content) {
             $scope = $rootScope.$new();
@@ -42,6 +42,7 @@ describe('project list', function () {
         ];
 
         $httpBackend.expectGET('/projects').respond(200, projects);
+        $httpBackend.expectGET('/financingrounds/mostRecent').respond(404);
         $scope.$digest();
         $httpBackend.flush();
 
@@ -65,7 +66,6 @@ describe('project list', function () {
     it('should display projects in correct order and set classes based on project status', function () {
 
         var now = moment();
-
         $httpBackend.expectGET('/projects').respond(200, [
             project('Title 0', 'Short Description 0', 100, 10, 1, 'PUBLISHED', moment(now).subtract(2, 'days')),
             project('Title 1', 'Short Description 1', 100, 10, 1, 'PUBLISHED_DEFERRED', moment(now).subtract(1, 'days')),
@@ -75,6 +75,7 @@ describe('project list', function () {
             project('Title 5', 'Short Description 5', 100, 20, 2, 'PROPOSED', moment(now).subtract(1, 'days')),
             project('Title 6', 'Short Description 6', 100, 20, 2, 'DEFERRED', moment(now).subtract(1, 'days'))
         ]);
+        $httpBackend.expectGET('/financingrounds/mostRecent').respond(404);
         $scope.$digest();
         $httpBackend.flush();
 
@@ -109,6 +110,8 @@ describe('project list', function () {
         $httpBackend.expectGET('/projects').respond(200, [
             project('Title', 'Short Description', 100, 10, 1)
         ]);
+        $httpBackend.expectGET('/financingrounds/mostRecent').respond(404);
+
         $scope.$digest();
         $httpBackend.flush();
 
@@ -119,7 +122,10 @@ describe('project list', function () {
     });
 
     it('should show a message if no projects exist yet', function () {
-        $httpBackend.expectGET('/projects').respond(200, []);
+        var emptyProjectList = [];
+        $httpBackend.expectGET('/projects').respond(200, emptyProjectList);
+        $httpBackend.expectGET('/financingrounds/mostRecent').respond(404);
+
         $scope.$digest();
         $httpBackend.flush();
 
@@ -128,6 +134,8 @@ describe('project list', function () {
 
     it('should hide the "create a new project" section while loading', function () {
         $httpBackend.expectGET('/projects').respond(200, []);
+        $httpBackend.expectGET('/financingrounds/mostRecent').respond(404);
+
         $scope.$digest();
 
         expect(projectList.find('.no-projects')).toHaveClass('ng-hide');

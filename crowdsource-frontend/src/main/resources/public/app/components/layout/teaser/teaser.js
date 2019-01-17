@@ -19,7 +19,8 @@ angular.module('crowdsource')
             vm.remainingTime = " ";
 
             Route.onRouteChangeSuccessAndInit(function (event, current) {
-                render(current);
+                var currentRoute = current || {};
+                render(currentRoute);
             });
 
             $interval(applyRemainingTime, 1000);
