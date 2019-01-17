@@ -55,7 +55,7 @@
                 <div class="small-3 columns">
                     <button type="submit" class="newround-start crwd-success radius shadow flush--bottom"
                             ng-click="financingRounds.start()"
-                            ng-disabled="financingRounds.form.$invalid || financingRounds.saving || !financingRounds.canStartNewRound()"
+                            ng-disabled="financingRounds.form.$invalid || financingRounds.saving || !financingRounds.canStartNewRound()">
                         {{ financingRounds.saving ? 'Starten...' : 'Starten!' }}
                     </button>
                 </div>

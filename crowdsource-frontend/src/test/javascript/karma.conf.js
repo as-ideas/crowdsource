@@ -52,6 +52,11 @@ module.exports = function (config) {
             stripPrefix: 'src/main/resources/public/'
         },
 
+        client: {
+            jasmine: {
+                random: false
+            }
+        },
 
         frameworks: ['jasmine'],
 

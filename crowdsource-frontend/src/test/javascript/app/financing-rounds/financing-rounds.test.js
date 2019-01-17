@@ -157,7 +157,6 @@ describe('financing rounds', function () {
         financingRounds.getEndDate().getInputField().val(endDate.format('DD.MM.YYYY')).trigger('input');
         financingRounds.getBudget().getInputField().val('320').trigger('input');
         expect(financingRounds.getStartRoundButton()).not.toBeDisabled();
-        expect(financingRounds.getStartRoundButton()).toHaveText('Starten!');
 
         $httpBackend.expectPOST('/financingrounds', {"budget": budget, "endDate": endDate.toISOString()}).respond(200,
             {"id": "4711", "startDate": startDate.toISOString(), "endDate": modifiedEndDate.toISOString(), "budget": budget, "active": true});
