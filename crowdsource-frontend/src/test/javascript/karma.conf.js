@@ -32,11 +32,10 @@ module.exports = function (config) {
             'src/test/javascript/testsupport/mocked-libraries.testsupport.js',
             'src/main/resources/public/app/crowdsource.js',
             'src/main/resources/public/app/**/*.js',
-
-            // 'src/test/javascript/**/*.js',
+            'src/test/javascript/**/*.js',
 
             // Selective test execution -> comment line above uncomment lines below
-            'src/test/javascript/app/user/signup/**/*.js',
+            // 'src/test/javascript/app/user/signup/**/*.js',
             'src/main/resources/public/app/**/*.html'
         ],
 
@@ -53,16 +52,13 @@ module.exports = function (config) {
             stripPrefix: 'src/main/resources/public/'
         },
 
-        autoWatch: true,
 
         frameworks: ['jasmine'],
 
-        browsers: ['PhantomJS', 'Firefox', 'Chrome'],
+        browsers: ['PhantomJS2'],
 
         plugins: [
-            'karma-phantomjs-launcher',
-            'karma-firefox-launcher',
-            'karma-chrome-launcher',
+            'karma-phantomjs2-launcher',
             'karma-ng-html2js-preprocessor',
             'karma-jasmine',
             'karma-jasmine-jquery',

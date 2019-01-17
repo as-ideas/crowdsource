@@ -2,13 +2,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <body>
     <div th:fragment="footer_scripts" th:remove="tag">
-        <!-- Jira Issue Collector -->
-        <script id="jiraIssueCollector"
-                type="text/javascript"
-                th:if="${@environment.getProperty('de.asideas.crowdsource.jira.issuecollector.url') != null}"
-                src="#" th:src="${@environment.getProperty('de.asideas.crowdsource.jira.issuecollector.url')}">
-        </script>
-
         <!-- Piwik Tracking -->
 
         <!--/* Now things getting weired with thymeleaf:

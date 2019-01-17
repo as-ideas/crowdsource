@@ -74,10 +74,10 @@ describe('user signup view', function () {
         fillAndSubmitForm();
 
         // flush backend (assertion will be evaluated)
-        //$httpBackend.flush();
+        $httpBackend.flush();
 
         // make sure location was changed
-        expect($location.path()).toBe('/signup/test@crowd.source.de/success');
+        expect($location.path()).toBe('/signup/test@crowd.source.de/vorname_test/nachname_test/success');
     });
 
     it('should disable the submit button and change it\'s text while loading', function () {
@@ -90,7 +90,7 @@ describe('user signup view', function () {
         expect(signupForm.getSubmitButton()).toHaveText('Registrieren...');
         expect(signupForm.getSubmitButton()).toBeDisabled();
 
-        // $httpBackend.flush();
+        $httpBackend.flush();
 
         expect(signupForm.getSubmitButton()).toHaveText('Registrieren');
         expect(signupForm.getSubmitButton()).not.toBeDisabled();
@@ -103,7 +103,7 @@ describe('user signup view', function () {
         expectBackendCallAndRespond(500);
 
         fillAndSubmitForm();
-        // $httpBackend.flush();
+        $httpBackend.flush();
         expect($location.path).not.toHaveBeenCalled();
         expect(signupForm.getGeneralErrorsContainer()).toExist();
         expect(signupForm.getGeneralError('remote_unknown')).toExist();
@@ -146,7 +146,7 @@ describe('user signup view', function () {
         expectBackendCallAndRespond(400, {"errorCode": "field_errors", "fieldViolations": {"email": "not_activated"}});
 
         fillAndSubmitForm();
-        // $httpBackend.flush();
+        $httpBackend.flush();
         expect(signupForm.getGeneralErrorsContainer()).not.toExist();
         expectValidationError('email', 'remote_not_activated');
     });
