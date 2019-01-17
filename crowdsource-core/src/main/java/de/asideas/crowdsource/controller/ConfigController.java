@@ -17,7 +17,7 @@ public class ConfigController {
 
     @Autowired
     public ConfigController(
-            @Value("${de.asideas.crowdsource.content.allowed.email.domain}") String allowedEmailDomain,
+            @Deprecated @Value("${de.asideas.crowdsource.content.allowed.email.domain}") String allowedEmailDomain,
             @Value("#{'${de.asideas.crowdsource.content.email.blacklist.patterns}'.split(',')}") List<String> emailBlacklistPatterns) {
 
         this.allowedEmailDomain = allowedEmailDomain;

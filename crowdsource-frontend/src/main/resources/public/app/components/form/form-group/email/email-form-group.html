@@ -5,7 +5,8 @@
     <span form-label-invalid="{{ fieldName }}" ng-messages="form[fieldName].$error">
         <!-- required and 'pattern' are build-in validations of angular.js -->
         <span ng-message="required">Bitte gib Deine Email-Adresse ein</span>
-        <span ng-message="email">Bitte gib nur den Teil vor {{ ::EMAIL_DOMAIN }} ein</span>
+        <span ng-message="email">Bitte gib eine valide E-Mail Adresse ein</span>
+        <span ng-message="remote_eligible">Deine Unit wird noch nicht unterstützt.</span>
         <span ng-message="non_blacklisted_email">Dieser Service kann nur von Mitarbeitern mit einer E-Mail-Adresse mit gültiger Domain verwendet werden</span>
         <span ng-message="remote_not_activated">
             Die Email-Adresse wurde bereits aktiviert. Du kannst Dich mit Deinem Passwort bereits einloggen. Falls Du Dein Passwort vergessen hast,
@@ -14,12 +15,7 @@
     </span>
 </label>
 
-<div class="table">
-    <div class="table-cell full-width">
-        <input type="email" name="{{ fieldName }}" ng-model="model" placeholder="max.mustermann"
-               required local-email-part-input non-external-email reset-remote-validation>
-    </div>
-    <div class="table-cell">
-        <span class="postfix text-left">{{ ::EMAIL_DOMAIN }}</span>
-    </div>
+<div class="full-width">
+    <input type="email" name="{{ fieldName }}" ng-model="model" placeholder="max.mustermann"
+           required local-email-part-input non-external-email reset-remote-validation>
 </div>

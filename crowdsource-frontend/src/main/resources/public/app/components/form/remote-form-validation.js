@@ -16,7 +16,6 @@ angular.module('crowdsource')
             angular.forEach(fieldViolations, function (rule, field) {
                 if (form[field]) {
                     form[field].$setValidity(REMOTE_RULE_PREFIX + rule, false);
-
                     appliedErrors = true;
                 }
             });
