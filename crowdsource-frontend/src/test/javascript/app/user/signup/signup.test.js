@@ -1,4 +1,4 @@
-describe('user signup view', function () {
+fdescribe('user signup view', function () {
 
     var $httpBackend, $location, signupForm;
 
@@ -48,7 +48,7 @@ describe('user signup view', function () {
     function fillAndSubmitForm() {
         signupForm.getFirstName().val('vorname_test').trigger('input');
         signupForm.getLastName().val('nachname_test').trigger('input');
-        signupForm.email.getInputField().val('test').trigger('input');
+        signupForm.email.getInputField().val('test@crowd.source.de').trigger('input');
         signupForm.termsOfServiceAccepted.getInputField().click();
 
         signupForm.getSubmitButton().click();
@@ -58,7 +58,6 @@ describe('user signup view', function () {
         $httpBackend.expectPOST('/user', {"firstName":"vorname_test","lastName":"nachname_test","email": "test@crowd.source.de", "termsOfServiceAccepted": true}).respond(statusCode, responseBody);
     }
 
-
     it('should show no validation errors when the form is untouched', function () {
         expect(signupForm.getGeneralErrorsContainer()).not.toExist();
 
@@ -67,7 +66,6 @@ describe('user signup view', function () {
     });
 
     it('should POST the data to the server and redirect to success page', function () {
-
         // expect a valid call and return "created"
         expectBackendCallAndRespond(201);
 
@@ -124,13 +122,13 @@ describe('user signup view', function () {
     });
 
     it('should show a validation error if an invalid email address is entered', function () {
-        signupForm.email.getInputField().val('inval@id.mail').trigger('input'); // only the part before the @<domain> is supposed to be entered
+        signupForm.email.getInputField().val('invalid.mail').trigger('input'); // only the part before the @<domain> is supposed to be entered
 
         expectValidationError('email', 'email');
     });
 
     it('should show a validation error if an email address containting "_extern" is entered', function () {
-        signupForm.email.getInputField().val('invalid_extern').trigger('input');
+        signupForm.email.getInputField().val('invalid_extern@crowd.source.de').trigger('input');
 
         expectValidationError('email', 'non_blacklisted_email');
     });
@@ -150,16 +148,6 @@ describe('user signup view', function () {
         expect(signupForm.getGeneralErrorsContainer()).not.toExist();
         expectValidationError('email', 'remote_not_activated');
     });
-
-    it('should clear the remote validation errors once the user starts typing again', function () {
-        expectBackendCallAndRespond(400, {"errrorCode": "field_errors", "fieldViolations": {"email": "not_activated"}});
-
-        fillAndSubmitForm();
-        $httpBackend.flush();
-        signupForm.email.getInputField().val('something-different').trigger('input');
-        expectNoValidationError('email');
-    });
-
     it('should show an unknown error when the server responds with a field violation for an unknown field', function () {
         expectBackendCallAndRespond(400, {"errrorCode": "field_errors", "fieldViolations": {"unknownField": "foo"}});
 

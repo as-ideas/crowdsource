@@ -25,20 +25,7 @@ angular.module('crowdsource')
         };
     })
 
-/**
- * When applied to an <input type="email"> field, this causes the input's model to be
- * enriched with the value of the emailDomain value service. The user only has to enter
- * the local part of the email address (everything before the '@') and the model
- * will automatically contain the full email address.
- */
-    .directive('localEmailPartInput', function (emailDomain) {
-        return {
-            restrict: 'A',
-            require: 'ngModel',
-            link: function (scope, element, attributes, ngModel) {
-            }
-        };
-    })
+
 
 /**
  * Custom validator that does not allow the local email part to contain "_extern"

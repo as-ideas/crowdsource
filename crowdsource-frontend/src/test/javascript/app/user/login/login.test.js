@@ -7,7 +7,6 @@ describe('user login view', function () {
         module('crowdsource');
         module('crowdsource.templates');
         module(function($provide) {
-            $provide.value('emailDomain', '@crowd.source.de');
             $provide.value('emailBlacklistPatterns', ["_extern"])
         });
 
@@ -48,7 +47,7 @@ describe('user login view', function () {
     }
 
     function fillAndSubmitForm() {
-        loginForm.email.getInputField().val('test').trigger('input');
+        loginForm.email.getInputField().val('test@crowd.source.de').trigger('input');
         loginForm.password.getInputField().val('secret!!!').trigger('input');
 
         loginForm.getSubmitButton().click();
@@ -148,13 +147,13 @@ describe('user login view', function () {
     });
 
     it('should show a validation error if an invalid email address is entered', function () {
-        loginForm.email.getInputField().val('inval@id.mail').trigger('input'); // only the part before the @<domain> is supposed to be entered
+        loginForm.email.getInputField().val('invalid.mail').trigger('input'); // only the part before the @<domain> is supposed to be entered
 
         expectValidationError('email', 'email');
     });
 
     it('should show a validation error if an email address containting "_extern" is entered', function () {
-        loginForm.email.getInputField().val('invalid_extern').trigger('input');
+        loginForm.email.getInputField().val('invalid_extern@as.crowd.de').trigger('input');
 
         expectValidationError('email', 'non_blacklisted_email');
     });
