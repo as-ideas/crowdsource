@@ -22,7 +22,7 @@ public class EligibleEmailValidator implements ConstraintValidator<EligibleEmail
 
     private List<String> allowedEmailDomains;
 
-    @Value("${de.asideas.crowdsource.allowedDomains.file}")
+    @Value("${de.asideas.crowdsource.allowedDomains.file:}")
     private String emailWhitelistFilename;
 
     @Value("#{'${de.asideas.crowdsource.content.email.blacklist.patterns}'.split(',')}")
@@ -36,7 +36,7 @@ public class EligibleEmailValidator implements ConstraintValidator<EligibleEmail
 
     @PostConstruct
     void readAllowedEmailAddressList() throws IOException {
-        if (emailWhitelistFilename == null) {
+        if (emailWhitelistFilename == null || emailWhitelistFilename.isEmpty()) {
             return;
         }
         allowedEmailDomains = IOUtils.readLines(new ClassPathResource(emailWhitelistFilename).getInputStream()).stream()
