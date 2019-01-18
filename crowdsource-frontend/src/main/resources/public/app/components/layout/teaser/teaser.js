@@ -5,7 +5,7 @@ angular.module('crowdsource')
 
         directive.controllerAs = 'teaser';
         directive.bindToController = true;
-        directive.templateUrl = 'app/components/layout/teaser/teaser.html';
+        directive.templateUrl = 'app/components/layout/teaser/ideas-teaser.html';
 
         directive.controller = function () {
             var vm = this;

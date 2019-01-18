@@ -12,7 +12,7 @@ angular.module('crowdsource')
 
                 vm.financingRound = FinancingRound;
 
-                vm.postRoundBudgetDistributable = function (){
+                vm.postRoundBudgetDistributable = function () {
                     var mostRecentRound = vm.financingRound.currentFinancingRound();
                     return mostRecentRound.postRoundBudgetDistributable &&
                         vm.auth.currentUser.hasRole('ADMIN');
@@ -24,7 +24,7 @@ angular.module('crowdsource')
 
                 function updateView(currentRoute) {
                     var title = "CrowdSource";
-                    if (typeof(currentRoute) !== 'undefined' &&  currentRoute.title) {
+                    if (typeof (currentRoute) !== 'undefined' && currentRoute.title) {
                         title += " - " + currentRoute.title;
                         vm.breadcrump = currentRoute.title;
                     } else {
