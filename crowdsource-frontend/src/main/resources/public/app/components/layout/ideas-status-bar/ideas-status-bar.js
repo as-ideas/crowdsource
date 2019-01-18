@@ -1,28 +1,19 @@
 angular.module('crowdsource')
-
-    .directive('statusBar', function ($rootScope, $window, Route, Authentication, FinancingRound) {
+    .directive('ideasStatusBar', function ($rootScope, $window, Route, Authentication) {
         return {
+            restrict: 'E',
             controllerAs: 'status',
             bindToController: true,
-            templateUrl: 'app/components/layout/status-bar/status-bar.html',
+            templateUrl: 'app/components/layout/ideas-status-bar/ideas-status-bar.html',
             controller: function () {
                 var vm = this;
 
-                vm.auth = Authentication;
-
-                vm.financingRound = FinancingRound;
-
-                vm.postRoundBudgetDistributable = function () {
-                    var mostRecentRound = vm.financingRound.currentFinancingRound();
-                    return mostRecentRound.postRoundBudgetDistributable &&
-                        vm.auth.currentUser.hasRole('ADMIN');
-                };
-
-                Route.onRouteChangeSuccessAndInit(function (event, current) {
-                    updateView(current);
+                Route.onRouteChangeSuccessAndInit(function (event, currentRoute) {
+                    updateView(currentRoute);
                 });
 
                 function updateView(currentRoute) {
+                    console.log("ideas-status-bar")
                     var title = "CrowdSource";
                     if (typeof (currentRoute) !== 'undefined' && currentRoute.title) {
                         title += " - " + currentRoute.title;
@@ -33,6 +24,7 @@ angular.module('crowdsource')
 
                     $window.document.title = title;
                 }
+
             }
         };
     });

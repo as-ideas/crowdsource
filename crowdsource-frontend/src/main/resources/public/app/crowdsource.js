@@ -29,6 +29,27 @@
                     // controller: 'IntroController as intro',
                     title: 'Vorstellung'
                 })
+                .when('/ideas/:ideasId', {
+                    templateUrl: 'app/ideas/list/ideas-list.html',
+                    controller: 'IdeasListController as ideasList',
+                    title: 'Ideen Kampagne',
+                    requireLogin: true
+
+                })
+                .when('/ideas/:ideasId/own', {
+                    templateUrl: 'app/ideas/own/own-list.html',
+                    controller: 'IdeasOwnController as ideasList',
+                    title: 'Deine Ideen',
+                    requireLogin: true
+
+                })
+                .when('/ideas/:ideasId/admin', {
+                    templateUrl: 'app/ideas/admin/admin-list.html',
+                    controller: 'IdeasAdminController as ideasList',
+                    title: 'Administration Ideen Kampagne',
+                    requireLogin: true
+                })
+
                 .when('/projects', {
                     templateUrl: 'app/project/list/project-list.html',
                     controller: 'ProjectListController as projectList',
