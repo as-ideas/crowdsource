@@ -1,14 +1,14 @@
-package de.asideas.crowdsource.controller;
+package de.asideas.crowdsource.controller.prototypecampaign;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import de.asideas.crowdsource.domain.exception.ForbiddenException;
 import de.asideas.crowdsource.domain.exception.InvalidRequestException;
-import de.asideas.crowdsource.domain.model.UserEntity;
+import de.asideas.crowdsource.domain.model.prototypecampaign.UserEntity;
 import de.asideas.crowdsource.domain.shared.ProjectStatus;
-import de.asideas.crowdsource.presentation.Pledge;
-import de.asideas.crowdsource.presentation.project.Attachment;
-import de.asideas.crowdsource.presentation.project.Project;
-import de.asideas.crowdsource.presentation.project.ProjectStatusUpdate;
+import de.asideas.crowdsource.presentation.prototypecampaign.Pledge;
+import de.asideas.crowdsource.presentation.prototypecampaign.project.Attachment;
+import de.asideas.crowdsource.presentation.prototypecampaign.project.Project;
+import de.asideas.crowdsource.presentation.prototypecampaign.project.ProjectStatusUpdate;
 import de.asideas.crowdsource.security.Roles;
 import de.asideas.crowdsource.service.ProjectService;
 import de.asideas.crowdsource.service.UserService;

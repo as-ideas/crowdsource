@@ -1,7 +1,7 @@
 package de.asideas.crowdsource.repository;
 
 import de.asideas.crowdsource.config.MongoDBConfig;
-import de.asideas.crowdsource.domain.model.AttachmentValue;
+import de.asideas.crowdsource.domain.model.prototypecampaign.AttachmentValue;
 import de.asideas.crowdsource.testsupport.CrowdSourceTestConfig;
 import org.apache.commons.io.IOUtils;
 import org.junit.Test;

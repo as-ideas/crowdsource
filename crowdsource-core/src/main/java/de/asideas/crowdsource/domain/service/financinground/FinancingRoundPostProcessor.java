@@ -1,7 +1,7 @@
 package de.asideas.crowdsource.domain.service.financinground;
 
-import de.asideas.crowdsource.domain.model.FinancingRoundEntity;
-import de.asideas.crowdsource.domain.model.PledgeEntity;
+import de.asideas.crowdsource.domain.model.prototypecampaign.FinancingRoundEntity;
+import de.asideas.crowdsource.domain.model.prototypecampaign.PledgeEntity;
 import de.asideas.crowdsource.repository.FinancingRoundRepository;
 import de.asideas.crowdsource.repository.PledgeRepository;
 import de.asideas.crowdsource.repository.ProjectRepository;

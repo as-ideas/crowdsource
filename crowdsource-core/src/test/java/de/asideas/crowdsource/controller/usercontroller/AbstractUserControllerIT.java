@@ -3,7 +3,7 @@ package de.asideas.crowdsource.controller.usercontroller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import de.asideas.crowdsource.controller.ControllerExceptionAdvice;
 import de.asideas.crowdsource.controller.UserController;
-import de.asideas.crowdsource.domain.model.UserEntity;
+import de.asideas.crowdsource.domain.model.prototypecampaign.UserEntity;
 import de.asideas.crowdsource.domain.service.user.UserNotificationService;
 import de.asideas.crowdsource.repository.FinancingRoundRepository;
 import de.asideas.crowdsource.repository.UserRepository;

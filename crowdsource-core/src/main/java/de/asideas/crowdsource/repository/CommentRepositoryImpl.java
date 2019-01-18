@@ -1,6 +1,6 @@
 package de.asideas.crowdsource.repository;
 
-import de.asideas.crowdsource.domain.model.ProjectEntity;
+import de.asideas.crowdsource.domain.model.prototypecampaign.ProjectEntity;
 import de.asideas.crowdsource.presentation.statistics.requests.TimeRangedStatisticsRequest;
 import de.asideas.crowdsource.presentation.statistics.results.BarChartStatisticsResult;
 import de.asideas.crowdsource.presentation.statistics.results.LineChartStatisticsResult;
@@ -19,7 +19,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import static de.asideas.crowdsource.domain.model.CommentEntity.COLLECTION_NAME;
+import static de.asideas.crowdsource.domain.model.prototypecampaign.CommentEntity.COLLECTION_NAME;
 
 public class CommentRepositoryImpl implements CommentRepositoryCustom {
 

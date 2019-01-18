@@ -1,4 +1,4 @@
-package de.asideas.crowdsource.domain.model;
+package de.asideas.crowdsource.domain.model.prototypecampaign;
 
 import org.joda.time.DateTime;
 import org.junit.Test;

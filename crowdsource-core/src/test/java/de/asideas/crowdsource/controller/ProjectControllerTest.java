@@ -2,17 +2,19 @@ package de.asideas.crowdsource.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.joda.JodaModule;
+
+import de.asideas.crowdsource.controller.prototypecampaign.ProjectController;
 import de.asideas.crowdsource.domain.exception.InvalidRequestException;
 import de.asideas.crowdsource.domain.exception.ResourceNotFoundException;
-import de.asideas.crowdsource.domain.model.AttachmentValue;
-import de.asideas.crowdsource.domain.model.ProjectEntity;
-import de.asideas.crowdsource.domain.model.UserEntity;
+import de.asideas.crowdsource.domain.model.prototypecampaign.AttachmentValue;
+import de.asideas.crowdsource.domain.model.prototypecampaign.ProjectEntity;
+import de.asideas.crowdsource.domain.model.prototypecampaign.UserEntity;
 import de.asideas.crowdsource.domain.shared.ProjectStatus;
 import de.asideas.crowdsource.presentation.ErrorResponse;
-import de.asideas.crowdsource.presentation.Pledge;
-import de.asideas.crowdsource.presentation.project.Attachment;
-import de.asideas.crowdsource.presentation.project.Project;
-import de.asideas.crowdsource.presentation.project.ProjectStatusUpdate;
+import de.asideas.crowdsource.presentation.prototypecampaign.Pledge;
+import de.asideas.crowdsource.presentation.prototypecampaign.project.Attachment;
+import de.asideas.crowdsource.presentation.prototypecampaign.project.Project;
+import de.asideas.crowdsource.presentation.prototypecampaign.project.ProjectStatusUpdate;
 import de.asideas.crowdsource.presentation.user.ProjectCreator;
 import de.asideas.crowdsource.repository.LikeRepository;
 import de.asideas.crowdsource.repository.ProjectRepository;

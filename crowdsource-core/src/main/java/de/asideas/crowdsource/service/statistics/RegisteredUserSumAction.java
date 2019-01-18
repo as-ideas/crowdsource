@@ -1,16 +1,15 @@
 package de.asideas.crowdsource.service.statistics;
 
-import de.asideas.crowdsource.domain.model.UserEntity;
+import de.asideas.crowdsource.domain.model.prototypecampaign.UserEntity;
 import de.asideas.crowdsource.presentation.statistics.requests.TimeRangedStatisticsRequest;
 import de.asideas.crowdsource.presentation.statistics.results.LineChartStatisticsResult;
 import de.asideas.crowdsource.repository.UserRepository;
-import org.joda.time.Instant;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Future;

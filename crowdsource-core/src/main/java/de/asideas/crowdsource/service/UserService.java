@@ -1,7 +1,7 @@
 package de.asideas.crowdsource.service;
 
 import de.asideas.crowdsource.domain.exception.NotAuthorizedException;
-import de.asideas.crowdsource.domain.model.UserEntity;
+import de.asideas.crowdsource.domain.model.prototypecampaign.UserEntity;
 import de.asideas.crowdsource.domain.service.user.UserNotificationService;
 import de.asideas.crowdsource.repository.UserRepository;
 import org.apache.commons.lang3.RandomStringUtils;

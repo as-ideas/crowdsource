@@ -3,7 +3,7 @@ package de.asideas.crowdsource.testsupport.cucumber;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import de.asideas.crowdsource.presentation.FinancingRound;
+import de.asideas.crowdsource.presentation.prototypecampaign.FinancingRound;
 import de.asideas.crowdsource.testsupport.CrowdSourceTestConfig;
 import de.asideas.crowdsource.testsupport.pageobjects.FinancingRoundsPage;
 import de.asideas.crowdsource.testsupport.selenium.SeleniumWait;

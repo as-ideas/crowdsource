@@ -2,8 +2,8 @@ package de.asideas.crowdsource.controller;
 
 import de.asideas.crowdsource.domain.exception.InvalidRequestException;
 import de.asideas.crowdsource.domain.exception.ResourceNotFoundException;
-import de.asideas.crowdsource.domain.model.FinancingRoundEntity;
-import de.asideas.crowdsource.domain.model.UserEntity;
+import de.asideas.crowdsource.domain.model.prototypecampaign.FinancingRoundEntity;
+import de.asideas.crowdsource.domain.model.prototypecampaign.UserEntity;
 import de.asideas.crowdsource.presentation.user.User;
 import de.asideas.crowdsource.presentation.user.UserActivation;
 import de.asideas.crowdsource.presentation.user.UserRegistration;

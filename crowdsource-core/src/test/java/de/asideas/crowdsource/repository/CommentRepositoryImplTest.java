@@ -2,7 +2,7 @@ package de.asideas.crowdsource.repository;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
-import de.asideas.crowdsource.domain.model.ProjectEntity;
+import de.asideas.crowdsource.domain.model.prototypecampaign.ProjectEntity;
 import de.asideas.crowdsource.presentation.statistics.requests.TimeRangedStatisticsRequest;
 import de.asideas.crowdsource.presentation.statistics.results.BarChartStatisticsResult;
 import de.asideas.crowdsource.presentation.statistics.results.LineChartStatisticsResult;
@@ -23,7 +23,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import java.util.Iterator;
 import java.util.List;
 
-import static de.asideas.crowdsource.domain.model.CommentEntity.COLLECTION_NAME;
+import static de.asideas.crowdsource.domain.model.prototypecampaign.CommentEntity.COLLECTION_NAME;
 import static de.asideas.crowdsource.repository.CommentRepositoryImpl.CHART_NAME_SUM_COMMENTS;
 import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;

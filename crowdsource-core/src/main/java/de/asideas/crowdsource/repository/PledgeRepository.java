@@ -1,8 +1,8 @@
 package de.asideas.crowdsource.repository;
 
-import de.asideas.crowdsource.domain.model.FinancingRoundEntity;
-import de.asideas.crowdsource.domain.model.PledgeEntity;
-import de.asideas.crowdsource.domain.model.ProjectEntity;
+import de.asideas.crowdsource.domain.model.prototypecampaign.FinancingRoundEntity;
+import de.asideas.crowdsource.domain.model.prototypecampaign.PledgeEntity;
+import de.asideas.crowdsource.domain.model.prototypecampaign.ProjectEntity;
 import org.joda.time.DateTime;
 import org.springframework.data.mongodb.repository.MongoRepository;
 

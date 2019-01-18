@@ -1,10 +1,12 @@
-package de.asideas.crowdsource.controller;
+package de.asideas.crowdsource.controller.prototypecampaign;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import de.asideas.crowdsource.controller.ControllerExceptionAdvice;
 import de.asideas.crowdsource.domain.exception.NotAuthorizedException;
 import de.asideas.crowdsource.domain.exception.ResourceNotFoundException;
-import de.asideas.crowdsource.domain.model.UserEntity;
-import de.asideas.crowdsource.presentation.Comment;
+import de.asideas.crowdsource.domain.model.prototypecampaign.UserEntity;
+import de.asideas.crowdsource.presentation.prototypecampaign.Comment;
 import de.asideas.crowdsource.service.CommentService;
 import org.joda.time.DateTime;
 import org.junit.Before;

@@ -1,10 +1,10 @@
-package de.asideas.crowdsource.presentation.project;
+package de.asideas.crowdsource.presentation.prototypecampaign.project;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonView;
-import de.asideas.crowdsource.domain.model.PledgeEntity;
-import de.asideas.crowdsource.domain.model.ProjectEntity;
-import de.asideas.crowdsource.domain.model.UserEntity;
+import de.asideas.crowdsource.domain.model.prototypecampaign.PledgeEntity;
+import de.asideas.crowdsource.domain.model.prototypecampaign.ProjectEntity;
+import de.asideas.crowdsource.domain.model.prototypecampaign.UserEntity;
 import de.asideas.crowdsource.domain.shared.LikeStatus;
 import de.asideas.crowdsource.domain.shared.ProjectStatus;
 import de.asideas.crowdsource.presentation.user.ProjectCreator;
@@ -240,7 +240,7 @@ public class Project {
     }
 
     /**
-     * Used as Marker for {@link de.asideas.crowdsource.presentation.project.Project} Validation on update requests
+     * Used as Marker for {@link de.asideas.crowdsource.presentation.prototypecampaign.project.Project} Validation on update requests
      */
     public interface UpdateProject {
     }

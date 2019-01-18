@@ -1,8 +1,8 @@
-package de.asideas.crowdsource.domain.model;
+package de.asideas.crowdsource.domain.model.prototypecampaign;
 
-import de.asideas.crowdsource.presentation.Pledge;
+import de.asideas.crowdsource.presentation.prototypecampaign.Pledge;
 import de.asideas.crowdsource.security.Roles;
-import org.apache.commons.lang3.StringUtils;
+
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.joda.time.DateTime;
 import org.springframework.data.annotation.CreatedDate;

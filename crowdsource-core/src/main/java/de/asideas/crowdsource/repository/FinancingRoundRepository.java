@@ -1,6 +1,6 @@
 package de.asideas.crowdsource.repository;
 
-import de.asideas.crowdsource.domain.model.FinancingRoundEntity;
+import de.asideas.crowdsource.domain.model.prototypecampaign.FinancingRoundEntity;
 import org.joda.time.DateTime;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

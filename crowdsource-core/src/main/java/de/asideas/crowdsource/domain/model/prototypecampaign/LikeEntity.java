@@ -1,4 +1,4 @@
-package de.asideas.crowdsource.domain.model;
+package de.asideas.crowdsource.domain.model.prototypecampaign;
 
 import de.asideas.crowdsource.domain.shared.LikeStatus;
 import org.joda.time.DateTime;

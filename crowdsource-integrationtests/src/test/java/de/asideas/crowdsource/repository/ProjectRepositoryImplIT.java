@@ -1,8 +1,8 @@
 package de.asideas.crowdsource.repository;
 
 import de.asideas.crowdsource.config.MongoDBConfig;
-import de.asideas.crowdsource.domain.model.ProjectEntity;
-import de.asideas.crowdsource.domain.model.UserEntity;
+import de.asideas.crowdsource.domain.model.prototypecampaign.ProjectEntity;
+import de.asideas.crowdsource.domain.model.prototypecampaign.UserEntity;
 import de.asideas.crowdsource.domain.shared.ProjectStatus;
 import de.asideas.crowdsource.presentation.statistics.results.BarChartStatisticsResult;
 import de.asideas.crowdsource.testsupport.CrowdSourceTestConfig;

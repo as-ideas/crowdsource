@@ -1,7 +1,7 @@
-package de.asideas.crowdsource.domain.model;
+package de.asideas.crowdsource.domain.model.prototypecampaign;
 
-import de.asideas.crowdsource.presentation.FinancingRound;
-import de.asideas.crowdsource.presentation.Pledge;
+import de.asideas.crowdsource.presentation.prototypecampaign.FinancingRound;
+import de.asideas.crowdsource.presentation.prototypecampaign.Pledge;
 import org.exparity.hamcrest.date.DateMatchers;
 import org.joda.time.DateTime;
 import org.junit.Test;

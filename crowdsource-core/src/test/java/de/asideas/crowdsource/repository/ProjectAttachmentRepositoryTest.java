@@ -2,7 +2,7 @@ package de.asideas.crowdsource.repository;
 
 import com.mongodb.gridfs.GridFSDBFile;
 import com.mongodb.gridfs.GridFSFile;
-import de.asideas.crowdsource.domain.model.AttachmentValue;
+import de.asideas.crowdsource.domain.model.prototypecampaign.AttachmentValue;
 import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;

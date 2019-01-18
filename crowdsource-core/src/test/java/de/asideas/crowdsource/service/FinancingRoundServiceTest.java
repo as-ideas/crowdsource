@@ -3,12 +3,12 @@ package de.asideas.crowdsource.service;
 
 import de.asideas.crowdsource.domain.exception.InvalidRequestException;
 import de.asideas.crowdsource.domain.exception.ResourceNotFoundException;
-import de.asideas.crowdsource.domain.model.FinancingRoundEntity;
-import de.asideas.crowdsource.domain.model.PledgeEntity;
-import de.asideas.crowdsource.domain.model.ProjectEntity;
-import de.asideas.crowdsource.domain.model.UserEntity;
-import de.asideas.crowdsource.presentation.FinancingRound;
-import de.asideas.crowdsource.presentation.Pledge;
+import de.asideas.crowdsource.domain.model.prototypecampaign.FinancingRoundEntity;
+import de.asideas.crowdsource.domain.model.prototypecampaign.PledgeEntity;
+import de.asideas.crowdsource.domain.model.prototypecampaign.ProjectEntity;
+import de.asideas.crowdsource.domain.model.prototypecampaign.UserEntity;
+import de.asideas.crowdsource.presentation.prototypecampaign.FinancingRound;
+import de.asideas.crowdsource.presentation.prototypecampaign.Pledge;
 import de.asideas.crowdsource.domain.service.financinground.FinancingRoundPostProcessor;
 import de.asideas.crowdsource.domain.shared.ProjectStatus;
 import de.asideas.crowdsource.repository.FinancingRoundRepository;

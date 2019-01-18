@@ -1,8 +1,8 @@
 package de.asideas.crowdsource.resource;
 
 import de.asideas.crowdsource.CrowdSourceExample;
-import de.asideas.crowdsource.presentation.Pledge;
-import de.asideas.crowdsource.presentation.project.Project;
+import de.asideas.crowdsource.presentation.prototypecampaign.Pledge;
+import de.asideas.crowdsource.presentation.prototypecampaign.project.Project;
 import de.asideas.crowdsource.testsupport.CrowdSourceTestConfig;
 import de.asideas.crowdsource.testsupport.util.UrlProvider;
 import org.junit.Assert;

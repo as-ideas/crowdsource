@@ -1,6 +1,6 @@
-package de.asideas.crowdsource.presentation;
+package de.asideas.crowdsource.presentation.prototypecampaign;
 
-import de.asideas.crowdsource.domain.model.CommentEntity;
+import de.asideas.crowdsource.domain.model.prototypecampaign.CommentEntity;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;

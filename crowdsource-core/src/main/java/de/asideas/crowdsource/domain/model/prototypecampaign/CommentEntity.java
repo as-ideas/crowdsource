@@ -1,4 +1,4 @@
-package de.asideas.crowdsource.domain.model;
+package de.asideas.crowdsource.domain.model.prototypecampaign;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;

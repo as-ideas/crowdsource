@@ -1,6 +1,6 @@
-package de.asideas.crowdsource.domain.model;
+package de.asideas.crowdsource.domain.model.prototypecampaign;
 
-import de.asideas.crowdsource.presentation.FinancingRound;
+import de.asideas.crowdsource.presentation.prototypecampaign.FinancingRound;
 import de.asideas.crowdsource.domain.shared.ProjectStatus;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -57,7 +57,6 @@ public class FinancingRoundEntity {
 
     public FinancingRoundEntity() {
     }
-
 
     /**
      * Factory for a new financing round that immediately will be in active state

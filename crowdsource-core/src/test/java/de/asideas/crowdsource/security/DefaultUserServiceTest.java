@@ -2,7 +2,7 @@ package de.asideas.crowdsource.security;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import de.asideas.crowdsource.domain.model.UserEntity;
+import de.asideas.crowdsource.domain.model.prototypecampaign.UserEntity;
 import de.asideas.crowdsource.repository.UserRepository;
 import org.junit.Before;
 import org.junit.Test;

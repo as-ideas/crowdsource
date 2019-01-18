@@ -1,6 +1,6 @@
 package de.asideas.crowdsource.testsupport.pageobjects.project;
 
-import de.asideas.crowdsource.presentation.Comment;
+import de.asideas.crowdsource.presentation.prototypecampaign.Comment;
 import de.asideas.crowdsource.testsupport.selenium.SeleniumWait;
 import de.asideas.crowdsource.testsupport.selenium.WebDriverProvider;
 import de.asideas.crowdsource.testsupport.util.UrlProvider;

@@ -1,7 +1,7 @@
 package de.asideas.crowdsource.repository;
 
-import de.asideas.crowdsource.domain.model.CommentEntity;
-import de.asideas.crowdsource.domain.model.ProjectEntity;
+import de.asideas.crowdsource.domain.model.prototypecampaign.CommentEntity;
+import de.asideas.crowdsource.domain.model.prototypecampaign.ProjectEntity;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
