@@ -3,9 +3,12 @@ angular.module('crowdsource')
 
         return {
             restrict: 'E',
-            scope: { },
+            scope: {
+                'idea': '='
+            },
             templateUrl: 'app/components/idea-tile/idea-tile.html',
-            controller: function ($scope, Idea) {
+            controller: function ($scope) {
+
             }
         };
     });

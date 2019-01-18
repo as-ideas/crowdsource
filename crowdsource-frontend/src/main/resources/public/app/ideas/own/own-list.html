@@ -7,9 +7,11 @@
 
     <section>
         <h1>Liste DEINER Ideen</h1>
-        <div>
-            <idea-tile id="{{x}}" ng-repeat="x in [1,2,3,4,5]"></idea-tile>
-        </div>
+        <ul class="ideas__ul">
+            <li class="ideas__li" ng-repeat="idea in ideasList.ideas">
+                <idea-tile idea="idea"></idea-tile>
+            </li>
+        </ul>
     </section>
 
 

@@ -1,14 +1,16 @@
-<div>
-    <h3>Dies ist eine Idee mit ganz viel Pfeffer</h3>
-    <i>von: Peter Lustig</i>
-    <form>
-        <label>Voting!!!</label>
-        <select>
-            <option>1??</option>
-            <option>2?</option>
-            <option>3!</option>
-            <option>4!!</option>
-            <option>5!!!</option>
-        </select>
-    </form>
+<div class="ideas__tile ideas-{{idea.status.toLowerCase()}}">
+    <div class="clearfix">
+        <div>1-5 Stars</div>
+        <div class="tile__status"></div>
+    </div>
+    <div>
+        <p class="ideas__tile_clicktarget">{{idea.author}} </p>
+        <p class="tile__short-desc" ng-bind="idea.text"></p>
+
+        <div class="tile__metrics">
+            <span class="plist__pill backers-count">{{ idea.votes }}</span>
+            <span class="backers-text">Sterne</span>
+            <span class="plist__pill pledged-amount">{{ idea.avgVote }}</span>
+        </div>
+    </div>
 </div>
