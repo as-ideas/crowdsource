@@ -1,0 +1,36 @@
+<ideas-status-bar></ideas-status-bar>
+
+<content-row class="ideas-list">
+
+    <idea-presentation></idea-presentation>
+
+    <section>
+        <h1>Deine Idee</h1>
+        <form>
+            <textarea title=""></textarea>
+            <button>Idee einreichen</button>
+            <p>Deine Idee wird nach dem Einreichen erstmal überprüft. ..</p>
+        </form>
+
+        <ul>
+            <li><a href="/#/ideas/asdf/admin">ADMIN Ideen ----></a></li>
+            <li><a href="/#/ideas/asdf/own">Deine eingereichten Ideen anschauen ---></a></li>
+        </ul>
+    </section>
+
+    <section>
+        <h1>Liste der Ideen</h1>
+            <ul>
+                <li>Filter A</li>
+                <li>Filter B</li>
+                <li>Filter C</li>
+            </ul>
+        <section>
+            <h1>Liste der Ideen</h1>
+            <div>
+                <idea-tile id="{{x}}" ng-repeat="x in [1,2,3,4,5]"></idea-tile>
+            </div>
+        </section>
+    </section>
+
+</content-row>
