@@ -18,8 +18,7 @@ import org.springframework.test.context.ContextConfiguration;
 
 import java.util.List;
 
-import static de.asideas.crowdsource.testsupport.util.CrowdSourceClient.DEFAULT_ADMIN_EMAIL;
-import static de.asideas.crowdsource.testsupport.util.CrowdSourceClient.DEFAULT_USER_EMAIL;
+import static de.asideas.crowdsource.testsupport.util.CrowdSourceClient.*;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.text.IsEqualIgnoringCase.equalToIgnoringCase;
@@ -84,7 +83,7 @@ public class MailSteps {
 
         final CrowdSourceClient.AuthToken authToken = crowdSourceClient.authorizeWithDefaultUser();
         final Project project = new Project();
-        project.setCreator(new ProjectCreator(new UserEntity(DEFAULT_USER_EMAIL)));
+        project.setCreator(new ProjectCreator(new UserEntity(DEFAULT_USER_EMAIL, DEFAULT_USER_FIRSTNAME, DEFAULT_USER_LASTNAME)));
         project.setStatus(ProjectStatus.PUBLISHED);
         project.setPledgeGoal(1000);
         project.setShortDescription("short description");

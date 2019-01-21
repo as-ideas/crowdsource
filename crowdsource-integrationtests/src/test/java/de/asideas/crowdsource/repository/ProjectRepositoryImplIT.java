@@ -47,7 +47,7 @@ public class ProjectRepositoryImplIT {
             if (! allUsers.isEmpty()) {
                 projectCreator = allUsers.get(0);
             } else {
-                projectCreator = userRepository.save(new UserEntity("test@crowdsource.de"));
+                projectCreator = userRepository.save(new UserEntity("test@crowdsource.de", "Ringo", "Starr"));
             }
         }
     }
