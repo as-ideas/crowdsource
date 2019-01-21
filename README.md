@@ -49,12 +49,8 @@ Simply run
 in the crowdsource-integrationtests module.
 
 For configuration your own application:
-- Create a appication.properties with following entries
-> de.asideas.crowdsource.db.hosts=127.0.0.1
-> de.asideas.crowdsource.db.port=27017
-> de.asideas.crowdsource.db.name=crowdsource
-> de.asideas.crowdsource.db.username=crowdsource
-> de.asideas.crowdsource.db.password=
+- Create a appication.properties or just configure spring data properties `spring.data.mongodb.*`, e.g:
+> spring.data.mongodb.uri=mongodb://127.0.0.1:27017/crowdsource
 
 You can use a comma seperated list for multiple db-hosts, eg.
 > de.asideas.crowdsource.db.hosts=127.0.0.1,127.0.0.2
