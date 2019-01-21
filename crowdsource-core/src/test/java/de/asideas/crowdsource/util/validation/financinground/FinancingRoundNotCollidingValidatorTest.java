@@ -2,7 +2,7 @@ package de.asideas.crowdsource.util.validation.financinground;
 
 import de.asideas.crowdsource.domain.model.prototypecampaign.FinancingRoundEntity;
 import de.asideas.crowdsource.presentation.prototypecampaign.FinancingRound;
-import de.asideas.crowdsource.repository.FinancingRoundRepository;
+import de.asideas.crowdsource.repository.prototypecampaign.FinancingRoundRepository;
 import de.asideas.crowdsource.testutil.ValidatorTestUtil;
 import org.joda.time.DateTime;
 import org.junit.Before;

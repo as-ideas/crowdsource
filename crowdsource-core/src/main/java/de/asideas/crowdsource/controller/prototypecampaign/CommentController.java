@@ -2,7 +2,7 @@ package de.asideas.crowdsource.controller.prototypecampaign;
 
 import de.asideas.crowdsource.presentation.prototypecampaign.Comment;
 import de.asideas.crowdsource.security.Roles;
-import de.asideas.crowdsource.service.CommentService;
+import de.asideas.crowdsource.service.prototypecampaign.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.annotation.Secured;

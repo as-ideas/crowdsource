@@ -2,7 +2,7 @@ package de.asideas.crowdsource.util.validation.financinground;
 
 import de.asideas.crowdsource.domain.model.prototypecampaign.FinancingRoundEntity;
 import de.asideas.crowdsource.presentation.prototypecampaign.FinancingRound;
-import de.asideas.crowdsource.repository.FinancingRoundRepository;
+import de.asideas.crowdsource.repository.prototypecampaign.FinancingRoundRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.validation.ConstraintValidator;

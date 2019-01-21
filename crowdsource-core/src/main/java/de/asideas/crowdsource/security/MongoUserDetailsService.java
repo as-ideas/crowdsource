@@ -1,6 +1,6 @@
 package de.asideas.crowdsource.security;
 
-import de.asideas.crowdsource.domain.model.prototypecampaign.UserEntity;
+import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.repository.UserRepository;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

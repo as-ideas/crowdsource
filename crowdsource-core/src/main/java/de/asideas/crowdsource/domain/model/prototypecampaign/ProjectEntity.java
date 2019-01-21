@@ -3,6 +3,7 @@ package de.asideas.crowdsource.domain.model.prototypecampaign;
 import de.asideas.crowdsource.domain.exception.InvalidRequestException;
 import de.asideas.crowdsource.domain.exception.NotAuthorizedException;
 import de.asideas.crowdsource.domain.exception.ResourceNotFoundException;
+import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.domain.shared.ProjectStatus;
 import de.asideas.crowdsource.presentation.prototypecampaign.Pledge;
 import de.asideas.crowdsource.presentation.prototypecampaign.project.Attachment;

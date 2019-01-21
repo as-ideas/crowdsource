@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonView;
 import de.asideas.crowdsource.domain.model.prototypecampaign.PledgeEntity;
 import de.asideas.crowdsource.domain.model.prototypecampaign.ProjectEntity;
-import de.asideas.crowdsource.domain.model.prototypecampaign.UserEntity;
+import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.domain.shared.LikeStatus;
 import de.asideas.crowdsource.domain.shared.ProjectStatus;
 import de.asideas.crowdsource.presentation.user.ProjectCreator;

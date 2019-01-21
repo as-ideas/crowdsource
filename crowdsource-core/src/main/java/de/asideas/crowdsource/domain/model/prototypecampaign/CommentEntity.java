@@ -10,6 +10,8 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import de.asideas.crowdsource.domain.model.UserEntity;
+
 // needed for serialization
 @Document(collection = "comments")
 public class CommentEntity {

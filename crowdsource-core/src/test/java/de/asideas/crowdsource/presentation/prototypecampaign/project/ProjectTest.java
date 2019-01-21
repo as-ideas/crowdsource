@@ -4,7 +4,7 @@ import de.asideas.crowdsource.domain.model.prototypecampaign.AttachmentValue;
 import de.asideas.crowdsource.domain.model.prototypecampaign.FinancingRoundEntity;
 import de.asideas.crowdsource.domain.model.prototypecampaign.PledgeEntity;
 import de.asideas.crowdsource.domain.model.prototypecampaign.ProjectEntity;
-import de.asideas.crowdsource.domain.model.prototypecampaign.UserEntity;
+import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.domain.shared.LikeStatus;
 import de.asideas.crowdsource.presentation.prototypecampaign.Pledge;
 import de.asideas.crowdsource.presentation.user.ProjectCreator;

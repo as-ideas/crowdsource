@@ -1,6 +1,6 @@
 package de.asideas.crowdsource.service.statistics;
 
-import de.asideas.crowdsource.domain.model.prototypecampaign.UserEntity;
+import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.presentation.statistics.requests.TimeRangedStatisticsRequest;
 import de.asideas.crowdsource.presentation.statistics.results.LineChartStatisticsResult;
 import de.asideas.crowdsource.repository.UserRepository;

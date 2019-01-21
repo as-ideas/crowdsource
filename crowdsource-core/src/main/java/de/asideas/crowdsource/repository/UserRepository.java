@@ -1,6 +1,6 @@
 package de.asideas.crowdsource.repository;
 
-import de.asideas.crowdsource.domain.model.prototypecampaign.UserEntity;
+import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.security.Roles;
 import org.joda.time.DateTime;
 import org.springframework.data.mongodb.repository.MongoRepository;

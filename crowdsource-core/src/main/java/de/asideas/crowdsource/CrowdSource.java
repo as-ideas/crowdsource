@@ -24,7 +24,7 @@ import java.util.List;
 @ComponentScan(basePackages = "de.asideas.crowdsource", excludeFilters = @ComponentScan.Filter(Configuration.class))
 @PropertySources({
     @PropertySource(value = "build.properties", ignoreResourceNotFound = true),
-    @PropertySource(value = "build.core.properties", ignoreResourceNotFound = false)
+    @PropertySource(value = "build.core.properties", ignoreResourceNotFound = true)
 })
 public class CrowdSource extends WebMvcConfigurerAdapter {
 

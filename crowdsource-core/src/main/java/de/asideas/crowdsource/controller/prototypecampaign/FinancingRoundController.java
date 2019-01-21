@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import de.asideas.crowdsource.presentation.prototypecampaign.FinancingRound;
 import de.asideas.crowdsource.presentation.prototypecampaign.project.PublicFinancingRoundInformationView;
 import de.asideas.crowdsource.security.Roles;
-import de.asideas.crowdsource.service.FinancingRoundService;
+import de.asideas.crowdsource.service.prototypecampaign.FinancingRoundService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

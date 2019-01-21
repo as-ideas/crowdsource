@@ -1,7 +1,7 @@
 package de.asideas.crowdsource.service.statistics;
 
 import de.asideas.crowdsource.presentation.statistics.results.BarChartStatisticsResult;
-import de.asideas.crowdsource.repository.ProjectRepository;
+import de.asideas.crowdsource.repository.prototypecampaign.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

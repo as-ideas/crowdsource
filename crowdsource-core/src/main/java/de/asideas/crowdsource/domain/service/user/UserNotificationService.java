@@ -2,7 +2,7 @@ package de.asideas.crowdsource.domain.service.user;
 
 import de.asideas.crowdsource.domain.model.prototypecampaign.CommentEntity;
 import de.asideas.crowdsource.domain.model.prototypecampaign.ProjectEntity;
-import de.asideas.crowdsource.domain.model.prototypecampaign.UserEntity;
+import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

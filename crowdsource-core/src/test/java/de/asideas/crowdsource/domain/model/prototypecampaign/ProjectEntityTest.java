@@ -3,12 +3,15 @@ package de.asideas.crowdsource.domain.model.prototypecampaign;
 import de.asideas.crowdsource.domain.exception.InvalidRequestException;
 import de.asideas.crowdsource.domain.exception.NotAuthorizedException;
 import de.asideas.crowdsource.domain.exception.ResourceNotFoundException;
+import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.domain.shared.ProjectStatus;
 import de.asideas.crowdsource.presentation.prototypecampaign.FinancingRound;
 import de.asideas.crowdsource.presentation.prototypecampaign.Pledge;
 import de.asideas.crowdsource.presentation.prototypecampaign.project.Attachment;
 import de.asideas.crowdsource.presentation.prototypecampaign.project.Project;
 import de.asideas.crowdsource.security.Roles;
+import de.asideas.crowdsource.service.prototypecampaign.ProjectServiceTest;
+
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.joda.time.DateTime;
@@ -61,7 +64,7 @@ public class ProjectEntityTest {
     }
 
     /**
-     * For a full integration test, checking all edge cases see {@link de.asideas.crowdsource.service.ProjectServiceTest}
+     * For a full integration test, checking all edge cases see {@link ProjectServiceTest}
      *
      * @throws Exception
      */

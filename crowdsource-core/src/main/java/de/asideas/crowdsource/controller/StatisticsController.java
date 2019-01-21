@@ -3,7 +3,7 @@ package de.asideas.crowdsource.controller;
 import de.asideas.crowdsource.presentation.statistics.requests.TimeRangedStatisticsRequest;
 import de.asideas.crowdsource.presentation.statistics.results.BarChartStatisticsResult;
 import de.asideas.crowdsource.presentation.statistics.results.LineChartStatisticsResult;
-import de.asideas.crowdsource.service.StatisticsService;
+import de.asideas.crowdsource.service.statistics.StatisticsService;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;

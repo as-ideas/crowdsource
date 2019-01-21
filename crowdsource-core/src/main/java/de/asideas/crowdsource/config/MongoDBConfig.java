@@ -1,5 +1,9 @@
 package de.asideas.crowdsource.config;
 
+import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientOptions;
@@ -17,16 +21,12 @@ import org.springframework.data.mongodb.config.EnableMongoAuditing;
 import org.springframework.data.mongodb.gridfs.GridFsTemplate;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
-import java.net.UnknownHostException;
-import java.util.ArrayList;
-import java.util.List;
-
 import static java.util.stream.Collectors.toList;
 
 @Configuration
 @EnableMongoAuditing
 @ComponentScan(basePackages = "de.asideas.crowdsource.repository", excludeFilters = @ComponentScan.Filter(Configuration.class))
-@EnableMongoRepositories( basePackages = "de.asideas.crowdsource.repository" )
+@EnableMongoRepositories(basePackages = "de.asideas.crowdsource.repository")
 public class MongoDBConfig extends AbstractMongoConfiguration {
 
     private final Logger LOG = LoggerFactory.getLogger(getClass());
@@ -55,8 +55,8 @@ public class MongoDBConfig extends AbstractMongoConfiguration {
     public Mongo mongo() throws Exception {
 
         List<ServerAddress> serverAddresses = hosts.stream()
-                .map(this::createServerAddress)
-                .collect(toList());
+            .map(this::createServerAddress)
+            .collect(toList());
 
         LOG.info("Connecting to DB hosts: {}...", serverAddresses);
 
@@ -67,14 +67,14 @@ public class MongoDBConfig extends AbstractMongoConfiguration {
         } else {
             // create a mongo client that connects to a replicaset
             MongoClientOptions options = MongoClientOptions.builder()
-                    .writeConcern(WriteConcern.ACKNOWLEDGED)
-                    .build();
+                .writeConcern(WriteConcern.ACKNOWLEDGED)
+                .build();
             return new MongoClient(serverAddresses, mongoCredentials(), options);
         }
     }
 
     @Bean
-    public GridFsTemplate gridFsTemplate() throws Exception{
+    public GridFsTemplate gridFsTemplate() throws Exception {
         return new GridFsTemplate(mongoDbFactory(), mappingMongoConverter());
     }
 
@@ -82,7 +82,7 @@ public class MongoDBConfig extends AbstractMongoConfiguration {
         List<MongoCredential> res = new ArrayList<>(1);
 
         if (!username.isEmpty() && !password.isEmpty()) {
-            res.add(MongoCredential.createCredential(username, databaseName, password.toCharArray() ));
+            res.add(MongoCredential.createCredential(username, databaseName, password.toCharArray()));
         }
 
         return res;

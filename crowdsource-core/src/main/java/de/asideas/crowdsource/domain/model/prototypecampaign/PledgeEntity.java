@@ -1,5 +1,6 @@
 package de.asideas.crowdsource.domain.model.prototypecampaign;
 
+import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.presentation.prototypecampaign.Pledge;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;

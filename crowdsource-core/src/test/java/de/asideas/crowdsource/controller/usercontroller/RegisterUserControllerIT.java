@@ -1,6 +1,6 @@
 package de.asideas.crowdsource.controller.usercontroller;
 
-import de.asideas.crowdsource.domain.model.prototypecampaign.UserEntity;
+import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.presentation.user.UserRegistration;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
