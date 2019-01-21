@@ -26,7 +26,7 @@
             $routeProvider
                 .when('/intro', {
                     templateUrl: 'app/intro/intro.html',
-                    // controller: 'IntroController as intro',
+                    controller: 'IntroController as intro',
                     title: 'Vorstellung'
                 })
                 .when('/ideas/:ideasId', {
