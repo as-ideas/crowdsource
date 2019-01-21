@@ -105,7 +105,7 @@ public abstract class AbstractUserControllerIT {
 
         @Bean
         public UserController userController() {
-            return new UserController();
+            return new UserController(userRepository(), passwordEncoder(), userService(userRepository(), userActivationService()), financingRoundRepository());
         }
 
         @Bean

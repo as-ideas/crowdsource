@@ -37,17 +37,21 @@ public class UserController {
 
     private static final Logger LOG = LoggerFactory.getLogger(UserController.class);
 
-    @Autowired
     private UserRepository userRepository;
 
-    @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @Autowired
     private UserService userService;
 
-    @Autowired
     private FinancingRoundRepository financingRoundRepository;
+
+    @Autowired
+    public UserController(UserRepository userRepository, PasswordEncoder passwordEncoder, UserService userService, FinancingRoundRepository financingRoundRepository) {
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+        this.userService = userService;
+        this.financingRoundRepository = financingRoundRepository;
+    }
 
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)

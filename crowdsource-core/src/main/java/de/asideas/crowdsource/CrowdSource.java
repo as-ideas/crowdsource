@@ -5,6 +5,8 @@ import de.asideas.crowdsource.config.SchedulerConfig;
 import de.asideas.crowdsource.config.SecurityConfig;
 import de.asideas.crowdsource.config.mail.MailSenderConfig;
 import de.asideas.crowdsource.config.mail.MailTemplateConfig;
+
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
@@ -19,6 +21,8 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.slf4j.LoggerFactory.getLogger;
+
 @Configuration
 @Import({ThymeleafAutoConfiguration.class, MongoDBConfig.class, SecurityConfig.class, MailSenderConfig.class, MailTemplateConfig.class, SchedulerConfig.class})
 @ComponentScan(basePackages = "de.asideas.crowdsource", excludeFilters = @ComponentScan.Filter(Configuration.class))
@@ -28,11 +32,14 @@ import java.util.List;
 })
 public class CrowdSource extends WebMvcConfigurerAdapter {
 
+    private static final Logger log = getLogger(CrowdSource.class);
+
     @Autowired(required = false)
     private List<HandlerInterceptorAdapter> handlerInterceptorAdapters = new ArrayList<>();
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+        log.info("Init Interceptors");
         handlerInterceptorAdapters.forEach(registry::addInterceptor);
         super.addInterceptors(registry);
     }

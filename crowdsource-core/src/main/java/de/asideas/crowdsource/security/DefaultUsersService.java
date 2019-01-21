@@ -25,14 +25,16 @@ public class DefaultUsersService {
     @Value("${de.asideas.crowdsource.createusers.fixtures.path}")
     private ClassPathResource defaultUserFixtures;
 
-    @Autowired
     private UserRepository userRepository;
-
-    @Autowired
     private PasswordEncoder passwordEncoder;
+    private ObjectMapper objectMapper;
 
     @Autowired
-    private ObjectMapper objectMapper;
+    public DefaultUsersService(UserRepository userRepository, PasswordEncoder passwordEncoder, ObjectMapper objectMapper) {
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+        this.objectMapper = objectMapper;
+    }
 
     public void loadDefaultUsers() {
 

@@ -37,7 +37,7 @@ import static org.mockito.Mockito.when;
 public class DefaultUserServiceTest {
 
     @InjectMocks
-    private DefaultUsersService defaultUserService = new DefaultUsersService();
+    private DefaultUsersService defaultUserService;
 
     @Mock
     private UserRepository userRepository;
