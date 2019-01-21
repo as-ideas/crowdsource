@@ -3,13 +3,12 @@
     <h1>Crowd Intro.html ist toll</h1>
 
     <p style="min-height: 180px; border: 1px dotted pink">
-        Lorem Zeugs Crowd, warum überhaupt und schöne Erklärung.
+        Lorem Zeugs für die Crowd, warum überhaupt und schöne Erklärung.
 
     </p>
 
 
-    <div class="campaigns">
-
+    <div ng-if="intro.auth.currentUser.loggedIn" class="campaigns">
         <table width="100%" style="min-height: 180px; border: 1px dotted pink">
             <tr>
                 <td style="min-height: 180px; border: 1px dotted pink">
@@ -19,8 +18,12 @@
                     <a class="button crwd-success radius shadow flush" href="#/ideas/asdf">Zur Ideeen-Kampagne "Weniger Plastik"</a>
                 </td>
             </tr>
-
         </table>
-
     </div>
+
+
+    <div ng-if="!intro.auth.currentUser.loggedIn">
+        <a class="button crwd-success radius shadow flush" href="#/login">Zum Login</a>
+    </div>
+
 </content-row>

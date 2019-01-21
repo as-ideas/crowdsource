@@ -1,6 +1,6 @@
 angular.module('crowdsource')
 
-    .directive('intro', function () {
+    .directive('intro', function (Authentication) {
         return {
             controllerAs: 'intro',
             bindToController: true,
@@ -12,7 +12,8 @@ angular.module('crowdsource')
                 role: '@'
             },
             controller: function () {
-                // no-op, do not remove this controller!
+                const vm = this;
+                vm.auth = Authentication;
             }
         };
     });
