@@ -1,0 +1,14 @@
+<div ng-if="!entries.length">
+    <span>Leider sind keine Einträge vorhanden</span>
+</div>
+
+<ul ng-if="entries.length" ng-repeat="entry in entries">
+   <li>
+       <span>{{entry.title}}</span>
+       <span>{{entry.startDate}}</span>
+       <span>{{entry.endDate}}</span>
+       <span>{{entry.teaser}}</span>
+       <span>{{entry.sponsor}}</span>
+       <a class="button crwd-success radius shadow flush" href="#/ideas/{{entry.id}}">Zur Ideeen-Kampagne {{entry.title}}</a>
+   </li>
+</ul>

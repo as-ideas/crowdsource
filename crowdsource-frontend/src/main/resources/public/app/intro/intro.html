@@ -4,22 +4,19 @@
 
     <p style="min-height: 180px; border: 1px dotted pink">
         Lorem Zeugs für die Crowd, warum überhaupt und schöne Erklärung.
-
     </p>
-    
-    <div ng-if="intro.auth.currentUser.loggedIn" class="campaigns">
-        <table width="100%" style="min-height: 180px; border: 1px dotted pink">
-            <tr>
-                <td style="min-height: 180px; border: 1px dotted pink">
-                    <a class="button crwd-success radius shadow flush" href="#/projects">Zur Prototypen-Kampagne</a>
-                </td>
-                <td style="min-height: 180px; border: 1px dotted pink">
-                    <a class="button crwd-success radius shadow flush" href="#/ideas/asdf">Zur Ideeen-Kampagne "Weniger Plastik"</a>
-                </td>
-            </tr>
-        </table>
-    </div>
 
+    <div ng-if="intro.auth.currentUser.loggedIn" class="campaigns columns content">
+        <div class="column medium-6">
+            <h3>Ideen Kampagnen</h3>
+            <intro-campaign-list entries="intro.campaigns.ideas"></intro-campaign-list>
+        </div>
+
+        <div class="column medium-6">
+            <h3>Prototypen Kampagnen</h3>
+            <intro-campaign-list entries="intro.campaigns.prototypess"></intro-campaign-list>
+        </div>
+    </div>
 
     <div ng-if="!intro.auth.currentUser.loggedIn">
         <a class="button crwd-success radius shadow flush" href="#/login">Zum Login</a>
