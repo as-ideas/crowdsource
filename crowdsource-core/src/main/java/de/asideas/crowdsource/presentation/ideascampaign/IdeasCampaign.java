@@ -11,6 +11,8 @@ import de.asideas.crowdsource.domain.model.ideascampaign.IdeasCampaignEntity;
 
 public class IdeasCampaign {
 
+    private String id;
+
     private DateTime startDate = new DateTime();
 
     @NotNull
@@ -25,10 +27,12 @@ public class IdeasCampaign {
     @NotNull
     private String description;
 
-    @NotNull
     private String videoReference;
 
+    private IdeasCampaign() {
+    }
     public IdeasCampaign(IdeasCampaignEntity input) {
+        this.id = input.getId();
         this.startDate = input.getStartDate();
         this.endDate = input.getEndDate();
         this.campaignInitiator = new CampaignInitiator(input.getInitiator());
@@ -37,7 +41,6 @@ public class IdeasCampaign {
         this.videoReference = input.getVideoReference();
 
     }
-
     public IdeasCampaign(DateTime startDate, DateTime endDate, CampaignInitiator campaignInitiator, String title, String description, String videoReference) {
         this.startDate = startDate;
         this.endDate = endDate;
@@ -45,6 +48,13 @@ public class IdeasCampaign {
         this.title = title;
         this.description = description;
         this.videoReference = videoReference;
+    }
+
+    public String getId() {
+        return id;
+    }
+    public void setId(String id) {
+        this.id = id;
     }
 
     public DateTime getStartDate() {

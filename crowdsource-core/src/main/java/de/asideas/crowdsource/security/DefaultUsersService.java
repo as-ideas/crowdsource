@@ -23,7 +23,7 @@ public class DefaultUsersService {
     private static final Logger LOG = LoggerFactory.getLogger(DefaultUsersService.class);
 
     @Value("${de.asideas.crowdsource.createusers.fixtures.path}")
-    private ClassPathResource defaultUserFixtures;
+        private ClassPathResource defaultUserFixtures;
 
     private UserRepository userRepository;
     private PasswordEncoder passwordEncoder;

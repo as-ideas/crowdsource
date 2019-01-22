@@ -27,6 +27,7 @@ import static org.hamcrest.core.Is.is;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Matchers.eq;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.reset;
 import static org.mockito.Mockito.times;
@@ -36,7 +37,6 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class DefaultUserServiceTest {
 
-    @InjectMocks
     private DefaultUsersService defaultUserService;
 
     @Mock
@@ -52,8 +52,9 @@ public class DefaultUserServiceTest {
 
     @Before
     public void init() {
+        defaultUserService = new DefaultUsersService(userRepository, passwordEncoder, objectMapper);
         reset(userRepository, passwordEncoder, mockedInputSource);
-        ReflectionTestUtils.setField(defaultUserService, "objectMapper", objectMapper);
+        ReflectionTestUtils.setField(defaultUserService, "defaultUserFixtures", mockedInputSource);
     }
 
     @Test
