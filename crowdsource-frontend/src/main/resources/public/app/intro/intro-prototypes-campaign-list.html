@@ -1,5 +1,5 @@
 <div ng-if="!entries.length">
-    <span>Leider sind keine Einträge vorhanden</span>
+    <span>Zurzeit gibt es leider keine Prototypen Kampagne</span>
 </div>
 
 <ul ng-if="entries.length" ng-repeat="entry in entries">
@@ -7,7 +7,7 @@
        <span>{{entry.title}}</span>
        <span>{{entry.startDate}}</span>
        <span>{{entry.endDate}}</span>
-       <span>{{entry.teaser}}</span>
+       <p>{{entry.teaser}}</p>
        <span>{{entry.sponsor}}</span>
        <a class="button crwd-success radius shadow flush" href="#/ideas/{{entry.id}}">Zur Ideeen-Kampagne {{entry.title}}</a>
    </li>

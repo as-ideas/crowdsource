@@ -1,0 +1,15 @@
+<div ng-if="!entries.length">
+    <span>Zurzeit gibt es lieder keine Ideen Kampagnen</span>
+</div>
+
+<ul ng-if="entries.length" ng-repeat="entry in entries">
+   <li>
+       <article>
+           <h1>{{entry.title}}</h1>
+           <p>Sponsor: {{entry.sponsor}}</p>
+           <p>Startet am: {{entry.startDate}}</p>
+           <p>Endet am: {{entry.endDate}}</p>
+           <a class="button crwd-success radius shadow flush" href="#/ideas/{{entry.id}}">Zur Ideen-Kampagne</a>
+       </article>
+   </li>
+</ul>

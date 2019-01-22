@@ -1,4 +1,4 @@
-<content-row class="financing-round-overview">
+<content-row>
 
     <h1>Crowd Intro.html ist toll</h1>
 
@@ -6,20 +6,22 @@
         Lorem Zeugs für die Crowd, warum überhaupt und schöne Erklärung.
     </p>
 
-    <div ng-if="intro.auth.currentUser.loggedIn" class="campaigns columns content">
-        <div class="column medium-6">
+</content-row>
+
+<content-row>
+    <div class="row">
+        <div class="columns medium-6">
             <h3>Ideen Kampagnen</h3>
-            <intro-campaign-list entries="intro.campaigns.ideas"></intro-campaign-list>
+            <intro-ideas-campaign-list entries="intro.campaigns.ideas"></intro-ideas-campaign-list>
         </div>
 
-        <div class="column medium-6">
+        <div class="columns medium-6">
             <h3>Prototypen Kampagnen</h3>
-            <intro-campaign-list entries="intro.campaigns.prototypess"></intro-campaign-list>
+            <intro-prototypes-campaign-list entries="intro.campaigns.prototypes"></intro-prototypes-campaign-list>
         </div>
     </div>
 
     <div ng-if="!intro.auth.currentUser.loggedIn">
         <a class="button crwd-success radius shadow flush" href="#/login">Zum Login</a>
     </div>
-
 </content-row>

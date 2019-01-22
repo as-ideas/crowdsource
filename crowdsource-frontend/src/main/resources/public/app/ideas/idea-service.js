@@ -2,8 +2,22 @@ angular.module('crowdsource')
 
     .factory('Idea', function ($resource) {
 
+        function getCampaigns() {
+            return [{
+                title: "Plastikmanagement",
+                endDate: "1548866650",
+                owner: "Matthias Döpfner"
+            },
+            {
+                title: "Ideas Team Events",
+                endDate: "1548866650",
+                owner: "Lars Reith" +
+                    ""
+            }]
+        }
+
         function getAll() {
-            console.log('dd');
+
             return [{
                 author: 'peter@demo',
                 text: 'thismagiccc',
