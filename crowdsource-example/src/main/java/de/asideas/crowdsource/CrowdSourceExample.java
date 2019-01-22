@@ -16,7 +16,6 @@ public class CrowdSourceExample {
     private Integer mailServerPort;
 
     public static void main(String[] args) {
-
         extractHerokuMongoLabsArgs();
         SpringApplication.run(CrowdSourceExample.class, args);
     }
@@ -30,7 +29,6 @@ public class CrowdSourceExample {
 
     @Bean
     public Wiser mailServer() {
-
         Wiser wiser = new Wiser(mailServerPort);
         wiser.start();
         return wiser;

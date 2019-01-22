@@ -11,7 +11,6 @@
     <artifactId>crowdsource-core</artifactId>
 
     <properties>
-        <spring.security.version>4.2.10.RELEASE</spring.security.version>
         <github.global.server>github</github.global.server>
         <deploy.to.git>true</deploy.to.git>
 
@@ -143,10 +142,6 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-mongodb</artifactId>
-        </dependency>
         <dependency>
             <groupId>de.flapdoodle.embed</groupId>
             <artifactId>de.flapdoodle.embed.mongo</artifactId>
