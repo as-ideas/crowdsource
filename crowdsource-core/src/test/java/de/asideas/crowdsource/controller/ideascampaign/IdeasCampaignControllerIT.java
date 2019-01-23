@@ -17,6 +17,7 @@ import de.asideas.crowdsource.repository.ideascampaign.IdeasCampaignRepository;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertTrue;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -33,19 +34,37 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
         final String accessToken = obtainAccessToken(currentUser.getEmail(), currentUser.getPassword());
 
         final IdeasCampaign cmd = new IdeasCampaign(DateTime.now(), DateTime.now().plus(10000L),
-            null, "Test_Title", "test_descr", "test_vidRef");
+                null, "Test_Title", "test_descr", "test_vidRef");
 
         final MvcResult mvcResult = mockMvc.perform(post("/ideas_campaigns")
-            .content(mapper.writeValueAsString(cmd))
-            .contentType(MediaType.APPLICATION_JSON_UTF8)
-            .header("Authorization", "Bearer " + accessToken)
+                .content(mapper.writeValueAsString(cmd))
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .header("Authorization", "Bearer " + accessToken)
         )
-            .andDo(log())
-            .andExpect(status().isCreated()).andReturn();
+                .andDo(log())
+                .andExpect(status().isCreated()).andReturn();
 
         final IdeasCampaign actual = mapper.readValue(mvcResult.getResponse().getContentAsString(), IdeasCampaign.class);
         assertThat(ideasCampaignRepository.findOne(actual.getId()), notNullValue());
         thenCampaignContainsExpectedFields(actual, cmd, currentUser);
+    }
+
+    @Test
+    public void createIdeasCampaign_ShouldFailWithInvalidToken() throws Exception {
+        final String accessToken = "wrongwrongwrongwrongwrongwrongwrongwrongwrongwrong";
+
+        final IdeasCampaign cmd = new IdeasCampaign(DateTime.now(), DateTime.now().plus(10000L),
+                null, "Test_Title", "test_descr", "test_vidRef");
+
+        final MvcResult mvcResult = mockMvc.perform(post("/ideas_campaigns")
+                .content(mapper.writeValueAsString(cmd))
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .header("Authorization", "Bearer " + accessToken)
+        )
+                .andDo(log())
+                .andExpect(status().is4xxClientError()).andReturn();
+
+        assertTrue(ideasCampaignRepository.findActive(DateTime.now()).isEmpty());
     }
 
     private void thenCampaignContainsExpectedFields(IdeasCampaign actual, IdeasCampaign expected, UserEntity expInitiatorUser) {
