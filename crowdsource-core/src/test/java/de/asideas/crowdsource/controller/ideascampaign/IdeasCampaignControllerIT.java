@@ -32,7 +32,6 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
     @Autowired
     private IdeasCampaignRepository ideasCampaignRepository;
 
-
     @Test
     public void createIdeasCampaign_ShouldPersistCampaign() throws Exception {
         final UserEntity currentUser = givenAdminUserExists();

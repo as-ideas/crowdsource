@@ -1,6 +1,5 @@
 package de.asideas.crowdsource.domain.model.ideascampaign;
 
-import com.sun.tools.corba.se.idl.InvalidArgument;
 import org.joda.time.DateTime;
 import org.junit.Test;
 
