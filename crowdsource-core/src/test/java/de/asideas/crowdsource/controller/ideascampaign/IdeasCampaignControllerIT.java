@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 
 import de.asideas.crowdsource.AbstractCrowdIT;
 import de.asideas.crowdsource.domain.model.UserEntity;
@@ -21,6 +22,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -125,6 +127,32 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
         )
             .andDo(log())
             .andExpect(status().isUnauthorized());
+    }
+
+    @Test
+    public void modifyCampaignMasterdata_ShouldPersistChanges() throws Exception {
+        final UserEntity userEntity = givenAdminUserExists();
+        final String adminToken = obtainAccessToken(userEntity.getEmail(), userEntity.getPassword());
+        final IdeasCampaign givenCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
+
+        final IdeasCampaign modifyCmd = new IdeasCampaign(DateTime.now().plusDays(5), DateTime.now().plusDays(10),
+            null, "new_title", "newDescr", null);
+
+        mockMvc.perform(put("/ideas_campaigns/{campaignId}", givenCampaign.getId())
+            .header("Authorization", "Bearer " + adminToken)
+            .content(mapper.writeValueAsBytes(modifyCmd))
+            .contentType(MediaType.APPLICATION_JSON_UTF8)
+            .accept(MediaType.APPLICATION_JSON_UTF8)
+        )
+            .andDo(log())
+            .andExpect(status().isOk());
+
+        final IdeasCampaign actual = new IdeasCampaign(ideasCampaignRepository.findOne(givenCampaign.getId()));
+        assertThat(actual.getTitle(), equalTo(modifyCmd.getTitle()));
+        assertThat(actual.getDescription(), equalTo(modifyCmd.getDescription()));
+        assertThat(actual.getVideoReference(), equalTo(modifyCmd.getVideoReference()));
+        assertThat(actual.getStartDate().getMillis(), equalTo(modifyCmd.getStartDate().getMillis()));
+        assertThat(actual.getEndDate().getMillis(), equalTo(modifyCmd.getEndDate().getMillis()));
     }
 
     private IdeasCampaign givenValidCampaignCmd() {
