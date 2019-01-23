@@ -21,7 +21,6 @@ public class EligibleEmailValidatorTest {
         eligibleEmailValidator = spy(new EligibleEmailValidator());
         Whitebox.setInternalState(eligibleEmailValidator, "emailBlacklistPatterns", Arrays.asList("_extern"));
         Whitebox.setInternalState(eligibleEmailValidator, "allowedEmailDomains", Arrays.asList("allowed.de", "asideas.de"));
-
     }
 
     @Test
@@ -43,8 +42,8 @@ public class EligibleEmailValidatorTest {
     }
 
     @Test
-    public void isValid_shouldReturnTrueForAnyMailAddressOnEmptyWhiteList() {
-        Whitebox.setInternalState(eligibleEmailValidator, "allowedEmailDomains", new ArrayList());
+    public void isValid_shouldReturnTrueForAnyMailAddressOn_NonExistingList() {
+        Whitebox.setInternalState(eligibleEmailValidator, "allowedEmailDomains", null);
 
         assertTrue(eligibleEmailValidator.isValid("test@someHost.de", ValidatorTestUtil.constraintValidatorContext()));
     }
