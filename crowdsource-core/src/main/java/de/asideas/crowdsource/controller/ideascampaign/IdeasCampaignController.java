@@ -49,7 +49,7 @@ public class IdeasCampaignController {
         produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public IdeasCampaign modifyCampaignMasterdata(@Valid @RequestBody IdeasCampaign cmd, @PathVariable String id) {
         log.info("Going to modify ideas campaign: {}", id);
-        return null;
+        return ideasCampaignService.updateCampaign(cmd, id);
     }
 
     @Secured(Roles.ROLE_USER)

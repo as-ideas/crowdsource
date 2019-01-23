@@ -37,6 +37,19 @@ public class IdeasCampaignService {
         return new IdeasCampaign(savedRes);
     }
 
+    public IdeasCampaign updateCampaign(IdeasCampaign cmd, String id) {
+        final IdeasCampaignEntity storedCampaign = ideasCampaignRepository.findOne(id);
+        storedCampaign.setStartDate(cmd.getStartDate());
+        storedCampaign.setEndDate(cmd.getEndDate());
+        storedCampaign.setTitle(cmd.getTitle());
+        storedCampaign.setDescription(cmd.getDescription());
+        storedCampaign.setVideoReference(cmd.getVideoReference());
+
+        final IdeasCampaignEntity updatedCampaign = ideasCampaignRepository.save(storedCampaign);
+
+        return new IdeasCampaign(storedCampaign);
+    }
+
     private List<IdeasCampaign> toIdeasCampaigns(List<IdeasCampaignEntity> in) {
         return in.stream().map(IdeasCampaign::new).collect(Collectors.toList());
     }

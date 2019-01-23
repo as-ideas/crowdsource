@@ -131,8 +131,8 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
 
     @Test
     public void modifyCampaignMasterdata_ShouldPersistChanges() throws Exception {
-        final UserEntity userEntity = givenAdminUserExists();
-        final String adminToken = obtainAccessToken(userEntity.getEmail(), userEntity.getPassword());
+        final UserEntity userEntityAdmin = givenAdminUserExists();
+        final String adminToken = obtainAccessToken(userEntityAdmin.getEmail(), userEntityAdmin.getPassword());
         final IdeasCampaign givenCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
 
         final IdeasCampaign modifyCmd = new IdeasCampaign(DateTime.now().plusDays(5), DateTime.now().plusDays(10),
@@ -153,6 +153,48 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
         assertThat(actual.getVideoReference(), equalTo(modifyCmd.getVideoReference()));
         assertThat(actual.getStartDate().getMillis(), equalTo(modifyCmd.getStartDate().getMillis()));
         assertThat(actual.getEndDate().getMillis(), equalTo(modifyCmd.getEndDate().getMillis()));
+    }
+
+    @Test
+    public void modifyCampaignMasterdata_ShouldReturnForbidden_on_regularUser() throws Exception {
+        final UserEntity userEntityAdmin = givenAdminUserExists();
+        final String adminToken = obtainAccessToken(userEntityAdmin.getEmail(), userEntityAdmin.getPassword());
+        final IdeasCampaign givenCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
+
+        final UserEntity userEntity = givenUserExists();
+        final String userToken = obtainAccessToken(userEntity.getEmail(), userEntity.getPassword());
+
+        final IdeasCampaign modifyCmd = new IdeasCampaign(DateTime.now().plusDays(5), DateTime.now().plusDays(10),
+                null, "new_title", "newDescr", null);
+
+        mockMvc.perform(put("/ideas_campaigns/{campaignId}", givenCampaign.getId())
+                .header("Authorization", "Bearer " + userToken)
+                .content(mapper.writeValueAsBytes(modifyCmd))
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .accept(MediaType.APPLICATION_JSON_UTF8)
+        )
+                .andDo(log())
+                .andExpect(status().isForbidden());
+    }
+
+    @Test
+    public void modifyCampaignMasterdata_ShouldReturnUnauthorized_on_invalidToken() throws Exception {
+        final UserEntity userEntityAdmin = givenAdminUserExists();
+        final String invalidToken = "wrongwrongwrongwrongwrongwrongwrongwrongwrongwrong";
+        final String adminToken = obtainAccessToken(userEntityAdmin.getEmail(), userEntityAdmin.getPassword());
+        final IdeasCampaign givenCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
+
+        final IdeasCampaign modifyCmd = new IdeasCampaign(DateTime.now().plusDays(5), DateTime.now().plusDays(10),
+                null, "new_title", "newDescr", null);
+
+        mockMvc.perform(put("/ideas_campaigns/{campaignId}", givenCampaign.getId())
+                .header("Authorization", "Bearer " + invalidToken)
+                .content(mapper.writeValueAsBytes(modifyCmd))
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .accept(MediaType.APPLICATION_JSON_UTF8)
+        )
+                .andDo(log())
+                .andExpect(status().isUnauthorized());
     }
 
     private IdeasCampaign givenValidCampaignCmd() {
