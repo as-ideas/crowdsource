@@ -1,5 +1,6 @@
 package de.asideas.crowdsource.domain.model.ideascampaign;
 
+import com.sun.tools.corba.se.idl.InvalidArgument;
 import org.joda.time.DateTime;
 import org.junit.Test;
 
@@ -26,6 +27,36 @@ public class IdeasCampaignEntityTest {
 
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void newIdeasCampaigns_ShouldThrowOnInvalidTimeSpan() {
+        final String userId = "test_userId";
+        IdeasCampaign cmd = givenIdeasCampaignCmd(userId, DateTime.now().plusDays(3), DateTime.now().minusDays(1));
+
+        UserEntity initiator = givenUserEntity(userId);
+
+        IdeasCampaignEntity.newIdeasCampaign(cmd, initiator);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void newIdeasCampaigns_ShouldThrowOnEmptyStartDate() {
+        final String userId = "test_userId";
+        IdeasCampaign cmd = givenIdeasCampaignCmd(userId, null, DateTime.now().minusDays(1));
+
+        UserEntity initiator = givenUserEntity(userId);
+
+        IdeasCampaignEntity.newIdeasCampaign(cmd, initiator);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void newIdeasCampaigns_ShouldThrowOnEmptyEndDate() {
+        final String userId = "test_userId";
+        IdeasCampaign cmd = givenIdeasCampaignCmd(userId, DateTime.now().plusDays(3), null);
+
+        UserEntity initiator = givenUserEntity(userId);
+
+        IdeasCampaignEntity.newIdeasCampaign(cmd, initiator);
+    }
+
     @Test
     public void updateMasterdata_ShouldOverrideExpectedFields() {
         final String userId = "test_userId";
@@ -41,8 +72,45 @@ public class IdeasCampaignEntityTest {
 
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void updateMasterdata_ShouldThrowExceptionOnInvalidTimeSpan() {
+        final String userId = "test_userId";
+        IdeasCampaign cmd = givenIdeasCampaignCmd(userId);
+
+        final IdeasCampaign changeCmd = new IdeasCampaign(DateTime.now().plusDays(2), DateTime.now().plusDays(1),
+            new CampaignInitiator(userId, "new username"), "better sponsor", "amazing title", "longer description", "tuuuut", "usw");
+
+        final IdeasCampaignEntity testee = IdeasCampaignEntity.newIdeasCampaign(cmd, givenUserEntity(userId));
+        testee.updateMasterdata(changeCmd);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void updateMasterdata_ShouldThrowExceptionOnNullAsStartDate() {
+        final String userId = "test_userId";
+        IdeasCampaign cmd = givenIdeasCampaignCmd(userId);
+
+        final IdeasCampaign changeCmd = new IdeasCampaign(null, DateTime.now().plusDays(1),
+            new CampaignInitiator(userId, "new username"), "better sponsor", "amazing title", "longer description", "tuuuut", "usw");
+
+        final IdeasCampaignEntity testee = IdeasCampaignEntity.newIdeasCampaign(cmd, givenUserEntity(userId));
+        testee.updateMasterdata(changeCmd);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void updateMasterdata_ShouldThrowExceptionOnNullAsEndDate() {
+        final String userId = "test_userId";
+        IdeasCampaign cmd = givenIdeasCampaignCmd(userId);
+
+        final IdeasCampaign changeCmd = new IdeasCampaign(DateTime.now().plusDays(2), null,
+            new CampaignInitiator(userId, "new username"), "better sponsor", "amazing title", "longer description", "tuuuut", "usw");
+
+        final IdeasCampaignEntity testee = IdeasCampaignEntity.newIdeasCampaign(cmd, givenUserEntity(userId));
+        testee.updateMasterdata(changeCmd);
+    }
+
+
     @Test
-    public void isActive_shouldReturn_True_on_now_within_startDate_and_endDate(){
+    public void isActive_shouldReturn_True_on_now_within_startDate_and_endDate() {
         final IdeasCampaignEntity ideasCampaignEntity = IdeasCampaignEntity.newIdeasCampaign(givenIdeasCampaignCmd(
             "DerErwin", DateTime.now().minusDays(1), DateTime.now().plusMinutes(1)), givenUserEntity("DerErwin"));
 
@@ -50,7 +118,7 @@ public class IdeasCampaignEntityTest {
     }
 
     @Test
-    public void isActive_shouldReturn_False_on_now_Before_startDate(){
+    public void isActive_shouldReturn_False_on_now_Before_startDate() {
         final IdeasCampaignEntity ideasCampaignEntity = IdeasCampaignEntity.newIdeasCampaign(
             givenIdeasCampaignCmd("DerErwin", DateTime.now().plusDays(2), DateTime.now().plusDays(3)), givenUserEntity("DerErwin"));
 
@@ -58,20 +126,23 @@ public class IdeasCampaignEntityTest {
     }
 
     @Test
-    public void isActive_shouldReturn_False_on_now_After_endDate(){
+    public void isActive_shouldReturn_False_on_now_After_endDate() {
         final IdeasCampaignEntity ideasCampaignEntity = IdeasCampaignEntity.newIdeasCampaign(
             givenIdeasCampaignCmd("DerErwin", DateTime.now().minusDays(4), DateTime.now().minusDays(3)), givenUserEntity("DerErwin"));
 
         assertThat(ideasCampaignEntity.isActive(), is(false));
     }
 
+
     private IdeasCampaign givenIdeasCampaignCmd(String userId) {
         return givenIdeasCampaignCmd(userId, DateTime.now(), DateTime.now().plus(10000L));
     }
+
     private IdeasCampaign givenIdeasCampaignCmd(String userId, DateTime startDate, DateTime endDate) {
         return new IdeasCampaign(startDate, endDate,
             new CampaignInitiator(userId, "test_username"), "test_sponsor", "Test_Title", "test_descr", "test_vidRef", "test_teaserImg");
     }
+
     private UserEntity givenUserEntity(String userId) {
         UserEntity initiator = new UserEntity("test_mail", "test_firstname", "test_lastname");
         initiator.setId(userId);
