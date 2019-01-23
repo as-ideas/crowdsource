@@ -1,6 +1,6 @@
 package de.asideas.crowdsource.service.statistics;
 
-import de.asideas.crowdsource.repository.CommentRepository;
+import de.asideas.crowdsource.repository.prototypecampaign.CommentRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

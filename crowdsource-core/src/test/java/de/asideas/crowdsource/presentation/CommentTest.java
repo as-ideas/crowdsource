@@ -5,6 +5,8 @@ import org.junit.Test;
 import javax.validation.Validation;
 import javax.validation.Validator;
 
+import de.asideas.crowdsource.presentation.prototypecampaign.Comment;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 

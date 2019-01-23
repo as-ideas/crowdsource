@@ -2,7 +2,7 @@ package de.asideas.crowdsource.controller;
 
 import de.asideas.crowdsource.presentation.statistics.requests.TimeRangedStatisticsRequest;
 import de.asideas.crowdsource.presentation.statistics.results.LineChartStatisticsResult;
-import de.asideas.crowdsource.service.StatisticsService;
+import de.asideas.crowdsource.service.statistics.StatisticsService;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 import org.junit.Before;

@@ -1,6 +1,6 @@
 package de.asideas.crowdsource.controller.usercontroller;
 
-import de.asideas.crowdsource.domain.model.FinancingRoundEntity;
+import de.asideas.crowdsource.domain.model.prototypecampaign.FinancingRoundEntity;
 import org.junit.Test;
 import org.springframework.http.MediaType;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

@@ -2,12 +2,12 @@ package de.asideas.crowdsource.controller;
 
 import de.asideas.crowdsource.domain.exception.InvalidRequestException;
 import de.asideas.crowdsource.domain.exception.ResourceNotFoundException;
-import de.asideas.crowdsource.domain.model.FinancingRoundEntity;
+import de.asideas.crowdsource.domain.model.prototypecampaign.FinancingRoundEntity;
 import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.presentation.user.User;
 import de.asideas.crowdsource.presentation.user.UserActivation;
 import de.asideas.crowdsource.presentation.user.UserRegistration;
-import de.asideas.crowdsource.repository.FinancingRoundRepository;
+import de.asideas.crowdsource.repository.prototypecampaign.FinancingRoundRepository;
 import de.asideas.crowdsource.repository.UserRepository;
 import de.asideas.crowdsource.security.Roles;
 import de.asideas.crowdsource.service.UserService;
@@ -37,17 +37,21 @@ public class UserController {
 
     private static final Logger LOG = LoggerFactory.getLogger(UserController.class);
 
-    @Autowired
     private UserRepository userRepository;
 
-    @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @Autowired
     private UserService userService;
 
-    @Autowired
     private FinancingRoundRepository financingRoundRepository;
+
+    @Autowired
+    public UserController(UserRepository userRepository, PasswordEncoder passwordEncoder, UserService userService, FinancingRoundRepository financingRoundRepository) {
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+        this.userService = userService;
+        this.financingRoundRepository = financingRoundRepository;
+    }
 
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)

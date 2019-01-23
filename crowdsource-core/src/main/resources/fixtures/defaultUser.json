@@ -1,5 +1,7 @@
 [
   {
+    "firstName":  "Esel",
+    "lastName": "Ein",
     "email": "crowdsource@crowd.source.de",
     "password": "einEselGehtZumBaecker!",
     "roles": [
@@ -8,6 +10,8 @@
     "activated": true
   },
   {
+    "firstName": "Admin",
+    "lastName": "Baecker",
     "email": "cs_admin@crowd.source.de",
     "password": "einAdminGehtZumBaecker!",
     "roles": [

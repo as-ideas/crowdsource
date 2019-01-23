@@ -1,16 +1,16 @@
 package de.asideas.crowdsource.domain.service.financinground;
 
 
-import de.asideas.crowdsource.domain.model.FinancingRoundEntity;
-import de.asideas.crowdsource.domain.model.PledgeEntity;
-import de.asideas.crowdsource.domain.model.ProjectEntity;
+import de.asideas.crowdsource.domain.model.prototypecampaign.FinancingRoundEntity;
+import de.asideas.crowdsource.domain.model.prototypecampaign.PledgeEntity;
+import de.asideas.crowdsource.domain.model.prototypecampaign.ProjectEntity;
 import de.asideas.crowdsource.domain.model.UserEntity;
-import de.asideas.crowdsource.presentation.FinancingRound;
-import de.asideas.crowdsource.presentation.Pledge;
+import de.asideas.crowdsource.presentation.prototypecampaign.FinancingRound;
+import de.asideas.crowdsource.presentation.prototypecampaign.Pledge;
 import de.asideas.crowdsource.domain.shared.ProjectStatus;
-import de.asideas.crowdsource.repository.FinancingRoundRepository;
-import de.asideas.crowdsource.repository.PledgeRepository;
-import de.asideas.crowdsource.repository.ProjectRepository;
+import de.asideas.crowdsource.repository.prototypecampaign.FinancingRoundRepository;
+import de.asideas.crowdsource.repository.prototypecampaign.PledgeRepository;
+import de.asideas.crowdsource.repository.prototypecampaign.ProjectRepository;
 import org.hamcrest.core.Is;
 import org.joda.time.DateTime;
 import org.junit.Assert;

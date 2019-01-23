@@ -1,10 +1,10 @@
 package de.asideas.crowdsource.domain.service.financinground;
 
-import de.asideas.crowdsource.domain.model.FinancingRoundEntity;
-import de.asideas.crowdsource.domain.model.PledgeEntity;
-import de.asideas.crowdsource.repository.FinancingRoundRepository;
-import de.asideas.crowdsource.repository.PledgeRepository;
-import de.asideas.crowdsource.repository.ProjectRepository;
+import de.asideas.crowdsource.domain.model.prototypecampaign.FinancingRoundEntity;
+import de.asideas.crowdsource.domain.model.prototypecampaign.PledgeEntity;
+import de.asideas.crowdsource.repository.prototypecampaign.FinancingRoundRepository;
+import de.asideas.crowdsource.repository.prototypecampaign.PledgeRepository;
+import de.asideas.crowdsource.repository.prototypecampaign.ProjectRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

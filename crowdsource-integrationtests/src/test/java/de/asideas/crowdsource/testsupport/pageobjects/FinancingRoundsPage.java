@@ -1,6 +1,6 @@
 package de.asideas.crowdsource.testsupport.pageobjects;
 
-import de.asideas.crowdsource.presentation.FinancingRound;
+import de.asideas.crowdsource.presentation.prototypecampaign.FinancingRound;
 import de.asideas.crowdsource.testsupport.selenium.ElementUtils;
 import de.asideas.crowdsource.testsupport.selenium.SeleniumWait;
 import de.asideas.crowdsource.testsupport.selenium.WebDriverProvider;

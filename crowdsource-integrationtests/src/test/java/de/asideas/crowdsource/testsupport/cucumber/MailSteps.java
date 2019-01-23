@@ -4,7 +4,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import de.asideas.crowdsource.domain.model.UserEntity;
-import de.asideas.crowdsource.presentation.project.Project;
+import de.asideas.crowdsource.presentation.prototypecampaign.project.Project;
 import de.asideas.crowdsource.presentation.user.ProjectCreator;
 import de.asideas.crowdsource.domain.service.user.UserNotificationService;
 import de.asideas.crowdsource.domain.shared.ProjectStatus;

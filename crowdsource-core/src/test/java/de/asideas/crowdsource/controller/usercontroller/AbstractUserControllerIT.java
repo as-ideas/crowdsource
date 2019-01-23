@@ -5,7 +5,7 @@ import de.asideas.crowdsource.controller.ControllerExceptionAdvice;
 import de.asideas.crowdsource.controller.UserController;
 import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.domain.service.user.UserNotificationService;
-import de.asideas.crowdsource.repository.FinancingRoundRepository;
+import de.asideas.crowdsource.repository.prototypecampaign.FinancingRoundRepository;
 import de.asideas.crowdsource.repository.UserRepository;
 import de.asideas.crowdsource.service.UserService;
 import org.junit.Before;
@@ -105,7 +105,7 @@ public abstract class AbstractUserControllerIT {
 
         @Bean
         public UserController userController() {
-            return new UserController();
+            return new UserController(userRepository(), passwordEncoder(), userService(userRepository(), userActivationService()), financingRoundRepository());
         }
 
         @Bean

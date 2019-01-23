@@ -1,6 +1,6 @@
 package de.asideas.crowdsource;
 
-import de.asideas.crowdsource.presentation.project.Project;
+import de.asideas.crowdsource.presentation.prototypecampaign.project.Project;
 import de.asideas.crowdsource.testsupport.CrowdSourceTestConfig;
 import de.asideas.crowdsource.testsupport.util.CrowdSourceClient;
 import de.asideas.crowdsource.testsupport.util.UrlProvider;

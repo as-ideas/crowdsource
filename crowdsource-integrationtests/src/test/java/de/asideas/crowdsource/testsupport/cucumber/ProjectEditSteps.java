@@ -5,25 +5,20 @@ import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import de.asideas.crowdsource.presentation.project.Project;
+import de.asideas.crowdsource.presentation.prototypecampaign.project.Project;
 import de.asideas.crowdsource.testsupport.CrowdSourceTestConfig;
 import de.asideas.crowdsource.testsupport.pageobjects.project.ProjectAddAndModificationForm;
-import de.asideas.crowdsource.testsupport.pageobjects.project.ProjectAttachmentsWidget;
 import de.asideas.crowdsource.testsupport.pageobjects.project.ProjectDetailPage;
 import de.asideas.crowdsource.testsupport.selenium.WebDriverProvider;
-import de.asideas.crowdsource.testsupport.util.CrowdSourceClient;
+
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.test.context.ContextConfiguration;
 
-import java.io.IOException;
-
-import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
