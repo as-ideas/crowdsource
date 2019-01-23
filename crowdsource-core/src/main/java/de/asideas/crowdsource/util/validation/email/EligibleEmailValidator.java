@@ -60,7 +60,7 @@ public class EligibleEmailValidator implements ConstraintValidator<EligibleEmail
         if (allowedEmailDomains != null && allowedEmailDomains.isEmpty()) {
             return true;
         }
-        return allowedEmailDomains.contains(extractedDomain);
+        return allowedEmailDomains == null || allowedEmailDomains.contains(extractedDomain);
     }
 
     private String extractDomain(String email) {
