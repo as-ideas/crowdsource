@@ -38,6 +38,8 @@ public class IdeasCampaignEntity {
     private String title;
     private String description;
     private String videoReference;
+    private String sponsor;
+    private String teaserImageReference;
 
     private IdeasCampaignEntity(){}
 
@@ -49,6 +51,8 @@ public class IdeasCampaignEntity {
         res.setTitle(creationCmd.getTitle());
         res.setDescription(creationCmd.getDescription());
         res.setVideoReference(creationCmd.getVideoReference());
+        res.setSponsor(creationCmd.getSponsor());
+        res.setTeaserImageReference(creationCmd.getTeaserImageReference());
         return res;
     }
 
@@ -116,6 +120,20 @@ public class IdeasCampaignEntity {
         this.videoReference = videoReference;
     }
 
+    public String getTeaserImageReference() {
+        return teaserImageReference;
+    }
+    public void setTeaserImageReference(String teaserImageReference) {
+        this.teaserImageReference = teaserImageReference;
+    }
+
+    public String getSponsor() {
+        return sponsor;
+    }
+    public void setSponsor(String sponsor) {
+        this.sponsor = sponsor;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -131,5 +149,19 @@ public class IdeasCampaignEntity {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    public void updateMasterdata(IdeasCampaign cmd) {
+        this.setStartDate(cmd.getStartDate());
+        this.setEndDate(cmd.getEndDate());
+        this.setTitle(cmd.getTitle());
+        this.setDescription(cmd.getDescription());
+        this.setVideoReference(cmd.getVideoReference());
+        this.setTeaserImageReference(cmd.getTeaserImageReference());
+        this.setSponsor(cmd.getSponsor());
+    }
+
+    public boolean isActive(){
+        return this.startDate.isBeforeNow() && this.endDate.isAfterNow();
     }
 }

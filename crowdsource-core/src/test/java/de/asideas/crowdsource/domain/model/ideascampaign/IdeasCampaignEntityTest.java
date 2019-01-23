@@ -8,7 +8,8 @@ import de.asideas.crowdsource.presentation.ideascampaign.CampaignInitiator;
 import de.asideas.crowdsource.presentation.ideascampaign.IdeasCampaign;
 
 import static org.hamcrest.Matchers.equalTo;
-import static org.junit.Assert.*;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
 
 public class IdeasCampaignEntityTest {
 
@@ -16,8 +17,8 @@ public class IdeasCampaignEntityTest {
     public void newIdeasCampaign_ShouldReturnFullyInitializedCampaign() {
 
         final String userId = "test_userId";
-        IdeasCampaign cmd = new IdeasCampaign(DateTime.now(), DateTime.now().plus(10000L),
-            new CampaignInitiator(userId, "test_username"), "Test_Title", "test_descr", "test_vidRef");
+        IdeasCampaign cmd = givenIdeasCampaignCmd(userId);
+
         UserEntity initiator = givenUserEntity(userId);
 
         final IdeasCampaignEntity res = IdeasCampaignEntity.newIdeasCampaign(cmd, initiator);
@@ -25,22 +26,69 @@ public class IdeasCampaignEntityTest {
 
     }
 
+    @Test
+    public void updateMasterdata_ShouldOverrideExpectedFields() {
+        final String userId = "test_userId";
+        IdeasCampaign cmd = givenIdeasCampaignCmd(userId);
+
+        final IdeasCampaign changeCmd = new IdeasCampaign(DateTime.now().plusDays(1), DateTime.now().plusDays(2),
+            new CampaignInitiator(userId, "new username"), "better sponsor", "amazing title", "longer description", "tuuuut", "usw");
+
+        final IdeasCampaignEntity testee = IdeasCampaignEntity.newIdeasCampaign(cmd, givenUserEntity(userId));
+        testee.updateMasterdata(changeCmd);
+
+        thenIdeasCampaignContainsExpectedFields(testee, changeCmd);
+
+    }
+
+    @Test
+    public void isActive_shouldReturn_True_on_now_within_startDate_and_endDate(){
+        final IdeasCampaignEntity ideasCampaignEntity = IdeasCampaignEntity.newIdeasCampaign(givenIdeasCampaignCmd(
+            "DerErwin", DateTime.now().minusDays(1), DateTime.now().plusMinutes(1)), givenUserEntity("DerErwin"));
+
+        assertThat(ideasCampaignEntity.isActive(), is(true));
+    }
+
+    @Test
+    public void isActive_shouldReturn_False_on_now_Before_startDate(){
+        final IdeasCampaignEntity ideasCampaignEntity = IdeasCampaignEntity.newIdeasCampaign(
+            givenIdeasCampaignCmd("DerErwin", DateTime.now().plusDays(2), DateTime.now().plusDays(3)), givenUserEntity("DerErwin"));
+
+        assertThat(ideasCampaignEntity.isActive(), is(false));
+    }
+
+    @Test
+    public void isActive_shouldReturn_False_on_now_After_endDate(){
+        final IdeasCampaignEntity ideasCampaignEntity = IdeasCampaignEntity.newIdeasCampaign(
+            givenIdeasCampaignCmd("DerErwin", DateTime.now().minusDays(4), DateTime.now().minusDays(3)), givenUserEntity("DerErwin"));
+
+        assertThat(ideasCampaignEntity.isActive(), is(false));
+    }
+
+    private IdeasCampaign givenIdeasCampaignCmd(String userId) {
+        return givenIdeasCampaignCmd(userId, DateTime.now(), DateTime.now().plus(10000L));
+    }
+    private IdeasCampaign givenIdeasCampaignCmd(String userId, DateTime startDate, DateTime endDate) {
+        return new IdeasCampaign(startDate, endDate,
+            new CampaignInitiator(userId, "test_username"), "test_sponsor", "Test_Title", "test_descr", "test_vidRef", "test_teaserImg");
+    }
     private UserEntity givenUserEntity(String userId) {
         UserEntity initiator = new UserEntity("test_mail", "test_firstname", "test_lastname");
         initiator.setId(userId);
         return initiator;
     }
 
-    private void thenIdeasCampaignContainsExpectedFields(IdeasCampaignEntity actualRes, IdeasCampaign cmd) {
-        assertThat(actualRes.getStartDate(), equalTo(cmd.getStartDate()));
-        assertThat(actualRes.getEndDate(), equalTo(cmd.getEndDate()));
+    private void thenIdeasCampaignContainsExpectedFields(IdeasCampaignEntity actualRes, IdeasCampaign expected) {
+        assertThat(actualRes.getStartDate(), equalTo(expected.getStartDate()));
+        assertThat(actualRes.getEndDate(), equalTo(expected.getEndDate()));
 
-        assertThat(actualRes.getTitle(), equalTo(cmd.getTitle()));
-        assertThat(actualRes.getDescription(), equalTo(cmd.getDescription()));
-        assertThat(actualRes.getVideoReference(), equalTo(cmd.getVideoReference()));
+        assertThat(actualRes.getSponsor(), equalTo(expected.getSponsor()));
+        assertThat(actualRes.getTitle(), equalTo(expected.getTitle()));
+        assertThat(actualRes.getDescription(), equalTo(expected.getDescription()));
+        assertThat(actualRes.getVideoReference(), equalTo(expected.getVideoReference()));
+        assertThat(actualRes.getTeaserImageReference(), equalTo(expected.getTeaserImageReference()));
 
-        assertThat(actualRes.getInitiator().getId(), equalTo(cmd.getCampaignInitiator().getId()));
-
+        assertThat(actualRes.getInitiator().getId(), equalTo(expected.getCampaignInitiator().getId()));
     }
 
 }
