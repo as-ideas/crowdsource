@@ -41,9 +41,11 @@ public class IdeasCampaignService {
         final IdeasCampaignEntity storedCampaign = ideasCampaignRepository.findOne(id);
         storedCampaign.setStartDate(cmd.getStartDate());
         storedCampaign.setEndDate(cmd.getEndDate());
+        storedCampaign.setSponsor(cmd.getSponsor());
         storedCampaign.setTitle(cmd.getTitle());
         storedCampaign.setDescription(cmd.getDescription());
         storedCampaign.setVideoReference(cmd.getVideoReference());
+        storedCampaign.setTeaserImageReference(cmd.getTeaserImageReference());
 
         final IdeasCampaignEntity updatedCampaign = ideasCampaignRepository.save(storedCampaign);
 

@@ -136,7 +136,7 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
         final IdeasCampaign givenCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
 
         final IdeasCampaign modifyCmd = new IdeasCampaign(DateTime.now().plusDays(5), DateTime.now().plusDays(10),
-            null, "new_title", "newDescr", null);
+            null, "new Sponsor", "new_title", "newDescr", null, "new teaser image");
 
         mockMvc.perform(put("/ideas_campaigns/{campaignId}", givenCampaign.getId())
             .header("Authorization", "Bearer " + adminToken)
@@ -149,8 +149,10 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
 
         final IdeasCampaign actual = new IdeasCampaign(ideasCampaignRepository.findOne(givenCampaign.getId()));
         assertThat(actual.getTitle(), equalTo(modifyCmd.getTitle()));
+        assertThat(actual.getSponsor(), equalTo(modifyCmd.getSponsor()));
         assertThat(actual.getDescription(), equalTo(modifyCmd.getDescription()));
         assertThat(actual.getVideoReference(), equalTo(modifyCmd.getVideoReference()));
+        assertThat(actual.getTeaserImageReference(), equalTo(modifyCmd.getTeaserImageReference()));
         assertThat(actual.getStartDate().getMillis(), equalTo(modifyCmd.getStartDate().getMillis()));
         assertThat(actual.getEndDate().getMillis(), equalTo(modifyCmd.getEndDate().getMillis()));
     }
@@ -165,7 +167,7 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
         final String userToken = obtainAccessToken(userEntity.getEmail(), userEntity.getPassword());
 
         final IdeasCampaign modifyCmd = new IdeasCampaign(DateTime.now().plusDays(5), DateTime.now().plusDays(10),
-                null, "new_title", "newDescr", null);
+                null, "new Sponsor", "new_title", "newDescr", null, "new teaser image");
 
         mockMvc.perform(put("/ideas_campaigns/{campaignId}", givenCampaign.getId())
                 .header("Authorization", "Bearer " + userToken)
@@ -185,7 +187,7 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
         final IdeasCampaign givenCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
 
         final IdeasCampaign modifyCmd = new IdeasCampaign(DateTime.now().plusDays(5), DateTime.now().plusDays(10),
-                null, "new_title", "newDescr", null);
+                null, "new Sponsor", "new_title", "newDescr", null, "new teaser image");
 
         mockMvc.perform(put("/ideas_campaigns/{campaignId}", givenCampaign.getId())
                 .header("Authorization", "Bearer " + invalidToken)
@@ -199,7 +201,7 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
 
     private IdeasCampaign givenValidCampaignCmd() {
         return new IdeasCampaign(DateTime.now(), DateTime.now().plus(10000L),
-            null, "Test_Title", "test_descr", "test_vidRef");
+            null, "The Sponsor", "Test_Title", "test_descr", "test_vidRef", "test_teaserImage");
     }
 
     private IdeasCampaign givenIdeasCampaignExists(String accessToken, IdeasCampaign cmd) throws Exception {
@@ -222,6 +224,8 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
         assertThat(actual.getTitle(), equalTo(expected.getTitle()));
         assertThat(actual.getDescription(), equalTo(expected.getDescription()));
         assertThat(actual.getVideoReference(), equalTo(expected.getVideoReference()));
+        assertThat(actual.getTeaserImageReference(), equalTo(expected.getTeaserImageReference()));
+        assertThat(actual.getSponsor(), equalTo(expected.getSponsor()));
         assertThat(actual.getId(), notNullValue());
     }
 
