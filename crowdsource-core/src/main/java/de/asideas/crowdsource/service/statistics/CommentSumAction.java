@@ -2,7 +2,7 @@ package de.asideas.crowdsource.service.statistics;
 
 import de.asideas.crowdsource.presentation.statistics.requests.TimeRangedStatisticsRequest;
 import de.asideas.crowdsource.presentation.statistics.results.LineChartStatisticsResult;
-import de.asideas.crowdsource.repository.CommentRepository;
+import de.asideas.crowdsource.repository.prototypecampaign.CommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

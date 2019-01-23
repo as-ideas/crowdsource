@@ -1,8 +1,8 @@
 package de.asideas.crowdsource.service;
 
 import de.asideas.crowdsource.config.mail.MailTemplateConfig;
-import de.asideas.crowdsource.domain.model.CommentEntity;
-import de.asideas.crowdsource.domain.model.ProjectEntity;
+import de.asideas.crowdsource.domain.model.prototypecampaign.CommentEntity;
+import de.asideas.crowdsource.domain.model.prototypecampaign.ProjectEntity;
 import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.domain.service.user.UserNotificationService;
 import de.asideas.crowdsource.domain.shared.ProjectStatus;

@@ -1,10 +1,9 @@
 package de.asideas.crowdsource.service.statistics;
 
-import de.asideas.crowdsource.domain.model.ProjectEntity;
-import de.asideas.crowdsource.presentation.project.Project;
+import de.asideas.crowdsource.domain.model.prototypecampaign.ProjectEntity;
 import de.asideas.crowdsource.presentation.statistics.requests.TimeRangedStatisticsRequest;
 import de.asideas.crowdsource.presentation.statistics.results.LineChartStatisticsResult;
-import de.asideas.crowdsource.repository.ProjectRepository;
+import de.asideas.crowdsource.repository.prototypecampaign.ProjectRepository;
 import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;

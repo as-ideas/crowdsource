@@ -2,7 +2,7 @@ package de.asideas.crowdsource.presentation.user;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import de.asideas.crowdsource.domain.model.UserEntity;
-import de.asideas.crowdsource.presentation.project.Project;
+import de.asideas.crowdsource.presentation.prototypecampaign.project.Project;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
