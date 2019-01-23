@@ -1,0 +1,98 @@
+@import '../../settings';
+
+$image-size: 80px;
+$margin: 20px;
+$padding: 10px;
+$su-oneandhalf : rem-calc($crowd-font-size * 1.5);
+
+.campaign {
+
+  &__heading {
+    font-size: $su-oneandhalf;
+    margin-bottom: $margin;
+    text-align: center;
+  }
+
+  &__container {
+    a {
+      text-decoration: none;
+    }
+  }
+
+
+  &__item {
+    display: block;
+    padding: $padding;
+    background-color: $clr-white;
+
+    &:hover {
+      transition: background 0.2s linear;
+      background: $clr-green-shade-transparent;
+    }
+  }
+
+  &__divider {
+    margin: $margin auto;
+    width:80%;
+    border-bottom:2px solid $clr-base-green;
+  }
+
+  &__divider-vertical {
+   height:80%;
+    border-bottom:2px solid $clr-base-green;
+  }
+
+  &__image-container {
+    position: relative;
+    display: inline-block;
+    width: $image-size;
+    height: $image-size;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  &__details-container {
+    vertical-align: top;
+    margin-left:10px;
+    display: inline-block;
+  }
+
+  &__state-container {
+    float: right;
+    vertical-align: top;
+    display:inline-block;
+  }
+
+  &__state-icon--clock {
+    @extend %intro-box__item-icon;
+    background-color: $clr-green-shade-3;
+    background-image: url('../images/icons/time_clock_with_arrow.svg');
+  }
+
+  &__image {
+    position: absolute;
+    display: block;
+    width: $image-size;
+    height: $image-size;
+    object-fit: cover;
+
+    -webkit-filter: saturate(60%);
+  }
+
+
+
+  &__title {
+    font-size: $su-oneandhalf;
+  }
+
+  &__sponsor {
+    font-size: $su-base;
+  }
+
+  &__noentry {
+    height: 100px;
+    text-align: center;
+    background-color: $clr-white;
+    padding: $padding;
+  }
+}
+

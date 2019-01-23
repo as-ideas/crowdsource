@@ -11,10 +11,11 @@ angular.module('crowdsource')
 
         activate();
 
-
         function activate() {
-            getIdeaCampaigns();
-            getPrototypeCampaigns();
+            if(Authentication.currentUser.loggedIn) {
+                getIdeaCampaigns();
+                getPrototypeCampaigns();
+            }
         }
 
 

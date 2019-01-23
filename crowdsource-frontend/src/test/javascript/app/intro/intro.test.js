@@ -1,6 +1,6 @@
 describe('intro page', function () {
 
-    var $scope, intro, Authentication, template, $controller, $rootScope, $compile, Project;
+    var intro, Authentication, template, $controller, $rootScope, $compile, Project, $httpBackend;
 
     beforeEach(function () {
         module('crowdsource')
@@ -9,23 +9,18 @@ describe('intro page', function () {
 
         localStorage.clear();
 
-        inject(function (_$compile_, _$rootScope_, $templateCache, _$controller_, $q, _Project_, _Idea_, _Authentication_) {
+        inject(function (_$compile_, _$rootScope_, $templateCache, _$controller_, $q, _Project_, _Idea_, _Authentication_, _$httpBackend_) {
             $compile = _$compile_;
             $controller = _$controller_;
             $rootScope = _$rootScope_;
             Authentication = _Authentication_;
             Project = _Project_;
             Idea = _Idea_;
+            $httpBackend = _$httpBackend_;
 
             spyOn(Project, "getCampaigns").and.callFake(function () {
                 var deferred = $q.defer();
                 deferred.resolve([]);
-                return deferred.promise;
-            });
-
-            spyOn(Idea, "getCampaigns").and.callFake(function () {
-                var deferred = $q.defer();
-                deferred.resolve([{id: 123, title: 'some title'}], {id: 1232, title: 'another title'});
                 return deferred.promise;
             });
 
@@ -37,6 +32,11 @@ describe('intro page', function () {
     it('should render the list of ideas and prototypes if user is logged in', function () {
         var scope = $rootScope.$new();
         Authentication.currentUser.loggedIn = true;
+
+        $httpBackend.expectGET('/ideas_campaigns').respond(200, [
+            {id: 123, title: 'some title'},
+            {id: 2, title: 'another one'}
+            ]);
 
         $controller('IntroController as intro', {
             $scope: scope,
@@ -50,7 +50,7 @@ describe('intro page', function () {
         var ideasCampaign = intro.find('intro-ideas-campaign-list');
         expect(ideasCampaign.length).toEqual(1);
 
-        var prototypeCampaign = intro.find('intro-prototype-campaign-list');
+        var prototypeCampaign = intro.find('intro-prototypes-campaign-list');
         expect(prototypeCampaign.length).toEqual(1);
     });
 
@@ -77,4 +77,6 @@ describe('intro page', function () {
         expect(loginButton).toHaveText('Zum Login');
 
     });
+
+
 });
