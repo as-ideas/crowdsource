@@ -51,6 +51,8 @@ public class IdeasCampaignEntity {
         res.setTitle(creationCmd.getTitle());
         res.setDescription(creationCmd.getDescription());
         res.setVideoReference(creationCmd.getVideoReference());
+        res.setSponsor(creationCmd.getSponsor());
+        res.setTeaserImageReference(creationCmd.getTeaserImageReference());
         return res;
     }
 
@@ -147,5 +149,19 @@ public class IdeasCampaignEntity {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    public void updateMasterdata(IdeasCampaign cmd) {
+        this.setStartDate(cmd.getStartDate());
+        this.setEndDate(cmd.getEndDate());
+        this.setTitle(cmd.getTitle());
+        this.setDescription(cmd.getDescription());
+        this.setVideoReference(cmd.getVideoReference());
+        this.setTeaserImageReference(cmd.getTeaserImageReference());
+        this.setSponsor(cmd.getSponsor());
+    }
+
+    public boolean isActive(){
+        return this.startDate.isBeforeNow() && this.endDate.isAfterNow();
     }
 }

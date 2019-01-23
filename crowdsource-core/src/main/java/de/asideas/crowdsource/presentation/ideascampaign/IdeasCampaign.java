@@ -33,6 +33,8 @@ public class IdeasCampaign {
 
     private String teaserImageReference;
 
+    private boolean active;
+
     private IdeasCampaign() {
     }
     public IdeasCampaign(IdeasCampaignEntity input) {
@@ -45,8 +47,9 @@ public class IdeasCampaign {
         this.description = input.getDescription();
         this.videoReference = input.getVideoReference();
         this.teaserImageReference = input.getTeaserImageReference();
-
+        this.active = input.isActive();
     }
+
     public IdeasCampaign(DateTime startDate, DateTime endDate, CampaignInitiator campaignInitiator, String sponsor, String title, String description, String videoReference, String teaserImageReference) {
         this.startDate = startDate;
         this.endDate = endDate;
@@ -121,18 +124,12 @@ public class IdeasCampaign {
         this.sponsor = sponsor;
     }
 
-    @Override
-    public String toString() {
-        return "IdeasCampaign{" +
-            "startDate=" + startDate +
-            ", endDate=" + endDate +
-            ", campaignInitiator=" + campaignInitiator +
-            ", sponsor='" + sponsor + '\'' +
-            ", title='" + title + '\'' +
-            ", description='" + description + '\'' +
-            ", videoReference='" + videoReference + '\'' +
-            ", teaserImageReference='" + teaserImageReference + '\'' +
-            '}';
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
     @Override
@@ -144,18 +141,36 @@ public class IdeasCampaign {
             return false;
         }
         IdeasCampaign that = (IdeasCampaign) o;
-        return Objects.equals(startDate, that.startDate) &&
+        return active == that.active &&
+            Objects.equals(id, that.id) &&
+            Objects.equals(startDate, that.startDate) &&
             Objects.equals(endDate, that.endDate) &&
             Objects.equals(campaignInitiator, that.campaignInitiator) &&
-            Objects.equals(sponsor, that.sponsor) &&
             Objects.equals(title, that.title) &&
             Objects.equals(description, that.description) &&
+            Objects.equals(sponsor, that.sponsor) &&
             Objects.equals(videoReference, that.videoReference) &&
             Objects.equals(teaserImageReference, that.teaserImageReference);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(startDate, endDate, campaignInitiator, sponsor, title, description, videoReference, teaserImageReference);
+        return Objects.hash(id, startDate, endDate, campaignInitiator, title, description, sponsor, videoReference, teaserImageReference, active);
+    }
+
+    @Override
+    public String toString() {
+        return "IdeasCampaign{" +
+            "id='" + id + '\'' +
+            ", startDate=" + startDate +
+            ", endDate=" + endDate +
+            ", campaignInitiator=" + campaignInitiator +
+            ", title='" + title + '\'' +
+            ", description='" + description + '\'' +
+            ", sponsor='" + sponsor + '\'' +
+            ", videoReference='" + videoReference + '\'' +
+            ", teaserImageReference='" + teaserImageReference + '\'' +
+            ", active=" + active +
+            '}';
     }
 }

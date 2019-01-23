@@ -37,19 +37,11 @@ public class IdeasCampaignService {
         return new IdeasCampaign(savedRes);
     }
 
-    public IdeasCampaign updateCampaign(IdeasCampaign cmd, String id) {
-        final IdeasCampaignEntity storedCampaign = ideasCampaignRepository.findOne(id);
-        storedCampaign.setStartDate(cmd.getStartDate());
-        storedCampaign.setEndDate(cmd.getEndDate());
-        storedCampaign.setSponsor(cmd.getSponsor());
-        storedCampaign.setTitle(cmd.getTitle());
-        storedCampaign.setDescription(cmd.getDescription());
-        storedCampaign.setVideoReference(cmd.getVideoReference());
-        storedCampaign.setTeaserImageReference(cmd.getTeaserImageReference());
+    public IdeasCampaign updateMasterdata(IdeasCampaign cmd) {
+        final IdeasCampaignEntity storedCampaign = ideasCampaignRepository.findOne(cmd.getId());
+        storedCampaign.updateMasterdata(cmd);
 
-        final IdeasCampaignEntity updatedCampaign = ideasCampaignRepository.save(storedCampaign);
-
-        return new IdeasCampaign(storedCampaign);
+        return new IdeasCampaign(ideasCampaignRepository.save(storedCampaign));
     }
 
     private List<IdeasCampaign> toIdeasCampaigns(List<IdeasCampaignEntity> in) {

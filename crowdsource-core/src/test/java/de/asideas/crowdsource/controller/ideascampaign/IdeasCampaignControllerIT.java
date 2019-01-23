@@ -17,6 +17,7 @@ import de.asideas.crowdsource.presentation.ideascampaign.IdeasCampaign;
 import de.asideas.crowdsource.repository.ideascampaign.IdeasCampaignRepository;
 
 import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertTrue;
@@ -200,7 +201,7 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
     }
 
     private IdeasCampaign givenValidCampaignCmd() {
-        return new IdeasCampaign(DateTime.now(), DateTime.now().plus(10000L),
+        return new IdeasCampaign(DateTime.now().minus(1000L), DateTime.now().plus(10000L),
             null, "The Sponsor", "Test_Title", "test_descr", "test_vidRef", "test_teaserImage");
     }
 
@@ -219,6 +220,8 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
         final CampaignInitiator expInitiator = new CampaignInitiator(expInitiatorUser);
         expected.setCampaignInitiator(expInitiator);
 
+        assertThat(actual.getId(), notNullValue());
+        assertThat(actual.isActive(), is(true));
         assertThat(actual.getStartDate().getMillis(), equalTo(expected.getStartDate().getMillis()));
         assertThat(actual.getEndDate().getMillis(), equalTo(expected.getEndDate().getMillis()));
         assertThat(actual.getTitle(), equalTo(expected.getTitle()));
@@ -226,7 +229,6 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
         assertThat(actual.getVideoReference(), equalTo(expected.getVideoReference()));
         assertThat(actual.getTeaserImageReference(), equalTo(expected.getTeaserImageReference()));
         assertThat(actual.getSponsor(), equalTo(expected.getSponsor()));
-        assertThat(actual.getId(), notNullValue());
     }
 
 }
