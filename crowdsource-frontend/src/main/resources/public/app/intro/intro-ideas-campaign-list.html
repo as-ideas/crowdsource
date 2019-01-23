@@ -2,10 +2,10 @@
     <span>Zurzeit gibt es lieder keine Ideen Kampagnen</span>
 </div>
 
-<ul ng-if="entries.length" ng-repeat="entry in entries">
-   <li>
+<ul ng-if="entries.length" ng-repeat="entry in entries" class="ideasCampaign__container">
+   <li class="ideasCampaign__item">
        <article>
-           <h1>{{entry.title}}</h1>
+           <h1 class="ideasCampaign__heading">{{entry.title}}</h1>
            <p>Sponsor: {{entry.sponsor}}</p>
            <p>Startet am: {{entry.startDate}}</p>
            <p>Endet am: {{entry.endDate}}</p>

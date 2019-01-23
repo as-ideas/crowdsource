@@ -1,4 +1,4 @@
-fdescribe('user signup view', function () {
+describe('user signup view', function () {
 
     var $httpBackend, $location, signupForm;
 

@@ -9,7 +9,7 @@
 </content-row>
 
 <content-row>
-    <div class="row">
+    <div class="row" ng-if="intro.auth.currentUser.loggedIn">
         <div class="columns medium-6">
             <h3>Ideen Kampagnen</h3>
             <intro-ideas-campaign-list entries="intro.campaigns.ideas"></intro-ideas-campaign-list>
@@ -17,7 +17,7 @@
 
         <div class="columns medium-6">
             <h3>Prototypen Kampagnen</h3>
-            <intro-prototypes-campaign-list entries="intro.campaigns.prototypes"></intro-prototypes-campaign-list>
+            <intro-prototype-campaign-list entries="intro.campaigns.prototypes"></intro-prototype-campaign-list>
         </div>
     </div>
 
