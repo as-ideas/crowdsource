@@ -1,7 +1,6 @@
 <content-row>
 
     <h1>Crowd Intro.html ist toll</h1>
-
     <p style="min-height: 180px; border: 1px dotted pink">
         Lorem Zeugs für die Crowd, warum überhaupt und schöne Erklärung.
     </p>
@@ -11,13 +10,13 @@
 <content-row>
     <div class="row" ng-if="intro.auth.currentUser.loggedIn">
         <div class="columns medium-6">
-            <h3>Ideen Kampagnen</h3>
             <intro-ideas-campaign-list entries="intro.campaigns.ideas"></intro-ideas-campaign-list>
         </div>
 
+        <vr class="campaign__divider-vertical"></vr>
+
         <div class="columns medium-6">
-            <h3>Prototypen Kampagnen</h3>
-            <intro-prototype-campaign-list entries="intro.campaigns.prototypes"></intro-prototype-campaign-list>
+            <intro-prototypes-campaign-list entries="intro.campaigns.prototypes"></intro-prototypes-campaign-list>
         </div>
     </div>
 

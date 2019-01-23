@@ -21,7 +21,8 @@ angular.module('crowdsource')
                     startDate: "",
                     endDate: "",
                     teaser: "Lorem ipsum dolor sit amet,consetetur sadipscing elitr",
-                    sponsor: "Michael Alber"
+                    sponsor: "Michael Alber",
+                    state: 'EXPIRED'
                 }
             ]);
             return deferred.promise;
