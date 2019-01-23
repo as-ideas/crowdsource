@@ -1,8 +1,6 @@
-xdescribe('intro page', function () {
+describe('intro page', function () {
 
-    var MockAuthentication = jasmine.createSpyObj('Authentication')
-
-    var $scope, intro, Authentication, template, $controller, $rootScope, $compile;
+    var $scope, intro, Authentication, template, $controller, $rootScope, $compile, Project;
 
     beforeEach(function () {
         module('crowdsource')
@@ -11,10 +9,13 @@ xdescribe('intro page', function () {
 
         localStorage.clear();
 
-        inject(function (_$compile_, _$rootScope_, $templateCache, _$controller_, $q, Project, Idea, _Authentication_) {
+        inject(function (_$compile_, _$rootScope_, $templateCache, _$controller_, $q, _Project_, _Idea_, _Authentication_) {
             $compile = _$compile_;
             $controller = _$controller_;
             $rootScope = _$rootScope_;
+            Authentication = _Authentication_;
+            Project = _Project_;
+            Idea = _Idea_;
 
             spyOn(Project, "getCampaigns").and.callFake(function () {
                 var deferred = $q.defer();
@@ -34,49 +35,46 @@ xdescribe('intro page', function () {
 
 
     it('should render the list of ideas and prototypes if user is logged in', function () {
-        $scope = $rootScope.$new();
-
-        MockAuthentication.currentUser.loggedIn = true;
+        var scope = $rootScope.$new();
+        Authentication.currentUser.loggedIn = true;
 
         $controller('IntroController as intro', {
-            $scope: $scope,
+            $scope: scope,
             Project: Project,
             Idea: Idea,
-            Authentication: MockAuthentication
+            Authentication: Authentication
         });
-        intro = $compile('<div>' + template + '<div>')($scope);
-        $scope.digest();
+        intro = $compile('<div>' + template + '<div>')(scope);
+        scope.$digest();
 
         var ideasCampaign = intro.find('intro-ideas-campaign-list');
-        console.log(ideasCampaign)
-        console.log("HTML: " + ideasCampaign.toHtml())
-        expect(ideasCampaign.length).toEqual(0);
+        expect(ideasCampaign.length).toEqual(1);
 
         var prototypeCampaign = intro.find('intro-prototype-campaign-list');
         expect(prototypeCampaign.length).toEqual(1);
     });
 
     it('should show login button if user is not logged in and not the campaign lists', function () {
-        $scope = $rootScope.$new();
+        var scope = $rootScope.$new();
 
-        MockAuthentication.currentUser.loggedIn = false;
+        Authentication.currentUser.loggedIn = false;
 
         $controller('IntroController as intro', {
-            $scope: $scope,
+            $scope: scope,
             Project: Project,
             Idea: Idea,
-            Authentication: MockAuthentication
+            Authentication: Authentication
         });
-        intro = $compile('<div>' + template + '<div>')($scope);
-        $scope.digest();
+        intro = $compile('<div>' + template + '<div>')(scope);
+        scope.$digest();
 
         var prototypeCampaign = intro.find('intro-prototype-campaign-list');
         var ideasCampaign = intro.find('intro-ideas-campaign-list');
         expect(prototypeCampaign.length).toEqual(0);
         expect(ideasCampaign.length).toEqual(0);
 
-        var loginButton = intro.find('a.button');
-        loginButton.toHaveText('Zum Login');
+        var loginButton = intro.find('a');
+        expect(loginButton).toHaveText('Zum Login');
 
     });
 });
