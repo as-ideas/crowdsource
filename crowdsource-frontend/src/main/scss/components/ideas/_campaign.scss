@@ -4,6 +4,8 @@ $image-size: 80px;
 $margin: 20px;
 $padding: 10px;
 $su-oneandhalf : rem-calc($crowd-font-size * 1.5);
+$icon-size: 28px;
+$icon-color: #3C3C3C;
 
 .campaign {
 
@@ -25,6 +27,7 @@ $su-oneandhalf : rem-calc($crowd-font-size * 1.5);
     display: block;
     padding: $padding;
     background-color: $clr-white;
+    transition: background 0.2s linear;
 
     &:hover {
       transition: background 0.2s linear;
@@ -64,8 +67,14 @@ $su-oneandhalf : rem-calc($crowd-font-size * 1.5);
   }
 
   &__state-icon--clock {
-    @extend %intro-box__item-icon;
-    background-color: $clr-green-shade-3;
+    display: inline-block;
+    width: $icon-size;
+    height: $icon-size;
+    border-radius: 50%;
+    background-position: calc(50% - 0px) calc(50% - 0px);
+    background-repeat: no-repeat;
+    background-size: rem-calc(22px);
+    background-color: $icon-color;
     background-image: url('../images/icons/time_clock_with_arrow.svg');
   }
 
@@ -87,13 +96,19 @@ $su-oneandhalf : rem-calc($crowd-font-size * 1.5);
 
   &__sponsor {
     font-size: $su-base;
+    color: $clr-indigo;
   }
 
-  &__noentry {
+  &-noentry {
     height: 100px;
     text-align: center;
-    background-color: $clr-white;
     padding: $padding;
+
+    &__description {
+      display: block;
+      margin-bottom: 20px;
+    }
+
   }
 }
 

@@ -1,7 +1,8 @@
 <h3 class="campaign__heading">Ideen Kampagnen</h3>
 
-<div class="campaign__noentry" ng-if="!entries.length">
-    <span>Zurzeit gibt es leider keine Ideen Kampagnen</span>
+<div class="campaign-noentry" ng-if="!entries.length">
+    <span class="campaign-noentry__description">Zurzeit gibt es leider keine Ideen Kampagne</span>
+    <img src="/images/campaigns-not-available-robot.svg">
 </div>
 
 <div ng-if="entries.length" ng-repeat="entry in entries" class="campaign__container">
@@ -9,15 +10,14 @@
         <article class="campaign__item">
 
             <div class="campaign__image-container">
-                <img class="campaign__image" ng-src="http://staging.crowd.asideas.de/images/team-karl.jpg">
+                <img class="campaign__image" ng-src="/images/team-karl.jpg">
             </div>
 
             <div class="campaign__details-container">
                 <h1 class="campaign__title">{{entry.title}}</h1>
                 <span class="campaign__sponsor">{{entry.sponsor}}</span>
             </div>
-
-            <div ng-if="entry.state == 'EXPIRED'" class="campaign__state-container">
+            <div ng-if="!entry.active" class="campaign__state-container">
                 <div class="campaign__state-icon--clock"></div>
             </div>
         </article>
