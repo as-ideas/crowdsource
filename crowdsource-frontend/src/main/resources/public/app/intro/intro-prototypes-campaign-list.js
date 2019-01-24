@@ -5,6 +5,7 @@ angular.module('crowdsource')
             restrict: 'E',
             templateUrl: 'app/intro/intro-prototypes-campaign-list.html',
             controllerAs: 'list',
+            scope: {},
             bindToController: true,
             controller: function () {
                 var vm = this;

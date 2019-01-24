@@ -33,8 +33,24 @@
                     templateUrl: 'app/ideas/list/ideas-list.html',
                     controller: 'IdeasListController as ideasList',
                     title: 'Ideen Kampagne',
-                    requireLogin: true
+                    requireLogin: true,
+                    resolve: {
+                        campaign: function(Idea, $route, $location, $q) {
 
+                            var id = $route.current.params.ideasId;
+
+                            var campaignPromise = Idea.getCampaign(id);
+                            var deferred = $q.defer();
+
+                            campaignPromise.then(function(campaign) {
+                                deferred.resolve(campaign);
+                            }, function() {
+                                $location.url('/error/notfound');
+                            });
+
+                            return deferred.promise;
+                        }
+                    }
                 })
                 .when('/ideas/:ideasId/own', {
                     templateUrl: 'app/ideas/own/own-list.html',

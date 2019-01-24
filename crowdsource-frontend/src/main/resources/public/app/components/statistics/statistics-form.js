@@ -109,7 +109,6 @@ angular.module('crowdsource')
                 };
 
                 vm.dateChanged = function () {
-                    console.log("test:" + vm.data.startDate);
                     vm.statisticTypeChanged();
                 };
 

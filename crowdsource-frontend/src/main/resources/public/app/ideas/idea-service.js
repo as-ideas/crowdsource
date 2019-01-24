@@ -4,15 +4,20 @@ angular.module('crowdsource')
 
         var service = {};
 
-        var ideaCampaignResource = $resource('/ideas_campaigns', {}, {
+        var ideasCampaignResource = $resource('/ideas_campaigns', {}, {
             get: {
                 isArray: true,
                 method: 'GET'
             }
         });
+        var ideaCampaignResource = $resource('/ideas_campaigns/:id', {});
 
         function getCampaigns() {
-            return ideaCampaignResource.get().$promise;
+            return ideasCampaignResource.get().$promise;
+        }
+
+        function getCampaign(id) {
+            return ideaCampaignResource.get({id: id}).$promise;
         }
 
         function getAll() {
@@ -44,9 +49,9 @@ angular.module('crowdsource')
             }];
         }
 
-
         service.getAll = getAll;
         service.getCampaigns = getCampaigns;
+        service.getCampaign = getCampaign;
 
         return service;
     });

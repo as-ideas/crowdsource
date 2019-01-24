@@ -13,7 +13,6 @@ angular.module('crowdsource')
                 });
 
                 function updateView(currentRoute) {
-                    console.log("ideas-status-bar")
                     var title = "CrowdSource";
                     if (typeof (currentRoute) !== 'undefined' && currentRoute.title) {
                         title += " - " + currentRoute.title;
