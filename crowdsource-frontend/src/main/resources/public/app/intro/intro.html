@@ -2,19 +2,17 @@
 <intro-hero></intro-hero>
 
 <content-row>
-    <div class="row" ng-if="intro.auth.currentUser.loggedIn">
+    <div class="row" ng-if="intro.isLoggedIn">
         <div class="columns medium-6">
-            <intro-ideas-campaign-list entries="intro.campaigns.ideas"></intro-ideas-campaign-list>
+            <intro-ideas-campaign-list></intro-ideas-campaign-list>
         </div>
 
-        <vr class="campaign__divider-vertical"></vr>
-
         <div class="columns medium-6">
-            <intro-prototypes-campaign-list entries="intro.campaigns.prototypes"></intro-prototypes-campaign-list>
+            <intro-prototypes-campaign-list></intro-prototypes-campaign-list>
         </div>
     </div>
 
-    <div ng-if="!intro.auth.currentUser.loggedIn">
-        <a class="button crwd-success radius shadow flush" href="#/login">Zum Login</a>
+    <div ng-if="!intro.isLoggedIn">
+        <a class="button crwd-success radius shadow flush" href="#/login">Werde Teil der Community! Hier gehts zum Login</a>
     </div>
 </content-row>

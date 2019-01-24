@@ -2,12 +2,14 @@ package de.asideas.crowdsource.controller.ideascampaign;
 
 import java.security.Principal;
 import java.util.List;
+import java.util.Optional;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -51,6 +53,12 @@ public class IdeasCampaignController {
         log.info("Going to modify ideas campaign: {}", id);
         cmd.setId(id);
         return ideasCampaignService.updateMasterdata(cmd);
+    }
+
+    @Secured(Roles.ROLE_USER)
+    @GetMapping(value = "/ideas_campaigns/{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<IdeasCampaign> loadIdeasCampaign(@PathVariable String id) {
+        return ideasCampaignService.getCampaign(id).map((c) -> ResponseEntity.ok().body(c)).orElse(ResponseEntity.notFound().build());
     }
 
     @Secured(Roles.ROLE_USER)

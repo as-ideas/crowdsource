@@ -1,12 +1,24 @@
 angular.module('crowdsource')
-    .directive('introPrototypesCampaignList', function () {
+    .directive('introPrototypesCampaignList', function (Project) {
 
         return {
             restrict: 'E',
-            scope: {
-                'entries': '='
-            },
             templateUrl: 'app/intro/intro-prototypes-campaign-list.html',
-            controller: function ($scope) {}
+            controllerAs: 'list',
+            bindToController: true,
+            controller: function () {
+                var vm = this;
+                vm.entries = [];
+
+                getPrototypeCampaigns();
+
+                function getPrototypeCampaigns() {
+                    Project.getCampaigns().then(function(res) {
+                        vm.entries = res;
+                    }, function() {
+                        vm.entries = [];
+                    });
+                }
+            }
         };
     });

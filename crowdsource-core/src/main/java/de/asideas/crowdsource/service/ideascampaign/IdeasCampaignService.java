@@ -1,6 +1,8 @@
 package de.asideas.crowdsource.service.ideascampaign;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.joda.time.DateTime;
@@ -48,4 +50,8 @@ public class IdeasCampaignService {
         return in.stream().map(IdeasCampaign::new).collect(Collectors.toList());
     }
 
+    public Optional<IdeasCampaign> getCampaign(String campaignId) {
+        final IdeasCampaignEntity existingCampaign = ideasCampaignRepository.findOne(campaignId);
+        return Optional.ofNullable(existingCampaign).map(IdeasCampaign::new);
+    }
 }
