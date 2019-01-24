@@ -1,11 +1,11 @@
 angular.module('crowdsource')
-    .directive('ideaPresentation', function () {
+    .directive('ideaTeaser', function () {
         return {
             restrict: 'E',
             scope: {
                 'campaign': "="
             },
-            templateUrl: 'app/components/idea-presentation/idea-presentation.html',
+            templateUrl: 'app/ideas/idea-teaser/idea-teaser.html',
             controller: function ($scope) {
             }
         };
