@@ -1,11 +1,11 @@
 <h3 class="campaign__heading">Prototypen Kampagnen</h3>
 
-<div class="campaign-noentry" ng-if="!entries.length">
+<div class="campaign-noentry" ng-if="!list.entries.length">
     <span class="campaign-noentry__description">Zurzeit gibt es leider keine Prototypen Kampagne</span>
     <img src="/images/campaigns-not-available-robot.svg">
 </div>
 
-<div ng-if="entries.length" ng-repeat="entry in entries" class="campaign__container">
+<div ng-if="list.entries.length" ng-repeat="entry in list.entries" class="campaign__container">
     <a href="" ng-href="#/ideas/{{entry.id}}">
         <article class="campaign__item">
 

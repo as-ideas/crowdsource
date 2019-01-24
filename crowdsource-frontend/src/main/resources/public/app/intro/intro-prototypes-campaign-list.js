@@ -4,6 +4,8 @@ angular.module('crowdsource')
         return {
             restrict: 'E',
             templateUrl: 'app/intro/intro-prototypes-campaign-list.html',
+            controllerAs: 'list',
+            bindToController: true,
             controller: function () {
                 var vm = this;
                 vm.entries = [];
