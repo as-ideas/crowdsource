@@ -41,11 +41,6 @@ $icon-color: #3C3C3C;
     border-bottom:2px solid $clr-base-green;
   }
 
-  &__divider-vertical {
-   height:80%;
-    border-bottom:2px solid $clr-base-green;
-  }
-
   &__image-container {
     position: relative;
     display: inline-block;
@@ -100,7 +95,6 @@ $icon-color: #3C3C3C;
   }
 
   &-noentry {
-    height: 100px;
     text-align: center;
     padding: $padding;
 
