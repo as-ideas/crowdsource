@@ -1,0 +1,29 @@
+@import "../settings";
+
+/***
+ * Button
+ */
+.button-primary {
+  @include box-shadow;
+
+  background-color: $clr-green-shade-2;
+  border-radius: $border-radius;
+  color: $clr-body;
+  font-size: rem-calc(14px);
+  letter-spacing: 0.5px;
+  padding: rem-calc(12px) rem-calc(32px);
+  margin: 3px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color 100ms;
+
+  &:hover {
+    background-color: #35EA87;
+    color: $clr-body;
+    transition: background-color 100ms;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}

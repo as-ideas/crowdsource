@@ -9,9 +9,9 @@
 @import "foundation/foundation-icons.scss";
 @import "util/form";
 @import "util/objects";
-@import "components/intro";
 @import "components/ideas/ideas-list";
 @import "components/ideas/campaign";
+@import "components/intro";
 @import "components/project/project-list";
 @import "components/project/project-details";
 @import "components/project/project-details-status";
@@ -21,16 +21,18 @@
 @import "components/project/project-likes";
 @import "components/teaser";
 @import "components/main-nav";
-@import "components/status-bar";
-@import "components/footer";
+@import "components/about";
+@import "components/alert-box";
+@import "components/browser-fallback-page";
+@import "components/button";
+@import "components/error";
+@import "components/imprint";
+@import "components/faq";
 @import "components/finance";
 @import "components/financing-rounds";
-@import "components/alert-box";
-@import "components/_about";
-@import "components/_progress-meter";
-@import "components/faq";
-@import "components/imprint";
-@import "components/browser-fallback-page";
+@import "components/footer";
+@import "components/progress-meter";
+@import "components/status-bar";
 @import "angular-chart.js/angular-chart";
 
 body {
