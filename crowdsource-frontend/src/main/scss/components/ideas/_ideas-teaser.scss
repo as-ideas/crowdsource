@@ -26,11 +26,13 @@
   }
 
   &__description {
+    text-align: left;
     color: $clr-white;
     font-weight: $fw-light;
   }
 
   &__video {
+    border-radius: $border-radius;
     width: 100%;
   }
 

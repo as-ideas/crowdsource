@@ -6,7 +6,7 @@ angular.module('crowdsource')
             scope: {
                 'idea': '='
             },
-            templateUrl: 'app/components/idea-tile/idea-tile.html',
+            templateUrl: 'app/ideas/idea-tile/idea-tile.html',
             controller: function ($scope) {
 
             }
