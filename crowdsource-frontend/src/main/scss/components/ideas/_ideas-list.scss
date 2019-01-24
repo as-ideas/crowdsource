@@ -1,0 +1,421 @@
+/***
+ * Ideas List & Home
+ */
+
+//
+// Global vars and calculations
+//
+
+// Calculate width of a Ideas tile depending on content-width, tiles, gutter
+
+$content-width: rem-calc(968px);
+$tiles: 3;
+// Tiles on one row
+$tile-gutter: 0.5rem;
+// Horizonatal margins
+$tile-width: ($content-width - ($tile-gutter * 2 * $tiles)) / $tiles;
+
+// Other tile vars
+
+$tile-padding: rem-calc(20px);
+$metrics-height: rem-calc(42px);
+// Metrics object in a tile
+
+// Define mediaquery that formattes tiles in 2 ways:
+// 1) tile width: 100% for browser widths that can contain only 1 tile, and
+// 2) fixed width (see above) for browser widths that can contain more than 1 tile
+
+$container-padding: rem-calc(16px);
+// Padding on one side of the surrounding
+// container that wraps our tiles
+$two-tiles: "only screen and (min-width: #{$tile-width * 2 + $tile-gutter * 4 + $container-padding * 2 + rem-calc(1px)}) and (max-width: #{$tile-width * 3 + $tile-gutter * 6 + $container-padding * 2})";
+$two-tiles-up: "only screen and (min-width: #{$tile-width * 2 + $tile-gutter * 4 + $container-padding * 2 + rem-calc(1px)})";
+$intro-box-break: "only screen and (max-width: 740px)";
+
+//
+// Mixins
+//
+
+@mixin limit-lines($lines, $font-size, $line-height) {
+    font-size: $font-size;
+    line-height: $line-height;
+    max-height: ($lines * $font-size * $line-height);
+    overflow: hidden;
+}
+
+//
+// Headings
+//
+
+/*h2*/
+.ideaslist__heading {
+    margin: 0 0 1rem 0;
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1.3333;
+    color: #4B51D4;
+    text-align: center;
+}
+
+/*h2*/
+.ideaslist__heading--secondary {
+    @extend .ideaslist__heading;
+    color: #D44B95;
+}
+
+/*p*/
+.ideaslist__intro {
+    font-size: rem-calc(18px);
+    line-height: 1.5;
+    color: #2D2D2D;
+    text-align: center;
+}
+
+/*p*/
+.ideaslist__intro--has-divider {
+    @extend .ideaslist__intro;
+    @include typographic-divider();
+}
+
+//
+// Pills
+//
+
+/*span*/
+.ideaslist__pill {
+    position: relative;
+    margin: 0 rem-calc(4px);
+    padding: rem-calc(2px) rem-calc(8px);
+
+    color: $white;
+    letter-spacing: 0.5px;
+
+    background-color: $clr-blue-shade-1;
+    border-radius: rem-calc($border-radius);
+
+    &:first-of-type {
+        margin-left: 0;
+    }
+}
+
+//
+// Tiles
+//
+
+%tile {
+    border: none;
+    border-radius: $border-radius;
+    background-color: $white;
+    box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+// This is our flex container housing a list of ideas
+
+/*ul*/
+.ideas__ul {
+    @include list--plain;
+
+    @media #{$two-tiles-up} {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    @extend %another-clearfix; // Alternative clearfix for flexbox fallback: items (ideas__li's)
+    // are floated for browsers, that don't get it (flexbox :)) Standard micro clearfix
+    // doesn't seem to work with flexbox's display: flex in webkit browsers
+}
+
+// Modernizr fallback for browsers that don't know flexbox (eg. FF24 doesn't know about flex-wrap)
+
+.no-flexbox .ideas__ul {
+    @media #{$two-tiles-up} {
+        display: block; // Reset display: flex;
+    }
+
+    @media #{$two-tiles} {
+        width: $tile-width * 2 + $tile-gutter * 4;
+        margin: 0 auto;
+    }
+}
+
+// This is our flex item
+
+/*li*/
+.ideas__li {
+    margin: ($tile-gutter * 2) 0;
+
+    @media #{$two-tiles-up} {
+        float: left; // Fallback for browsers that don't know flexbox...
+        margin: $tile-gutter;
+    }
+}
+
+// This is a ideas tile
+
+.ideas__tile {
+    @extend %tile;
+    position: relative;
+    width: 100%;
+    padding: $tile-padding;
+    padding-bottom: $tile-padding + $metrics-height * 2;
+    color: #2d2d2d;
+    cursor: pointer;
+
+    & > * {
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    @media #{$two-tiles-up} {
+        width: $tile-width;
+    }
+}
+
+// Class extensions for tiles
+
+@mixin ideas-status($options: ()) {
+    $options: map-merge((
+            selector : '.tile__status', // Nested selector to apply our stlyes
+            content : '', // CSS content to apply
+            bg-tile : $white, // BG color for tile
+            bg-status: $black // BG color for status pill
+    ), $options);
+
+    // Set BG color of our tile
+
+    background-color: map-get($options, bg-tile);
+
+    // Apply styles to nested selector specified above
+
+    #{map-get($options, selector)} {
+        display: block; // Revert default display: none
+        background-color: map-get($options, bg-status);
+
+        // Set CSS content
+
+        &::after {
+            content: map-get($options, content);
+        }
+    }
+}
+
+.ideas-proposed {
+    @include ideas-status((content: 'In Freigabe', bg-tile: rgba(223, 223, 223, 0.5)));
+}
+
+%ideas-published {
+    // Nothing here at the moment
+}
+
+.ideas-fully_pledged {
+    @include ideas-status((content: '100% finanziert', bg-status: #39C277, bg-tile: rgba(60, 195, 120, 0.25)));
+}
+
+.ideas-rejected {
+    @include ideas-status((content: 'Leider abgelehnt :(', bg-tile: rgba(255, 60, 60, 0.25)));
+}
+
+.ideas-deferred,
+.ideas-published_deferred {
+    @include ideas-status((content: 'Zurückgestellt', bg-status: #8ED61E, bg-tile: rgba(160, 240, 36, 0.20)));
+}
+
+// Every tile has a status div, that gets activated by additional classes:
+// ideas-PROPOSED, ideas-PUBLISHED, ideas-FULLY_PLEDGED, ideas-REJECTED
+
+.tile__status {
+    display: none;
+    position: relative;
+    float: right;
+    top: 0.25rem;
+    padding: rem-calc(2px) rem-calc(6px);
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: $white;
+    background-color: $black;
+    border-radius: rem-calc(3px);
+}
+
+// Metrics
+
+.tile__metrics {
+    position: absolute;
+    width: calc(100% - #{$tile-padding * 2}); // Because of absolute positioning,
+    // the width 100% is as wide as the tile, ignoring the tile's padding
+    // -> substract the padding
+    height: $metrics-height;
+    left: $tile-padding;
+    bottom: $tile-padding;
+    font-size: rem-calc(14px);
+}
+
+// Headings + Text
+
+/*h3*/
+.tile__heading {
+    @include limit-lines(1, 20px, 1.4);
+    @include font-smoothing;
+    margin: 0 0 2rem 0;
+    font-weight: 600;
+}
+
+/*p*/
+.tile__short-desc {
+    @include limit-lines(4, 16px, 1.5);
+    margin: 0;
+}
+
+// Section with Dein Budget / Du / Dein Zeitrahmen
+
+.intro-section {
+    background-color: $white;
+}
+
+.round-description-section {
+    @extend .intro-section;
+}
+
+/*ul*/
+.intro-box, .round-description-box {
+    @include list--plain;
+    display: flex;
+    margin: 2rem 0;
+    border: 1px solid $clr-border;
+    border-radius: $border-radius;
+    text-align: center;
+
+    @media #{$intro-box-break} {
+        flex-wrap: wrap;
+    }
+}
+
+/*li*/
+.intro-box__item, .round-description-box__item {
+    flex: 0 1 33.333333333%; // Force all flex-items to get the same width
+    order: 1;
+    padding: rem-calc(20px);
+    border-right: 1px solid $clr-border;
+
+    &:last-child {
+        border-right: none;
+    }
+
+    & > * {
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    @media #{$intro-box-break} {
+        flex: 0 1 100%;
+        border-right: none;
+        border-bottom: 1px solid $clr-border;
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+}
+
+/*li*/
+.intro-box__item--important, .round-description-box__item--important {
+    @extend .intro-box__item;
+    background-color: $clr-bg;
+
+    @media only screen and (max-width: 740px) {
+        order: 0;
+    }
+}
+
+/*h3*/
+.intro-box__heading, .round-description-box__heading {
+    margin: 1rem 0;
+    font-size: rem-calc(16px);
+    font-weight: 600;
+    line-height: 1.5;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/*h3*/
+.intro-box__heading--has-divider, .round-description-box__heading--has-divider {
+    @extend .intro-box__heading;
+    @include typographic-divider((height: 0.125rem, width: 2.5rem, offset-bottom: 1rem));
+}
+
+/*p*/
+.intro-box__intro, .round-description-box__intro {
+    // @extend %font-smoothing;
+}
+
+.round-description-box__intro {
+    text-align: left;
+    word-wrap: break-word;
+    word-break: normal;
+
+    ul {
+        list-style-type: none;
+    }
+
+}
+
+%intro-box__item-icon {
+    $dimension: 51px;
+
+    display: inline-block;
+    width: $dimension;
+    height: $dimension;
+    border-radius: 50%;
+    background-color: $clr-red-shade-2;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: rem-calc(22px);
+}
+
+.intro-box__item-icon--capital {
+    @extend %intro-box__item-icon;
+    background-image: url('../images/icon-$$-white.svg');
+}
+
+.intro-box__item-icon--user {
+    @extend %intro-box__item-icon;
+    background-image: url('../images/icon-user-white.svg');
+}
+
+.intro-box__item-icon--clock {
+    @extend %intro-box__item-icon;
+    background-image: url('../images/icon-clock-white.svg');
+}
+
+.intro-box__header {
+    color: $clr-green-shade-4;
+}
+
+.round-description-box__item-icon--capital {
+    @extend %intro-box__item-icon;
+    background-color: $clr-green-shade-3;
+    background-image: url('../images/icons/credit_card.svg');
+}
+
+.round-description-box__item-icon--user {
+    @extend %intro-box__item-icon;
+    background-color: $clr-green-shade-3;
+    background-image: url('../images/icons/ticket_with_star.svg');
+}
+
+.round-description-box__item-icon--clock {
+    @extend %intro-box__item-icon;
+    background-color: $clr-green-shade-3;
+    background-image: url('../images/icons/time_clock_with_arrow.svg');
+}

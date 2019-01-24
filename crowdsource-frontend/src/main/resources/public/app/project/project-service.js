@@ -1,6 +1,6 @@
 angular.module('crowdsource')
 
-    .factory('Project', function ($resource, FinancingRound) {
+    .factory('Project', function ($resource, FinancingRound, $q) {
 
         var service = {};
 
@@ -103,6 +103,12 @@ angular.module('crowdsource')
                 default:
                     return false;
             }
+        };
+
+        service.getCampaigns = function() {
+            var deferred = $q.defer();
+            deferred.resolve([]);
+            return deferred.promise;
         };
 
         return service;

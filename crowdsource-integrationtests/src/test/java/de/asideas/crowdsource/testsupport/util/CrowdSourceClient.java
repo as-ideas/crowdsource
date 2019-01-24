@@ -39,7 +39,10 @@ public class CrowdSourceClient {
     private static final RestTemplate restTemplate = new RestTemplate(new HttpComponentsClientHttpRequestFactory());
 
     public static final String DEFAULT_USER_EMAIL = "crowdsource@crowd.source.de";
+    public static final String DEFAULT_USER_FIRSTNAME = "Bob";
+    public static final String DEFAULT_USER_LASTNAME = "Ross";
     public static final String DEFAULT_USER_PASS = "einEselGehtZumBaecker!";
+
     public static final String DEFAULT_ADMIN_EMAIL = "cs_admin@crowd.source.de";
     public static final String DEFAULT_ADMIN_PASS = "einAdminGehtZumBaecker!";
 

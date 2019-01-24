@@ -1,0 +1,28 @@
+<h3 class="campaign__heading">Ideen Kampagnen</h3>
+
+<div class="campaign-noentry" ng-if="!list.entries.length">
+    <span class="campaign-noentry__description">Zurzeit gibt es leider keine Ideen Kampagne</span>
+    <img src="/images/campaigns-not-available-robot.svg">
+</div>
+
+<div ng-if="list.entries.length" ng-repeat="entry in list.entries" class="campaign__container">
+    <a href="" ng-href="#/ideas/{{entry.id}}">
+        <article class="campaign__item">
+
+            <div class="campaign__image-container">
+                <img class="campaign__image" ng-src="{{entry.teaserImageReference}}">
+            </div>
+
+            <div class="campaign__details-container">
+                <h1 class="campaign__title">{{entry.title}}</h1>
+                <span class="campaign__sponsor">{{entry.sponsor}}</span>
+            </div>
+            <div ng-if="!entry.active" class="campaign__state-container">
+                <div class="campaign__state-icon--clock"></div>
+            </div>
+        </article>
+    </a>
+
+    <hr class="campaign__divider" ng-if="!$last">
+
+</div>

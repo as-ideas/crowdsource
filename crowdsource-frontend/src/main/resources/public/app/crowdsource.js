@@ -26,9 +26,46 @@
             $routeProvider
                 .when('/intro', {
                     templateUrl: 'app/intro/intro.html',
-                    // controller: 'IntroController as intro',
+                    controller: 'IntroController as intro',
                     title: 'Vorstellung'
                 })
+                .when('/ideas/:ideasId', {
+                    templateUrl: 'app/ideas/list/ideas-list.html',
+                    controller: 'IdeasListController as ideasList',
+                    title: 'Ideen Kampagne',
+                    requireLogin: true,
+                    resolve: {
+                        campaign: function(Idea, $route, $location, $q) {
+
+                            var id = $route.current.params.ideasId;
+
+                            var campaignPromise = Idea.getCampaign(id);
+                            var deferred = $q.defer();
+
+                            campaignPromise.then(function(campaign) {
+                                deferred.resolve(campaign);
+                            }, function() {
+                                $location.url('/error/notfound');
+                            });
+
+                            return deferred.promise;
+                        }
+                    }
+                })
+                .when('/ideas/:ideasId/own', {
+                    templateUrl: 'app/ideas/own/own-list.html',
+                    controller: 'IdeasOwnController as ideasList',
+                    title: 'Deine Ideen',
+                    requireLogin: true
+
+                })
+                .when('/ideas/:ideasId/admin', {
+                    templateUrl: 'app/ideas/admin/admin-list.html',
+                    controller: 'IdeasAdminController as ideasList',
+                    title: 'Administration Ideen Kampagne',
+                    requireLogin: true
+                })
+
                 .when('/projects', {
                     templateUrl: 'app/project/list/project-list.html',
                     controller: 'ProjectListController as projectList',

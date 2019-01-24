@@ -56,7 +56,7 @@ public class CommentRepositoryIT {
             if (! allUsers.isEmpty()) {
                 commentedBy = allUsers.get(0);
             } else {
-                commentedBy = userRepository.save(new UserEntity("test@crowdsource.de"));
+                commentedBy = userRepository.save(new UserEntity("test@crowdsource.de", "Count", "Olaf"));
             }
         }
         if (commentCreatedFor == null) {

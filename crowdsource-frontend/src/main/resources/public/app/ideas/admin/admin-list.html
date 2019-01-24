@@ -1,0 +1,21 @@
+<ideas-status-bar></ideas-status-bar>
+
+<content-row class="ideas-list">
+
+    <idea-presentation></idea-presentation>
+
+    <section>
+        <h1>Liste der noch nicht freigegebenen Ideen</h1>
+            <ul>
+                <li>Filter A</li>
+                <li>Filter B</li>
+                <li>Filter C</li>
+            </ul>
+        <ul class="ideas__ul">
+            <li class="ideas__li" ng-repeat="idea in ideasList.ideas">
+                <idea-tile idea="idea"></idea-tile>
+            </li>
+        </ul>
+    </section>
+
+</content-row>

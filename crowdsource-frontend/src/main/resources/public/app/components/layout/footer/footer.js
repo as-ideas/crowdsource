@@ -9,7 +9,6 @@ angular.module('crowdsource')
 
         directive.controller = function () {
             var vm = this;
-
             vm.auth = Authentication;
         };
 

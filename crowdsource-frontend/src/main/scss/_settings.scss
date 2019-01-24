@@ -97,6 +97,7 @@ $clr-green-shade-3: #3CA96E;
 $clr-green-shade-4: #2D7F52;
 $clr-green-shade-5: #1E5437;
 $clr-green-shade-6: #0F2A1B;
+$clr-green-shade-transparent: rgba(75, 212, 137, 0.25);
 
 // Black Shades
 
@@ -162,6 +163,11 @@ $fw-black: 800;
 // ---
 
 $border-radius: 3px;
+
+// ---
+// Margins
+// __
+$margin-component: 20px; // Margin between components and similiar sized visual blocks
 
 // ---
 // Range Slider
