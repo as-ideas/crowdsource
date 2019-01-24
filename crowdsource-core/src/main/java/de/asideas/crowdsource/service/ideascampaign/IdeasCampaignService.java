@@ -23,7 +23,11 @@ public class IdeasCampaignService {
     }
 
     public List<IdeasCampaign> activeCampaigns(){
-        return ideasCampaignRepository.findActive(DateTime.now()).stream().map(IdeasCampaign::new).collect(Collectors.toList());
+        return toIdeasCampaigns(ideasCampaignRepository.findActive(DateTime.now()));
+    }
+
+    public List<IdeasCampaign> allCampaigns(){
+        return toIdeasCampaigns(ideasCampaignRepository.findAll());
     }
 
     public IdeasCampaign createCampaign(IdeasCampaign cmd, UserEntity requestingUser) {
@@ -33,6 +37,15 @@ public class IdeasCampaignService {
         return new IdeasCampaign(savedRes);
     }
 
+    public IdeasCampaign updateMasterdata(IdeasCampaign cmd) {
+        final IdeasCampaignEntity storedCampaign = ideasCampaignRepository.findOne(cmd.getId());
+        storedCampaign.updateMasterdata(cmd);
 
+        return new IdeasCampaign(ideasCampaignRepository.save(storedCampaign));
+    }
+
+    private List<IdeasCampaign> toIdeasCampaigns(List<IdeasCampaignEntity> in) {
+        return in.stream().map(IdeasCampaign::new).collect(Collectors.toList());
+    }
 
 }

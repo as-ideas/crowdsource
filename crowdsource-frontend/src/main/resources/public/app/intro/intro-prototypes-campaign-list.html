@@ -1,14 +1,25 @@
-<div ng-if="!entries.length">
-    <span>Zurzeit gibt es leider keine Prototypen Kampagne</span>
+<h3 class="campaign__heading">Prototypen Kampagnen</h3>
+
+<div class="campaign-noentry" ng-if="!entries.length">
+    <span class="campaign-noentry__description">Zurzeit gibt es leider keine Prototypen Kampagne</span>
+    <img src="/images/campaigns-not-available-robot.svg">
 </div>
 
-<ul ng-if="entries.length" ng-repeat="entry in entries">
-   <li>
-       <span>{{entry.title}}</span>
-       <span>{{entry.startDate}}</span>
-       <span>{{entry.endDate}}</span>
-       <p>{{entry.teaser}}</p>
-       <span>{{entry.sponsor}}</span>
-       <a class="button crwd-success radius shadow flush" href="#/ideas/{{entry.id}}">Zur Ideeen-Kampagne {{entry.title}}</a>
-   </li>
-</ul>
+<div ng-if="entries.length" ng-repeat="entry in entries" class="campaign__container">
+    <a href="" ng-href="#/ideas/{{entry.id}}">
+        <article class="campaign__item">
+
+            <div class="campaign__image-container">
+                <img class="campaign__image" ng-src="http://staging.crowd.asideas.de/images/team-karl.jpg">
+            </div>
+
+            <div class="campaign__details-container">
+                <h1 class="campaign__title">{{entry.title}}</h1>
+                <span class="campaign__sponsor">{{entry.sponsor}}</span>
+            </div>
+        </article>
+    </a>
+
+    <hr class="campaign__divider" ng-if="!$last">
+
+</div>
