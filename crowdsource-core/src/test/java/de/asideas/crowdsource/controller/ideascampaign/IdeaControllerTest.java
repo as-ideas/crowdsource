@@ -62,8 +62,7 @@ public class IdeaControllerTest {
     }
 
     @Test
-    public void createIdea_ShouldReturn_400_onInvalidPitch() throws Exception {
-        givenPrincipalExists();
+    public void createIdea_ShouldReturn_400_onEmptyPitch() throws Exception {
         Idea cmd = new Idea("");
 
         mockMvc.perform(post("/ideas_campaigns/anId/ideas")
@@ -75,8 +74,20 @@ public class IdeaControllerTest {
             .andExpect(jsonPath("$.fieldViolations.pitch", equalTo("may not be empty")));
     }
 
-    private void givenPrincipalExists() {
-        doReturn(Fixtures.givenUserEntity("userId")).when(userService).getUserByEmail(anyString());
+    @Test
+    public void createIdea_ShouldReturn_400_onPitchSizeInvalid() throws Exception {
+        // Longer than 255 chars
+        final Idea cmd = new Idea("Lo000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000" +
+            "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ng");
 
+        mockMvc.perform(post("/ideas_campaigns/anId/ideas")
+            .content(mapper.writeValueAsString(cmd))
+            .contentType(MediaType.APPLICATION_JSON_UTF8)
+        )
+            .andDo(log())
+            .andExpect(status().isBadRequest())
+            .andExpect(jsonPath("$.fieldViolations.pitch", equalTo("size must be between 5 and 255")));
+        ;
     }
+
 }

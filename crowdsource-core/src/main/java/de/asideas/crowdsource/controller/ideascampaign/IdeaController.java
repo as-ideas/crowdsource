@@ -42,6 +42,12 @@ public class IdeaController {
     }
 
     @Secured(Roles.ROLE_USER)
+    @GetMapping(value = "/ideas_campaigns/{campaignId}/my_ideas", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public List<Idea> fetchIdeasOfCurrentUser(@PathVariable String campaignId, Principal principal) {
+        return ideaService.fetchIdeasByCampaignAndUser(campaignId, userByPrincipal(principal));
+    }
+
+    @Secured(Roles.ROLE_USER)
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(value = "/ideas_campaigns/{campaignId}/ideas", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public Idea createIdea(@Valid @RequestBody Idea cmd, @PathVariable String campaignId, Principal principal) {

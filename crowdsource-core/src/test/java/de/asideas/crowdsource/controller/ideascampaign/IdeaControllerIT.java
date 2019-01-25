@@ -1,5 +1,7 @@
 package de.asideas.crowdsource.controller.ideascampaign;
 
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -93,6 +95,40 @@ public class IdeaControllerIT extends AbstractCrowdIT {
         assertThat(resIdeas.size(), is(2));
         assertThat(resIdeas.get(0).getId(), not(equalTo(resIdeas.get(0).getPitch())));
 
+    }
+
+    @Test
+    public void fetchIdeasOfCurrentUser_shouldReturnCurrentUsersIdeas() throws Exception {
+        final UserEntity admin = givenAdminUserExists();
+        final String adminToken = obtainAccessToken(admin.getEmail(), admin.getPassword());
+        final UserEntity user = givenUserExists();
+        final String userToken = obtainAccessToken(user.getEmail(), user.getPassword());
+
+        final IdeasCampaign parentCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
+
+        givenIdeaExists(adminToken, parentCampaign.getId(), new Idea("Admin's idea"));
+        final Idea idea1 = toIdea(givenIdeaExists(userToken, parentCampaign.getId(), new Idea("User's idea 1")));
+        final Idea idea2 = toIdea(givenIdeaExists(userToken, parentCampaign.getId(), new Idea("User's idea 2")));
+
+        final String resultJson = mockMvc.perform(get("/ideas_campaigns/{campaignId}/my_ideas", parentCampaign.getId())
+            .contentType(MediaType.APPLICATION_JSON_UTF8)
+            .header("Authorization", "Bearer " + userToken)
+            .accept(MediaType.APPLICATION_JSON_UTF8)
+        )
+            .andDo(log())
+            .andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
+
+        final List<Idea> res = Arrays.asList(mapper.readValue(resultJson, Idea[].class));
+        assertThat(res.size(), is(2));
+        assertThat(res.stream().anyMatch(el -> el.getId().equals(idea1.getId())), is(true));
+        assertThat(res.stream().anyMatch(el -> el.getId().equals(idea2.getId())), is(true));
+        res.forEach(el -> {
+            assertThat(el.getCreatorName(), is(user.getFirstName()));
+        });
+    }
+
+    private Idea toIdea(ResultActions givenIdeaExists) throws IOException {
+        return mapper.readValue(givenIdeaExists.andReturn().getResponse().getContentAsString(), Idea.class);
     }
 
     private ResultActions givenIdeaExists(String accessToken, String campaignId, Idea cmd) throws Exception {

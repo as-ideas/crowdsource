@@ -73,6 +73,8 @@ public abstract class AbstractCrowdIT {
         UserEntity user = givenUser("admin@mail.com", Arrays.asList(Roles.ROLE_USER, Roles.ROLE_ADMIN));
         user = userRepository.save(user);
         user.setPassword("SEKRET");
+        user.setFirstName("Admin");
+        user.setLastName("AdminAdmin");
         return user;
     }
 
