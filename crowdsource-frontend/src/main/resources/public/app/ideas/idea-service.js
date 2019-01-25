@@ -38,7 +38,7 @@ angular.module('crowdsource')
                 email: 'peter@demo',
                 text: 'Meine Idee in genau 255 Zeichen zu beschreiben, ist die Aufgabe dieses Textes um dann auch zu sehen wir das vom Layout dann passt denn soviele Zeichen sind gar nicht so wenig und man muss ja auch die Breite jedes Buchstaben berücksichtigen zumindest grob.',
                 votes: 1,
-                avgVotes: 4,
+                avgVotes: '4.0',
                 status: 'published'
             }, {
                 firstName: 'Peter',
@@ -46,7 +46,7 @@ angular.module('crowdsource')
                 email: 'peter@demo',
                 text: 'this idea sis m',
                 votes: 22,
-                avgVotes: 1,
+                avgVotes: '1.0',
                 status: 'published'
             }, {
                 firstName: 'Peter',
@@ -54,7 +54,7 @@ angular.module('crowdsource')
                 email: 'peter@demo',
                 text: 'this idea agiccc',
                 votes: 5,
-                avgVotes: 2,
+                avgVotes: '2.0',
                 status: 'published'
             }, {
                 firstName: 'Peter',
@@ -62,7 +62,7 @@ angular.module('crowdsource')
                 email: 'peter@demo',
                 text: 'idea sis magiccc',
                 votes: 25,
-                avgVotes: 5,
+                avgVotes: '5.0',
                 status: 'published'
             }, {
                 firstName: 'Peter',

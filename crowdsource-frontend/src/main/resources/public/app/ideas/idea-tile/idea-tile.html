@@ -1,32 +1,20 @@
 <div class="ideas-grid-tile">
     <div>
-        <span class="ideas-grid-tile__votes-avg">{{ idea.avgVotes }} </span>
-        <span class="ideas-grid-tile__votes-num">({{ idea.votes }})</span>
-    </div>
-    <div>
         <span class="ideas-grid-tile__author">{{ idea.firstName }} </span>
     </div>
-    <p class="ideas-grid-tile__text" ng-bind="idea.text"></p>
-    <div class="ideas-grid-tile__rating">
-        *****
-    </div>
-</div>
-
-<!--
-<div class="ideas__tile ideas-{{idea.status.toLowerCase()}}">
-    <div class="clearfix">
-        <div>1-5 Stars</div>
-        <div class="tile__status"></div>
-    </div>
     <div>
-        <p class="ideas__tile_clicktarget">{{idea.author}} </p>
-        <p class="tile__short-desc" ng-bind="idea.text"></p>
-
-        <div class="tile__metrics">
-            <span class="plist__pill backers-count">{{ idea.votes }}</span>
-            <span class="backers-text">Sterne</span>
-            <span class="plist__pill pledged-amount">{{ idea.avgVote }}</span>
-        </div>
+        <div class="ideas-grid-tile__star--single"></div>
+        <span class="ideas-grid-tile__votes-avg">{{ idea.avgVotes }} </span>
+        <span class="ideas-grid-tile__votes-num"> von {{ idea.votes }} Personen</span>
     </div>
+    <p class="ideas-grid-tile__text" ng-bind="idea.text"></p>
+
+    <div class="ideas-grid-tile__rating">
+        <div class="ideas-grid-tile__star--unrated star5" />
+        <div class="ideas-grid-tile__star--unrated star4" />
+        <div class="ideas-grid-tile__star--unrated star3" />
+        <div class="ideas-grid-tile__star--unrated star2" />
+        <div class="ideas-grid-tile__star--unrated star1" />
+    </div>
+
 </div>
--->
