@@ -419,3 +419,42 @@ $intro-box-break: "only screen and (max-width: 740px)";
     background-color: $clr-green-shade-3;
     background-image: url('../images/icons/time_clock_with_arrow.svg');
 }
+
+.ideas-grid {
+
+    &__container {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    &__box {
+        box-sizing: border-box;
+        padding: 10px;
+        margin: 0;
+        width: 33.3333%;
+    }
+
+    &-tile {
+        @include box-shadow;
+
+        border-radius: $border-radius;
+        background-color: rgba(223,223,223,0.5);
+//        background-color: #007095;
+        height: 100%;
+        padding: 10px;
+        position: relative;
+        width: 100%;
+
+        &__text {
+
+        }
+
+        &__rating {
+            position: absolute;
+            bottom: 0;
+        }
+    }
+}
