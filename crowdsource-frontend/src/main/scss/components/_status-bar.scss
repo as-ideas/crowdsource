@@ -1,3 +1,5 @@
+@import '../settings';
+
 /***
 * Status Bar
 *
@@ -71,6 +73,17 @@ status-bar {
     }
 }
 
+/*li*/
+.sbar__li--ternary {
+    @extend %sbar__li;
+    display: none; // For smartphones, for bigger resolutions a media query
+    // will revert to visible
+    @media #{$medium-up} {
+        width: 40%;
+    }
+
+}
+
 %sbar__li {
     @include font-smoothing;
     padding: 2rem 1rem;
@@ -134,6 +147,12 @@ status-bar {
 .sbar__icon--hourglass {
     @include sbar__icon();
     background-image: url('../images/icon-hourglass.svg');
+}
+
+.sbar__icon--time {
+    @include sbar__icon();
+    color: $clr-black;
+    background-image: url('../images/icons/time_clock_with_arrow.svg');
 }
 
 /*span*/

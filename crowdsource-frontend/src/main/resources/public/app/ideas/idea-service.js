@@ -4,49 +4,70 @@ angular.module('crowdsource')
 
         var service = {};
 
-        var ideaCampaignResource = $resource('/ideas_campaigns', {}, {
+        var ideasCampaignResource = $resource('/ideas_campaigns', {}, {
             get: {
                 isArray: true,
                 method: 'GET'
             }
         });
+        var ideaCampaignResource = $resource('/ideas_campaigns/:id', {});
 
         function getCampaigns() {
-            return ideaCampaignResource.get().$promise;
+            return ideasCampaignResource.get().$promise;
+        }
+
+        function getCampaign(id) {
+            return ideaCampaignResource.get({id: id}).$promise;
         }
 
         function getAll() {
 
             return [{
-                author: 'peter@demo',
-                text: 'thismagiccc',
-                votes: 5,
+                firstName: 'Peter',
+                lastName: 'Pan',
+                email: 'peter@demo',
+                text: 'Meine Idee in genau 255 Zeichen zu beschreiben, ist die Aufgabe dieses Textes um dann auch zu sehen wir das vom Layout dann passt denn soviele Zeichen sind gar nicht so wenig und man muss ja auch die Breite jedes Buchstaben berücksichtigen zumindest grob.',
+                votes: 1,
                 avgVotes: 4,
                 status: 'published'
             }, {
-                author: 'peter@demo',
+                firstName: 'Peter',
+                lastName: 'Pan',
+                email: 'peter@demo',
                 text: 'this idea sis m',
-                votes: 5,
+                votes: 22,
                 avgVotes: 1,
                 status: 'published'
             }, {
-                author: 'peter@demo',
+                firstName: 'Peter',
+                lastName: 'Pan',
+                email: 'peter@demo',
                 text: 'this idea agiccc',
                 votes: 5,
                 avgVotes: 2,
                 status: 'published'
             }, {
-                author: 'peter@demo',
+                firstName: 'Peter',
+                lastName: 'Pan',
+                email: 'peter@demo',
                 text: 'idea sis magiccc',
-                votes: 5,
+                votes: 25,
                 avgVotes: 5,
+                status: 'published'
+            }, {
+                firstName: 'Peter',
+                lastName: 'Pan',
+                email: 'peter@demo',
+                text: 'Wir sehen das vom Layout dann passt denn soviele Zeichen sind gar nicht so wenig und man muss ja auch die Breite jedes Buchstaben berücksichtigen zumindest grob.',
+                votes: 113,
+                avgVotes: 4.5,
                 status: 'published'
             }];
         }
 
-
         service.getAll = getAll;
         service.getCampaigns = getCampaigns;
+        service.getCampaign = getCampaign;
 
         return service;
     });

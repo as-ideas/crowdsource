@@ -1,9 +1,9 @@
 describe('intro page', function () {
 
-    var intro, Authentication, template, $controller, $rootScope, $compile, Project, $httpBackend;
+    var intro, Authentication, template, $controller, $rootScope, $compile, Project, $httpBackend, Idea;
 
     beforeEach(function () {
-        module('crowdsource')
+        module('crowdsource');
         module('crowdsource.templates');
 
 
@@ -36,7 +36,7 @@ describe('intro page', function () {
         $httpBackend.expectGET('/ideas_campaigns').respond(200, [
             {id: 123, title: 'some title'},
             {id: 2, title: 'another one'}
-            ]);
+        ]);
 
         $controller('IntroController as intro', {
             $scope: scope,
@@ -74,9 +74,7 @@ describe('intro page', function () {
         expect(ideasCampaign.length).toEqual(0);
 
         var loginButton = intro.find('a');
-        expect(loginButton).toHaveText('Zum Login');
+        expect(loginButton).toContainText('Hier gehts zum Login');
 
     });
-
-
 });

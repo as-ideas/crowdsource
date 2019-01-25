@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.concurrent.Future;
 import java.util.stream.Collectors;
 
-import static de.asideas.crowdsource.domain.shared.StatisticsTypes.SUM_REGISTERED_USER;
+import static de.asideas.crowdsource.domain.shared.prototypecampaign.StatisticsTypes.SUM_REGISTERED_USER;
 import static de.asideas.crowdsource.service.statistics.StatisticsActionUtil.fillMap;
 import static de.asideas.crowdsource.service.statistics.StatisticsActionUtil.formatDate;
 import static de.asideas.crowdsource.service.statistics.StatisticsActionUtil.getDefaultMap;

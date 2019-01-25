@@ -1,6 +1,6 @@
 package de.asideas.crowdsource.presentation.prototypecampaign.project;
 
-import de.asideas.crowdsource.domain.shared.ProjectStatus;
+import de.asideas.crowdsource.domain.shared.prototypecampaign.ProjectStatus;
 
 import javax.validation.constraints.NotNull;
 

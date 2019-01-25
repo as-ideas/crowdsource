@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -38,7 +39,7 @@ public class IdeasCampaignController {
 
     @Secured(Roles.ROLE_ADMIN)
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping(value = "/ideas_campaigns", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/ideas_campaigns", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public IdeasCampaign createIdeasCampaign(@Valid @RequestBody IdeasCampaign cmd, Principal principal) {
         log.info("Going to create ideas campaign by cmd: {}", cmd);
         return ideasCampaignService.createCampaign(cmd, userByPrincipal(principal));
@@ -51,6 +52,12 @@ public class IdeasCampaignController {
         log.info("Going to modify ideas campaign: {}", id);
         cmd.setId(id);
         return ideasCampaignService.updateMasterdata(cmd);
+    }
+
+    @Secured(Roles.ROLE_USER)
+    @GetMapping(value = "/ideas_campaigns/{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public IdeasCampaign loadIdeasCampaign(@PathVariable String id) {
+        return ideasCampaignService.fetchCampaign(id);
     }
 
     @Secured(Roles.ROLE_USER)

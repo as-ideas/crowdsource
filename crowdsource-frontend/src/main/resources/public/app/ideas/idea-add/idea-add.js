@@ -4,7 +4,7 @@ angular.module('crowdsource')
         return {
             restrict: 'E',
             scope: { },
-            templateUrl: 'app/components/idea-add/idea-add.html',
+            templateUrl: 'app/ideas/idea-add/idea-add.html',
             controller: function ($scope, Idea) {
             }
         };

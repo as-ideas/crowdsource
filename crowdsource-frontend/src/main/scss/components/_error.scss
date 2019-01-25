@@ -1,0 +1,29 @@
+@import "../settings";
+
+/***
+ * Error
+ */
+.error-page {
+
+  &__heading {
+    @include font-smoothing;
+  }
+
+  &__description {
+    @include font-smoothing;
+  }
+
+  &__box {
+    &--centered {
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+
+  &__image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: $margin-component;
+  }
+}

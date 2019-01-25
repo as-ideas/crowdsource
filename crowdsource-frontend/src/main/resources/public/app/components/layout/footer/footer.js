@@ -8,7 +8,7 @@ angular.module('crowdsource')
         directive.templateUrl = 'app/components/layout/footer/footer.html';
 
         directive.controller = function () {
-            const vm = this;
+            var vm = this;
             vm.auth = Authentication;
         };
 

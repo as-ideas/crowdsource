@@ -32,7 +32,6 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
     @Autowired
     private IdeasCampaignRepository ideasCampaignRepository;
 
-
     @Test
     public void createIdeasCampaign_ShouldPersistCampaign() throws Exception {
         final UserEntity currentUser = givenAdminUserExists();
@@ -116,6 +115,39 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
 
         final List<IdeasCampaign> actual = Arrays.asList(mapper.readValue(mvcResult.getResponse().getContentAsString(), IdeasCampaign[].class));
         assertThat(actual.size(), equalTo(0));
+    }
+
+    @Test
+    public void loadOneIdeasCampaign_ShouldReturnCampaign() throws Exception {
+        final UserEntity admin = givenAdminUserExists();
+        final String accessTokenAdmin = obtainAccessToken(admin.getEmail(), admin.getPassword());
+        final IdeasCampaign expectedCampaign = givenIdeasCampaignExists(accessTokenAdmin, givenValidCampaignCmd());
+
+        final UserEntity requester = givenUserExists();
+        final String accessToken = obtainAccessToken(requester.getEmail(), requester.getPassword());
+
+        final MvcResult mvcResult = mockMvc.perform(get("/ideas_campaigns/" + expectedCampaign.getId())
+            .header("Authorization", "Bearer " + accessToken)
+            .accept(MediaType.APPLICATION_JSON_UTF8)
+        )
+            .andDo(log())
+            .andExpect(status().isOk()).andReturn();
+
+        final IdeasCampaign actual = mapper.readValue(mvcResult.getResponse().getContentAsString(), IdeasCampaign.class);
+        assertThat(actual.getId(), equalTo(expectedCampaign.getId()));
+    }
+
+    @Test
+    public void loadIdeasCampaign_ShouldReturn404_IfNotExists() throws Exception {
+        final UserEntity requester = givenUserExists();
+        final String accessToken = obtainAccessToken(requester.getEmail(), requester.getPassword());
+
+        mockMvc.perform(get("/ideas_campaigns/NOT_EXISTING")
+            .header("Authorization", "Bearer " + accessToken)
+            .accept(MediaType.APPLICATION_JSON_UTF8)
+        )
+            .andDo(log())
+            .andExpect(status().isNotFound()).andReturn();
     }
 
     @Test

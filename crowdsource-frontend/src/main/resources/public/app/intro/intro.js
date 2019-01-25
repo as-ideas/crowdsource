@@ -1,41 +1,5 @@
 angular.module('crowdsource')
-
-    .controller('IntroController', function (Project, Idea, Authentication) {
+    .controller('IntroController', function (Authentication) {
         var vm = this;
-        vm.auth = Authentication;
-
-        vm.campaigns = {
-            ideas: [],
-            prototypes: []
-        };
-
-        activate();
-
-        function activate() {
-            if(Authentication.currentUser.loggedIn) {
-                getIdeaCampaigns();
-                getPrototypeCampaigns();
-            }
-        }
-
-
-        function getPrototypeCampaigns() {
-            Project.getCampaigns().then(function(res) {
-                vm.campaigns.prototypes = res;
-            }, function() {
-                vm.campaigns.prototypes = [];
-            });
-        }
-
-        function getIdeaCampaigns() {
-            Idea.getCampaigns().then(
-                function(response) {
-                    vm.campaigns.ideas = response;
-                },
-                function() {
-                    vm.campaigns.ideas = []
-                }
-            );
-
-        }
+        vm.isLoggedIn = Authentication.currentUser.loggedIn;
     });

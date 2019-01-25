@@ -3,7 +3,7 @@ package de.asideas.crowdsource.repository.prototypecampaign;
 import de.asideas.crowdsource.domain.model.prototypecampaign.LikeEntity;
 import de.asideas.crowdsource.domain.model.prototypecampaign.ProjectEntity;
 import de.asideas.crowdsource.domain.model.UserEntity;
-import de.asideas.crowdsource.domain.shared.LikeStatus;
+import de.asideas.crowdsource.domain.shared.prototypecampaign.LikeStatus;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.Optional;

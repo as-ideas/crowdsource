@@ -5,7 +5,7 @@ import de.asideas.crowdsource.domain.model.prototypecampaign.CommentEntity;
 import de.asideas.crowdsource.domain.model.prototypecampaign.ProjectEntity;
 import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.domain.service.user.UserNotificationService;
-import de.asideas.crowdsource.domain.shared.ProjectStatus;
+import de.asideas.crowdsource.domain.shared.prototypecampaign.ProjectStatus;
 import de.asideas.crowdsource.repository.UserRepository;
 import org.junit.Before;
 import org.junit.Test;

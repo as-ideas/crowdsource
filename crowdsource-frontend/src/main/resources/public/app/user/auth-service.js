@@ -115,6 +115,11 @@ angular.module('crowdsource')
             return service.currentUser;
         };
 
+        service.isAdmin = function () {
+            console.log(service.currentUser);
+            return service.currentUser && service.currentUser.hasRole('ADMIN');
+        };
+
         service.logout = function () {
             AuthenticationToken.clear();
             service.reloadUser();

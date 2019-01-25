@@ -9,8 +9,8 @@ import de.asideas.crowdsource.domain.model.prototypecampaign.PledgeEntity;
 import de.asideas.crowdsource.domain.model.prototypecampaign.ProjectEntity;
 import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.domain.service.user.UserNotificationService;
-import de.asideas.crowdsource.domain.shared.LikeStatus;
-import de.asideas.crowdsource.domain.shared.ProjectStatus;
+import de.asideas.crowdsource.domain.shared.prototypecampaign.LikeStatus;
+import de.asideas.crowdsource.domain.shared.prototypecampaign.ProjectStatus;
 import de.asideas.crowdsource.presentation.prototypecampaign.Pledge;
 import de.asideas.crowdsource.presentation.prototypecampaign.project.Attachment;
 import de.asideas.crowdsource.presentation.prototypecampaign.project.Project;
@@ -32,8 +32,8 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.Optional;
 
-import static de.asideas.crowdsource.domain.shared.LikeStatus.LIKE;
-import static de.asideas.crowdsource.domain.shared.LikeStatus.UNLIKE;
+import static de.asideas.crowdsource.domain.shared.prototypecampaign.LikeStatus.LIKE;
+import static de.asideas.crowdsource.domain.shared.prototypecampaign.LikeStatus.UNLIKE;
 import static java.util.stream.Collectors.toList;
 
 @Service

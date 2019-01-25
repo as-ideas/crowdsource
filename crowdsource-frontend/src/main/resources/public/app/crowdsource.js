@@ -33,8 +33,12 @@
                     templateUrl: 'app/ideas/list/ideas-list.html',
                     controller: 'IdeasListController as ideasList',
                     title: 'Ideen Kampagne',
-                    requireLogin: true
-
+                    requireLogin: true,
+                    resolve: {
+                        campaign: function(IdeasCampaignResolver) {
+                            return IdeasCampaignResolver();
+                        }
+                    }
                 })
                 .when('/ideas/:ideasId/own', {
                     templateUrl: 'app/ideas/own/own-list.html',
@@ -45,9 +49,14 @@
                 })
                 .when('/ideas/:ideasId/admin', {
                     templateUrl: 'app/ideas/admin/admin-list.html',
-                    controller: 'IdeasAdminController as ideasList',
+                    controller: 'IdeasAdminController as admin',
                     title: 'Administration Ideen Kampagne',
-                    requireLogin: true
+                    requireLogin: true,
+                    resolve: {
+                        campaign: function(IdeasCampaignResolver) {
+                            return IdeasCampaignResolver();
+                        }
+                    }
                 })
 
                 .when('/projects', {
