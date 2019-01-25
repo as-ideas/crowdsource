@@ -29,6 +29,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -70,7 +71,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
     }
 
     @Test
-    public void fetchIdeas_shouldReturnAll() throws Exception {
+    public void fetchIdeas_shouldReturnAllAsPage() throws Exception {
 
         final UserEntity admin = givenAdminUserExists();
         final String adminToken = obtainAccessToken(admin.getEmail(), admin.getPassword());
@@ -84,17 +85,24 @@ public class IdeaControllerIT extends AbstractCrowdIT {
         givenIdeaExists(userToken, parentCampaign.getId(), cmd1).andExpect(status().isCreated()).andReturn();
         givenIdeaExists(userToken, parentCampaign.getId(), cmd2).andExpect(status().isCreated()).andReturn();
 
-        final String resultJson = mockMvc.perform(get("/ideas_campaigns/{campaignId}/ideas", parentCampaign.getId())
-                .contentType(MediaType.APPLICATION_JSON_UTF8)
-                .header("Authorization", "Bearer " + userToken)
-                .accept(MediaType.APPLICATION_JSON_UTF8)
+        mockMvc.perform(get("/ideas_campaigns/{campaignId}/ideas", parentCampaign.getId())
+            .contentType(MediaType.APPLICATION_JSON_UTF8)
+            .header("Authorization", "Bearer " + userToken)
+            .accept(MediaType.APPLICATION_JSON_UTF8)
         )
-                .andDo(log())
-                .andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
-
-        final List<Idea> resIdeas = Arrays.asList(mapper.readValue(resultJson, Idea[].class));
-        assertThat(resIdeas.size(), is(2));
-        assertThat(resIdeas.get(0).getId(), not(equalTo(resIdeas.get(0).getPitch())));
+            .andDo(print())
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.totalElements", is(2)))
+            .andExpect(jsonPath("$.totalPages", is(1)))
+            .andExpect(jsonPath("$.number", is(0)))
+            .andExpect(jsonPath("$.numberOfElements", is(2)))
+            .andExpect(jsonPath("$.first", is(true)))
+            .andExpect(jsonPath("$.last", is(true)))
+            .andExpect(jsonPath("$.content.length()", is(2)))
+            .andExpect(jsonPath("$.content[0].pitch", is("pitch 1")))
+            .andExpect(jsonPath("$.content[1].pitch", is("pitch 2")))
+            .andReturn().getResponse().getContentAsString()
+            ;
 
     }
 
@@ -126,10 +134,6 @@ public class IdeaControllerIT extends AbstractCrowdIT {
         res.forEach(el -> {
             assertThat(el.getCreatorName(), is(user.getFirstName()));
         });
-    }
-
-    private Idea toIdea(ResultActions givenIdeaExists) throws IOException {
-        return mapper.readValue(givenIdeaExists.andReturn().getResponse().getContentAsString(), Idea.class);
     }
 
     @Test
@@ -251,5 +255,8 @@ public class IdeaControllerIT extends AbstractCrowdIT {
                 null, "The Sponsor", "Test_Title", "test_descr", "test_vidRef", "test_teaserImage");
     }
 
+    private Idea toIdea(ResultActions givenIdeaExists) throws IOException {
+        return mapper.readValue(givenIdeaExists.andReturn().getResponse().getContentAsString(), Idea.class);
+    }
 
 }

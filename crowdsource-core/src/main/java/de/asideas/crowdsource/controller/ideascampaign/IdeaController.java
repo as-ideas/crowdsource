@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.security.access.annotation.Secured;
@@ -32,8 +33,10 @@ public class IdeaController {
 
     @Secured(Roles.ROLE_USER)
     @GetMapping(value = "/ideas_campaigns/{campaignId}/ideas", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<Idea> fetchIdeas(@PathVariable String campaignId) {
-        return ideaService.fetchIdeasByCampaign(campaignId);
+    public Page<Idea> fetchIdeas(@PathVariable String campaignId,
+                                 @RequestParam(value = "page", required = false) Integer page,
+                                 @RequestParam(value = "pageSize", required = false) Integer pageSize) {
+        return ideaService.fetchIdeasByCampaign(campaignId, page, pageSize);
     }
 
     @Secured(Roles.ROLE_USER)

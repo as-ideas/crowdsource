@@ -3,8 +3,10 @@ package de.asideas.crowdsource.service.ideascampaign;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import de.asideas.crowdsource.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.security.access.AuthorizationServiceException;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
@@ -22,6 +24,8 @@ import de.asideas.crowdsource.repository.ideascampaign.IdeasCampaignRepository;
  */
 @Service
 public class IdeaService {
+
+    private static final int DEFAULT_PAGE_SIZE = 500;
 
     @Autowired
     private IdeaRepository ideaRepository;
@@ -53,6 +57,31 @@ public class IdeaService {
         return new Idea(ideaRepository.save(existingIdea.modifyIdeaPitch(cmd.getPitch())));
     }
 
+    public Page<Idea> fetchIdeasByCampaign(String campaignId, Integer page, Integer pageSize) {
+        Assert.notNull(campaignId, "campaignId must not be null");
+
+        final PageRequest pReq;
+        if (page != null && pageSize != null) {
+            pReq = new PageRequest(page, pageSize);
+        }else {
+            pReq= new PageRequest(0, DEFAULT_PAGE_SIZE);
+        }
+
+        final Page<IdeaEntity> dbRes = ideaRepository.findByCampaignId(campaignId, pReq);
+        return new PageImpl<>(toIdeas(dbRes.getContent()), pReq, dbRes.getTotalElements());
+    }
+
+
+    public List<Idea> fetchIdeasByCampaignAndUser(String campaignId, UserEntity creator) {
+        Assert.notNull(campaignId, "campaignId must not be null");
+        Assert.notNull(creator, "creator must not be null");
+        return toIdeas(ideaRepository.findByCampaignIdAndCreator(campaignId, creator));
+    }
+
+    private List<Idea> toIdeas(List<IdeaEntity> res) {
+        return res.stream().map(Idea::new).collect(Collectors.toList());
+    }
+
     private void checkModificationAllowed(UserEntity requestingUser, IdeaEntity existingIdea) {
         if (!existingIdea.getCreator().equals(requestingUser)) {
             throw new AuthorizationServiceException("User is not owner of this idea");
@@ -71,21 +100,5 @@ public class IdeaService {
         }
     }
 
-    public List<Idea> fetchIdeasByCampaign(String campaignId) {
-        Assert.notNull(campaignId, "campaignId must not be null");
-        final List<IdeaEntity> res = ideaRepository.findByCampaignId(campaignId);
-        return toIdeas(res);
-    }
-
-
-    public List<Idea> fetchIdeasByCampaignAndUser(String campaignId, UserEntity creator) {
-        Assert.notNull(campaignId, "campaignId must not be null");
-        Assert.notNull(creator, "creator must not be null");
-        return toIdeas(ideaRepository.findByCampaignIdAndCreator(campaignId, creator));
-    }
-
-    private List<Idea> toIdeas(List<IdeaEntity> res) {
-        return res.stream().map(Idea::new).collect(Collectors.toList());
-    }
 
 }
