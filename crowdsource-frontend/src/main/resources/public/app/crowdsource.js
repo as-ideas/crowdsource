@@ -35,20 +35,8 @@
                     title: 'Ideen Kampagne',
                     requireLogin: true,
                     resolve: {
-                        campaign: function(Idea, $route, $location, $q) {
-
-                            var id = $route.current.params.ideasId;
-
-                            var campaignPromise = Idea.getCampaign(id);
-                            var deferred = $q.defer();
-
-                            campaignPromise.then(function(campaign) {
-                                deferred.resolve(campaign);
-                            }, function() {
-                                $location.url('/error/notfound');
-                            });
-
-                            return deferred.promise;
+                        campaign: function(IdeasCampaignResolver) {
+                            return IdeasCampaignResolver();
                         }
                     }
                 })
@@ -61,9 +49,14 @@
                 })
                 .when('/ideas/:ideasId/admin', {
                     templateUrl: 'app/ideas/admin/admin-list.html',
-                    controller: 'IdeasAdminController as ideasList',
+                    controller: 'IdeasAdminController as admin',
                     title: 'Administration Ideen Kampagne',
-                    requireLogin: true
+                    requireLogin: true,
+                    resolve: {
+                        campaign: function(IdeasCampaignResolver) {
+                            return IdeasCampaignResolver();
+                        }
+                    }
                 })
 
                 .when('/projects', {

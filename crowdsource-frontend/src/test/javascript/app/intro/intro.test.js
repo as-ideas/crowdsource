@@ -1,4 +1,4 @@
-fdescribe('intro page', function () {
+describe('intro page', function () {
 
     var intro, Authentication, template, $controller, $rootScope, $compile, Project, $httpBackend, Idea;
 
