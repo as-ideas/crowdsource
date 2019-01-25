@@ -9,12 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.security.access.annotation.Secured;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.presentation.ideascampaign.Idea;
@@ -49,9 +44,16 @@ public class IdeaController {
         return ideaService.createNewIdea(campaignId, cmd, userByPrincipal(principal));
     }
 
+    @Secured(Roles.ROLE_USER)
+    @ResponseStatus(HttpStatus.OK)
+    @PutMapping(value = "/ideas_campaigns/{campaignId}/ideas/{ideaId}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public Idea modifyIdea(@Valid @RequestBody Idea cmd, @PathVariable String campaignId, @PathVariable String ideaId, Principal principal) {
+        log.info("Going to modify idea by cmd: {}", cmd);
+        return ideaService.modifyIdea(ideaId, cmd, userByPrincipal(principal));
+    }
+
     private UserEntity userByPrincipal(Principal principal) {
         return userService.getUserByEmail(principal.getName());
     }
-
 
 }

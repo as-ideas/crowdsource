@@ -36,6 +36,11 @@ public class Idea {
         this.pitch = pitch;
     }
 
+    public Idea(String id, String pitch) {
+        this.id = id;
+        this.pitch = pitch;
+    }
+
     public String getId() {
         return id;
     }

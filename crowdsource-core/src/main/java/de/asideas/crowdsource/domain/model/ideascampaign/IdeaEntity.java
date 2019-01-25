@@ -18,6 +18,9 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.util.Assert;
 
+import static org.springframework.util.Assert.hasText;
+import static org.springframework.util.Assert.notNull;
+
 @Document(collection = "ideas")
 public class IdeaEntity {
 
@@ -48,9 +51,9 @@ public class IdeaEntity {
     }
 
     public static IdeaEntity createIdeaEntity(Idea cmd, String campaignId, UserEntity creator){
-        Assert.hasText(campaignId, "campaignId must be given");
-        Assert.hasText(cmd.getPitch(), "Pitch must contain text.");
-        Assert.notNull(creator, "Creator must not be null.");
+        hasText(campaignId, "campaignId must be given");
+        hasText(cmd.getPitch(), "Pitch must contain text.");
+        notNull(creator, "Creator must not be null.");
 
         final IdeaEntity result = new IdeaEntity();
         result.setPitch(cmd.getPitch());
@@ -60,6 +63,11 @@ public class IdeaEntity {
         return result;
     }
 
+    public IdeaEntity modifyIdeaPitch(String newPitch) {
+        hasText(newPitch, "new pitch must be given");
+        this.setPitch(newPitch);
+        return this;
+    }
 
     public String getId() {
         return id;

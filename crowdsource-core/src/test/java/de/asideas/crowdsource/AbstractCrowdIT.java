@@ -39,6 +39,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = {CrowdsourceTestApp.class}, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public abstract class AbstractCrowdIT {
 
+    public static final String PASSWORD = "SEKRET";
     protected ObjectMapper mapper = new ObjectMapper();
 
     @Resource
@@ -83,11 +84,18 @@ public abstract class AbstractCrowdIT {
         return user;
     }
 
+    protected UserEntity givenDifferentUserExists() {
+        UserEntity user = givenUser("alternative@blablubb.com", Arrays.asList(Roles.ROLE_USER));
+        user = userRepository.save(user);
+        user.setPassword(PASSWORD);
+        return user;
+    }
+
     private UserEntity givenUser(String mail, List<String> roles) {
         UserEntity res = new UserEntity(mail, "Guybrush", "Threepwood");
         res.setActivated(true);
         res.setRoles(roles);
-        res.setPassword(passwordEncoder.encode("SEKRET"));
+        res.setPassword(passwordEncoder.encode(PASSWORD));
         return res;
     }
 
