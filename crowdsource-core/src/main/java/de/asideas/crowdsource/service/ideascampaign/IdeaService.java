@@ -3,7 +3,9 @@ package de.asideas.crowdsource.service.ideascampaign;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import de.asideas.crowdsource.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.AuthorizationServiceException;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
@@ -28,7 +30,6 @@ public class IdeaService {
     private IdeasCampaignRepository ideasCampaignRepository;
 
     public Idea createNewIdea(String campaignId, Idea cmd, UserEntity creator) {
-
         Assert.notNull(cmd, "cmd must not be null.");
         Assert.notNull(campaignId, "CampaignId must not be null.");
         Assert.notNull(creator, "Creator must not be null.");
@@ -39,16 +40,52 @@ public class IdeaService {
         return new Idea(ideaRepository.save(result));
     }
 
+    public Idea modifyIdea(String ideaId, Idea cmd, UserEntity requestingUser) {
+        Assert.notNull(cmd, "cmd must not be null.");
+        Assert.hasText(ideaId, "ideaId must not be null.");
+        Assert.notNull(requestingUser, "user must not be null.");
+
+        validateIdeaExists(ideaId);
+
+        IdeaEntity existingIdea = ideaRepository.findOne(ideaId);
+        checkModificationAllowed(requestingUser, existingIdea);
+
+        return new Idea(ideaRepository.save(existingIdea.modifyIdeaPitch(cmd.getPitch())));
+    }
+
+    private void checkModificationAllowed(UserEntity requestingUser, IdeaEntity existingIdea) {
+        if (!existingIdea.getCreator().equals(requestingUser)) {
+            throw new AuthorizationServiceException("User is not owner of this idea");
+        }
+    }
+
     private void validateCampaignExists(String campaignId) throws ResourceNotFoundException {
-        if(!ideasCampaignRepository.exists(campaignId)){
+        if (!ideasCampaignRepository.exists(campaignId)) {
             throw new ResourceNotFoundException();
         }
     }
 
+    private void validateIdeaExists(String ideaId) throws ResourceNotFoundException {
+        if (!ideaRepository.exists(ideaId)) {
+            throw new ResourceNotFoundException();
+        }
+    }
 
     public List<Idea> fetchIdeasByCampaign(String campaignId) {
         Assert.notNull(campaignId, "campaignId must not be null");
-        return ideaRepository.findByCampaignId(campaignId).stream().map(Idea::new).collect(Collectors.toList());
-
+        final List<IdeaEntity> res = ideaRepository.findByCampaignId(campaignId);
+        return toIdeas(res);
     }
+
+
+    public List<Idea> fetchIdeasByCampaignAndUser(String campaignId, UserEntity creator) {
+        Assert.notNull(campaignId, "campaignId must not be null");
+        Assert.notNull(creator, "creator must not be null");
+        return toIdeas(ideaRepository.findByCampaignIdAndCreator(campaignId, creator));
+    }
+
+    private List<Idea> toIdeas(List<IdeaEntity> res) {
+        return res.stream().map(Idea::new).collect(Collectors.toList());
+    }
+
 }

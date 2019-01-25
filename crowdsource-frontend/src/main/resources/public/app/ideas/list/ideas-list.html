@@ -1,22 +1,36 @@
 <idea-teaser campaign="ideasList.campaign"></idea-teaser>
 <ideas-status-bar campaign="ideasList.campaign"></ideas-status-bar>
 
-<content-row class="ideas-list">
+<content-row class="intro-section">
 
-    <section>
-        <h1>Deine Idee</h1>
-        <form>
-            <textarea title=""></textarea>
-            <button>Idee einreichen</button>
-            <p>Deine Idee wird nach dem Einreichen erstmal überprüft. ..</p>
-        </form>
+    <div class="row">
+        <div class="columns medium-6">
+            <h1 class="plist__heading">Deine Idee</h1>
+            <p class="plist__intro--has-divider">
+                Was ist Deine Idee? Schreibe einen kurzern prägnanter Satz.
+            </p>
+            <div>
+                <idea-add campaign="ideasList.campaign"></idea-add>
+            </div>
+        </div>
 
-        <ul>
-            <li><a href="/#/ideas/asdf/admin">ADMIN Ideen ----></a></li>
-            <li><a href="/#/ideas/asdf/own">Deine eingereichten Ideen anschauen ---></a></li>
-        </ul>
-    </section>
+        <div class="columns medium-6">
+            <h1 class="plist__heading">Deine eingereichten Ideen</h1>
+            <p class="plist__intro--has-divider">
+                Du hast schon XX Ideen eingereicht!
+            </p>
+            <p>Deine eingereichten Ideen werden von unser Redaktion zeitnah freigeben oder mit einer Begründung
+                abgeleht.</p>
+            <ul>
+                <li><span class="plist__pill">12</span>Freigegebene Ideen</li>
+                <li><span class="plist__pill">4</span>Ausstehende Ideen</li>
+                <li><span class="plist__pill">0</span>Abgelehnte Ideen</li>
+            </ul>
+        </div>
+    </div>
+</content-row>
 
+<content-row>
     <section>
         <h1>Liste der Ideen</h1>
 

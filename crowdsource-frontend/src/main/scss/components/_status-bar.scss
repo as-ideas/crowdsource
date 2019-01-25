@@ -71,7 +71,13 @@ status-bar {
     @media #{$medium-up} {
         width: 40%;
     }
+
+  &--no-padding {
+    padding: 0 !important;
+  }
 }
+
+
 
 /*li*/
 .sbar__li--ternary {
@@ -151,7 +157,6 @@ status-bar {
 
 .sbar__icon--time {
     @include sbar__icon();
-    color: $clr-black;
     background-image: url('../images/icons/time_clock_with_arrow.svg');
 }
 
@@ -161,6 +166,10 @@ status-bar {
     background-image: url('../images/icon-box.svg');
 }
 
+.sbar__icon--edit {
+  @include sbar__icon(('padding-left': 26px));
+  background-image: url('../images/icon-edit.svg');
+}
 //
 // Pill
 //

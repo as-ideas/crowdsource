@@ -1,6 +1,10 @@
-<h1>Deine Idee</h1>
 <form>
-    <textarea title=""></textarea>
-    <button>Idee einreichen</button>
-    <p>Deine Idee wird nach dem Einreichen erstmal überprüft. ..</p>
+    <textarea ng-disabled="vm.pending" class="newcomment-comment" name="idea" ng-model="vm.newIdea.pitch"
+              placeholder="Ein kurzer und prägnanter Satz (max. 265 Zeichen)"
+              required maxlength="265" reset-remote-validation></textarea>
+
+    <button ng-disabled="vm.pending" type="submit" ng-click="vm.send()" class="crwd-success radius shadow margin-top">
+        {{ vm.pending ? 'Absenden...' : 'Absenden' }}
+    </button>
+    <span ng-if="vm.failed" class="upload-messages__error">Es ist ein Fehler aufgetreten.</span>
 </form>

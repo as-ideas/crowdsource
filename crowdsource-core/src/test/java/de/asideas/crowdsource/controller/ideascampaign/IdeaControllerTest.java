@@ -29,6 +29,7 @@ import static org.junit.Assert.*;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.doReturn;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -56,27 +57,51 @@ public class IdeaControllerTest {
     @Before
     public void init() {
         mockMvc = MockMvcBuilders
-            .webAppContextSetup(wac)
-            .alwaysDo(print())
-            .build();
+                .webAppContextSetup(wac)
+                .alwaysDo(print())
+                .build();
     }
 
     @Test
-    public void createIdea_ShouldReturn_400_onInvalidPitch() throws Exception {
-        givenPrincipalExists();
-        Idea cmd = new Idea("");
+    public void createIdea_ShouldReturn_400_onEmptyPitch() throws Exception {
+        Idea cmd = new Idea((String) null);
 
         mockMvc.perform(post("/ideas_campaigns/anId/ideas")
-            .content(mapper.writeValueAsString(cmd))
-            .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(mapper.writeValueAsString(cmd))
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
         )
-            .andDo(log())
-            .andExpect(status().isBadRequest())
-            .andExpect(jsonPath("$.fieldViolations.pitch", equalTo("may not be empty")));
+                .andDo(log())
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.fieldViolations.pitch", equalTo("may not be empty")));
     }
 
-    private void givenPrincipalExists() {
-        doReturn(Fixtures.givenUserEntity("userId")).when(userService).getUserByEmail(anyString());
+    @Test
+    public void updateIdea_ShouldReturn_400_onInvalidPitch() throws Exception {
+        Idea cmd = new Idea("");
 
+        mockMvc.perform(put("/ideas_campaigns/aCampaignId/ideas/anIdeaId")
+                .content(mapper.writeValueAsString(cmd))
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+        )
+                .andDo(log())
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.fieldViolations.pitch", equalTo("size must be between 5 and 255")));
     }
+
+    @Test
+    public void createIdea_ShouldReturn_400_onPitchSizeInvalid() throws Exception {
+        // Longer than 255 chars
+        final Idea cmd = new Idea("Lo000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000" +
+                "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ng");
+
+        mockMvc.perform(post("/ideas_campaigns/anId/ideas")
+                .content(mapper.writeValueAsString(cmd))
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+        )
+                .andDo(log())
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.fieldViolations.pitch", equalTo("size must be between 5 and 255")));
+        ;
+    }
+
 }

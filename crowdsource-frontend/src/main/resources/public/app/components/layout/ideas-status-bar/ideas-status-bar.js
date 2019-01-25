@@ -14,6 +14,10 @@ angular.module('crowdsource')
                 vm.userIsAdmin = Authentication.isAdmin();
                 vm.campaignRunning = campaignIsRunning();
 
+              if (!vm.campaign) {
+                throw Error('ideas-status-bar: missing campaign on scope in directive');
+              }
+
                 function updateTitle(title) {
                     var newTitle = "CrowdSource";
                     var campaignTitle = vm.campaign.title || '';
@@ -32,14 +36,15 @@ angular.module('crowdsource')
 
                 function campaignIsRunning() {
                     var nowMs = new Date().getDate();
-                    var endDateMs = vm.campaign.endDate || 0;
+                  var endDateMs = (vm.campaign && vm.campaign.endDate) ? vm.campaign.endDate : 0;
                     return nowMs > endDateMs;
                 }
 
-
                 Route.onRouteChangeSuccessAndInit(function (event, currentRoute) {
-                    updateTitle(currentRoute.title);
+                  if (typeof (currentRoute) !== 'undefined' && currentRoute.title) {
                     updateBreadcrumb(currentRoute.title);
+                    updateTitle(currentRoute.title);
+                  }
                 });
             }
         };

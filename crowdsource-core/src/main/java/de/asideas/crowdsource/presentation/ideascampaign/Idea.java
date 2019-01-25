@@ -1,13 +1,10 @@
 package de.asideas.crowdsource.presentation.ideascampaign;
 
 import java.util.Objects;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.bouncycastle.crypto.engines.IDEAEngine;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.joda.time.DateTime;
-import org.springframework.data.annotation.Id;
 
 import de.asideas.crowdsource.domain.model.ideascampaign.IdeaEntity;
 import de.asideas.crowdsource.domain.shared.ideascampaign.IdeaStatus;
@@ -20,12 +17,14 @@ public class Idea {
     private DateTime creationDate;
 
     @NotEmpty
+    @Size(min = 5, max = 255)
     private String pitch;
 
-    private Idea(){}
+    private Idea() {
+    }
 
-    public Idea(IdeaEntity ideaEntity){
-        this.id =ideaEntity.getId();
+    public Idea(IdeaEntity ideaEntity) {
+        this.id = ideaEntity.getId();
         this.pitch = ideaEntity.getPitch();
         this.status = ideaEntity.getStatus();
         this.creationDate = ideaEntity.getCreatedDate();
@@ -33,6 +32,11 @@ public class Idea {
     }
 
     public Idea(String pitch) {
+        this.pitch = pitch;
+    }
+
+    public Idea(String id, String pitch) {
+        this.id = id;
         this.pitch = pitch;
     }
 

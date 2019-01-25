@@ -1,5 +1,6 @@
 package de.asideas.crowdsource.service.ideascampaign;
 
+import de.asideas.crowdsource.domain.model.UserEntity;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -12,7 +13,6 @@ import de.asideas.crowdsource.repository.ideascampaign.IdeaRepository;
 import de.asideas.crowdsource.repository.ideascampaign.IdeasCampaignRepository;
 import de.asideas.crowdsource.testutil.Fixtures;
 
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.doReturn;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -37,7 +37,20 @@ public class IdeaServiceTest {
 
     }
 
+    @Test(expected = ResourceNotFoundException.class)
+    public void updateIdea_shouldThrowException_OnNotExistingIdea() {
+        final String missingIdeaId = "idea27";
+        givenIdeaDoesntExist(missingIdeaId);
+
+        ideaService.modifyIdea(missingIdeaId, new Idea("my faulty pitch"), new UserEntity());
+    }
+
     private void givenIdeaCampaignDoesntExist(String campaignId) {
         doReturn(false).when(ideasCampaignRepository).exists(campaignId);
     }
+
+    private void givenIdeaDoesntExist(String ideaId) {
+        doReturn(false).when(ideaRepository).exists(ideaId);
+    }
+
 }
