@@ -58,7 +58,7 @@ angular.module('crowdsource')
                 firstName: 'Peter',
                 lastName: 'Pan',
                 email: 'peter@demo',
-                text: 'Meine Idee in genau 255 Zeichen zu beschreiben, ist die Aufgabe dieses Textes um dann auch zu sehen wir das vom Layout dann passt denn soviele Zeichen sind gar nicht so wenig und man muss ja auch die Breite jedes Buchstaben berücksichtigen zumindest grob.',
+                text: 'Wir sehen das vom Layout dann passt denn soviele Zeichen sind gar nicht so wenig und man muss ja auch die Breite jedes Buchstaben berücksichtigen zumindest grob.',
                 votes: 113,
                 avgVotes: 4.5,
                 status: 'published'
