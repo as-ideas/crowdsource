@@ -3,7 +3,7 @@ package de.asideas.crowdsource.repository;
 import de.asideas.crowdsource.config.MongoDBConfig;
 import de.asideas.crowdsource.domain.model.prototypecampaign.ProjectEntity;
 import de.asideas.crowdsource.domain.model.UserEntity;
-import de.asideas.crowdsource.domain.shared.ProjectStatus;
+import de.asideas.crowdsource.domain.shared.prototypecampaign.ProjectStatus;
 import de.asideas.crowdsource.presentation.statistics.results.BarChartStatisticsResult;
 import de.asideas.crowdsource.repository.prototypecampaign.ProjectRepository;
 import de.asideas.crowdsource.testsupport.CrowdSourceTestConfig;
@@ -13,23 +13,22 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.IntegrationTest;
-import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
 
-import static de.asideas.crowdsource.domain.shared.ProjectStatus.FULLY_PLEDGED;
-import static de.asideas.crowdsource.domain.shared.ProjectStatus.PROPOSED;
-import static de.asideas.crowdsource.domain.shared.ProjectStatus.PUBLISHED;
+import static de.asideas.crowdsource.domain.shared.prototypecampaign.ProjectStatus.FULLY_PLEDGED;
+import static de.asideas.crowdsource.domain.shared.prototypecampaign.ProjectStatus.PROPOSED;
+import static de.asideas.crowdsource.domain.shared.prototypecampaign.ProjectStatus.PUBLISHED;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = {MongoDBConfig.class, CrowdSourceTestConfig.class})
-@IntegrationTest
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = {MongoDBConfig.class, CrowdSourceTestConfig.class})
 public class ProjectRepositoryImplIT {
 
     private static final Logger log = LoggerFactory.getLogger(ProjectRepositoryImplIT.class);

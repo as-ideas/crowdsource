@@ -1,6 +1,6 @@
 package de.asideas.crowdsource.testsupport.pageobjects.project;
 
-import de.asideas.crowdsource.domain.shared.LikeStatus;
+import de.asideas.crowdsource.domain.shared.prototypecampaign.LikeStatus;
 import de.asideas.crowdsource.presentation.prototypecampaign.project.Project;
 import de.asideas.crowdsource.testsupport.selenium.SeleniumWait;
 import de.asideas.crowdsource.testsupport.selenium.WebDriverProvider;

@@ -142,14 +142,13 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
         final UserEntity requester = givenUserExists();
         final String accessToken = obtainAccessToken(requester.getEmail(), requester.getPassword());
 
-        final MvcResult mvcResult = mockMvc.perform(get("/ideas_campaigns/NOT_EXISTING")
+        mockMvc.perform(get("/ideas_campaigns/NOT_EXISTING")
             .header("Authorization", "Bearer " + accessToken)
             .accept(MediaType.APPLICATION_JSON_UTF8)
         )
             .andDo(log())
             .andExpect(status().isNotFound()).andReturn();
     }
-
 
     @Test
     public void loadIdeasCampaign_ShouldReturnUnauthorized_on_InvalidToken() throws Exception {

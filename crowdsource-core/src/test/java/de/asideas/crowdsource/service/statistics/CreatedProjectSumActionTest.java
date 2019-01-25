@@ -15,7 +15,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 import java.util.*;
 import java.util.concurrent.Future;
 
-import static de.asideas.crowdsource.domain.shared.StatisticsTypes.SUM_CREATED_PROJECT;
+import static de.asideas.crowdsource.domain.shared.prototypecampaign.StatisticsTypes.SUM_CREATED_PROJECT;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Matchers.any;

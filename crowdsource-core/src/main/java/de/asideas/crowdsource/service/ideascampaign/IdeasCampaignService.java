@@ -9,6 +9,7 @@ import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import de.asideas.crowdsource.domain.exception.ResourceNotFoundException;
 import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.domain.model.ideascampaign.IdeasCampaignEntity;
 import de.asideas.crowdsource.presentation.ideascampaign.IdeasCampaign;
@@ -46,12 +47,16 @@ public class IdeasCampaignService {
         return new IdeasCampaign(ideasCampaignRepository.save(storedCampaign));
     }
 
+    public IdeasCampaign fetchCampaign(String campaignId) {
+        final IdeasCampaignEntity existingCampaign = ideasCampaignRepository.findOne(campaignId);
+        if (existingCampaign == null) {
+            throw new ResourceNotFoundException();
+        }
+        return new IdeasCampaign(existingCampaign);
+    }
+
     private List<IdeasCampaign> toIdeasCampaigns(List<IdeasCampaignEntity> in) {
         return in.stream().map(IdeasCampaign::new).collect(Collectors.toList());
     }
 
-    public Optional<IdeasCampaign> getCampaign(String campaignId) {
-        final IdeasCampaignEntity existingCampaign = ideasCampaignRepository.findOne(campaignId);
-        return Optional.ofNullable(existingCampaign).map(IdeasCampaign::new);
-    }
 }

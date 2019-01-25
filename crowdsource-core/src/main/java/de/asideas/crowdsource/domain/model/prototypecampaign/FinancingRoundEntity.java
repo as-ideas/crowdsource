@@ -1,7 +1,7 @@
 package de.asideas.crowdsource.domain.model.prototypecampaign;
 
 import de.asideas.crowdsource.presentation.prototypecampaign.FinancingRound;
-import de.asideas.crowdsource.domain.shared.ProjectStatus;
+import de.asideas.crowdsource.domain.shared.prototypecampaign.ProjectStatus;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;

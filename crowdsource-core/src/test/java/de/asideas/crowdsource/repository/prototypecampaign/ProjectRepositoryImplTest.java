@@ -1,9 +1,8 @@
 package de.asideas.crowdsource.repository.prototypecampaign;
 
 import de.asideas.crowdsource.domain.model.prototypecampaign.ProjectEntity;
-import de.asideas.crowdsource.domain.shared.ProjectStatus;
+import de.asideas.crowdsource.domain.shared.prototypecampaign.ProjectStatus;
 import de.asideas.crowdsource.presentation.statistics.results.BarChartStatisticsResult;
-import de.asideas.crowdsource.repository.prototypecampaign.ProjectRepositoryImpl;
 import de.asideas.crowdsource.repository.prototypecampaign.ProjectRepositoryImpl.ProjectPerStatusResult;
 import org.junit.Test;
 import org.junit.runner.RunWith;

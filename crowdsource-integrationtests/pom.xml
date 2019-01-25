@@ -113,6 +113,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>de.asideas.crowdsource</groupId>
             <artifactId>crowdsource-example</artifactId>
             <version>${project.version}</version>

@@ -2,7 +2,6 @@ package de.asideas.crowdsource.controller.ideascampaign;
 
 import java.security.Principal;
 import java.util.List;
-import java.util.Optional;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -40,7 +39,7 @@ public class IdeasCampaignController {
 
     @Secured(Roles.ROLE_ADMIN)
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping(value = "/ideas_campaigns", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/ideas_campaigns", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public IdeasCampaign createIdeasCampaign(@Valid @RequestBody IdeasCampaign cmd, Principal principal) {
         log.info("Going to create ideas campaign by cmd: {}", cmd);
         return ideasCampaignService.createCampaign(cmd, userByPrincipal(principal));
@@ -57,8 +56,8 @@ public class IdeasCampaignController {
 
     @Secured(Roles.ROLE_USER)
     @GetMapping(value = "/ideas_campaigns/{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<IdeasCampaign> loadIdeasCampaign(@PathVariable String id) {
-        return ideasCampaignService.getCampaign(id).map((c) -> ResponseEntity.ok().body(c)).orElse(ResponseEntity.notFound().build());
+    public IdeasCampaign loadIdeasCampaign(@PathVariable String id) {
+        return ideasCampaignService.fetchCampaign(id);
     }
 
     @Secured(Roles.ROLE_USER)

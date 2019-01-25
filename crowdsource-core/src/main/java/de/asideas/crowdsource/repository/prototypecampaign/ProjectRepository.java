@@ -2,7 +2,7 @@ package de.asideas.crowdsource.repository.prototypecampaign;
 
 import de.asideas.crowdsource.domain.model.prototypecampaign.FinancingRoundEntity;
 import de.asideas.crowdsource.domain.model.prototypecampaign.ProjectEntity;
-import de.asideas.crowdsource.domain.shared.ProjectStatus;
+import de.asideas.crowdsource.domain.shared.prototypecampaign.ProjectStatus;
 import org.joda.time.DateTime;
 import org.springframework.data.mongodb.repository.MongoRepository;
 

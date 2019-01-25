@@ -1,7 +1,7 @@
 package de.asideas.crowdsource.domain.model.prototypecampaign;
 
 import de.asideas.crowdsource.domain.model.UserEntity;
-import de.asideas.crowdsource.domain.shared.LikeStatus;
+import de.asideas.crowdsource.domain.shared.prototypecampaign.LikeStatus;
 import org.joda.time.DateTime;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;

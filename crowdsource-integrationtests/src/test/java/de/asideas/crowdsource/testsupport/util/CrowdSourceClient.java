@@ -2,7 +2,7 @@ package de.asideas.crowdsource.testsupport.util;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import de.asideas.crowdsource.domain.shared.ProjectStatus;
+import de.asideas.crowdsource.domain.shared.prototypecampaign.ProjectStatus;
 import de.asideas.crowdsource.presentation.prototypecampaign.Comment;
 import de.asideas.crowdsource.presentation.prototypecampaign.FinancingRound;
 import de.asideas.crowdsource.presentation.prototypecampaign.Pledge;

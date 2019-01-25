@@ -7,7 +7,7 @@ import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.presentation.prototypecampaign.project.Project;
 import de.asideas.crowdsource.presentation.user.ProjectCreator;
 import de.asideas.crowdsource.domain.service.user.UserNotificationService;
-import de.asideas.crowdsource.domain.shared.ProjectStatus;
+import de.asideas.crowdsource.domain.shared.prototypecampaign.ProjectStatus;
 import de.asideas.crowdsource.testsupport.CrowdSourceTestConfig;
 import de.asideas.crowdsource.testsupport.util.CrowdSourceClient;
 import de.asideas.crowdsource.testsupport.util.MailServerClient;

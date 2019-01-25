@@ -1,4 +1,4 @@
-package de.asideas.crowdsource.domain.shared;
+package de.asideas.crowdsource.domain.shared.prototypecampaign;
 
 public enum StatisticsTypes {
 

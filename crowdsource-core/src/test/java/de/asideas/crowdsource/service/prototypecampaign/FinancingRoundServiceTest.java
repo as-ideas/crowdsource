@@ -10,7 +10,7 @@ import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.presentation.prototypecampaign.FinancingRound;
 import de.asideas.crowdsource.presentation.prototypecampaign.Pledge;
 import de.asideas.crowdsource.domain.service.financinground.FinancingRoundPostProcessor;
-import de.asideas.crowdsource.domain.shared.ProjectStatus;
+import de.asideas.crowdsource.domain.shared.prototypecampaign.ProjectStatus;
 import de.asideas.crowdsource.repository.prototypecampaign.FinancingRoundRepository;
 import de.asideas.crowdsource.repository.prototypecampaign.PledgeRepository;
 import de.asideas.crowdsource.repository.prototypecampaign.ProjectRepository;

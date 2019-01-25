@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import de.asideas.crowdsource.domain.exception.ForbiddenException;
 import de.asideas.crowdsource.domain.exception.InvalidRequestException;
 import de.asideas.crowdsource.domain.model.UserEntity;
-import de.asideas.crowdsource.domain.shared.ProjectStatus;
+import de.asideas.crowdsource.domain.shared.prototypecampaign.ProjectStatus;
 import de.asideas.crowdsource.presentation.prototypecampaign.Pledge;
 import de.asideas.crowdsource.presentation.prototypecampaign.project.Attachment;
 import de.asideas.crowdsource.presentation.prototypecampaign.project.Project;
@@ -42,9 +42,9 @@ import java.security.Principal;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static de.asideas.crowdsource.domain.shared.ProjectStatus.FULLY_PLEDGED;
-import static de.asideas.crowdsource.domain.shared.ProjectStatus.PUBLISHED;
-import static de.asideas.crowdsource.domain.shared.ProjectStatus.PUBLISHED_DEFERRED;
+import static de.asideas.crowdsource.domain.shared.prototypecampaign.ProjectStatus.FULLY_PLEDGED;
+import static de.asideas.crowdsource.domain.shared.prototypecampaign.ProjectStatus.PUBLISHED;
+import static de.asideas.crowdsource.domain.shared.prototypecampaign.ProjectStatus.PUBLISHED_DEFERRED;
 
 @RestController
 public class ProjectController {

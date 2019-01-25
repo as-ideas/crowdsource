@@ -7,6 +7,7 @@ import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.presentation.ideascampaign.CampaignInitiator;
 import de.asideas.crowdsource.presentation.ideascampaign.IdeasCampaign;
 
+import static de.asideas.crowdsource.testutil.Fixtures.givenUserEntity;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -140,12 +141,6 @@ public class IdeasCampaignEntityTest {
     private IdeasCampaign givenIdeasCampaignCmd(String userId, DateTime startDate, DateTime endDate) {
         return new IdeasCampaign(startDate, endDate,
             new CampaignInitiator(userId, "test_username"), "test_sponsor", "Test_Title", "test_descr", "test_vidRef", "test_teaserImg");
-    }
-
-    private UserEntity givenUserEntity(String userId) {
-        UserEntity initiator = new UserEntity("test_mail", "test_firstname", "test_lastname");
-        initiator.setId(userId);
-        return initiator;
     }
 
     private void thenIdeasCampaignContainsExpectedFields(IdeasCampaignEntity actualRes, IdeasCampaign expected) {
