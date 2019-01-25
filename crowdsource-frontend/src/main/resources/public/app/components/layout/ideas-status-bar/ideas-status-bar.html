@@ -1,12 +1,24 @@
 <div class="row">
     <ul class="sbar__ul">
-        <li class="sbar__li--secondary">
-            <span class="sbar__icon--location">CROWD / {{ status.breadcrump }}</span>
+        <li class="sbar__li--primary">
+
+            <ul class="sbar__ul-float">
+                <span class="sbar__icon--location"></span>
+
+                    <li class="sbar__li--secondary" ng-repeat="breadcrumb in status.breadcrumbs">
+                        <a ng-href="{{breadcrumb.target}}">{{breadcrumb.label}}</a>
+                        <span ng-if="!$last"> / </span>
+                    </li>
+            </ul>
         </li>
 
         <li class="sbar__li--primary">
             <ul class="sbar__ul-float">
-                <li><span class="sbar__icon--hourglass">1d 23h 55m 55s</span></li>
+                <li  class="sbar__li--secondary">
+                    <span ng-if="status.campaignIsRunning" class="sbar__icon--hourglass">Kampagne läuft bis: {{status.campaign.startDate | date}}</span>
+                    <span ng-if="!status.campaignIsRunning" class="sbar__icon--time">Kampagne endete am: {{status.campaign.startDate | date}}</span>
+                    <a ng-if="status.userIsAdmin" class="button-primary" ng-href="/#/ideas/{{status.campaign.id}}/admin">Administration</a>
+                </li>
             </ul>
         </li>
     </ul>

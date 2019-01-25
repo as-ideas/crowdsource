@@ -53,7 +53,7 @@ angular.module('crowdsource')
                 text: 'idea sis magiccc',
                 votes: 25,
                 avgVotes: 5,
-                status: 'published',
+                status: 'published'
             }, {
                 firstName: 'Peter',
                 lastName: 'Pan',
