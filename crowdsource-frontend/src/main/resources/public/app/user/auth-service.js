@@ -116,7 +116,6 @@ angular.module('crowdsource')
         };
 
         service.isAdmin = function () {
-            console.log(service.currentUser);
             return service.currentUser && service.currentUser.hasRole('ADMIN');
         };
 

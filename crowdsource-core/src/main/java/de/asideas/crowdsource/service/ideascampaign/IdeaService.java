@@ -73,7 +73,19 @@ public class IdeaService {
 
     public List<Idea> fetchIdeasByCampaign(String campaignId) {
         Assert.notNull(campaignId, "campaignId must not be null");
-        return ideaRepository.findByCampaignId(campaignId).stream().map(Idea::new).collect(Collectors.toList());
+        final List<IdeaEntity> res = ideaRepository.findByCampaignId(campaignId);
+        return toIdeas(res);
+    }
+
+
+    public List<Idea> fetchIdeasByCampaignAndUser(String campaignId, UserEntity creator) {
+        Assert.notNull(campaignId, "campaignId must not be null");
+        Assert.notNull(creator, "creator must not be null");
+        return toIdeas(ideaRepository.findByCampaignIdAndCreator(campaignId, creator));
+    }
+
+    private List<Idea> toIdeas(List<IdeaEntity> res) {
+        return res.stream().map(Idea::new).collect(Collectors.toList());
     }
 
 }

@@ -5,19 +5,20 @@
             <ul class="sbar__ul-float">
                 <span class="sbar__icon--location"></span>
 
-                    <li class="sbar__li--secondary" ng-repeat="breadcrumb in status.breadcrumbs">
-                        <a ng-href="{{breadcrumb.target}}">{{breadcrumb.label}}</a>
-                        <span ng-if="!$last"> / </span>
-                    </li>
+                <li class="sbar__li--secondary" ng-repeat="breadcrumb in status.breadcrumbs">
+                    <a ng-href="{{breadcrumb.target}}">{{breadcrumb.label}}</a>
+                    <span ng-if="!$last"> / </span>
+                </li>
             </ul>
         </li>
 
         <li class="sbar__li--primary">
             <ul class="sbar__ul-float">
-                <li  class="sbar__li--secondary">
+                <li class="sbar__li--secondary--no-padding sbar__li--secondary">
                     <span ng-if="status.campaignIsRunning" class="sbar__icon--hourglass">Kampagne läuft bis: {{status.campaign.startDate | date}}</span>
                     <span ng-if="!status.campaignIsRunning" class="sbar__icon--time">Kampagne endete am: {{status.campaign.startDate | date}}</span>
-                    <a ng-if="status.userIsAdmin" class="button-primary" ng-href="/#/ideas/{{status.campaign.id}}/admin">Administration</a>
+                    <a ng-if="status.userIsAdmin" name="admin-button" ng-href="/#/ideas/{{status.campaign.id}}/admin">[Admin]</a>
+                    <a name="user-button" ng-href="/#/ideas/{{status.campaign.id}}/own">[Deine Ideen]</a>
                 </li>
             </ul>
         </li>
