@@ -1,7 +1,7 @@
 <form>
     <textarea ng-disabled="vm.pending" class="newcomment-comment" name="idea" ng-model="vm.newIdea.pitch"
-                placeholder="Ein kurzer und prägnanter Satz (max. 265 Zeichen)"
-                required maxlength="265" reset-remote-validation></textarea>
+              placeholder="Ein kurzer und prägnanter Satz (max. 265 Zeichen)"
+              required maxlength="265" reset-remote-validation></textarea>
 
     <button ng-disabled="vm.pending" type="submit" ng-click="vm.send()" class="crwd-success radius shadow margin-top">
         {{ vm.pending ? 'Absenden...' : 'Absenden' }}

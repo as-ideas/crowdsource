@@ -12,11 +12,11 @@ angular.module('crowdsource')
         });
         var ideaCampaignResource = $resource('/ideas_campaigns/:id', {});
 
-        var ideasResource = $resource('/ideas_campaigns/:campaignid/ideas',{},{
-            post: {
-                method: 'POST'
-            }
-        });
+      var ideasResource = $resource('/ideas_campaigns/:campaignid/ideas', {}, {
+        post: {
+          method: 'POST'
+        }
+      });
 
         function getCampaigns() {
             return ideasCampaignResource.get().$promise;
@@ -26,9 +26,9 @@ angular.module('crowdsource')
             return ideaCampaignResource.get({id: id}).$promise;
         }
 
-        function createIdea(campaignId, idea) {
-            return ideasResource.post({campaignid: campaignId}, idea).$promise;
-        }
+      function createIdea(campaignId, idea) {
+        return ideasResource.post({campaignid: campaignId}, idea).$promise;
+      }
 
         function getAll() {
 
@@ -78,7 +78,7 @@ angular.module('crowdsource')
         service.getAll = getAll;
         service.getCampaigns = getCampaigns;
         service.getCampaign = getCampaign;
-        service.createIdea = createIdea;
+      service.createIdea = createIdea;
 
         return service;
     });

@@ -3,5 +3,5 @@ angular.module('crowdsource')
         var vm = this;
         vm.auth = Authentication;
         vm.ideas = Idea.getAll();
-        vm.campaign = campaign;
+      vm.campaign = campaign;
 });

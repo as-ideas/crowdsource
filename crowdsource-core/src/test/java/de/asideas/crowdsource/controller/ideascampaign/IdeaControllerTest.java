@@ -64,7 +64,7 @@ public class IdeaControllerTest {
 
     @Test
     public void createIdea_ShouldReturn_400_onEmptyPitch() throws Exception {
-        Idea cmd = new Idea("");
+        Idea cmd = new Idea((String) null);
 
         mockMvc.perform(post("/ideas_campaigns/anId/ideas")
                 .content(mapper.writeValueAsString(cmd))
@@ -77,7 +77,6 @@ public class IdeaControllerTest {
 
     @Test
     public void updateIdea_ShouldReturn_400_onInvalidPitch() throws Exception {
-        givenPrincipalExists();
         Idea cmd = new Idea("");
 
         mockMvc.perform(put("/ideas_campaigns/aCampaignId/ideas/anIdeaId")
@@ -86,22 +85,22 @@ public class IdeaControllerTest {
         )
                 .andDo(log())
                 .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.fieldViolations.pitch", equalTo("may not be empty")));
+                .andExpect(jsonPath("$.fieldViolations.pitch", equalTo("size must be between 5 and 255")));
     }
 
     @Test
     public void createIdea_ShouldReturn_400_onPitchSizeInvalid() throws Exception {
         // Longer than 255 chars
         final Idea cmd = new Idea("Lo000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000" +
-            "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ng");
+                "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ng");
 
         mockMvc.perform(post("/ideas_campaigns/anId/ideas")
-            .content(mapper.writeValueAsString(cmd))
-            .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(mapper.writeValueAsString(cmd))
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
         )
-            .andDo(log())
-            .andExpect(status().isBadRequest())
-            .andExpect(jsonPath("$.fieldViolations.pitch", equalTo("size must be between 5 and 255")));
+                .andDo(log())
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.fieldViolations.pitch", equalTo("size must be between 5 and 255")));
         ;
     }
 

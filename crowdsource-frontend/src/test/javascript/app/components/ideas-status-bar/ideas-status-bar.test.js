@@ -32,13 +32,13 @@ describe('ideas status bar', function () {
     it("should show no admin button when user is not admin", function () {
         givenUserIsAdmin(false);
         expect(statusBar.adminButton()).not.toExist();
-        expect(statusBar.userButton()).toExist();
+      expect(statusBar.userButton()).toExist();
     });
 
     it("should show admin button when user is admin", function () {
         givenUserIsAdmin(true);
         expect(statusBar.adminButton()).toExist();
-        expect(statusBar.userButton()).toExist();
+      expect(statusBar.userButton()).toExist();
     });
 
     function givenUserIsAdmin(isAdminFlag) {

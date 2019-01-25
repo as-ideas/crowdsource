@@ -112,12 +112,12 @@ public class IdeaControllerIT extends AbstractCrowdIT {
         final Idea idea2 = toIdea(givenIdeaExists(userToken, parentCampaign.getId(), new Idea("User's idea 2")));
 
         final String resultJson = mockMvc.perform(get("/ideas_campaigns/{campaignId}/my_ideas", parentCampaign.getId())
-            .contentType(MediaType.APPLICATION_JSON_UTF8)
-            .header("Authorization", "Bearer " + userToken)
-            .accept(MediaType.APPLICATION_JSON_UTF8)
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .header("Authorization", "Bearer " + userToken)
+                .accept(MediaType.APPLICATION_JSON_UTF8)
         )
-            .andDo(log())
-            .andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
+                .andDo(log())
+                .andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
 
         final List<Idea> res = Arrays.asList(mapper.readValue(resultJson, Idea[].class));
         assertThat(res.size(), is(2));

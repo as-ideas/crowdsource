@@ -72,9 +72,9 @@ status-bar {
         width: 40%;
     }
 
-    &--no-padding {
-        padding: 0 !important;
-    }
+  &--no-padding {
+    padding: 0 !important;
+  }
 }
 
 
@@ -165,9 +165,10 @@ status-bar {
     @include sbar__icon(('padding-left': 26px));
     background-image: url('../images/icon-box.svg');
 }
+
 .sbar__icon--edit {
-    @include sbar__icon(('padding-left': 26px));
-    background-image: url('../images/icon-edit.svg');
+  @include sbar__icon(('padding-left': 26px));
+  background-image: url('../images/icon-edit.svg');
 }
 //
 // Pill
