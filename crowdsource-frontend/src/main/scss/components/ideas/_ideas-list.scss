@@ -420,6 +420,11 @@ $intro-box-break: "only screen and (max-width: 740px)";
     background-image: url('../images/icons/time_clock_with_arrow.svg');
 }
 
+$star-width: 21px;
+$star-height: 20px;
+$tile-padding-horizontal: 20px;
+$tile-padding-vertical: 15px;
+
 .ideas-grid {
 
     &__container {
@@ -471,19 +476,72 @@ $intro-box-break: "only screen and (max-width: 740px)";
         border-radius: $border-radius;
         background-color: rgba(223,223,223,0.5);
         height: 100%;
-        padding: 10px;
+        padding: $tile-padding-vertical $tile-padding-horizontal;
         position: relative;
         width: 100%;
 
+        &__author {
+            display: block;
+            font-size: $fs-medium;
+            line-height: $fs-medium;
+            margin-bottom: $fs-half;
+        }
+
         &__text {
-            margin: $margin-component 0;
+            font-size: $fs-normal;
+            margin-top: $margin-comp;
+            margin-bottom: $margin-comp-dbl;
+            text-align: left;
         }
 
         &__rating {
             position: absolute;
             bottom: 0;
+            margin-bottom: $tile-padding-vertical;
+            display: flex;
+            flex-direction: row-reverse;
         }
+
+        &__star {
+            display: inline-block;
+            width: $star-width;
+            height: $star-height;
+            background-image: url('../images/icons/star.svg');
+            background-size: cover;
+            margin: 0px;
+
+            &--single {
+                display: inline-block;
+                width: $star-width;
+                height: $star-height;
+                background-image: url('../images/icons/star.svg');
+                background-size: cover;
+                margin-right: 6px;
+            }
+
+            &--unrated {
+                display: inline-block;
+                width: $star-width;
+                height: $star-height;
+                background-image: url('../images/icons/star-unrated.svg');
+                background-size: cover;
+                cursor: pointer;
+                margin: 0px;
+                padding: 0px;
+
+
+                &:hover {
+                    background-image: url('../images/icons/star-rating.svg');
+
+                }
+
+                &:hover ~ div {
+                    background-image: url('../images/icons/star-rating.svg');
+
+                }
+            }
+        }
+
     }
 }
-
 
