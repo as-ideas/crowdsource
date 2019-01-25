@@ -44,7 +44,12 @@
                     templateUrl: 'app/ideas/own/own-list.html',
                     controller: 'IdeasOwnController as ideasList',
                     title: 'Deine Ideen',
-                    requireLogin: true
+                    requireLogin: true,
+                    resolve: {
+                        campaign: function(IdeasCampaignResolver) {
+                            return IdeasCampaignResolver();
+                        }
+                    }
 
                 })
                 .when('/ideas/:ideasId/admin', {

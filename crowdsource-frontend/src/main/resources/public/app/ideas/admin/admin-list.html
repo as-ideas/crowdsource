@@ -1,17 +1,20 @@
 <idea-teaser campaign="admin.campaign"></idea-teaser>
 <ideas-status-bar campaign="admin.campaign"></ideas-status-bar>
 
-<content-row class="ideas-list">
+<content-row class="intro-section">
 
-    <section>
-        <h1>Liste der noch nicht freigegebenen Ideen</h1>
-            <ul>
-                <li>Filter A</li>
-                <li>Filter B</li>
-                <li>Filter C</li>
+    <ul class="sbar__ul">
+        <li class="sbar__li--primary"></li>
+        <li class="sbar__li--primary">
+            <ul class="sbar__ul">
+                <li class="sbar__li--secondary">Noch nicht bearbeitet</li>
+                <li class="sbar__li--secondary">Abgelehnt</li>
             </ul>
+        </li>
+    </ul>
+    <section>
         <ul class="ideas__ul">
-            <li class="ideas__li" ng-repeat="idea in ideasList.ideas">
+            <li class="ideas__li" ng-repeat="idea in admin.ideas">
                 <idea-tile idea="idea"></idea-tile>
             </li>
         </ul>

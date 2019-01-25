@@ -10,13 +10,7 @@
                 Was ist Deine Idee? Schreibe einen kurzern prägnanter Satz.
             </p>
             <div>
-                <textarea class="newcomment-comment" name="idea" ng-model="ideasList.newIdea"
-                          placeholder="Ein kurzer und prägnanter Satz (max. 265 Zeichen)"
-                          required maxlength="265" reset-remote-validation></textarea>
-
-                <button type="submit" class="crwd-success radius shadow margin-top">
-                    {{ projectForm.loading ? 'Absenden...' : 'Absenden' }}
-                </button>
+                <idea-add campaign="ideasList.campaign"></idea-add>
             </div>
         </div>
 
