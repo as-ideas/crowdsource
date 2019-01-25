@@ -1,3 +1,18 @@
+<div class="ideas-grid-tile">
+    <div>
+        <span class="ideas-grid-tile__votes-avg">{{ idea.avgVotes }} </span>
+        <span class="ideas-grid-tile__votes-num">({{ idea.votes }})</span>
+    </div>
+    <div>
+        <span class="ideas-grid-tile__author">{{ idea.firstName }} </span>
+    </div>
+    <p class="ideas-grid-tile__text" ng-bind="idea.text"></p>
+    <div class="ideas-grid-tile__rating">
+        *****
+    </div>
+</div>
+
+<!--
 <div class="ideas__tile ideas-{{idea.status.toLowerCase()}}">
     <div class="clearfix">
         <div>1-5 Stars</div>
@@ -14,3 +29,4 @@
         </div>
     </div>
 </div>
+-->

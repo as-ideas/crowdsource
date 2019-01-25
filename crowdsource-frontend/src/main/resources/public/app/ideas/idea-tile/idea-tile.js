@@ -1,12 +1,14 @@
 angular.module('crowdsource')
-    .directive('ideaPresentation', function () {
+    .directive('ideaTile', function () {
+
         return {
             restrict: 'E',
             scope: {
-                'campaign': "="
+                'idea': '='
             },
-            templateUrl: 'app/components/idea-presentation/idea-presentation.html',
+            templateUrl: 'app/ideas/idea-tile/idea-tile.html',
             controller: function ($scope) {
+
             }
         };
     });
