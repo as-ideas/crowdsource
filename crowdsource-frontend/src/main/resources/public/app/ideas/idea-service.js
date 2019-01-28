@@ -18,7 +18,7 @@ angular.module('crowdsource')
             }
         });
 
-        var ownIdeasResource = $resource('/ideas_campaigns/:campaignId/own_ideas', {}, {
+        var ownIdeasResource = $resource('/ideas_campaigns/:campaignId/my_ideas', {}, {
             get: {
                 isArray: true,
                 method: 'GET'
@@ -42,7 +42,6 @@ angular.module('crowdsource')
         }
 
         function getAll() {
-
             return [{
                 firstName: 'Peter',
                 lastName: 'Pan',
@@ -50,7 +49,7 @@ angular.module('crowdsource')
                 text: 'Meine Idee in genau 255 Zeichen zu beschreiben, ist die Aufgabe dieses Textes um dann auch zu sehen wir das vom Layout dann passt denn soviele Zeichen sind gar nicht so wenig und man muss ja auch die Breite jedes Buchstaben berücksichtigen zumindest grob.',
                 votes: 1,
                 avgVotes: '4.0',
-                status: 'published'
+                status: 'APPROVED'
             }, {
                 firstName: 'Peter',
                 lastName: 'Pan',
@@ -58,7 +57,7 @@ angular.module('crowdsource')
                 text: 'this idea sis m',
                 votes: 22,
                 avgVotes: '1.0',
-                status: 'published'
+                status: 'REJECTED'
             }, {
                 firstName: 'Peter',
                 lastName: 'Pan',
@@ -66,7 +65,7 @@ angular.module('crowdsource')
                 text: 'this idea agiccc',
                 votes: 5,
                 avgVotes: '2.0',
-                status: 'published'
+                status: 'PROPOSED'
             }, {
                 firstName: 'Peter',
                 lastName: 'Pan',
@@ -74,7 +73,7 @@ angular.module('crowdsource')
                 text: 'idea sis magiccc',
                 votes: 25,
                 avgVotes: '5.0',
-                status: 'published'
+                status: 'PROPOSED'
             }, {
                 firstName: 'Peter',
                 lastName: 'Pan',
@@ -82,7 +81,7 @@ angular.module('crowdsource')
                 text: 'Wir sehen das vom Layout dann passt denn soviele Zeichen sind gar nicht so wenig und man muss ja auch die Breite jedes Buchstaben berücksichtigen zumindest grob.',
                 votes: 113,
                 avgVotes: 4.5,
-                status: 'published'
+                status: 'REJECTED'
             }];
         }
 

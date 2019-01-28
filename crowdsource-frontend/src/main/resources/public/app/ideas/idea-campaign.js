@@ -1,7 +1,7 @@
 angular.module('crowdsource')
     .factory("IdeasCampaignResolver", function (Idea, $route, $location, $q) {
 
-        return function () {
+        function resolve () {
             var id = $route.current.params.ideasId;
             var campaignPromise = Idea.getCampaign(id);
             var deferred = $q.defer();
@@ -14,4 +14,8 @@ angular.module('crowdsource')
 
             return deferred.promise;
         };
+
+        return {
+            resolve: resolve
+        }
     });

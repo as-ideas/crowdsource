@@ -3,21 +3,27 @@
 
 <content-row class="intro-section">
 
-    <ul class="sbar__ul">
-        <li class="sbar__li--primary"></li>
-        <li class="sbar__li--primary">
-            <ul class="sbar__ul">
-                <li class="sbar__li--secondary">Noch nicht bearbeitet</li>
-                <li class="sbar__li--secondary">Abgelehnt</li>
-            </ul>
-        </li>
-    </ul>
-    <section>
-        <ul class="ideas__ul">
-            <li class="ideas__li" ng-repeat="idea in admin.ideas">
-                <idea-tile idea="idea"></idea-tile>
-            </li>
-        </ul>
-    </section>
+    <div class="row">
+        <div class="columns"></div>
+        <div class="columns"></div>
+    </div>
+
+    <content-row>
+        <h2>Liste noch ausstehenden Ideen ({{admin.pendingIdeas && admin.pendingIdeas.length}})</h2>
+        <div class="ideas-grid__container">
+            <div class="ideas-grid__box" ng-repeat="idea in admin.pendingIdeas">
+                <idea-tile admin="true" idea="idea"></idea-tile>
+            </div>
+        </div>
+    </content-row>
+
+    <content-row>
+        <h2>Liste abgelehnten Ideen ({{admin.rejectedIdeas && admin.rejectedIdeas.length}})</h2>
+        <div class="ideas-grid__container">
+            <div class="ideas-grid__box" ng-repeat="idea in admin.rejectedIdeas">
+                <idea-tile admin="true" idea="idea"></idea-tile>
+            </div>
+        </div>
+    </content-row>
 
 </content-row>

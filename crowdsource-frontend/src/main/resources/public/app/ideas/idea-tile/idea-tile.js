@@ -4,7 +4,8 @@ angular.module('crowdsource')
         return {
             restrict: 'E',
             scope: {
-                'idea': '='
+                'idea': '=',
+                'admin': '='
             },
             controllerAs: 'vm',
             templateUrl: 'app/ideas/idea-tile/idea-tile.html',
@@ -13,14 +14,15 @@ angular.module('crowdsource')
                 vm.idea = $scope.idea;
                 vm.isVotingDisabled = false;
 
+                vm.isAdminView = $scope.admin || false;
+
                 vm.vote = function (value) {
                     if(vm.isVotingDisabled) return;
 
                     vm.isVotingDisabled = true;
                     $timeout(function() {vm.isVotingDisabled = false; }, 2000);
 
-                    vm.idea.voted = vm.idea.voted == value ? 0 : value;
-                    console.log(vm.idea.voted)
+                    vm.idea.voted = vm.idea.voted === value ? 0 : value;
                 }
             }
         };
