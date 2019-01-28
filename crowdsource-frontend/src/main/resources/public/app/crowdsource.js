@@ -36,7 +36,7 @@
                     requireLogin: true,
                     resolve: {
                         campaign: function(IdeasCampaignResolver) {
-                            return IdeasCampaignResolver();
+                            return IdeasCampaignResolver.resolve();
                         }
                     }
                 })
@@ -47,7 +47,7 @@
                   requireLogin: true,
                   resolve: {
                     campaign: function (IdeasCampaignResolver) {
-                      return IdeasCampaignResolver();
+                      return IdeasCampaignResolver.resolve();
                     }
                   }
 
@@ -59,7 +59,7 @@
                     requireLogin: true,
                     resolve: {
                         campaign: function(IdeasCampaignResolver) {
-                            return IdeasCampaignResolver();
+                            return IdeasCampaignResolver.resolve();
                         }
                     }
                 })

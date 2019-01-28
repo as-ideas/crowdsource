@@ -1,6 +1,6 @@
 describe('admin list', function () {
 
-    var $httpBackend, view, template, MOCKED_CAMPAIGN, adminPage;
+    var $scope, $httpBackend, view, template, MOCKED_CAMPAIGN, adminPage, $location;
 
     beforeEach(function () {
         module('crowdsource');
@@ -11,27 +11,34 @@ describe('admin list', function () {
             title: 'some campaign title',
             description: 'some campaign description'
         };
+        inject(function ($compile, $rootScope, $templateCache, _$controller_, _$location_, $q,_Idea_, _Authentication_, _$httpBackend_) {
+            $controller = _$controller_;
+            Authentication = _Authentication_;
+            Idea = _Idea_;
+            $httpBackend = _$httpBackend_;
+            $location = _$location_;
 
-        template = $templateCache.get('app/ideas/admin/admin-list.html');
+            template = $templateCache.get('app/ideas/admin/admin-list.html');
+            $scope = $rootScope.$new();
+
+            $controller('IdeasAdminController as admin', {
+                $scope: $scope,
+                campaign: MOCKED_CAMPAIGN,
+                Idea: Idea
+            });
+            view = $compile('<div>' + template + '<div>')($scope);
+            $scope.$digest();
+            adminPage = new AdminList(view);
+        });
     });
 
     it('should render the list of ideas and prototypes if user is logged in', function () {
-        var scope = $rootScope.$new();
-
-        $controller('IdeasAdminController as ideasList', {
-            campaign: MOCKED_CAMPAIGN,
-            Idea: Idea
-        });
-        view = $compile('<div>' + template + '<div>')(scope);
-        scope.$digest();
-        adminPage = new AdminList(view);
+        spyOn(Authentication, 'isAdmin').and.returnValue(true);
     });
 
-    function givenPendingIdeasExist(ideas) {
-        $httpBackend.expectGET('/ideas_campaigns/' + MOCKED_CAMPAIGN.id + '/pending').respond(200, ideas);
-    }
-
-    function givenRejectedIdeasExist(ideas) {
-        $httpBackend.expectGET('/ideas_campaigns/' + MOCKED_CAMPAIGN.id + '/rejected').respond(200, ideas);
-    }
+    it("should load given campaign before rendering", function () {
+        $httpBackend.expectGET("/ideas_campaigns/" + MOCKED_CAMPAIGN.id).respond(MOCKED_CAMPAIGN);
+        $location.path('/ideas/' + MOCKED_CAMPAIGN.id + '/admin');
+        $scope.$digest();
+    });
 });

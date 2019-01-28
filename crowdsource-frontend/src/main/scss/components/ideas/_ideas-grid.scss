@@ -47,7 +47,6 @@ $tile-padding-vertical: 15px;
     }
   }
 
-
   &-tile {
     @include box-shadow;
 
@@ -58,7 +57,7 @@ $tile-padding-vertical: 15px;
     position: relative;
     width: 100%;
 
-    &__author {
+    &__title {
       display: block;
       font-size: $fs-medium;
       line-height: $fs-medium;
