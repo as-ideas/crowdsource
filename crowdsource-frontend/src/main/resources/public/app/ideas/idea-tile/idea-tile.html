@@ -9,12 +9,12 @@
     </div>
     <p class="ideas-grid-tile__text" ng-bind="idea.text"></p>
 
-    <div class="ideas-grid-tile__rating">
-        <div class="ideas-grid-tile__star--unrated star5" />
-        <div class="ideas-grid-tile__star--unrated star4" />
-        <div class="ideas-grid-tile__star--unrated star3" />
-        <div class="ideas-grid-tile__star--unrated star2" />
-        <div class="ideas-grid-tile__star--unrated star1" />
+    <div class="ideas-grid-tile__rating" ng-class="vm.isVotingDisabled ? 'ideas-grid-tile__rating--disabled' : ''">
+        <div ng-click="vm.vote(5)" class="star5" ng-class="vm.idea.voted == 5 ? 'ideas-grid-tile__star--rated' : 'ideas-grid-tile__star--unrated'"></div>
+        <div ng-click="vm.vote(4)" class="star4" ng-class="vm.idea.voted >= 4 ? 'ideas-grid-tile__star--rated' : 'ideas-grid-tile__star--unrated'"></div>
+        <div ng-click="vm.vote(3)" class="star3" ng-class="vm.idea.voted >= 3 ? 'ideas-grid-tile__star--rated' : 'ideas-grid-tile__star--unrated'"></div>
+        <div ng-click="vm.vote(2)" class="star2" ng-class="vm.idea.voted >= 2 ? 'ideas-grid-tile__star--rated' : 'ideas-grid-tile__star--unrated'"></div>
+        <div ng-click="vm.vote(1)" class="star1" ng-class="vm.idea.voted >= 1 ? 'ideas-grid-tile__star--rated' : 'ideas-grid-tile__star--unrated'"></div>
     </div>
 
 </div>
