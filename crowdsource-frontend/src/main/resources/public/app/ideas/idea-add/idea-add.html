@@ -1,10 +1,10 @@
 <form>
+    <input type="text" ng-model="vm.newIdea.title" placeholder="Worum gehts?" required maxlength="64" class="">
     <textarea ng-disabled="vm.pending" class="newcomment-comment" name="idea" ng-model="vm.newIdea.pitch"
               placeholder="Ein kurzer und prägnanter Satz (max. 265 Zeichen)"
               required maxlength="265" reset-remote-validation></textarea>
 
-    <button ng-disabled="vm.pending" type="submit" ng-click="vm.send()" class="crwd-success radius shadow margin-top">
-        {{ vm.pending ? 'Absenden...' : 'Absenden' }}
-    </button>
+    <button ng-disabled="vm.pending || !vm.contentPresent" type="submit" ng-click="vm.send()" class="crwd-success radius shadow margin-top">Absenden</button>
     <span ng-if="vm.failed" class="upload-messages__error">Es ist ein Fehler aufgetreten.</span>
+    <span ng-if="vm.showSuccessMessage" class="ideas-add__message">Deine Idee wurde erfolgreich eingereicht!</span>
 </form>

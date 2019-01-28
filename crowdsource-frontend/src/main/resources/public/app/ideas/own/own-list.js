@@ -1,7 +1,6 @@
 angular.module('crowdsource')
-    .controller('IdeasOwnController', function (campaign, Authentication, Idea) {
+    .controller('IdeasOwnController', function (campaign, Idea) {
         var vm = this;
-        vm.auth = Authentication;
-        vm.ideas = Idea.getAll();
-      vm.campaign = campaign;
+        vm.ideas = Idea.getOwnIdeas();
+        vm.campaign = campaign;
 });
