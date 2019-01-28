@@ -31,6 +31,7 @@ public class UserNotificationService {
     public static final String PROJECT_LINK_PATTERN = "/project/{id}";
     public static final String ACTIVATION_LINK_PATTERN = "/signup/{emailAddress}/activation/{activationToken}";
     public static final String PASSWORD_RECOVERY_LINK_PATTERN = "/login/password-recovery/{emailAddress}/activation/{activationToken}";
+    public static final String IDEA_CAMPAIGN_LINK_PATTERN = "/ideas/{campaign}";
 
     public static final String SUBJECT_ACTIVATION = "Bitte vergib ein Passwort für Dein Konto auf der CrowdSource Platform";
     public static final String SUBJECT_PROJECT_CREATED = "Neues Projekt erstellt";
@@ -112,7 +113,7 @@ public class UserNotificationService {
     public void notifyCreatorOnProjectStatusUpdate(ProjectEntity project) {
 
         final StandardEvaluationContext context = new StandardEvaluationContext();
-        final String projectLink = getProjectLink(project.getId());
+        final String projectLink = buildProjectLink(project.getId());
 
         context.setVariable("link", projectLink);
         context.setVariable("userName", project.getCreator().getFullName());
@@ -148,7 +149,7 @@ public class UserNotificationService {
             return;
         }
 
-        final String projectLink = getProjectLink(project.getId());
+        final String projectLink = buildProjectLink(project.getId());
         UserEntity recipient = project.getCreator();
 
         StandardEvaluationContext context = new StandardEvaluationContext();
@@ -166,7 +167,7 @@ public class UserNotificationService {
 
     public void notifyCreatorAndAdminOnProjectModification(ProjectEntity project, UserEntity modifier) {
 
-        final String projectLink = getProjectLink(project.getId());
+        final String projectLink = buildProjectLink(project.getId());
         final Set<UserEntity> users2Notify = new HashSet<>(userRepository.findAllAdminUsers());
         users2Notify.add(modifier);
         users2Notify.add(project.getCreator());
@@ -188,7 +189,7 @@ public class UserNotificationService {
 
     public void notifyAdminOnProjectCreation(ProjectEntity project, String emailAddress) {
 
-        final String projectLink = getProjectLink(project.getId());
+        final String projectLink = buildProjectLink(project.getId());
 
         StandardEvaluationContext context = new StandardEvaluationContext();
         context.setVariable("link", projectLink);
@@ -203,19 +204,26 @@ public class UserNotificationService {
 
         context.setVariable("fullName", idea.getCreator().getFullName());
         context.setVariable("ideaPitch", idea.getPitch());
-        // TODO assemble campaign link
-        context.setVariable("link", "CAMPAIGN LINK");
+        context.setVariable("link", buildIdeasCampaignLink(idea.getCampaignId()));
 
         final String mailContent = ideaCreatedEmailTemplate.getValue(context, String.class);
         sendMail(emailAddress, SUBJECT_IDEA_CREATED, mailContent);
     }
 
-    private String getProjectLink(String projectId) {
+    private String buildProjectLink(String projectId) {
 
         UriComponentsBuilder uriBuilder = ServletUriComponentsBuilder.fromUriString(applicationUrl);
         uriBuilder.fragment(PROJECT_LINK_PATTERN);
 
         return uriBuilder.buildAndExpand(projectId).toUriString();
+    }
+
+    private String buildIdeasCampaignLink(String campaignId) {
+
+        UriComponentsBuilder uriBuilder = ServletUriComponentsBuilder.fromUriString(applicationUrl);
+        uriBuilder.fragment(IDEA_CAMPAIGN_LINK_PATTERN);
+
+        return uriBuilder.buildAndExpand(campaignId).toUriString();
     }
 
     private String buildLink(String urlPattern, String emailAddress, String activationToken) {
