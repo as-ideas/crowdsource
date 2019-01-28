@@ -3,14 +3,22 @@
 $image-size: 80px;
 $margin: 20px;
 $padding: 10px;
-$su-oneandhalf : rem-calc($crowd-font-size * 1.5);
 $icon-size: 28px;
 $icon-color: #3C3C3C;
+
+.campaign-ideas {
+  @media #{$small-only} {
+    margin-bottom: 20px;
+  }
+}
+
+.campaign-prototypes {
+}
 
 .campaign {
 
   &__heading {
-    font-size: $su-oneandhalf;
+    font-size: $fs-hero;
     margin-bottom: $margin;
     text-align: center;
   }
@@ -46,7 +54,6 @@ $icon-color: #3C3C3C;
     display: inline-block;
     width: $image-size;
     height: $image-size;
-    border-radius: 50%;
     overflow: hidden;
   }
   &__details-container {
@@ -78,19 +85,16 @@ $icon-color: #3C3C3C;
     display: block;
     width: $image-size;
     height: $image-size;
-    object-fit: cover;
-
-    -webkit-filter: saturate(60%);
   }
 
 
 
   &__title {
-    font-size: $su-oneandhalf;
+    font-size: $fs-medium;
   }
 
   &__sponsor {
-    font-size: $su-base;
+    font-size: $fs-small;
     color: $clr-indigo;
   }
 
@@ -100,6 +104,10 @@ $icon-color: #3C3C3C;
 
     &__description {
       display: block;
+      font-size: $fs-small;
+    }
+
+    &__image {
       margin-bottom: 20px;
     }
 
