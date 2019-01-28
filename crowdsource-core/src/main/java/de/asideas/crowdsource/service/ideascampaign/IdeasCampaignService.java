@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import de.asideas.crowdsource.domain.exception.ResourceNotFoundException;
@@ -29,8 +30,11 @@ public class IdeasCampaignService {
         return toIdeasCampaigns(ideasCampaignRepository.findActive(DateTime.now()));
     }
 
+    /**
+     * @return all campaigns ordered by <code>campaign.endDate</code> ASC
+     */
     public List<IdeasCampaign> allCampaigns(){
-        return toIdeasCampaigns(ideasCampaignRepository.findAll());
+        return toIdeasCampaigns(ideasCampaignRepository.findAll(new Sort(new Sort.Order(Sort.Direction.ASC, "endDate"))));
     }
 
     public IdeasCampaign createCampaign(IdeasCampaign cmd, UserEntity requestingUser) {

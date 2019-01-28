@@ -1,10 +1,12 @@
 package de.asideas.crowdsource.domain.service.user;
 
 import de.asideas.crowdsource.config.mail.MailTemplateConfig;
+import de.asideas.crowdsource.domain.model.ideascampaign.IdeaEntity;
 import de.asideas.crowdsource.domain.model.prototypecampaign.CommentEntity;
 import de.asideas.crowdsource.domain.model.prototypecampaign.ProjectEntity;
 import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.domain.shared.prototypecampaign.ProjectStatus;
+import de.asideas.crowdsource.presentation.ideascampaign.Idea;
 import de.asideas.crowdsource.repository.UserRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -62,7 +64,6 @@ public class UserNotificationServiceTest {
         }).when(taskExecutorSmtp).submit(isA(Runnable.class));
 
     }
-
 
     @Test
     public void testSendActivationMail() {
@@ -210,6 +211,28 @@ public class UserNotificationServiceTest {
                         "https://crowd.asideas.de#/project/proj3ctId\n\n" +
                         "Mit freundlichen Grüßen\n" +
                         "Dein CrowdSource Team"));
+    }
+
+    @Test
+    public void notifyAdminOnIdeaCreation_ShouldSendMailWithResolvedTemplate() {
+        UserEntity user = aUser("123456789");
+        IdeaEntity newIdea = IdeaEntity.createIdeaEntity(new Idea("Schokolade für alle!"), "eatMoreChocolateCampaign", user);
+
+        userNotificationService.notifyAdminOnIdeaCreation(newIdea, ADMIN_EMAIL);
+
+        SimpleMailMessage mail = getMessageFromMailSender();
+        assertThat(mail.getFrom(), is(UserNotificationService.FROM_ADDRESS));
+        assertThat(mail.getTo(), arrayContaining(ADMIN_EMAIL));
+        assertThat(mail.getSubject(), is(UserNotificationService.SUBJECT_IDEA_CREATED));
+        assertThat(replaceLineBreaksIfWindows(mail.getText()), is(
+                "Hallo Admin,\n\n" +
+                        "es liegt eine neue Idee zur Freigabe vor:\n\n" +
+                        "Name: Karl Ranseier\n" +
+                        "Pitch: Schokolade für alle!\n\n" +
+                        "https://crowd.asideas.de#/ideas/eatMoreChocolateCampaign\n\n" +
+                        "Mit freundlichen Grüßen\n" +
+                        "Dein CrowdSource Team\n"));
+
     }
 
     @Test

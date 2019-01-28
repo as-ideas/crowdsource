@@ -33,10 +33,10 @@ public class IdeaController {
 
     @Secured(Roles.ROLE_USER)
     @GetMapping(value = "/ideas_campaigns/{campaignId}/ideas", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public Page<Idea> fetchIdeas(@PathVariable String campaignId,
-                                 @RequestParam(value = "page", required = false) Integer page,
-                                 @RequestParam(value = "pageSize", required = false) Integer pageSize) {
-        return ideaService.fetchIdeasByCampaign(campaignId, page, pageSize);
+    public Page<Idea> fetchPublishedIdeas(@PathVariable String campaignId,
+                                          @RequestParam(value = "page", required = false) Integer page,
+                                          @RequestParam(value = "pageSize", required = false) Integer pageSize) {
+        return ideaService.fetchPublishedIdeas(campaignId, page, pageSize);
     }
 
     @Secured(Roles.ROLE_USER)

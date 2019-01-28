@@ -77,7 +77,7 @@ public class IdeaControllerTest {
 
     @Test
     public void updateIdea_ShouldReturn_400_onInvalidPitch() throws Exception {
-        Idea cmd = new Idea("");
+        Idea cmd = new Idea("nope");
 
         mockMvc.perform(put("/ideas_campaigns/aCampaignId/ideas/anIdeaId")
                 .content(mapper.writeValueAsString(cmd))
