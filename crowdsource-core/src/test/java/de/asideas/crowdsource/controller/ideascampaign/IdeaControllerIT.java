@@ -71,7 +71,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
     }
 
     @Test
-    public void fetchPublishedIdeas_shouldReturnAllAsPage() throws Exception {
+    public void fetchIdeas_shouldReturnAllAsPage() throws Exception {
 
         final UserEntity admin = givenAdminUserExists();
         final String adminToken = obtainAccessToken(admin.getEmail(), admin.getPassword());
@@ -106,6 +106,72 @@ public class IdeaControllerIT extends AbstractCrowdIT {
             .andReturn().getResponse().getContentAsString()
             ;
 
+    }
+
+    @Test
+    public void fetchIdeas_shouldReturnAllMatchingOnlyByStatus_forAdmin() throws Exception {
+
+        final UserEntity admin = givenAdminUserExists();
+        final String adminToken = obtainAccessToken(admin.getEmail(), admin.getPassword());
+        final UserEntity user = givenUserExists();
+        final String userToken = obtainAccessToken(user.getEmail(), user.getPassword());
+
+        final IdeasCampaign parentCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
+
+        final Idea cmd1 = new Idea("test_title_1", "pitch 1");
+        final Idea cmd2 = new Idea("test_title_2", "pitch 2");
+        final Idea cmd3 = new Idea("test_title_3", "pitch 3");
+        givenApprovedIdeaExists(userToken, parentCampaign.getId(), cmd1);
+        givenApprovedIdeaExists(userToken, parentCampaign.getId(), cmd2);
+        givenIdeaExists(userToken, parentCampaign.getId(), cmd3).andExpect(status().isCreated()).andReturn();
+
+        mockMvc.perform(get("/ideas_campaigns/{campaignId}/ideas", parentCampaign.getId())
+            .contentType(MediaType.APPLICATION_JSON_UTF8)
+            .param("status", "PROPOSED")
+            .header("Authorization", "Bearer " + adminToken)
+            .accept(MediaType.APPLICATION_JSON_UTF8)
+        )
+            .andDo(print())
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.totalElements", is(1)))
+            .andExpect(jsonPath("$.totalPages", is(1)))
+            .andExpect(jsonPath("$.number", is(0)))
+            .andExpect(jsonPath("$.numberOfElements", is(1)))
+            .andExpect(jsonPath("$.first", is(true)))
+            .andExpect(jsonPath("$.last", is(true)))
+            .andExpect(jsonPath("$.content.length()", is(1)))
+            .andExpect(jsonPath("$.content[0].pitch", is("pitch 3")))
+            .andReturn().getResponse().getContentAsString()
+        ;
+
+    }
+
+    @Test
+    public void fetchIdeas_shouldReturn_Http403_onRequestingStatusByNonAdmin() throws Exception {
+
+        final UserEntity admin = givenAdminUserExists();
+        final String adminToken = obtainAccessToken(admin.getEmail(), admin.getPassword());
+        final UserEntity user = givenUserExists();
+        final String userToken = obtainAccessToken(user.getEmail(), user.getPassword());
+
+        final IdeasCampaign parentCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
+
+        final Idea cmd1 = new Idea("test_title_1", "pitch 1");
+        final Idea cmd2 = new Idea("test_title_2", "pitch 2");
+        final Idea cmd3 = new Idea("test_title_3", "pitch 3");
+        givenApprovedIdeaExists(userToken, parentCampaign.getId(), cmd1);
+        givenApprovedIdeaExists(userToken, parentCampaign.getId(), cmd2);
+        givenIdeaExists(userToken, parentCampaign.getId(), cmd3).andExpect(status().isCreated()).andReturn();
+
+        mockMvc.perform(get("/ideas_campaigns/{campaignId}/ideas", parentCampaign.getId())
+            .contentType(MediaType.APPLICATION_JSON_UTF8)
+            .param("status", "PROPOSED")
+            .header("Authorization", "Bearer " + userToken)
+            .accept(MediaType.APPLICATION_JSON_UTF8)
+        )
+            .andDo(print())
+            .andExpect(status().isForbidden())
+        ;
     }
 
     @Test

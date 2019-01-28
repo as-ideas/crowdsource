@@ -1,6 +1,7 @@
 package de.asideas.crowdsource.controller.ideascampaign;
 
 import java.security.Principal;
+import java.util.Collections;
 import java.util.List;
 import javax.validation.Valid;
 
@@ -10,14 +11,20 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.web.bind.annotation.*;
 
+import de.asideas.crowdsource.domain.exception.ForbiddenException;
+import de.asideas.crowdsource.domain.exception.NotAuthorizedException;
 import de.asideas.crowdsource.domain.model.UserEntity;
+import de.asideas.crowdsource.domain.shared.ideascampaign.IdeaStatus;
 import de.asideas.crowdsource.presentation.ideascampaign.Idea;
 import de.asideas.crowdsource.security.Roles;
 import de.asideas.crowdsource.service.UserService;
 import de.asideas.crowdsource.service.ideascampaign.IdeaService;
 
+import static de.asideas.crowdsource.security.Roles.ROLE_ADMIN;
 import static org.slf4j.LoggerFactory.getLogger;
 
 @RestController
@@ -33,10 +40,21 @@ public class IdeaController {
 
     @Secured(Roles.ROLE_USER)
     @GetMapping(value = "/ideas_campaigns/{campaignId}/ideas", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public Page<Idea> fetchPublishedIdeas(@PathVariable String campaignId,
-                                          @RequestParam(value = "page", required = false) Integer page,
-                                          @RequestParam(value = "pageSize", required = false) Integer pageSize) {
-        return ideaService.fetchPublishedIdeas(campaignId, page, pageSize);
+    public Page<Idea> fetchIdeas(@PathVariable String campaignId,
+                                 @RequestParam(value = "page", required = false) Integer page,
+                                 @RequestParam(value = "pageSize", required = false) Integer pageSize,
+                                 @RequestParam(value = "status", required = false) IdeaStatus status,
+                                 Authentication auth) {
+
+        if (status == null) {
+            return ideaService.fetchIdeasByStatus(campaignId, Collections.singleton(IdeaStatus.PUBLISHED), page, pageSize);
+        }
+
+        if (!auth.getAuthorities().contains(new SimpleGrantedAuthority(ROLE_ADMIN))) {
+            throw new ForbiddenException();
+        }
+
+        return ideaService.fetchIdeasByStatus(campaignId, Collections.singleton(status), page, pageSize);
     }
 
     @Secured(Roles.ROLE_USER)

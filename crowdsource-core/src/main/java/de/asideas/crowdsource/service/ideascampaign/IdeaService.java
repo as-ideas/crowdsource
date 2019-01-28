@@ -3,6 +3,7 @@ package de.asideas.crowdsource.service.ideascampaign;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import de.asideas.crowdsource.domain.service.user.UserNotificationService;
@@ -71,7 +72,7 @@ public class IdeaService {
         return new Idea(ideaRepository.save(existingIdea.modifyIdeaPitch(cmd.getPitch())));
     }
 
-    public Page<Idea> fetchPublishedIdeas(String campaignId, Integer page, Integer pageSize) {
+    public Page<Idea> fetchIdeasByStatus(String campaignId, Set<IdeaStatus> statusSet, Integer page, Integer pageSize) {
         Assert.notNull(campaignId, "campaignId must not be null");
 
         final PageRequest pReq;
@@ -83,7 +84,7 @@ public class IdeaService {
 
         final Page<IdeaEntity> dbRes = ideaRepository.findByCampaignIdAndStatusIn(
             campaignId,
-            Collections.singleton(IdeaStatus.PUBLISHED),
+            statusSet,
             pReq
         );
         return new PageImpl<>(toIdeas(dbRes.getContent()), pReq, dbRes.getTotalElements());
