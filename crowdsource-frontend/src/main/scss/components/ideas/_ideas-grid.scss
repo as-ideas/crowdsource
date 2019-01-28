@@ -118,6 +118,37 @@ $tile-padding-vertical: 15px;
 
         }
       }
+
+      &--rated {
+        display: inline-block;
+        width: $star-width;
+        height: $star-height;
+        background-image: url('../images/icons/star-rating.svg');
+        background-size: cover;
+        cursor: pointer;
+        margin: 0px;
+        padding: 0px;
+      }
+
+      &--disabled {
+        display: inline-block;
+        width: $star-width;
+        height: $star-height;
+        background-image: url('../images/icons/star-unrated.svg');
+        background-size: cover;
+        margin: 0px;
+        padding: 0px;
+      }
+
+      &--disabled-rated {
+        display: inline-block;
+        width: $star-width;
+        height: $star-height;
+        background-image: url('../images/icons/star-disabled.svg');
+        background-size: cover;
+        margin: 0px;
+        padding: 0px;
+      }
     }
 
   }
