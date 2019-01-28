@@ -1,8 +1,8 @@
 <h3 class="campaign__heading">Ideen Kampagnen</h3>
 
 <div class="campaign-noentry" ng-if="!list.entries.length">
+    <img class="campaign-noentry__image" src="/images/campaigns-not-available-robot.svg">
     <span class="campaign-noentry__description">Zurzeit gibt es leider keine Ideen Kampagne</span>
-    <img src="/images/campaigns-not-available-robot.svg">
 </div>
 
 <div ng-if="list.entries.length" ng-repeat="entry in list.entries" class="campaign__container">

@@ -2,38 +2,45 @@
 
 .intro-hero {
 
-  &__action-bar__heading {
-    @include font-smoothing;
-    position: relative;
-    margin: 0 0 rem-calc(4px) 0;
-    padding-top: rem-calc(56px);
-    font-size: rem-calc(18px);
-    font-weight: 600;
-    line-height: 1.3333;
-    text-transform: uppercase;
-    color: $clr-yellow-shade-1;
-    background: url('../images/icon-teaser-diamond.svg') center top no-repeat;
+    &__action-bar__heading {
+        @include font-smoothing;
+        position: relative;
+        margin: 0 0 rem-calc(4px) 0;
+        padding-top: rem-calc(56px);
+        font-size: rem-calc(18px);
+        font-weight: 600;
+        line-height: 1.3333;
+        text-transform: uppercase;
+        color: $clr-yellow-shade-1;
+        background: url('../images/icon-teaser-diamond.svg') center top no-repeat;
 
-    &::after {
-      content: counter(teaser-counter);
-      position: absolute;
-      width: 100%;
-      top: rem-calc(3px);
-      left: 0;
-      color: $clr-yellow-shade-1;
+        &::after {
+            content: counter(teaser-counter);
+            position: absolute;
+            width: 100%;
+            top: rem-calc(3px);
+            left: 0;
+            color: $clr-yellow-shade-1;
+        }
     }
-  }
 
-  &__action-bar__ledge {
-    @include font-smoothing;
-    font-size: rem-calc(18px);
-    line-height: 1.3333;
-    color: $white;
-  }
+    &__action-bar__ledge {
+        @include font-smoothing;
+        font-size: rem-calc(18px);
+        line-height: 1.3333;
+        color: $white;
+    }
 
-  &__teaser p {
-    color: $clr-white;
-    text-align: left;
-    font-weight: $fw-light;
-  }
+    &__teaser p {
+        @media #{$small-only} {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        color: $clr-white;
+        text-align: justify;
+        font-weight: $fw-light;
+        padding-left: 100px;
+        padding-right: 100px;
+    }
 }

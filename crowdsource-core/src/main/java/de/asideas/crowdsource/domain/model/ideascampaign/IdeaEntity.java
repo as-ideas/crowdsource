@@ -69,6 +69,12 @@ public class IdeaEntity {
         return this;
     }
 
+    public void approveIdea() {
+        //Implemented for testing only so far; Will be improved when we implement the admnin approve/reject functionality
+        this.status = IdeaStatus.PUBLISHED;
+    }
+
+
     public String getId() {
         return id;
     }
@@ -162,4 +168,5 @@ public class IdeaEntity {
             ", lastModifiedDate=" + lastModifiedDate +
             '}';
     }
+
 }

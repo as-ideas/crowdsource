@@ -152,6 +152,10 @@
                     templateUrl: 'app/misc/imprint.html',
                     title: 'Impressum'
                 })
+                .when('/privacy', {
+                    templateUrl: 'app/misc/privacy.html',
+                    title: 'Datenschutzerklärung'
+                })
                 .when('/logout', {
                     templateUrl: 'app/user/logout/user-logout.html',
                     controller: 'UserLogoutController as logout',

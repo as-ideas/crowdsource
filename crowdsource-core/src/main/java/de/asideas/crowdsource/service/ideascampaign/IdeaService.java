@@ -1,5 +1,7 @@
 package de.asideas.crowdsource.service.ideascampaign;
 
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,6 +18,7 @@ import org.springframework.util.Assert;
 import de.asideas.crowdsource.domain.exception.ResourceNotFoundException;
 import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.domain.model.ideascampaign.IdeaEntity;
+import de.asideas.crowdsource.domain.shared.ideascampaign.IdeaStatus;
 import de.asideas.crowdsource.presentation.ideascampaign.Idea;
 import de.asideas.crowdsource.repository.ideascampaign.IdeaRepository;
 import de.asideas.crowdsource.repository.ideascampaign.IdeasCampaignRepository;
@@ -68,20 +71,23 @@ public class IdeaService {
         return new Idea(ideaRepository.save(existingIdea.modifyIdeaPitch(cmd.getPitch())));
     }
 
-    public Page<Idea> fetchIdeasByCampaign(String campaignId, Integer page, Integer pageSize) {
+    public Page<Idea> fetchPublishedIdeas(String campaignId, Integer page, Integer pageSize) {
         Assert.notNull(campaignId, "campaignId must not be null");
 
         final PageRequest pReq;
         if (page != null && pageSize != null) {
-            pReq = new PageRequest(page, pageSize);
+            pReq = new PageRequest(page, pageSize > DEFAULT_PAGE_SIZE ? DEFAULT_PAGE_SIZE : pageSize);
         }else {
             pReq= new PageRequest(0, DEFAULT_PAGE_SIZE);
         }
 
-        final Page<IdeaEntity> dbRes = ideaRepository.findByCampaignId(campaignId, pReq);
+        final Page<IdeaEntity> dbRes = ideaRepository.findByCampaignIdAndStatusIn(
+            campaignId,
+            Collections.singleton(IdeaStatus.PUBLISHED),
+            pReq
+        );
         return new PageImpl<>(toIdeas(dbRes.getContent()), pReq, dbRes.getTotalElements());
     }
-
 
     public List<Idea> fetchIdeasByCampaignAndUser(String campaignId, UserEntity creator) {
         Assert.notNull(campaignId, "campaignId must not be null");
