@@ -71,7 +71,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
     }
 
     @Test
-    public void fetchIdeas_shouldReturnAllAsPage() throws Exception {
+    public void fetchPublishedIdeas_shouldReturnAllAsPage() throws Exception {
 
         final UserEntity admin = givenAdminUserExists();
         final String adminToken = obtainAccessToken(admin.getEmail(), admin.getPassword());
@@ -82,8 +82,10 @@ public class IdeaControllerIT extends AbstractCrowdIT {
 
         final Idea cmd1 = new Idea("pitch 1");
         final Idea cmd2 = new Idea("pitch 2");
-        givenIdeaExists(userToken, parentCampaign.getId(), cmd1).andExpect(status().isCreated()).andReturn();
-        givenIdeaExists(userToken, parentCampaign.getId(), cmd2).andExpect(status().isCreated()).andReturn();
+        final Idea cmd3 = new Idea("pitch 3");
+        givenApprovedIdeaExists(userToken, parentCampaign.getId(), cmd1);
+        givenApprovedIdeaExists(userToken, parentCampaign.getId(), cmd2);
+        givenIdeaExists(userToken, parentCampaign.getId(), cmd3).andExpect(status().isCreated()).andReturn();
 
         mockMvc.perform(get("/ideas_campaigns/{campaignId}/ideas", parentCampaign.getId())
             .contentType(MediaType.APPLICATION_JSON_UTF8)
@@ -221,6 +223,12 @@ public class IdeaControllerIT extends AbstractCrowdIT {
                 .content(mapper.writeValueAsBytes(cmd))
         )
                 .andDo(log());
+    }
+    private void givenApprovedIdeaExists(String accessToken, String campaignId, Idea cmd) throws Exception {
+        final Idea givenIdea = mapper.readValue(givenIdeaExists(accessToken, campaignId, cmd).andExpect(status().isCreated()).andReturn().getResponse().getContentAsString(), Idea.class);
+        final IdeaEntity entity = ideaRepository.findOne(givenIdea.getId());
+        entity.approveIdea();
+        ideaRepository.save(entity);
     }
 
     private Idea givenValidIdeaCmd() {
