@@ -207,7 +207,7 @@ public class MailTest {
     public void testNotifyAdminOnIdeaCreation() {
         UserEntity user = aUser("123456789");
 
-        IdeaEntity newIdea = IdeaEntity.createIdeaEntity(new Idea("Schokolade für alle!"), "eatMoreChocolateCampaign", user);
+        IdeaEntity newIdea = IdeaEntity.createIdeaEntity(new Idea("SCHOKOLADE", "Schokolade für alle!"), "eatMoreChocolateCampaign", user);
 
         userNotificationService.notifyAdminOnIdeaCreation(newIdea, ADMIN_EMAIL);
 
@@ -218,9 +218,10 @@ public class MailTest {
         assertThat(replaceLineBreaksIfWindows(mail.getText()), is(
                 "Hallo Admin,\n\n" +
                         "es liegt eine neue Idee zur Freigabe vor:\n\n" +
-                        "Name: Karl Ranseier\n" +
+                        "Name: Bojack Horseman\n" +
+                        "Title: SCHOKOLADE\n" +
                         "Pitch: Schokolade für alle!\n\n" +
-                        "CAMPAIGN LINK\n\n" +
+                        "https://crowd.asideas.de#/ideas/eatMoreChocolateCampaign\n\n" +
                         "Mit freundlichen Grüßen\n" +
                         "Dein CrowdSource Team\n"));
     }

@@ -33,7 +33,7 @@ public class IdeaServiceTest {
         String campaignId = "testcampaignid";
         givenIdeaCampaignDoesntExist(campaignId);
 
-        ideaService.createNewIdea(campaignId, new Idea("Tu wat!"), Fixtures.givenUserEntity("123459"));
+        ideaService.createNewIdea(campaignId, new Idea("test_title", "Tu wat!"), Fixtures.givenUserEntity("123459"));
 
     }
 
@@ -42,7 +42,7 @@ public class IdeaServiceTest {
         final String missingIdeaId = "idea27";
         givenIdeaDoesntExist(missingIdeaId);
 
-        ideaService.modifyIdea(missingIdeaId, new Idea("my faulty pitch"), new UserEntity());
+        ideaService.modifyIdea(missingIdeaId, new Idea("test_title", "my faulty pitch"), new UserEntity());
     }
 
     private void givenIdeaCampaignDoesntExist(String campaignId) {

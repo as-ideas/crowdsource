@@ -203,6 +203,7 @@ public class UserNotificationService {
         StandardEvaluationContext context = new StandardEvaluationContext();
 
         context.setVariable("fullName", idea.getCreator().getFullName());
+        context.setVariable("ideaTitle", idea.getTitle());
         context.setVariable("ideaPitch", idea.getPitch());
         context.setVariable("link", buildIdeasCampaignLink(idea.getCampaignId()));
 

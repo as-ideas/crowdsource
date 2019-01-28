@@ -20,13 +20,14 @@ public class IdeaTest {
 
         assertThat(result.getCreatorName(), is("test_firstname"));
         assertThat(result.getId(), is(givenIdeaEntity.getId()));
+        assertThat(result.getTitle(), is(givenIdeaEntity.getTitle()));
         assertThat(result.getPitch(), is(givenIdeaEntity.getPitch()));
         assertThat(result.getCreationDate(), is(givenIdeaEntity.getCreatedDate()));
         assertThat(result.getStatus(), is(givenIdeaEntity.getStatus()));
     }
 
     private IdeaEntity givenIdeaEntity() {
-        final IdeaEntity result = IdeaEntity.createIdeaEntity(new Idea("sada"), "test_campaingId", givenUserEntity("test_userId"));
+        final IdeaEntity result = IdeaEntity.createIdeaEntity(new Idea("test_title", "sadasdada"), "test_campaingId", givenUserEntity("test_userId"));
         result.setCreatedDate(DateTime.now());
         return result;
     }

@@ -17,6 +17,10 @@ public class Idea {
     private DateTime creationDate;
 
     @NotEmpty
+    @Size(min = 5, max = 24)
+    private String title;
+
+    @NotEmpty
     @Size(min = 5, max = 255)
     private String pitch;
 
@@ -25,25 +29,27 @@ public class Idea {
 
     public Idea(IdeaEntity ideaEntity) {
         this.id = ideaEntity.getId();
+        this.title = ideaEntity.getTitle();
         this.pitch = ideaEntity.getPitch();
         this.status = ideaEntity.getStatus();
         this.creationDate = ideaEntity.getCreatedDate();
         this.creatorName = ideaEntity.getCreator().getFirstName();
     }
 
-    public Idea(String pitch) {
+    public Idea(String title, String pitch) {
+        this.title = title;
         this.pitch = pitch;
     }
 
-    public Idea(String id, String pitch) {
+    public Idea(String id, String title, String pitch) {
         this.id = id;
+        this.title = title;
         this.pitch = pitch;
     }
 
     public String getId() {
         return id;
     }
-
     public void setId(String id) {
         this.id = id;
     }
@@ -51,7 +57,6 @@ public class Idea {
     public String getCreatorName() {
         return creatorName;
     }
-
     public void setCreatorName(String creatorName) {
         this.creatorName = creatorName;
     }
@@ -59,7 +64,6 @@ public class Idea {
     public IdeaStatus getStatus() {
         return status;
     }
-
     public void setStatus(IdeaStatus status) {
         this.status = status;
     }
@@ -67,15 +71,20 @@ public class Idea {
     public DateTime getCreationDate() {
         return creationDate;
     }
-
     public void setCreationDate(DateTime creationDate) {
         this.creationDate = creationDate;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getPitch() {
         return pitch;
     }
-
     public void setPitch(String pitch) {
         this.pitch = pitch;
     }
@@ -85,6 +94,7 @@ public class Idea {
         return "Idea{" +
             "id='" + id + '\'' +
             ", creatorName='" + creatorName + '\'' +
+            ", title=" + title+
             ", status=" + status +
             ", creationDate=" + creationDate +
             ", pitch='" + pitch + '\'' +
