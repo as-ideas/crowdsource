@@ -65,7 +65,6 @@ public class UserNotificationServiceTest {
 
     }
 
-
     @Test
     public void testSendActivationMail() {
         UserEntity user = aProjectCreator();
@@ -215,9 +214,8 @@ public class UserNotificationServiceTest {
     }
 
     @Test
-    public void testNotifyAdminOnIdeaCreation() {
+    public void notifyAdminOnIdeaCreation_ShouldSendMailWithResolvedTemplate() {
         UserEntity user = aUser("123456789");
-
         IdeaEntity newIdea = IdeaEntity.createIdeaEntity(new Idea("Schokolade für alle!"), "eatMoreChocolateCampaign", user);
 
         userNotificationService.notifyAdminOnIdeaCreation(newIdea, ADMIN_EMAIL);
@@ -231,7 +229,7 @@ public class UserNotificationServiceTest {
                         "es liegt eine neue Idee zur Freigabe vor:\n\n" +
                         "Name: Karl Ranseier\n" +
                         "Pitch: Schokolade für alle!\n\n" +
-                        "CAMPAIGN LINK\n\n" +
+                        "https://crowd.asideas.de#/ideas/eatMoreChocolateCampaign\n\n" +
                         "Mit freundlichen Grüßen\n" +
                         "Dein CrowdSource Team\n"));
 
