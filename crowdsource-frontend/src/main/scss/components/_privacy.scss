@@ -1,0 +1,19 @@
+.privacy {
+    h1 {
+        font-size: rem-calc(37);
+        line-height: 1.5;
+        font-weight: $font-weight-normal;
+    }
+    h2 {
+        margin-top: 40px;
+        font-size: rem-calc(23);
+        line-height: 1.5;
+        font-weight: $font-weight-normal;
+    }
+    h3 {
+        margin-top: 25px;
+        font-size: rem-calc(16);
+        line-height: 1.5;
+        font-weight: $font-weight-normal;
+    }
+}
