@@ -72,11 +72,18 @@ public class IdeaController {
     }
 
     @Secured(Roles.ROLE_USER)
-    @ResponseStatus(HttpStatus.OK)
     @PutMapping(value = "/ideas_campaigns/{campaignId}/ideas/{ideaId}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public Idea modifyIdea(@Valid @RequestBody Idea cmd, @PathVariable String campaignId, @PathVariable String ideaId, Principal principal) {
         log.info("Going to modify idea by cmd: {}", cmd);
         return ideaService.modifyIdea(ideaId, cmd, userByPrincipal(principal));
+    }
+
+    @Secured(ROLE_ADMIN)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @PutMapping(value = "/ideas_campaigns/{campaignId}/ideas/{ideaId}/approval", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public void approveIdea(@PathVariable String campaignId, @PathVariable String ideaId, Principal principal) {
+        log.info("Going to approve ideaId={}", ideaId);
+        ideaService.approveIdea(ideaId, userByPrincipal(principal));
     }
 
     private UserEntity userByPrincipal(Principal principal) {

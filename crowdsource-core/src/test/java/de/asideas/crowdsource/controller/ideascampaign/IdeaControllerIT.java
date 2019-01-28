@@ -1,7 +1,6 @@
 package de.asideas.crowdsource.controller.ideascampaign;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -19,6 +18,7 @@ import de.asideas.crowdsource.domain.shared.ideascampaign.IdeaStatus;
 import de.asideas.crowdsource.presentation.ideascampaign.Idea;
 import de.asideas.crowdsource.presentation.ideascampaign.IdeasCampaign;
 import de.asideas.crowdsource.repository.ideascampaign.IdeaRepository;
+import de.asideas.crowdsource.testutil.Fixtures;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.not;
@@ -236,7 +236,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
     }
 
     @Test
-    public void updateIdea_shouldReturn_401_OnUnknownUser() throws Exception {
+    public void modifyIdea_shouldReturn_401_OnUnknownUser() throws Exception {
         mockMvc.perform(put("/ideas_campaigns/{campaignId}/ideas/{ideaId}", "someCampaignId", "someIdeaId")
                 .header("Authorization", "Bearer " + "bogustoken")
                 .accept(MediaType.APPLICATION_JSON_UTF8)
@@ -248,7 +248,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
     }
 
     @Test
-    public void updateIdea_shouldReturn_403_OnUnauthorizedUser() throws Exception {
+    public void modifyIdea_shouldReturn_403_OnUnauthorizedUser() throws Exception {
         final UserEntity admin = givenAdminUserExists();
         final String adminToken = obtainAccessToken(admin.getEmail(), admin.getPassword());
 
@@ -281,6 +281,63 @@ public class IdeaControllerIT extends AbstractCrowdIT {
 
     }
 
+    @Test
+    public void approveIdea_shouldReturn_403_OnNonAdminUser() throws Exception {
+        final UserEntity admin = givenAdminUserExists();
+        final String adminToken = obtainAccessToken(admin.getEmail(), admin.getPassword());
+
+        final UserEntity user1 = givenUserExists();
+        final String user1Token = obtainAccessToken(user1.getEmail(), user1.getPassword());
+
+        final IdeasCampaign parentCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
+
+        final Idea originalIdea = givenValidIdeaCmd();
+        final MvcResult mvcRes = givenIdeaExists(user1Token, parentCampaign.getId(), originalIdea)
+            .andExpect(status().isCreated()).andReturn();
+
+        final Idea actual = mapper.readValue(mvcRes.getResponse().getContentAsString(), Idea.class);
+        final IdeaEntity initialIdeaInMongo = ideaRepository.findOne(actual.getId());
+
+        mockMvc.perform(put("/ideas_campaigns/{campaignId}/ideas/{ideaId}/approval", parentCampaign.getId(), initialIdeaInMongo.getId())
+            .header("Authorization", "Bearer " + user1Token)
+            .accept(MediaType.APPLICATION_JSON_UTF8)
+            .contentType(MediaType.APPLICATION_JSON_UTF8)
+        )
+            .andDo(log())
+            .andExpect(status().isForbidden());
+
+    }
+
+    @Test
+    public void approveIdea_shouldBePersisted() throws Exception {
+        final UserEntity admin = givenAdminUserExists();
+        final String adminToken = obtainAccessToken(admin.getEmail(), admin.getPassword());
+
+        final UserEntity user1 = givenUserExists();
+        final String user1Token = obtainAccessToken(user1.getEmail(), user1.getPassword());
+
+        final IdeasCampaign parentCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
+
+        final Idea originalIdea = givenValidIdeaCmd();
+        final MvcResult mvcRes = givenIdeaExists(user1Token, parentCampaign.getId(), originalIdea)
+            .andExpect(status().isCreated()).andReturn();
+
+        final Idea actual = mapper.readValue(mvcRes.getResponse().getContentAsString(), Idea.class);
+        final IdeaEntity initialIdeaInMongo = ideaRepository.findOne(actual.getId());
+
+        mockMvc.perform(put("/ideas_campaigns/{campaignId}/ideas/{ideaId}/approval", parentCampaign.getId(), initialIdeaInMongo.getId())
+            .header("Authorization", "Bearer " + adminToken)
+            .accept(MediaType.APPLICATION_JSON_UTF8)
+            .contentType(MediaType.APPLICATION_JSON_UTF8)
+        )
+            .andDo(log())
+            .andExpect(status().isNoContent());
+
+        final IdeaEntity res = ideaRepository.findOne(actual.getId());
+        assertThat(res.getStatus(), is(IdeaStatus.PUBLISHED));
+
+    }
+
     private ResultActions givenIdeaExists(String accessToken, String campaignId, Idea cmd) throws Exception {
         return mockMvc.perform(post("/ideas_campaigns/{campaignId}/ideas", campaignId)
                 .header("Authorization", "Bearer " + accessToken)
@@ -293,7 +350,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
     private void givenApprovedIdeaExists(String accessToken, String campaignId, Idea cmd) throws Exception {
         final Idea givenIdea = mapper.readValue(givenIdeaExists(accessToken, campaignId, cmd).andExpect(status().isCreated()).andReturn().getResponse().getContentAsString(), Idea.class);
         final IdeaEntity entity = ideaRepository.findOne(givenIdea.getId());
-        entity.approveIdea();
+        entity.approveIdea(Fixtures.givenUserEntity("4212"));
         ideaRepository.save(entity);
     }
 

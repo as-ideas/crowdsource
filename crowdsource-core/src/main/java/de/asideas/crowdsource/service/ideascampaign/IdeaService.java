@@ -1,7 +1,5 @@
 package de.asideas.crowdsource.service.ideascampaign;
 
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -23,6 +21,7 @@ import de.asideas.crowdsource.domain.shared.ideascampaign.IdeaStatus;
 import de.asideas.crowdsource.presentation.ideascampaign.Idea;
 import de.asideas.crowdsource.repository.ideascampaign.IdeaRepository;
 import de.asideas.crowdsource.repository.ideascampaign.IdeasCampaignRepository;
+import de.asideas.crowdsource.security.Roles;
 
 /**
  * Application service, provding use cases around {@link de.asideas.crowdsource.domain.model.ideascampaign.IdeaEntity}ies of
@@ -66,10 +65,23 @@ public class IdeaService {
 
         validateIdeaExists(ideaId);
 
-        IdeaEntity existingIdea = ideaRepository.findOne(ideaId);
-        checkModificationAllowed(requestingUser, existingIdea);
+        final IdeaEntity existingIdea = ideaRepository.findOne(ideaId);
+        checkRequestorIsOwner(requestingUser, existingIdea);
 
         return new Idea(ideaRepository.save(existingIdea.modifyIdeaPitch(cmd.getPitch())));
+    }
+
+    public void approveIdea(String ideaId, UserEntity approvingAdmin) {
+        Assert.hasText(ideaId, "ideaId must not be null.");
+        Assert.notNull(approvingAdmin, "approvingAdmin must not be null.");
+
+        checkRequestorIsAdmin(approvingAdmin);
+        validateIdeaExists(ideaId);
+
+        final IdeaEntity existingIdea = ideaRepository.findOne(ideaId);
+        existingIdea.approveIdea(approvingAdmin);
+
+        ideaRepository.save(existingIdea);
     }
 
     public Page<Idea> fetchIdeasByStatus(String campaignId, Set<IdeaStatus> statusSet, Integer page, Integer pageSize) {
@@ -96,6 +108,7 @@ public class IdeaService {
         return toIdeas(ideaRepository.findByCampaignIdAndCreator(campaignId, creator));
     }
 
+
     private void notifyAdminsOnNewIdea(final IdeaEntity ideaEntity) {
         userRepository.findAllAdminUsers().stream()
                 .map(UserEntity::getEmail)
@@ -106,9 +119,15 @@ public class IdeaService {
         return res.stream().map(Idea::new).collect(Collectors.toList());
     }
 
-    private void checkModificationAllowed(UserEntity requestingUser, IdeaEntity existingIdea) {
+    private void checkRequestorIsOwner(UserEntity requestingUser, IdeaEntity existingIdea) {
         if (!existingIdea.getCreator().equals(requestingUser)) {
             throw new AuthorizationServiceException("User is not owner of this idea");
+        }
+    }
+
+    private void checkRequestorIsAdmin(UserEntity requestingUser) {
+        if ( !requestingUser.getRoles().contains(Roles.ROLE_ADMIN) ) {
+            throw new AuthorizationServiceException("Requested functionality rquires admin access");
         }
     }
 

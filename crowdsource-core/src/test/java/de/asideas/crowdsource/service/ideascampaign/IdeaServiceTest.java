@@ -1,19 +1,33 @@
 package de.asideas.crowdsource.service.ideascampaign;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 import de.asideas.crowdsource.domain.model.UserEntity;
+
+import org.hamcrest.CoreMatchers;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.springframework.security.access.AuthorizationServiceException;
 
 import de.asideas.crowdsource.domain.exception.ResourceNotFoundException;
+import de.asideas.crowdsource.domain.model.ideascampaign.IdeaEntity;
+import de.asideas.crowdsource.domain.shared.ideascampaign.IdeaStatus;
 import de.asideas.crowdsource.presentation.ideascampaign.Idea;
 import de.asideas.crowdsource.repository.ideascampaign.IdeaRepository;
 import de.asideas.crowdsource.repository.ideascampaign.IdeasCampaignRepository;
+import de.asideas.crowdsource.security.Roles;
 import de.asideas.crowdsource.testutil.Fixtures;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
 public class IdeaServiceTest {
@@ -43,6 +57,50 @@ public class IdeaServiceTest {
         givenIdeaDoesntExist(missingIdeaId);
 
         ideaService.modifyIdea(missingIdeaId, new Idea("test_title", "my faulty pitch"), new UserEntity());
+    }
+
+    @Test(expected = ResourceNotFoundException.class)
+    public void approveIdea_shouldThrowException_OnNotExistingIdea() {
+        final String missingIdeaId = "idea27";
+        final UserEntity approver = Fixtures.givenUserEntity("test_adminId");
+        approver.setRoles(Arrays.asList(Roles.ROLE_ADMIN));
+
+        givenIdeaDoesntExist(missingIdeaId);
+        ideaService.approveIdea(missingIdeaId, approver);
+    }
+
+    @Test(expected = AuthorizationServiceException.class)
+    public void approveIdea_shouldThrowException_OnNonAdminRequesting() {
+        final String missingIdeaId = "idea27";
+        final UserEntity approver = Fixtures.givenUserEntity("test_adminId");
+        approver.setRoles(Collections.emptyList());
+
+        givenIdeaExists(new Idea("test_title", "test_pitch"));
+
+        ideaService.approveIdea(missingIdeaId, approver);
+    }
+
+    @Test
+    public void approveIdea_shouldPersistApprovedIdea() {
+        final String missingIdeaId = "idea27";
+        final UserEntity approver = Fixtures.givenUserEntity("test_adminId");
+        approver.setRoles(Arrays.asList(Roles.ROLE_ADMIN));
+
+        givenIdeaExists(new Idea("test_title", "test_pitch"));
+
+        ideaService.approveIdea(missingIdeaId, approver);
+
+        final ArgumentCaptor<IdeaEntity> captor = ArgumentCaptor.forClass(IdeaEntity.class);
+        verify(ideaRepository).save(captor.capture());
+
+        assertThat(captor.getValue().getStatus(), is(IdeaStatus.PUBLISHED));
+    }
+
+    private IdeaEntity givenIdeaExists(Idea idea) {
+        final IdeaEntity theIdea = IdeaEntity.createIdeaEntity(idea, "test_campaignId", Fixtures.givenUserEntity("test_userId"));
+        doReturn(true).when(ideaRepository).exists(anyString());
+        doReturn(theIdea).when(ideaRepository).findOne(anyString());
+        return theIdea;
     }
 
     private void givenIdeaCampaignDoesntExist(String campaignId) {

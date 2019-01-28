@@ -5,11 +5,8 @@ import java.util.Objects;
 import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.domain.shared.ideascampaign.IdeaStatus;
 import de.asideas.crowdsource.presentation.ideascampaign.Idea;
-import de.asideas.crowdsource.presentation.ideascampaign.IdeasCampaign;
 
 import org.joda.time.DateTime;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -73,8 +70,14 @@ public class IdeaEntity {
         return this;
     }
 
-    public void approveIdea() {
-        //Implemented for testing only so far; Will be improved when we implement the admnin approve/reject functionality
+    public void approveIdea(UserEntity approvingAdmin) {
+        Assert.notNull(approvingAdmin, "approvingAdmin must not be null");
+        Assert.notNull(approvingAdmin.getId(), "approvingAdmin must have an ID");
+
+        Assert.isTrue(this.status != IdeaStatus.PUBLISHED, "Cannot approve idea because it is already published");
+
+        setApprovalDate(DateTime.now());
+        this.setApprovingAdminId(approvingAdmin.getId());
         this.status = IdeaStatus.PUBLISHED;
     }
 
