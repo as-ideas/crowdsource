@@ -63,8 +63,22 @@ public class IdeaControllerTest {
     }
 
     @Test
+    public void createIdea_ShouldReturn_400_onEmptyTitle() throws Exception {
+        Idea cmd = new Idea((String) null, "test_pitch");
+
+        mockMvc.perform(post("/ideas_campaigns/anId/ideas")
+            .content(mapper.writeValueAsString(cmd))
+            .contentType(MediaType.APPLICATION_JSON_UTF8)
+        )
+            .andDo(log())
+            .andExpect(status().isBadRequest())
+            .andExpect(jsonPath("$.fieldViolations.title", equalTo("may not be empty")));
+    }
+
+
+    @Test
     public void createIdea_ShouldReturn_400_onEmptyPitch() throws Exception {
-        Idea cmd = new Idea((String) null);
+        Idea cmd = new Idea("test_title", (String) null);
 
         mockMvc.perform(post("/ideas_campaigns/anId/ideas")
                 .content(mapper.writeValueAsString(cmd))
@@ -77,7 +91,7 @@ public class IdeaControllerTest {
 
     @Test
     public void updateIdea_ShouldReturn_400_onInvalidPitch() throws Exception {
-        Idea cmd = new Idea("nope");
+        Idea cmd = new Idea("test_title", "nope");
 
         mockMvc.perform(put("/ideas_campaigns/aCampaignId/ideas/anIdeaId")
                 .content(mapper.writeValueAsString(cmd))
@@ -91,7 +105,7 @@ public class IdeaControllerTest {
     @Test
     public void createIdea_ShouldReturn_400_onPitchSizeInvalid() throws Exception {
         // Longer than 255 chars
-        final Idea cmd = new Idea("Lo000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000" +
+        final Idea cmd = new Idea("test_title", "Lo000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000" +
                 "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ng");
 
         mockMvc.perform(post("/ideas_campaigns/anId/ideas")

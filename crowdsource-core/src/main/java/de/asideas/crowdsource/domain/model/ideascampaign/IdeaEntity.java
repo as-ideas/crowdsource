@@ -27,6 +27,8 @@ public class IdeaEntity {
     @Id
     private String id;
 
+    private String title;
+
     private String pitch;
 
     private IdeaStatus status;
@@ -52,10 +54,12 @@ public class IdeaEntity {
 
     public static IdeaEntity createIdeaEntity(Idea cmd, String campaignId, UserEntity creator){
         hasText(campaignId, "campaignId must be given");
+        hasText(cmd.getTitle(), "Title must contain text.");
         hasText(cmd.getPitch(), "Pitch must contain text.");
         notNull(creator, "Creator must not be null.");
 
         final IdeaEntity result = new IdeaEntity();
+        result.setTitle(cmd.getTitle());
         result.setPitch(cmd.getPitch());
         result.setCreator(creator);
         result.setStatus(IdeaStatus.PROPOSED);
@@ -80,6 +84,13 @@ public class IdeaEntity {
     }
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getPitch() {
@@ -159,6 +170,7 @@ public class IdeaEntity {
     public String toString() {
         return "IdeaEntity{" +
             "id='" + id + '\'' +
+            ", title='" + title + '\'' +
             ", pitch='" + pitch + '\'' +
             ", status=" + status +
             ", approvalDate=" + approvalDate +

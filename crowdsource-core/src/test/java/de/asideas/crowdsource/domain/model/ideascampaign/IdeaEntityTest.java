@@ -17,9 +17,10 @@ public class IdeaEntityTest {
 
     @Test
     public void createIdeaEntity_shouldContainExpectedFileds() {
-        final Idea expectedIdea = new Idea("Make more placstic forks!");
+        final Idea expectedIdea = new Idea("test_title", "Make more placstic forks!");
         final IdeaEntity ideaEntity = IdeaEntity.createIdeaEntity(expectedIdea, EXP_CAMPAIGN_ID, INITIATOR);
 
+        assertThat(ideaEntity.getTitle(), equalTo(expectedIdea.getTitle()));
         assertThat(ideaEntity.getPitch(), equalTo(expectedIdea.getPitch()));
         assertThat(ideaEntity.getCreator(), equalTo(INITIATOR));
         assertThat(ideaEntity.getStatus(), equalTo(IdeaStatus.PROPOSED));
@@ -28,20 +29,26 @@ public class IdeaEntityTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void createIdeaEntity_shouldFail_on_creator_is_null() {
-        final Idea ideaCommand = new Idea("Make more placstic forks!");
+        final Idea ideaCommand = new Idea("test_title", "Make more placstic forks!");
         IdeaEntity.createIdeaEntity(ideaCommand, EXP_CAMPAIGN_ID, null);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void createIdeaEntity_shouldFail_on_pitch_is_empty() {
-        final Idea ideaCommand = new Idea("          ");
+        final Idea ideaCommand = new Idea("test_title", "          ");
         IdeaEntity.createIdeaEntity(ideaCommand, EXP_CAMPAIGN_ID, INITIATOR);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void createIdeaEntity_shouldFail_on_campaignId_isEmpty() {
-        final Idea ideaCommand = new Idea("          ");
+        final Idea ideaCommand = new Idea("test_title", "          ");
         IdeaEntity.createIdeaEntity(ideaCommand, "   ", INITIATOR);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void createIdeaEntity_shouldFail_on_title_isEmpty() {
+        final Idea ideaCommand = new Idea("", "Make more placstic forks!");
+        IdeaEntity.createIdeaEntity(ideaCommand, EXP_CAMPAIGN_ID, INITIATOR);
     }
 
 

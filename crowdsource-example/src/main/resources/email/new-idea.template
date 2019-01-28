@@ -3,6 +3,7 @@ Hallo Admin,
 es liegt eine neue Idee zur Freigabe vor:
 
 Name: #{#fullName}
+Title: #{#ideaTitle}
 Pitch: #{#ideaPitch}
 
 #{#link}
