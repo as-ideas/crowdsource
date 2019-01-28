@@ -7,7 +7,7 @@ angular.module('crowdsource')
             },
             controllerAs: 'status',
             bindToController: true,
-            templateUrl: 'app/components/layout/ideas-status-bar/ideas-status-bar.html',
+            templateUrl: 'app/ideas/ideas-status-bar/ideas-status-bar.html',
             controller: function () {
                 var vm = this;
                 vm.breadcrumbs = [];
