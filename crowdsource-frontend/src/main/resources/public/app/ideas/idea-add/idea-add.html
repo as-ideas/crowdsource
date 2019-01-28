@@ -1,10 +1,11 @@
-<form>
-    <input type="text" ng-model="vm.newIdea.title" placeholder="Worum gehts?" required maxlength="64" class="">
-    <textarea ng-disabled="vm.pending" class="newcomment-comment" name="idea" ng-model="vm.newIdea.pitch"
+<form class="idea-add__container">
+    <input minlength="5" type="text" ng-model="vm.newIdea.title" placeholder="Worum gehts?" required maxlength="23" class="idea-add__title">
+
+    <textarea minlength="6" ng-disabled="vm.pending" class="idea-add__pitch newcomment-comment" name="idea" ng-model="vm.newIdea.pitch"
               placeholder="Ein kurzer und prägnanter Satz (max. 265 Zeichen)"
               required maxlength="265" reset-remote-validation></textarea>
 
-    <button ng-disabled="vm.pending || !vm.contentPresent" type="submit" ng-click="vm.send()" class="crwd-success radius shadow margin-top">Absenden</button>
-    <span ng-if="vm.failed" class="upload-messages__error">Es ist ein Fehler aufgetreten.</span>
-    <span ng-if="vm.showSuccessMessage" class="ideas-add__message">Deine Idee wurde erfolgreich eingereicht!</span>
+    <button ng-disabled="!vm.enableButton()" type="submit" ng-click="vm.send()" class="idea-add__submit crwd-success radius shadow margin-top">Absenden</button>
+    <span ng-if="vm.failed" class="ideas-add__message--failure">Es ist ein Fehler aufgetreten.</span>
+    <span ng-if="vm.showSuccessMessage" class="ideas-add__message--succees">Deine Idee wurde erfolgreich eingereicht!</span>
 </form>
