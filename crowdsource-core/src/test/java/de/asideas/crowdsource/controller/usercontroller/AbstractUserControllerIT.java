@@ -159,6 +159,11 @@ public abstract class AbstractUserControllerIT {
         }
 
         @Bean
+        public Expression ideaCreatedEmailTemplate() {
+            return mock(Expression.class);
+        }
+
+        @Bean
         public Expression passwordForgottenEmailTemplate() {
             return mock(Expression.class);
         }

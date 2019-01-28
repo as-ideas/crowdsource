@@ -3,6 +3,8 @@ package de.asideas.crowdsource.service.ideascampaign;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import de.asideas.crowdsource.domain.service.user.UserNotificationService;
+import de.asideas.crowdsource.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -33,6 +35,13 @@ public class IdeaService {
     @Autowired
     private IdeasCampaignRepository ideasCampaignRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private UserNotificationService userNotificationService;
+
+
     public Idea createNewIdea(String campaignId, Idea cmd, UserEntity creator) {
         Assert.notNull(cmd, "cmd must not be null.");
         Assert.notNull(campaignId, "CampaignId must not be null.");
@@ -41,6 +50,8 @@ public class IdeaService {
         validateCampaignExists(campaignId);
 
         final IdeaEntity result = IdeaEntity.createIdeaEntity(cmd, campaignId, creator);
+
+        notifyAdminsOnNewIdea(result);
         return new Idea(ideaRepository.save(result));
     }
 
@@ -76,6 +87,12 @@ public class IdeaService {
         Assert.notNull(campaignId, "campaignId must not be null");
         Assert.notNull(creator, "creator must not be null");
         return toIdeas(ideaRepository.findByCampaignIdAndCreator(campaignId, creator));
+    }
+
+    private void notifyAdminsOnNewIdea(final IdeaEntity ideaEntity) {
+        userRepository.findAllAdminUsers().stream()
+                .map(UserEntity::getEmail)
+                .forEach(emailAddress -> userNotificationService.notifyAdminOnIdeaCreation(ideaEntity, emailAddress));
     }
 
     private List<Idea> toIdeas(List<IdeaEntity> res) {

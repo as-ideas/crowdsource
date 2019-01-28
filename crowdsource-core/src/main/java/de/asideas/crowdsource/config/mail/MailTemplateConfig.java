@@ -31,6 +31,11 @@ public class MailTemplateConfig {
     }
 
     @Bean
+    public Expression ideaCreatedEmailTemplate() {
+        return createExpressionFromFile("/email/new-idea.template");
+    }
+
+    @Bean
     public Expression passwordForgottenEmailTemplate() {
         return createExpressionFromFile("/email/password-forgotten.template");
     }

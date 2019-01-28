@@ -1,0 +1,11 @@
+Hallo Admin,
+
+es liegt eine neue Idee zur Freigabe vor:
+
+Name: #{#fullName}
+Pitch: #{#ideaPitch}
+
+#{#link}
+
+Mit freundlichen Grüßen
+Dein CrowdSource Team

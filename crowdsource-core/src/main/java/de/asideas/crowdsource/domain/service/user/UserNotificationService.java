@@ -1,5 +1,6 @@
 package de.asideas.crowdsource.domain.service.user;
 
+import de.asideas.crowdsource.domain.model.ideascampaign.IdeaEntity;
 import de.asideas.crowdsource.domain.model.prototypecampaign.CommentEntity;
 import de.asideas.crowdsource.domain.model.prototypecampaign.ProjectEntity;
 import de.asideas.crowdsource.domain.model.UserEntity;
@@ -33,6 +34,7 @@ public class UserNotificationService {
 
     public static final String SUBJECT_ACTIVATION = "Bitte vergib ein Passwort für Dein Konto auf der CrowdSource Platform";
     public static final String SUBJECT_PROJECT_CREATED = "Neues Projekt erstellt";
+    public static final String SUBJECT_IDEA_CREATED = "Neues Idee eingereicht";
     public static final String SUBJECT_PROJECT_MODIFIED = "Ein Projekt wurde editiert";
     public static final String SUBJECT_PASSWORD_FORGOTTEN = "Bitte vergib ein Passwort für Dein Konto auf der CrowdSource Platform";
     public static final String SUBJECT_PROJECT_PUBLISHED = "Freigabe Deines Projektes";
@@ -50,6 +52,9 @@ public class UserNotificationService {
 
     @Autowired
     private Expression newProjectEmailTemplate;
+
+    @Autowired
+    private Expression ideaCreatedEmailTemplate;
 
     @Autowired
     private Expression passwordForgottenEmailTemplate;
@@ -190,6 +195,19 @@ public class UserNotificationService {
 
         final String mailContent = newProjectEmailTemplate.getValue(context, String.class);
         sendMail(emailAddress, SUBJECT_PROJECT_CREATED, mailContent);
+    }
+
+    public void notifyAdminOnIdeaCreation(IdeaEntity idea, String emailAddress) {
+
+        StandardEvaluationContext context = new StandardEvaluationContext();
+
+        context.setVariable("fullName", idea.getCreator().getFullName());
+        context.setVariable("ideaPitch", idea.getPitch());
+        // TODO assemble campaign link
+        context.setVariable("link", "CAMPAIGN LINK");
+
+        final String mailContent = ideaCreatedEmailTemplate.getValue(context, String.class);
+        sendMail(emailAddress, SUBJECT_IDEA_CREATED, mailContent);
     }
 
     private String getProjectLink(String projectId) {
