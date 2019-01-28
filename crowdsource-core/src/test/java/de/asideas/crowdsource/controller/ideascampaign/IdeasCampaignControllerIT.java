@@ -80,11 +80,16 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
     }
 
     @Test
-    public void loadIdeasCampaign_ShouldReturnListOfCampaigns() throws Exception {
+    public void loadIdeasCampaigns_ShouldReturnListOfCampaigns_OrderedBy_EndDate_Asc() throws Exception {
         final UserEntity currentAdmin = givenAdminUserExists();
         final String accessTokenAdmin = obtainAccessToken(currentAdmin.getEmail(), currentAdmin.getPassword());
 
-        final IdeasCampaign expectedCampaign = givenIdeasCampaignExists(accessTokenAdmin, givenValidCampaignCmd());
+        final IdeasCampaign cmd1 = givenValidCampaignCmd();
+        final IdeasCampaign cmd2 = givenValidCampaignCmd();
+        cmd1.setEndDate(cmd2.getEndDate().plusDays(2));
+
+        final IdeasCampaign expectedCampaign_2nd = givenIdeasCampaignExists(accessTokenAdmin, cmd1);
+        final IdeasCampaign expectedCampaign_1st = givenIdeasCampaignExists(accessTokenAdmin, cmd2);
 
         final UserEntity requester = givenUserExists();
         final String accessToken = obtainAccessToken(requester.getEmail(), requester.getPassword());
@@ -97,12 +102,13 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
             .andExpect(status().isOk()).andReturn();
 
         final List<IdeasCampaign> actual = Arrays.asList(mapper.readValue(mvcResult.getResponse().getContentAsString(), IdeasCampaign[].class));
-        assertThat(actual.size(), equalTo(1));
-        assertThat(actual.get(0).getId(), equalTo(expectedCampaign.getId()));
+        assertThat(actual.size(), equalTo(2));
+        assertThat(actual.get(0).getId(), equalTo(expectedCampaign_1st.getId()));
+        assertThat(actual.get(1).getId(), equalTo(expectedCampaign_2nd.getId()));
     }
 
     @Test
-    public void loadIdeasCampaign_ShouldReturnEmptyList_IfNoneExists() throws Exception {
+    public void loadIdeasCampaigns_ShouldReturnEmptyList_IfNoneExists() throws Exception {
         final UserEntity requester = givenUserExists();
         final String accessToken = obtainAccessToken(requester.getEmail(), requester.getPassword());
 
