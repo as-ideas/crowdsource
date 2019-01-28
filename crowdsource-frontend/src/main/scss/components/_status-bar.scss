@@ -92,12 +92,12 @@ status-bar {
 
 %sbar__li {
     @include font-smoothing;
-    padding: 2rem 1rem;
+    padding: 0 1rem;
     font-size: rem-calc(14px);
     line-height: 1;
+    padding: 1.5rem 1rem;
     @media #{$medium-up} {
         @include css-table-cell();
-        padding: 1.5rem 1rem;
     }
 }
 
@@ -112,29 +112,11 @@ status-bar {
 
     > li {
         display: block;
-        margin: 1rem 0;
         font-size: rem-calc(14px);
-
-        &:first-child {
-            margin-top: 0;
-        }
-
-        &:last-child {
-            margin-bottom: 0;
-        }
 
         // Layout for > 640px : Floating li elements
         @media #{$medium-up} {
             display: inline-block;
-            margin: 0 0.5rem;
-
-            &:first-child {
-                margin-left: 0;
-            }
-
-            &:last-child {
-                margin-right: 0;
-            }
         }
     }
 }
@@ -147,17 +129,6 @@ status-bar {
 .sbar__icon--location {
     @include sbar__icon();
     background-image: url('../images/icon-location.svg');
-}
-
-/*span*/
-.sbar__icon--hourglass {
-    @include sbar__icon();
-    background-image: url('../images/icon-hourglass.svg');
-}
-
-.sbar__icon--time {
-    @include sbar__icon();
-    background-image: url('../images/icons/time_clock_with_arrow.svg');
 }
 
 /*span*/
@@ -182,4 +153,44 @@ status-bar {
     letter-spacing: 1px;
     background-color: #39c277;
     border-radius: rem-calc($border-radius);
+}
+
+.sbar {
+    background-color: #DCDCDC;
+    width: 100%;
+
+    &-breadcrumb {
+        @media #{$small-only} {
+            display: none;
+        }
+    }
+
+    &-breadcrumb__item, &__button {
+        text-decoration: none;
+        font-size: $fs-normal;
+
+        &:hover {
+            color: inherit;
+        }
+
+        &:focus {
+            color: inherit;
+        }
+    }
+
+    &__icon--hourglass {
+        @include sbar__icon();
+        font-size: $fs-normal;
+        padding-left: 1.5rem;
+        background-image: url('../images/icon-hourglass.svg');
+    }
+
+    &__icon--time {
+        @include sbar__icon();
+        font-size: $fs-normal;
+        padding-left: 1.5rem;
+        background-image: url('../images/icons/time_clock_with_arrow.svg');
+    }
+
+
 }
