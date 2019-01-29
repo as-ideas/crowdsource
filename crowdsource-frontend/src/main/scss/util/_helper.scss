@@ -142,6 +142,16 @@
     -webkit-font-smoothing: antialiased;
 }
 
+@mixin fs-huge {
+    font-smoothing: antialiased;
+    @media #{$small-only} {
+        font-size: $fs-hero;
+    };
+    @media #{$medium-up} {
+        font-style: $fs-huge;
+    };
+}
+
 .text--strong {
     font-weight: $fw-bold;
 }
