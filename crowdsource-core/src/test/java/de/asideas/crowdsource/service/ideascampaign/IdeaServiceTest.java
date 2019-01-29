@@ -69,6 +69,16 @@ public class IdeaServiceTest {
         ideaService.approveIdea(missingIdeaId, approver);
     }
 
+    @Test(expected = ResourceNotFoundException.class)
+    public void rejectIdea_shouldThrowException_OnNotExistingIdea() {
+        final String missingIdeaId = "idea27";
+        final UserEntity approver = Fixtures.givenUserEntity("test_adminId");
+        approver.setRoles(Arrays.asList(Roles.ROLE_ADMIN));
+
+        givenIdeaDoesntExist(missingIdeaId);
+        ideaService.rejectIdea(missingIdeaId, "test comment", approver);
+    }
+
     @Test(expected = AuthorizationServiceException.class)
     public void approveIdea_shouldThrowException_OnNonAdminRequesting() {
         final String missingIdeaId = "idea27";
@@ -78,6 +88,17 @@ public class IdeaServiceTest {
         givenIdeaExists(new Idea("test_title", "test_pitch"));
 
         ideaService.approveIdea(missingIdeaId, approver);
+    }
+
+    @Test(expected = AuthorizationServiceException.class)
+    public void rejectIdea_shouldThrowException_OnNonAdminRequesting() {
+        final String missingIdeaId = "idea27";
+        final UserEntity approver = Fixtures.givenUserEntity("test_adminId");
+        approver.setRoles(Collections.emptyList());
+
+        givenIdeaExists(new Idea("test_title", "test_pitch"));
+
+        ideaService.rejectIdea(missingIdeaId, "ich bin ein admin", approver);
     }
 
     @Test
@@ -94,6 +115,23 @@ public class IdeaServiceTest {
         verify(ideaRepository).save(captor.capture());
 
         assertThat(captor.getValue().getStatus(), is(IdeaStatus.PUBLISHED));
+    }
+
+    @Test
+    public void rejectIdea_shouldPersistRejectedIdea() {
+        final String missingIdeaId = "idea27";
+        final UserEntity approver = Fixtures.givenUserEntity("test_adminId");
+        approver.setRoles(Arrays.asList(Roles.ROLE_ADMIN));
+
+        givenIdeaExists(new Idea("test_title", "test_pitch"));
+
+        ideaService.rejectIdea(missingIdeaId, "you are rejected!", approver);
+
+        final ArgumentCaptor<IdeaEntity> captor = ArgumentCaptor.forClass(IdeaEntity.class);
+        verify(ideaRepository).save(captor.capture());
+
+        assertThat(captor.getValue().getStatus(), is(IdeaStatus.REJECTED));
+        assertThat(captor.getValue().getRejectionComment(), is("you are rejected!"));
     }
 
     private IdeaEntity givenIdeaExists(Idea idea) {
