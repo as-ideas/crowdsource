@@ -45,7 +45,7 @@ describe('idea add', function () {
         ideaAddView.setPitch(enteredIdea.pitch);
         $scope.$digest();
 
-        $httpBackend.expectPOST('/ideas_campaigns/'+$scope.campaign.id+'/ideas', {title: enteredIdea.title, pitch: enteredIdea.pitch}).respond({});
+        $httpBackend.expectPOST('/ideas_campaigns/'+$scope.campaign.id+'/ideas?status=', {title: enteredIdea.title, pitch: enteredIdea.pitch}).respond({});
         ideaAddView.submitForm();
         $scope.$digest();
 

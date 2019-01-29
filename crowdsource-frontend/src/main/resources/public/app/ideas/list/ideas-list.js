@@ -3,5 +3,15 @@ angular.module('crowdsource')
         var vm = this;
         vm.auth = Authentication;
         vm.campaign = campaign;
-        vm.ideas = Idea.getAll();
+        vm.ideas = [];
+
+        init();
+
+
+        function init(){
+            Idea.getAll(campaign.id).then(function(res) {
+                vm.ideas = res.content;
+            });
+        }
+
     });

@@ -24,19 +24,20 @@ describe('ideas list', function () {
 
             var template = $templateCache.get('app/ideas/list/ideas-list.html');
             ideasCampaignView = $compile('<div>' + template + '</div>')($scope);
-            $scope.$digest();
-
         });
     });
 
     it("should load given campaign before rendering", function () {
-        $httpBackend.expectGET("/ideas_campaigns/" + CAMPAIGN.id).respond(CAMPAIGN);
+        $httpBackend.expectGET("/ideas_campaigns/SOME_ID/ideas?status=PUBLISHED").respond(CAMPAIGN);
+        $httpBackend.expectGET("/ideas_campaigns/SOME_ID").respond(CAMPAIGN);
+        $scope.$digest();
 
         $location.path('/ideas/' + CAMPAIGN.id);
-        $scope.$digest();
     });
 
     it("should render title and sponsor", function () {
+        $httpBackend.expectGET("/ideas_campaigns/SOME_ID/ideas?status=PUBLISHED").respond({content:[]});
+
         $scope.$digest();
         expect(ideasCampaignView.find('.ideas-teaser__heading')).toHaveText(CAMPAIGN.title);
         expect(ideasCampaignView.find('.ideas-teaser__sponsor')).toHaveText(CAMPAIGN.sponsor);

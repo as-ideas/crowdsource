@@ -41,12 +41,13 @@ angular.module('crowdsource')
                     vm.showSuccessMessage = false;
 
                     Idea.createIdea(vm.campaign.id, vm.newIdea).then(function () {
-                        vm.pending = false;
-                        vm.newIdea = newIdea();
                         vm.showSuccessMessage = true;
+
                         $timeout(function () {
+                            resetNewIdea();
+                            vm.pending = false;
                             vm.showSuccessMessage = false;
-                        }, 1500);
+                        }, 2500);
                     }, function () {
                         vm.failed = true;
                         vm.pending = false;

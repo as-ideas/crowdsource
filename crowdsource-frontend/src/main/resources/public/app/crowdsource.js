@@ -50,13 +50,13 @@
                       return IdeasCampaignResolver.resolve();
                     }
                   }
-
                 })
                 .when('/ideas/:ideasId/admin', {
                     templateUrl: 'app/ideas/admin/admin-list.html',
                     controller: 'IdeasAdminController as admin',
                   title: 'Administration Ideen',
                     requireLogin: true,
+                    requireAdmin: true,
                     resolve: {
                         campaign: function(IdeasCampaignResolver) {
                             return IdeasCampaignResolver.resolve();

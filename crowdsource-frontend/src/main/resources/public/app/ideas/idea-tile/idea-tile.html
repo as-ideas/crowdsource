@@ -3,11 +3,11 @@
     <div ng-if="!vm.isAdminView">
         <span class="ideas-grid-tile__title">{{ idea.title }} </span>
         <span class="ideas-grid-tile__star--single"></span>
-        <span class="ideas-grid-tile__votes-avg">{{ idea.avgVotes }} </span>
-        <span class="ideas-grid-tile__votes-num"> von {{ idea.votes }} Personen</span>
+        <span class="ideas-grid-tile__votes-avg">{{ idea.avgVotes || 0 }} </span>
+        <span class="ideas-grid-tile__votes-num"> von {{ idea.votes || 0 }} Personen</span>
     </div>
 
-    <p class="ideas-grid-tile__text">{{::idea.text}} <i class="ideas-grid-tile__author">({{::idea.firstName}})</i></p>
+    <p class="ideas-grid-tile__text">{{::idea.pitch}} <i class="ideas-grid-tile__author">({{::idea.creatorName}})</i></p>
 
     <div class="ideas-grid-tile__rating" ng-if="!vm.isAdminView">
 

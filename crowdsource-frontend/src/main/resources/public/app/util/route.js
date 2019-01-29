@@ -19,8 +19,18 @@ angular.module('crowdsource')
                     // force redirect to login
                     $location.path('/login');
                 }
-            });
 
+                if (next.requireAdmin && !Authentication.isAdmin()) {
+
+                    // remember the path where the user would have been redirected to
+                    pathBeforeRedirectToLogin = next.originalPath;
+
+                    // cancel the requested route change
+                    event.preventDefault();
+
+                    $location.path('/error/notfound');
+                }
+            });
         };
 
         service.redirectToOriginallyRequestedPageOr = function (fallbackPath) {

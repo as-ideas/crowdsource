@@ -1,5 +1,5 @@
 <form class="idea-add__container">
-    <input minlength="5" type="text" ng-model="vm.newIdea.title" placeholder="Worum gehts?" required maxlength="23" class="idea-add__title">
+    <input minlength="5" type="text" ng-disabled="vm.pending" ng-model="vm.newIdea.title" placeholder="Worum gehts?" required maxlength="23" class="idea-add__title">
 
     <textarea minlength="6" ng-disabled="vm.pending" class="idea-add__pitch newcomment-comment" name="idea" ng-model="vm.newIdea.pitch"
               placeholder="Ein kurzer und prägnanter Satz (max. 265 Zeichen)"

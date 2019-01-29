@@ -1,7 +1,23 @@
 angular.module('crowdsource')
-    .controller('IdeasAdminController', function (campaign, Idea) {
+    .controller('IdeasAdminController', function (campaign, Idea, IDEAS_STATUS) {
         var vm = this;
         vm.campaign = campaign;
-        vm.pendingIdeas = Idea.getAll();
-        vm.rejectedIdeas = Idea.getAll();
+        vm.pendingIdeas = [];
+        vm.pendingIdeasTotal = 0;
+        vm.rejectedIdeas = [];
+        vm.rejectedIdeasTotal = 0;
+
+        init();
+
+        function init() {
+            Idea.getIdeasWithStatus(campaign.id, IDEAS_STATUS.PROPOSED).then(function(res) {
+                vm.pendingIdeas = res.content;
+                vm.pendinIdeasTotal = res.totalElements;
+            });
+
+            Idea.getIdeasWithStatus(campaign.id, IDEAS_STATUS.REJECTED).then(function(res) {
+                vm.rejectedIdeas = res.content;
+                vm.rejectedIdeasTotal = res.totalElements;
+            })
+        }
     });

@@ -132,7 +132,7 @@ angular.module('crowdsource')
         var service = {};
 
         service.responseError = function (response) {
-            if (response.status == 401) {
+            if (response.status === 401) {
                 // the dependency must be requested on demand, else we have circular dependency issues
                 // $http <- AuthenticationToken <- UnauthorizedInterceptor <- $http <- $resource <- Authentication
                 var AuthenticationToken = $injector.get('AuthenticationToken');
@@ -141,6 +141,10 @@ angular.module('crowdsource')
                 AuthenticationToken.clear();
 
                 // redirect to login
+                $location.path('/login');
+            }
+
+            if (response.status === 403) {
                 $location.path('/login');
             }
 

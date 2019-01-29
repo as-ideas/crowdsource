@@ -1,18 +1,22 @@
 <idea-teaser campaign="ideasList.campaign"></idea-teaser>
+<ideas-status-bar campaign="ideasList.campaign"></ideas-status-bar>
 
-<content-row class="ideas-list">
-    <ideas-status-bar campaign="ideasList.campaign"></ideas-status-bar>
+<content-row class="intro-section">
 
-    <idea-add campaign="ideasList.campaign"></idea-add>
+    <div class="row">
+        <div class="columns medium-6">
+            <idea-add campaign="ideasList.campaign"></idea-add>
+        </div>
+        <div class="columns medium-6">BLA BLA </div>
+    </div>
 
-    <section>
-        <h1>Liste DEINER Ideen</h1>
-        <ul class="ideas__ul">
-            <li class="ideas__li" ng-repeat="idea in ideasList.ideas">
+    <content-row>
+        <h2>Liste deiner Ideen ({{ ideasList.ideas.length }})</h2>
+        <div class="ideas-grid__container">
+            <div class="ideas-grid__box" ng-repeat="idea in ideasList.ideas">
                 <idea-tile idea="idea"></idea-tile>
-            </li>
-        </ul>
-    </section>
-
+            </div>
+        </div>
+    </content-row>
 
 </content-row>

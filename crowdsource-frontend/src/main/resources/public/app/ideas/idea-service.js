@@ -1,6 +1,11 @@
 angular.module('crowdsource')
 
-    .factory('Idea', function ($resource) {
+    .constant('IDEAS_STATUS', {
+        PROPOSED: 'PROPOSED',
+        REJECTED: 'REJECTED',
+        PUBLISHED: 'PUBLISHED'
+    })
+    .factory('Idea', function ($resource, IDEAS_STATUS) {
 
         var service = {};
 
@@ -12,7 +17,7 @@ angular.module('crowdsource')
         });
         var ideaCampaignResource = $resource('/ideas_campaigns/:id', {});
 
-        var ideasResource = $resource('/ideas_campaigns/:campaignId/ideas', {}, {
+        var ideasResource = $resource('/ideas_campaigns/:campaignId/ideas?status=:status', {}, {
             post: {
                 method: 'POST'
             }
@@ -37,52 +42,21 @@ angular.module('crowdsource')
             return ideasResource.post({campaignId: campaignId}, idea).$promise;
         }
 
-        function getOwnIdeas() {
+        function getOwnIdeas(campaignId) {
             return ownIdeasResource.get({campaignId: campaignId}).$promise;
         }
 
-        function getAll() {
-            return [{
-                firstName: 'Peter',
-                lastName: 'Pan',
-                email: 'peter@demo',
-                text: 'Meine Idee in genau 255 Zeichen zu beschreiben, ist die Aufgabe dieses Textes um dann auch zu sehen wir das vom Layout dann passt denn soviele Zeichen sind gar nicht so wenig und man muss ja auch die Breite jedes Buchstaben berücksichtigen zumindest grob.',
-                votes: 1,
-                avgVotes: '4.0',
-                status: 'APPROVED'
-            }, {
-                firstName: 'Peter',
-                lastName: 'Pan',
-                email: 'peter@demo',
-                text: 'this idea sis m',
-                votes: 22,
-                avgVotes: '1.0',
-                status: 'REJECTED'
-            }, {
-                firstName: 'Peter',
-                lastName: 'Pan',
-                email: 'peter@demo',
-                text: 'this idea agiccc',
-                votes: 5,
-                avgVotes: '2.0',
-                status: 'PROPOSED'
-            }, {
-                firstName: 'Peter',
-                lastName: 'Pan',
-                email: 'peter@demo',
-                text: 'idea sis magiccc',
-                votes: 25,
-                avgVotes: '5.0',
-                status: 'PROPOSED'
-            }, {
-                firstName: 'Peter',
-                lastName: 'Pan',
-                email: 'peter@demo',
-                text: 'Wir sehen das vom Layout dann passt denn soviele Zeichen sind gar nicht so wenig und man muss ja auch die Breite jedes Buchstaben berücksichtigen zumindest grob.',
-                votes: 113,
-                avgVotes: 4.5,
-                status: 'REJECTED'
-            }];
+        function getIdeasWithStatus(campaignId, status) {
+            var keys = Object.keys(IDEAS_STATUS);
+
+            if (keys.indexOf(status) === -1) {
+                throw Error('invalid idea status given:' + status);
+            }
+            return ideasResource.get({campaignId: campaignId, status: status}).$promise;
+        }
+
+        function getAll(campaignId) {
+            return ideasResource.get({campaignId: campaignId, status: IDEAS_STATUS.PUBLISHED}).$promise;
         }
 
         service.getAll = getAll;
@@ -90,6 +64,7 @@ angular.module('crowdsource')
         service.getCampaign = getCampaign;
         service.getOwnIdeas = getOwnIdeas;
         service.createIdea = createIdea;
+        service.getIdeasWithStatus = getIdeasWithStatus;
 
         return service;
     });
