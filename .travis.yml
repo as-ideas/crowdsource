@@ -25,6 +25,12 @@ before_install:
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
 notificactions:
+  email:
+    recipients:
+      - "lars.reith@asideas.de"
+      - "tarek.madanymamlouk@asideas.de"
+    on_success: always
+    on_failure: always
   hipchat:
     rooms:
       - secure: "fmx27mzdYvFxvNZ1Lsb15LK/O6bueBXxZYE3K3bvv7slbtKu/bkL7MDF4ke5BkC7O8qL9xsJrHBQjl+lZDdzGcblC+7n6l8n8jdYvOLuJuyisLJW1BTOFtH6jU609SSObb/KINfWTAs7pcnKfewEyB9kRFxJopTczeaD+lcmBi+0FpjrtrsTftK9Ry2wwdwtrf0UXwThrGALObPEwaTxIPSXgelZYL66wn16rlmym7Y5Xs2jpolWi+fbqSiVtMcU5w616M89l6ky3KgxJ2bz2U48Gze4UHFjksYHvc7GCjZxHouNw/Dj9V5JRHXSeNxiFfqWnpU1WGMNFibJvwd9jtYfGyBm5YFtk/j0RjH9NAcRDntGs0iVGVKMBjNTwTcxqGmV3Z1FPU7rcceRBOGToD/13X/3E49wCwCSZdGFzl0BTx0rPNAcDvw4PaPhIraqCIHwueS8LJsyGFmmP8sH6lsJgJ96ITP7HIQP9fjFsVkzk4InkNGqxuusC7pfKDn+pXuqcOCdwLmsdjK/p1ulgcokg9GSBqG00CHoZFVgv67diogspvaee/y1h5qb05A39dZUO7ICMKxuRGvQlSrkgWSwsGboh5Jh9oGKoeOIvpGSlvYU18ARmU/Jr5C8Z4EWFT6v8v+UiAvHloREirHD/VJhuI3cOwjNAPI+yHatnpw="
