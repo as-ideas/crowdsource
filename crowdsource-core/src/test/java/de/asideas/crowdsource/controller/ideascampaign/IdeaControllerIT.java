@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.joda.time.DateTime;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -18,6 +17,7 @@ import de.asideas.crowdsource.domain.model.ideascampaign.IdeaEntity;
 import de.asideas.crowdsource.domain.shared.ideascampaign.IdeaStatus;
 import de.asideas.crowdsource.presentation.ideascampaign.Idea;
 import de.asideas.crowdsource.presentation.ideascampaign.IdeasCampaign;
+import de.asideas.crowdsource.presentation.ideascampaign.IdeaRejectCmd;
 import de.asideas.crowdsource.repository.ideascampaign.IdeaRepository;
 import de.asideas.crowdsource.testutil.Fixtures;
 
@@ -338,7 +338,6 @@ public class IdeaControllerIT extends AbstractCrowdIT {
 
     }
 
-    @Ignore("WIP")
     @Test
     public void rejectIdea_shouldReturn_403_OnNonAdminUser() throws Exception {
         final UserEntity admin = givenAdminUserExists();
@@ -357,13 +356,13 @@ public class IdeaControllerIT extends AbstractCrowdIT {
             .header("Authorization", "Bearer " + userToken)
             .accept(MediaType.APPLICATION_JSON_UTF8)
             .contentType(MediaType.APPLICATION_JSON_UTF8)
+            .content(mapper.writeValueAsBytes(new IdeaRejectCmd("I am no admin but will attempt to reject")))
         )
             .andDo(log())
             .andExpect(status().isForbidden());
 
     }
 
-    @Ignore("WIP")
     @Test
     public void rejecteIdea_shouldBePersisted() throws Exception {
         final UserEntity admin = givenAdminUserExists();
@@ -380,16 +379,20 @@ public class IdeaControllerIT extends AbstractCrowdIT {
 
         final Idea actualIdea = mapper.readValue(mvcRes.getResponse().getContentAsString(), Idea.class);
 
+        final IdeaRejectCmd cmd = new IdeaRejectCmd("test_rejectionComment");
+
         mockMvc.perform(put("/ideas_campaigns/{campaignId}/ideas/{ideaId}/rejection", parentCampaign.getId(), actualIdea.getId())
             .header("Authorization", "Bearer " + adminToken)
             .accept(MediaType.APPLICATION_JSON_UTF8)
             .contentType(MediaType.APPLICATION_JSON_UTF8)
+            .content(mapper.writeValueAsBytes(cmd))
         )
             .andDo(log())
             .andExpect(status().isNoContent());
 
         final IdeaEntity res = ideaRepository.findOne(actualIdea.getId());
         assertThat(res.getStatus(), is(IdeaStatus.REJECTED));
+        assertThat(res.getRejectionComment(), is(cmd.getRejectionComment()));
 
     }
 
