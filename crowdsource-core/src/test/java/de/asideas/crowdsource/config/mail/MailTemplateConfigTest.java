@@ -49,6 +49,12 @@ public class MailTemplateConfigTest {
     }
 
     @Test
+    public void ideaRejectedEmailTemplate() {
+        Expression expression = mailTemplateConfig.ideaRejectedEmailTemplate();
+        assertThat(expression, is(not(nullValue())));
+    }
+
+    @Test
     public void passwordForgottenEmailTemplate() {
         Expression expression = mailTemplateConfig.passwordForgottenEmailTemplate();
         assertThat(expression, is(not(nullValue())));

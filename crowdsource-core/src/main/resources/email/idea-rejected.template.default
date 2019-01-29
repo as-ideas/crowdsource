@@ -1,0 +1,12 @@
+Hallo #{#userName},
+
+deine Idee wurde leider nicht zur Abstimmung freigegeben:
+
+#{#rejectionComment}
+
+Zur Kampagne:
+
+#{#link}
+
+Mit freundlichen Grüßen
+Dein CrowdSource Team

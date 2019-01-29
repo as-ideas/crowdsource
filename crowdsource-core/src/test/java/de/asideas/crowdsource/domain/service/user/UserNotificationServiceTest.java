@@ -257,6 +257,27 @@ public class UserNotificationServiceTest {
     }
 
     @Test
+    public void notifyCreatorOnIdeaRejected_ShouldSendMailWithResolvedTemplate() {
+        UserEntity creator = aUser("123456789");
+        IdeaEntity newIdea = IdeaEntity.createIdeaEntity(new Idea("SCHOKOLADE", "Schokolade für alle!"), "eatMoreChocolateCampaign", creator);
+
+        userNotificationService.notifyCreatorOnIdeaRejected(newIdea, "der Vorschlag ist blöd.");
+
+        SimpleMailMessage mail = getMessageFromMailSender();
+        assertThat(mail.getFrom(), is(UserNotificationService.FROM_ADDRESS));
+        assertThat(mail.getTo(), arrayContaining(creator.getEmail()));
+        assertThat(mail.getSubject(), is(UserNotificationService.SUBJECT_IDEA_REJECTED));
+        assertThat(replaceLineBreaksIfWindows(mail.getText()), is(
+                "Hallo Karl,\n\n" +
+                        "deine Idee wurde leider nicht zur Abstimmung freigegeben:\n\n" +
+                        "der Vorschlag ist blöd.\n\n" +
+                        "Zur Kampagne:\n\n" +
+                        "https://crowd.asideas.de#/ideas/eatMoreChocolateCampaign\n\n" +
+                        "Mit freundlichen Grüßen\n" +
+                        "Dein CrowdSource Team"));
+    }
+
+    @Test
     public void notifyCreatorAndAdminOnProjectModification() {
         final UserEntity creator = aProjectCreator();
         final UserEntity modifier = aUser("test_id_modifier");
