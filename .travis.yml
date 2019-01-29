@@ -28,7 +28,7 @@ notificactions:
   email:
     recipients:
       - "lars.reith@asideas.de"
-      - "tarek.madanymamlouk@asideas.de"
+      - "tarek.madanymamlouk@gmail.com"
     on_success: always
     on_failure: always
   hipchat:
