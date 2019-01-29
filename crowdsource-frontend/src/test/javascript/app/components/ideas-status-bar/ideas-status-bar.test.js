@@ -6,6 +6,8 @@ describe('ideas status bar', function () {
         module('crowdsource.templates');
         module('crowdsource');
 
+        localStorage.clear();
+
         inject(function (_$compile_, _$rootScope_, _Authentication_, _$httpBackend_, _Route_) {
             $rootScope = _$rootScope_;
             scope = $rootScope.$new();
