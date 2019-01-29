@@ -81,6 +81,8 @@ public class IdeaService {
         final IdeaEntity existingIdea = ideaRepository.findOne(ideaId);
         existingIdea.approveIdea(approvingAdmin);
 
+        userNotificationService.notifyCreatorOnIdeaAccepted(existingIdea);
+
         ideaRepository.save(existingIdea);
     }
 
