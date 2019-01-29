@@ -1,5 +1,4 @@
 sudo: false
-
 language: java
 jdk:
 - oraclejdk8
@@ -13,28 +12,21 @@ env:
 install: true
 script:
 - sh release-res/release.sh
-
 cache:
   directories:
-  - $HOME/.m2
+  - "$HOME/.m2"
   - crowdsource-frontend/node
   - crowdsource-frontend/node_modules
   - crowdsource-frontend/bower_components
-
 before_install:
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
 notificactions:
   email:
     recipients:
-      - "lars.reith@asideas.de"
-      - "tarek.madanymamlouk@asideas.de"
+    - lars.reith@asideas.de
+    - tarek.madanymamlouk@asideas.de
     on_success: always
     on_failure: always
-  hipchat:
-    rooms:
-      - secure: "fmx27mzdYvFxvNZ1Lsb15LK/O6bueBXxZYE3K3bvv7slbtKu/bkL7MDF4ke5BkC7O8qL9xsJrHBQjl+lZDdzGcblC+7n6l8n8jdYvOLuJuyisLJW1BTOFtH6jU609SSObb/KINfWTAs7pcnKfewEyB9kRFxJopTczeaD+lcmBi+0FpjrtrsTftK9Ry2wwdwtrf0UXwThrGALObPEwaTxIPSXgelZYL66wn16rlmym7Y5Xs2jpolWi+fbqSiVtMcU5w616M89l6ky3KgxJ2bz2U48Gze4UHFjksYHvc7GCjZxHouNw/Dj9V5JRHXSeNxiFfqWnpU1WGMNFibJvwd9jtYfGyBm5YFtk/j0RjH9NAcRDntGs0iVGVKMBjNTwTcxqGmV3Z1FPU7rcceRBOGToD/13X/3E49wCwCSZdGFzl0BTx0rPNAcDvw4PaPhIraqCIHwueS8LJsyGFmmP8sH6lsJgJ96ITP7HIQP9fjFsVkzk4InkNGqxuusC7pfKDn+pXuqcOCdwLmsdjK/p1ulgcokg9GSBqG00CHoZFVgv67diogspvaee/y1h5qb05A39dZUO7ICMKxuRGvQlSrkgWSwsGboh5Jh9oGKoeOIvpGSlvYU18ARmU/Jr5C8Z4EWFT6v8v+UiAvHloREirHD/VJhuI3cOwjNAPI+yHatnpw="
-    on_success: always
-    on_failure: always
-    template:
-      - '%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}'
+  slack:
+    secure: iqmqb4yb+tnAdPVvxBItksF8NHXdr0oM9nQTP8P6GQm3MTq0KXjfiWS2DFeifYP7Ey17SJ3+TZk0PTzbLV6K9yMWG8l1ftptVYBV2sWsjKG6xivxtqIM72AssI703jxX34DZeDiYnRP+GlGzpd6MFgKyMVvBp3AAZJi9GesxLvXCC+q9m2KvZ33gRTczopn3Qmt7mrOgpjyBgSv2r4ZtLiz/t/0Oc45LjNFb+lAuqLHYSzX4lDtZ+sy97alGtUHD0uySzjNEVtq5cIS5L74hbEX6NtMAGYzcRHsCMJHFmdvBddSMYw+hxavEj7wGDk80gYWL7N5C3oaa9u5ieN4d1l3Foz1vj7PLFDoSj7mrXJonvBjnFzkTKhp1wWFEggTJKTvHYx6Z+9u3WIUvxWli2kgqygl/v7ziOdj6W9JiR4mQVR4m2rpRk0hqO8im6IuG2zp05R2gIkmOcHGxnz6hxkn2qhiETmScN4yr/JdQjl9CtnG9cbc6RVevVcI4GakCpyvjsSLIw79HGwjO/mFPVc5DPWv9W8D/y+XminDXUjlfqEwpkjDx7omvO70Dr2MJlRbb1fDbEVKrMCLzSvr99G+jaX62xeKu4pjY+EqlGKCd56/pz+T2cMLUc66YVqGJ9E7InN4SO4kkLzpYkg+GRisw3SmRXvirL9CtjMtSPLk=
