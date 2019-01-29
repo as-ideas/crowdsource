@@ -15,6 +15,7 @@ angular.module('crowdsource')
                 vm.idea = $scope.idea;
                 vm.campaignId = $scope.campaign.id;
                 vm.isVotingDisabled = false;
+                vm.rejectionComment = "";
 
                 vm.isAdminView = $scope.admin || false;
 
@@ -34,7 +35,7 @@ angular.module('crowdsource')
 
                 vm.reject = function () {
                     if (!vm.isAdminView) { throw Error('rejection is only allowed for admin');}
-                    Idea.publishIdea(vm.campaignId, vm.idea.id, vm.idea.rejectionComment)
+                    Idea.rejectIdea(vm.campaignId, vm.idea.id, vm.rejectionComment)
                 };
             }
         };

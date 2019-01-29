@@ -30,7 +30,7 @@ angular.module('crowdsource')
             }
         });
 
-        var ideaActionResource = $resource('/ideas_campaign/:campaignId/ideas/:ideasId/:action', {}, {
+        var ideaActionResource = $resource('/ideas_campaigns/:campaignId/ideas/:ideaId/:action', {}, {
             put: {
                 method: 'PUT'
             }
@@ -61,13 +61,16 @@ angular.module('crowdsource')
         }
 
         function rejectIdea(campaignId, ideaId, message) {
+            console.log(campaignId, ideaId, message);
+
             return ideaActionResource.put({campaignId: campaignId, ideaId: ideaId, action: 'rejection'}, {
                 rejectionComment: message
             }).$promise;
         }
 
         function publishIdea(campaignId, ideaId) {
-            return ideaActionResource.put({campaignId: campaignId, ideaId: ideaId, action: 'approval'}).$promise;
+            console.log(campaignId, ideaId);
+            return ideaActionResource.put({campaignId: campaignId, ideaId: ideaId, action: 'approval'}, {}).$promise;
         }
 
         service.getAll = getAll;

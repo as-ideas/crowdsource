@@ -32,9 +32,9 @@
 
     <div ng-if="vm.isAdminView" class="ideas-grid-tile__approval-container">
         <div ng-if="vm.idea.status == 'PROPOSED'">
-            <input type="text" ng-model="vm.idea.rejectionMessage" placeholder="Ablehnungsgrund">
+            <input type="text" ng-model="vm.rejectionComment" placeholder="Ablehnungsgrund">
             <button ng-click="vm.publish()" class="ideas-grid-tile__btn ideas-grid-tile__btn-approve"></button>
-            <button ng-click="vm.reject()" ng-disabled="!vm.idea.rejectionMessage.length" class="ideas-grid-tile__btn ideas-grid-tile__btn-reject"></button>
+            <button ng-click="vm.reject()" ng-disabled="!vm.rejectionComment.length" class="ideas-grid-tile__btn ideas-grid-tile__btn-reject"></button>
         </div>
 
         <div ng-if="vm.idea.status == 'REJECTED'">
