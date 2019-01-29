@@ -6,6 +6,8 @@ describe('admin list', function () {
         module('crowdsource');
         module('crowdsource.templates');
 
+        localStorage.clear();
+
         MOCKED_CAMPAIGN = {
             id: '123',
             title: 'some campaign title',

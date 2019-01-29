@@ -6,6 +6,8 @@ describe('project likes', function () {
         module('crowdsource');
         module('crowdsource.templates');
 
+        localStorage.clear();
+
         inject(function (_$compile_, _$rootScope_, _$httpBackend_) {
             $compile = _$compile_;
             $rootScope = _$rootScope_;

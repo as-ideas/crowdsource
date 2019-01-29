@@ -6,6 +6,8 @@ describe('teaser metrics service', function () {
         module('crowdsource');
         module('crowdsource.templates');
 
+        localStorage.clear();
+
         inject(function (_TeaserMetrics_) {
             TeaserMetrics = _TeaserMetrics_;
         });

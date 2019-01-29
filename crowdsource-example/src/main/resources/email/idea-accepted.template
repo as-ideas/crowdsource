@@ -1,0 +1,10 @@
+Hallo #{#userName},
+
+gute Nachrichten! Deine Idee wurde akzeptiert und steht nun zur Abstimmung bereit.
+
+Zur Kampagne:
+
+#{#link}
+
+Mit freundlichen Grüßen
+Dein CrowdSource Team

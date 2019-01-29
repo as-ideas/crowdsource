@@ -6,6 +6,7 @@ describe('status bar', function () {
         module('crowdsource.templates');
         module('crowdsource');
 
+        localStorage.clear();
         inject(function (_$compile_, _$rootScope_, _FinancingRound_, _Authentication_) {
             $rootScope = _$rootScope_;
             scope = $rootScope.$new();

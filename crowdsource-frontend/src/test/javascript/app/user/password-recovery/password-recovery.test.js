@@ -43,12 +43,12 @@ describe('password recovery view', function () {
         expectNoValidationError('email');
     });
 
-    it('should send the request to the server and redirect to success page', function () {
+    it('should send  the request to the server and redirect to success page', function () {
 
         // expect a valid call and return "created"
         expectBackendCallAndRespond(201);
 
-        fillAndSubmitForm('test');
+        fillAndSubmitForm('test@crowd.source.de');
 
         // flush backend (assertion will be evaluated)
         $httpBackend.flush();
@@ -62,7 +62,7 @@ describe('password recovery view', function () {
         expect(form.getSubmitButton()).toHaveText('Abschicken');
         expect(form.getSubmitButton()).not.toBeDisabled();
 
-        fillAndSubmitForm('test');
+        fillAndSubmitForm('test@crowd.source.de');
 
         expect(form.getSubmitButton()).toHaveText('Abschicken...');
         expect(form.getSubmitButton()).toBeDisabled();
@@ -79,7 +79,7 @@ describe('password recovery view', function () {
         spyOn($location, 'path');
         expectBackendCallAndRespond(500);
 
-        fillAndSubmitForm('test');
+        fillAndSubmitForm('test@crowd.source.de');
         $httpBackend.flush();
         expect($location.path).not.toHaveBeenCalled();
         expect(form.getGeneralErrorsContainer()).toExist();
@@ -99,22 +99,15 @@ describe('password recovery view', function () {
         expectValidationError('email', 'required');
     });
 
-    it('should show a validation error if an invalid email address is entered', function () {
-        form.email.getInputField().val('inval@id.mail').trigger('input'); // only the part before the @<domain> is supposed to be entered
-
-        expectValidationError('email', 'email');
-    });
-
     it('should show a validation error if an email address containting "_extern" is entered', function () {
-        form.email.getInputField().val('invalid_extern').trigger('input');
-
+        form.email.getInputField().val('invalid_extern@crowd.source.de').trigger('input');
         expectValidationError('email', 'non_blacklisted_email');
     });
 
     it('should show the remote_not_found error if the server responds with 404', function () {
         expectBackendCallAndRespond(404);
 
-        fillAndSubmitForm('test');
+        fillAndSubmitForm('test@crowd.source.de');
         $httpBackend.flush();
         expect(form.getGeneralErrorsContainer()).toExist();
         expect(form.getGeneralError('remote_not_found')).toExist();

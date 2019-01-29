@@ -36,6 +36,7 @@ public class UserNotificationService {
     public static final String SUBJECT_ACTIVATION = "Bitte vergib ein Passwort für Dein Konto auf der CrowdSource Platform";
     public static final String SUBJECT_PROJECT_CREATED = "Neues Projekt erstellt";
     public static final String SUBJECT_IDEA_CREATED = "Neues Idee eingereicht";
+    public static final String SUBJECT_IDEA_ACCEPTED = "Deine Idee wurde freigeschaltet";
     public static final String SUBJECT_PROJECT_MODIFIED = "Ein Projekt wurde editiert";
     public static final String SUBJECT_PASSWORD_FORGOTTEN = "Bitte vergib ein Passwort für Dein Konto auf der CrowdSource Platform";
     public static final String SUBJECT_PROJECT_PUBLISHED = "Freigabe Deines Projektes";
@@ -56,6 +57,9 @@ public class UserNotificationService {
 
     @Autowired
     private Expression ideaCreatedEmailTemplate;
+
+    @Autowired
+    private Expression ideaAcceptedEmailTemplate;
 
     @Autowired
     private Expression passwordForgottenEmailTemplate;
@@ -165,6 +169,16 @@ public class UserNotificationService {
 
     }
 
+    public void notifyCreatorOnIdeaAccepted(IdeaEntity idea) {
+        StandardEvaluationContext context = new StandardEvaluationContext();
+        context.setVariable("userName", idea.getCreator().getFirstName());
+        context.setVariable("link", buildIdeasCampaignLink(idea.getCampaignId()));
+        final String mailContent = ideaAcceptedEmailTemplate.getValue(context, String.class);
+
+        final SimpleMailMessage message = newMailMessage(idea.getCreator().getEmail(), SUBJECT_IDEA_ACCEPTED, mailContent);
+        sendMails(Collections.singleton(message));
+    }
+
     public void notifyCreatorAndAdminOnProjectModification(ProjectEntity project, UserEntity modifier) {
 
         final String projectLink = buildProjectLink(project.getId());
@@ -235,9 +249,9 @@ public class UserNotificationService {
         return uriBuilder.buildAndExpand(emailAddress, activationToken).toUriString();
     }
 
-    private String commentExcerpt(CommentEntity comment){
+    private String commentExcerpt(CommentEntity comment) {
         final String commentString = comment.getComment();
-        if (commentString.length() <= COMMENT_EXCERPT_LENGTH){
+        if (commentString.length() <= COMMENT_EXCERPT_LENGTH) {
             return commentString;
         }
         return commentString.substring(0, COMMENT_EXCERPT_LENGTH) + " ...";
@@ -249,7 +263,7 @@ public class UserNotificationService {
 
         taskExecutorSmtp.submit(() -> {
             try {
-                LOG.info("Sending mail with subject: " + mailMessage.getSubject() );
+                LOG.info("Sending mail with subject: " + mailMessage.getSubject());
                 mailSender.send(mailMessage);
             } catch (Exception e) {
                 LOG.error("Error on E-Mail Send. Message was: " + mailMessage, e);
@@ -261,7 +275,7 @@ public class UserNotificationService {
         taskExecutorSmtp.submit(() -> {
             for (SimpleMailMessage message : messages) {
                 try {
-                    LOG.info("Sending mail with subject: " + message.getSubject() );
+                    LOG.info("Sending mail with subject: " + message.getSubject());
                     mailSender.send(message);
                 } catch (Exception e) {
                     LOG.error("Error on E-Mail Send. Message was: " + message, e);

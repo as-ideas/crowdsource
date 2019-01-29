@@ -4,6 +4,9 @@ describe('teaser metrics service', function () {
 
     beforeEach(function () {
         module('crowdsource.templates');
+
+        localStorage.clear();
+
         module('crowdsource', function ($provide) {
             $provide.decorator('Route', function ($delegate) {
                 // callback mock
