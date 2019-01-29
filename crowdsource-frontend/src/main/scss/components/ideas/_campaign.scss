@@ -128,7 +128,8 @@ $icon-color: #3C3C3C;
   }
 
   &__headline {
-    color: #56A26B;
+//    color: #56A26B;
+    color: $clr-green-shade-3;
     font-size: $fs-hero;
     text-transform: uppercase;
   }

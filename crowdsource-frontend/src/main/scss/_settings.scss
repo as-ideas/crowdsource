@@ -134,6 +134,7 @@ $clr-teaser-start: $clr-bossanova;
 $clr-teaser-end: $clr-blue-shade-5;
 
 $clr-alert: #f04124;
+$clr-red-rejected: rgba(255, 60, 60, 0.9);
 
 // Gradient for divider
 $clr-solar-light-start: $clr-butterfly;
@@ -173,6 +174,17 @@ $border-radius: 3px;
 // __
 $margin-comp: 20px; // Margin between components and similiar sized visual blocks
 $margin-comp-dbl: 40px;
+$mrg-small: 0.625rem; // 10px
+$mrg-normal: 1rem;    // 16px
+$mrg-medium: 1.25rem; // 20px, Good for component distance
+$mrg-dbl: 2.5rem;     // 40px
+
+// Paddings
+$pd-small: 0.625rem; // 10px
+$pd-normal: 1rem;    // 16px
+$pd-medium: 1.25rem; // 20px, Good for component distance
+$pd-dbl: 2.5rem;     // 40px
+
 
 // ---
 // Range Slider
