@@ -28,7 +28,7 @@ describe('ideas list', function () {
     });
 
     it("should load given campaign before rendering", function () {
-        $httpBackend.expectGET("/ideas_campaigns/SOME_ID/ideas?status=PUBLISHED").respond(CAMPAIGN);
+        $httpBackend.expectGET("/ideas_campaigns/SOME_ID/ideas?status=").respond(CAMPAIGN);
         $httpBackend.expectGET("/ideas_campaigns/SOME_ID").respond(CAMPAIGN);
         $scope.$digest();
 
@@ -36,7 +36,7 @@ describe('ideas list', function () {
     });
 
     it("should render title and sponsor", function () {
-        $httpBackend.expectGET("/ideas_campaigns/SOME_ID/ideas?status=PUBLISHED").respond({content:[]});
+        $httpBackend.expectGET("/ideas_campaigns/SOME_ID/ideas?status=").respond({content:[]});
 
         $scope.$digest();
         expect(ideasCampaignView.find('.ideas-teaser__heading')).toHaveText(CAMPAIGN.title);

@@ -14,7 +14,7 @@
         <h2>Liste deiner Ideen ({{ ideasList.ideas.length }})</h2>
         <div class="ideas-grid__container">
             <div class="ideas-grid__box" ng-repeat="idea in ideasList.ideas">
-                <idea-tile idea="idea"></idea-tile>
+                <idea-tile campaign="ideasList.campaign" idea="idea"></idea-tile>
             </div>
         </div>
     </content-row>
