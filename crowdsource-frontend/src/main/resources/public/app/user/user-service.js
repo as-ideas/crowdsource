@@ -38,7 +38,7 @@ angular.module('crowdsource')
             // already set the user as logged in, even if the server did not respond yet
             // we expect this call to be only called if there is an auth token available in the app
             user.loggedIn = true;
-            return user;
+            return augmentUser(user);
         };
 
         service.anonymous = function () {

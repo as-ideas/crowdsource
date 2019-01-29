@@ -7,10 +7,13 @@
         <span class="ideas-grid-tile__votes-num"> von {{ idea.votes || 0 }} Personen</span>
     </div>
 
+    <div ng-if="vm.isAdminView">
+        <span class="ideas-grid-tile__title">{{ idea.title }} </span>
+    </div>
+
     <p class="ideas-grid-tile__text">{{::idea.pitch}} <i class="ideas-grid-tile__author">({{::idea.creatorName}})</i></p>
 
     <div class="ideas-grid-tile__rating" ng-if="!vm.isAdminView">
-
         <div ng-if="!vm.isVotingDisabled" ng-click="vm.vote(5)" class="star5" ng-class="vm.idea.voted >= 5 ? 'ideas-grid-tile__star--rated' : 'ideas-grid-tile__star--unrated'"></div>
         <div ng-if="vm.isVotingDisabled" class="star5" ng-class="vm.idea.voted >= 5 ? 'ideas-grid-tile__star--disabled-rated' : 'ideas-grid-tile__star--disabled'"></div>
 
@@ -27,19 +30,18 @@
         <div ng-if="vm.isVotingDisabled" class="star5" ng-class="vm.idea.voted >= 1 ? 'ideas-grid-tile__star--disabled-rated' : 'ideas-grid-tile__star--disabled'"></div>
     </div>
 
-    <div ng-if="vm.isAdminView" class="ideas-grid-tile__approval">
+    <div ng-if="vm.isAdminView" class="">
         <div ng-if="vm.idea.status == 'PROPOSED'">
             <input type="text" ng-model="vm.idea.rejectionMessage" placeholder="Ablehnungsgrund">
-            <div class="ideas-grid-tile__btn-approve" />
-            <div ng-disabled="!vm.idea.rejectionMessage.length" class="ideas-grid-tile__btn-reject"></div>
-            </div>
+            <button class="ideas-grid-tile__btn ideas-grid-tile__btn-approve"></button>
+            <button ng-disabled="!vm.idea.rejectionMessage.length" class="ideas-grid-tile__btn ideas-grid-tile__btn-reject"></button>
         </div>
 
         <div ng-if="vm.idea.status == 'REJECTED'">
             <p>Abgelehnt: {{vm.idea.rejectionMessage}}</p>
         </div>
 
-        <div ng-if="vm.idea.status == 'APPROVED'">
+        <div ng-if="vm.idea.status == 'PUBLISHED'">
             <p>Veröffentlicht!</p>
         </div>
     </div>

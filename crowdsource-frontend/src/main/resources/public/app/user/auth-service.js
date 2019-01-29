@@ -102,6 +102,7 @@ angular.module('crowdsource')
 
             if (AuthenticationToken.hasTokenSet()) {
                 service.currentUser.loggedIn = true;
+                service.currentUser.roles = [];
 
                 // prevents the user's details to be set to undefined while loading
                 // and therefore flickering of e.g. the user budget in the status-bar

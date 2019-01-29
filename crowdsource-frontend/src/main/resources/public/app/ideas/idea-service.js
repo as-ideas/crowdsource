@@ -47,16 +47,11 @@ angular.module('crowdsource')
         }
 
         function getIdeasWithStatus(campaignId, status) {
-            var keys = Object.keys(IDEAS_STATUS);
-
-            if (keys.indexOf(status) === -1) {
-                throw Error('invalid idea status given:' + status);
-            }
             return ideasResource.get({campaignId: campaignId, status: status}).$promise;
         }
 
         function getAll(campaignId) {
-            return ideasResource.get({campaignId: campaignId, status: IDEAS_STATUS.PUBLISHED}).$promise;
+            return ideasResource.get({campaignId: campaignId}).$promise;
         }
 
         service.getAll = getAll;

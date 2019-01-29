@@ -85,7 +85,7 @@ $tile-padding-vertical: 15px;
       height: $star-height;
       background-image: url('../images/icons/star.svg');
       background-size: cover;
-      margin: 0px;
+      margin: 0;
 
       &--single {
         display: inline-block;
@@ -103,8 +103,8 @@ $tile-padding-vertical: 15px;
         background-image: url('../images/icons/star-unrated.svg');
         background-size: cover;
         cursor: pointer;
-        margin: 0px;
-        padding: 0px;
+        margin: 0;
+        padding: 0;
 
 
         &:hover {
@@ -125,8 +125,8 @@ $tile-padding-vertical: 15px;
         background-image: url('../images/icons/star-rating.svg');
         background-size: cover;
         cursor: pointer;
-        margin: 0px;
-        padding: 0px;
+        margin: 0;
+        padding: 0;
       }
 
       &--disabled {
@@ -135,8 +135,8 @@ $tile-padding-vertical: 15px;
         height: $star-height;
         background-image: url('../images/icons/star-unrated.svg');
         background-size: cover;
-        margin: 0px;
-        padding: 0px;
+        margin: 0;
+        padding: 0;
       }
 
       &--disabled-rated {
@@ -145,8 +145,8 @@ $tile-padding-vertical: 15px;
         height: $star-height;
         background-image: url('../images/icons/star-disabled.svg');
         background-size: cover;
-        margin: 0px;
-        padding: 0px;
+        margin: 0;
+        padding: 0;
       }
     }
 
@@ -158,35 +158,30 @@ $tile-padding-vertical: 15px;
       width: calc(100% - #{$pd-dbl});
     }
 
-    &__btn-approve {
+    &__btn {
+      padding:0 !important;
       $dimension: 51px;
       display: inline-block;
       width: $dimension;
       height: $dimension;
       border-radius: 50%;
-      background-color: $clr-green-shade-2;
       background-position: 14px 13px;
       background-repeat: no-repeat;
       background-size: rem-calc(22px);
-      background-image: url('../images/icons/icon-thumbs-up.svg');
       cursor: pointer;
+    }
+
+    &__btn-approve {
+      background-color: $clr-green-shade-2;
+      background-image: url('../images/icons/icon-thumbs-up.svg');
       margin-right: $mrg-small;
     }
 
     &__btn-reject {
-      $dimension: 51px;
-      display: inline-block;
-      width: $dimension;
-      height: $dimension;
-      border-radius: 50%;
+      padding:0 !important;
       background-color: $clr-red-rejected;
-      background-position: 14px 16px;
-      background-repeat: no-repeat;
-      background-size: rem-calc(22px);
       background-image: url('../images/icons/icon-thumbs-down.svg');
-      cursor: pointer;
     }
-
   }
 }
 
