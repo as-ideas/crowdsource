@@ -6,6 +6,8 @@ describe('statistics form', function () {
         module('crowdsource');
         module('crowdsource.templates');
 
+        localStorage.clear();
+
         inject(function (_$compile_, _$rootScope_, _$httpBackend_, _STATISTICS_CONST_) {
             $compile = _$compile_;
             $rootScope = _$rootScope_;
@@ -17,6 +19,7 @@ describe('statistics form', function () {
             scope['data'] = {
                 info: undefined
             };
+
         });
     });
 
