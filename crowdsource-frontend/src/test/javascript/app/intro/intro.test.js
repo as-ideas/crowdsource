@@ -74,7 +74,7 @@ describe('intro page', function () {
         expect(ideasCampaign.length).toEqual(0);
 
         var loginButton = intro.find('a');
-        expect(loginButton).toContainText('Hier gehts zum Login');
+        expect(loginButton).toContainText('Login');
 
     });
 });
