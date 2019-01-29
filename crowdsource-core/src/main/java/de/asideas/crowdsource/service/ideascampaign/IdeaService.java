@@ -88,7 +88,7 @@ public class IdeaService {
 
     public void rejectIdea(String ideaId, String rejectionComment, UserEntity approvingAdmin) {
         Assert.hasText(ideaId, "ideaId must not be null.");
-        Assert.hasText(ideaId, "rejectionComment must not be null");
+        Assert.hasText(rejectionComment, "rejectionComment must not be null");
         Assert.notNull(approvingAdmin, "approvingAdmin must not be null.");
 
         checkRequestorIsAdmin(approvingAdmin);
@@ -96,6 +96,8 @@ public class IdeaService {
 
         final IdeaEntity existingIdea = ideaRepository.findOne(ideaId);
         existingIdea.rejectIdea(approvingAdmin, rejectionComment);
+
+        userNotificationService.notifyCreatorOnIdeaRejected(existingIdea, rejectionComment);
 
         ideaRepository.save(existingIdea);
     }

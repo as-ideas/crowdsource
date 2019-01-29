@@ -15,6 +15,7 @@ import org.springframework.expression.spel.support.StandardEvaluationContext;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -35,8 +36,9 @@ public class UserNotificationService {
 
     public static final String SUBJECT_ACTIVATION = "Bitte vergib ein Passwort für Dein Konto auf der CrowdSource Platform";
     public static final String SUBJECT_PROJECT_CREATED = "Neues Projekt erstellt";
-    public static final String SUBJECT_IDEA_CREATED = "Neues Idee eingereicht";
+    public static final String SUBJECT_IDEA_CREATED = "Neue Idee eingereicht";
     public static final String SUBJECT_IDEA_ACCEPTED = "Deine Idee wurde freigeschaltet";
+    public static final String SUBJECT_IDEA_REJECTED = "Deine Idee wurde leider abgelehnt";
     public static final String SUBJECT_PROJECT_MODIFIED = "Ein Projekt wurde editiert";
     public static final String SUBJECT_PASSWORD_FORGOTTEN = "Bitte vergib ein Passwort für Dein Konto auf der CrowdSource Platform";
     public static final String SUBJECT_PROJECT_PUBLISHED = "Freigabe Deines Projektes";
@@ -60,6 +62,9 @@ public class UserNotificationService {
 
     @Autowired
     private Expression ideaAcceptedEmailTemplate;
+
+    @Autowired
+    private Expression ideaRejectedEmailTemplate;
 
     @Autowired
     private Expression passwordForgottenEmailTemplate;
@@ -179,6 +184,19 @@ public class UserNotificationService {
         sendMails(Collections.singleton(message));
     }
 
+    public void notifyCreatorOnIdeaRejected(IdeaEntity idea, String rejectionComment) {
+        Assert.hasText(rejectionComment, "rejection-comment must not be empty!");
+
+        StandardEvaluationContext context = new StandardEvaluationContext();
+        context.setVariable("userName", idea.getCreator().getFirstName());
+        context.setVariable("rejectionComment", rejectionComment);
+        context.setVariable("link", buildIdeasCampaignLink(idea.getCampaignId()));
+        final String mailContent = ideaRejectedEmailTemplate.getValue(context, String.class);
+
+        final SimpleMailMessage message = newMailMessage(idea.getCreator().getEmail(), SUBJECT_IDEA_REJECTED, mailContent);
+        sendMails(Collections.singleton(message));
+    }
+
     public void notifyCreatorAndAdminOnProjectModification(ProjectEntity project, UserEntity modifier) {
 
         final String projectLink = buildProjectLink(project.getId());
@@ -292,5 +310,4 @@ public class UserNotificationService {
         mailMessage.setText(messageText);
         return mailMessage;
     }
-
 }
