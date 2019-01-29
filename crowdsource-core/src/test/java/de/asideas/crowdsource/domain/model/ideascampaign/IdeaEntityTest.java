@@ -64,6 +64,7 @@ public class IdeaEntityTest {
         ideaEntity.approveIdea(Fixtures.givenUserEntity("test_adminId"));
     }
 
+
     @Test
     public void approveIdea_ShouldTransformExpectedMembers() {
         final Idea givenIdea = new Idea("test_title", "Make more placstic forks!");
@@ -73,8 +74,32 @@ public class IdeaEntityTest {
         ideaEntity.approveIdea(Fixtures.givenUserEntity("test_adminId"));
 
         assertThat(ideaEntity.getStatus(), is(IdeaStatus.PUBLISHED));
-        assertThat(DateTime.now().getMillis() - ideaEntity.getApprovalDate().getMillis(), Matchers.lessThanOrEqualTo(1000L));
+        assertThat(DateTime.now().getMillis() - ideaEntity.getReviewDate().getMillis(), Matchers.lessThanOrEqualTo(1000L));
         assertThat(ideaEntity.getApprovingAdminId(), is("test_adminId"));
     }
 
+    @Test
+    public void rejectIdea_ShouldTransformExpectedMembers() {
+        final Idea givenIdea = new Idea("test_title", "Make more placstic forks!");
+        final IdeaEntity ideaEntity = IdeaEntity.createIdeaEntity(givenIdea, EXP_CAMPAIGN_ID, INITIATOR);
+        assertThat(ideaEntity.getStatus(), is(IdeaStatus.PROPOSED));
+
+        final String expComment = "Kannste so machen, is aba kagge!";
+        ideaEntity.rejectIdea(Fixtures.givenUserEntity("test_adminId"), expComment);
+
+        assertThat(ideaEntity.getStatus(), is(IdeaStatus.REJECTED));
+        assertThat(DateTime.now().getMillis() - ideaEntity.getReviewDate().getMillis(), Matchers.lessThanOrEqualTo(1000L));
+        assertThat(ideaEntity.getApprovingAdminId(), is("test_adminId"));
+        assertThat(ideaEntity.getRejectionComment(), is(expComment));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void approveIdea_ShouldThrowOnAlreadyRejected() {
+        final Idea givenIdea = new Idea("test_title", "Make more placstic forks!");
+        final IdeaEntity ideaEntity = IdeaEntity.createIdeaEntity(givenIdea, EXP_CAMPAIGN_ID, INITIATOR);
+
+        assertThat(ideaEntity.getStatus(), is(IdeaStatus.PROPOSED));
+        ideaEntity.rejectIdea(Fixtures.givenUserEntity("test_adminId"), "mag ich nicht");
+        ideaEntity.rejectIdea(Fixtures.givenUserEntity("test_adminId"),"nope");
+    }
 }

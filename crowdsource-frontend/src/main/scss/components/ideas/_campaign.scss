@@ -17,8 +17,13 @@ $icon-color: #3C3C3C;
 
 .campaign {
 
+  &__headline {
+    font-size: $fs-huge;
+    text-align: center;
+  }
+
   &__heading {
-    font-size: $fs-hero;
+    font-size: $fs-medium;
     margin-bottom: $margin;
     text-align: center;
   }
@@ -90,12 +95,13 @@ $icon-color: #3C3C3C;
 
 
   &__title {
-    font-size: $fs-medium;
+    font-size: $fs-normal;
   }
 
   &__sponsor {
     font-size: $fs-small;
-    color: $clr-indigo;
+    font-weight: $fw-regular;
+    color: $crowd-color-grey;
   }
 
   &-noentry {
@@ -111,6 +117,37 @@ $icon-color: #3C3C3C;
       margin-bottom: 20px;
     }
 
+  }
+}
+
+.campaign-login {
+
+  &__container {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__headline {
+//    color: #56A26B;
+    color: $clr-green-shade-3;
+    font-size: $fs-hero;
+    text-transform: uppercase;
+  }
+
+  &__description {
+    font-size: $fs-normal;
+    position: relative;
+    margin-bottom:4.5rem;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -2.5rem;
+      width: 6rem;
+      margin-left: -3rem;
+      border-bottom: 0.25rem solid #2D2D2D;
+    }
   }
 }
 

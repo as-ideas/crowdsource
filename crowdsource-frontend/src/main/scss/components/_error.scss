@@ -6,11 +6,17 @@
 .error-page {
 
   &__heading {
-    @include font-smoothing;
+    @include fs-huge;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
   }
 
   &__description {
     @include font-smoothing;
+    display: block;
+    margin: 0 auto $margin-comp-dbl;
+    text-align: center;
   }
 
   &__box {

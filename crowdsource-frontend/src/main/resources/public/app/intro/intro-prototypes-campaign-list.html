@@ -1,4 +1,4 @@
-<h3 class="campaign__heading">Prototypen Kampagnen</h3>
+<h3 class="campaign__heading">Prototypen</h3>
 
 <div class="campaign-noentry" ng-if="!list.entries.length">
     <img class="campaign-noentry__image" src="/images/campaigns-not-available-robot.svg">
@@ -10,7 +10,7 @@
         <article class="campaign__item">
 
             <div class="campaign__image-container">
-                <img class="campaign__image" ng-src="http://staging.crowd.asideas.de/images/team-karl.jpg">
+                <img class="campaign__image" ng-src="{{entry.teaserImageReference}}">
             </div>
 
             <div class="campaign__details-container">

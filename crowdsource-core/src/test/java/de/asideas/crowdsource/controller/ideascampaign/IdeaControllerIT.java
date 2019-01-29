@@ -17,6 +17,7 @@ import de.asideas.crowdsource.domain.model.ideascampaign.IdeaEntity;
 import de.asideas.crowdsource.domain.shared.ideascampaign.IdeaStatus;
 import de.asideas.crowdsource.presentation.ideascampaign.Idea;
 import de.asideas.crowdsource.presentation.ideascampaign.IdeasCampaign;
+import de.asideas.crowdsource.presentation.ideascampaign.IdeaRejectCmd;
 import de.asideas.crowdsource.repository.ideascampaign.IdeaRepository;
 import de.asideas.crowdsource.testutil.Fixtures;
 
@@ -322,10 +323,9 @@ public class IdeaControllerIT extends AbstractCrowdIT {
         final MvcResult mvcRes = givenIdeaExists(user1Token, parentCampaign.getId(), originalIdea)
             .andExpect(status().isCreated()).andReturn();
 
-        final Idea actual = mapper.readValue(mvcRes.getResponse().getContentAsString(), Idea.class);
-        final IdeaEntity initialIdeaInMongo = ideaRepository.findOne(actual.getId());
+        final Idea actualIdea = mapper.readValue(mvcRes.getResponse().getContentAsString(), Idea.class);
 
-        mockMvc.perform(put("/ideas_campaigns/{campaignId}/ideas/{ideaId}/approval", parentCampaign.getId(), initialIdeaInMongo.getId())
+        mockMvc.perform(put("/ideas_campaigns/{campaignId}/ideas/{ideaId}/approval", parentCampaign.getId(), actualIdea.getId())
             .header("Authorization", "Bearer " + adminToken)
             .accept(MediaType.APPLICATION_JSON_UTF8)
             .contentType(MediaType.APPLICATION_JSON_UTF8)
@@ -333,8 +333,66 @@ public class IdeaControllerIT extends AbstractCrowdIT {
             .andDo(log())
             .andExpect(status().isNoContent());
 
-        final IdeaEntity res = ideaRepository.findOne(actual.getId());
+        final IdeaEntity res = ideaRepository.findOne(actualIdea.getId());
         assertThat(res.getStatus(), is(IdeaStatus.PUBLISHED));
+
+    }
+
+    @Test
+    public void rejectIdea_shouldReturn_403_OnNonAdminUser() throws Exception {
+        final UserEntity admin = givenAdminUserExists();
+        final String adminToken = obtainAccessToken(admin.getEmail(), admin.getPassword());
+
+        final UserEntity user = givenUserExists();
+        final String userToken = obtainAccessToken(user.getEmail(), user.getPassword());
+
+        final IdeasCampaign parentCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
+        final Idea originalIdea = givenValidIdeaCmd();
+
+        final Idea actualIdea = mapper.readValue(givenIdeaExists(userToken, parentCampaign.getId(), originalIdea)
+            .andExpect(status().isCreated()).andReturn().getResponse().getContentAsString(), Idea.class);
+
+        mockMvc.perform(put("/ideas_campaigns/{campaignId}/ideas/{ideaId}/rejection", parentCampaign.getId(), actualIdea.getId())
+            .header("Authorization", "Bearer " + userToken)
+            .accept(MediaType.APPLICATION_JSON_UTF8)
+            .contentType(MediaType.APPLICATION_JSON_UTF8)
+            .content(mapper.writeValueAsBytes(new IdeaRejectCmd("I am no admin but will attempt to reject")))
+        )
+            .andDo(log())
+            .andExpect(status().isForbidden());
+
+    }
+
+    @Test
+    public void rejecteIdea_shouldBePersisted() throws Exception {
+        final UserEntity admin = givenAdminUserExists();
+        final String adminToken = obtainAccessToken(admin.getEmail(), admin.getPassword());
+
+        final UserEntity user1 = givenUserExists();
+        final String user1Token = obtainAccessToken(user1.getEmail(), user1.getPassword());
+
+        final IdeasCampaign parentCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
+
+        final Idea originalIdea = givenValidIdeaCmd();
+        final MvcResult mvcRes = givenIdeaExists(user1Token, parentCampaign.getId(), originalIdea)
+            .andExpect(status().isCreated()).andReturn();
+
+        final Idea actualIdea = mapper.readValue(mvcRes.getResponse().getContentAsString(), Idea.class);
+
+        final IdeaRejectCmd cmd = new IdeaRejectCmd("test_rejectionComment");
+
+        mockMvc.perform(put("/ideas_campaigns/{campaignId}/ideas/{ideaId}/rejection", parentCampaign.getId(), actualIdea.getId())
+            .header("Authorization", "Bearer " + adminToken)
+            .accept(MediaType.APPLICATION_JSON_UTF8)
+            .contentType(MediaType.APPLICATION_JSON_UTF8)
+            .content(mapper.writeValueAsBytes(cmd))
+        )
+            .andDo(log())
+            .andExpect(status().isNoContent());
+
+        final IdeaEntity res = ideaRepository.findOne(actualIdea.getId());
+        assertThat(res.getStatus(), is(IdeaStatus.REJECTED));
+        assertThat(res.getRejectionComment(), is(cmd.getRejectionComment()));
 
     }
 

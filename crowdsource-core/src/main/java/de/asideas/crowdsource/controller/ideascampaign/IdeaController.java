@@ -16,10 +16,10 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.web.bind.annotation.*;
 
 import de.asideas.crowdsource.domain.exception.ForbiddenException;
-import de.asideas.crowdsource.domain.exception.NotAuthorizedException;
 import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.domain.shared.ideascampaign.IdeaStatus;
 import de.asideas.crowdsource.presentation.ideascampaign.Idea;
+import de.asideas.crowdsource.presentation.ideascampaign.IdeaRejectCmd;
 import de.asideas.crowdsource.security.Roles;
 import de.asideas.crowdsource.service.UserService;
 import de.asideas.crowdsource.service.ideascampaign.IdeaService;
@@ -80,10 +80,18 @@ public class IdeaController {
 
     @Secured(ROLE_ADMIN)
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PutMapping(value = "/ideas_campaigns/{campaignId}/ideas/{ideaId}/approval", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @PutMapping(value = "/ideas_campaigns/{campaignId}/ideas/{ideaId}/approval")
     public void approveIdea(@PathVariable String campaignId, @PathVariable String ideaId, Principal principal) {
         log.info("Going to approve ideaId={}", ideaId);
         ideaService.approveIdea(ideaId, userByPrincipal(principal));
+    }
+
+    @Secured(ROLE_ADMIN)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @PutMapping(value = "/ideas_campaigns/{campaignId}/ideas/{ideaId}/rejection", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void rejectIdea(@PathVariable String campaignId, @PathVariable String ideaId, @Valid @RequestBody IdeaRejectCmd cmd, Principal principal) {
+        log.info("Going to approve ideaId={}", ideaId);
+        ideaService.rejectIdea(ideaId, cmd.getRejectionComment(), userByPrincipal(principal));
     }
 
     private UserEntity userByPrincipal(Principal principal) {

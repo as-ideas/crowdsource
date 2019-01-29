@@ -30,7 +30,10 @@ public class IdeaEntity {
 
     private IdeaStatus status;
 
-    private DateTime approvalDate;
+    /** When was the idea approved or rejected by an admin */
+    private DateTime reviewDate;
+
+    private String rejectionComment;
 
     @DBRef
     private UserEntity creator;
@@ -76,11 +79,23 @@ public class IdeaEntity {
 
         Assert.isTrue(this.status != IdeaStatus.PUBLISHED, "Cannot approve idea because it is already published");
 
-        setApprovalDate(DateTime.now());
+        setReviewDate(DateTime.now());
         this.setApprovingAdminId(approvingAdmin.getId());
         this.status = IdeaStatus.PUBLISHED;
     }
 
+    public void rejectIdea(UserEntity approvingAdmin, String rejectionComment) {
+        Assert.notNull(approvingAdmin, "approvingAdmin must not be null");
+        Assert.hasText(rejectionComment, "Rejection comment must not be empty.");
+        Assert.notNull(approvingAdmin.getId(), "approvingAdmin must have an ID");
+
+        Assert.isTrue(this.status != IdeaStatus.REJECTED, "Cannot reject idea because it is already rejected");
+
+        setReviewDate(DateTime.now());
+        this.setApprovingAdminId(approvingAdmin.getId());
+        this.setRejectionComment(rejectionComment);
+        this.status = IdeaStatus.REJECTED;
+    }
 
     public String getId() {
         return id;
@@ -110,6 +125,13 @@ public class IdeaEntity {
         this.status = status;
     }
 
+    public String getRejectionComment() {
+        return rejectionComment;
+    }
+    public void setRejectionComment(String rejectionComment) {
+        this.rejectionComment = rejectionComment;
+    }
+
     public DateTime getCreatedDate() {
         return createdDate;
     }
@@ -124,11 +146,11 @@ public class IdeaEntity {
         this.lastModifiedDate = lastModifiedDate;
     }
 
-    public DateTime getApprovalDate() {
-        return approvalDate;
+    public DateTime getReviewDate() {
+        return reviewDate;
     }
-    public void setApprovalDate(DateTime approvalDate) {
-        this.approvalDate = approvalDate;
+    public void setReviewDate(DateTime reviewDate) {
+        this.reviewDate = reviewDate;
     }
 
     public UserEntity getCreator() {
@@ -176,12 +198,13 @@ public class IdeaEntity {
             ", title='" + title + '\'' +
             ", pitch='" + pitch + '\'' +
             ", status=" + status +
-            ", approvalDate=" + approvalDate +
+            ", reviewDate=" + reviewDate +
+            ", rejectionComment='" + rejectionComment + '\'' +
             ", creator=" + creator +
             ", approvingAdminId='" + approvingAdminId + '\'' +
+            ", campaignId='" + campaignId + '\'' +
             ", createdDate=" + createdDate +
             ", lastModifiedDate=" + lastModifiedDate +
             '}';
     }
-
 }

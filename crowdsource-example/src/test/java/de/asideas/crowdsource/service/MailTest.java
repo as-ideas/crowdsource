@@ -206,7 +206,6 @@ public class MailTest {
     @Test
     public void testNotifyAdminOnIdeaCreation() {
         UserEntity user = aUser("123456789");
-
         IdeaEntity newIdea = IdeaEntity.createIdeaEntity(new Idea("SCHOKOLADE", "Schokolade für alle!"), "eatMoreChocolateCampaign", user);
 
         userNotificationService.notifyAdminOnIdeaCreation(newIdea, ADMIN_EMAIL);
@@ -224,6 +223,63 @@ public class MailTest {
                         "https://crowd.asideas.de#/ideas/eatMoreChocolateCampaign\n\n" +
                         "Mit freundlichen Grüßen\n" +
                         "Dein CrowdSource Team\n"));
+    }
+
+    @Test
+    public void testNotifyCreatorOnIdeaAccepted() {
+        UserEntity creator = aUser("123456789");
+        IdeaEntity newIdea = IdeaEntity.createIdeaEntity(new Idea("SCHOKOLADE", "Schokolade für alle!"), "eatMoreChocolateCampaign", creator);
+
+        userNotificationService.notifyCreatorOnIdeaAccepted(newIdea);
+
+        SimpleMailMessage mail = getMessageFromMailSender();
+        assertThat(mail.getFrom(), is(UserNotificationService.FROM_ADDRESS));
+        assertThat(mail.getTo(), arrayContaining(creator.getEmail()));
+        assertThat(mail.getSubject(), is(UserNotificationService.SUBJECT_IDEA_ACCEPTED));
+        assertThat(replaceLineBreaksIfWindows(mail.getText()), is(
+                "Hallo Bojack,\n\n" +
+                        "gute Nachrichten! Deine Idee wurde akzeptiert und steht nun zur Abstimmung bereit.\n\n" +
+                        "Zur Kampagne:\n\n" +
+                        "https://crowd.asideas.de#/ideas/eatMoreChocolateCampaign\n\n" +
+                        "Mit freundlichen Grüßen\n" +
+                        "Dein CrowdSource Team"));
+    }
+
+    @Test
+    public void testNotifyCreatorOnIdeaRejected() {
+        UserEntity creator = aUser("123456789");
+        IdeaEntity newIdea = IdeaEntity.createIdeaEntity(new Idea("SCHOKOLADE", "Schokolade für alle!"), "eatMoreChocolateCampaign", creator);
+
+        userNotificationService.notifyCreatorOnIdeaRejected(newIdea, "Hatten wir schon.");
+
+        SimpleMailMessage mail = getMessageFromMailSender();
+        assertThat(mail.getFrom(), is(UserNotificationService.FROM_ADDRESS));
+        assertThat(mail.getTo(), arrayContaining(creator.getEmail()));
+        assertThat(mail.getSubject(), is(UserNotificationService.SUBJECT_IDEA_REJECTED));
+        assertThat(replaceLineBreaksIfWindows(mail.getText()), is(
+                "Hallo Bojack,\n\n" +
+                        "deine Idee wurde leider nicht zur Abstimmung freigegeben:\n\n" +
+                        "Hatten wir schon.\n\n" +
+                        "Zur Kampagne:\n\n" +
+                        "https://crowd.asideas.de#/ideas/eatMoreChocolateCampaign\n\n" +
+                        "Mit freundlichen Grüßen\n" +
+                        "Dein CrowdSource Team"));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testNotifyCreatorOnIdeaRejected_shouldFailIfEmptyCommentIsProvided() {
+        UserEntity creator = aUser("123456789");
+        IdeaEntity newIdea = IdeaEntity.createIdeaEntity(new Idea("SCHOKOLADE", "Schokolade für alle!"), "eatMoreChocolateCampaign", creator);
+
+        userNotificationService.notifyCreatorOnIdeaRejected(newIdea, "");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testNotifyCreatorOnIdeaRejected_shouldFailIfNoCommentIsProvided() {
+        UserEntity creator = aUser("123456789");
+        IdeaEntity newIdea = IdeaEntity.createIdeaEntity(new Idea("SCHOKOLADE", "Schokolade für alle!"), "eatMoreChocolateCampaign", creator);
+
+        userNotificationService.notifyCreatorOnIdeaRejected(newIdea, null);
     }
 
     @Test
@@ -321,9 +377,9 @@ public class MailTest {
         return message;
     }
 
-    private String aTestComment(int length){
+    private String aTestComment(int length) {
         StringBuilder res = new StringBuilder();
-        IntStream.range(0, length).forEach(i-> res.append(i % 10));
+        IntStream.range(0, length).forEach(i -> res.append(i % 10));
         return res.toString();
     }
 

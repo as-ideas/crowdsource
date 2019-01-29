@@ -237,6 +237,47 @@ public class UserNotificationServiceTest {
     }
 
     @Test
+    public void notifyCreatorOnIdeaAccepted_ShouldSendMailWithResolvedTemplate() {
+        UserEntity creator = aUser("123456789");
+        IdeaEntity newIdea = IdeaEntity.createIdeaEntity(new Idea("SCHOKOLADE", "Schokolade für alle!"), "eatMoreChocolateCampaign", creator);
+
+        userNotificationService.notifyCreatorOnIdeaAccepted(newIdea);
+
+        SimpleMailMessage mail = getMessageFromMailSender();
+        assertThat(mail.getFrom(), is(UserNotificationService.FROM_ADDRESS));
+        assertThat(mail.getTo(), arrayContaining(creator.getEmail()));
+        assertThat(mail.getSubject(), is(UserNotificationService.SUBJECT_IDEA_ACCEPTED));
+        assertThat(replaceLineBreaksIfWindows(mail.getText()), is(
+                "Hallo Karl,\n\n" +
+                        "gute Nachrichten! Deine Idee wurde akzeptiert und steht nun zur Abstimmung bereit.\n\n" +
+                        "Zur Kampagne:\n\n" +
+                        "https://crowd.asideas.de#/ideas/eatMoreChocolateCampaign\n\n" +
+                        "Mit freundlichen Grüßen\n" +
+                        "Dein CrowdSource Team"));
+    }
+
+    @Test
+    public void notifyCreatorOnIdeaRejected_ShouldSendMailWithResolvedTemplate() {
+        UserEntity creator = aUser("123456789");
+        IdeaEntity newIdea = IdeaEntity.createIdeaEntity(new Idea("SCHOKOLADE", "Schokolade für alle!"), "eatMoreChocolateCampaign", creator);
+
+        userNotificationService.notifyCreatorOnIdeaRejected(newIdea, "der Vorschlag ist blöd.");
+
+        SimpleMailMessage mail = getMessageFromMailSender();
+        assertThat(mail.getFrom(), is(UserNotificationService.FROM_ADDRESS));
+        assertThat(mail.getTo(), arrayContaining(creator.getEmail()));
+        assertThat(mail.getSubject(), is(UserNotificationService.SUBJECT_IDEA_REJECTED));
+        assertThat(replaceLineBreaksIfWindows(mail.getText()), is(
+                "Hallo Karl,\n\n" +
+                        "deine Idee wurde leider nicht zur Abstimmung freigegeben:\n\n" +
+                        "der Vorschlag ist blöd.\n\n" +
+                        "Zur Kampagne:\n\n" +
+                        "https://crowd.asideas.de#/ideas/eatMoreChocolateCampaign\n\n" +
+                        "Mit freundlichen Grüßen\n" +
+                        "Dein CrowdSource Team"));
+    }
+
+    @Test
     public void notifyCreatorAndAdminOnProjectModification() {
         final UserEntity creator = aProjectCreator();
         final UserEntity modifier = aUser("test_id_modifier");
@@ -385,9 +426,9 @@ public class UserNotificationServiceTest {
         return res;
     }
 
-    private String aTestComment(int length){
+    private String aTestComment(int length) {
         StringBuilder res = new StringBuilder();
-        IntStream.range(0, length).forEach(i-> res.append(i % 10));
+        IntStream.range(0, length).forEach(i -> res.append(i % 10));
         return res.toString();
     }
 

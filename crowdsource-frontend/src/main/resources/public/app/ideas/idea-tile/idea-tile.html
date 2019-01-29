@@ -27,12 +27,11 @@
         <div ng-if="vm.isVotingDisabled" class="star5" ng-class="vm.idea.voted >= 1 ? 'ideas-grid-tile__star--disabled-rated' : 'ideas-grid-tile__star--disabled'"></div>
     </div>
 
-    <div ng-if="vm.isAdminView">
+    <div ng-if="vm.isAdminView" class="ideas-grid-tile__approval">
         <div ng-if="vm.idea.status == 'PROPOSED'">
             <input type="text" ng-model="vm.idea.rejectionMessage" placeholder="Ablehnungsgrund">
-            <div>
-                <button ng-disabled="!vm.idea.rejectionMessage.length" class="button-primary">Ablehnen</button>
-                <button class="button-primary">Veröffentlichen</button>
+            <div class="ideas-grid-tile__btn-approve" />
+            <div ng-disabled="!vm.idea.rejectionMessage.length" class="ideas-grid-tile__btn-reject"></div>
             </div>
         </div>
 
