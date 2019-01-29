@@ -7,7 +7,7 @@ import de.asideas.crowdsource.domain.model.UserEntity;
 
 import de.asideas.crowdsource.domain.service.user.UserNotificationService;
 import de.asideas.crowdsource.repository.UserRepository;
-import org.hamcrest.CoreMatchers;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
@@ -165,7 +165,7 @@ public class IdeaServiceTest {
     }
 
     private IdeaEntity givenIdeaExists(Idea idea) {
-        final IdeaEntity theIdea = IdeaEntity.createIdeaEntity(idea, "test_campaignId", Fixtures.givenUserEntity("test_userId"));
+        final IdeaEntity theIdea = Fixtures.givenIdeaEntity(idea);
         doReturn(true).when(ideaRepository).exists(anyString());
         doReturn(theIdea).when(ideaRepository).findOne(anyString());
         return theIdea;

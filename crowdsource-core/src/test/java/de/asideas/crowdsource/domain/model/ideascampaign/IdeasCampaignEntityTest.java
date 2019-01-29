@@ -6,6 +6,7 @@ import org.junit.Test;
 import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.presentation.ideascampaign.CampaignInitiator;
 import de.asideas.crowdsource.presentation.ideascampaign.IdeasCampaign;
+import de.asideas.crowdsource.testutil.Fixtures;
 
 import static de.asideas.crowdsource.testutil.Fixtures.givenUserEntity;
 import static org.hamcrest.Matchers.equalTo;
@@ -62,8 +63,7 @@ public class IdeasCampaignEntityTest {
         final String userId = "test_userId";
         IdeasCampaign cmd = givenIdeasCampaignCmd(userId);
 
-        final IdeasCampaign changeCmd = new IdeasCampaign(DateTime.now().plusDays(1), DateTime.now().plusDays(2),
-            new CampaignInitiator(userId, "new username"), "better sponsor", "amazing title", "longer description", "tuuuut", "usw");
+        final IdeasCampaign changeCmd = Fixtures.givenIdeasCampaign(userId);
 
         final IdeasCampaignEntity testee = IdeasCampaignEntity.newIdeasCampaign(cmd, givenUserEntity(userId));
         testee.updateMasterdata(changeCmd);
