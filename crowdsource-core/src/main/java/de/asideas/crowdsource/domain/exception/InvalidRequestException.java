@@ -77,4 +77,12 @@ public class InvalidRequestException extends RuntimeException {
     public static InvalidRequestException filetypeNotAllowed() {
         return new InvalidRequestException("file_type_not_alloed");
     }
+
+    public static InvalidRequestException campaignNotActive() {
+        return new InvalidRequestException("campaign_not_active");
+    }
+
+    public static InvalidRequestException voteOnInvalidIdeaStatus() {
+        return new InvalidRequestException("idea_status_invalid_for_vote");
+    }
 }

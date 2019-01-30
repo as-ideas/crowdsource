@@ -4,25 +4,34 @@ import org.joda.time.DateTime;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.test.util.ReflectionTestUtils;
 
+import de.asideas.crowdsource.domain.exception.InvalidRequestException;
 import de.asideas.crowdsource.domain.model.ideascampaign.IdeaEntity;
 import de.asideas.crowdsource.domain.model.ideascampaign.IdeasCampaignEntity;
+import de.asideas.crowdsource.domain.model.ideascampaign.VoteEntity;
 import de.asideas.crowdsource.presentation.ideascampaign.Idea;
 import de.asideas.crowdsource.presentation.ideascampaign.IdeasCampaign;
+import de.asideas.crowdsource.repository.ideascampaign.VoteRepository;
 import de.asideas.crowdsource.testutil.Fixtures;
 
 import static de.asideas.crowdsource.testutil.Fixtures.givenIdeaEntity;
 import static de.asideas.crowdsource.testutil.Fixtures.givenIdeasCampaignEntity;
 import static de.asideas.crowdsource.testutil.Fixtures.givenUserEntity;
 import static org.junit.Assert.*;
+import static org.mockito.Matchers.isA;
+import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
 public class VotingServiceTest {
 
     @InjectMocks
     private VotingService votingService;
+
+    @Mock
+    private VoteRepository voteRepository;
 
     @Test(expected = IllegalArgumentException.class)
     public void voteForIdea_shouldThrow_on_idea_not_of_campaign(){
@@ -34,25 +43,7 @@ public class VotingServiceTest {
         votingService.voteForIdea(givenIdea, givenCampaign, givenUserEntity("aUser"), 5);
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void voteForIdea_ShouldThrow_onVote_outOfBounds_min(){
-        final IdeasCampaignEntity givenCampaign = givenIdeasCampaignEntity("test_InitUser");
-        givenCampaign.setId("2222");
-
-        final IdeaEntity givenIdea = IdeaEntity.createIdeaEntity(new Idea("test_title", "test_campaignId"), givenCampaign.getId(), givenUserEntity("creator"));
-        votingService.voteForIdea(givenIdea, givenCampaign, givenUserEntity("voterId"), -1);
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void voteForIdea_ShouldThrow_onVote_outOfBounds_max(){
-        final IdeasCampaignEntity givenCampaign = givenIdeasCampaignEntity("test_InitUser");
-        givenCampaign.setId("2222");
-
-        final IdeaEntity givenIdea = IdeaEntity.createIdeaEntity(new Idea("test_title", "test_campaignId"), givenCampaign.getId(), givenUserEntity("creator"));
-        votingService.voteForIdea(givenIdea, givenCampaign, givenUserEntity("voterId"), 6);
-    }
-
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = InvalidRequestException.class)
     public void voteForIdea_ShouldThrow_onVoteOfIdeaOfExpiredCampaign(){
         final IdeasCampaignEntity givenCampaign = givenIdeasCampaignEntity("test_InitUser");
         givenCampaign.setId("2222");
@@ -62,7 +53,27 @@ public class VotingServiceTest {
         votingService.voteForIdea(givenIdea, givenCampaign, givenUserEntity("voterId"), 5);
     }
 
+    @Test(expected = InvalidRequestException.class)
+    public void voteForIdea_ShouldThrow_onVoteofIdeaBeforeCampaignStart(){
+        final IdeasCampaignEntity givenCampaign = givenIdeasCampaignEntity("test_InitUser");
+        givenCampaign.setId("2222");
+        givenCampaign.setStartDate(DateTime.now().plusDays(1));
 
+        final IdeaEntity givenIdea = IdeaEntity.createIdeaEntity(new Idea("test_title", "test_campaignId"), givenCampaign.getId(), givenUserEntity("creator"));
+        votingService.voteForIdea(givenIdea, givenCampaign, givenUserEntity("voterId"), 5);
+    }
+
+    @Test
+    public void voteForIdea_ShouldPersist(){
+        final IdeasCampaignEntity givenCampaign = givenIdeasCampaignEntity("test_InitUser");
+        givenCampaign.setId("2222");
+
+        final IdeaEntity givenIdea = IdeaEntity.createIdeaEntity(new Idea("test_title", "test_campaignId"), givenCampaign.getId(), givenUserEntity("creator"));
+        givenIdea.approveIdea(Fixtures.givenUserEntity("fake_admin"));
+
+        votingService.voteForIdea(givenIdea, givenCampaign, givenUserEntity("voterId"), 5);
+        verify(voteRepository).save(isA(VoteEntity.class));
+    }
 
 
 }
