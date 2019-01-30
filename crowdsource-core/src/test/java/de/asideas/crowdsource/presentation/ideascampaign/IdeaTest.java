@@ -16,7 +16,9 @@ public class IdeaTest {
     public void constructFromEntity_shouldYieldExpectedObject(){
 
         final IdeaEntity givenIdeaEntity = givenIdeaEntity();
+        givenIdeaEntity.setRejectionComment("Haste nicht so toll gemacht.");
         final Idea result = new Idea(givenIdeaEntity);
+
 
         assertThat(result.getCreatorName(), is("test_firstname"));
         assertThat(result.getId(), is(givenIdeaEntity.getId()));
@@ -24,6 +26,7 @@ public class IdeaTest {
         assertThat(result.getPitch(), is(givenIdeaEntity.getPitch()));
         assertThat(result.getCreationDate(), is(givenIdeaEntity.getCreatedDate()));
         assertThat(result.getStatus(), is(givenIdeaEntity.getStatus()));
+        assertThat(result.getRejectionComment(), is(givenIdeaEntity.getRejectionComment()));
     }
 
     private IdeaEntity givenIdeaEntity() {

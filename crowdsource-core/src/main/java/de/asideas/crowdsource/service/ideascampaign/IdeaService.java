@@ -102,6 +102,18 @@ public class IdeaService {
         ideaRepository.save(existingIdea);
     }
 
+    public void voteForIdea(String campaignId, String ideaId, UserEntity voter) {
+        Assert.notNull(ideaId, "ideaId must not be null");
+        Assert.notNull(voter, "voter must not be null");
+
+        validateCampaignExists(campaignId);
+        validateIdeaExists(ideaId);
+
+        final IdeaEntity idea = ideaRepository.findOne(ideaId);
+
+
+    }
+
     public Page<Idea> fetchIdeasByStatus(String campaignId, Set<IdeaStatus> statusSet, Integer page, Integer pageSize) {
         Assert.notNull(campaignId, "campaignId must not be null");
 

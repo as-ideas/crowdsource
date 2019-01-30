@@ -24,6 +24,8 @@ public class Idea {
     @Size(min = 5, max = 255)
     private String pitch;
 
+    private String rejectionComment;
+
     private Idea() {
     }
 
@@ -34,6 +36,7 @@ public class Idea {
         this.status = ideaEntity.getStatus();
         this.creationDate = ideaEntity.getCreatedDate();
         this.creatorName = ideaEntity.getCreator().getFirstName();
+        this.rejectionComment = ideaEntity.getRejectionComment();
     }
 
     public Idea(String title, String pitch) {
@@ -87,6 +90,13 @@ public class Idea {
     }
     public void setPitch(String pitch) {
         this.pitch = pitch;
+    }
+
+    public String getRejectionComment() {
+        return rejectionComment;
+    }
+    public void setRejectionComment(String rejectionComment) {
+        this.rejectionComment = rejectionComment;
     }
 
     @Override
