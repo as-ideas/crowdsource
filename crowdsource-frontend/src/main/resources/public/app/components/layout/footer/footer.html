@@ -2,9 +2,9 @@
     <div class="row">
         <ul class="footer__col">
             <li class="footer__item-head">CrowdSource</li>
+            <li><a href="#/intro">Entdecken</a></li>
             <li ng-if="!footer.auth.currentUser.loggedIn"><a href="#/login">Log In</a></li>
             <li ng-if="!footer.auth.currentUser.loggedIn"><a href="#/signup">Registrieren</a></li>
-            <li><a href="#/intro">Entdecken</a></li>
         </ul>
         <ul class="footer__col">
             <li class="footer__item-head">Hilfe</li>
@@ -12,11 +12,6 @@
             <li><a href="#/faq">FAQ</a></li>
             <li><a href="#/imprint">Impressum</a></li>
             <li><a href="#/privacy">Datenschutzerklärung</a></li>
-        </ul>
-        <ul class="footer__col" ng-if="footer.auth.currentUser.hasRole('ADMIN')">
-            <li class="footer__item-head">Admin</li>
-            <li class="admin"><a href="#/financingrounds">Finanzierungsrunden</a></li>
-            <li class="admin"><a href="#/statistics">Statistiken</a></li>
         </ul>
         <ul class="footer__col-brand">
             <li class="footer__item-head-se">
