@@ -2,13 +2,17 @@ package de.asideas.crowdsource.domain.model.ideascampaign;
 
 import org.hamcrest.Matchers;
 import org.joda.time.DateTime;
+import org.junit.Assert;
 import org.junit.Test;
 
+import de.asideas.crowdsource.domain.exception.InvalidRequestException;
 import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.domain.shared.ideascampaign.IdeaStatus;
 import de.asideas.crowdsource.presentation.ideascampaign.Idea;
 import de.asideas.crowdsource.testutil.Fixtures;
 
+import static de.asideas.crowdsource.testutil.Fixtures.givenIdeasCampaignEntity;
+import static de.asideas.crowdsource.testutil.Fixtures.givenUserEntity;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
@@ -102,4 +106,51 @@ public class IdeaEntityTest {
         ideaEntity.rejectIdea(Fixtures.givenUserEntity("test_adminId"), "mag ich nicht");
         ideaEntity.rejectIdea(Fixtures.givenUserEntity("test_adminId"),"nope");
     }
+
+    @Test
+    public void vote_ShouldReturn_validVoteEntity(){
+        final IdeaEntity givenIdea = givenValidApprovedIdea();
+
+        final VoteEntity res = givenIdea.vote(givenUserEntity("voterId"), 5);
+
+        assertThat(res.getId().getIdeaId(), is(givenIdea.getId()));
+        assertThat(res.getId().getVoterId(), is("voterId"));
+        assertThat(res.getVote(), is(5));
+    }
+
+    @Test
+    public void vote_ShouldThrow_On_NonApprovedIdea() {
+        final IdeaEntity ideaEntity = Fixtures.givenIdeaEntity();
+
+        try{
+            ideaEntity.vote(Fixtures.givenUserEntity("voter_id"), 3);
+            fail("Expected exception not thrown.");
+        }catch (InvalidRequestException e){
+            assertThat(e.getMessage(), equalTo("idea_status_invalid_for_vote"));
+        }
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void vote_ShouldThrow_onVote_outOfBounds_min(){
+        final IdeaEntity givenIdea = Fixtures.givenIdeaEntity();
+        givenIdea.approveIdea(Fixtures.givenUserEntity("adminId"));
+
+        givenIdea.vote(givenUserEntity("voterId"), 0);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void vote_ShouldThrow_onVote_outOfBounds_max(){
+        final IdeaEntity givenIdea = Fixtures.givenIdeaEntity();
+        givenIdea.approveIdea(Fixtures.givenUserEntity("adminId"));
+
+        givenIdea.vote(givenUserEntity("voterId"), 6);
+    }
+
+    private IdeaEntity givenValidApprovedIdea() {
+        final IdeaEntity givenIdea = IdeaEntity.createIdeaEntity(new Idea("test_title", "test_campaignId"), "aCampaignId", givenUserEntity("creator"));
+        givenIdea.setId("test_ideaId");
+        givenIdea.approveIdea(Fixtures.givenUserEntity("adminId"));
+        return givenIdea;
+    }
+
 }

@@ -2,6 +2,7 @@ package de.asideas.crowdsource.domain.model.ideascampaign;
 
 import java.util.Objects;
 
+import de.asideas.crowdsource.domain.exception.InvalidRequestException;
 import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.domain.shared.ideascampaign.IdeaStatus;
 import de.asideas.crowdsource.presentation.ideascampaign.Idea;
@@ -95,6 +96,17 @@ public class IdeaEntity {
         this.setApprovingAdminId(approvingAdmin.getId());
         this.setRejectionComment(rejectionComment);
         this.status = IdeaStatus.REJECTED;
+    }
+
+    public VoteEntity vote(UserEntity voter, int vote) {
+        Assert.isTrue(vote > 0, "Vote value out of bounds: " + vote);
+        Assert.isTrue(vote < 6, "Vote value out of bounds: " + vote);
+
+        if(IdeaStatus.PUBLISHED != this.status){
+            throw InvalidRequestException.voteOnInvalidIdeaStatus();
+        }
+
+        return new VoteEntity(new VoteId(voter.getId(), this.getId()), vote);
     }
 
     public String getId() {
@@ -207,4 +219,6 @@ public class IdeaEntity {
             ", lastModifiedDate=" + lastModifiedDate +
             '}';
     }
+
+
 }
