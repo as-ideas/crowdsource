@@ -13,5 +13,4 @@ angular.module('crowdsource')
                 vm.ideas = res.content;
             });
         }
-
     });
