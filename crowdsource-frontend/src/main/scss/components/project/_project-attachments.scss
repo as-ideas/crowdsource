@@ -13,11 +13,11 @@
 %upload-messages__success{ /* Nothing specific here */}
 
 .upload-messages__error{
-    color: $clr-alert;
+    color: $clr-red;
 }
 
 .delete-messages__error{
-    color: $clr-alert;
+    color: $clr-red;
 }
 
 @mixin project-attachment__icon($options: ()) {

@@ -57,6 +57,14 @@ $tile-padding-vertical: 15px;
     position: relative;
     width: 100%;
 
+    &--proposed {
+      background-color: $clr-proposed;
+    }
+
+    &--rejected {
+      background-color: $clr-rejected;
+    }
+
     &__title {
       display: block;
       font-size: $fs-medium;
@@ -72,11 +80,17 @@ $tile-padding-vertical: 15px;
     }
 
     &__rating {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+
+    &__rejected {
+    }
+
+    &__bottom-container {
       position: absolute;
       bottom: 0;
       margin-bottom: $tile-padding-vertical;
-      display: flex;
-      flex-direction: row-reverse;
     }
 
     &__star {
@@ -179,7 +193,7 @@ $tile-padding-vertical: 15px;
 
     &__btn-reject {
       padding:0 !important;
-      background-color: $clr-red-rejected;
+      background-color: $clr-red;
       background-image: url('../images/icons/icon-thumbs-down.svg');
     }
   }
