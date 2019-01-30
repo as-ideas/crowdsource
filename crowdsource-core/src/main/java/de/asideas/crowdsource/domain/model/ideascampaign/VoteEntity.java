@@ -3,9 +3,11 @@ package de.asideas.crowdsource.domain.model.ideascampaign;
 import java.util.Objects;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection="ideavotes")
+@TypeAlias("idea_vote")
 public class VoteEntity {
 
     @Id

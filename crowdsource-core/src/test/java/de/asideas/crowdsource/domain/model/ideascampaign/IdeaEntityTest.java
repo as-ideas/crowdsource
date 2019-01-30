@@ -1,6 +1,10 @@
 package de.asideas.crowdsource.domain.model.ideascampaign;
 
+import java.util.Arrays;
+import java.util.Collection;
+
 import org.hamcrest.Matchers;
+import org.hamcrest.number.IsCloseTo;
 import org.joda.time.DateTime;
 import org.junit.Assert;
 import org.junit.Test;
@@ -9,6 +13,7 @@ import de.asideas.crowdsource.domain.exception.InvalidRequestException;
 import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.domain.shared.ideascampaign.IdeaStatus;
 import de.asideas.crowdsource.presentation.ideascampaign.Idea;
+import de.asideas.crowdsource.presentation.ideascampaign.Rating;
 import de.asideas.crowdsource.testutil.Fixtures;
 
 import static de.asideas.crowdsource.testutil.Fixtures.givenIdeasCampaignEntity;
@@ -68,7 +73,6 @@ public class IdeaEntityTest {
         ideaEntity.approveIdea(Fixtures.givenUserEntity("test_adminId"));
     }
 
-
     @Test
     public void approveIdea_ShouldTransformExpectedMembers() {
         final Idea givenIdea = new Idea("test_title", "Make more placstic forks!");
@@ -104,11 +108,11 @@ public class IdeaEntityTest {
 
         assertThat(ideaEntity.getStatus(), is(IdeaStatus.PROPOSED));
         ideaEntity.rejectIdea(Fixtures.givenUserEntity("test_adminId"), "mag ich nicht");
-        ideaEntity.rejectIdea(Fixtures.givenUserEntity("test_adminId"),"nope");
+        ideaEntity.rejectIdea(Fixtures.givenUserEntity("test_adminId"), "nope");
     }
 
     @Test
-    public void vote_ShouldReturn_validVoteEntity(){
+    public void vote_ShouldReturn_validVoteEntity() {
         final IdeaEntity givenIdea = givenValidApprovedIdea();
 
         final VoteEntity res = givenIdea.vote(givenUserEntity("voterId"), 5);
@@ -122,16 +126,16 @@ public class IdeaEntityTest {
     public void vote_ShouldThrow_On_NonApprovedIdea() {
         final IdeaEntity ideaEntity = Fixtures.givenIdeaEntity();
 
-        try{
+        try {
             ideaEntity.vote(Fixtures.givenUserEntity("voter_id"), 3);
             fail("Expected exception not thrown.");
-        }catch (InvalidRequestException e){
+        } catch (InvalidRequestException e) {
             assertThat(e.getMessage(), equalTo("idea_status_invalid_for_vote"));
         }
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void vote_ShouldThrow_onVote_outOfBounds_min(){
+    public void vote_ShouldThrow_onVote_outOfBounds_min() {
         final IdeaEntity givenIdea = Fixtures.givenIdeaEntity();
         givenIdea.approveIdea(Fixtures.givenUserEntity("adminId"));
 
@@ -139,11 +143,40 @@ public class IdeaEntityTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void vote_ShouldThrow_onVote_outOfBounds_max(){
+    public void vote_ShouldThrow_onVote_outOfBounds_max() {
         final IdeaEntity givenIdea = Fixtures.givenIdeaEntity();
         givenIdea.approveIdea(Fixtures.givenUserEntity("adminId"));
 
         givenIdea.vote(givenUserEntity("voterId"), 6);
+    }
+
+    @Test
+    public void calculateVotes_shouldCalculateAverageRating() {
+        final IdeaEntity idea = givenValidApprovedIdea();
+        Collection<VoteEntity> givenVotes = Arrays.asList(
+            new VoteEntity(new VoteId("voter1", idea.getId()), 5),
+            new VoteEntity(new VoteId("voter2", idea.getId()), 3),
+            new VoteEntity(new VoteId("voter3", idea.getId()), 2)
+        );
+
+        final Rating rating = idea.calculateRating(givenVotes, givenUserEntity("voter1"));
+        assertThat((double)rating.getAverageRating(), IsCloseTo.closeTo(3.33d, 0.01d));
+        assertThat(rating.getOwnVote(), is(5));
+        assertThat(rating.getCountVotes(), is(3));
+        assertThat(rating.getIdeaId(), is(idea.getId()));
+    }
+
+    @Test
+    public void calculateVotes_shouldReturnOwnRating_As_0_IfNotRated() {
+        final IdeaEntity idea = givenValidApprovedIdea();
+        Collection<VoteEntity> givenVotes = Arrays.asList(
+            new VoteEntity(new VoteId("voter1", idea.getId()), 5),
+            new VoteEntity(new VoteId("voter2", idea.getId()), 3),
+            new VoteEntity(new VoteId("voter3", idea.getId()), 2)
+        );
+
+        final Rating rating = idea.calculateRating(givenVotes, givenUserEntity("not_voted_for_Idea_User"));
+        assertThat(rating.getOwnVote(), is(0));
     }
 
     private IdeaEntity givenValidApprovedIdea() {

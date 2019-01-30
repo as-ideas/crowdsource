@@ -3,6 +3,8 @@ package de.asideas.crowdsource.domain.model.ideascampaign;
 import java.io.Serializable;
 import java.util.Objects;
 
+import org.springframework.util.Assert;
+
 public class VoteId implements Serializable {
 
     private String voterId;
@@ -13,6 +15,9 @@ public class VoteId implements Serializable {
     }
 
     public VoteId(String voterId, String ideaId) {
+        Assert.notNull(voterId, "voterId must not be null");
+        Assert.notNull(ideaId, "ideaId must not be null");
+
         this.voterId = voterId;
         this.ideaId = ideaId;
     }

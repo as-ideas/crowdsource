@@ -1,11 +1,15 @@
 package de.asideas.crowdsource.domain.model.ideascampaign;
 
+import java.util.Collection;
 import java.util.Objects;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 import de.asideas.crowdsource.domain.exception.InvalidRequestException;
 import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.domain.shared.ideascampaign.IdeaStatus;
 import de.asideas.crowdsource.presentation.ideascampaign.Idea;
+import de.asideas.crowdsource.presentation.ideascampaign.Rating;
 
 import org.joda.time.DateTime;
 import org.springframework.data.annotation.CreatedDate;
@@ -107,6 +111,12 @@ public class IdeaEntity {
         }
 
         return new VoteEntity(new VoteId(voter.getId(), this.getId()), vote);
+    }
+
+    public Rating calculateRating(Collection<VoteEntity> votes, UserEntity requestingUser) {
+        final Double calculatedAverage = votes.stream().map(VoteEntity::getVote).collect(Collectors.averagingInt(element -> element));
+        final Optional<VoteEntity> requestorVote = votes.stream().filter(el -> el.getId().getVoterId().equals(requestingUser.getId())).findFirst();
+        return new Rating(this.id, votes.size(), requestorVote.map(VoteEntity::getVote).orElse(0), calculatedAverage.floatValue());
     }
 
     public String getId() {
@@ -219,6 +229,5 @@ public class IdeaEntity {
             ", lastModifiedDate=" + lastModifiedDate +
             '}';
     }
-
 
 }
