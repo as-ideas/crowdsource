@@ -1,14 +1,14 @@
 <div class="ideas-grid-tile">
 
     <div ng-if="!vm.isAdminView">
-        <span class="ideas-grid-tile__title">{{ idea.title }} </span>
+        <span class="ideas-grid-tile__title">{{ idea.title }}</span>
         <span class="ideas-grid-tile__star--single"></span>
         <span class="ideas-grid-tile__votes-avg">{{ idea.avgVotes || 0 }} </span>
         <span class="ideas-grid-tile__votes-num"> von {{ idea.votes || 0 }} Personen</span>
     </div>
 
     <div ng-if="vm.isAdminView">
-        <span class="ideas-grid-tile__title">{{ idea.title }} </span>
+        <span class="ideas-grid-tile__title">{{ idea.title }}</span>
     </div>
 
     <p class="ideas-grid-tile__text">{{::idea.pitch}} <i class="ideas-grid-tile__author">({{::idea.creatorName}})</i></p>
@@ -30,19 +30,19 @@
         <div ng-if="vm.isVotingDisabled" class="star5" ng-class="vm.idea.voted >= 1 ? 'ideas-grid-tile__star--disabled-rated' : 'ideas-grid-tile__star--disabled'"></div>
     </div>
 
-    <div ng-if="vm.isAdminView" class="">
+    <div ng-if="vm.isAdminView" class="ideas-grid-tile__approval-container">
         <div ng-if="vm.idea.status == 'PROPOSED'">
-            <input type="text" ng-model="vm.idea.rejectionMessage" placeholder="Ablehnungsgrund">
-            <button class="ideas-grid-tile__btn ideas-grid-tile__btn-approve"></button>
-            <button ng-disabled="!vm.idea.rejectionMessage.length" class="ideas-grid-tile__btn ideas-grid-tile__btn-reject"></button>
+            <input type="text" ng-model="vm.rejectionComment" placeholder="Ablehnungsgrund">
+            <button ng-click="vm.publish()" class="ideas-grid-tile__btn ideas-grid-tile__btn-approve"></button>
+            <button ng-click="vm.reject()" ng-disabled="!vm.rejectionComment.length" class="ideas-grid-tile__btn ideas-grid-tile__btn-reject"></button>
         </div>
 
         <div ng-if="vm.idea.status == 'REJECTED'">
-            <p>Abgelehnt: {{vm.idea.rejectionMessage}}</p>
+            <p class="ideas-grid-tile__rejectionMessage">Abgelehnt: {{vm.idea.rejectionComment}}</p>
         </div>
 
         <div ng-if="vm.idea.status == 'PUBLISHED'">
-            <p>Veröffentlicht!</p>
+            <p class="ideas-grid-tile__publishedMessage">Veröffentlicht!</p>
         </div>
     </div>
 </div>

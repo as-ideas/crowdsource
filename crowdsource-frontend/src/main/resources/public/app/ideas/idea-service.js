@@ -5,7 +5,7 @@ angular.module('crowdsource')
         REJECTED: 'REJECTED',
         PUBLISHED: 'PUBLISHED'
     })
-    .factory('Idea', function ($resource, IDEAS_STATUS) {
+    .factory('Idea', function ($resource) {
 
         var service = {};
 
@@ -27,6 +27,12 @@ angular.module('crowdsource')
             get: {
                 isArray: true,
                 method: 'GET'
+            }
+        });
+
+        var ideaActionResource = $resource('/ideas_campaigns/:campaignId/ideas/:ideaId/:action', {}, {
+            put: {
+                method: 'PUT'
             }
         });
 
@@ -54,12 +60,28 @@ angular.module('crowdsource')
             return ideasResource.get({campaignId: campaignId}).$promise;
         }
 
+        function rejectIdea(campaignId, ideaId, message) {
+            console.log(campaignId, ideaId, message);
+
+            return ideaActionResource.put({campaignId: campaignId, ideaId: ideaId, action: 'rejection'}, {
+                rejectionComment: message
+            }).$promise;
+        }
+
+        function publishIdea(campaignId, ideaId) {
+            console.log(campaignId, ideaId);
+            return ideaActionResource.put({campaignId: campaignId, ideaId: ideaId, action: 'approval'}, {}).$promise;
+        }
+
         service.getAll = getAll;
         service.getCampaigns = getCampaigns;
         service.getCampaign = getCampaign;
         service.getOwnIdeas = getOwnIdeas;
         service.createIdea = createIdea;
         service.getIdeasWithStatus = getIdeasWithStatus;
+
+        service.rejectIdea = rejectIdea;
+        service.publishIdea = publishIdea;
 
         return service;
     });

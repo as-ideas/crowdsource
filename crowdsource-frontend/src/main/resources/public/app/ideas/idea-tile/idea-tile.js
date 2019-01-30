@@ -1,18 +1,21 @@
 angular.module('crowdsource')
-    .directive('ideaTile', function ($timeout) {
+    .directive('ideaTile', function ($timeout, Idea) {
 
         return {
             restrict: 'E',
             scope: {
                 'idea': '=',
-                'admin': '='
+                'admin': '=',
+                'campaign': "="
             },
             controllerAs: 'vm',
             templateUrl: 'app/ideas/idea-tile/idea-tile.html',
             controller: function ($scope) {
                 var vm = this;
                 vm.idea = $scope.idea;
+                vm.campaignId = $scope.campaign.id;
                 vm.isVotingDisabled = false;
+                vm.rejectionComment = "";
 
                 vm.isAdminView = $scope.admin || false;
 
@@ -23,7 +26,17 @@ angular.module('crowdsource')
                     $timeout(function() {vm.isVotingDisabled = false; }, 2000);
 
                     vm.idea.voted = vm.idea.voted === value ? 0 : value;
-                }
+                };
+
+                vm.publish = function () {
+                    if (!vm.isAdminView) { throw Error('publishing is only allowed for admin');}
+                    Idea.publishIdea(vm.campaignId, vm.idea.id)
+                };
+
+                vm.reject = function () {
+                    if (!vm.isAdminView) { throw Error('rejection is only allowed for admin');}
+                    Idea.rejectIdea(vm.campaignId, vm.idea.id, vm.rejectionComment)
+                };
             }
         };
     });
