@@ -3,31 +3,39 @@
 
 <content-row class="intro-section">
 
-    <div class="row">
-        <div class="columns medium-6">
-            <h1 class="plist__heading">Deine Idee</h1>
-            <p class="plist__intro--has-divider">
-                Was ist Deine Idee? Schreibe einen kurzern prägnanter Satz.
-            </p>
-            <div>
-                <idea-add campaign="ideasList.campaign"></idea-add>
-            </div>
-        </div>
+    <div class="container">
+        <h2 class="plist__heading--secondary intro-box__header ng-scope">
+            {{ideasList.campaign.title}}
+            <p class="plist__intro--has-divider">{{ideasList.campaign.sponsor}}</p>
+        </h2>
 
-        <div class="columns medium-6">
-            <h1 class="plist__heading">Deine eingereichten Ideen</h1>
-            <p class="plist__intro--has-divider">
-                Du hast schon XX Ideen eingereicht!
-            </p>
-            <p>Deine eingereichten Ideen werden von unser Redaktion zeitnah freigeben oder mit einer Begründung
-                abgeleht.</p>
-            <ul>
-                <li><span class="plist__pill">12</span>Freigegebene Ideen</li>
-                <li><span class="plist__pill">4</span>Ausstehende Ideen</li>
-                <li><span class="plist__pill">0</span>Abgelehnte Ideen</li>
-            </ul>
-        </div>
+        <ul class="round-description-box ng-scope">
+            <li class="round-description-box__item">
+                <div class="round-description-box__item-icon--capital"></div>
+                <h3 class="round-description-box__heading--has-divider">Wie funktioniert's?</h3>
+
+                <p class="round-description-box__intro">BLA BLA </p>
+            </li>
+
+            <li class="round-description-box__item--important">
+                <div class="round-description-box__item-icon--user"></div>
+                <h3 class="round-description-box__heading--has-divider">Deine Idee</h3>
+
+                <idea-add campaign="ideasList.campaign"></idea-add>
+            </li>
+
+            <li class="round-description-box__item">
+                <div class="round-description-box__item-icon--clock"></div>
+                <h3 class="intro-box__heading--has-divider">Deine bisherigen Ideen</h3>
+
+                <p class="round-description-box__intro">
+                    <ideas-own-statistics campaign="ideasList.campaign"></ideas-own-statistics>
+                    <a ng-href="/#ideas/{{ideasList.campaign.id}}/own">Deine Ideen</a>
+                </p>
+            </li>
+        </ul>
     </div>
+
 </content-row>
 
 <content-row>
