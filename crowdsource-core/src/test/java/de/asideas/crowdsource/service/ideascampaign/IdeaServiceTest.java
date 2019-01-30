@@ -5,7 +5,11 @@ import java.util.Collections;
 
 import de.asideas.crowdsource.domain.model.UserEntity;
 
+import de.asideas.crowdsource.domain.model.ideascampaign.IdeasCampaignEntity;
+import de.asideas.crowdsource.domain.service.ideascampaign.VotingService;
 import de.asideas.crowdsource.domain.service.user.UserNotificationService;
+import de.asideas.crowdsource.presentation.ideascampaign.IdeasCampaign;
+import de.asideas.crowdsource.presentation.ideascampaign.VoteCmd;
 import de.asideas.crowdsource.repository.UserRepository;
 
 import org.junit.Test;
@@ -48,6 +52,9 @@ public class IdeaServiceTest {
 
     @Mock
     private UserNotificationService userNotificationService;
+
+    @Mock
+    private VotingService votingService;
 
     @Test
     public void createNewIdea_shouldPersistIdeaAndNotify() {
@@ -164,15 +171,31 @@ public class IdeaServiceTest {
         assertThat(captor.getValue().getRejectionComment(), is("you are rejected!"));
     }
 
+    @Test
+    public void voteForIdea_shouldCallVotingService(){
+        final IdeaEntity ideaEntity = givenIdeaExists(new Idea("test_title", "test_pitch"));
+        final IdeasCampaignEntity expectedCampaign = givenIdeaCampaignExists(ideaEntity.getCampaignId());
+        final UserEntity voter = Fixtures.givenUserEntity("testvoter_id");
+
+        ideaService.voteForIdea(new VoteCmd(ideaEntity.getId(), 1), voter);
+
+        verify(votingService).voteForIdea(eq(ideaEntity), eq(expectedCampaign), eq(voter), eq(1));
+    }
+
     private IdeaEntity givenIdeaExists(Idea idea) {
         final IdeaEntity theIdea = Fixtures.givenIdeaEntity(idea);
+        theIdea.setId("testidea_id");
         doReturn(true).when(ideaRepository).exists(anyString());
         doReturn(theIdea).when(ideaRepository).findOne(anyString());
         return theIdea;
     }
 
-    private void givenIdeaCampaignExists(String campaignId) {
+    private IdeasCampaignEntity givenIdeaCampaignExists(String campaignId) {
         doReturn(true).when(ideasCampaignRepository).exists(campaignId);
+        final IdeasCampaignEntity campaign = Fixtures.givenIdeasCampaignEntity("test_initiator");
+        campaign.setId(campaignId);
+        doReturn(campaign).when(ideasCampaignRepository).findOne(campaignId);
+        return campaign;
     }
 
     private void givenIdeaCampaignDoesntExist(String campaignId) {

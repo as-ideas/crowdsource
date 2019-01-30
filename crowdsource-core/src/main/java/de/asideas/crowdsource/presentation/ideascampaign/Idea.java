@@ -1,12 +1,15 @@
 package de.asideas.crowdsource.presentation.ideascampaign;
 
+import java.util.Collection;
 import java.util.Objects;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.joda.time.DateTime;
 
+import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.domain.model.ideascampaign.IdeaEntity;
+import de.asideas.crowdsource.domain.model.ideascampaign.VoteEntity;
 import de.asideas.crowdsource.domain.shared.ideascampaign.IdeaStatus;
 
 public class Idea {
@@ -26,6 +29,8 @@ public class Idea {
 
     private String rejectionComment;
 
+    private Rating rating;
+
     private Idea() {
     }
 
@@ -37,6 +42,11 @@ public class Idea {
         this.creationDate = ideaEntity.getCreatedDate();
         this.creatorName = ideaEntity.getCreator().getFirstName();
         this.rejectionComment = ideaEntity.getRejectionComment();
+    }
+
+    public Idea(IdeaEntity ideaEntity, Collection<VoteEntity> votes, UserEntity requestor) {
+        this(ideaEntity);
+        this.rating = ideaEntity.calculateRating(votes, requestor);
     }
 
     public Idea(String title, String pitch) {
@@ -99,16 +109,12 @@ public class Idea {
         this.rejectionComment = rejectionComment;
     }
 
-    @Override
-    public String toString() {
-        return "Idea{" +
-            "id='" + id + '\'' +
-            ", creatorName='" + creatorName + '\'' +
-            ", title=" + title+
-            ", status=" + status +
-            ", creationDate=" + creationDate +
-            ", pitch='" + pitch + '\'' +
-            '}';
+    public Rating getRating() {
+        return rating;
+    }
+
+    public void setRating(Rating rating) {
+        this.rating = rating;
     }
 
     @Override
@@ -124,11 +130,28 @@ public class Idea {
             Objects.equals(creatorName, idea.creatorName) &&
             status == idea.status &&
             Objects.equals(creationDate, idea.creationDate) &&
-            Objects.equals(pitch, idea.pitch);
+            Objects.equals(title, idea.title) &&
+            Objects.equals(pitch, idea.pitch) &&
+            Objects.equals(rejectionComment, idea.rejectionComment) &&
+            Objects.equals(rating, idea.rating);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, creatorName, status, creationDate, pitch);
+        return Objects.hash(id, creatorName, status, creationDate, title, pitch, rejectionComment, rating);
+    }
+
+    @Override
+    public String toString() {
+        return "Idea{" +
+            "id='" + id + '\'' +
+            ", creatorName='" + creatorName + '\'' +
+            ", status=" + status +
+            ", creationDate=" + creationDate +
+            ", title='" + title + '\'' +
+            ", pitch='" + pitch + '\'' +
+            ", rejectionComment='" + rejectionComment + '\'' +
+            ", rating=" + rating +
+            '}';
     }
 }

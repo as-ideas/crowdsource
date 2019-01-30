@@ -18,6 +18,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import de.asideas.crowdsource.controller.ControllerExceptionAdvice;
 import de.asideas.crowdsource.presentation.ideascampaign.Idea;
 import de.asideas.crowdsource.presentation.ideascampaign.IdeaRejectCmd;
+import de.asideas.crowdsource.presentation.ideascampaign.VoteCmd;
 import de.asideas.crowdsource.service.UserService;
 import de.asideas.crowdsource.service.ideascampaign.IdeaService;
 
@@ -133,7 +134,31 @@ public class IdeaControllerTest {
             .andDo(log())
             .andExpect(status().isBadRequest())
             .andExpect(jsonPath("$.fieldViolations.rejectionComment", equalTo("size must be between 10 and 10000"))
-        );
+            );
+    }
+
+    @Test
+    public void voteIdea_ShouldReturn_400_onValueLowerThan_0() throws Exception {
+        mockMvc.perform(put("/ideas_campaigns/{campaignId}/ideas/{ideaId}/votes", "test_campId", "test_ideaId")
+            .contentType(MediaType.APPLICATION_JSON_UTF8)
+            .content(mapper.writeValueAsBytes(new VoteCmd(null, -1)))
+        )
+            .andDo(log())
+            .andExpect(status().isBadRequest())
+            .andExpect(jsonPath("$.fieldViolations.vote", equalTo("must be greater than or equal to 0"))
+            );
+    }
+
+    @Test
+    public void voteIdea_ShouldReturn_400_onValueHigherThan_5() throws Exception {
+        mockMvc.perform(put("/ideas_campaigns/{campaignId}/ideas/{ideaId}/votes", "test_campId", "test_ideaId")
+            .contentType(MediaType.APPLICATION_JSON_UTF8)
+            .content(mapper.writeValueAsBytes(new VoteCmd(null, 6)))
+        )
+            .andDo(log())
+            .andExpect(status().isBadRequest())
+            .andExpect(jsonPath("$.fieldViolations.vote", equalTo("must be less than or equal to 5"))
+            );
     }
 
 

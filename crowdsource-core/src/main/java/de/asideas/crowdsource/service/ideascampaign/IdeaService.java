@@ -4,7 +4,10 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import de.asideas.crowdsource.domain.model.ideascampaign.VoteEntity;
+import de.asideas.crowdsource.domain.service.ideascampaign.VotingService;
 import de.asideas.crowdsource.domain.service.user.UserNotificationService;
+import de.asideas.crowdsource.presentation.ideascampaign.VoteCmd;
 import de.asideas.crowdsource.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -21,6 +24,7 @@ import de.asideas.crowdsource.domain.shared.ideascampaign.IdeaStatus;
 import de.asideas.crowdsource.presentation.ideascampaign.Idea;
 import de.asideas.crowdsource.repository.ideascampaign.IdeaRepository;
 import de.asideas.crowdsource.repository.ideascampaign.IdeasCampaignRepository;
+import de.asideas.crowdsource.repository.ideascampaign.VoteRepository;
 import de.asideas.crowdsource.security.Roles;
 
 /**
@@ -44,6 +48,18 @@ public class IdeaService {
     @Autowired
     private UserNotificationService userNotificationService;
 
+    @Autowired
+    private VotingService votingService;
+
+    @Autowired
+    private VoteRepository voteRepository;
+
+    public Idea fetchIdea(String ideaId, UserEntity requestor) {
+        Assert.notNull(ideaId, "ideaId must not be null");
+        validateIdeaExists(ideaId);
+
+        return toIdea(ideaRepository.findOne(ideaId), requestor);
+    }
 
     public Idea createNewIdea(String campaignId, Idea cmd, UserEntity creator) {
         Assert.notNull(cmd, "cmd must not be null.");
@@ -102,16 +118,14 @@ public class IdeaService {
         ideaRepository.save(existingIdea);
     }
 
-    public void voteForIdea(String campaignId, String ideaId, UserEntity voter) {
-        Assert.notNull(ideaId, "ideaId must not be null");
+    public void voteForIdea(VoteCmd voteCmd, UserEntity voter) {
+        Assert.notNull(voteCmd.getIdeaId(), "ideaId must not be null");
         Assert.notNull(voter, "voter must not be null");
 
-        validateCampaignExists(campaignId);
-        validateIdeaExists(ideaId);
+        validateIdeaExists(voteCmd.getIdeaId());
+        final IdeaEntity idea = ideaRepository.findOne(voteCmd.getIdeaId());
 
-        final IdeaEntity idea = ideaRepository.findOne(ideaId);
-
-
+        votingService.voteForIdea(idea, ideasCampaignRepository.findOne(idea.getCampaignId()), voter, voteCmd.getVote());
     }
 
     public Page<Idea> fetchIdeasByStatus(String campaignId, Set<IdeaStatus> statusSet, Integer page, Integer pageSize) {
@@ -149,6 +163,11 @@ public class IdeaService {
         return res.stream().map(Idea::new).collect(Collectors.toList());
     }
 
+    private Idea toIdea(IdeaEntity res, UserEntity requestor) {
+        List<VoteEntity> votes = voteRepository.findByIdIdeaId(res.getId());
+        return new Idea(res, votes, requestor);
+    }
+
     private void checkRequestorIsOwner(UserEntity requestingUser, IdeaEntity existingIdea) {
         if (!existingIdea.getCreator().equals(requestingUser)) {
             throw new AuthorizationServiceException("User is not owner of this idea");
@@ -172,6 +191,5 @@ public class IdeaService {
             throw new ResourceNotFoundException();
         }
     }
-
 
 }

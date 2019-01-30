@@ -14,11 +14,17 @@ import org.springframework.test.web.servlet.ResultActions;
 import de.asideas.crowdsource.AbstractCrowdIT;
 import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.domain.model.ideascampaign.IdeaEntity;
+import de.asideas.crowdsource.domain.model.ideascampaign.IdeasCampaignEntity;
+import de.asideas.crowdsource.domain.model.ideascampaign.VoteEntity;
+import de.asideas.crowdsource.domain.model.ideascampaign.VoteId;
 import de.asideas.crowdsource.domain.shared.ideascampaign.IdeaStatus;
 import de.asideas.crowdsource.presentation.ideascampaign.Idea;
 import de.asideas.crowdsource.presentation.ideascampaign.IdeasCampaign;
 import de.asideas.crowdsource.presentation.ideascampaign.IdeaRejectCmd;
+import de.asideas.crowdsource.presentation.ideascampaign.VoteCmd;
 import de.asideas.crowdsource.repository.ideascampaign.IdeaRepository;
+import de.asideas.crowdsource.repository.ideascampaign.IdeasCampaignRepository;
+import de.asideas.crowdsource.repository.ideascampaign.VoteRepository;
 import de.asideas.crowdsource.testutil.Fixtures;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -26,6 +32,7 @@ import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsNull.nullValue;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -38,6 +45,12 @@ public class IdeaControllerIT extends AbstractCrowdIT {
 
     @Autowired
     private IdeaRepository ideaRepository;
+
+    @Autowired
+    private VoteRepository voteRepository;
+
+    @Autowired
+    private IdeasCampaignRepository ideasCampaignRepository;
 
     @Test
     public void createIdea_shouldPersistNewIdea() throws Exception {
@@ -368,13 +381,13 @@ public class IdeaControllerIT extends AbstractCrowdIT {
         final UserEntity admin = givenAdminUserExists();
         final String adminToken = obtainAccessToken(admin.getEmail(), admin.getPassword());
 
-        final UserEntity user1 = givenUserExists();
-        final String user1Token = obtainAccessToken(user1.getEmail(), user1.getPassword());
+        final UserEntity user = givenUserExists();
+        final String userToken = obtainAccessToken(user.getEmail(), user.getPassword());
 
         final IdeasCampaign parentCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
 
         final Idea originalIdea = givenValidIdeaCmd();
-        final MvcResult mvcRes = givenIdeaExists(user1Token, parentCampaign.getId(), originalIdea)
+        final MvcResult mvcRes = givenIdeaExists(userToken, parentCampaign.getId(), originalIdea)
             .andExpect(status().isCreated()).andReturn();
 
         final Idea actualIdea = mapper.readValue(mvcRes.getResponse().getContentAsString(), Idea.class);
@@ -396,6 +409,180 @@ public class IdeaControllerIT extends AbstractCrowdIT {
 
     }
 
+    @Test
+    public void voteForIdea_ShouldPersistVoting() throws Exception {
+        final UserEntity admin = givenAdminUserExists();
+        final String adminToken = obtainAccessToken(admin.getEmail(), admin.getPassword());
+
+        final UserEntity user = givenUserExists();
+        final String userToken = obtainAccessToken(user.getEmail(), user.getPassword());
+
+        final IdeasCampaign parentCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
+        final IdeaEntity actualIdea = givenApprovedIdeaExists(userToken, parentCampaign.getId(), givenValidIdeaCmd());
+
+        final VoteCmd cmd = new VoteCmd(null, 5);
+
+        mockMvc.perform(put("/ideas_campaigns/{campaignId}/ideas/{ideaId}/votes", parentCampaign.getId(), actualIdea.getId())
+            .header("Authorization", "Bearer " + userToken)
+            .accept(MediaType.APPLICATION_JSON_UTF8)
+            .contentType(MediaType.APPLICATION_JSON_UTF8)
+            .content(mapper.writeValueAsBytes(cmd))
+        )
+            .andDo(print())
+            .andExpect(status().is2xxSuccessful());
+
+        final VoteEntity actRes = voteRepository.findOne(new VoteId(user.getId(), actualIdea.getId()));
+        assertThat(actRes, notNullValue());
+        assertThat(actRes.getVote(), is(5));
+    }
+
+
+    @Test
+    public void voteForIdea_ShouldReturn_400_onExpiredCampaign() throws Exception {
+        final UserEntity admin = givenAdminUserExists();
+        final String adminToken = obtainAccessToken(admin.getEmail(), admin.getPassword());
+
+        final UserEntity user = givenUserExists();
+        final String userToken = obtainAccessToken(user.getEmail(), user.getPassword());
+
+        final IdeasCampaign parentCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
+        final IdeaEntity actualIdea = givenApprovedIdeaExists(userToken, parentCampaign.getId(), givenValidIdeaCmd());
+
+        final IdeasCampaignEntity campaignToExpire = ideasCampaignRepository.findOne(parentCampaign.getId());
+        campaignToExpire.setEndDate(DateTime.now().minusSeconds(1000));
+        ideasCampaignRepository.save(campaignToExpire);
+
+        final VoteCmd cmd = new VoteCmd(null, 5);
+
+        mockMvc.perform(put("/ideas_campaigns/{campaignId}/ideas/{ideaId}/votes", parentCampaign.getId(), actualIdea.getId())
+            .header("Authorization", "Bearer " + userToken)
+            .accept(MediaType.APPLICATION_JSON_UTF8)
+            .contentType(MediaType.APPLICATION_JSON_UTF8)
+            .content(mapper.writeValueAsBytes(cmd))
+        )
+            .andDo(print())
+            .andExpect(status().is4xxClientError())
+            .andExpect(jsonPath("$.errorCode", is("campaign_not_active")));
+
+        final VoteEntity actRes = voteRepository.findOne(new VoteId(user.getId(), actualIdea.getId()));
+        assertThat(actRes, nullValue());
+    }
+
+    @Test
+    public void voteForIdea_ShouldReturnRating() throws Exception {
+        final UserEntity admin = givenAdminUserExists();
+        final String adminToken = obtainAccessToken(admin.getEmail(), admin.getPassword());
+
+        final UserEntity user = givenUserExists();
+        final String userToken = obtainAccessToken(user.getEmail(), user.getPassword());
+
+        final IdeasCampaign parentCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
+        final IdeaEntity actualIdea = givenApprovedIdeaExists(userToken, parentCampaign.getId(), givenValidIdeaCmd());
+
+        final VoteCmd cmd1 = new VoteCmd(null, 5);
+
+        mockMvc.perform(put("/ideas_campaigns/{campaignId}/ideas/{ideaId}/votes", parentCampaign.getId(), actualIdea.getId())
+            .header("Authorization", "Bearer " + userToken)
+            .accept(MediaType.APPLICATION_JSON_UTF8)
+            .contentType(MediaType.APPLICATION_JSON_UTF8)
+            .content(mapper.writeValueAsBytes(cmd1))
+        )
+            .andDo(print())
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.ideaId", is(actualIdea.getId())))
+            .andExpect(jsonPath("$.countVotes", is(1)))
+            .andExpect(jsonPath("$.ownVote", is(5)))
+            .andExpect(jsonPath("$.averageRating", is(5.0)))
+        ;
+
+        final VoteCmd cmd2 = new VoteCmd(null, 3);
+        mockMvc.perform(put("/ideas_campaigns/{campaignId}/ideas/{ideaId}/votes", parentCampaign.getId(), actualIdea.getId())
+            .header("Authorization", "Bearer " + adminToken)
+            .accept(MediaType.APPLICATION_JSON_UTF8)
+            .contentType(MediaType.APPLICATION_JSON_UTF8)
+            .content(mapper.writeValueAsBytes(cmd2))
+        )
+            .andDo(print())
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.ideaId", is(actualIdea.getId())))
+            .andExpect(jsonPath("$.countVotes", is(2)))
+            .andExpect(jsonPath("$.ownVote", is(3)))
+            .andExpect(jsonPath("$.averageRating", is(4.0)))
+        ;
+
+    }
+
+    @Test
+    public void voteForIdea_ShouldDoNothing_on_ZeroValueWithoutExistingVote() throws Exception {
+        final UserEntity admin = givenAdminUserExists();
+        final String adminToken = obtainAccessToken(admin.getEmail(), admin.getPassword());
+
+        final UserEntity user = givenUserExists();
+        final String userToken = obtainAccessToken(user.getEmail(), user.getPassword());
+
+        final IdeasCampaign parentCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
+        final IdeaEntity actualIdea = givenApprovedIdeaExists(userToken, parentCampaign.getId(), givenValidIdeaCmd());
+
+        final VoteCmd cmd = new VoteCmd(null, 0);
+        mockMvc.perform(put("/ideas_campaigns/{campaignId}/ideas/{ideaId}/votes", parentCampaign.getId(), actualIdea.getId())
+            .header("Authorization", "Bearer " + userToken)
+            .accept(MediaType.APPLICATION_JSON_UTF8)
+            .contentType(MediaType.APPLICATION_JSON_UTF8)
+            .content(mapper.writeValueAsBytes(cmd))
+        )
+            .andDo(print())
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.ideaId", is(actualIdea.getId())))
+            .andExpect(jsonPath("$.countVotes", is(0)))
+            .andExpect(jsonPath("$.ownVote", is(0)))
+            .andExpect(jsonPath("$.averageRating", is(0.0)))
+        ;
+    }
+
+    @Test
+    public void voteForIdea_ShouldRemoveVote_on_ZeroValue() throws Exception {
+        final UserEntity admin = givenAdminUserExists();
+        final String adminToken = obtainAccessToken(admin.getEmail(), admin.getPassword());
+
+        final UserEntity user = givenUserExists();
+        final String userToken = obtainAccessToken(user.getEmail(), user.getPassword());
+
+        final IdeasCampaign parentCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
+        final IdeaEntity actualIdea = givenApprovedIdeaExists(userToken, parentCampaign.getId(), givenValidIdeaCmd());
+
+        final VoteCmd cmd1 = new VoteCmd(null, 5);
+
+        mockMvc.perform(put("/ideas_campaigns/{campaignId}/ideas/{ideaId}/votes", parentCampaign.getId(), actualIdea.getId())
+            .header("Authorization", "Bearer " + userToken)
+            .accept(MediaType.APPLICATION_JSON_UTF8)
+            .contentType(MediaType.APPLICATION_JSON_UTF8)
+            .content(mapper.writeValueAsBytes(cmd1))
+        )
+            .andDo(print())
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.ideaId", is(actualIdea.getId())))
+            .andExpect(jsonPath("$.countVotes", is(1)))
+            .andExpect(jsonPath("$.ownVote", is(5)))
+            .andExpect(jsonPath("$.averageRating", is(5.0)))
+        ;
+
+        final VoteCmd cmd2 = new VoteCmd(null, 0);
+        mockMvc.perform(put("/ideas_campaigns/{campaignId}/ideas/{ideaId}/votes", parentCampaign.getId(), actualIdea.getId())
+            .header("Authorization", "Bearer " + userToken)
+            .accept(MediaType.APPLICATION_JSON_UTF8)
+            .contentType(MediaType.APPLICATION_JSON_UTF8)
+            .content(mapper.writeValueAsBytes(cmd2))
+        )
+            .andDo(print())
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.ideaId", is(actualIdea.getId())))
+            .andExpect(jsonPath("$.countVotes", is(0)))
+            .andExpect(jsonPath("$.ownVote", is(0)))
+            .andExpect(jsonPath("$.averageRating", is(0.0)))
+        ;
+
+    }
+
     private ResultActions givenIdeaExists(String accessToken, String campaignId, Idea cmd) throws Exception {
         return mockMvc.perform(post("/ideas_campaigns/{campaignId}/ideas", campaignId)
                 .header("Authorization", "Bearer " + accessToken)
@@ -405,11 +592,11 @@ public class IdeaControllerIT extends AbstractCrowdIT {
         )
                 .andDo(log());
     }
-    private void givenApprovedIdeaExists(String accessToken, String campaignId, Idea cmd) throws Exception {
+    private IdeaEntity givenApprovedIdeaExists(String accessToken, String campaignId, Idea cmd) throws Exception {
         final Idea givenIdea = mapper.readValue(givenIdeaExists(accessToken, campaignId, cmd).andExpect(status().isCreated()).andReturn().getResponse().getContentAsString(), Idea.class);
         final IdeaEntity entity = ideaRepository.findOne(givenIdea.getId());
         entity.approveIdea(Fixtures.givenUserEntity("4212"));
-        ideaRepository.save(entity);
+        return ideaRepository.save(entity);
     }
 
     private Idea givenValidIdeaCmd() {

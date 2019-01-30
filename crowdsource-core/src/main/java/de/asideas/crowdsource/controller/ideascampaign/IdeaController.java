@@ -20,11 +20,14 @@ import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.domain.shared.ideascampaign.IdeaStatus;
 import de.asideas.crowdsource.presentation.ideascampaign.Idea;
 import de.asideas.crowdsource.presentation.ideascampaign.IdeaRejectCmd;
+import de.asideas.crowdsource.presentation.ideascampaign.Rating;
+import de.asideas.crowdsource.presentation.ideascampaign.VoteCmd;
 import de.asideas.crowdsource.security.Roles;
 import de.asideas.crowdsource.service.UserService;
 import de.asideas.crowdsource.service.ideascampaign.IdeaService;
 
 import static de.asideas.crowdsource.security.Roles.ROLE_ADMIN;
+import static de.asideas.crowdsource.security.Roles.ROLE_USER;
 import static org.slf4j.LoggerFactory.getLogger;
 
 @RestController
@@ -93,6 +96,20 @@ public class IdeaController {
         log.info("Going to approve ideaId={}", ideaId);
         ideaService.rejectIdea(ideaId, cmd.getRejectionComment(), userByPrincipal(principal));
     }
+
+    @Secured(ROLE_USER)
+    @PutMapping(value = "/ideas_campaigns/{campaignId}/ideas/{ideaId}/votes", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Rating voteForIdea(@PathVariable String campaignId, @PathVariable String ideaId, @Valid @RequestBody VoteCmd cmd, Principal principal) {
+        log.info("Going to vote={} on ideaId={}", cmd.getVote(), ideaId);
+        cmd.setIdeaId(ideaId);
+        final UserEntity voter = userByPrincipal(principal);
+        ideaService.voteForIdea(cmd, voter);
+
+        Idea idea = ideaService.fetchIdea(ideaId, voter);
+
+        return idea.getRating();
+    }
+
 
     private UserEntity userByPrincipal(Principal principal) {
         return userService.getUserByEmail(principal.getName());
