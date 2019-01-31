@@ -47,23 +47,24 @@ public class IdeaController {
                                  @RequestParam(value = "page", required = false) Integer page,
                                  @RequestParam(value = "pageSize", required = false) Integer pageSize,
                                  @RequestParam(value = "status", required = false) IdeaStatus status,
-                                 Authentication auth) {
+                                 Authentication auth, Principal principal ) {
 
         if (status == null) {
-            return ideaService.fetchIdeasByStatus(campaignId, Collections.singleton(IdeaStatus.PUBLISHED), page, pageSize);
+            return ideaService.fetchIdeasByStatus(campaignId, Collections.singleton(IdeaStatus.PUBLISHED), page, pageSize, userByPrincipal(principal));
         }
 
         if (!auth.getAuthorities().contains(new SimpleGrantedAuthority(ROLE_ADMIN))) {
             throw new ForbiddenException();
         }
 
-        return ideaService.fetchIdeasByStatus(campaignId, Collections.singleton(status), page, pageSize);
+        return ideaService.fetchIdeasByStatus(campaignId, Collections.singleton(status), page, pageSize, userByPrincipal(principal));
     }
 
     @Secured(Roles.ROLE_USER)
     @GetMapping(value = "/ideas_campaigns/{campaignId}/my_ideas", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<Idea> fetchIdeasOfCurrentUser(@PathVariable String campaignId, Principal principal) {
-        return ideaService.fetchIdeasByCampaignAndUser(campaignId, userByPrincipal(principal));
+        final UserEntity requestor = userByPrincipal(principal);
+        return ideaService.fetchIdeasByCampaignAndCreator(campaignId, requestor, requestor);
     }
 
     @Secured(Roles.ROLE_USER)

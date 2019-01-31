@@ -25,6 +25,12 @@ public class Fixtures {
         return givenIdeaEntity(new Idea("test_title", "test_pitch"));
     }
 
+    public static IdeaEntity givenIdeaEntity(String ideaId) {
+        final IdeaEntity res = givenIdeaEntity(new Idea("test_title", "test_pitch"));
+        res.setId(ideaId);
+        return res;
+    }
+
     public static IdeasCampaign givenIdeasCampaign(String initiatorUserId) {
         return new IdeasCampaign(DateTime.now().minusDays(10), DateTime.now().plusDays(2),
                 new CampaignInitiator(initiatorUserId, "new username"), "better sponsor", "amazing title", "longer description", "tuuuut", "usw");

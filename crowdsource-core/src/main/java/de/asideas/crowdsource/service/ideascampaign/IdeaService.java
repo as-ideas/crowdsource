@@ -34,7 +34,8 @@ import de.asideas.crowdsource.security.Roles;
 @Service
 public class IdeaService {
 
-    private static final int DEFAULT_PAGE_SIZE = 500;
+    static final int DEFAULT_PAGE_SIZE = 20;
+    static final int MAX_PAGE_SIZE = 200;
 
     @Autowired
     private IdeaRepository ideaRepository;
@@ -59,6 +60,30 @@ public class IdeaService {
         validateIdeaExists(ideaId);
 
         return toIdea(ideaRepository.findOne(ideaId), requestor);
+    }
+
+    public Page<Idea> fetchIdeasByStatus(String campaignId, Set<IdeaStatus> statusSet, Integer page, Integer pageSize, UserEntity requestor) {
+        Assert.notNull(campaignId, "campaignId must not be null");
+
+        final PageRequest pReq;
+        if (page != null && pageSize != null) {
+            pReq = new PageRequest(page, pageSize > MAX_PAGE_SIZE ? DEFAULT_PAGE_SIZE : pageSize);
+        }else {
+            pReq= new PageRequest(0, DEFAULT_PAGE_SIZE);
+        }
+
+        final Page<IdeaEntity> dbRes = ideaRepository.findByCampaignIdAndStatusIn(
+            campaignId,
+            statusSet,
+            pReq
+        );
+        return new PageImpl<>(toIdeas(dbRes.getContent(), requestor), pReq, dbRes.getTotalElements());
+    }
+
+    public List<Idea> fetchIdeasByCampaignAndCreator(String campaignId, UserEntity creator, UserEntity requestor) {
+        Assert.notNull(campaignId, "campaignId must not be null");
+        Assert.notNull(creator, "creator must not be null");
+        return toIdeas(ideaRepository.findByCampaignIdAndCreator(campaignId, creator), requestor);
     }
 
     public Idea createNewIdea(String campaignId, Idea cmd, UserEntity creator) {
@@ -128,30 +153,6 @@ public class IdeaService {
         votingService.voteForIdea(idea, ideasCampaignRepository.findOne(idea.getCampaignId()), voter, voteCmd.getVote());
     }
 
-    public Page<Idea> fetchIdeasByStatus(String campaignId, Set<IdeaStatus> statusSet, Integer page, Integer pageSize) {
-        Assert.notNull(campaignId, "campaignId must not be null");
-
-        final PageRequest pReq;
-        if (page != null && pageSize != null) {
-            pReq = new PageRequest(page, pageSize > DEFAULT_PAGE_SIZE ? DEFAULT_PAGE_SIZE : pageSize);
-        }else {
-            pReq= new PageRequest(0, DEFAULT_PAGE_SIZE);
-        }
-
-        final Page<IdeaEntity> dbRes = ideaRepository.findByCampaignIdAndStatusIn(
-            campaignId,
-            statusSet,
-            pReq
-        );
-        return new PageImpl<>(toIdeas(dbRes.getContent()), pReq, dbRes.getTotalElements());
-    }
-
-    public List<Idea> fetchIdeasByCampaignAndUser(String campaignId, UserEntity creator) {
-        Assert.notNull(campaignId, "campaignId must not be null");
-        Assert.notNull(creator, "creator must not be null");
-        return toIdeas(ideaRepository.findByCampaignIdAndCreator(campaignId, creator));
-    }
-
 
     private void notifyAdminsOnNewIdea(final IdeaEntity ideaEntity) {
         userRepository.findAllAdminUsers().stream()
@@ -159,8 +160,8 @@ public class IdeaService {
                 .forEach(emailAddress -> userNotificationService.notifyAdminOnIdeaCreation(ideaEntity, emailAddress));
     }
 
-    private List<Idea> toIdeas(List<IdeaEntity> res) {
-        return res.stream().map(Idea::new).collect(Collectors.toList());
+    private List<Idea> toIdeas(List<IdeaEntity> res, UserEntity requestor) {
+        return res.stream().map(idea -> toIdea(idea, requestor)).collect(Collectors.toList());
     }
 
     private Idea toIdea(IdeaEntity res, UserEntity requestor) {

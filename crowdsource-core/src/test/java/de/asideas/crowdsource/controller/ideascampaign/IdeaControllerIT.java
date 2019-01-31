@@ -3,6 +3,7 @@ package de.asideas.crowdsource.controller.ideascampaign;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.IntStream;
 
 import org.joda.time.DateTime;
 import org.junit.Test;
@@ -119,6 +120,52 @@ public class IdeaControllerIT extends AbstractCrowdIT {
             .andExpect(jsonPath("$.content[1].pitch", is("pitch 2")))
             .andReturn().getResponse().getContentAsString()
             ;
+    }
+
+    @Test
+    public void fetchIdeas_shouldReturnIdeas_ContaingingRatings() throws Exception {
+
+        final UserEntity admin = givenAdminUserExists();
+        final String adminToken = obtainAccessToken(admin.getEmail(), admin.getPassword());
+        final UserEntity user = givenUserExists();
+        final String userToken = obtainAccessToken(user.getEmail(), user.getPassword());
+
+        final IdeasCampaign parentCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
+
+        final Idea cmd1 = new Idea("test_title_1", "pitch 1");
+        final Idea cmd2 = new Idea("test_title_2", "pitch 2");
+        final IdeaEntity idea1 = givenApprovedIdeaExists(userToken, parentCampaign.getId(), cmd1);
+        final IdeaEntity idea2 = givenApprovedIdeaExists(userToken, parentCampaign.getId(), cmd2);
+        givenIdeaHasVotings(idea1, userToken, 3);
+        givenIdeaHasVotings(idea1, adminToken, 5);
+        givenIdeaHasVotings(idea2, userToken, 1);
+        givenIdeaHasVotings(idea2, adminToken, 3);
+
+        mockMvc.perform(get("/ideas_campaigns/{campaignId}/ideas", parentCampaign.getId())
+            .contentType(MediaType.APPLICATION_JSON_UTF8)
+            .header("Authorization", "Bearer " + userToken)
+            .accept(MediaType.APPLICATION_JSON_UTF8)
+        )
+            .andDo(print())
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.content.length()", is(2)))
+            .andExpect(jsonPath("$.content[0].rating.averageRating", is(4.0)))
+            .andExpect(jsonPath("$.content[1].rating.averageRating", is(2.0)))
+            .andReturn().getResponse().getContentAsString()
+        ;
+    }
+
+    private void givenIdeaHasVotings(IdeaEntity idea, String bearerToken, int voting) throws Exception{
+
+            final VoteCmd cmd = new VoteCmd(null, voting);
+            mockMvc.perform(put("/ideas_campaigns/{campaignId}/ideas/{ideaId}/votes", idea.getCampaignId(), idea.getId())
+                .header("Authorization", "Bearer " + bearerToken)
+                .accept(MediaType.APPLICATION_JSON_UTF8)
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(mapper.writeValueAsBytes(cmd))
+            )
+                .andDo(print())
+                .andExpect(status().is2xxSuccessful());
 
     }
 
@@ -435,7 +482,6 @@ public class IdeaControllerIT extends AbstractCrowdIT {
         assertThat(actRes, notNullValue());
         assertThat(actRes.getVote(), is(5));
     }
-
 
     @Test
     public void voteForIdea_ShouldReturn_400_onExpiredCampaign() throws Exception {
