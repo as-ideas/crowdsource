@@ -1,9 +1,12 @@
 function IdeasStatusBar(element) {
 
+    this.element = element;
+
     this.adminButton = function () {
-      return element.find("a[name='admin-button']");
+        return element.find("a[name='admin-button']");
     };
-  this.userButton = function () {
-    return element.find("a[name='user-button']");
-    };
+
+    this.getDuration = function () {
+        var el = element.find("span.ideas-status-timeleft").text();
+    }
 };

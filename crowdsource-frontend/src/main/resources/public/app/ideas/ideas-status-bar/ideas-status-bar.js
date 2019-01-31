@@ -28,9 +28,9 @@ angular.module('crowdsource')
 
                 function updateBreadcrumb(title) {
                     vm.breadcrumbs = [];
-                    vm.breadcrumbs.push({target: '/#/intro', label: 'CROWD'});
-                    vm.breadcrumbs.push({target: '/#/ideas', label: title});
+                    vm.breadcrumbs.push({target: '/#/intro', label: 'Ideen'});
                     vm.breadcrumbs.push({target: '/#/ideas/' + vm.campaign.id, label: vm.campaign.title});
+                    vm.breadcrumbs.push({target: '', label: title});
                 }
 
                 Route.onRouteChangeSuccessAndInit(function (event, currentRoute) {
