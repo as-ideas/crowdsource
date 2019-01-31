@@ -18,7 +18,6 @@ describe('trust-url filter', function () {
             var view = $compile('<div><video src="{{videoUrl | trustUrl}}" controls></video></div>')($scope);
             $scope.$digest();
 
-            console.log(view.html());
             expect(view.html()).toContain($scope.videoUrl);
         });
 
