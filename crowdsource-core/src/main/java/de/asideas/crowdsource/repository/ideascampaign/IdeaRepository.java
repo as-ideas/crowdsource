@@ -19,5 +19,9 @@ public interface IdeaRepository extends MongoRepository<IdeaEntity, String> {
     List<IdeaEntity> findByCampaignIdAndCreator(String campaignId, UserEntity creator);
 
     Page<IdeaEntity> findByCampaignIdAndStatusIn(String campaignId, Set<IdeaStatus> status, PageRequest pReq);
+
+    Page<IdeaEntity> findByCampaignIdAndStatusAndIdIn(String campaignId, IdeaStatus published, Set<String> ideaIds, PageRequest capture);
+
+    Page<IdeaEntity> findByCampaignIdAndStatusAndIdNotIn(String campaignId, IdeaStatus published, Set<String> ideaIds, PageRequest calcPageRequest);
 }
 

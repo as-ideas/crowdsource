@@ -61,6 +61,17 @@ public class IdeaController {
     }
 
     @Secured(Roles.ROLE_USER)
+    @GetMapping(value = "/ideas_campaigns/{campaignId}/ideas/filtered", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public Page<Idea> fetchIdeasFiltered(@PathVariable String campaignId,
+                                 @RequestParam(value = "page", required = false) Integer page,
+                                 @RequestParam(value = "pageSize", required = false) Integer pageSize,
+                                 @RequestParam(value = "alreadyVoted", required = true) Boolean alreadyVotedFor,
+                                 Principal principal ) {
+
+        return ideaService.fetchIdeasByRequestorHasVoted(campaignId, alreadyVotedFor, page, pageSize, userByPrincipal(principal));
+    }
+
+    @Secured(Roles.ROLE_USER)
     @GetMapping(value = "/ideas_campaigns/{campaignId}/my_ideas", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<Idea> fetchIdeasOfCurrentUser(@PathVariable String campaignId, Principal principal) {
         final UserEntity requestor = userByPrincipal(principal);

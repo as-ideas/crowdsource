@@ -9,6 +9,7 @@ import de.asideas.crowdsource.domain.service.ideascampaign.VotingService;
 import de.asideas.crowdsource.domain.service.user.UserNotificationService;
 import de.asideas.crowdsource.presentation.ideascampaign.VoteCmd;
 import de.asideas.crowdsource.repository.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -65,19 +66,36 @@ public class IdeaService {
     public Page<Idea> fetchIdeasByStatus(String campaignId, Set<IdeaStatus> statusSet, Integer page, Integer pageSize, UserEntity requestor) {
         Assert.notNull(campaignId, "campaignId must not be null");
 
-        final PageRequest pReq;
-        if (page != null && pageSize != null) {
-            pReq = new PageRequest(page, pageSize > MAX_PAGE_SIZE ? DEFAULT_PAGE_SIZE : pageSize);
-        }else {
-            pReq= new PageRequest(0, DEFAULT_PAGE_SIZE);
-        }
-
         final Page<IdeaEntity> dbRes = ideaRepository.findByCampaignIdAndStatusIn(
             campaignId,
             statusSet,
-            pReq
+            calcPageRequest(page, pageSize)
         );
-        return new PageImpl<>(toIdeas(dbRes.getContent(), requestor), pReq, dbRes.getTotalElements());
+        return new PageImpl<>(toIdeas(dbRes.getContent(), requestor), calcPageRequest(page, pageSize), dbRes.getTotalElements());
+    }
+
+    public Page<Idea> fetchIdeasByRequestorHasVoted(String campaignId, boolean hasVoted, Integer page, Integer pageSize, UserEntity requestor) {
+        Assert.notNull(campaignId, "campaignId must not be null");
+
+        final Set<String> ideaIds = voteRepository.findIdsByVoterId(requestor.getId()).stream().map(el -> el.getId().getIdeaId()).collect(Collectors.toSet());
+
+        final Page<IdeaEntity> dbRes;
+        if (hasVoted) {
+            dbRes = ideaRepository.findByCampaignIdAndStatusAndIdIn(
+                campaignId,
+                IdeaStatus.PUBLISHED,
+                ideaIds,
+                calcPageRequest(page, pageSize)
+            );
+        } else {
+            dbRes = ideaRepository.findByCampaignIdAndStatusAndIdNotIn(
+                campaignId,
+                IdeaStatus.PUBLISHED,
+                ideaIds,
+                calcPageRequest(page, pageSize)
+            );
+        }
+        return new PageImpl<>(toIdeas(dbRes.getContent(), requestor), calcPageRequest(page, pageSize), dbRes.getTotalElements());
     }
 
     public List<Idea> fetchIdeasByCampaignAndCreator(String campaignId, UserEntity creator, UserEntity requestor) {
@@ -156,8 +174,8 @@ public class IdeaService {
 
     private void notifyAdminsOnNewIdea(final IdeaEntity ideaEntity) {
         userRepository.findAllAdminUsers().stream()
-                .map(UserEntity::getEmail)
-                .forEach(emailAddress -> userNotificationService.notifyAdminOnIdeaCreation(ideaEntity, emailAddress));
+            .map(UserEntity::getEmail)
+            .forEach(emailAddress -> userNotificationService.notifyAdminOnIdeaCreation(ideaEntity, emailAddress));
     }
 
     private List<Idea> toIdeas(List<IdeaEntity> res, UserEntity requestor) {
@@ -176,7 +194,7 @@ public class IdeaService {
     }
 
     private void checkRequestorIsAdmin(UserEntity requestingUser) {
-        if ( !requestingUser.getRoles().contains(Roles.ROLE_ADMIN) ) {
+        if (!requestingUser.getRoles().contains(Roles.ROLE_ADMIN)) {
             throw new AuthorizationServiceException("Requested functionality rquires admin access");
         }
     }
@@ -193,4 +211,13 @@ public class IdeaService {
         }
     }
 
+    private PageRequest calcPageRequest(Integer page, Integer pageSize) {
+        PageRequest pReq;
+        if (page != null && pageSize != null) {
+            pReq = new PageRequest(page, pageSize > MAX_PAGE_SIZE ? DEFAULT_PAGE_SIZE : pageSize);
+        } else {
+            pReq = new PageRequest(0, DEFAULT_PAGE_SIZE);
+        }
+        return pReq;
+    }
 }

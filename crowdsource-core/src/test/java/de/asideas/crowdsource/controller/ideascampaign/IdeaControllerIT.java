@@ -136,10 +136,10 @@ public class IdeaControllerIT extends AbstractCrowdIT {
         final Idea cmd2 = new Idea("test_title_2", "pitch 2");
         final IdeaEntity idea1 = givenApprovedIdeaExists(userToken, parentCampaign.getId(), cmd1);
         final IdeaEntity idea2 = givenApprovedIdeaExists(userToken, parentCampaign.getId(), cmd2);
-        givenIdeaHasVotings(idea1, userToken, 3);
-        givenIdeaHasVotings(idea1, adminToken, 5);
-        givenIdeaHasVotings(idea2, userToken, 1);
-        givenIdeaHasVotings(idea2, adminToken, 3);
+        givenIdeaHasVotings(idea1.getCampaignId(), idea1.getId(), userToken, 3);
+        givenIdeaHasVotings(idea1.getCampaignId(), idea1.getId(), adminToken, 5);
+        givenIdeaHasVotings(idea2.getCampaignId(), idea2.getId(), userToken, 1);
+        givenIdeaHasVotings(idea2.getCampaignId(), idea2.getId(), adminToken, 3);
 
         mockMvc.perform(get("/ideas_campaigns/{campaignId}/ideas", parentCampaign.getId())
             .contentType(MediaType.APPLICATION_JSON_UTF8)
@@ -153,20 +153,6 @@ public class IdeaControllerIT extends AbstractCrowdIT {
             .andExpect(jsonPath("$.content[1].rating.averageRating", is(2.0)))
             .andReturn().getResponse().getContentAsString()
         ;
-    }
-
-    private void givenIdeaHasVotings(IdeaEntity idea, String bearerToken, int voting) throws Exception{
-
-            final VoteCmd cmd = new VoteCmd(null, voting);
-            mockMvc.perform(put("/ideas_campaigns/{campaignId}/ideas/{ideaId}/votes", idea.getCampaignId(), idea.getId())
-                .header("Authorization", "Bearer " + bearerToken)
-                .accept(MediaType.APPLICATION_JSON_UTF8)
-                .contentType(MediaType.APPLICATION_JSON_UTF8)
-                .content(mapper.writeValueAsBytes(cmd))
-            )
-                .andDo(print())
-                .andExpect(status().is2xxSuccessful());
-
     }
 
     @Test
@@ -263,6 +249,54 @@ public class IdeaControllerIT extends AbstractCrowdIT {
         res.forEach(el -> {
             assertThat(el.getCreatorName(), is(user.getFirstName()));
         });
+    }
+
+    @Test
+    public void fetchIdeasFiltered_ShouldReturnIdeasOnly_TheRequestorHasVotedFor_onParamAlreadyVoted_isTrue() throws Exception {
+        final UserEntity admin = givenAdminUserExists();
+        final String adminToken = obtainAccessToken(admin.getEmail(), admin.getPassword());
+        final UserEntity user = givenUserExists();
+        final String userToken = obtainAccessToken(user.getEmail(), user.getPassword());
+
+        final IdeasCampaign parentCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
+
+        final IdeaEntity persistedIdea = givenApprovedIdeaExists(adminToken, parentCampaign.getId(), new Idea("test_title", "An Idea"));
+        givenIdeaHasVotings(parentCampaign.getId(), persistedIdea.getId(), userToken, 4);
+        givenApprovedIdeaExists(adminToken, parentCampaign.getId(), new Idea("test_title_anotherIdea", "Anotheridea"));
+
+        mockMvc.perform(get("/ideas_campaigns/{campaignId}/ideas/filtered", parentCampaign.getId())
+            .param("alreadyVoted", "true")
+            .header("Authorization", "Bearer " + userToken)
+            .accept(MediaType.APPLICATION_JSON_UTF8)
+        )
+            .andDo(print())
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.content.length()", equalTo(1)))
+            .andExpect(jsonPath("$.content[0].id", equalTo(persistedIdea.getId())));
+    }
+
+    @Test
+    public void fetchIdeasFiltered_ShouldReturnIdeasOnly_TheRequestorHas_NOT_VotedFor_onParamAlreadyVoted_isFalse() throws Exception {
+        final UserEntity admin = givenAdminUserExists();
+        final String adminToken = obtainAccessToken(admin.getEmail(), admin.getPassword());
+        final UserEntity user = givenUserExists();
+        final String userToken = obtainAccessToken(user.getEmail(), user.getPassword());
+
+        final IdeasCampaign parentCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
+
+        final IdeaEntity persistedIdea = givenApprovedIdeaExists(adminToken, parentCampaign.getId(), new Idea("test_title", "An Idea"));
+        givenIdeaHasVotings(parentCampaign.getId(), persistedIdea.getId(), userToken, 4);
+        final IdeaEntity anotherIdea = givenApprovedIdeaExists(adminToken, parentCampaign.getId(), new Idea("test_title_anotherIdea", "Anotheridea"));
+
+        mockMvc.perform(get("/ideas_campaigns/{campaignId}/ideas/filtered", parentCampaign.getId())
+            .param("alreadyVoted", "false")
+            .header("Authorization", "Bearer " + userToken)
+            .accept(MediaType.APPLICATION_JSON_UTF8)
+        )
+            .andDo(print())
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.content.length()", equalTo(1)))
+            .andExpect(jsonPath("$.content[0].id", equalTo(anotherIdea.getId())));
     }
 
     @Test
@@ -681,4 +715,17 @@ public class IdeaControllerIT extends AbstractCrowdIT {
         return mapper.readValue(givenIdeaExists.andReturn().getResponse().getContentAsString(), Idea.class);
     }
 
+    private void givenIdeaHasVotings(String campaignId, String ideaId, String bearerToken, int voting) throws Exception{
+
+        final VoteCmd cmd = new VoteCmd(null, voting);
+        mockMvc.perform(put("/ideas_campaigns/{campaignId}/ideas/{ideaId}/votes", campaignId, ideaId)
+            .header("Authorization", "Bearer " + bearerToken)
+            .accept(MediaType.APPLICATION_JSON_UTF8)
+            .contentType(MediaType.APPLICATION_JSON_UTF8)
+            .content(mapper.writeValueAsBytes(cmd))
+        )
+            .andDo(print())
+            .andExpect(status().is2xxSuccessful());
+
+    }
 }

@@ -3,6 +3,7 @@ package de.asideas.crowdsource.service.ideascampaign;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 import de.asideas.crowdsource.domain.model.UserEntity;
 
@@ -11,7 +12,6 @@ import de.asideas.crowdsource.domain.model.ideascampaign.VoteEntity;
 import de.asideas.crowdsource.domain.model.ideascampaign.VoteId;
 import de.asideas.crowdsource.domain.service.ideascampaign.VotingService;
 import de.asideas.crowdsource.domain.service.user.UserNotificationService;
-import de.asideas.crowdsource.presentation.ideascampaign.IdeasCampaign;
 import de.asideas.crowdsource.presentation.ideascampaign.Rating;
 import de.asideas.crowdsource.presentation.ideascampaign.VoteCmd;
 import de.asideas.crowdsource.repository.UserRepository;
@@ -25,7 +25,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.security.access.AuthorizationServiceException;
 
 import de.asideas.crowdsource.domain.exception.ResourceNotFoundException;
@@ -128,6 +127,26 @@ public class IdeaServiceTest {
         final Rating expRating = givenVoteRepositoryReturnsVotes(expIdea.getId());
 
         final Page<Idea> res = ideaService.fetchIdeasByStatus(campaignId, singleton(PUBLISHED), 17, IdeaService.MAX_PAGE_SIZE + 1, givenUserEntity("requestorId"));
+
+        assertThat(res.getContent().get(0).getRating(), equalTo(expRating));
+    }
+
+    @Test
+    public void fetchIdeasByRequestorHasVoted_ShouldEnrichIdeas_ByRating(){
+        final String campaignId = "test_campId";
+
+        final ArgumentCaptor<PageRequest> pReqCap = ArgumentCaptor.forClass(PageRequest.class);
+        final IdeaEntity expIdea = Fixtures.givenIdeaEntity("ideaId");
+        final Set<String> ideasIds = Collections.singleton(expIdea.getId());
+
+        doReturn(Collections.singleton(new VoteEntity(new VoteId("votertestid", expIdea.getId()), 1)))
+            .when(voteRepository).findIdsByVoterId(anyString());
+
+        doReturn(new PageImpl<>(singletonList(expIdea))).when(ideaRepository)
+            .findByCampaignIdAndStatusAndIdIn(eq(campaignId), eq(IdeaStatus.PUBLISHED), eq(ideasIds), pReqCap.capture());
+
+        final Rating expRating = givenVoteRepositoryReturnsVotes(expIdea.getId());
+        final Page<Idea> res = ideaService.fetchIdeasByRequestorHasVoted(campaignId, true, 0, 10, givenUserEntity("requestorId"));
 
         assertThat(res.getContent().get(0).getRating(), equalTo(expRating));
     }

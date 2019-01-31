@@ -3,12 +3,15 @@ package de.asideas.crowdsource.domain.model.ideascampaign;
 import java.io.Serializable;
 import java.util.Objects;
 
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.util.Assert;
 
 public class VoteId implements Serializable {
 
+    @Indexed
     private String voterId;
 
+    @Indexed
     private String ideaId;
 
     public VoteId() {
