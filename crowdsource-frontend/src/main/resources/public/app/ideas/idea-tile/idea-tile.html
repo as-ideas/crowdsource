@@ -1,10 +1,10 @@
 <div class="ideas-grid-tile" ng-class="{'ideas-grid-tile--proposed' : vm.idea.status == 'PROPOSED','ideas-grid-tile--rejected' : vm.idea.status == 'REJECTED','ideas-grid-tile--approved' : vm.idea.status == 'PUBLISHED'}">
 
     <div ng-if="!vm.isAdminView">
-        <span class="ideas-grid-tile__title">{{ idea.title }}</span>
+        <span class="ideas-grid-tile__title">{{ vm.idea.title }}</span>
         <span class="ideas-grid-tile__star--single"></span>
-        <span class="ideas-grid-tile__votes-avg">{{ idea.avgVotes || 0 }} </span>
-        <span class="ideas-grid-tile__votes-num"> von {{ idea.votes || 0 }} Personen</span>
+        <span class="ideas-grid-tile__votes-avg">{{ vm.rating.averageRating || 0 }} </span>
+        <span class="ideas-grid-tile__votes-num"> von {{ vm.rating.countVotes|| 0 }} Personen</span>
     </div>
 
     <div ng-if="vm.isAdminView">
@@ -15,20 +15,20 @@
 
     <div class="ideas-grid-tile__rating ideas-grid-tile__bottom-container" ng-if="vm.idea.status == 'PUBLISHED' && !vm.isAdminView">
     <!-- Approved, regular -->
-        <div ng-if="!vm.isVotingDisabled" ng-click="vm.vote(5)" class="star5" ng-class="vm.idea.voted >= 5 ? 'ideas-grid-tile__star--rated' : 'ideas-grid-tile__star--unrated'"></div>
-        <div ng-if="vm.isVotingDisabled" class="star5" ng-class="vm.idea.voted >= 5 ? 'ideas-grid-tile__star--disabled-rated' : 'ideas-grid-tile__star--disabled'"></div>
+        <div ng-if="!vm.isVotingDisabled" ng-click="vm.vote(5)" class="star5" ng-class="vm.rating.ownVote >= 5 ? 'ideas-grid-tile__star--rated' : 'ideas-grid-tile__star--unrated'"></div>
+        <div ng-if="vm.isVotingDisabled" class="star5" ng-class="vm.rating.ownVote >= 5 ? 'ideas-grid-tile__star--disabled-rated' : 'ideas-grid-tile__star--disabled'"></div>
 
-        <div ng-if="!vm.isVotingDisabled" ng-click="vm.vote(4)" class="star5" ng-class="vm.idea.voted >= 4 ? 'ideas-grid-tile__star--rated' : 'ideas-grid-tile__star--unrated'"></div>
-        <div ng-if="vm.isVotingDisabled" class="star5" ng-class="vm.idea.voted >= 4 ? 'ideas-grid-tile__star--disabled-rated' : 'ideas-grid-tile__star--disabled'"></div>
+        <div ng-if="!vm.isVotingDisabled" ng-click="vm.vote(4)" class="star5" ng-class="vm.rating.ownVote >= 4 ? 'ideas-grid-tile__star--rated' : 'ideas-grid-tile__star--unrated'"></div>
+        <div ng-if="vm.isVotingDisabled" class="star5" ng-class="vm.rating.ownVote >= 4 ? 'ideas-grid-tile__star--disabled-rated' : 'ideas-grid-tile__star--disabled'"></div>
 
-        <div ng-if="!vm.isVotingDisabled" ng-click="vm.vote(3)" class="star5" ng-class="vm.idea.voted >= 3 ? 'ideas-grid-tile__star--rated' : 'ideas-grid-tile__star--unrated'"></div>
-        <div ng-if="vm.isVotingDisabled" class="star5" ng-class="vm.idea.voted >= 3 ? 'ideas-grid-tile__star--disabled-rated' : 'ideas-grid-tile__star--disabled'"></div>
+        <div ng-if="!vm.isVotingDisabled" ng-click="vm.vote(3)" class="star5" ng-class="vm.rating.ownVote >= 3 ? 'ideas-grid-tile__star--rated' : 'ideas-grid-tile__star--unrated'"></div>
+        <div ng-if="vm.isVotingDisabled" class="star5" ng-class="vm.rating.ownVote >= 3 ? 'ideas-grid-tile__star--disabled-rated' : 'ideas-grid-tile__star--disabled'"></div>
 
-        <div ng-if="!vm.isVotingDisabled" ng-click="vm.vote(2)" class="star5" ng-class="vm.idea.voted >= 2 ? 'ideas-grid-tile__star--rated' : 'ideas-grid-tile__star--unrated'"></div>
-        <div ng-if="vm.isVotingDisabled" class="star5" ng-class="vm.idea.voted >= 2 ? 'ideas-grid-tile__star--disabled-rated' : 'ideas-grid-tile__star--disabled'"></div>
+        <div ng-if="!vm.isVotingDisabled" ng-click="vm.vote(2)" class="star5" ng-class="vm.rating.ownVote >= 2 ? 'ideas-grid-tile__star--rated' : 'ideas-grid-tile__star--unrated'"></div>
+        <div ng-if="vm.isVotingDisabled" class="star5" ng-class="vm.rating.ownVote >= 2 ? 'ideas-grid-tile__star--disabled-rated' : 'ideas-grid-tile__star--disabled'"></div>
 
-        <div ng-if="!vm.isVotingDisabled" ng-click="vm.vote(1)" class="star5" ng-class="vm.idea.voted >= 1 ? 'ideas-grid-tile__star--rated' : 'ideas-grid-tile__star--unrated'"></div>
-        <div ng-if="vm.isVotingDisabled" class="star5" ng-class="vm.idea.voted >= 1 ? 'ideas-grid-tile__star--disabled-rated' : 'ideas-grid-tile__star--disabled'"></div>
+        <div ng-if="!vm.isVotingDisabled" ng-click="vm.vote(1)" class="star5" ng-class="vm.rating.ownVote >= 1 ? 'ideas-grid-tile__star--rated' : 'ideas-grid-tile__star--unrated'"></div>
+        <div ng-if="vm.isVotingDisabled" class="star5" ng-class="vm.rating.ownVote >= 1 ? 'ideas-grid-tile__star--disabled-rated' : 'ideas-grid-tile__star--disabled'"></div>
     </div>
 
     <div ng-if="vm.isEditalbe" class="ideas-grid-tile__approval-container">

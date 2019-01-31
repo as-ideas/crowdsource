@@ -60,16 +60,20 @@ angular.module('crowdsource')
             return ideasResource.get({campaignId: campaignId}).$promise;
         }
 
-        function rejectIdea(campaignId, ideaId, message) {
-            console.log(campaignId, ideaId, message);
+        function voteIdea(campaignId, ideaId, voting) {
+            return ideaActionResource.put({campaignId: campaignId, ideaId: ideaId, action: 'votes'}, {
+                ideaId: ideaId,
+                vote: voting
+            }).$promise;
+        }
 
+        function rejectIdea(campaignId, ideaId, message) {
             return ideaActionResource.put({campaignId: campaignId, ideaId: ideaId, action: 'rejection'}, {
                 rejectionComment: message
             }).$promise;
         }
 
         function publishIdea(campaignId, ideaId) {
-            console.log(campaignId, ideaId);
             return ideaActionResource.put({campaignId: campaignId, ideaId: ideaId, action: 'approval'}, {}).$promise;
         }
 
@@ -82,6 +86,7 @@ angular.module('crowdsource')
 
         service.rejectIdea = rejectIdea;
         service.publishIdea = publishIdea;
+        service.voteIdea = voteIdea;
 
         return service;
     });
