@@ -25,7 +25,6 @@ gulp.task('sass', function () {
 
         // Prevents errors from interrupting watch task
         .pipe(plumber(function (err) {
-            console.log(err);
             this.emit('end');
         }))
 

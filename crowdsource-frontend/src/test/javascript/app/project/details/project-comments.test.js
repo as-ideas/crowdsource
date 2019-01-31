@@ -89,6 +89,7 @@ describe('project comments directive', function () {
         expect(elements.submitButton).toBeDisabled();
         expect(elements.submitButton).toHaveText('Kommentieren...');
 
+        $httpBackend.flush();
 
         expect(elements.submitButton).toHaveText('Kommentieren');
         expect(elements.submitButton).toBeDisabled();

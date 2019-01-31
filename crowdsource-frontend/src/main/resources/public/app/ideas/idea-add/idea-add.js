@@ -5,7 +5,8 @@ angular.module('crowdsource')
             templateUrl: 'app/ideas/idea-add/idea-add.html',
             controllerAs: 'vm',
             scope: {
-                campaign: "="
+                campaign: "=",
+                successFn: "="
             },
             controller: function ($scope) {
                 var vm = this;
@@ -14,6 +15,7 @@ angular.module('crowdsource')
                 vm.showSuccessMessage = false;
                 vm.contentPresent = true;
                 vm.newIdea = {title: '', pitch: ''};
+                vm.successFn = $scope.successFn;
 
                 vm.campaign = $scope.campaign;
                 if (!vm.campaign) {
@@ -35,18 +37,25 @@ angular.module('crowdsource')
                         (vm.newIdea.pitch && vm.newIdea.pitch.length >= 5);
                 }
 
+                function callSuccessFn(res) {
+                    if (typeof vm.successFn === "function") {
+                        vm.successFn(res);
+                    }
+                }
+
                 function saveIdea() {
                     vm.pending = true;
                     vm.failed = false;
                     vm.showSuccessMessage = false;
 
-                    Idea.createIdea(vm.campaign.id, vm.newIdea).then(function () {
+                    Idea.createIdea(vm.campaign.id, vm.newIdea).then(function (res) {
                         vm.showSuccessMessage = true;
 
                         $timeout(function () {
-                            resetNewIdea();
                             vm.pending = false;
                             vm.showSuccessMessage = false;
+                            resetNewIdea();
+                            callSuccessFn(res);
                         }, 2500);
                     }, function () {
                         vm.failed = true;

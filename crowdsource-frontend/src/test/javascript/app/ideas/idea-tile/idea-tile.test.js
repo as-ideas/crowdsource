@@ -45,7 +45,6 @@ describe('idea-tile', function () {
         });
     });
 
-
     describe('admin', function () {
         it("show admin functionality when user isAdmin", function () {
             var idea = givenIdea(IDEAS_STATUS.PROPOSED);

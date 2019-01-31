@@ -5,30 +5,43 @@ angular.module('crowdsource')
         var TOKENS_LOCAL_STORAGE_KEY = 'tokens';
 
         var service = {};
+        service.TOKENS_LOCAL_STORAGE_KEY = TOKENS_LOCAL_STORAGE_KEY;
+        var roles = {};
 
-        service.load = function () {
-            // browser localStorage
+
+        service.getTokens = function () {
+            var tokens = null;
             var storage = $window['localStorage'];
+
             if (!storage) {
                 throw "only browsers with local storage are supported";
             }
 
             var tokensAsString = storage[TOKENS_LOCAL_STORAGE_KEY];
             if (tokensAsString) {
-                var tokens = JSON.parse(tokensAsString);
-
-                // set as header
-                service.use(tokens);
+                try {
+                    tokens = JSON.parse(tokensAsString);
+                } catch(e) {
+                    tokens = null;
+                }
             }
-            else {
+            return tokens;
+        };
+
+        service.load = function () {
+            var tokens = service.getTokens();
+            if (tokens) {
+                service.setAsHeader(tokens);
+            } else {
                 service.clear();
             }
         };
 
+
         /**
          * @param tokens will be registered as http headers for requests and stored in browser storage
          */
-        service.use = function (tokens) {
+        service.setAsHeader = function (tokens) {
             $http.defaults.headers.common['Authorization'] = tokens.token_type + ' ' + tokens.access_token;
             $window.localStorage[TOKENS_LOCAL_STORAGE_KEY] = JSON.stringify(tokens);
         };
@@ -36,6 +49,28 @@ angular.module('crowdsource')
         service.clear = function () {
             $http.defaults.headers.common['Authorization'] = undefined;
             $window.localStorage.removeItem(TOKENS_LOCAL_STORAGE_KEY);
+        };
+
+        service.getUserFromToken = function () {
+            var tokens = service.getTokens();
+            if (!tokens || !tokens.access_token) {
+                return null;
+            }
+            var accessToken = tokens.access_token;
+            var items = accessToken.split('.');
+            if (items.length !== 3) {
+                return null;
+            }
+
+            var user = null;
+            var decoded = atob(items[1]);
+            try {
+                user = JSON.parse(decoded);
+            } catch(e) {
+                user = null;
+            }
+
+            return user;
         };
 
         /**
@@ -68,6 +103,11 @@ angular.module('crowdsource')
             service.reloadUser();
         };
 
+        service.setRolesFromToken = function () {
+            var user = AuthenticationToken.getUserFromToken();
+            service.currentUser.roles = (user && user.authorities) ? user.authorities : [];
+        };
+
         service.login = function (email, password) {
             // $.param creates a form encoded string, e.g. "username=xyz&password=secret&..."
             var requestBody = $.param({
@@ -80,7 +120,7 @@ angular.module('crowdsource')
             return $q(function (resolve, reject) {
                 tokenResource.requestTokens(requestBody).$promise
                     .then(function (response) {
-                        AuthenticationToken.use(response);
+                        AuthenticationToken.setAsHeader(response);
                         resolve();
                     })
                     .catch(function (response) {
@@ -102,7 +142,7 @@ angular.module('crowdsource')
 
             if (AuthenticationToken.hasTokenSet()) {
                 service.currentUser.loggedIn = true;
-                service.currentUser.roles = [];
+                service.setRolesFromToken();
 
                 // prevents the user's details to be set to undefined while loading
                 // and therefore flickering of e.g. the user budget in the status-bar

@@ -15,18 +15,18 @@ angular.module('crowdsource')
                 vm.approvedCount = 0;
 
                 vm.campaign = $scope.campaign;
-                if (!vm.campaign) {
-                    throw Error('ideas-own-statistics: missing campaign on scope in directive');
-                }
-
                 init();
 
+                function registerDeriveStatsListener() {
+                    var cleanupListener = $scope.$watch('ideas', function() {
+                        deriveStats($scope.ideas);
+                    });
+                    $scope.$on('$destroy', function() { cleanupListener(); });
+                }
+
                 function init() {
-                    if($scope.ideas) {
-                        deriveStats($scope.ideas)
-                    } else {
-                        fetchOwnIdeas();
-                    }
+                    registerDeriveStatsListener();
+                    if (!$scope.ideas) { fetchOwnIdeas(); }
                 }
 
                 function fetchOwnIdeas() {

@@ -5,31 +5,28 @@
 
     <div class="row">
         <div class="columns medium-6">
-            <idea-add campaign="ideasList.campaign"></idea-add>
+            <idea-add campaign="ideasList.campaign" success-fn="ideasList.refreshList"></idea-add>
         </div>
 
         <div class="columns medium-6">
             <h1 class="plist__heading">Deine eingereichten Ideen</h1>
             <p class="plist__intro--has-divider">
-                Du hast schon XX Ideen eingereicht!
+                Du hast schon {{ideasList.ideas.length}} Ideen eingereicht!
             </p>
             <p>Deine eingereichten Ideen werden von unser Redaktion zeitnah freigeben oder mit einer Begründung
                 abgeleht.</p>
-            <ul>
-                <li><span class="plist__pill">12</span>Freigegebene Ideen</li>
-                <li><span class="plist__pill">4</span>Ausstehende Ideen</li>
-                <li><span class="plist__pill">0</span>Abgelehnte Ideen</li>
-            </ul>
+            <ideas-own-statistics campaign="ideasList.campaign" ideas="ideasList.ideas"></ideas-own-statistics>
         </div>
     </div>
+</content-row>
 
-    <content-row>
+<content-row>
+    <section>
         <h2>Liste deiner Ideen ({{ ideasList.ideas.length }})</h2>
         <div class="ideas-grid__container">
             <div class="ideas-grid__box" ng-repeat="idea in ideasList.ideas">
                 <idea-tile campaign="ideasList.campaign" idea="idea"></idea-tile>
             </div>
         </div>
-    </content-row>
-
+    </section>
 </content-row>

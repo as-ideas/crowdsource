@@ -3,12 +3,21 @@ angular.module('crowdsource')
         var vm = this;
         vm.ideas = [];
         vm.campaign = campaign;
+        vm.refreshList = refreshList;
 
         init();
 
         function init() {
-            Idea.getOwnIdeas(campaign.id).then(function(res) {
+            fetchIdeas();
+        }
+
+        function fetchIdeas() {
+            Idea.getOwnIdeas(campaign.id).then(function (res) {
                 vm.ideas = res;
             });
         }
-});
+
+        function refreshList(res) {
+            fetchIdeas();
+        }
+    });

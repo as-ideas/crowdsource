@@ -31,19 +31,13 @@
         <div ng-if="vm.isVotingDisabled" class="star5" ng-class="vm.idea.voted >= 1 ? 'ideas-grid-tile__star--disabled-rated' : 'ideas-grid-tile__star--disabled'"></div>
     </div>
 
-    <div class="ideas-grid-tile__rejected ideas-grid-tile__bottom-container" ng-if="vm.idea.status == 'REJECTED'">
-    <!-- Rejected -->
-        {{::idea.rejectionComment}}
+    <div ng-if="vm.isEditalbe" class="ideas-grid-tile__approval-container">
+        <div ng-if="vm.idea.status == 'PROPOSED'">
+            <button ng-click="vm.save()" class="ideas-grid-tile__btn ideas-grid-tile__btn-approve">Update</button>
+        </div>
     </div>
-
-    <div class="ideas-grid-tile__proposed ideas-grid-tile__bottom-container" ng-if="vm.idea.status == 'PROPOSED'">
-    <!-- Proposed -->
-        Edit
-    </div>
-
 
     <div ng-if="vm.isAdminView" class="ideas-grid-tile__approval-container">
-    <!-- Admin Area -->
         <div ng-if="vm.idea.status == 'PROPOSED'">
             <input type="text" ng-model="vm.rejectionComment" placeholder="Ablehnungsgrund">
             <button ng-click="vm.publish()" class="ideas-grid-tile__btn ideas-grid-tile__btn-approve"></button>
