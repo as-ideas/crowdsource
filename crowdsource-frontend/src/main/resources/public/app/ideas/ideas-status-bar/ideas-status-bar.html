@@ -15,8 +15,8 @@
             <li class="sbar__li--primary columns medium-6">
                 <ul class="sbar__ul-float">
                     <li class="sbar__li--secondary--no-padding sbar__li--secondary">
-                        <span ng-if="status.campaignIsRunning" class="sbar__icon--hourglass">Kampagne läuft bis: {{status.campaign.startDate | date}}</span>
-                        <span ng-if="!status.campaignIsRunning" class="sbar__icon--time">Kampagne endete am: {{status.campaign.startDate | date}}</span>
+                        <span ng-if="status.campaign.active" class="sbar__icon--hourglass">Kampagne läuft bis: {{status.campaign.startDate | date}}</span>
+                        <span ng-if="!status.campaign.active" class="sbar__icon--time">Kampagne endete am: {{status.campaign.endDate | date}}</span>
                         <a class="sbar__button" ng-if="status.userIsAdmin" name="admin-button" ng-href="/#/ideas/{{status.campaign.id}}/admin">[Admin]</a>
                         <a class="sbar__button" name="user-button" ng-href="/#/ideas/{{status.campaign.id}}/own">[Deine Ideen]</a>
                     </li>
