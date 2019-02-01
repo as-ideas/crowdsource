@@ -15,7 +15,7 @@
   &__description {
     @include font-smoothing;
     display: block;
-    margin: 0 auto $margin-comp-dbl;
+    margin: 0 auto $mrg-huge;
     text-align: center;
   }
 
@@ -30,6 +30,6 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: $margin-comp;
+    margin-bottom: $mrg-medium;
   }
 }

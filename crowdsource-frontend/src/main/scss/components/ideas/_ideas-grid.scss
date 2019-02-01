@@ -74,8 +74,8 @@ $tile-padding-vertical: 15px;
 
     &__text {
       font-size: $fs-normal;
-      margin-top: $margin-comp;
-      margin-bottom: $margin-comp-dbl;
+      margin-top: $mrg-huge;
+      margin-bottom: $mrg-huge;
       text-align: left;
     }
 
@@ -84,7 +84,14 @@ $tile-padding-vertical: 15px;
       flex-direction: row-reverse;
     }
 
-    &__rejected {
+    &__rejected-container {
+      bottom: 0;
+      padding-right: $pd-normal;
+      position: absolute;
+    }
+
+    &__rejected-message {
+      color: $clr-red;
     }
 
     &__bottom-container {
@@ -169,7 +176,7 @@ $tile-padding-vertical: 15px;
       bottom: 0;
       margin-bottom: $tile-padding-vertical;
       text-align: center;
-      width: calc(100% - #{$pd-dbl});
+      width: calc(100% - #{$pd-huge});
     }
 
     &__btn {
@@ -188,7 +195,7 @@ $tile-padding-vertical: 15px;
     &__btn-approve {
       background-color: $clr-green-shade-2;
       background-image: url('../images/icons/icon-thumbs-up.svg');
-      margin-right: $mrg-small;
+      margin-right: $mrg-smaller;
     }
 
     &__btn-reject {

@@ -104,6 +104,10 @@ $clr-green-shade-transparent: rgba(75, 212, 137, 0.25);
 $clr-black: #2D2D2D;
 $clr-mine-shaft: #2D2D2D;
 
+// Gray
+$clr-gray: gainsboro;
+$clr-gray-dark: #CFCFD7;
+
 // Bodycopy
 $clr-boulder: #787878;
 // Lighter Bodycopy
@@ -173,18 +177,20 @@ $border-radius: 3px;
 // ---
 // Margins
 // __
-$margin-comp: 20px; // Margin between components and similiar sized visual blocks
-$margin-comp-dbl: 40px;
-$mrg-small: 0.625rem; // 10px
-$mrg-normal: 1rem;    // 16px
-$mrg-medium: 1.25rem; // 20px, Good for component distance
-$mrg-dbl: 2.5rem;     // 40px
+$mrg-smaller: 0.625rem; // 10px
+$mrg-smaller: 0.875rem; // 14px
+$mrg-normal: 1rem;      // 16px
+$mrg-medium: 1.25rem;   // 20px, Good for component distance
+$mrg-double: 2rem;      // 32px
+$mrg-huge: 2.5rem;      // 40px
 
 // Paddings
-$pd-small: 0.625rem; // 10px
-$pd-normal: 1rem;    // 16px
-$pd-medium: 1.25rem; // 20px, Good for component distance
-$pd-dbl: 2.5rem;     // 40px
+$pd-smaller: 0.625rem; // 10px
+$pd-small: 0.875rem;   // 14px
+$pd-normal: 1rem;      // 16px
+$pd-medium: 1.25rem;   // 20px, Good for component distance
+$pd-double: 2rem;    // 32px
+$pd-huge: 2.5rem;      // 40px
 
 
 // ---

@@ -23,6 +23,7 @@ angular.module('crowdsource')
                 vm.campaignId = $scope.campaign.id;
                 vm.isVotingDisabled = false;
                 vm.rejectionComment = "";
+                vm.isEditable = false;
 
                 vm.isAdminView = $scope.admin || false;
 
@@ -46,12 +47,16 @@ angular.module('crowdsource')
 
                 vm.publish = function () {
                     if (!vm.isAdminView) { throw Error('publishing is only allowed for admin');}
-                    Idea.publishIdea(vm.campaignId, vm.idea.id)
+                    Idea.publishIdea(vm.campaignId, vm.idea.id);
                 };
 
                 vm.reject = function () {
                     if (!vm.isAdminView) { throw Error('rejection is only allowed for admin');}
-                    Idea.rejectIdea(vm.campaignId, vm.idea.id, vm.rejectionComment)
+                    Idea.rejectIdea(vm.campaignId, vm.idea.id, vm.rejectionComment);
+                };
+
+                vm.edit = function () {
+                    vm.isEditable = true;
                 };
             }
         };

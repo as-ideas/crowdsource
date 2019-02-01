@@ -6,6 +6,7 @@ angular.module('crowdsource')
             controllerAs: 'vm',
             scope: {
                 campaign: "=",
+                idea: "=",
                 successFn: "="
             },
             controller: function ($scope) {
@@ -23,6 +24,13 @@ angular.module('crowdsource')
                 }
 
                 resetNewIdea();
+
+                if(vm.idea) {
+                    console.log("yeah");
+                    vm.newIdea.title = idea.title;
+                    vm.newIdea.pitch = idea.pitch;
+                }
+
                 vm.send = saveIdea;
                 vm.enableButton = enableButton;
 
