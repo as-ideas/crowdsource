@@ -48,6 +48,10 @@ angular.module('crowdsource')
             return ideasResource.post({campaignId: campaignId}, idea).$promise;
         }
 
+        function updateIdea(campaignId, idea) {
+            return ideaActionResource.put({campaignId: campaignId, ideaId: idea.id}, idea).$promise;
+        }
+
         function getOwnIdeas(campaignId) {
             return ownIdeasResource.get({campaignId: campaignId}).$promise;
         }
@@ -82,6 +86,7 @@ angular.module('crowdsource')
         service.getCampaign = getCampaign;
         service.getOwnIdeas = getOwnIdeas;
         service.createIdea = createIdea;
+        service.updateIdea = updateIdea;
         service.getIdeasWithStatus = getIdeasWithStatus;
 
         service.rejectIdea = rejectIdea;

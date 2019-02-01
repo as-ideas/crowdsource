@@ -34,7 +34,7 @@
 
 
     <div ng-if="vm.isEditable" class="ideas-grid-tile__approval-container">
-        <idea-add campaign="vm.campaign" idea="vm.idea"></idea-add>
+        <idea-edit idea="vm.idea" cancel-fn="vm.cancelEdit" submit-fn="vm.update"></idea-edit>
         <!--
         <button ng-click="vm.save()" class="ideas-grid-tile__btn ideas-grid-tile__btn-approve">Update</button>
         -->

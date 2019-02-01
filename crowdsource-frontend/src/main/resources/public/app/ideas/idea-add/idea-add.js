@@ -6,15 +6,11 @@ angular.module('crowdsource')
             controllerAs: 'vm',
             scope: {
                 campaign: "=",
-                idea: "=",
-                successFn: "="
+                successFn: "=",
             },
             controller: function ($scope) {
                 var vm = this;
                 vm.pending = false;
-                vm.failed = false;
-                vm.showSuccessMessage = false;
-                vm.contentPresent = true;
                 vm.newIdea = {title: '', pitch: ''};
                 vm.successFn = $scope.successFn;
 
@@ -24,13 +20,6 @@ angular.module('crowdsource')
                 }
 
                 resetNewIdea();
-
-                if(vm.idea) {
-                    console.log("yeah");
-                    vm.newIdea.title = idea.title;
-                    vm.newIdea.pitch = idea.pitch;
-                }
-
                 vm.send = saveIdea;
                 vm.enableButton = enableButton;
 
@@ -52,23 +41,15 @@ angular.module('crowdsource')
                 }
 
                 function saveIdea() {
+                    if (vm.pending) return;
+
                     vm.pending = true;
-                    vm.failed = false;
-                    vm.showSuccessMessage = false;
 
                     Idea.createIdea(vm.campaign.id, vm.newIdea).then(function (res) {
-                        vm.showSuccessMessage = true;
-
-                        $timeout(function () {
-                            vm.pending = false;
-                            vm.showSuccessMessage = false;
-                            resetNewIdea();
-                            callSuccessFn(res);
-                        }, 2500);
-                    }, function () {
-                        vm.failed = true;
+                        resetNewIdea();
+                        callSuccessFn(res);
+                    }).finally(function () {
                         vm.pending = false;
-                        vm.showSuccessMessage = false;
                     })
                 }
             }

@@ -45,6 +45,16 @@ angular.module('crowdsource')
                         });
                 };
 
+                vm.cancelEdit = function () {
+                    vm.isEditable = false;
+                }
+
+                vm.update = function () {
+                    Idea.updateIdea(vm.campaignId, vm.idea).then(function(res) {
+                        vm.isEditable = false;
+                    })
+                };
+
                 vm.publish = function () {
                     if (!vm.isAdminView) { throw Error('publishing is only allowed for admin');}
                     Idea.publishIdea(vm.campaignId, vm.idea.id);
