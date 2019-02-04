@@ -14,10 +14,10 @@ angular.module('crowdsource')
                 loadMoreLabel: '@',
                 noMoreLabel: '@'
             },
-            template: '<div class="loadMore__container"><a ng-click="vm.loadMore()" class=" loadMore__button teaser__btn">' +
-                '<span class="loadMore__label">{{!vm.paging.last? vm.loadMoreText : vm.noMoreText}}</span>' +
-            '</a></div>',
-            controller: function ($scope) {
+            template: '<div class="loadMore__container"><button ng-click="vm.loadMore()" class="button-secondary">' +
+                '{{!vm.paging.last? vm.loadMoreText : vm.noMoreText}}' +
+            '</button></div>',
+            controller: function () {
                 var vm = this;
                 vm.paging = this.paging;
                 vm.loadMoreText = vm.loadMoreLabel || loadMoreText;

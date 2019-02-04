@@ -105,8 +105,10 @@ $clr-black: #2D2D2D;
 $clr-mine-shaft: #2D2D2D;
 
 // Gray
-$clr-gray: gainsboro;
-$clr-gray-dark: #CFCFD7;
+$clr-gray-light: gainsboro;
+$clr-gray: #CFCFD7;
+$clr-gray-dark: #3C3C3C;
+$clr-gray-darker: #232323;
 
 // Bodycopy
 $clr-boulder: #787878;
@@ -185,12 +187,14 @@ $mrg-double: 2rem;      // 32px
 $mrg-huge: 2.5rem;      // 40px
 
 // Paddings
-$pd-smaller: 0.625rem; // 10px
-$pd-small: 0.875rem;   // 14px
-$pd-normal: 1rem;      // 16px
-$pd-medium: 1.25rem;   // 20px, Good for component distance
-$pd-double: 2rem;    // 32px
-$pd-huge: 2.5rem;      // 40px
+$pd-half: 0.5rem;       // 10px
+$pd-tiny: 0.625rem;     // 10px
+$pd-smaller: 0.75rem;   // 12px
+$pd-small: 0.875rem;    // 14px
+$pd-normal: 1rem;       // 16px
+$pd-medium: 1.25rem;    // 20px, Good for component distance
+$pd-double: 2rem;       // 32px
+$pd-huge: 2.5rem;       // 40px
 
 
 // ---
