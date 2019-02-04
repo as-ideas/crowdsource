@@ -10,7 +10,7 @@ angular.module('crowdsource')
         init();
 
         function init(){
-            loadMore();
+            loadMore(0);
         }
 
         vm.reloadOwnIdeas = function () {
