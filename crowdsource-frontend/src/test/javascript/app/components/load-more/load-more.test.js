@@ -1,4 +1,4 @@
-fdescribe('load more', function () {
+describe('load more', function () {
     var $rootScope, $compile, $scope, $httpBackend;
 
     beforeEach(function () {

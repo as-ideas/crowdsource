@@ -12,7 +12,8 @@ angular.module('crowdsource')
             scope: {
                 'idea': '=',
                 'admin': '=',
-                'campaign': "="
+                'campaign': "=",
+                'successFn': "="
             },
             controllerAs: 'vm',
             templateUrl: 'app/ideas/idea-tile/idea-tile.html',
@@ -25,10 +26,10 @@ angular.module('crowdsource')
                 vm.rejectionComment = "";
                 vm.isEditable = false;
 
-                vm.isAdminView = $scope.admin || false;
+                vm.isAdminView = $scope.admin || false;
 
                 vm.vote = function (value) {
-                    if(vm.isVotingDisabled) return;
+                    if (vm.isVotingDisabled) return;
 
                     // reset voting by setting value to null, if user clicks on same value
                     if (vm.rating.ownVote === value) {
@@ -37,37 +38,55 @@ angular.module('crowdsource')
 
                     vm.isVotingDisabled = true;
                     Idea.voteIdea(vm.campaignId, vm.idea.id, value)
-                        .then(function(rating) {
+                        .then(function (rating) {
                             vm.rating = rating;
                         })
-                        .finally(function() {
-                            $timeout(function() {vm.isVotingDisabled = false; }, 2000);
+                        .finally(function () {
+                            $timeout(function () {
+                                vm.isVotingDisabled = false;
+                            }, 2000);
                         });
                 };
 
                 vm.cancelEdit = function () {
                     vm.isEditable = false;
-                }
+                };
 
                 vm.update = function () {
-                    Idea.updateIdea(vm.campaignId, vm.idea).then(function(res) {
+                    Idea.updateIdea(vm.campaignId, vm.idea).then(function (res) {
                         vm.isEditable = false;
                     })
                 };
 
                 vm.publish = function () {
-                    if (!vm.isAdminView) { throw Error('publishing is only allowed for admin');}
-                    Idea.publishIdea(vm.campaignId, vm.idea.id);
+                    if (!vm.isAdminView) {
+                        throw Error('publishing is only allowed for admin');
+                    }
+                    Idea.publishIdea(vm.campaignId, vm.idea.id)
+                        .then(function () {
+                            handleSuccessCallback();
+                        });
                 };
 
                 vm.reject = function () {
-                    if (!vm.isAdminView) { throw Error('rejection is only allowed for admin');}
-                    Idea.rejectIdea(vm.campaignId, vm.idea.id, vm.rejectionComment);
+                    if (!vm.isAdminView) {
+                        throw Error('rejection is only allowed for admin');
+                    }
+                    Idea.rejectIdea(vm.campaignId, vm.idea.id, vm.rejectionComment)
+                        .then(function () {
+                            handleSuccessCallback();
+                        });
                 };
 
                 vm.edit = function () {
                     vm.isEditable = true;
                 };
+
+                function handleSuccessCallback() {
+                    if (typeof $scope.successFn === 'function') {
+                        $scope.successFn();
+                    }
+                }
             }
         };
     });
