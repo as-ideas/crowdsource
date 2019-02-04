@@ -1,10 +1,10 @@
 package de.asideas.crowdsource.service.ideascampaign;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
+import de.asideas.crowdsource.domain.exception.InvalidRequestException;
 import de.asideas.crowdsource.domain.model.UserEntity;
 
 import de.asideas.crowdsource.domain.model.ideascampaign.IdeasCampaignEntity;
@@ -16,6 +16,7 @@ import de.asideas.crowdsource.presentation.ideascampaign.Rating;
 import de.asideas.crowdsource.presentation.ideascampaign.VoteCmd;
 import de.asideas.crowdsource.repository.UserRepository;
 
+import org.joda.time.DateTime;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
@@ -44,6 +45,7 @@ import static java.util.Collections.singletonList;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.fail;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.*;
@@ -169,7 +171,7 @@ public class IdeaServiceTest {
         final UserEntity creator = givenUserEntity("test_adminId");
         final Idea cmd = new Idea("test_title", "test_pitch");
 
-        givenIdeaCampaignExists(campaignId);
+        givenIdeaCampaignExists(campaignId, true);
         givenAdminUserExists();
         givenIdeaRepositoryCanSave();
 
@@ -180,9 +182,28 @@ public class IdeaServiceTest {
         verify(ideaRepository).save(captor.capture());
         assertThat(captor.getValue().getTitle(), is(cmd.getTitle()));
         assertThat(captor.getValue().getPitch(), is(cmd.getPitch()));
+        assertThat(captor.getValue().getCampaignId(), is(campaignId));
 
         verify(userNotificationService).notifyAdminOnIdeaCreation(captorNotification.capture(), anyString());
         assertThat(captorNotification.getValue(), is(captor.getValue()));
+    }
+
+    @Test
+    public void createNewIdea_shouldThrowOn_CampaignNotActive() {
+        final String campaignId = "mycampaign";
+        final UserEntity creator = givenUserEntity("test_adminId");
+        final Idea cmd = new Idea("test_title", "test_pitch");
+
+        givenIdeaCampaignExists(campaignId, false);
+        givenAdminUserExists();
+        givenIdeaRepositoryCanSave();
+
+        try {
+            ideaService.createNewIdea(campaignId, cmd, creator);
+            fail("Expected exception not thrown");
+        } catch (InvalidRequestException e) {
+            assertThat(e.getMessage(), equalTo("campaign_not_active"));
+        }
     }
 
     @Test(expected = ResourceNotFoundException.class)
@@ -202,35 +223,34 @@ public class IdeaServiceTest {
         ideaService.modifyIdea(missingIdeaId, new Idea("test_title", "my faulty pitch"), new UserEntity());
     }
 
-    @Test(expected = ResourceNotFoundException.class)
-    public void approveIdea_shouldThrowException_OnNotExistingIdea() {
+    @Test
+    public void rejectIdea_shouldPersistRejectedIdea() {
         final String missingIdeaId = "idea27";
         final UserEntity approver = givenUserEntity("test_adminId");
-        approver.setRoles(Arrays.asList(Roles.ROLE_ADMIN));
+        approver.setRoles(singletonList(Roles.ROLE_ADMIN));
 
-        givenIdeaDoesntExist(missingIdeaId);
-        ideaService.approveIdea(missingIdeaId, approver);
+        final IdeasCampaignEntity campaign = givenIdeaCampaignExists("test_campaignId", true);
+        givenIdeaExists(new Idea("test_title", "test_pitch"), campaign.getId());
+
+        ideaService.rejectIdea(campaign.getId(), missingIdeaId, "you are rejected!", approver);
+
+        final ArgumentCaptor<IdeaEntity> captor = ArgumentCaptor.forClass(IdeaEntity.class);
+        verify(ideaRepository).save(captor.capture());
+
+        assertThat(captor.getValue().getStatus(), is(IdeaStatus.REJECTED));
+        assertThat(captor.getValue().getRejectionComment(), is("you are rejected!"));
     }
 
     @Test(expected = ResourceNotFoundException.class)
     public void rejectIdea_shouldThrowException_OnNotExistingIdea() {
         final String missingIdeaId = "idea27";
         final UserEntity approver = givenUserEntity("test_adminId");
-        approver.setRoles(Arrays.asList(Roles.ROLE_ADMIN));
+        approver.setRoles(singletonList(Roles.ROLE_ADMIN));
+
+        final IdeasCampaignEntity campaign = givenIdeaCampaignExists("test_campaignId", true);
 
         givenIdeaDoesntExist(missingIdeaId);
-        ideaService.rejectIdea(missingIdeaId, "test comment", approver);
-    }
-
-    @Test(expected = AuthorizationServiceException.class)
-    public void approveIdea_shouldThrowException_OnNonAdminRequesting() {
-        final String missingIdeaId = "idea27";
-        final UserEntity approver = givenUserEntity("test_adminId");
-        approver.setRoles(Collections.emptyList());
-
-        givenIdeaExists(new Idea("test_title", "test_pitch"));
-
-        ideaService.approveIdea(missingIdeaId, approver);
+        ideaService.rejectIdea(campaign.getId(), missingIdeaId, "test comment", approver);
     }
 
     @Test(expected = AuthorizationServiceException.class)
@@ -239,20 +259,62 @@ public class IdeaServiceTest {
         final UserEntity approver = givenUserEntity("test_adminId");
         approver.setRoles(Collections.emptyList());
 
-        givenIdeaExists(new Idea("test_title", "test_pitch"));
+        final IdeasCampaignEntity campaignEntity = givenIdeaCampaignExists("test_campaignId", true);
+        givenIdeaExists(new Idea("test_title", "test_pitch"), campaignEntity.getId());
 
-        ideaService.rejectIdea(missingIdeaId, "ich bin ein admin", approver);
+        ideaService.rejectIdea(campaignEntity.getId(), missingIdeaId, "ich bin ein admin", approver);
+    }
+
+    @Test
+    public void rejectIdea_shouldThrowException_OnCampaignNotActive() {
+        final UserEntity approver = givenUserEntity("test_adminId");
+        approver.setRoles(singletonList(Roles.ROLE_ADMIN));
+
+        final IdeasCampaignEntity campaign = givenIdeaCampaignExists("test_campaignId", false);
+        final IdeaEntity ideaEntity = givenIdeaExists(new Idea("test_title", "test_pitch"), campaign.getId());
+
+        try {
+            ideaService.rejectIdea(campaign.getId(), ideaEntity.getCampaignId(), ideaEntity.getId(), approver);
+            fail("Expected exception not thrown");
+        } catch (InvalidRequestException e) {
+            assertThat(e.getMessage(), equalTo("campaign_not_active"));
+        }
+    }
+
+
+    @Test(expected = AuthorizationServiceException.class)
+    public void approveIdea_shouldThrowException_OnNonAdminRequesting() {
+        final String missingIdeaId = "idea27";
+        final UserEntity approver = givenUserEntity("test_adminId");
+        approver.setRoles(Collections.emptyList());
+
+        final IdeasCampaignEntity campaign = givenIdeaCampaignExists("test_campaignId", true);
+        givenIdeaExists(new Idea("test_title", "test_pitch"), campaign.getId());
+
+        ideaService.approveIdea("test_campaignId", missingIdeaId, approver);
+    }
+
+    @Test(expected = ResourceNotFoundException.class)
+    public void approveIdea_shouldThrowException_OnNotExistingIdea() {
+        givenIdeaCampaignExists("test_campaignId", true);
+        final String missingIdeaId = "idea27";
+        final UserEntity approver = givenUserEntity("test_adminId");
+        approver.setRoles(singletonList(Roles.ROLE_ADMIN));
+
+        givenIdeaDoesntExist(missingIdeaId);
+        ideaService.approveIdea("test_campaignId", missingIdeaId, approver);
     }
 
     @Test
     public void approveIdea_shouldPersistApprovedIdeaAndNotifyUser() {
         final String missingIdeaId = "idea27";
         final UserEntity approver = givenUserEntity("test_adminId");
-        approver.setRoles(Arrays.asList(Roles.ROLE_ADMIN));
+        approver.setRoles(singletonList(Roles.ROLE_ADMIN));
 
-        IdeaEntity expectedIdea = givenIdeaExists(new Idea("test_title", "test_pitch"));
+        final IdeasCampaignEntity campaign = givenIdeaCampaignExists("test_campaignId", true);
+        IdeaEntity expectedIdea = givenIdeaExists(new Idea("test_title", "test_pitch"), campaign.getId());
 
-        ideaService.approveIdea(missingIdeaId, approver);
+        ideaService.approveIdea(expectedIdea.getCampaignId(), missingIdeaId, approver);
 
         final ArgumentCaptor<IdeaEntity> captor = ArgumentCaptor.forClass(IdeaEntity.class);
         verify(ideaRepository).save(captor.capture());
@@ -262,26 +324,25 @@ public class IdeaServiceTest {
     }
 
     @Test
-    public void rejectIdea_shouldPersistRejectedIdea() {
-        final String missingIdeaId = "idea27";
+    public void approveIdea_shouldThrowException_OnCampaignNotActive() {
         final UserEntity approver = givenUserEntity("test_adminId");
-        approver.setRoles(Arrays.asList(Roles.ROLE_ADMIN));
+        approver.setRoles(singletonList(Roles.ROLE_ADMIN));
 
-        givenIdeaExists(new Idea("test_title", "test_pitch"));
+        final IdeasCampaignEntity campaign = givenIdeaCampaignExists("test_campaignId", false);
+        final IdeaEntity ideaEntity = givenIdeaExists(new Idea("test_title", "test_pitch"), campaign.getId());
 
-        ideaService.rejectIdea(missingIdeaId, "you are rejected!", approver);
-
-        final ArgumentCaptor<IdeaEntity> captor = ArgumentCaptor.forClass(IdeaEntity.class);
-        verify(ideaRepository).save(captor.capture());
-
-        assertThat(captor.getValue().getStatus(), is(IdeaStatus.REJECTED));
-        assertThat(captor.getValue().getRejectionComment(), is("you are rejected!"));
+        try {
+            ideaService.approveIdea(ideaEntity.getCampaignId(), ideaEntity.getId(), approver);
+            fail("Expected exception not thrown");
+        } catch (InvalidRequestException e) {
+            assertThat(e.getMessage(), equalTo("campaign_not_active"));
+        }
     }
 
     @Test
     public void voteForIdea_shouldCallVotingService(){
-        final IdeaEntity ideaEntity = givenIdeaExists(new Idea("test_title", "test_pitch"));
-        final IdeasCampaignEntity expectedCampaign = givenIdeaCampaignExists(ideaEntity.getCampaignId());
+        final IdeasCampaignEntity expectedCampaign = givenIdeaCampaignExists("test_campaignId", true);
+        final IdeaEntity ideaEntity = givenIdeaExists(new Idea("test_title", "test_pitch"), expectedCampaign.getId());
         final UserEntity voter = givenUserEntity("testvoter_id");
 
         ideaService.voteForIdea(new VoteCmd(ideaEntity.getId(), 1), voter);
@@ -289,18 +350,21 @@ public class IdeaServiceTest {
         verify(votingService).voteForIdea(eq(ideaEntity), eq(expectedCampaign), eq(voter), eq(1));
     }
 
-    private IdeaEntity givenIdeaExists(Idea idea) {
-        final IdeaEntity theIdea = Fixtures.givenIdeaEntity(idea);
+    private IdeaEntity givenIdeaExists(Idea idea, String campaignId) {
+        final IdeaEntity theIdea = Fixtures.givenIdeaEntity(idea, campaignId);
         theIdea.setId("testidea_id");
         doReturn(true).when(ideaRepository).exists(anyString());
         doReturn(theIdea).when(ideaRepository).findOne(anyString());
         return theIdea;
     }
 
-    private IdeasCampaignEntity givenIdeaCampaignExists(String campaignId) {
+    private IdeasCampaignEntity givenIdeaCampaignExists(String campaignId, boolean active) {
         doReturn(true).when(ideasCampaignRepository).exists(campaignId);
         final IdeasCampaignEntity campaign = Fixtures.givenIdeasCampaignEntity("test_initiator");
         campaign.setId(campaignId);
+        if (!active) {
+            campaign.setEndDate(DateTime.now().minusSeconds(10));
+        }
         doReturn(campaign).when(ideasCampaignRepository).findOne(campaignId);
         return campaign;
     }
