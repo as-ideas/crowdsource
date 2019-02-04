@@ -168,6 +168,7 @@ status-bar {
     &-breadcrumb__item, &__button {
         text-decoration: none;
         font-size: $fs-normal;
+        font-weight: $fw-bold;
 
         &:hover {
             color: inherit;
@@ -176,6 +177,16 @@ status-bar {
         &:focus {
             color: inherit;
         }
+    }
+
+    &-breadcrumb__item--current {
+        font-size: $fs-normal;
+        font-weight: $fw-regular;
+    }
+
+    &-breadcrumb__item-separator {
+        margin-left: 3px;
+        margin-right: 5px;
     }
 
     &__icon--hourglass {

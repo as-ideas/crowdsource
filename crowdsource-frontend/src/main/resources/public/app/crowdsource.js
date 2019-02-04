@@ -22,6 +22,8 @@
      */
     angular.module('crowdsource', ['ngRoute', 'ngResource', 'ngMessages', 'dibari.angular-ellipsis', 'ngScrollTo',
                     'ngSanitize', 'ng-showdown', 'ngFileUpload', 'ngclipboard', 'chart.js'])
+        .constant('TITLE', 'Übersicht')
+
         .config(function ($routeProvider, $locationProvider, $httpProvider, $showdownProvider) {
             $routeProvider
                 .when('/intro', {
@@ -32,7 +34,7 @@
                 .when('/ideas/:ideasId', {
                     templateUrl: 'app/ideas/list/ideas-list.html',
                     controller: 'IdeasListController as ideasList',
-                    title: 'Ideen Kampagne',
+                    title: 'Übersicht',
                     requireLogin: true,
                     resolve: {
                         campaign: function(IdeasCampaignResolver) {
@@ -54,7 +56,7 @@
                 .when('/ideas/:ideasId/admin', {
                     templateUrl: 'app/ideas/admin/admin-list.html',
                     controller: 'IdeasAdminController as admin',
-                  title: 'Administration Ideen',
+                  title: 'Administration',
                     requireLogin: true,
                     requireAdmin: true,
                     resolve: {
