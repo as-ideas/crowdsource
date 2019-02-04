@@ -3,11 +3,10 @@
         <ul class="sbar__ul">
             <li class="sbar__li--primary sbar-breadcrumb columns medium-6">
                 <ul class="sbar__ul-float">
-                    <span class="sbar__icon--location"></span>
-
                     <li class="sbar__li--secondar--no-padding" ng-repeat="breadcrumb in status.breadcrumbs">
-                        <a class="sbar-breadcrumb__item" ng-href="{{breadcrumb.target}}">{{breadcrumb.label}}</a>
-                        <span ng-if="!$last">&nbsp;/&nbsp;</span>
+                        <a ng-if="!$last" class="sbar-breadcrumb__item" ng-href="{{breadcrumb.target}}">{{breadcrumb.label}}</a>
+                        <span ng-if="$last" class="sbar-breadcrumb__item--current">{{breadcrumb.label}}</span>
+                        <span ng-if="!$last" class="sbar-breadcrumb__item-separator">&raquo;</span>
                     </li>
                 </ul>
             </li>
