@@ -10,7 +10,7 @@
   font-size: $fs-small;
   letter-spacing: 0.5px;
   margin: 3px;
-  padding: rem-calc(12px) $pd-huge;
+  padding: $pd-smaller $pd-huge;
   text-decoration: none;
   text-transform: uppercase;
   transition: background-color 100ms;
@@ -35,7 +35,7 @@
   background-color: $clr-green-shade-2;
   color: $clr-body;
 
-  &:hover {
+  &:hover:enabled {
     background-color: #35EA87;
     color: $clr-body;
   }
@@ -56,31 +56,33 @@
   }
 }
 
-
 .button-secondary {
   @extend %button-shared;
 
-  background-color: $clr-gray;
-  color: $clr-body;
-  padding: $pd-smaller $pd-huge;
+  $color: $white; // $clr-body
+  $bg-color: $clr-gray-dark;  // $clr-gray-light;
+  $bg-color-hover: $clr-gray-darker; // $clr-gray;
 
-  &:hover {
-    background-color: $clr-gray-dark;
-    color: $clr-body;
+  background-color: $bg-color;
+  color: $color;
+
+  &:hover:enabled {
+    background-color: $bg-color-hover;
+    color: $color;
   }
 
   &:active {
-    background-color: $clr-gray-dark;
-    color: $clr-body;
+    background-color: $bg-color-hover;
+    color: $color;
   }
 
   &:disabled {
-    background-color: $clr-gray;
-    color: $clr-body;
+    background-color: $bg-color;
+    color: $color;
 
     &:hover {
-      background-color: $clr-gray;
-      color: $clr-body;
+      background-color: $bg-color;
+      color: $color;
     }
   }
 
