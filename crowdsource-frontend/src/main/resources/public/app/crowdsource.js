@@ -22,7 +22,6 @@
      */
     angular.module('crowdsource', ['ngRoute', 'ngResource', 'ngMessages', 'dibari.angular-ellipsis', 'ngScrollTo',
                     'ngSanitize', 'ng-showdown', 'ngFileUpload', 'ngclipboard', 'chart.js'])
-        .constant('TITLE', 'Übersicht')
 
         .config(function ($routeProvider, $locationProvider, $httpProvider, $showdownProvider) {
             $routeProvider

@@ -13,9 +13,9 @@ angular.module('crowdsource')
                 loadMoreLabel: '@',
                 noMoreLabel: '@'
             },
-            template: '<div class="loadMore__container"><a ng-click="vm.loadMore()" class=" loadMore__button teaser__btn">' +
-                '<span class="loadMore__label">{{vm.loadingEnabled ? vm.loadMoreText : vm.noMoreText}}</span>' +
-            '</a></div>',
+            template: '<div class="loadMore__container"><button ng-click="vm.loadMore()" class="button-secondary">' +
+                '{{vm.loadingEnabled ? vm.loadMoreText : vm.noMoreText}}' +
+            '</button></div>',
             controller: function () {
 
                 var vm = this;

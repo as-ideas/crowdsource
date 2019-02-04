@@ -17,7 +17,7 @@ angular.module('crowdsource')
                     event.preventDefault();
 
                     // force redirect to login
-                    $location.path(LOGIN_PATH);
+                    $location.path('/login');
                 }
 
                 if (next.requireAdmin && !Authentication.isAdmin()) {
