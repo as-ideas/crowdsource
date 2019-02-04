@@ -81,8 +81,8 @@ public class IdeaEntity {
     public void approveIdea(UserEntity approvingAdmin) {
         Assert.notNull(approvingAdmin, "approvingAdmin must not be null");
         Assert.notNull(approvingAdmin.getId(), "approvingAdmin must have an ID");
-
         Assert.isTrue(this.status != IdeaStatus.PUBLISHED, "Cannot approve idea because it is already published");
+
 
         setReviewDate(DateTime.now());
         this.setApprovingAdminId(approvingAdmin.getId());

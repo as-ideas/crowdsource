@@ -2,7 +2,7 @@ function LoadMoreView(el) {
     this.element = el;
 
     this.getLabel = function () {
-        return this.element.find('.loadMore__label').text();
+        return this.element.find('.loadMore__button').text();
     };
 
     this.clickButton = function () {

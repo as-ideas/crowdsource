@@ -95,14 +95,16 @@ describe('load more', function () {
 
     function givenMultiplePagesPresent() {
         return {
-            totalPages: 2,
-            number: 1
+            page: 0,
+            number: 0,
+            last: false
         };
     }
     function givenNoMorePagesPresent() {
         return {
-            totalPages: 2,
-            number: 2
+            page: 2,
+            number: 2,
+            last: true
         };
     }
 });

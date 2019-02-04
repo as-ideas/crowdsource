@@ -18,7 +18,11 @@ public class Fixtures {
     }
 
     public static IdeaEntity givenIdeaEntity(Idea idea) {
-        return IdeaEntity.createIdeaEntity(idea, "test_campaignId", givenUserEntity("test_userId"));
+        return givenIdeaEntity(idea, "test_campaignId");
+    }
+
+    public static IdeaEntity givenIdeaEntity(Idea idea, String campaignId) {
+        return IdeaEntity.createIdeaEntity(idea, campaignId, givenUserEntity("test_userId"));
     }
 
     public static IdeaEntity givenIdeaEntity() {

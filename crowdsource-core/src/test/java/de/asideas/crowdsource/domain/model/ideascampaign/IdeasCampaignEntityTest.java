@@ -133,7 +133,6 @@ public class IdeasCampaignEntityTest {
         assertThat(ideasCampaignEntity.isActive(), is(false));
     }
 
-
     private IdeasCampaign givenIdeasCampaignCmd(String userId) {
         return givenIdeasCampaignCmd(userId, DateTime.now(), DateTime.now().plus(10000L));
     }

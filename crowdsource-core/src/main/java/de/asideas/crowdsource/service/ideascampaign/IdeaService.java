@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import de.asideas.crowdsource.domain.model.ideascampaign.IdeasCampaignEntity;
 import de.asideas.crowdsource.domain.model.ideascampaign.VoteEntity;
 import de.asideas.crowdsource.domain.service.ideascampaign.VotingService;
 import de.asideas.crowdsource.domain.service.user.UserNotificationService;
@@ -110,8 +111,8 @@ public class IdeaService {
         Assert.notNull(creator, "Creator must not be null.");
 
         validateCampaignExists(campaignId);
-
-        final IdeaEntity result = IdeaEntity.createIdeaEntity(cmd, campaignId, creator);
+        final IdeasCampaignEntity campaign = ideasCampaignRepository.findOne(campaignId);
+        final IdeaEntity result = campaign.createIdea(cmd, creator);
 
         notifyAdminsOnNewIdea(result);
         return new Idea(ideaRepository.save(result));
@@ -130,35 +131,39 @@ public class IdeaService {
         return new Idea(ideaRepository.save(existingIdea.modifyIdeaPitch(cmd.getPitch())));
     }
 
-    public void approveIdea(String ideaId, UserEntity approvingAdmin) {
+    public void approveIdea(String campaignId, String ideaId, UserEntity approvingAdmin) {
         Assert.hasText(ideaId, "ideaId must not be null.");
         Assert.notNull(approvingAdmin, "approvingAdmin must not be null.");
 
         checkRequestorIsAdmin(approvingAdmin);
+        validateCampaignExists(campaignId);
         validateIdeaExists(ideaId);
 
+        final IdeasCampaignEntity campaign = ideasCampaignRepository.findOne(campaignId);
         final IdeaEntity existingIdea = ideaRepository.findOne(ideaId);
-        existingIdea.approveIdea(approvingAdmin);
+        campaign.approveIdea(existingIdea, approvingAdmin);
 
         userNotificationService.notifyCreatorOnIdeaAccepted(existingIdea);
 
         ideaRepository.save(existingIdea);
     }
 
-    public void rejectIdea(String ideaId, String rejectionComment, UserEntity approvingAdmin) {
+    public void rejectIdea(String campaignId, String ideaId, String rejectionComment, UserEntity approvingAdmin) {
         Assert.hasText(ideaId, "ideaId must not be null.");
         Assert.hasText(rejectionComment, "rejectionComment must not be null");
         Assert.notNull(approvingAdmin, "approvingAdmin must not be null.");
 
         checkRequestorIsAdmin(approvingAdmin);
         validateIdeaExists(ideaId);
+        validateCampaignExists(campaignId);
 
-        final IdeaEntity existingIdea = ideaRepository.findOne(ideaId);
-        existingIdea.rejectIdea(approvingAdmin, rejectionComment);
+        final IdeasCampaignEntity campaign = ideasCampaignRepository.findOne(campaignId);
+        final IdeaEntity ideaToReject = ideaRepository.findOne(ideaId);
+        campaign.rejectIdea(ideaToReject, approvingAdmin, rejectionComment);
 
-        userNotificationService.notifyCreatorOnIdeaRejected(existingIdea, rejectionComment);
+        userNotificationService.notifyCreatorOnIdeaRejected(ideaToReject, rejectionComment);
 
-        ideaRepository.save(existingIdea);
+        ideaRepository.save(ideaToReject);
     }
 
     public void voteForIdea(VoteCmd voteCmd, UserEntity voter) {

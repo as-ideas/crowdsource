@@ -98,7 +98,7 @@ public class IdeaController {
     @PutMapping(value = "/ideas_campaigns/{campaignId}/ideas/{ideaId}/approval")
     public void approveIdea(@PathVariable String campaignId, @PathVariable String ideaId, Principal principal) {
         log.info("Going to approve ideaId={}", ideaId);
-        ideaService.approveIdea(ideaId, userByPrincipal(principal));
+        ideaService.approveIdea(campaignId, ideaId, userByPrincipal(principal));
     }
 
     @Secured(ROLE_ADMIN)
@@ -106,7 +106,7 @@ public class IdeaController {
     @PutMapping(value = "/ideas_campaigns/{campaignId}/ideas/{ideaId}/rejection", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void rejectIdea(@PathVariable String campaignId, @PathVariable String ideaId, @Valid @RequestBody IdeaRejectCmd cmd, Principal principal) {
         log.info("Going to approve ideaId={}", ideaId);
-        ideaService.rejectIdea(ideaId, cmd.getRejectionComment(), userByPrincipal(principal));
+        ideaService.rejectIdea(campaignId, ideaId, cmd.getRejectionComment(), userByPrincipal(principal));
     }
 
     @Secured(ROLE_USER)
