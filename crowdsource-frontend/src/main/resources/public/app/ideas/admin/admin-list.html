@@ -12,7 +12,7 @@
         <h2>Liste noch ausstehenden Ideen ({{admin.pendingIdeas && admin.pendingIdeas.length}})</h2>
         <div class="ideas-grid__container">
             <div class="ideas-grid__box" ng-repeat="idea in admin.pendingIdeas">
-                <idea-tile campaign="admin.campaign" admin="true" idea="idea"></idea-tile>
+                <idea-tile campaign="admin.campaign" admin="true" idea="idea" success-fn="admin.reloadLists"></idea-tile>
             </div>
         </div>
     </content-row>
@@ -21,7 +21,7 @@
         <h2>Liste abgelehnten Ideen ({{admin.rejectedIdeas && admin.rejectedIdeas.length}})</h2>
         <div class="ideas-grid__container">
             <div class="ideas-grid__box" ng-repeat="idea in admin.rejectedIdeas">
-                <idea-tile campaign="admin.campaign" admin="true" idea="idea"></idea-tile>
+                <idea-tile campaign="admin.campaign" admin="true" idea="idea" success-fn="admin.reloadLists"></idea-tile>
             </div>
         </div>
     </content-row>

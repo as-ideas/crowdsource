@@ -24,7 +24,7 @@ angular.module('crowdsource')
                 var originalIdea = {
                     title: vm.idea.title,
                     pitch: vm.idea.pitch
-                }
+                };
 
                 function submitEnabled () {
                     return (vm.idea.title && vm.idea.title.length >= 5 && vm.idea.title.length <= 24)
@@ -41,7 +41,6 @@ angular.module('crowdsource')
 
                     $scope.cancelFn();
                 };
-
             }
         };
     });

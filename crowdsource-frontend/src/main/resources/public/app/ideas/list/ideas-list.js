@@ -1,5 +1,5 @@
 angular.module('crowdsource')
-    .controller('IdeasListController', function (campaign, Authentication, Idea) {
+    .controller('IdeasListController', function (campaign, Authentication, Idea, $rootScope) {
         var vm = this;
         vm.auth = Authentication;
         vm.campaign = campaign;
@@ -12,6 +12,11 @@ angular.module('crowdsource')
         function init(){
             loadMore(0);
         }
+
+        vm.reloadOwnIdeas = function () {
+            // TODO: Candidate to extract into an own eventing object, see: http://eburley.github.io/2013/01/31/angularjs-watch-pub-sub-best-practices.html
+            $rootScope.$broadcast('UPDATE_OWN_STATISTICS', {},{});
+        };
 
         function loadMore(page) {
             Idea.getAll(campaign.id).then(function(res) {

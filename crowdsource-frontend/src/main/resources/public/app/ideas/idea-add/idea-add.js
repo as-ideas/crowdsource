@@ -6,7 +6,7 @@ angular.module('crowdsource')
             controllerAs: 'vm',
             scope: {
                 campaign: "=",
-                successFn: "=",
+                successFn: "="
             },
             controller: function ($scope) {
                 var vm = this;

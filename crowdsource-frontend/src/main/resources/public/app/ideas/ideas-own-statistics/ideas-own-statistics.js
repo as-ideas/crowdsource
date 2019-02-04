@@ -1,5 +1,5 @@
 angular.module('crowdsource')
-    .directive('ideasOwnStatistics', function (Idea, IDEAS_STATUS) {
+    .directive('ideasOwnStatistics', function (Idea, IDEAS_STATUS, $rootScope) {
 
         return {
             templateUrl: 'app/ideas/ideas-own-statistics/ideas-own-statistics.html',
@@ -24,8 +24,16 @@ angular.module('crowdsource')
                     $scope.$on('$destroy', function() { cleanupListener(); });
                 }
 
+                function registerUpdateListListener() {
+                    var listener = $rootScope.$on('UPDATE_OWN_STATISTICS', function() {
+                        fetchOwnIdeas();
+                    });
+                    $scope.$on('$destroy', function() { listener(); });
+                }
+
                 function init() {
                     registerDeriveStatsListener();
+                    registerUpdateListListener();
                     if (!$scope.ideas) { fetchOwnIdeas(); }
                 }
 
