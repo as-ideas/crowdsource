@@ -23,7 +23,7 @@ angular.module('crowdsource')
                 vm.rating = $scope.idea.rating || DEFAULT_RATING;
                 vm.rating.averageRating = Math.round(vm.rating.averageRating * 10) / 10;
                 vm.campaignId = $scope.campaign.id;
-                vm.isVotingDisabled = false;
+                vm.isVotingDisabled = !$scope.campaign.active || false;
                 vm.rejectionComment = "";
                 vm.isEditable = false;
 

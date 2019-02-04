@@ -5,6 +5,7 @@ angular.module('crowdsource')
             templateUrl: 'app/ideas/idea-edit/idea-edit.html',
             controllerAs: 'vm',
             scope: {
+                campaign: "=",
                 idea: "=",
                 submitFn: "=",
                 cancelFn: "=",

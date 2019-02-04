@@ -27,7 +27,6 @@ angular.module('crowdsource')
                 }
 
                 function updateBreadcrumb(title) {
-                    console.log("Title: " + title);
                     vm.breadcrumbs = [];
                     vm.breadcrumbs.push({target: '/#/intro', label: 'Kampagnen'});
                     vm.breadcrumbs.push({target: '/#/ideas/' + vm.campaign.id, label: vm.campaign.title});

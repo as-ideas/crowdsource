@@ -35,13 +35,10 @@
 
     <div ng-if="vm.isEditable" class="ideas-grid-tile__approval-container">
         <idea-edit idea="vm.idea" cancel-fn="vm.cancelEdit" submit-fn="vm.update"></idea-edit>
-        <!--
-        <button ng-click="vm.save()" class="ideas-grid-tile__btn ideas-grid-tile__btn-approve">Update</button>
-        -->
     </div>
 
     <div ng-if="!vm.isAdminView && (vm.idea.status == 'PROPOSED') && !vm.isEditable" class="ideas-grid-tile__edit-container">
-        <button ng-click="vm.edit()" class="button-secondary--fullwidth">Bearbeiten</button>
+        <button campaign-active-aware ng-click="vm.edit()" class="button-secondary--fullwidth">Bearbeiten</button>
     </div>
 
 
@@ -51,9 +48,9 @@
 
     <div ng-if="vm.isAdminView" class="ideas-grid-tile__approval-container">
         <div ng-if="vm.idea.status == 'PROPOSED'">
-            <input type="text" ng-model="vm.rejectionComment" placeholder="Ablehnungsgrund">
-            <button ng-click="vm.reject()" class="button-secondary--halfwidth" ng-disabled="!vm.rejectionComment.length">Ablehnen</button>
-            <button ng-click="vm.publish()" class="button-primary--halfwidth">Freigeben</button>
+            <input campaign-active-aware type="text" ng-model="vm.rejectionComment" placeholder="Ablehnungsgrund">
+            <button campaign-active-aware ng-click="vm.reject()" class="button-secondary--halfwidth" ng-disabled="!vm.rejectionComment.length">Ablehnen</button>
+            <button campaign-active-aware ng-click="vm.publish()" class="button-primary--halfwidth">Freigeben</button>
         </div>
     </div>
 </div>
