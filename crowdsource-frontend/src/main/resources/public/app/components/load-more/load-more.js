@@ -9,23 +9,24 @@ angular.module('crowdsource')
             bindToController: true,
             scope: {
                 paging: '=',
+                disableLoading: '=',
                 loadFn: '=',
                 loadMoreLabel: '@',
                 noMoreLabel: '@'
             },
             template: '<div class="loadMore__container"><a ng-click="vm.loadMore()" class=" loadMore__button teaser__btn">' +
-                '<span class="loadMore__label">{{vm.loadingEnabled ? vm.loadMoreText : vm.noMoreText}}</span>' +
+                '<span class="loadMore__label">{{!vm.paging.last? vm.loadMoreText : vm.noMoreText}}</span>' +
             '</a></div>',
-            controller: function () {
-
+            controller: function ($scope) {
                 var vm = this;
-                vm.loadMore = loadMore;
+                vm.paging = this.paging;
                 vm.loadMoreText = vm.loadMoreLabel || loadMoreText;
                 vm.noMoreText = vm.noMoreLabel|| noMoreText;
-                vm.loadingEnabled = (vm.paging.number + 1) <= vm.paging.totalPages;
+                vm.disableLoading = vm.paging && vm.paging.last;
+                vm.loadMore = loadMore;
 
                 function loadMore() {
-                    if (vm.loadingEnabled) {
+                    if (!vm.paging.last) {
                         vm.loadFn(vm.paging.number + 1);
                     }
                 }

@@ -17,7 +17,7 @@ angular.module('crowdsource')
         });
         var ideaCampaignResource = $resource('/ideas_campaigns/:id', {});
 
-        var ideasResource = $resource('/ideas_campaigns/:campaignId/ideas?status=:status', {}, {
+        var ideasResource = $resource('/ideas_campaigns/:campaignId/ideas', {}, {
             post: {
                 method: 'POST'
             }
@@ -60,8 +60,8 @@ angular.module('crowdsource')
             return ideasResource.get({campaignId: campaignId, status: status}).$promise;
         }
 
-        function getAll(campaignId) {
-            return ideasResource.get({campaignId: campaignId}).$promise;
+        function getAll(campaignId, page) {
+            return ideasResource.get({campaignId: campaignId, page: page}).$promise;
         }
 
         function voteIdea(campaignId, ideaId, voting) {

@@ -10,7 +10,7 @@ angular.module('crowdsource')
         init();
 
         function init(){
-            loadMore(0);
+            loadMore();
         }
 
         vm.reloadOwnIdeas = function () {
@@ -19,10 +19,9 @@ angular.module('crowdsource')
         };
 
         function loadMore(page) {
-            Idea.getAll(campaign.id).then(function(res) {
+            Idea.getAll(campaign.id, page).then(function(res) {
                 vm.ideas = vm.ideas.concat(res.content);
                 vm.paging = res;
-                delete vm.paging.content;
             });
         }
     });
