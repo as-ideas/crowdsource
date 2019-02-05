@@ -42,7 +42,7 @@ public class IdeaController {
     private static final Logger log = getLogger(IdeaController.class);
 
     @Secured(Roles.ROLE_USER)
-    @GetMapping(value = "/ideas_campaigns/{campaignId}/ideas", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @GetMapping(value = Paths.IDEAS, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public Page<Idea> fetchIdeas(@PathVariable String campaignId,
                                  @RequestParam(value = "page", required = false) Integer page,
                                  @RequestParam(value = "pageSize", required = false) Integer pageSize,
@@ -61,7 +61,7 @@ public class IdeaController {
     }
 
     @Secured(Roles.ROLE_USER)
-    @GetMapping(value = "/ideas_campaigns/{campaignId}/ideas/filtered", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @GetMapping(value = Paths.IDEAS_FILTERED, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public Page<Idea> fetchIdeasFiltered(@PathVariable String campaignId,
                                  @RequestParam(value = "page", required = false) Integer page,
                                  @RequestParam(value = "pageSize", required = false) Integer pageSize,
@@ -72,7 +72,7 @@ public class IdeaController {
     }
 
     @Secured(Roles.ROLE_USER)
-    @GetMapping(value = "/ideas_campaigns/{campaignId}/my_ideas", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @GetMapping(value = Paths.USERS_IDEAS, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<Idea> fetchIdeasOfCurrentUser(@PathVariable String campaignId, Principal principal) {
         final UserEntity requestor = userByPrincipal(principal);
         return ideaService.fetchIdeasByCampaignAndCreator(campaignId, requestor, requestor);
@@ -80,14 +80,14 @@ public class IdeaController {
 
     @Secured(Roles.ROLE_USER)
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping(value = "/ideas_campaigns/{campaignId}/ideas", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @PostMapping(value = Paths.IDEAS, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public Idea createIdea(@Valid @RequestBody Idea cmd, @PathVariable String campaignId, Principal principal) {
         log.info("Going to create idea by cmd: {}", cmd);
         return ideaService.createNewIdea(campaignId, cmd, userByPrincipal(principal));
     }
 
     @Secured(Roles.ROLE_USER)
-    @PutMapping(value = "/ideas_campaigns/{campaignId}/ideas/{ideaId}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @PutMapping(value = Paths.IDEA, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public Idea modifyIdea(@Valid @RequestBody Idea cmd, @PathVariable String campaignId, @PathVariable String ideaId, Principal principal) {
         log.info("Going to modify idea by cmd: {}", cmd);
         return ideaService.modifyIdea(ideaId, cmd, userByPrincipal(principal));
@@ -95,7 +95,7 @@ public class IdeaController {
 
     @Secured(ROLE_ADMIN)
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PutMapping(value = "/ideas_campaigns/{campaignId}/ideas/{ideaId}/approval")
+    @PutMapping(value = Paths.IDEA_APPROVAL)
     public void approveIdea(@PathVariable String campaignId, @PathVariable String ideaId, Principal principal) {
         log.info("Going to approve ideaId={}", ideaId);
         ideaService.approveIdea(campaignId, ideaId, userByPrincipal(principal));
@@ -103,14 +103,14 @@ public class IdeaController {
 
     @Secured(ROLE_ADMIN)
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PutMapping(value = "/ideas_campaigns/{campaignId}/ideas/{ideaId}/rejection", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = Paths.IDEA_REJECTION, consumes = MediaType.APPLICATION_JSON_VALUE)
     public void rejectIdea(@PathVariable String campaignId, @PathVariable String ideaId, @Valid @RequestBody IdeaRejectCmd cmd, Principal principal) {
         log.info("Going to approve ideaId={}", ideaId);
         ideaService.rejectIdea(campaignId, ideaId, cmd.getRejectionComment(), userByPrincipal(principal));
     }
 
     @Secured(ROLE_USER)
-    @PutMapping(value = "/ideas_campaigns/{campaignId}/ideas/{ideaId}/votes", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = Paths.IDEA_VOTES, consumes = MediaType.APPLICATION_JSON_VALUE)
     public Rating voteForIdea(@PathVariable String campaignId, @PathVariable String ideaId, @Valid @RequestBody VoteCmd cmd, Principal principal) {
         log.info("Going to vote={} on ideaId={}", cmd.getVote(), ideaId);
         cmd.setIdeaId(ideaId);
