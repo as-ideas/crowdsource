@@ -87,6 +87,10 @@ public class IdeasCampaignEntity {
         return this.startDate.isBeforeNow() && this.endDate.isAfterNow();
     }
 
+    public boolean isExpired() {
+        return this.endDate.isBeforeNow();
+    }
+
     public IdeaEntity createIdea(Idea cmd, UserEntity creator) {
         if (!this.isActive()) {
             throw InvalidRequestException.campaignNotActive();
