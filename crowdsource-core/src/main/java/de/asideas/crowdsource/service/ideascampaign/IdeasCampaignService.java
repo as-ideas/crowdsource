@@ -1,5 +1,6 @@
 package de.asideas.crowdsource.service.ideascampaign;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -34,7 +35,22 @@ public class IdeasCampaignService {
      * @return all campaigns ordered by <code>campaign.endDate</code> ASC
      */
     public List<IdeasCampaign> allCampaigns(){
-        return toIdeasCampaigns(ideasCampaignRepository.findAll(new Sort(new Sort.Order(Sort.Direction.ASC, "endDate"))));
+        final List<IdeasCampaign> campaigns = toIdeasCampaigns(ideasCampaignRepository.findAll(new Sort(new Sort.Order(Sort.Direction.ASC, "endDate"))));
+        // This sort order yields two groupings - the active campaigns (1st) and the inactive (2nd)
+        // within these groups the sort order is determined by the campaigns' end dates
+        campaigns.sort((o1, o2) -> {
+            if (o1.isActive() == o2.isActive()) {
+                return o2.getEndDate().compareTo(o1.getEndDate());
+            }
+            if (o1.isActive() && !o2.isActive()) {
+                return -1;
+            }
+            if (!o1.isActive() && o2.isActive()) {
+                return +1;
+            }
+            return 0;
+        });
+        return campaigns;
     }
 
     public IdeasCampaign createCampaign(IdeasCampaign cmd, UserEntity requestingUser) {

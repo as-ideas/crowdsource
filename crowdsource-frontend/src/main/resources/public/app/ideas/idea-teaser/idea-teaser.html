@@ -8,11 +8,11 @@
                     <source src="{{campaign.videoReference | trustUrl}}" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
-
             </div>
             <div class="ideas-teaser__item">
                 <h1 class="ideas-teaser__heading">{{campaign.title}}</h1>
                 <p class="ideas-teaser__sponsor">{{campaign.sponsor}}</p>
+                <p class="ideas-teaser__date">{{ campaign.startDateString }} - {{ campaign.endDateString }}<span ng-if="campaign.expired"> (beendet)</span></p>
                 <p class="ideas-teaser__description">{{campaign.description}}</p>
             </div>
         </div>

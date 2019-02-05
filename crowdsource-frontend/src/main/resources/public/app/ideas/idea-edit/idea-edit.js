@@ -28,7 +28,7 @@ angular.module('crowdsource')
                 };
 
                 function submitEnabled () {
-                    return (vm.idea.title && vm.idea.title.length >= 5 && vm.idea.title.length <= 24)
+                    return (vm.idea.title && vm.idea.title.length >= 5 && vm.idea.title.length <= 30)
                         && (vm.idea.pitch && vm.idea.pitch.length >= 5 && vm.idea.pitch.length <= 255)
                 }
 

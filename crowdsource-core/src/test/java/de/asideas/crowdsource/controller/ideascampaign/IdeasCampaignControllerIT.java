@@ -8,10 +8,10 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 
 import de.asideas.crowdsource.AbstractCrowdIT;
 import de.asideas.crowdsource.domain.model.UserEntity;
+import de.asideas.crowdsource.domain.model.ideascampaign.IdeasCampaignEntity;
 import de.asideas.crowdsource.presentation.ideascampaign.CampaignInitiator;
 import de.asideas.crowdsource.presentation.ideascampaign.IdeasCampaign;
 import de.asideas.crowdsource.repository.ideascampaign.IdeasCampaignRepository;
@@ -25,6 +25,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 public class IdeasCampaignControllerIT extends AbstractCrowdIT {
@@ -80,16 +81,12 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
     }
 
     @Test
-    public void loadIdeasCampaigns_ShouldReturnListOfCampaigns_OrderedBy_EndDate_Asc() throws Exception {
+    public void loadIdeasCampaigns_ShouldReturnListOfCampaigns_OrderedBy_EndDate_And_ActiveState_Asc() throws Exception {
         final UserEntity currentAdmin = givenAdminUserExists();
         final String accessTokenAdmin = obtainAccessToken(currentAdmin.getEmail(), currentAdmin.getPassword());
 
-        final IdeasCampaign cmd1 = givenValidCampaignCmd();
-        final IdeasCampaign cmd2 = givenValidCampaignCmd();
-        cmd1.setEndDate(cmd2.getEndDate().plusDays(2));
 
-        final IdeasCampaign expectedCampaign_2nd = givenIdeasCampaignExists(accessTokenAdmin, cmd1);
-        final IdeasCampaign expectedCampaign_1st = givenIdeasCampaignExists(accessTokenAdmin, cmd2);
+        List<IdeasCampaign> givenCampaignEntities = givenCampaignCommandsWithValidityVariations(accessTokenAdmin);
 
         final UserEntity requester = givenUserExists();
         final String accessToken = obtainAccessToken(requester.getEmail(), requester.getPassword());
@@ -98,13 +95,40 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
             .header("Authorization", "Bearer " + accessToken)
             .accept(MediaType.APPLICATION_JSON_UTF8)
         )
-            .andDo(log())
+            .andDo(print())
             .andExpect(status().isOk()).andReturn();
 
         final List<IdeasCampaign> actual = Arrays.asList(mapper.readValue(mvcResult.getResponse().getContentAsString(), IdeasCampaign[].class));
-        assertThat(actual.size(), equalTo(2));
-        assertThat(actual.get(0).getId(), equalTo(expectedCampaign_1st.getId()));
-        assertThat(actual.get(1).getId(), equalTo(expectedCampaign_2nd.getId()));
+        assertThat(actual.size(), equalTo(4));
+        assertThat(actual.get(0).getTitle(), equalTo("EXPECTED_0"));
+        assertThat(actual.get(1).getTitle(), equalTo("EXPECTED_1"));
+        assertThat(actual.get(2).getTitle(), equalTo("EXPECTED_2"));
+        assertThat(actual.get(3).getTitle(), equalTo("EXPECTED_3"));
+    }
+
+    private List<IdeasCampaign> givenCampaignCommandsWithValidityVariations(String accessTokenAdmin) throws Exception {
+
+        final IdeasCampaign cmd1 = givenIdeasCampaignExists(accessTokenAdmin, givenValidCampaignCmd());
+        manipulateEntityTimespanAndTitle(cmd1, DateTime.now().minusDays(2), DateTime.now().plusDays(5), "EXPECTED_0");
+
+        final IdeasCampaign cmd2 = givenIdeasCampaignExists(accessTokenAdmin, givenValidCampaignCmd());
+        manipulateEntityTimespanAndTitle(cmd2, DateTime.now().minusDays(20), DateTime.now().minusDays(10), "EXPECTED_3");
+
+        final IdeasCampaign cmd3 = givenIdeasCampaignExists(accessTokenAdmin, givenValidCampaignCmd());
+        manipulateEntityTimespanAndTitle(cmd3, DateTime.now().plusDays(5), DateTime.now().plusDays(10), "EXPECTED_2");
+
+        final IdeasCampaign cmd4 = givenIdeasCampaignExists(accessTokenAdmin, givenValidCampaignCmd());
+        manipulateEntityTimespanAndTitle(cmd4, DateTime.now().minusDays(8), DateTime.now().plusDays(1), "EXPECTED_1");
+
+        return Arrays.asList(cmd1, cmd2, cmd3, cmd4);
+    }
+
+    private void manipulateEntityTimespanAndTitle(IdeasCampaign cmd, DateTime start, DateTime end, String title) {
+        final IdeasCampaignEntity campaign = this.ideasCampaignRepository.findOne(cmd.getId());
+        campaign.setStartDate(start);
+        campaign.setEndDate(end);
+        campaign.setTitle(title);
+        ideasCampaignRepository.save(campaign);
     }
 
     @Test
@@ -249,7 +273,7 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
             .contentType(MediaType.APPLICATION_JSON_UTF8)
             .header("Authorization", "Bearer " + accessToken)
         )
-            .andDo(log())
+            .andDo(print())
             .andExpect(status().isCreated()).andReturn();
         return mapper.readValue(mvcResult.getResponse().getContentAsString(), IdeasCampaign.class);
     }

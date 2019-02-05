@@ -74,7 +74,7 @@ $tile-padding-vertical: 15px;
 
     &__text {
       font-size: $fs-normal;
-      margin-top: $mrg-huge;
+      margin-top: $mrg-half;
       margin-bottom: $mrg-huge;
       text-align: left;
     }
@@ -100,6 +100,11 @@ $tile-padding-vertical: 15px;
       margin-bottom: $tile-padding-vertical;
     }
 
+    &__votes {
+      margin-top: 0px;
+      line-height: 1;
+    }
+
     &__star {
       display: inline-block;
       width: $star-width;
@@ -110,11 +115,12 @@ $tile-padding-vertical: 15px;
 
       &--single {
         display: inline-block;
-        width: $star-width;
-        height: $star-height;
-        background-image: url('../images/icons/star.svg');
+        width: 19px;
+        height: 18px;
+        background-image: url('../images/icons/star-unrated.svg');
         background-size: cover;
         margin-right: 6px;
+        margin-top: 4px;
       }
 
       &--unrated {

@@ -1,11 +1,11 @@
 <form class="idea-add__container">
-    <p><input campaign-active-aware minlength="5" type="text" ng-model="vm.idea.title" placeholder="Worum gehts?" required maxlength="24" class="idea-add__title">
+    <p><input campaign-active-aware minlength="5" type="text" ng-model="vm.idea.title" placeholder="Worum gehts?" required maxlength="30" class="idea-add__title">
 
         <textarea campaign-active-aware minlength="5" class="idea-add__pitch newcomment-comment" name="idea" ng-model="vm.idea.pitch"
                   placeholder="Ein kurzer und prägnanter Satz (max. 255 Zeichen)"
                   required maxlength="255" reset-remote-validation></textarea>
 
         <button ng-if="vm.cancel" type="cancel" ng-click="vm.cancel()" class="button-secondary--halfwidth">Abbrechen</button>
-        <button ng-disabled="!vm.submitEnabled()" type="submit" ng-click="vm.submit()" class="button-primary--halfwidth">Absenden</button>
+        <button ng-disabled="!vm.submitEnabled()" type="submit" ng-click="vm.submit()" ng-class="{'button-primary--halfwidth' : vm.cancel, 'button-primary' : !vm.cancel}">Absenden</button>
     </p>
 </form>

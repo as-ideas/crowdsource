@@ -14,12 +14,8 @@ angular.module('crowdsource')
                 var startDate;
                 var endDate;
 
-                console.log("ok")
-
                 function formatDateString(entries) {
                     for(var i=0; i < entries.length; i++) {
-                        console.log("yeah")
-
                         startDate = new Date(vm.entries[i].startDate);
                         endDate = new Date(vm.entries[i].endDate);
 
