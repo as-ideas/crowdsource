@@ -1,26 +1,13 @@
 <idea-teaser campaign="ideasList.campaign"></idea-teaser>
 <ideas-status-bar campaign="ideasList.campaign"></ideas-status-bar>
 
-<content-row class="intro-section">
-
+<content-row>
     <div class="row">
-        <div class="columns medium-6">
-            <idea-add campaign="ideasList.campaign" success-fn="ideasList.refreshList"></idea-add>
-        </div>
-
-        <div class="columns medium-6">
-            <h1 class="plist__heading">Deine eingereichten Ideen</h1>
-            <p class="plist__intro--has-divider">
-                Du hast schon {{ideasList.ideas.length}} Ideen eingereicht!
-            </p>
-            <p>Deine eingereichten Ideen werden von unser Redaktion zeitnah freigeben oder mit einer Begründung
-                abgeleht.</p>
-            <ideas-own-statistics campaign="ideasList.campaign" ideas="ideasList.ideas"></ideas-own-statistics>
-        </div>
+       <idea-add campaign="ideasList.campaign" success-fn="ideasList.refreshList"></idea-add>
     </div>
 </content-row>
 
-<content-row>
+<content-row class="intro-section">
     <section>
         <h2>Liste deiner Ideen ({{ ideasList.ideas.length }})</h2>
         <div class="ideas-grid__container">

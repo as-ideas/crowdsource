@@ -1,45 +1,16 @@
 <idea-teaser campaign="ideasList.campaign"></idea-teaser>
 <ideas-status-bar campaign="ideasList.campaign"></ideas-status-bar>
+<idea-howto></idea-howto>
 
-<content-row class="intro-section">
 
+<content-row>
     <div class="container">
-        <h2 class="plist__heading--secondary intro-box__header ng-scope">
-            {{ideasList.campaign.title}}
-            <p class="plist__intro--has-divider">{{ideasList.campaign.sponsor}}</p>
-        </h2>
-
-        <ul class="round-description-box ng-scope">
-            <li class="round-description-box__item">
-                <div class="round-description-box__item-icon--capital"></div>
-                <h3 class="round-description-box__heading--has-divider">Wie funktioniert's?</h3>
-
-                <p class="round-description-box__intro">BLA BLA </p>
-            </li>
-
-            <li class="round-description-box__item--important">
-                <div class="round-description-box__item-icon--user"></div>
-                <h3 class="round-description-box__heading--has-divider">Deine Idee</h3>
-
-                <idea-add campaign="ideasList.campaign" success-fn="ideasList.reloadOwnIdeas"></idea-add>
-            </li>
-
-            <li class="round-description-box__item">
-                <div class="round-description-box__item-icon--clock"></div>
-                <h3 class="intro-box__heading--has-divider">Deine bisherigen Ideen</h3>
-
-                <p class="round-description-box__intro">
-                    <ideas-own-statistics campaign="ideasList.campaign"></ideas-own-statistics>
-                    <br>
-                    <a ng-href="/#ideas/{{ideasList.campaign.id}}/own" class="button-secondary">Deine Ideen</a>
-                </p>
-            </li>
-        </ul>
+        <idea-add campaign="ideasList.campaign" success-fn="ideasList.reloadOwnIdeas"></idea-add>
     </div>
 
 </content-row>
 
-<content-row>
+<content-row class="intro-section">
     <section>
         <h1>Liste der Ideen</h1>
 
@@ -51,5 +22,4 @@
     </section>
 
     <load-more paging="ideasList.paging" no-more-label="Es sind keine weiteren Ideen vorhanden" load-more-label="Lade mehr Ideen!!" load-fn="ideasList.loadMore"></load-more>
-
 </content-row>

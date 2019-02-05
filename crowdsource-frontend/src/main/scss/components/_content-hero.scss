@@ -1,0 +1,29 @@
+.content-hero {
+
+  &__container {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__headline {
+    color: $clr-green-shade-3;
+    font-size: $fs-hero;
+    text-transform: uppercase;
+  }
+
+  &__description {
+    font-size: $fs-normal;
+    position: relative;
+    margin-bottom:4.5rem;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -2.5rem;
+      width: 6rem;
+      margin-left: -3rem;
+      border-bottom: 0.25rem solid #2D2D2D;
+    }
+  }
+}
