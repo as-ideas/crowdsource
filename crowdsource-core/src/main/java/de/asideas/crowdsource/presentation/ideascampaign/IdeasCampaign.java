@@ -35,6 +35,8 @@ public class IdeasCampaign {
 
     private boolean active;
 
+    private boolean expired;
+
     private IdeasCampaign() {
     }
     public IdeasCampaign(IdeasCampaignEntity input) {
@@ -48,6 +50,7 @@ public class IdeasCampaign {
         this.videoReference = input.getVideoReference();
         this.teaserImageReference = input.getTeaserImageReference();
         this.active = input.isActive();
+        this.expired = input.isExpired();
     }
 
     public IdeasCampaign(DateTime startDate, DateTime endDate, CampaignInitiator campaignInitiator, String sponsor, String title, String description, String videoReference, String teaserImageReference) {
@@ -141,6 +144,7 @@ public class IdeasCampaign {
         }
         IdeasCampaign that = (IdeasCampaign) o;
         return active == that.active &&
+            expired == that.expired &&
             Objects.equals(id, that.id) &&
             Objects.equals(startDate, that.startDate) &&
             Objects.equals(endDate, that.endDate) &&
@@ -154,7 +158,7 @@ public class IdeasCampaign {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, startDate, endDate, campaignInitiator, title, description, sponsor, videoReference, teaserImageReference, active);
+        return Objects.hash(id, startDate, endDate, campaignInitiator, title, description, sponsor, videoReference, teaserImageReference, active, expired);
     }
 
     @Override
@@ -170,6 +174,7 @@ public class IdeasCampaign {
             ", videoReference='" + videoReference + '\'' +
             ", teaserImageReference='" + teaserImageReference + '\'' +
             ", active=" + active +
+            ", expired=" + expired +
             '}';
     }
 }

@@ -133,6 +133,22 @@ public class IdeasCampaignEntityTest {
         assertThat(ideasCampaignEntity.isActive(), is(false));
     }
 
+    @Test
+    public void isExpired_shouldReturn_True_on_now_After_endDate() {
+        final IdeasCampaignEntity ideasCampaignEntity = IdeasCampaignEntity.newIdeasCampaign(
+            givenIdeasCampaignCmd("DerErwin", DateTime.now().minusDays(4), DateTime.now().minusDays(2)), givenUserEntity("DerErwin"));
+
+        assertThat(ideasCampaignEntity.isExpired(), is(true));
+    }
+
+    @Test
+    public void isExpired_shouldReturn_False_on_now_Before_endDate() {
+        final IdeasCampaignEntity ideasCampaignEntity = IdeasCampaignEntity.newIdeasCampaign(
+            givenIdeasCampaignCmd("DerErwin", DateTime.now().minusDays(4), DateTime.now().plusDays(3)), givenUserEntity("DerErwin"));
+
+        assertThat(ideasCampaignEntity.isExpired(), is(false));
+    }
+
     private IdeasCampaign givenIdeasCampaignCmd(String userId) {
         return givenIdeasCampaignCmd(userId, DateTime.now(), DateTime.now().plus(10000L));
     }
