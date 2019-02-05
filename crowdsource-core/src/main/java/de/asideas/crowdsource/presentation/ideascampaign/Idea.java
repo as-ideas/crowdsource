@@ -20,7 +20,7 @@ public class Idea {
     private DateTime creationDate;
 
     @NotEmpty
-    @Size(min = 5, max = 24)
+    @Size(min = 5, max = 30)
     private String title;
 
     @NotEmpty

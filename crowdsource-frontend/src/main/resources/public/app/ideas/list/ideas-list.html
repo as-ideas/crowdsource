@@ -20,5 +20,5 @@
         </div>
     </section>
 
-    <load-more paging="ideasList.paging" no-more-label="Es sind keine weiteren Ideen vorhanden" load-more-label="Lade mehr Ideen!!" load-fn="ideasList.loadMore"></load-more>
+    <load-more paging="ideasList.paging" no-more-label="Es sind keine weiteren Ideen vorhanden" ng-if="!ideasList.paging.last" load-more-label="Lade mehr Ideen!!" load-fn="ideasList.loadMore"></load-more>
 </content-row>

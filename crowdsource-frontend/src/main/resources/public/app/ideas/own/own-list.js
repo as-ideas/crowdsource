@@ -28,7 +28,6 @@ angular.module('crowdsource')
                 vm.rejected = vm.ideas.filter(function (el) {
                     return el.status === IDEAS_STATUS.REJECTED
                 });
-                console.log(vm.proposed);
             });
         }
 

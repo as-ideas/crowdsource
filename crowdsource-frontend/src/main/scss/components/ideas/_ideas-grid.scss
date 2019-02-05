@@ -67,6 +67,9 @@ $tile-padding-vertical: 15px;
 
     &__title {
       display: block;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
       font-size: $fs-medium;
       line-height: $fs-medium;
       margin-bottom: $fs-half;

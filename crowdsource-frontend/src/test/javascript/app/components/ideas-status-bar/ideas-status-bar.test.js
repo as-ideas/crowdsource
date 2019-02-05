@@ -35,6 +35,7 @@ describe('ideas status bar', function () {
         var statusBar = compileDirective(scope);
 
         expect(statusBar.adminButton()).not.toExist();
+        expect(statusBar.userButton()).toExist();
     });
 
     it("should show admin button when user is admin", function () {
@@ -42,25 +43,8 @@ describe('ideas status bar', function () {
 
         var statusBar = compileDirective(scope);
 
+        expect(statusBar.userButton()).toExist();
         expect(statusBar.adminButton()).toExist();
-    });
-
-    it("should render end date  when campaign is active", function () {
-        scope.campaign.endDate = new Date().getTime() + 2000;
-        scope.campaign.active = true;
-
-        var statusBar = compileDirective(scope);
-
-        expect(statusBar.element.html()).toContain("Kampagne läuft bis:");
-    });
-
-    it("should render end date  when campaign is not active", function () {
-        scope.campaign.endDate =  new Date().getTime() - 2000;
-        scope.campaign.active = false;
-
-        var statusBar = compileDirective(scope);
-
-        expect(statusBar.element.html()).toContain("Kampagne endete am:");
     });
 
     function givenUserIsAdmin(isAdminFlag) {
