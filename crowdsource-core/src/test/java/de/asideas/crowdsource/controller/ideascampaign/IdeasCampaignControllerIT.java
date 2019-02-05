@@ -284,6 +284,7 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
 
         assertThat(actual.getId(), notNullValue());
         assertThat(actual.isActive(), is(true));
+        assertThat(actual.isExpired(), is(false));
         assertThat(actual.getStartDate().getMillis(), equalTo(expected.getStartDate().getMillis()));
         assertThat(actual.getEndDate().getMillis(), equalTo(expected.getEndDate().getMillis()));
         assertThat(actual.getTitle(), equalTo(expected.getTitle()));

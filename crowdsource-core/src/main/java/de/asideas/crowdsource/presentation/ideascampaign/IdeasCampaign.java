@@ -134,6 +134,13 @@ public class IdeasCampaign {
         this.active = active;
     }
 
+    public boolean isExpired() {
+        return expired;
+    }
+    public void isExpired(boolean expired) {
+        this.expired = expired;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
