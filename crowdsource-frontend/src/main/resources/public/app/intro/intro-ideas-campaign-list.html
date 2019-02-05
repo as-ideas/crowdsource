@@ -15,14 +15,13 @@
 
             <div class="campaign__details-container">
                 <h1 class="campaign__title">{{entry.title}}</h1>
-                <span class="campaign__sponsor">{{entry.sponsor}}</span>
-            </div>
-            <div ng-if="!entry.active" class="campaign__state-container">
-                <div class="campaign__state-icon--clock"></div>
+                <p class="campaign__sponsor">{{entry.sponsor}}</p>
+                <p class="campaign__date">{{ entry.startDateString }} - {{ entry.endDateString }}<span ng-if="!entry.active"> (beendet)</span></p>
             </div>
         </article>
     </a>
-
-    <hr class="campaign__divider" ng-if="!$last">
-
 </div>
+
+<!--
+
+-->

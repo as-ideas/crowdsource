@@ -14,7 +14,7 @@ angular.module('crowdsource')
                 loadMoreLabel: '@',
                 noMoreLabel: '@'
             },
-            template: '<div class="loadMore__container"><button ng-click="vm.loadMore()" class="button-secondary">' +
+            template: '<div class="loadMore__container"><button ng-click="vm.loadMore()" class="button-secondary loadMore__button">' +
                 '{{!vm.paging.last? vm.loadMoreText : vm.noMoreText}}' +
             '</button></div>',
             controller: function () {

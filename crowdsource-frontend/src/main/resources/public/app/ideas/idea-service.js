@@ -8,6 +8,7 @@ angular.module('crowdsource')
     .factory('Idea', function ($resource) {
 
         var service = {};
+        var DEFAULT_PAGE_SIZE = 20;
 
         var ideasCampaignResource = $resource('/ideas_campaigns', {}, {
             get: {
@@ -60,8 +61,9 @@ angular.module('crowdsource')
             return ideasResource.get({campaignId: campaignId, status: status}).$promise;
         }
 
-        function getAll(campaignId, page) {
-            return ideasResource.get({campaignId: campaignId, page: page}).$promise;
+        function getAll(campaignId, _page) {
+            var page = _page === undefined ? 0 : _page;
+            return ideasResource.get({campaignId: campaignId, page: page, pageSize: DEFAULT_PAGE_SIZE}).$promise;
         }
 
         function voteIdea(campaignId, ideaId, voting) {

@@ -31,16 +31,20 @@
         color: $white;
     }
 
-    &__teaser p {
+    &__text {
+        color: $clr-white;
+        font-size: $fs-normal;
+        font-weight: $fw-regular;
+        padding: 0 100px;
+        text-align: center;
+
         @media #{$small-only} {
             padding-left: 0;
             padding-right: 0;
         }
 
-        color: $clr-white;
-        text-align: justify;
-        font-weight: $fw-light;
-        padding-left: 100px;
-        padding-right: 100px;
+        &:last-of-type {
+            text-transform: uppercase;
+        }
     }
 }

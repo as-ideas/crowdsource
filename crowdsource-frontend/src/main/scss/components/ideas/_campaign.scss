@@ -16,6 +16,7 @@ $icon-color: #3C3C3C;
 }
 
 .campaign {
+  background-color: $white;
 
   &__headline {
     font-size: $fs-huge;
@@ -29,6 +30,8 @@ $icon-color: #3C3C3C;
   }
 
   &__container {
+    margin-bottom: $mrg-medium;
+
     a {
       text-decoration: none;
       line-height: 0;
@@ -37,10 +40,12 @@ $icon-color: #3C3C3C;
 
 
   &__item {
+    border-radius: $border-radius-medium;
     display: block;
     padding: $padding;
-    background-color: $clr-white;
+    background-color: #f7f7f6;
     transition: background 0.2s linear;
+
 
     &:hover {
       transition: background 0.2s linear;
@@ -55,6 +60,7 @@ $icon-color: #3C3C3C;
   }
 
   &__image-container {
+    border-radius: $border-radius-medium;
     position: relative;
     display: inline-block;
     width: $image-size;
@@ -65,6 +71,9 @@ $icon-color: #3C3C3C;
     vertical-align: top;
     margin-left:10px;
     display: inline-block;
+    height: 80px;
+    position: relative;
+    width: calc(100% - 100px);
   }
 
   &__state-container {
@@ -96,12 +105,29 @@ $icon-color: #3C3C3C;
 
   &__title {
     font-size: $fs-normal;
+    line-height: $fs-normal;
+    margin-top: $mrg-half;
+    width: 100%;
   }
 
   &__sponsor {
+    display: block;
     font-size: $fs-small;
     font-weight: $fw-regular;
+    line-height: $fs-small;
+    margin: 0;
     color: $crowd-color-grey;
+  }
+
+  &__date {
+    display: block;
+    font-size: $fs-small;
+    font-weight: $fw-regular;
+    line-height: $fs-small;
+    color: $crowd-color-grey;
+    margin-bottom: $mrg-half;
+    position: absolute;
+    bottom: 0;
   }
 
   &-noentry {
