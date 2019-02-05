@@ -13,20 +13,59 @@
             <p class="plist__intro--has-divider">
                 Du hast schon {{ideasList.ideas.length}} Ideen eingereicht!
             </p>
-            <p>Deine eingereichten Ideen werden von unser Redaktion zeitnah freigeben oder mit einer Begründung
-                abgeleht.</p>
+            <p>Deine eingereichten Ideen werden von unser Redaktion zeitnah freigeben oder mit einer Begründung abgeleht.</p>
             <ideas-own-statistics campaign="ideasList.campaign" ideas="ideasList.ideas"></ideas-own-statistics>
         </div>
     </div>
 </content-row>
 
 <content-row>
-    <section>
-        <h2>Liste deiner Ideen ({{ ideasList.ideas.length }})</h2>
+    <section class="own-list__section">
+
+        <div class="campaign-login__container ng-scope">
+            <h2 class="campaign-login__headline">Veröffentlichte Ideen</h2>
+            <p class="campaign-login__description">Deine in der Abstimmung befindliche Ideen: {{ ideasList.published.length }}</p>
+        </div>
+
         <div class="ideas-grid__container">
-            <div class="ideas-grid__box" ng-repeat="idea in ideasList.ideas">
+            <div class="ideas-grid__box ideas-grid__published" ng-repeat="idea in ideasList.published">
                 <idea-tile campaign="ideasList.campaign" idea="idea"></idea-tile>
             </div>
+        </div>
+        <div class="ideas-grid__empty-label campaign-noentry" ng-if="!ideasList.published.length">
+            <img class="campaign-noentry__image" src="/images/campaigns-not-available-robot.svg">
+        </div>
+    </section>
+</content-row>
+<content-row class="content-row--white-bg">
+    <section class="own-list__section">
+        <div class="campaign-login__container ng-scope">
+            <h2 class="campaign-login__headline">Eingereichte Ideen</h2>
+            <p class="campaign-login__description">Ideen, die auf Freigabe warten: {{ ideasList.proposed.length }}</p>
+        </div>
+        <div class="ideas-grid__container">
+            <div class="ideas-grid__box ideas-grid__proposed" ng-repeat="idea in ideasList.proposed">
+                <idea-tile campaign="ideasList.campaign" idea="idea"></idea-tile>
+            </div>
+        </div>
+        <div class="ideas-grid__empty-label campaign-noentry" ng-if="!ideasList.proposed.length">
+            <img class="campaign-noentry__image" src="/images/campaigns-not-available-robot.svg">
+        </div>
+    </section >
+</content-row>
+<content-row>
+    <section class="own-list__section">
+        <div class="campaign-login__container ng-scope">
+            <h2 class="campaign-login__headline">Abgelehnte Ideen</h2>
+            <p class="campaign-login__description">Ideen, die leider abgelehnt wurden: {{ ideasList.rejected.length }}</p>
+        </div>
+        <div class="ideas-grid__container">
+            <div class="ideas-grid__box ideas-grid__rejected" ng-repeat="idea in ideasList.rejected">
+                <idea-tile campaign="ideasList.campaign" idea="idea"></idea-tile>
+            </div>
+        </div>
+        <div class="ideas-grid__empty-label campaign-noentry" ng-if="!ideasList.rejected.length">
+            <img class="campaign-noentry__image" src="/images/campaigns-not-available-robot.svg">
         </div>
     </section>
 </content-row>

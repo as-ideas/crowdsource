@@ -11,6 +11,7 @@
 @import "util/objects";
 @import "components/ideas/ideas-grid";
 @import "components/ideas/ideas-list";
+@import "components/ideas/own-list";
 @import "components/ideas/ideas-teaser";
 @import "components/ideas/campaign";
 @import "components/intro";
@@ -71,5 +72,12 @@ content-row {
     .box {
         @extend %box;
         max-width: rem-calc(500);
+    }
+}
+
+.content-row{
+
+    &--white-bg{
+        background-color: $clr-white;
     }
 }
