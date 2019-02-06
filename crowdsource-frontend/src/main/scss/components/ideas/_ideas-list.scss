@@ -419,3 +419,24 @@ $intro-box-break: "only screen and (max-width: 740px)";
     background-color: $clr-green-shade-3;
     background-image: url('../images/icons/time_clock_with_arrow.svg');
 }
+
+.ideas-list__filter {
+    float: right;
+    margin-bottom: $mrg-double;
+    a {
+        text-decoration: none;
+    }
+
+    li {
+        display: inline;
+        list-style-type: none;
+        padding-right: $pd-half;
+        border-bottom: 0;
+    }
+
+    .active {
+        border-bottom: 1px solid $clr-black;
+
+    }
+
+}

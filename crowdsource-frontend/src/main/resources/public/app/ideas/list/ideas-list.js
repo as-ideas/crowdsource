@@ -3,7 +3,20 @@ angular.module('crowdsource')
         var FILTER_ALL = 'ALL';
         var FILTER_VOTED = 'VOTED';
         var FILTER_NOT_VOTED = 'NOT_VOTED';
-        var FILTER_STATES = [FILTER_ALL, FILTER_NOT_VOTED, FILTER_VOTED];
+        var FILTER_STATES = [
+            {
+                state: FILTER_ALL,
+                label : "Alle"
+            },
+            {
+                state: FILTER_NOT_VOTED,
+                label : "Noch nicht bewertet"
+            },
+            {
+                state: FILTER_VOTED,
+                label : "Bereits bewertet"
+            }
+        ];
 
         var vm = this;
         vm.auth = Authentication;
@@ -13,6 +26,10 @@ angular.module('crowdsource')
         vm.loadMore = loadMore;
         vm.selectedFilter = FILTER_ALL;
         vm.setFilter = setFilter;
+
+        vm.FILTER_STATES = FILTER_STATES
+
+        vm.filterState = {};
 
         init();
 
@@ -26,7 +43,34 @@ angular.module('crowdsource')
         };
 
         function loadMore(page) {
+            switch (vm.selectedFilter) {
+                case FILTER_ALL: {
+                    vm.selectedFilter = FILTER_ALL;
+                    loadAll(page);
+                    break;
+                }
+                case FILTER_VOTED: {
+                    vm.selectedFilter = FILTER_VOTED;
+                    loadAlreadyVoted(true, page);
+                    break;
+                }
+                case FILTER_NOT_VOTED: {
+                    vm.selectedFilter = FILTER_NOT_VOTED;
+                    loadAlreadyVoted(false, page);
+                    break;
+                }
+            }
+        }
 
+        function loadAlreadyVoted(votedFlag, page) {
+            Idea.getAlreadyVoted(campaign.id, votedFlag, page).then(function (res) {
+                // console.log("RESOLVE_", res.content)
+                vm.ideas = vm.ideas.concat(res.content);
+                vm.paging = res;
+            });
+        }
+
+        function loadAll(page) {
             Idea.getAll(campaign.id, page).then(function (res) {
                 vm.ideas = vm.ideas.concat(res.content);
                 vm.paging = res;
@@ -34,30 +78,11 @@ angular.module('crowdsource')
         }
 
         function setFilter(filter) {
-            switch (filter) {
-                case FILTER_ALL: {
-                    vm.selectedFilter = FILTER_ALL;
-                    loadMore(0);
-                    break;
-                }
-                case FILTER_VOTED: {
-                    vm.selectedFilter = FILTER_VOTED;
-                    loadAlreadyVoted(true);
-                    break;
-                }
-                case FILTER_NOT_VOTED: {
-                    vm.selectedFilter = FILTER_NOT_VOTED;
-                    loadAlreadyVoted(false);
-                    break;
-                }
-            }
+            vm.selectedFilter = filter;
+            vm.ideas = [];
+            vm.paging = {};
+            loadMore(0);
         }
 
-        function loadAlreadyVoted(votedFlag) {
-            Ideas.getAlreadyVoted(campaign.id, votedFlag).then(function() {
-                vm.ideas = vm.ideas.concat(res.content);
-                vm.paging = res;
-            });
 
-        }
     });

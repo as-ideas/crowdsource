@@ -62,13 +62,13 @@ angular.module('crowdsource')
             return ideasResource.get({campaignId: campaignId, status: status}).$promise;
         }
 
-        function getAll(campaignId, _page, alreadyVoted) {
+        function getAll(campaignId, _page) {
             var page = _page === undefined ? 0 : _page;
             return ideasResource.get({campaignId: campaignId, page: page, pageSize: DEFAULT_PAGE_SIZE}).$promise;
         }
 
-        function getAlreadyVoted(campaignId, alreadyVoted) {
-            return ideasAlreadyVotedResource.get({campaignId: campaignId, alreadyVoted: alreadyVoted}).$promise;
+        function getAlreadyVoted(campaignId, alreadyVoted, page) {
+            return ideasAlreadyVotedResource.get({campaignId: campaignId, alreadyVoted: alreadyVoted, page: page, pageSize: DEFAULT_PAGE_SIZE }).$promise;
         }
 
         function voteIdea(campaignId, ideaId, voting) {
