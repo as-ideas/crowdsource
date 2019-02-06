@@ -23,6 +23,7 @@ angular.module('crowdsource')
                 method: 'POST'
             }
         });
+        var ideasAlreadyVotedResource = $resource('/ideas_campaigns/:campaignId/ideas/filtered', {}, { });
 
         var ownIdeasResource = $resource('/ideas_campaigns/:campaignId/my_ideas', {}, {
             get: {
@@ -61,9 +62,13 @@ angular.module('crowdsource')
             return ideasResource.get({campaignId: campaignId, status: status}).$promise;
         }
 
-        function getAll(campaignId, _page) {
+        function getAll(campaignId, _page, alreadyVoted) {
             var page = _page === undefined ? 0 : _page;
             return ideasResource.get({campaignId: campaignId, page: page, pageSize: DEFAULT_PAGE_SIZE}).$promise;
+        }
+
+        function getAlreadyVoted(campaignId, alreadyVoted) {
+            return ideasAlreadyVotedResource.get({campaignId: campaignId, alreadyVoted: alreadyVoted}).$promise;
         }
 
         function voteIdea(campaignId, ideaId, voting) {
@@ -90,6 +95,7 @@ angular.module('crowdsource')
         service.createIdea = createIdea;
         service.updateIdea = updateIdea;
         service.getIdeasWithStatus = getIdeasWithStatus;
+        service.getAlreadyVoted = getAlreadyVoted;
 
         service.rejectIdea = rejectIdea;
         service.publishIdea = publishIdea;
