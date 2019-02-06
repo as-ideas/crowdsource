@@ -1,6 +1,6 @@
 <label form-group="{{ fieldName }}">
 
-    <span form-label-valid="{{ fieldName }}">Email-Adresse</span>
+    <span form-label-valid="{{ fieldName }}">E-Mail</span>
 
     <span form-label-invalid="{{ fieldName }}" ng-messages="form[fieldName].$error">
         <!-- required and 'pattern' are build-in validations of angular.js -->
@@ -16,6 +16,6 @@
 </label>
 
 <div class="full-width">
-    <input type="email" name="{{ fieldName }}" ng-model="model" placeholder="vorname.nachname@domain.de"
+    <input type="email" name="{{ fieldName }}" ng-model="model" placeholder="E-Mail"
            required local-email-part-input non-external-email reset-remote-validation>
 </div>
