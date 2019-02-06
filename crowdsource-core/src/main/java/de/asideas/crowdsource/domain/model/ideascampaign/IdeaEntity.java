@@ -15,6 +15,8 @@ import org.joda.time.DateTime;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.mongodb.core.index.CompoundIndex;
+import org.springframework.data.mongodb.core.index.CompoundIndexes;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -23,6 +25,11 @@ import org.springframework.util.Assert;
 import static org.springframework.util.Assert.hasText;
 import static org.springframework.util.Assert.notNull;
 
+@CompoundIndexes({
+    @CompoundIndex(def = "{'campaignId': 1, 'creator._id': 1 }", name = "idx_campaignId_creatorId"),
+    @CompoundIndex(def = "{'campaignId': 1, 'status': 1 }", name = "idx_campaignId_status"),
+    @CompoundIndex(def = "{'_id': 1, 'campaignId':1, 'status': 1 }", name = "idx_id_campaignId_status"),
+})
 @Document(collection = "ideas")
 public class IdeaEntity {
 
