@@ -32,10 +32,10 @@
                     <span form-label-valid="password">Passwort</span>
 
                     <span form-label-invalid="password" ng-messages="login.form.password.$error">
-                        <span ng-message="required">Bitte gib Dein Passwort ein</span>
+                        <span ng-message="required">Passwort</span>
                     </span>
 
-                    <input type="password" name="password" ng-model="login.user.password"
+                    <input type="password" name="password" ng-model="login.user.password" placeholder="Passwort"
                            required reset-remote-validation>
                 </label>
             </div>

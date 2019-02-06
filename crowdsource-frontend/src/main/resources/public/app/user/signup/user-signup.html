@@ -22,7 +22,7 @@
                         <span ng-message="required">Bitte gib Deinen Vornamen ein</span>
                     </span>
 
-                    <input type="text" name="firstName" ng-model="signup.user.firstName" field-name="firstName" required reset-remote-validation />
+                    <input type="text" name="firstName" ng-model="signup.user.firstName" field-name="firstName" required reset-remote-validation placeholder="Vorname"/>
                 </label>
             </div>
             <div class="small-12 columns form-controls-lastname">
@@ -34,7 +34,7 @@
                         <span ng-message="required">Bitte gib Deinen Nachnamen ein</span>
                     </span>
 
-                    <input type="text" name="lastName" ng-model="signup.user.lastName" field-name="lastName" required reset-remote-validation />
+                    <input type="text" name="lastName" ng-model="signup.user.lastName" field-name="lastName" required reset-remote-validation placeholder="Nachname"/>
                 </label>
             </div>
         </div>
@@ -52,12 +52,12 @@
 
                     <span form-label-valid="termsOfServiceAccepted">
                         Ich akzeptiere die
-                        <a class="crowd-tos-link" ng-click="signup.showTermsOfService = !signup.showTermsOfService">AGB</a>
+                        <a class="crowd-tos-link" ng-click="signup.showTermsOfService = !signup.showTermsOfService">Nutzungsbedingung</a>
                     </span>
 
                     <span form-label-invalid="termsOfServiceAccepted" ng-messages="signup.form.termsOfServiceAccepted.$error">
                         <span ng-message="required">Bitte akzeptiere die
-                            <a class="crowd-tos-link" ng-click="signup.showTermsOfService = !signup.showTermsOfService">AGB</a>
+                            <a class="crowd-tos-link" ng-click="signup.showTermsOfService = !signup.showTermsOfService">Nutzungsbedingung</a>
                         </span>
                     </span>
                 </label>
@@ -66,9 +66,7 @@
 
         <div class="row" ng-if="signup.showTermsOfService">
             <div class="small-12 columns">
-                <div class="crowd-tos-panel panel callout radius font-small">
-                    Damit Du immer über Neuigkeiten der Platform, wie bspw. den Start einer Finanzierungsrunde sowie den Status Deiner Idee informiert wirst, werden wir Dir ab und zu E-Mails schicken.
-                </div>
+                <div class="crowd-tos-panel panel callout radius font-small">Hiermit gestatte ich der Axel Springer Ideas Engineering GmbH mich für Neuigkeiten (bspw. Start einer Kampagne sowie Status meiner Idee) rund um AS.Crowd  zu kontaktieren. Ich habe die Möglichkeit mich jederzeit vom Newsletter abzumelden. Dazu kann ich den Link in der Fußzeile unserer E-Mails betätigen. Weitere Informationen zum Datenschutz sind der Datenschutzerklärung zu entnehmen.</div>
             </div>
         </div>
 

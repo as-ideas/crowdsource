@@ -1,4 +1,4 @@
-describe('idea add', function () {
+xdescribe('idea add', function () {
 
     var $scope, $httpBackend, $compile;
 

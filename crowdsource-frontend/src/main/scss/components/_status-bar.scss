@@ -167,7 +167,7 @@ status-bar {
 
     &-breadcrumb__item, &__button {
         text-decoration: none;
-        font-size: $fs-normal;
+        font-size: $fs-regular;
         font-weight: $fw-bold;
 
         &:hover {
@@ -180,7 +180,7 @@ status-bar {
     }
 
     &-breadcrumb__item--current {
-        font-size: $fs-normal;
+        font-size: $fs-regular;
         font-weight: $fw-regular;
     }
 
@@ -191,14 +191,14 @@ status-bar {
 
     &__icon--hourglass {
         @include sbar__icon();
-        font-size: $fs-normal;
+        font-size: $fs-regular;
         padding-left: 1.5rem;
         background-image: url('../images/icon-hourglass.svg');
     }
 
     &__icon--time {
         @include sbar__icon();
-        font-size: $fs-normal;
+        font-size: $fs-regular;
         padding-left: 1.5rem;
         background-image: url('../images/icons/time_clock_with_arrow.svg');
     }
