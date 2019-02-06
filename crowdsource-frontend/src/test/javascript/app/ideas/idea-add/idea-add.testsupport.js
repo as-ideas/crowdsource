@@ -12,7 +12,7 @@ function IdeaAdd(element) {
     };
 
     this.getSubmitButton = function () {
-        return element.find('.button-primary--halfwidth');
+        return element.find('button[type="submit"]');
     };
 
     this.getPitchInput = function () {

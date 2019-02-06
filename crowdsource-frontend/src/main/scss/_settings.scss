@@ -153,7 +153,7 @@ $clr-solar-light-end: $clr-emerald;
 
 $fs-half: rem-calc(8px);
 $fs-small: rem-calc(14px);
-$fs-normal: rem-calc(16px);
+$fs-regular: rem-calc(16px);
 $fs-medium: rem-calc(24px);
 $fs-hero: rem-calc(32px);
 $fs-huge: rem-calc(44px);
@@ -169,6 +169,9 @@ $fw-medium: 500;
 $fw-bold: 600;
 $fw-extrabold: 700;
 $fw-black: 800;
+
+// Line Height
+$lh-regular: 1.5;
 
 // ---
 // Border Definitions

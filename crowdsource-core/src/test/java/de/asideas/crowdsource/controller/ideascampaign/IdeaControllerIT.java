@@ -3,7 +3,6 @@ package de.asideas.crowdsource.controller.ideascampaign;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.IntStream;
 
 import org.joda.time.DateTime;
 import org.junit.Test;
@@ -102,7 +101,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
         givenApprovedIdeaExists(userToken, parentCampaign.getId(), cmd2);
         givenIdeaExists(userToken, parentCampaign.getId(), cmd3).andExpect(status().isCreated()).andReturn();
 
-        mockMvc.perform(get("/ideas_campaigns/{campaignId}/ideas", parentCampaign.getId())
+        mockMvc.perform(get(Paths.IDEAS, parentCampaign.getId())
             .contentType(MediaType.APPLICATION_JSON_UTF8)
             .header("Authorization", "Bearer " + userToken)
             .accept(MediaType.APPLICATION_JSON_UTF8)
@@ -141,7 +140,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
         givenIdeaHasVotings(idea2.getCampaignId(), idea2.getId(), userToken, 1);
         givenIdeaHasVotings(idea2.getCampaignId(), idea2.getId(), adminToken, 3);
 
-        mockMvc.perform(get("/ideas_campaigns/{campaignId}/ideas", parentCampaign.getId())
+        mockMvc.perform(get(Paths.IDEAS, parentCampaign.getId())
             .contentType(MediaType.APPLICATION_JSON_UTF8)
             .header("Authorization", "Bearer " + userToken)
             .accept(MediaType.APPLICATION_JSON_UTF8)
@@ -172,7 +171,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
         givenApprovedIdeaExists(userToken, parentCampaign.getId(), cmd2);
         givenIdeaExists(userToken, parentCampaign.getId(), cmd3).andExpect(status().isCreated()).andReturn();
 
-        mockMvc.perform(get("/ideas_campaigns/{campaignId}/ideas", parentCampaign.getId())
+        mockMvc.perform(get(Paths.IDEAS, parentCampaign.getId())
             .contentType(MediaType.APPLICATION_JSON_UTF8)
             .param("status", "PROPOSED")
             .header("Authorization", "Bearer " + adminToken)
@@ -210,7 +209,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
         givenApprovedIdeaExists(userToken, parentCampaign.getId(), cmd2);
         givenIdeaExists(userToken, parentCampaign.getId(), cmd3).andExpect(status().isCreated()).andReturn();
 
-        mockMvc.perform(get("/ideas_campaigns/{campaignId}/ideas", parentCampaign.getId())
+        mockMvc.perform(get(Paths.IDEAS, parentCampaign.getId())
             .contentType(MediaType.APPLICATION_JSON_UTF8)
             .param("status", "PROPOSED")
             .header("Authorization", "Bearer " + userToken)
@@ -234,7 +233,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
         final Idea idea1 = toIdea(givenIdeaExists(userToken, parentCampaign.getId(), new Idea("test_title", "User's idea 1")));
         final Idea idea2 = toIdea(givenIdeaExists(userToken, parentCampaign.getId(), new Idea("test_title", "User's idea 2")));
 
-        final String resultJson = mockMvc.perform(get("/ideas_campaigns/{campaignId}/my_ideas", parentCampaign.getId())
+        final String resultJson = mockMvc.perform(get(Paths.USERS_IDEAS, parentCampaign.getId())
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .header("Authorization", "Bearer " + userToken)
                 .accept(MediaType.APPLICATION_JSON_UTF8)
@@ -264,7 +263,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
         givenIdeaHasVotings(parentCampaign.getId(), persistedIdea.getId(), userToken, 4);
         givenApprovedIdeaExists(adminToken, parentCampaign.getId(), new Idea("test_title_anotherIdea", "Anotheridea"));
 
-        mockMvc.perform(get("/ideas_campaigns/{campaignId}/ideas/filtered", parentCampaign.getId())
+        mockMvc.perform(get(Paths.IDEAS_FILTERED, parentCampaign.getId())
             .param("alreadyVoted", "true")
             .header("Authorization", "Bearer " + userToken)
             .accept(MediaType.APPLICATION_JSON_UTF8)
@@ -288,7 +287,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
         givenIdeaHasVotings(parentCampaign.getId(), persistedIdea.getId(), userToken, 4);
         final IdeaEntity anotherIdea = givenApprovedIdeaExists(adminToken, parentCampaign.getId(), new Idea("test_title_anotherIdea", "Anotheridea"));
 
-        mockMvc.perform(get("/ideas_campaigns/{campaignId}/ideas/filtered", parentCampaign.getId())
+        mockMvc.perform(get(Paths.IDEAS_FILTERED, parentCampaign.getId())
             .param("alreadyVoted", "false")
             .header("Authorization", "Bearer " + userToken)
             .accept(MediaType.APPLICATION_JSON_UTF8)
@@ -317,7 +316,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
 
         final Idea initialIdeaInMongo = mapper.readValue(mvcRes.getResponse().getContentAsString(), Idea.class);
 
-        mockMvc.perform(put("/ideas_campaigns/{campaignId}/ideas/{ideaId}", parentCampaign.getId(), initialIdeaInMongo.getId())
+        mockMvc.perform(put(Paths.IDEA, parentCampaign.getId(), initialIdeaInMongo.getId())
                 .header("Authorization", "Bearer " + userToken)
                 .accept(MediaType.APPLICATION_JSON_UTF8)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
@@ -332,7 +331,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
 
     @Test
     public void modifyIdea_shouldReturn_401_OnUnknownUser() throws Exception {
-        mockMvc.perform(put("/ideas_campaigns/{campaignId}/ideas/{ideaId}", "someCampaignId", "someIdeaId")
+        mockMvc.perform(put(Paths.IDEA, "someCampaignId", "someIdeaId")
                 .header("Authorization", "Bearer " + "bogustoken")
                 .accept(MediaType.APPLICATION_JSON_UTF8)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
@@ -365,7 +364,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
 
         final Idea modifiedIdea = givenValidIdeaCmd();
 
-        mockMvc.perform(put("/ideas_campaigns/{campaignId}/ideas/{ideaId}", parentCampaign.getId(), initialIdeaInMongo.getId())
+        mockMvc.perform(put(Paths.IDEA, parentCampaign.getId(), initialIdeaInMongo.getId())
                 .header("Authorization", "Bearer " + user2Token)
                 .accept(MediaType.APPLICATION_JSON_UTF8)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
@@ -393,7 +392,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
         final Idea actual = mapper.readValue(mvcRes.getResponse().getContentAsString(), Idea.class);
         final IdeaEntity initialIdeaInMongo = ideaRepository.findOne(actual.getId());
 
-        mockMvc.perform(put("/ideas_campaigns/{campaignId}/ideas/{ideaId}/approval", parentCampaign.getId(), initialIdeaInMongo.getId())
+        mockMvc.perform(put(Paths.IDEA_APPROVAL, parentCampaign.getId(), initialIdeaInMongo.getId())
             .header("Authorization", "Bearer " + user1Token)
             .accept(MediaType.APPLICATION_JSON_UTF8)
             .contentType(MediaType.APPLICATION_JSON_UTF8)
@@ -419,7 +418,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
 
         final Idea actualIdea = mapper.readValue(mvcRes.getResponse().getContentAsString(), Idea.class);
 
-        mockMvc.perform(put("/ideas_campaigns/{campaignId}/ideas/{ideaId}/approval", parentCampaign.getId(), actualIdea.getId())
+        mockMvc.perform(put(Paths.IDEA_APPROVAL, parentCampaign.getId(), actualIdea.getId())
             .header("Authorization", "Bearer " + adminToken)
             .accept(MediaType.APPLICATION_JSON_UTF8)
             .contentType(MediaType.APPLICATION_JSON_UTF8)
@@ -446,7 +445,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
         final Idea actualIdea = mapper.readValue(givenIdeaExists(userToken, parentCampaign.getId(), originalIdea)
             .andExpect(status().isCreated()).andReturn().getResponse().getContentAsString(), Idea.class);
 
-        mockMvc.perform(put("/ideas_campaigns/{campaignId}/ideas/{ideaId}/rejection", parentCampaign.getId(), actualIdea.getId())
+        mockMvc.perform(put(Paths.IDEA_REJECTION, parentCampaign.getId(), actualIdea.getId())
             .header("Authorization", "Bearer " + userToken)
             .accept(MediaType.APPLICATION_JSON_UTF8)
             .contentType(MediaType.APPLICATION_JSON_UTF8)
@@ -475,7 +474,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
 
         final IdeaRejectCmd cmd = new IdeaRejectCmd("test_rejectionComment");
 
-        mockMvc.perform(put("/ideas_campaigns/{campaignId}/ideas/{ideaId}/rejection", parentCampaign.getId(), actualIdea.getId())
+        mockMvc.perform(put(Paths.IDEA_REJECTION, parentCampaign.getId(), actualIdea.getId())
             .header("Authorization", "Bearer " + adminToken)
             .accept(MediaType.APPLICATION_JSON_UTF8)
             .contentType(MediaType.APPLICATION_JSON_UTF8)
@@ -503,7 +502,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
 
         final VoteCmd cmd = new VoteCmd(null, 5);
 
-        mockMvc.perform(put("/ideas_campaigns/{campaignId}/ideas/{ideaId}/votes", parentCampaign.getId(), actualIdea.getId())
+        mockMvc.perform(put(Paths.IDEA_VOTES, parentCampaign.getId(), actualIdea.getId())
             .header("Authorization", "Bearer " + userToken)
             .accept(MediaType.APPLICATION_JSON_UTF8)
             .contentType(MediaType.APPLICATION_JSON_UTF8)
@@ -534,7 +533,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
 
         final VoteCmd cmd = new VoteCmd(null, 5);
 
-        mockMvc.perform(put("/ideas_campaigns/{campaignId}/ideas/{ideaId}/votes", parentCampaign.getId(), actualIdea.getId())
+        mockMvc.perform(put(Paths.IDEA_VOTES, parentCampaign.getId(), actualIdea.getId())
             .header("Authorization", "Bearer " + userToken)
             .accept(MediaType.APPLICATION_JSON_UTF8)
             .contentType(MediaType.APPLICATION_JSON_UTF8)
@@ -561,7 +560,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
 
         final VoteCmd cmd1 = new VoteCmd(null, 5);
 
-        mockMvc.perform(put("/ideas_campaigns/{campaignId}/ideas/{ideaId}/votes", parentCampaign.getId(), actualIdea.getId())
+        mockMvc.perform(put(Paths.IDEA_VOTES, parentCampaign.getId(), actualIdea.getId())
             .header("Authorization", "Bearer " + userToken)
             .accept(MediaType.APPLICATION_JSON_UTF8)
             .contentType(MediaType.APPLICATION_JSON_UTF8)
@@ -576,7 +575,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
         ;
 
         final VoteCmd cmd2 = new VoteCmd(null, 3);
-        mockMvc.perform(put("/ideas_campaigns/{campaignId}/ideas/{ideaId}/votes", parentCampaign.getId(), actualIdea.getId())
+        mockMvc.perform(put(Paths.IDEA_VOTES, parentCampaign.getId(), actualIdea.getId())
             .header("Authorization", "Bearer " + adminToken)
             .accept(MediaType.APPLICATION_JSON_UTF8)
             .contentType(MediaType.APPLICATION_JSON_UTF8)
@@ -604,7 +603,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
         final IdeaEntity actualIdea = givenApprovedIdeaExists(userToken, parentCampaign.getId(), givenValidIdeaCmd());
 
         final VoteCmd cmd = new VoteCmd(null, 0);
-        mockMvc.perform(put("/ideas_campaigns/{campaignId}/ideas/{ideaId}/votes", parentCampaign.getId(), actualIdea.getId())
+        mockMvc.perform(put(Paths.IDEA_VOTES, parentCampaign.getId(), actualIdea.getId())
             .header("Authorization", "Bearer " + userToken)
             .accept(MediaType.APPLICATION_JSON_UTF8)
             .contentType(MediaType.APPLICATION_JSON_UTF8)
@@ -632,7 +631,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
 
         final VoteCmd cmd1 = new VoteCmd(null, 5);
 
-        mockMvc.perform(put("/ideas_campaigns/{campaignId}/ideas/{ideaId}/votes", parentCampaign.getId(), actualIdea.getId())
+        mockMvc.perform(put(Paths.IDEA_VOTES, parentCampaign.getId(), actualIdea.getId())
             .header("Authorization", "Bearer " + userToken)
             .accept(MediaType.APPLICATION_JSON_UTF8)
             .contentType(MediaType.APPLICATION_JSON_UTF8)
@@ -647,7 +646,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
         ;
 
         final VoteCmd cmd2 = new VoteCmd(null, 0);
-        mockMvc.perform(put("/ideas_campaigns/{campaignId}/ideas/{ideaId}/votes", parentCampaign.getId(), actualIdea.getId())
+        mockMvc.perform(put(Paths.IDEA_VOTES, parentCampaign.getId(), actualIdea.getId())
             .header("Authorization", "Bearer " + userToken)
             .accept(MediaType.APPLICATION_JSON_UTF8)
             .contentType(MediaType.APPLICATION_JSON_UTF8)
@@ -664,7 +663,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
     }
 
     private ResultActions givenIdeaExists(String accessToken, String campaignId, Idea cmd) throws Exception {
-        return mockMvc.perform(post("/ideas_campaigns/{campaignId}/ideas", campaignId)
+        return mockMvc.perform(post(Paths.IDEAS, campaignId)
                 .header("Authorization", "Bearer " + accessToken)
                 .accept(MediaType.APPLICATION_JSON_UTF8)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
@@ -718,7 +717,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
     private void givenIdeaHasVotings(String campaignId, String ideaId, String bearerToken, int voting) throws Exception{
 
         final VoteCmd cmd = new VoteCmd(null, voting);
-        mockMvc.perform(put("/ideas_campaigns/{campaignId}/ideas/{ideaId}/votes", campaignId, ideaId)
+        mockMvc.perform(put(Paths.IDEA_VOTES, campaignId, ideaId)
             .header("Authorization", "Bearer " + bearerToken)
             .accept(MediaType.APPLICATION_JSON_UTF8)
             .contentType(MediaType.APPLICATION_JSON_UTF8)

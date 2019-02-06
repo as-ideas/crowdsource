@@ -37,7 +37,7 @@
                         <span ng-message="pattern">Das Passwort muss aus mindestens 8 Zeichen und einem Sonderzeichen bestehen</span>
                     </span>
 
-                    <input type="password" name="password" ng-model="activation.user.password"
+                    <input type="password" name="password" ng-model="activation.user.password" placeholder="Passwort"
                            required pattern="^(?=.*\W)(?=\S+$).{8,}$" reset-remote-validation>
                 </label>
             </div>
@@ -54,7 +54,7 @@
                         <span ng-message="remote_equal">Die beiden Passwörter stimmen nicht überein</span>
                     </span>
 
-                    <input type="password" name="repeatedPassword" ng-model="activation.user.repeatedPassword"
+                    <input type="password" name="repeatedPassword" ng-model="activation.user.repeatedPassword" placeholder="Passwort wiederholen"
                            required reset-remote-validation>
                 </label>
             </div>
