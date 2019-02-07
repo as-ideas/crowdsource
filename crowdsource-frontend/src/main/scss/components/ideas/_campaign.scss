@@ -99,9 +99,17 @@ $icon-color: #3C3C3C;
     display: block;
     width: $image-size;
     height: $image-size;
+
+    &:before {
+      content: ' ';
+      display: block;
+      position: absolute;
+      height: $image-size;
+      width: $image-size;
+      background-color: yellow;
+      background-image: url('../images/campaign_image_placeholder.svg');
+    }
   }
-
-
 
   &__title {
     font-size: $fs-regular;

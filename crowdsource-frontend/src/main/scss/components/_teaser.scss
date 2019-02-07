@@ -86,7 +86,7 @@
 
     @media #{$small-only} {
         margin-bottom: 2rem;
-        font-size: rem-calc(20px);
+        font-size: $fs-medium;
     }
 }
 
