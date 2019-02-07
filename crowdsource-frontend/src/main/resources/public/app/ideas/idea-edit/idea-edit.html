@@ -1,11 +1,29 @@
-<form>
-    <p><input campaign-active-aware minlength="5" type="text" ng-model="vm.idea.title" placeholder="Worum gehts?" required maxlength="30" class="idea-add__title">
+<form name="ideaEditForm" novalidate>
+    <p>
+        <label form-group="title">
+            <span form-label-valid="title">Titel deiner Idee</span>
+            <span form-label-invalid="title" ng-messages="ideaEditForm.title.$error">
+                    <span ng-message="minlength">Mindestens 5 Zeichen</span>
+                    <span ng-message="maxlength">Maximal 30 Zeichen</span>
+                    <span ng-message="required">Worum gehts? Bitte gebe deiner Idee einen Titel</span>
+            </span>
 
-        <textarea campaign-active-aware minlength="5" class="idea-add__pitch" name="idea" ng-model="vm.idea.pitch"
-                  placeholder="Ein kurzer und prägnanter Satz (max. 255 Zeichen)"
-                  required maxlength="255" reset-remote-validation></textarea>
+            <input campaign-active-aware class="idea-add__title" name="title" type="text" ng-model="vm.idea.title" required ng-minlength="5" ng-maxlength="30" maxlength="30">
+        </label>
+
+        <label form-group="pitch">
+            <span form-label-valid="pitch">Deine Idee im Detail</span>
+            <span form-label-invalid="pitch" ng-messages="ideaEditForm.pitch.$error">
+                    <span ng-message="minlength">Mindestens 5 Zeichen</span>
+                    <span ng-message="maxlength">Maximal 255 Zeichen</span>
+                    <span ng-message="required">Bitte beschreibe deinen Idee mit einem kurzen prägnanten Satz</span>
+            </span>
+
+            <textarea campaign-active-aware reset-remote-validation name="pitch" class="idea-add__pitch" ng-model="vm.idea.pitch" required  ng-minlength="5" ng-maxlength="255"></textarea>
+        </label>
 
         <button ng-if="vm.cancel" type="cancel" ng-click="vm.cancel()" class="button-secondary--halfwidth">Abbrechen</button>
-        <button ng-disabled="!vm.submitEnabled()" type="submit" ng-click="vm.submit()" ng-class="{'button-primary--halfwidth' : vm.cancel, 'button-primary' : !vm.cancel}">Absenden</button>
+        <button  type="submit" ng-disabled="!ideaEditForm.title.$valid || !ideaEditForm.pitch.$valid" ng-click="vm.submit()" ng-class="{'button-primary--halfwidth' : vm.cancel, 'button-primary' : !vm.cancel}">Absenden</button>
+
     </p>
 </form>

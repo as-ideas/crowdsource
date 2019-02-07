@@ -1,5 +1,5 @@
 angular.module('crowdsource')
-    .directive('ideaEdit', function (Idea, $timeout) {
+    .directive('ideaEdit', function () {
 
         return {
             templateUrl: 'app/ideas/idea-edit/idea-edit.html',
@@ -8,7 +8,7 @@ angular.module('crowdsource')
                 campaign: "=",
                 idea: "=",
                 submitFn: "=",
-                cancelFn: "=",
+                cancelFn: "="
             },
             controller: function ($scope) {
                 var vm = this;
@@ -16,7 +16,6 @@ angular.module('crowdsource')
                 vm.idea = $scope.idea;
                 vm.cancel = $scope.cancelFn ? cancel : null;
                 vm.submit = $scope.submitFn ? submit : null;
-                vm.submitEnabled = submitEnabled;
 
                 if (!vm.idea) {
                     throw Error('idea-edit missing idea on scope in directive');
@@ -27,19 +26,13 @@ angular.module('crowdsource')
                     pitch: vm.idea.pitch
                 };
 
-                function submitEnabled () {
-                    return (vm.idea.title && vm.idea.title.length >= 5 && vm.idea.title.length <= 30)
-                        && (vm.idea.pitch && vm.idea.pitch.length >= 5 && vm.idea.pitch.length <= 255)
-                }
-
-                function submit () {
+                function submit() {
                     $scope.submitFn(vm.idea);
                 };
 
                 function cancel () {
                     vm.idea.title = originalIdea.title;
                     vm.idea.pitch = originalIdea.pitch;
-
                     $scope.cancelFn();
                 };
             }

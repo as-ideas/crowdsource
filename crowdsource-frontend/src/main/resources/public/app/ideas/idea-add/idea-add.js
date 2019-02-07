@@ -1,5 +1,5 @@
 angular.module('crowdsource')
-    .directive('ideaAdd', function (Idea, $timeout) {
+    .directive('ideaAdd', function (Idea) {
 
         return {
             templateUrl: 'app/ideas/idea-add/idea-add.html',
@@ -21,17 +21,10 @@ angular.module('crowdsource')
 
                 resetNewIdea();
                 vm.send = saveIdea;
-                vm.enableButton = enableButton;
 
                 function resetNewIdea() {
                     vm.newIdea.pitch = "";
                     vm.newIdea.title = "";
-                }
-
-                function enableButton() {
-                    return !vm.pending &&
-                        (vm.newIdea.title && vm.newIdea.title.length >= 5) &&
-                        (vm.newIdea.pitch && vm.newIdea.pitch.length >= 5);
                 }
 
                 function callSuccessFn(res) {
