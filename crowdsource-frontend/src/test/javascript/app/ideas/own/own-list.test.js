@@ -30,7 +30,6 @@ describe('Own ideas list', function () {
 
     it("should load given campaign before rendering", function () {
         $httpBackend.expectGET("/ideas_campaigns/SOME_ID/my_ideas").respond([]);
-        $httpBackend.expectGET("/ideas_campaigns/SOME_ID/my_ideas").respond([]);
         $httpBackend.expectGET("/ideas_campaigns/SOME_ID").respond(CAMPAIGN);
         $scope.$digest();
 
@@ -39,7 +38,6 @@ describe('Own ideas list', function () {
 
     it("should render title and sponsor", function () {
         $httpBackend.expectGET("/ideas_campaigns/SOME_ID/my_ideas").respond(200, []);
-        $httpBackend.expectGET("/ideas_campaigns/SOME_ID/my_ideas").respond(200, []);
         $scope.$digest();
 
         expect(renderedView.find('.ideas-teaser__heading')).toHaveText(CAMPAIGN.title);
@@ -47,7 +45,6 @@ describe('Own ideas list', function () {
     });
 
     it("should render empty list of ideas grouped by state showing default message", function () {
-        $httpBackend.expectGET("/ideas_campaigns/SOME_ID/my_ideas").respond(200, []);
         $httpBackend.expectGET("/ideas_campaigns/SOME_ID/my_ideas").respond(200, []);
 
         $scope.$digest();
@@ -60,7 +57,6 @@ describe('Own ideas list', function () {
     });
 
     it("should render list of ideas grouped by state", function () {
-        $httpBackend.expectGET("/ideas_campaigns/SOME_ID/my_ideas").respond(200, givenIdeasOfEveryState());
         $httpBackend.expectGET("/ideas_campaigns/SOME_ID/my_ideas").respond(200, givenIdeasOfEveryState());
 
         $scope.$digest();

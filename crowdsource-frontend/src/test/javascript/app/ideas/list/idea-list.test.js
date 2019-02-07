@@ -80,7 +80,6 @@ describe('ideas list', function () {
         var response = givenExamplIdeaResponse(2);
         response.last = false;
         $httpBackend.expectGET("/ideas_campaigns/SOME_ID/ideas?page=0&pageSize=20").respond(response);
-        $httpBackend.expectGET("/ideas_campaigns/SOME_ID/my_ideas").respond([]);
 
         $scope.$digest();
         var listView = new ListView(renderedView);
@@ -105,7 +104,6 @@ describe('ideas list', function () {
 
     function givenInitialRequestsOnPageLoadResonpond() {
         $httpBackend.expectGET("/ideas_campaigns/SOME_ID/ideas?page=0&pageSize=20").respond(givenExamplIdeaResponse(0));
-        $httpBackend.expectGET("/ideas_campaigns/SOME_ID/my_ideas").respond([]);
     }
 
     function ListView(element) {

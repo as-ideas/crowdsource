@@ -27,7 +27,7 @@ angular.module('crowdsource')
         vm.selectedFilter = FILTER_ALL;
         vm.setFilter = setFilter;
 
-        vm.FILTER_STATES = FILTER_STATES
+        vm.FILTER_STATES = FILTER_STATES;
 
         vm.filterState = {};
 

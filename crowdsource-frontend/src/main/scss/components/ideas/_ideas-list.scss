@@ -421,7 +421,6 @@ $intro-box-break: "only screen and (max-width: 740px)";
 }
 
 .ideas-list__filter {
-    float: right;
     margin-bottom: $mrg-double;
     a {
         text-decoration: none;
@@ -436,7 +435,6 @@ $intro-box-break: "only screen and (max-width: 740px)";
 
     .active {
         border-bottom: 1px solid $clr-black;
-
     }
 
 }
