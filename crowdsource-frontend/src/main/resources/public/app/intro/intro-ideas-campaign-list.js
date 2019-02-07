@@ -21,8 +21,6 @@ angular.module('crowdsource')
 
                         entries[i].startDateString = startDate.getDate() + "." + (startDate.getMonth()+1) + "." + startDate.getFullYear();
                         entries[i].endDateString = endDate.getDate() + "." + (endDate.getMonth()+1) + "." + endDate.getFullYear();
-
-                        console.log(entries[i])
                     }
                 }
 

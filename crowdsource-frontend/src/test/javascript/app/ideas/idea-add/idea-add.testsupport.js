@@ -1,4 +1,5 @@
 function IdeaAdd(element) {
+
     this.setTitle = function (title) {
         return element.find('.idea-add__title').val(title).trigger('input');
     };
@@ -8,7 +9,7 @@ function IdeaAdd(element) {
     };
 
     this.submitForm = function () {
-        return element.find('.idea-add__submit').click();
+        return element.find('.idea-primary').click();
     };
 
     this.getSubmitButton = function () {
@@ -16,7 +17,7 @@ function IdeaAdd(element) {
     };
 
     this.getPitchInput = function () {
-        return element.find('.idea-add__pitch').val();
+        return val = element.find('.idea-add__pitch').val();
     };
 
     this.getTitleInput = function () {
