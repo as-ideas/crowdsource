@@ -24,7 +24,7 @@ angular.module('crowdsource')
 
                 function resetNewIdea() {
                     vm.newIdea.pitch = "";
-                    vm.newIdea.title = "";
+                    vm.newIdea.title =  "";
                 }
 
                 function callSuccessFn(res) {

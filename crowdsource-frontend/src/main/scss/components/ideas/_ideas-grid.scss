@@ -90,7 +90,7 @@ $tile-padding-vertical: 15px;
     &__rejected-container {
       bottom: 0;
       padding-right: $pd-normal;
-      position: absolute;
+      display: inline-block;
     }
 
     &__rejected-message {

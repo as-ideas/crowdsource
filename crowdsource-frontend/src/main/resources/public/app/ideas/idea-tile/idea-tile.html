@@ -47,7 +47,18 @@
 
     <div ng-if="vm.isAdminView" class="ideas-grid-tile__approval-container">
         <div ng-if="vm.idea.status == 'PROPOSED'">
-            <input campaign-active-aware type="text" ng-model="vm.rejectionComment" placeholder="Ablehnungsgrund">
+
+            <form name="rejectionForm">
+                <label>
+                    <span form-label-valid="rejectionMessage">Ablehnungsgrund</span>
+                        <span form-label-invalid="rejectionMessage" ng-messages="rejectionForm.rejectionMessage.$error">
+                        <span ng-message="minlength">Mindestens 10 Zeichen</span>
+                        <span ng-message="maxlength">Maximal 10000 Zeichen</span>
+                        <span ng-message="required">Bitte Ablehnungsgrund angeben</span>
+                </span>
+                    <input campaign-active-aware type="text" ng-minlength="10" ng-model="vm.rejectionComment" name="rejectionMessage" placeholder="Ablehnungsgrund">
+                </label>
+            </form>
             <button campaign-active-aware ng-click="vm.reject()" class="button-secondary--halfwidth" ng-disabled="!vm.rejectionComment.length">Ablehnen</button>
             <button campaign-active-aware ng-click="vm.publish()" class="button-primary--halfwidth">Freigeben</button>
         </div>
