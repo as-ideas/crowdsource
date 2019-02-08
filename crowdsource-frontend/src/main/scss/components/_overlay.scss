@@ -1,0 +1,52 @@
+@import '../settings';
+
+.overlaySuccess {
+    &__wrapper {
+        position: relative;
+    }
+
+    &__container {
+        top: 0;
+        left: 0;
+        background-color: rgba(24, 110, 60, 0.8);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__content {
+        margin: 0 auto;
+        padding-top: 2rem;
+        text-align: center;
+    }
+
+    &--hidden {
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s 0.5s, opacity 0.5s linear;
+    }
+
+    &--active {
+        visibility: visible;
+        opacity: 1;
+        transition: opacity 0.5s linear;
+    }
+
+    &__icon {
+        $dimension: 100px;
+
+        display: inline-block;
+        width: $dimension;
+        height: $dimension;
+        border-radius: 50%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: rem-calc(100px);
+        background-image: url('../images/icon-email-white.svg');
+    }
+
+    &__text {
+        color: $clr-white;
+        font-size: $fs-huge;
+    }
+}

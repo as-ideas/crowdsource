@@ -40,6 +40,8 @@ angular.module('crowdsource')
         vm.reloadOwnIdeas = function () {
             // TODO: Candidate to extract into an own eventing object, see: http://eburley.github.io/2013/01/31/angularjs-watch-pub-sub-best-practices.html
             $rootScope.$broadcast('UPDATE_OWN_STATISTICS', {}, {});
+            $rootScope.$broadcast('ADD_IDEA_SUCCESS', {message: 'Idee erfolgreich eingereicht'});
+
         };
 
         function loadMore(page) {

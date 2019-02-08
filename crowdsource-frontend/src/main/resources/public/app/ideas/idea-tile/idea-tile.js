@@ -1,5 +1,5 @@
 angular.module('crowdsource')
-    .directive('ideaTile', function ($timeout, Idea) {
+    .directive('ideaTile', function ($timeout, Idea, $rootScope) {
 
         var DEFAULT_RATING = {
             ownVote: 0,
@@ -36,6 +36,8 @@ angular.module('crowdsource')
                     if (vm.rating.ownVote === value) {
                         value = 0;
                     }
+
+                    $rootScope.$broadcast('VOTE_IDEA_SUCCESS'+vm.idea.id, {message: 'voted!'});
 
                     vm.isVotingDisabled = true;
                     Idea.voteIdea(vm.campaignId, vm.idea.id, value)

@@ -2,12 +2,8 @@
 <ideas-status-bar campaign="ideasList.campaign"></ideas-status-bar>
 <idea-howto></idea-howto>
 
-
-<content-row>
-    <div class="container">
-        <idea-add campaign="ideasList.campaign" success-fn="ideasList.reloadOwnIdeas"></idea-add>
-    </div>
-
+<content-row overlay-success="ADD_IDEA_SUCCESS">
+    <idea-add campaign="ideasList.campaign" success-fn="ideasList.reloadOwnIdeas"></idea-add>
 </content-row>
 
 <content-row class="intro-section">
@@ -19,7 +15,7 @@
             </li>
         </ul>
         <div class="ideas-grid__container">
-            <div class="ideas-grid__box" ng-repeat="idea in ideasList.ideas">
+            <div class="ideas-grid__box" ng-repeat="idea in ideasList.ideas" overlay-success="{{'VOTE_IDEA_SUCCESS'+idea.id}}">
                 <idea-tile campaign="ideasList.campaign" idea="idea"></idea-tile>
             </div>
         </div>
