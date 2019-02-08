@@ -1,7 +1,7 @@
 import React from 'react'
-import styles from './FormBox.module.scss'
+import styles from './FormContainer.module.scss'
 
-class FormBox extends React.Component {
+class FormContainer extends React.Component {
   render () {
     return (
       <div className={styles['form-box']}>{this.props.children}</div>
@@ -9,4 +9,4 @@ class FormBox extends React.Component {
   }
 }
 
-export default FormBox
+export default FormContainer

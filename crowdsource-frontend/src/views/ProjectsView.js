@@ -1,13 +1,13 @@
 import React from 'react'
-import FormBox from '../atoms/container/FormBox'
+import FormContainer from '../atoms/container/FormContainer'
 
 class ProjectsView extends React.Component {
   render () {
     return (
       <div>
-        <FormBox>
+        <FormContainer>
           <h1>Projekte</h1>
-        </FormBox>
+        </FormContainer>
       </div>
     )
   }

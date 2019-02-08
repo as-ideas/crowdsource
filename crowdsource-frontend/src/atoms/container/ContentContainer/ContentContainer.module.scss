@@ -1,0 +1,9 @@
+@import "../../../globals";
+
+.container {
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: $medium  ;
+  padding: 0 $pd-normal;
+  position: relative;
+}

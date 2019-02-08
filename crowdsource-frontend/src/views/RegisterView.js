@@ -1,9 +1,9 @@
 import React from 'react'
 import { AuthConsumer } from '../contexts/AuthContext'
-import FormBox from '../atoms/container/FormBox'
+import FormContainer from '../atoms/container/FormContainer'
 import { Link, Redirect } from 'react-router-dom'
 import Form from '../atoms/forms/Form'
-import PrimaryButton from '../atoms/buttons/PrimaryButton'
+import PrimaryButton from '../atoms/buttons/PrimaryButton/PrimaryButton'
 
 class RegisterView extends React.Component {
   constructor () {
@@ -27,7 +27,7 @@ class RegisterView extends React.Component {
       <div>
         <AuthConsumer>
           {({ isAuth }) => (
-            <FormBox>
+            <FormContainer>
               {isAuth ? (
                 <div>
                   {/* If used is logged in, redirect to start page */}
@@ -46,7 +46,7 @@ class RegisterView extends React.Component {
                   <Link to='login'>oder hier anmelden</Link>
                 </div>
               )}
-            </FormBox>
+            </FormContainer>
           )}
         </AuthConsumer>
       </div>

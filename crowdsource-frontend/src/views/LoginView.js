@@ -1,9 +1,9 @@
 import React from 'react'
 import { AuthConsumer } from '../contexts/AuthContext'
 import { Link, Redirect } from 'react-router-dom'
-import FormBox from '../atoms/container/FormBox'
+import FormContainer from '../atoms/container/FormContainer'
 import Form from '../atoms/forms/Form'
-import PrimaryButton from '../atoms/buttons/PrimaryButton'
+import PrimaryButton from '../atoms/buttons/PrimaryButton/PrimaryButton'
 import AlertBox from '../atoms/forms/AlertBox'
 
 class LoginView extends React.Component {
@@ -24,7 +24,7 @@ class LoginView extends React.Component {
       <div>
         <AuthConsumer>
           {({ isAuth, login, error }) => (
-            <FormBox>
+            <FormContainer>
               {isAuth ? (
                 <div>
                   <Redirect to={referrer} />
@@ -49,7 +49,7 @@ class LoginView extends React.Component {
                   <Link to='signup'>oder hier registrieren</Link>
                 </div>
               )}
-            </FormBox>
+            </FormContainer>
           )}
         </AuthConsumer>
       </div>

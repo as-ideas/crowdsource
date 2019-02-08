@@ -1,9 +1,8 @@
 import React from 'react'
-import { AuthConsumer } from '../contexts/AuthContext'
-import FormBox from '../atoms/container/FormBox'
-import { Link, Redirect } from 'react-router-dom'
+import FormContainer from '../atoms/container/FormContainer'
+import { Link } from 'react-router-dom'
 import Form from '../atoms/forms/Form'
-import PrimaryButton from '../atoms/buttons/PrimaryButton'
+import PrimaryButton from '../atoms/buttons/PrimaryButton/PrimaryButton'
 
 class PasswortRecoveryView extends React.Component {
   constructor () {
@@ -16,7 +15,7 @@ class PasswortRecoveryView extends React.Component {
   render () {
     return (
       <div>
-        <FormBox>
+        <FormContainer>
             <div>
               <h1>Passwort vergessen</h1>
               <p>Gib hier deine Email-Adresse ein, mit der du dich registriert hast. Du erhältst von uns dann eine E-Mail mit einem Bestätigungslink und kannst dann dein Passwort neu setzen.</p>
@@ -27,7 +26,7 @@ class PasswortRecoveryView extends React.Component {
               </Form>
               <Link to='login'>oder hier anmelden</Link>
             </div>
-        </FormBox>
+        </FormContainer>
       </div>
     )
   }

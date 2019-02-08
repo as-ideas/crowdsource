@@ -1,0 +1,25 @@
+@import "../../../globals";
+
+.form-box {
+  background-color: $clr-white;
+  border-width: 0;
+  border-radius: $border-radius;
+  box-shadow: $shadow-normal;
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 31.25rem;
+  padding: $pd-double;
+
+  a {
+    font-size: $fs-small;
+    color: $clr-black-shade-2;
+
+    &:hover {
+      color: $clr-gray;
+    }
+  }
+
+  p {
+    text-align: left;
+  }
+}

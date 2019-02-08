@@ -1,22 +1,117 @@
-$font-size-normal: 1rem;
-$font-size-small: 0.875rem;
+// Font
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,500,600,700,400italic);
 
-$color-green-shade-1: #35EA87;
-$color-green-shade-2: #4BD489;
+// Font Family
+$ff-regular: "Source Sans Pro", "Helvetica Neue", "Helvetica", Arial, sans-serif;
 
-$color-black-shade-1: #000000;
-$color-black-shade-2: #2D2D2D;
+// Font Size
+$fs-half: 0.5rem;     // 8px
+$fs-small: 0.875rem;  // 14px
+$fs-regular: 1rem;     // 16px
+$fs-medium: 1.5rem;   // 24px
+$fs-dbl: 2rem;        // 32px
+$fs-huge: 2.75rem;    // 40px
 
-$color-white: #FFFFFF;
-$color-grey: #CCCCCC;
-$color-red: #f04124;
+// Line Height
+$lh-regular: 1.5;
 
+// Font Weight
+$fw-extralight: 200;
+$fw-light: 300;
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-bold: 600;
+$fw-extrabold: 700;
+$fw-black: 800;
 
+// Border Definitions
 $border-radius: 3px;
 
-/*
-$color-green-shade-3: #3CA96E;
-$color-green-shade-4: #2D7F52;
-$color-green-shade-5: #1E5437;
-$color-green-shade-6: #0F2A1B;
-*/
+// Margins
+$mrg-small: 0.625rem; // 10px
+$mrg-normal: 1rem;    // 16px
+$mrg-medium: 1.25rem; // 20px, Good for component distance
+$mrg-double: 2.5rem;  // 40px
+
+// Paddings
+$pd-small: 0.625rem; // 10px
+$pd-normal: 1rem;    // 16px
+$pd-medium: 1.25rem; // 20px, Good for component distance
+$pd-double: 2rem;    // 32px
+$pd-huge: 2.5rem;    // 40px
+$pd-triple: 3rem;    // 48px
+
+// z-index
+$zi-front-abs: 9999;
+$zi-front: 10;
+$zi-regular: 5;
+$zi-background: 1;
+$zi-background-abs: -1;
+
+
+
+// Colors
+$clr-green-shade-1: #35EA87;
+$clr-green-shade-2: #4BD489;
+$clr-green-shade-3: #3CA96E;
+$clr-green-shade-4: #2D7F52;
+$clr-green-shade-5: #1E5437;
+$clr-green-shade-6: #0F2A1B;
+
+$clr-black-shade-1: #000000;
+$clr-black-shade-2: #2D2D2D;
+
+$clr-white: #FFFFFF;
+$clr-gray: #CCCCCC;
+$clr-gray-light: gainsboro;
+$clr-red: #f04124;
+
+// Shadows
+$shadow-normal: 0 2px 0 0 rgba(0,0,0,0.1), 0 0 2px 0 rgba(0,0,0,0.1);
+
+// Media Query Ranges
+$small: 40rem;
+$medium: 64rem;
+$large: 90rem;
+$xlarge: 120rem;
+
+$small-min:   0em;        $small-max: 40em;         // 640px
+$medium-min:  40.063em;   $medium-max: 64em;        // 1024px
+$large-min:   64.063em;   $large-max: 90em;         // 1440px
+$xlarge-min:  90.063em;   $xlarge-max: 120em;       // 1920px
+$xxlarge-min: 120.063em;  $xxlarge-max: 99999999em; // >
+
+$screen: "only screen" !default;
+
+$landscape: "#{$screen} and (orientation: landscape)" !default;
+$portrait: "#{$screen} and (orientation: portrait)" !default;
+
+$small-up: $screen !default;
+$small-only: "#{$screen} and (max-width: #{$small-max})" !default;
+
+$medium-up: "#{$screen} and (min-width:#{$medium-min})" !default;
+$medium-only: "#{$screen} and (min-width:#{$medium-min}) and (max-width:#{$medium-max})" !default;
+
+$large-up: "#{$screen} and (min-width:#{$large-min})" !default;
+$large-only: "#{$screen} and (min-width:#{$large-min}) and (max-width:#{$large-max})" !default;
+
+$xlarge-up: "#{$screen} and (min-width:#{$xlarge-min})" !default;
+$xlarge-only: "#{$screen} and (min-width:#{$xlarge-min}) and (max-width:#{$xlarge-max})" !default;
+
+$xxlarge-up: "#{$screen} and (min-width:#{$xxlarge-min})" !default;
+$xxlarge-only: "#{$screen} and (min-width:#{$xxlarge-min}) and (max-width:#{$xxlarge-max})" !default;
+
+// Mixins
+@mixin font-regular {
+  color: $clr-black-shade-2;
+  font-family: $ff-regular;
+  font-size: $fs-regular;
+  font-style: normal;
+  font-weight: $fw-regular;
+  line-height: $lh-regular;
+}
+
+// Global Tags
+body {
+  @include font-regular;
+}

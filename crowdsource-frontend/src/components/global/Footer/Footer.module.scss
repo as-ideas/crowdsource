@@ -1,0 +1,38 @@
+@import "../../../globals";
+
+.container {
+  background-color: #3C3C3C;
+  box-sizing: border-box;
+  bottom: 0;
+  height: 240px;
+  padding: $pd-triple $pd-normal;
+  position: absolute;
+  width: 100%;
+}
+
+.column {
+  float: left;
+
+  &-headline {
+    color: #4BD489;
+    font-size: $fs-regular;
+    font-weight: $fw-regular;
+    list-style-type: none;
+    margin-bottom: $mrg-normal;
+  }
+
+  &-item {
+    list-style-type: none;
+  }
+}
+
+a {
+  color: #CCC;
+  text-decoration: none;
+  font-size: $fs-regular;
+  font-weight: $fw-regular;
+
+  &:hover {
+    color: #E6E6E6;
+  }
+}

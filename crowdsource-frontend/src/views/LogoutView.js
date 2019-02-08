@@ -1,7 +1,7 @@
 import React from 'react'
 import { AuthConsumer } from '../contexts/AuthContext'
 import { Link } from 'react-router-dom'
-import FormBox from '../atoms/container/FormBox'
+import FormContainer from '../atoms/container/FormContainer'
 
 class LogoutView extends React.Component {
   render () {
@@ -12,10 +12,10 @@ class LogoutView extends React.Component {
             logout()
           )}
         </AuthConsumer>
-        <FormBox>
+        <FormContainer>
           <h1>Du wurdest ausgeloggt</h1>
           <p>Du kannst Dich <Link to='login'>hier</Link> wieder einloggen.</p>
-        </FormBox>
+        </FormContainer>
       </div>
     )
   }
