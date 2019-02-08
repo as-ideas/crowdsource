@@ -1,11 +1,11 @@
 <form name="ideaEditForm" novalidate>
     <p>
         <label form-group="title">
-            <span form-label-valid="title">Titel deiner Idee</span>
+            <span form-label-valid="title">Worum geht's?</span>
             <span form-label-invalid="title" ng-messages="ideaEditForm.title.$error">
                     <span ng-message="minlength">Mindestens 5 Zeichen</span>
                     <span ng-message="maxlength">Maximal 30 Zeichen</span>
-                    <span ng-message="required">Worum gehts? Bitte gebe deiner Idee einen Titel</span>
+                    <span ng-message="required">Worum geht's? Bitte gebe deiner Idee einen Titel</span>
             </span>
 
             <input campaign-active-aware class="idea-add__title" name="title" type="text" ng-model="vm.idea.title" required ng-minlength="5" ng-maxlength="30" maxlength="30">

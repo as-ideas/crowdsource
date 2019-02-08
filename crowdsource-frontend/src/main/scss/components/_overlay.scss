@@ -15,7 +15,7 @@
     }
 
     &--success {
-        background-color: rgba(24, 110, 60, 0.8);
+        background-color: rgba(74, 159, 120, 0.8);
 
         .overlay__icon {
             $dimension: 100px;
@@ -68,6 +68,6 @@
         padding: 1rem;
         word-wrap: break-spaces;
         color: $clr-white;
-        font-size: $fs-small;
+        font-size: $fs-medium;
     }
 }

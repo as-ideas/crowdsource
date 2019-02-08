@@ -29,7 +29,7 @@ angular.module('crowdsource')
                             '<div class="overlay__container overlay--hidden {{type == \'failure\' ? \'overlay--failure\' : \'overlay--success\'}}"> ' +
                                 '<div class="overlay__content">' +
                                     '<div class="overlay__icon"></div>' +
-                                    '<div class="overlay__text">{{message}}</div>' +
+                                    '<div class="overlay__text" ng-bind-html="message"></div>' +
                                 '</div>' +
                             '</div>')(scope)
                     );
