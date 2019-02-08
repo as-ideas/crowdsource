@@ -2,24 +2,22 @@
 <ideas-status-bar campaign="ideasList.campaign"></ideas-status-bar>
 <idea-howto></idea-howto>
 
-
-<content-row>
-    <div class="container">
-        <idea-add campaign="ideasList.campaign" success-fn="ideasList.reloadOwnIdeas"></idea-add>
-    </div>
-
+<content-row overlay="ADD_IDEA_SUCCESS">
+    <idea-add campaign="ideasList.campaign" success-fn="ideasList.reloadOwnIdeas"></idea-add>
 </content-row>
 
 <content-row class="intro-section">
     <section>
-        <content-hero title="Eure Ideen" description="Bewertet die eingereichten Ideen, denn jede Stimme zählt."></content-hero>
+
+        <content-hero title="'Eure Ideen'" description="'Bewertet die eingereichten Ideen, denn jede Stimme zählt.'"></content-hero>
+
         <ul class="ideas-list__filter">
             <li ng-repeat="entry in ideasList.FILTER_STATES">
                 <a name="{{entry.state}}" ng-class="ideasList.selectedFilter == entry.state ? 'active' : ''" ng-click="ideasList.setFilter(entry.state)">{{entry.label}}</a>
             </li>
         </ul>
         <div class="ideas-grid__container">
-            <div class="ideas-grid__box" ng-repeat="idea in ideasList.ideas">
+            <div class="ideas-grid__box" ng-repeat="idea in ideasList.ideas" overlay="{{'VOTE_'+idea.id}}">
                 <idea-tile campaign="ideasList.campaign" idea="idea"></idea-tile>
             </div>
         </div>
