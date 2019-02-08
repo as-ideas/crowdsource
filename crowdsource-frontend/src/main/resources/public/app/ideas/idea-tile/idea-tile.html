@@ -1,4 +1,4 @@
-<div class="ideas-grid-tile" ng-class="{'ideas-grid-tile--proposed' : vm.idea.status == 'PROPOSED','ideas-grid-tile--rejected' : vm.idea.status == 'REJECTED','ideas-grid-tile--approved' : vm.idea.status == 'PUBLISHED'}">
+<div class="ideas-grid-tile">
 
     <div ng-if="vm.idea.status == 'PUBLISHED'">
         <span class="ideas-grid-tile__title" title="{{ vm.idea.title }}">{{ vm.idea.title }}</span>
