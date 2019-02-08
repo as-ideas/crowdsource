@@ -31,7 +31,7 @@ angular.module('crowdsource')
         function fetchPendingIdeas() {
             Idea.getIdeasWithStatus(campaign.id, IDEAS_STATUS.PROPOSED).then(function(res) {
                 vm.pendingIdeas = res.content;
-                vm.pendinIdeasTotal = res.totalElements;
+                vm.pendingIdeasTotal = res.totalElements;
             });
         }
 

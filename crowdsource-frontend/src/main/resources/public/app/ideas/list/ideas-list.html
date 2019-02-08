@@ -8,7 +8,9 @@
 
 <content-row class="intro-section">
     <section>
-        <content-hero title="Eure Ideen" description="Bewertet die eingereichten Ideen, denn jede Stimme zählt."></content-hero>
+
+        <content-hero title="'Eure Ideen'" description="'Bewertet die eingereichten Ideen, denn jede Stimme zählt.'"></content-hero>
+
         <ul class="ideas-list__filter">
             <li ng-repeat="entry in ideasList.FILTER_STATES">
                 <a name="{{entry.state}}" ng-class="ideasList.selectedFilter == entry.state ? 'active' : ''" ng-click="ideasList.setFilter(entry.state)">{{entry.label}}</a>
