@@ -6,7 +6,6 @@ import './App.css'
 import { AuthProvider } from './contexts/AuthContext'
 
 // Import Atoms and Components
-import Breadcrumb from 'components/global/Breadcrumb'
 import Footer from 'components/global/Footer'
 import Header from 'components/global/Header'
 import Motivation from "components/campaign/Motivation";
@@ -25,7 +24,6 @@ class App extends Component {
       <div className='App'>
         <AuthProvider>
           <Header/>
-          <Breadcrumb/>
           <Motivation/>
           <ProtectedRoute path='/projects' component={ProjectsView} />
           <Route path='/login' component={LoginView} />

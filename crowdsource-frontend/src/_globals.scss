@@ -76,10 +76,10 @@ $large: 90rem;
 $xlarge: 120rem;
 
 $small-min:   0em;        $small-max: 40em;         // 640px
-$medium-min:  40.063em;   $medium-max: 64em;        // 1024px
-$large-min:   64.063em;   $large-max: 90em;         // 1440px
-$xlarge-min:  90.063em;   $xlarge-max: 120em;       // 1920px
-$xxlarge-min: 120.063em;  $xxlarge-max: 99999999em; // >
+$medium-min:  40.063em;   $medium-max: 48em;        // 768px
+$large-min:   48.063em;   $large-max: 64em;         // 1024px
+$xlarge-min:  64.063em;   $xlarge-max: 90em;        // 1440px
+$xxlarge-min: 90.063em;   $xxlarge-max: 120em;      // >
 
 $screen: "only screen" !default;
 
@@ -91,6 +91,7 @@ $small-only: "#{$screen} and (max-width: #{$small-max})" !default;
 
 $medium-up: "#{$screen} and (min-width:#{$medium-min})" !default;
 $medium-only: "#{$screen} and (min-width:#{$medium-min}) and (max-width:#{$medium-max})" !default;
+$medium-down: "#{$screen} and (max-width:#{$medium-max})" !default;
 
 $large-up: "#{$screen} and (min-width:#{$large-min})" !default;
 $large-only: "#{$screen} and (min-width:#{$large-min}) and (max-width:#{$large-max})" !default;
