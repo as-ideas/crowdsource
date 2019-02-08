@@ -30,12 +30,13 @@ import javax.validation.Valid;
 import java.security.Principal;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
+import static org.slf4j.LoggerFactory.getLogger;
 
 @RestController
 @RequestMapping(value = "/user")
 public class UserController {
 
-    private static final Logger LOG = LoggerFactory.getLogger(UserController.class);
+    private static final Logger LOG = getLogger(UserController.class);
 
     private UserRepository userRepository;
 
@@ -44,6 +45,8 @@ public class UserController {
     private UserService userService;
 
     private FinancingRoundRepository financingRoundRepository;
+
+    private static final Logger log = getLogger(UserController.class);
 
     @Autowired
     public UserController(UserRepository userRepository, PasswordEncoder passwordEncoder, UserService userService, FinancingRoundRepository financingRoundRepository) {
@@ -70,6 +73,7 @@ public class UserController {
         }
 
         userService.assignActivationTokenForRegistration(userEntity);
+        log.info("A new user registered; email={}", userEntity.getEmail());
     }
 
     @RequestMapping(value = "/{email}/activation", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -105,7 +109,7 @@ public class UserController {
         userEntity.setPassword(passwordEncoder.encode(userActivation.getPassword()));
 
         userRepository.save(userEntity);
-        LOG.debug("User activated: {}", userEntity);
+        LOG.info("User activated: email={}", userEntity.getEmail());
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)

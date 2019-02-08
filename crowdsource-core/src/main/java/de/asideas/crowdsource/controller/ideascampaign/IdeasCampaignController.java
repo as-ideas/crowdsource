@@ -57,12 +57,14 @@ public class IdeasCampaignController {
     @Secured(Roles.ROLE_USER)
     @GetMapping(value = "/ideas_campaigns/{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public IdeasCampaign loadIdeasCampaign(@PathVariable String id) {
+        log.info("Going to fetch ideas campaignId={}", id);
         return ideasCampaignService.fetchCampaign(id);
     }
 
     @Secured(Roles.ROLE_USER)
     @GetMapping(value = "/ideas_campaigns", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<IdeasCampaign> loadIdeasCampaigns() {
+        log.debug("Fetching Ideas campaigns");
         return ideasCampaignService.allCampaigns();
     }
 

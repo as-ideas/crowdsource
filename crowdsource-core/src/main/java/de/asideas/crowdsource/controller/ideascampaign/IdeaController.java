@@ -49,6 +49,7 @@ public class IdeaController {
                                  @RequestParam(value = "status", required = false) IdeaStatus status,
                                  Authentication auth, Principal principal ) {
 
+        log.debug("Fetching Ideas: campaignId={}", campaignId);
         if (status == null) {
             return ideaService.fetchIdeasByStatus(campaignId, Collections.singleton(IdeaStatus.PUBLISHED), page, pageSize, userByPrincipal(principal));
         }
@@ -68,6 +69,7 @@ public class IdeaController {
                                  @RequestParam(value = "alreadyVoted", required = true) Boolean alreadyVotedFor,
                                  Principal principal ) {
 
+        log.info("Fetching filtered Ideas: campaignId={}", campaignId);
         return ideaService.fetchIdeasByRequestorHasVoted(campaignId, alreadyVotedFor, page, pageSize, userByPrincipal(principal));
     }
 
