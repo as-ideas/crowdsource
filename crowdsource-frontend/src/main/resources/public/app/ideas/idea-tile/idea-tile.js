@@ -1,5 +1,5 @@
 angular.module('crowdsource')
-    .directive('ideaTile', function ($timeout, Idea, $rootScope) {
+    .directive('ideaTile', function ($timeout, Idea, $rootScope, OVERLAY_ANIMATION_DURATION) {
 
         var DEFAULT_RATING = {
             ownVote: 0,
@@ -71,6 +71,7 @@ angular.module('crowdsource')
                     }
                     Idea.publishIdea(vm.campaignId, vm.idea.id)
                         .then(function () {
+                            $rootScope.$broadcast('ADMIN_'+vm.idea.id, {type:'success', message: 'Die Idee wurde freigegeben.'});
                             handleSuccessCallback();
                         });
                 };
@@ -81,6 +82,7 @@ angular.module('crowdsource')
                     }
                     Idea.rejectIdea(vm.campaignId, vm.idea.id, vm.rejectionComment)
                         .then(function () {
+                            $rootScope.$broadcast('ADMIN_'+vm.idea.id, {type:'failure', message: 'Die Idee wurde abgelehnt.'});
                             handleSuccessCallback();
                         });
                 };
@@ -91,7 +93,10 @@ angular.module('crowdsource')
 
                 function handleSuccessCallback() {
                     if (typeof $scope.successFn === 'function') {
-                        $scope.successFn();
+                        $timeout(function() {
+                            $scope.successFn();
+                        }, OVERLAY_ANIMATION_DURATION)
+
                     }
                 }
             }

@@ -1,5 +1,6 @@
 angular.module('crowdsource')
-    .directive('overlay', function ($rootScope, $timeout, $compile) {
+    .constant('OVERLAY_ANIMATION_DURATION', 1500)
+    .directive('overlay', function ($rootScope, $timeout, $compile, OVERLAY_ANIMATION_DURATION) {
         return {
             restrict: 'A',
             scope: {},
@@ -44,7 +45,7 @@ angular.module('crowdsource')
                         overlayElement.removeClass('overlay--active');
                         scope.message = '';
                         scope.type = '';
-                    }, 1500);
+                    }, OVERLAY_ANIMATION_DURATION);
                 }
             }
         }

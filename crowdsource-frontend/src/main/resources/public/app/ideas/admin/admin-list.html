@@ -6,7 +6,7 @@
     <content-hero title="'Ausstehende Ideen'" description="'Ideen, die auf Freigabe warten: ' + admin.pendingIdeasTotal"></content-hero>
 
     <div class="ideas-grid__container">
-        <div class="ideas-grid__box" ng-repeat="idea in admin.pendingIdeas">
+        <div class="ideas-grid__box" ng-repeat="idea in admin.pendingIdeas" overlay="{{'ADMIN_'+idea.id}}">
             <idea-tile campaign="admin.campaign" admin="true" idea="idea" success-fn="admin.reloadLists"></idea-tile>
         </div>
     </div>
