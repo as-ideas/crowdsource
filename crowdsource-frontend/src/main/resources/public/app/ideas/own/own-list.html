@@ -15,7 +15,7 @@
             <p class="campaign-login__description">Ideen, die auf Freigabe warten: {{ ideasList.proposed.length }}</p>
         </div>
         <div class="ideas-grid__container">
-            <div class="ideas-grid__box ideas-grid__proposed" ng-repeat="idea in ideasList.proposed">
+            <div class="ideas-grid__box ideas-grid__proposed" ng-repeat="idea in ideasList.proposed" overlay="{{'VOTE_'+idea.id}}">
                 <idea-tile campaign="ideasList.campaign" idea="idea"></idea-tile>
             </div>
         </div>
@@ -34,7 +34,7 @@
         </div>
 
         <div class="ideas-grid__container">
-            <div class="ideas-grid__box ideas-grid__published" ng-repeat="idea in ideasList.published">
+            <div class="ideas-grid__box ideas-grid__published" ng-repeat="idea in ideasList.published" overlay="{{'VOTE_'+idea.id}}">
                 <idea-tile campaign="ideasList.campaign" idea="idea"></idea-tile>
             </div>
         </div>

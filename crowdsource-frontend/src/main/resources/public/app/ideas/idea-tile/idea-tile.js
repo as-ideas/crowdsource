@@ -37,11 +37,14 @@ angular.module('crowdsource')
                         value = 0;
                     }
 
-                    $rootScope.$broadcast('VOTE_IDEA_SUCCESS'+vm.idea.id, {message: 'voted!'});
-
                     vm.isVotingDisabled = true;
                     Idea.voteIdea(vm.campaignId, vm.idea.id, value)
                         .then(function (rating) {
+                            var message = 'Vielen Dank für deine Bewertung.';
+                            if (value === 0) {
+                                message = 'Wir haben deine Bewertung entfernt.';
+                            }
+                            $rootScope.$broadcast('VOTE_'+vm.idea.id, {type:'success', message: message});
                             vm.rating = rating;
                         })
                         .finally(function () {
@@ -57,6 +60,7 @@ angular.module('crowdsource')
 
                 vm.update = function () {
                     Idea.updateIdea(vm.campaignId, vm.idea).then(function (res) {
+                        $rootScope.$broadcast('VOTE_'+vm.idea.id, {type:'success', message: 'Deine Änderung wurde erfolgreich gespeichert.'});
                         vm.isEditable = false;
                     })
                 };
