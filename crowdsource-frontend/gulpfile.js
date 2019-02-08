@@ -24,9 +24,11 @@ gulp.task('sass', function () {
     return gulp.src(config.scssDir + '/crowdsource.scss')
 
         // Prevents errors from interrupting watch task
+        /*
         .pipe(plumber(function (err) {
             this.emit('end');
         }))
+        */
 
         // .pipe(sourcemaps.init())
 

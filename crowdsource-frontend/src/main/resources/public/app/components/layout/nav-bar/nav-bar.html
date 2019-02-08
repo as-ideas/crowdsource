@@ -1,8 +1,14 @@
+<!--
 <div class="contain-to-grid" foundation-reflow="topbar">
     <nav class="top-bar" data-topbar role="navigation">
         <ul class="title-area">
             <li class="name">
                 <h1><a href="#/intro"><img class="site-logo" src="images/logo-crowd.svg" height="25" alt="Crowdsource"></a></h1>
+            </li>
+            <li class="sbar__li--secondar--no-padding" ng-repeat="breadcrumb in nav.breadcrumbs">
+                <a ng-if="!$last" class="sbar-breadcrumb__item" ng-href="{{breadcrumb.target}}">{{breadcrumb.label}}</a>
+                <span ng-if="$last" class="sbar-breadcrumb__item--current">{{breadcrumb.label}}</span>
+                <span ng-if="!$last" class="sbar-breadcrumb__item-separator">&raquo;</span>
             </li>
             <li class="toggle-topbar menu-icon"><a><span></span></a></li>
         </ul>
@@ -15,4 +21,32 @@
             </ul>
         </section>
     </nav>
+</div>
+-->
+
+<div class="header__content-spacer">
+    <header class="header__header-container">
+        <div class="content-container">
+            <nav class="header__navigation">
+                <div class="header__header-mobile">
+                    <a class="header__home-link" href="#"><div class="header__icon-crowdsource"><img src="images/logo-crowd.svg" width="142" height="25" alt="Crowdsource"></div></a>
+                    <button class="header__burger-menu-button"></button>
+                </div>
+                <div class="header__nav-container">
+                    <div class="header__breadcrumb-divider"/>
+                        <a class="header__breadcrumb-link" href="#">Plastikfreies Office</a>
+                        <div class="header__breadcrumb-divider"/>
+                            <span class="header__nav-active">Übersicht</span>
+                            <div class="header__breadcrumb-nav-divider"/>
+                                <a class="header__nav-link" href="#">Deine Ideen</a>
+                                <a class="header__nav-link" href="#">Admin</a>
+                                <div class="header__nav-divider"/>
+                                    <a class="header__nav-link" href="#/help">Hilfe</a>
+                                    <a class="header__nav-link" href="#/login">Login</a>
+                                    <a class="header__nav-link" href="#/signup">Registieren</a>
+                                </div>
+
+            </nav>
+        </div>
+    </header>
 </div>
