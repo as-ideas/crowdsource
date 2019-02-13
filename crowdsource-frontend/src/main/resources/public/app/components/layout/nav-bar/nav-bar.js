@@ -6,13 +6,21 @@ angular.module('crowdsource')
         directive.controllerAs = 'nav';
         directive.bindToController = true;
         directive.templateUrl = 'app/components/layout/nav-bar/nav-bar.html';
+        directive.link = function(scope, elem, attrs){
 
-        directive.controller = function () {
+        }
+
+        directive.controller = function ($scope) {
             var vm = this;
 
             vm.auth = Authentication;
             vm.breadcrumbs = [];
             vm.localNavItems = [];
+
+            // Watch for changes in the service
+            $scope.$watch(function(){
+                return Idea.currentCampaign;
+            }, watcher)
 
             function updateWindowTitle(breadcrumb) {
 
@@ -78,6 +86,15 @@ angular.module('crowdsource')
                 if (!currentRoute[ROUTE_DETAILS.JSON_ROOT][ROUTE_DETAILS.ATTR_CAMPAIGN] == ROUTE_DETAILS.VALUE_CAMPAIGN_IDEA) return false;
                 console.log("isIdeasCampaign: true");
                 return true;
+            }
+
+            function watcher(newValue, oldValue, scope) {
+                console.log("new value: " + newValue);
+                console.log("old value: " + oldValue);
+
+                if(vm.currentRoute) {
+                    updateNavigationAndWindowTitle(vm.currentRoute);
+                }
             }
 
             Route.onRouteChangeSuccessAndInit(function (event, currentRoute) {
