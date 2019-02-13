@@ -1,0 +1,215 @@
+// CSS valid for desktop and mobile
+$header-height: 56px;
+
+.header {
+  &__content-spacer {
+    height: $header-height;
+  }
+
+  &__header-container {
+    width: 100%;
+    background-color: $clr-white;
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+  }
+
+  &__icon-crowdsource {
+    margin-bottom: 3px;
+  }
+
+  &__navigation {
+    align-items: center;
+//    background-color: yellow;
+    display: flex;
+    height: $header-height;
+    justify-content: flex-start;
+    padding: 0;
+    width: 100%;
+  }
+
+  &__nav-container {
+    align-items: center;
+    background-color: $clr-white;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  &__nav-container--hidden {
+    background-color: #2ba6cb;
+  }
+
+  &__nav-link {
+//    background-color: purple;
+    color: $clr-black;
+    font-size: $fs-small;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:hover {
+      color: $clr-gray-light;
+    }
+  }
+
+  &__home-link {
+//    background-color: purple;
+    display: block;
+    margin: 0;
+  }
+
+  &__breadcrumb-link {
+    @extend .header__nav-link;
+  }
+
+  &__nav-active {
+    font-size: $fs-small;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $clr-gray;
+    pointer-events: none;
+    cursor: default;
+  }
+
+
+  // CSS For Desktop
+  @media screen and (min-width: 769px) {
+
+    &__header-mobile {
+      text-align: center;
+    }
+
+    &__burger-menu-button {
+      display: none;
+      visibility: hidden;
+    }
+
+    &__nav-container {
+      height: $header-height;
+    }
+
+    &__nav-divider::after {
+      //    background-color: blue;
+      content: '|';
+      font-size: $fs-small;
+      padding: 0 0 0 $mrg-small;
+    }
+
+    &__nav-link {
+      margin: 0 0 0 $mrg-small;
+    }
+    &__breadcrumb-link {
+      margin: 0;
+    }
+
+    &__breadcrumb-nav-divider {
+      flex-grow: 2;
+    }
+
+    &__breadcrumb-divider::after {
+      //    background-color: blue;
+      content: '»';
+      font-size: $fs-small;
+      padding: 0 3px 2px 3px;
+      display: block;
+    }
+  }
+
+
+  // CSS for Mobile
+  @media screen and (max-width: 768px) {
+
+    &__navigation {
+      flex-direction: column;
+    }
+
+    &__header-mobile {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      height: 100%;
+    }
+
+    &__burger-menu-button {
+      background: initial;
+      border: none;
+      display: block;
+      visibility: visible;
+      margin:0;
+      padding:0;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      position: initial;
+
+      &:hover {
+        background: initial;
+      }
+
+      &:active {
+        background: initial;
+      }
+
+      &:focus {
+        background: initial;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        height: 0;
+        top: 50%;
+        margin-top: -8px;
+        right: 16px;
+        box-shadow: 0 0px 0 1px #000000, 0 7px 0 1px #000000, 0 14px 0 1px #000000;
+        width: 16px;
+      }
+    }
+
+    &__nav-container {
+      border-top: solid $clr-black 1px;
+      flex-direction: column;
+      margin-bottom: $mrg-normal;
+      position: absolute;
+      top: $header-height;
+    }
+
+    &__nav-link {
+      width: 100%;
+      padding: $pd-small 0;
+
+      &:hover {
+        background-color: $clr-gray-light;
+        color: $clr-black;
+      }
+    }
+
+    &__nav-active {
+      width: 100%;
+      padding: $pd-small 0;
+    }
+
+    &__nav-divider {
+      border-bottom: solid $clr-black 1px;
+      width: 100%;
+    }
+
+    &__breadcrumb-nav-divider {
+      border-bottom: solid $clr-gray-light 1px;
+      width: 100%;
+    }
+  }
+}
+
+.content-container {
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 64em;
+  padding: 0 $pd-normal;
+  position: relative;
+}
+
