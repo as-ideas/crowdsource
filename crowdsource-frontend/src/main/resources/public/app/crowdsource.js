@@ -23,18 +23,28 @@
     angular.module('crowdsource', ['ngRoute', 'ngResource', 'ngMessages', 'dibari.angular-ellipsis', 'ngScrollTo',
                     'ngSanitize', 'ng-showdown', 'ngFileUpload', 'ngclipboard', 'chart.js'])
 
-        .config(function ($routeProvider, $locationProvider, $httpProvider, $showdownProvider) {
+        .constant('ROUTE_DETAILS', {
+            JSON_ROOT: '$$route',
+            ATTR_CAMPAIGN: 'campaign',
+            ATTR_IS_OVERVIEW: 'isOverview',
+            VALUE_CAMPAIGN_IDEA: 'ideas',
+            VALUE_CAMPAIGN_PROTOTYPE: 'prototype'
+        })
+
+        .config(function ($routeProvider, $locationProvider, $httpProvider, $showdownProvider, ROUTE_DETAILS) {
             $routeProvider
                 .when('/intro', {
                     templateUrl: 'app/intro/intro.html',
                     controller: 'IntroController as intro',
-                    title: 'Vorstellung'
+                    title: 'Kampagnen'
                 })
                 .when('/ideas/:ideasId', {
                     templateUrl: 'app/ideas/list/ideas-list.html',
                     controller: 'IdeasListController as ideasList',
                     title: 'Übersicht',
                     requireLogin: true,
+                    campaign: ROUTE_DETAILS.VALUE_CAMPAIGN_IDEA,
+                    isOverview: true,
                     resolve: {
                         campaign: function(IdeasCampaignResolver) {
                             return IdeasCampaignResolver.resolve();
@@ -45,19 +55,21 @@
                     templateUrl: 'app/ideas/own/own-list.html',
                     controller: 'IdeasOwnController as ideasList',
                     title: 'Deine Ideen',
-                  requireLogin: true,
-                  resolve: {
-                    campaign: function (IdeasCampaignResolver) {
-                      return IdeasCampaignResolver.resolve();
+                    requireLogin: true,
+                    campaign: ROUTE_DETAILS.VALUE_CAMPAIGN_IDEA,
+                    resolve: {
+                      campaign: function (IdeasCampaignResolver) {
+                        return IdeasCampaignResolver.resolve();
+                      }
                     }
-                  }
                 })
                 .when('/ideas/:ideasId/admin', {
                     templateUrl: 'app/ideas/admin/admin-list.html',
                     controller: 'IdeasAdminController as admin',
-                  title: 'Administration',
+                    title: 'Admin',
                     requireLogin: true,
                     requireAdmin: true,
+                    campaign: ROUTE_DETAILS.VALUE_CAMPAIGN_IDEA,
                     resolve: {
                         campaign: function(IdeasCampaignResolver) {
                             return IdeasCampaignResolver.resolve();

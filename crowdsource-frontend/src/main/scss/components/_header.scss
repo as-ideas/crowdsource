@@ -65,6 +65,8 @@ $header-height: 56px;
     text-decoration: none;
     text-transform: uppercase;
     color: $clr-gray;
+    pointer-events: none;
+    cursor: default;
   }
 
 

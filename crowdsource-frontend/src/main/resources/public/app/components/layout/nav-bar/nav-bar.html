@@ -33,19 +33,16 @@
                     <button class="header__burger-menu-button"></button>
                 </div>
                 <div class="header__nav-container">
-                    <div class="header__breadcrumb-divider"/>
-                        <a class="header__breadcrumb-link" href="#">Plastikfreies Office</a>
-                        <div class="header__breadcrumb-divider"/>
-                            <span class="header__nav-active">Übersicht</span>
-                            <div class="header__breadcrumb-nav-divider"/>
-                                <a class="header__nav-link" href="#">Deine Ideen</a>
-                                <a class="header__nav-link" href="#">Admin</a>
-                                <div class="header__nav-divider"/>
-                                    <a class="header__nav-link" href="#/help">Hilfe</a>
-                                    <a class="header__nav-link" href="#/login">Login</a>
-                                    <a class="header__nav-link" href="#/signup">Registieren</a>
-                                </div>
-
+                    <div ng-repeat-start="breadcrumb in nav.breadcrumbs" class="header__breadcrumb-divider"/>
+                    <a ng-repeat-end="" ng-class="{'header__nav-active':$last, 'header__breadcrumb-link':!$last}" ng-href="{{breadcrumb.target}}">{{breadcrumb.label}}</a>
+                    <div class="header__breadcrumb-nav-divider" />
+                    <a ng-repeat="localNavItem in nav.localNavItems" class="header__nav-link" ng-href="{{localNavItem.target}}">{{localNavItem.label}}</a>
+                    <div ng-if="nav.localNavItems.length > 0" class="header__nav-divider" /></div>
+                        <a class="header__nav-link" href="#/help">Hilfe</a>
+                        <a ng-if="!nav.auth.currentUser.loggedIn" class="header__nav-link" href="#/signup">Registieren</a>
+                    <a ng-if="!nav.auth.currentUser.loggedIn" class="header__nav-link" href="#/login">Login</a>
+                    <a ng-if="nav.auth.currentUser.loggedIn" class="header__nav-link" href="#/logout">Logout</a>
+                    </div>
             </nav>
         </div>
     </header>

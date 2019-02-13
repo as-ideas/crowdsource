@@ -1,6 +1,6 @@
 angular.module('crowdsource')
 
-    .directive('navBar', function ($location, $window, Authentication, Route) {
+    .directive('navBar', function ($location, $window, Authentication, Route, Idea, ROUTE_DETAILS) {
         var directive = {};
 
         directive.controllerAs = 'nav';
@@ -12,37 +12,80 @@ angular.module('crowdsource')
 
             vm.auth = Authentication;
             vm.breadcrumbs = [];
+            vm.localNavItems = [];
 
-            vm.getClassForMenuItem = function (location) {
-                if ($location.path() == location) {
-                    return 'current';
+            function updateWindowTitle(breadcrumb) {
+
+                var prefix = "CrowdSource - ";
+                var breadcrumbTitles = [];
+
+                for (var i=0; i<breadcrumb.length; i++) {
+                    breadcrumbTitles.push(breadcrumb[i].label);
                 }
 
-                return '';
-            };
-
-            function updateTitle(title) {
-                /*
-                var newTitle = "CrowdSource";
-                var campaignTitle = vm.campaign.title || '';
-                if (campaignTitle) {
-                    newTitle = [newTitle, title, campaignTitle].join(" - ");
-                }
-                */
+                var title = prefix + breadcrumbTitles.join(" - ");
+                console.log(title);
                 $window.document.title = title;
             }
 
-            function updateBreadcrumb(title) {
+            function updateNavigationAndWindowTitle(currentRoute) {
                 vm.breadcrumbs = [];
-                // vm.breadcrumbs.push({target: '/#/ideas/' + vm.campaign.id, label: vm.campaign.title});
-                vm.breadcrumbs.push({target: '', label: title});
+                vm.localNavItems = [];
+
+                if(isIdeasCampaign(currentRoute)) {
+                    if (Idea.currentCampaign) {
+                        console.log("YEAH CAMPAIGN")
+                        vm.breadcrumbs = getIdeasBreadcrumb(currentRoute);
+                        vm.localNavItems = getIdeasLocalNavItems();
+
+                    }
+                    else {
+                        console.log("no campaign");
+                    }
+                }
+
+                else {
+                    vm.breadcrumbs.push({target: '#', label: currentRoute.title});
+                }
+
+                updateWindowTitle(vm.breadcrumbs);
+            }
+
+            function getIdeasBreadcrumb(currentRoute) {
+                var breadcrumbs = [];
+                breadcrumbs.push({target: '/#/ideas/' + Idea.currentCampaign.id, label: Idea.currentCampaign.title});
+
+                if (currentRoute[ROUTE_DETAILS.JSON_ROOT]
+                    && currentRoute[ROUTE_DETAILS.JSON_ROOT][ROUTE_DETAILS.ATTR_IS_OVERVIEW]
+                    && currentRoute[ROUTE_DETAILS.JSON_ROOT][ROUTE_DETAILS.ATTR_IS_OVERVIEW] == true)
+                    return breadcrumbs;
+
+                console.log("ok")
+                breadcrumbs.push({target: '#', label: currentRoute.title});
+                return breadcrumbs;
+            }
+
+            function getIdeasLocalNavItems() {
+                var localNavItems = [];
+                localNavItems.push({target: '/#/ideas/' + Idea.currentCampaign.id + '/own', label: 'Deine Ideen'});
+                if(Authentication.isAdmin()) localNavItems.push({target: '/#/ideas/' + Idea.currentCampaign.id + '/admin', label: 'Admin'});
+                return localNavItems;
+            }
+
+            function isIdeasCampaign(currentRoute){
+                if (!currentRoute[ROUTE_DETAILS.JSON_ROOT]) return false;
+                if (!currentRoute[ROUTE_DETAILS.JSON_ROOT][ROUTE_DETAILS.ATTR_CAMPAIGN]) return false;
+                if (!currentRoute[ROUTE_DETAILS.JSON_ROOT][ROUTE_DETAILS.ATTR_CAMPAIGN] == ROUTE_DETAILS.VALUE_CAMPAIGN_IDEA) return false;
+                console.log("isIdeasCampaign: true");
+                return true;
             }
 
             Route.onRouteChangeSuccessAndInit(function (event, currentRoute) {
                 if (typeof (currentRoute) !== 'undefined' && currentRoute.title) {
-                    console.log("title: " + currentRoute.title)
-                    updateBreadcrumb(currentRoute.title);
-                    updateTitle(currentRoute.title);
+
+                    vm.currentRoute = currentRoute;
+                    //console.log("currentRoute: " + JSON.stringify(currentRoute));
+                    updateNavigationAndWindowTitle(currentRoute);
                 }
             });
         };

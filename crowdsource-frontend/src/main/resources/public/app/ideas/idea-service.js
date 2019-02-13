@@ -5,10 +5,11 @@ angular.module('crowdsource')
         REJECTED: 'REJECTED',
         PUBLISHED: 'PUBLISHED'
     })
-    .factory('Idea', function ($resource) {
+    .factory('Idea', function ($resource, $q) {
 
         var service = {};
         var DEFAULT_PAGE_SIZE = 20;
+        service.currentCampaign = null;
 
         var ideasCampaignResource = $resource('/ideas_campaigns', {}, {
             get: {
@@ -43,7 +44,19 @@ angular.module('crowdsource')
         }
 
         function getCampaign(id) {
-            return ideaCampaignResource.get({id: id}).$promise;
+            var campaignPromise = ideaCampaignResource.get({id: id}).$promise;
+            var wrapperPromise = $q.defer();
+            service.currentCampaign = null;
+
+            campaignPromise.then(function (campaign) {
+                console.log("Ideas Service: Campaign received");
+                service.currentCampaign = campaign;
+                wrapperPromise.resolve(campaign);
+            }, function (response) {
+                wrapperPromise.reject(response);
+            });
+
+            return wrapperPromise.promise;
         }
 
         function createIdea(campaignId, idea) {
