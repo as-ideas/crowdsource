@@ -6,9 +6,6 @@ angular.module('crowdsource')
         directive.controllerAs = 'nav';
         directive.bindToController = true;
         directive.templateUrl = 'app/components/layout/nav-bar/nav-bar.html';
-        directive.link = function(scope, elem, attrs){
-
-        }
 
         directive.controller = function ($scope) {
             var vm = this;
@@ -16,11 +13,38 @@ angular.module('crowdsource')
             vm.auth = Authentication;
             vm.breadcrumbs = [];
             vm.localNavItems = [];
+            vm.isMobile; isMobileSize();
+            vm.isMobileMenuOpen = false;
+            vm.toggleMobileMenu = toggleMobileMenu;
+            vm.closeMobileMenu = closeMobileMenu;
 
-            // Watch for changes in the service
+            // Watch for changes in the idea service
             $scope.$watch(function(){
                 return Idea.currentCampaign;
-            }, watcher)
+            }, ideaServiceObserver)
+
+            // Window resize listener for mobile menu
+            $window.addEventListener('resize', function() {
+                var oldValue = vm.isMobile;
+                var newValue = isMobileSize();
+
+                if(oldValue != newValue) {
+                    vm.isMobile = newValue;
+                    $scope.$digest();
+                }
+            })
+
+            function isMobileSize() {
+                return $window.innerWidth <= 768 ? true : false;
+            };
+
+            function toggleMobileMenu() {
+                vm.isMobileMenuOpen = !vm.isMobileMenuOpen;
+            }
+
+            function closeMobileMenu() {
+                vm.isMobileMenuOpen = false;
+            }
 
             function updateWindowTitle(breadcrumb) {
 
@@ -32,7 +56,6 @@ angular.module('crowdsource')
                 }
 
                 var title = prefix + breadcrumbTitles.join(" - ");
-                console.log(title);
                 $window.document.title = title;
             }
 
@@ -42,13 +65,9 @@ angular.module('crowdsource')
 
                 if(isIdeasCampaign(currentRoute)) {
                     if (Idea.currentCampaign) {
-                        console.log("YEAH CAMPAIGN")
                         vm.breadcrumbs = getIdeasBreadcrumb(currentRoute);
                         vm.localNavItems = getIdeasLocalNavItems();
 
-                    }
-                    else {
-                        console.log("no campaign");
                     }
                 }
 
@@ -68,7 +87,6 @@ angular.module('crowdsource')
                     && currentRoute[ROUTE_DETAILS.JSON_ROOT][ROUTE_DETAILS.ATTR_IS_OVERVIEW] == true)
                     return breadcrumbs;
 
-                console.log("ok")
                 breadcrumbs.push({target: '#', label: currentRoute.title});
                 return breadcrumbs;
             }
@@ -84,14 +102,10 @@ angular.module('crowdsource')
                 if (!currentRoute[ROUTE_DETAILS.JSON_ROOT]) return false;
                 if (!currentRoute[ROUTE_DETAILS.JSON_ROOT][ROUTE_DETAILS.ATTR_CAMPAIGN]) return false;
                 if (!currentRoute[ROUTE_DETAILS.JSON_ROOT][ROUTE_DETAILS.ATTR_CAMPAIGN] == ROUTE_DETAILS.VALUE_CAMPAIGN_IDEA) return false;
-                console.log("isIdeasCampaign: true");
                 return true;
             }
 
-            function watcher(newValue, oldValue, scope) {
-                console.log("new value: " + newValue);
-                console.log("old value: " + oldValue);
-
+            function ideaServiceObserver() {
                 if(vm.currentRoute) {
                     updateNavigationAndWindowTitle(vm.currentRoute);
                 }
@@ -101,7 +115,6 @@ angular.module('crowdsource')
                 if (typeof (currentRoute) !== 'undefined' && currentRoute.title) {
 
                     vm.currentRoute = currentRoute;
-                    //console.log("currentRoute: " + JSON.stringify(currentRoute));
                     updateNavigationAndWindowTitle(currentRoute);
                 }
             });

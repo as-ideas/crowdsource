@@ -38,6 +38,10 @@ $header-height: 56px;
     text-align: center;
   }
 
+  &__nav-container--hidden {
+    background-color: #2ba6cb;
+  }
+
   &__nav-link {
 //    background-color: purple;
     color: $clr-black;
