@@ -14,16 +14,6 @@
     color: $white;
     background-color: #3C3C3C;
 
-    a {
-        color: darken($white, 20%);
-        text-decoration: none;
-        transition: color 100ms ease-out;
-
-        &:hover {
-            color: darken($white, 10%);
-        }
-    }
-
     @media #{$medium-up} {
         margin-top: 0;
     }
@@ -123,8 +113,14 @@
         height: 32px;
         width: 143px;
     }
+}
 
+.footer-link {
+    color: darken($white, 20%);
+    text-decoration: none;
+    transition: color 100ms ease-out;
 
-
-
+    &:hover {
+        color: darken($white, 10%);
+    }
 }

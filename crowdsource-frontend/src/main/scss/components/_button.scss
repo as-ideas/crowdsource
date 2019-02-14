@@ -6,8 +6,10 @@
 %button-shared {
   @include box-shadow;
 
+  display: block;
   border-radius: $border-radius;
   font-size: $fs-small;
+  line-height: $lh-regular;
   letter-spacing: 0.5px;
   margin: 3px;
   padding: $pd-smaller $pd-huge;
@@ -36,6 +38,11 @@
   color: $clr-body;
 
   &:hover:enabled {
+    background-color: #35EA87;
+    color: $clr-body;
+  }
+
+  &:hover {
     background-color: #35EA87;
     color: $clr-body;
   }
@@ -76,6 +83,11 @@
     color: $color;
   }
 
+  &:hover {
+    background-color: $bg-color-hover;
+    color: $color;
+  }
+
   &:active {
     background-color: $bg-color-hover;
     color: $color;
@@ -96,7 +108,12 @@
   @extend .button-primary;
   color: $white;
 
+
   &:hover:enabled {
+    color: $white;
+  }
+
+  &:hover {
     color: $white;
   }
 
