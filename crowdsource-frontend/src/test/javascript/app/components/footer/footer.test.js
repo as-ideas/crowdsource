@@ -26,18 +26,16 @@ describe('Footer', function () {
         return root;
     }
 
-    it("Should show login and register link if user is not logged in", function () {
-        Authentication.currentUser.loggedIn = false;
+    it("Should show Admin links if user is logged in as Admin", function () {
+        Authentication.isAdmin = function(){return true}
         var footer = renderDirective();
-        expect(footer.find('a[href="#/login"]')).toExist();
-        expect(footer.find('a[href="#/signup"]')).toExist();
+        expect(footer.find('a[href="#/statistics"]')).toExist();
     });
 
-    it("Should NOT show login and register link if user is logged in", function () {
-        Authentication.currentUser.loggedIn = true;
+    it("Should show Admin links if user is not logged in as Admin", function () {
+        Authentication.isAdmin = function(){return false}
         var footer = renderDirective();
-        expect(footer.find('a[href="#/login"]')).not.toExist();
-        expect(footer.find('a[href="#/signup"]')).not.toExist();
+        expect(footer.find('a[href="#/statistics"]')).not.toExist();
     });
 
 
