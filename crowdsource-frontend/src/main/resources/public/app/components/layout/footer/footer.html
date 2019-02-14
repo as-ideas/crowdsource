@@ -1,22 +1,32 @@
 <div class="footer">
     <div class="row">
         <ul class="footer__col">
-            <li class="footer__item-head">CrowdSource</li>
-            <li><a href="#/intro">Entdecken</a></li>
-            <li ng-if="!footer.auth.currentUser.loggedIn"><a href="#/login">Log In</a></li>
-            <li ng-if="!footer.auth.currentUser.loggedIn"><a href="#/signup">Registrieren</a></li>
+            <li class="footer__item-head">Partner</li>
+            <li>
+                <div class="footer-partner__container">
+                    <div class="footer-partner__ideas" />
+                    <div class="footer-partner__asdigitalists" />
+                    <div class="footer-partner__pc" />
+                    <div class="footer-partner__as" />
+                </div>
+            </li>
         </ul>
         <ul class="footer__col">
-            <li class="footer__item-head">Hilfe</li>
+            <li class="footer__item-head">Sitemap</li>
+            <li><a href="#/intro">Entdecken</a></li>
+            <li><a href="#/help">Hilfe</a></li>
+            <li ng-if="footer.auth.isAdmin()" class="footer__item-head">Admin</li>
+            <li ng-if="footer.auth.isAdmin()"><a href="#/statistic">Statistik</a></li>
+        </ul>
+        <ul class="footer__col">
+            <li class="footer__item-head">Informationen</li>
             <li><a href="#/about">Über uns</a></li>
-            <li><a href="#/faq">FAQ</a></li>
             <li><a href="#/imprint">Impressum</a></li>
             <li><a href="#/privacy">Datenschutzerklärung</a></li>
         </ul>
-        <ul class="footer__col-brand">
-            <li class="footer__item-head-se">
-                <content key="de.asideas.crowdsource.content.company.name" />
-            </li>
+        <ul class="footer__col">
+            <li class="footer__item-head">Newsletter</li>
+            <li><Button class="button-primary--invert">Newsletter</Button></li>
         </ul>
     </div>
 </div>

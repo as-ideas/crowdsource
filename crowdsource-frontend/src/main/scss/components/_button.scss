@@ -45,6 +45,11 @@
     color: $clr-body;
   }
 
+  &:focus {
+    background-color: #35EA87;
+    color: $clr-body;
+  }
+
   &:disabled {
     background-color: $clr-green-shade-2;
     color: $clr-body;
@@ -86,6 +91,30 @@
     }
   }
 
+}
+.button-primary--invert {
+  @extend .button-primary;
+  color: $white;
+
+  &:hover:enabled {
+    color: $white;
+  }
+
+  &:active {
+    color: $white;
+  }
+
+  &:focus {
+    color: $white;
+  }
+
+  &:disabled {
+    color: $white;
+
+    &:hover {
+      color: $white;
+    }
+  }
 }
 
 .button-primary--fullwidth {

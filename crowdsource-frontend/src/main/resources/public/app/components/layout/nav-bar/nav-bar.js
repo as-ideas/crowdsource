@@ -16,10 +16,6 @@ angular.module('crowdsource')
             vm.localNavItems = [];
             vm.isMobile = isMobileSize();
             vm.isMobileMenuOpen = false;
-
-            console.log("isMobile: " + vm.isMobile);
-            console.log("isMobileMenuOpen" + vm.isMobileMenuOpen);
-
             vm.toggleMobileMenu = toggleMobileMenu;
             vm.closeMobileMenu = closeMobileMenu;0
 
@@ -40,18 +36,14 @@ angular.module('crowdsource')
             })
 
             function isMobileSize() {
-                var isM = $window.innerWidth <= 768 ? true : false;
-                console.log("isMobileSize: " + isM);
-                return isM;
+                return $window.innerWidth <= 768 ? true : false;
             };
 
             function toggleMobileMenu() {
-                console.log("toggle")
                 vm.isMobileMenuOpen = !vm.isMobileMenuOpen;
             }
 
             function closeMobileMenu() {
-                console.log("close")
                 vm.isMobileMenuOpen = false;
             }
 
