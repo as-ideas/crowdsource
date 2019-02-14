@@ -49,7 +49,6 @@ angular.module('crowdsource')
             service.currentCampaign = null;
 
             campaignPromise.then(function (campaign) {
-                console.log("Ideas Service: Campaign received");
                 service.currentCampaign = campaign;
                 wrapperPromise.resolve(campaign);
             }, function (response) {
