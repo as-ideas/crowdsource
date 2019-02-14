@@ -1,32 +1,34 @@
 <div class="footer">
     <div class="row">
-        <ul class="footer__col">
-            <li class="footer__item-head">Partner</li>
-            <li>
-                <div class="footer-partner__container">
-                    <div class="footer-partner__ideas" />
-                    <div class="footer-partner__asdigitalists" />
-                    <div class="footer-partner__pc" />
-                    <div class="footer-partner__as" />
-                </div>
-            </li>
-        </ul>
-        <ul class="footer__col">
-            <li class="footer__item-head">Sitemap</li>
-            <li><a class="footer-link" href="#/intro">Entdecken</a></li>
-            <li><a class="footer-link" href="#/help">Hilfe</a></li>
-            <li ng-if="footer.auth.isAdmin()" class="footer__item-head--nextrow">Admin</li>
-            <li ng-if="footer.auth.isAdmin()"><a class="footer-link" href="#/statistic">Statistik</a></li>
-        </ul>
-        <ul class="footer__col">
-            <li class="footer__item-head">Informationen</li>
-            <li><a class="footer-link" href="#/about">Über uns</a></li>
-            <li><a class="footer-link" href="#/imprint">Impressum</a></li>
-            <li><a class="footer-link" href="#/privacy">Datenschutzerklärung</a></li>
-        </ul>
-        <ul class="footer__col">
-            <li class="footer__item-head">Newsletter</li>
-            <li><button class="button-primary--invert" onclick="window.open('https://axelspringerideas.us13.list-manage.com/subscribe?u=d4ff5f1c1f7d849d773d43835&id=03f432ed25')">Newsletter</button></li>
-        </ul>
+        <div class="footer__container">
+            <ul class="footer__col">
+                <li class="footer__item-head">Partner</li>
+                <li>
+                    <div class="footer-partner__container">
+                        <a href="https://axelspringerideas.de/" target="_blank"><div class="footer-partner__ideas" /></a>
+                        <div class="footer-partner__asdigitalists" />
+                        <div class="footer-partner__pc" />
+                        <a href="https://www.axelspringer.de" target="_blank"><div class="footer-partner__as" /></a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="footer__col">
+                <li class="footer__item-head">Sitemap</li>
+                <li><a class="footer-link" href="#/intro">Entdecken</a></li>
+                <li><a class="footer-link" href="#/help">Hilfe</a></li>
+                <li ng-if="footer.auth.isAdmin()" class="footer__item-head--nextrow">Admin</li>
+                <li ng-if="footer.auth.isAdmin()"><a class="footer-link" href="#/statistic">Statistik</a></li>
+            </ul>
+            <ul class="footer__col">
+                <li class="footer__item-head">Informationen</li>
+                <li><a class="footer-link" href="#/about">Über uns</a></li>
+                <li><a class="footer-link" href="#/imprint">Impressum</a></li>
+                <li><a class="footer-link" href="#/privacy">Datenschutzerklärung</a></li>
+            </ul>
+            <ul class="footer__col">
+                <li class="footer__item-head">Newsletter</li>
+                <li><button class="button-primary--invert" onclick="window.open('http://eepurl.com/gglA8X')">Newsletter</button></li>
+            </ul>
+        </div>
     </div>
 </div>
