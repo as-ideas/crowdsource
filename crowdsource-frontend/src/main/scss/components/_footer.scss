@@ -25,6 +25,7 @@
     margin: 3rem 0;
     line-height: 1.8rem;
     list-style-type: none;
+    width: 100%;
 
     > li {
         font-weight: 300;
@@ -40,14 +41,11 @@
 
     @media #{$medium-up} {
         float: left;
-        margin: 0 2rem;
+        margin: 0;
+        width: 20%;
 
         &:first-child {
-            margin-left: 1rem;
-        }
-
-        &:last-child {
-            margin-right: 1rem;
+            width: 40%;
         }
     }
 }
@@ -69,6 +67,12 @@
 .footer__item-head {
     @extend %footer__item-head;
     color: #4BD489;
+}
+
+.footer__item-head--nextrow {
+    @extend %footer__item-head;
+    color: #4BD489;
+    margin-top: $mrg-normal;
 }
 
 /*li*/
@@ -103,6 +107,7 @@
     &__pc {
         background-size: cover;
         background: url("/images/footer/logo_pc.svg");
+        background-position: -1px 50%;
         height: 29px;
         width: 79px;
     }
