@@ -82,7 +82,7 @@ public class IdeasCampaignControllerTest {
 
     private IdeasCampaign givenIdeasCampaignCmd(String userId, DateTime startDate, DateTime endDate) {
         return new IdeasCampaign(startDate, endDate,
-            new CampaignInitiator(userId, "test_username"), "test_sponsor", "Test_Title", "test_descr", "test_vidRef", "test_teaserImg");
+            new CampaignInitiator(userId, "test_username"), "test_sponsor", "Test_Title", "test_descr", "test_vidRef", "test_vidImgRef","test_teaserImg");
     }
 
 }

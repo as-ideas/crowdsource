@@ -707,7 +707,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
 
     private IdeasCampaign givenValidCampaignCmd() {
         return new IdeasCampaign(DateTime.now().minus(1000L), DateTime.now().plus(10000L),
-                null, "The Sponsor", "Test_Title", "test_descr", "test_vidRef", "test_teaserImage");
+                null, "The Sponsor", "Test_Title", "test_descr", "test_vidRef", "test_vidImgRef", "test_teaserImage");
     }
 
     private Idea toIdea(ResultActions givenIdeaExists) throws IOException {

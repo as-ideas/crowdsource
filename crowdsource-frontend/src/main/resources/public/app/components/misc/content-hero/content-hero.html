@@ -1,4 +1,4 @@
 <div class="content-hero__container">
-    <h2 class="content-hero__headline">{{ title }}</h2>
+    <h2 ng-class="{'content-hero__headline' : description, 'content-hero__headline--solo' : !description}">{{ title }}</h2>
     <p class="content-hero__description">{{ description }}</p>
 </div>

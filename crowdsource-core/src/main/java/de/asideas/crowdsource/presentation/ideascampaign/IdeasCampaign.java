@@ -31,6 +31,8 @@ public class IdeasCampaign {
 
     private String videoReference;
 
+    private String videoImageReference;
+
     private String teaserImageReference;
 
     private boolean active;
@@ -48,12 +50,13 @@ public class IdeasCampaign {
         this.title = input.getTitle();
         this.description = input.getDescription();
         this.videoReference = input.getVideoReference();
+        this.videoImageReference = input.getVideoImageReference();
         this.teaserImageReference = input.getTeaserImageReference();
         this.active = input.isActive();
         this.expired = input.isExpired();
     }
 
-    public IdeasCampaign(DateTime startDate, DateTime endDate, CampaignInitiator campaignInitiator, String sponsor, String title, String description, String videoReference, String teaserImageReference) {
+    public IdeasCampaign(DateTime startDate, DateTime endDate, CampaignInitiator campaignInitiator, String sponsor, String title, String description, String videoReference, String videoImageReference, String teaserImageReference) {
         this.startDate = startDate;
         this.endDate = endDate;
         this.campaignInitiator = campaignInitiator;
@@ -61,6 +64,7 @@ public class IdeasCampaign {
         this.title = title;
         this.description = description;
         this.videoReference = videoReference;
+        this.videoImageReference = videoImageReference;
         this.teaserImageReference = teaserImageReference;
     }
 
@@ -113,6 +117,13 @@ public class IdeasCampaign {
         this.videoReference = videoReference;
     }
 
+    public String getVideoImageReference() {
+        return videoImageReference;
+    }
+    public void setVideoImageReference(String videoImageReference) {
+        this.videoImageReference = videoImageReference;
+    }
+
     public String getTeaserImageReference() {
         return teaserImageReference;
     }
@@ -160,12 +171,13 @@ public class IdeasCampaign {
             Objects.equals(description, that.description) &&
             Objects.equals(sponsor, that.sponsor) &&
             Objects.equals(videoReference, that.videoReference) &&
+            Objects.equals(videoImageReference, that.videoImageReference) &&
             Objects.equals(teaserImageReference, that.teaserImageReference);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, startDate, endDate, campaignInitiator, title, description, sponsor, videoReference, teaserImageReference, active, expired);
+        return Objects.hash(id, startDate, endDate, campaignInitiator, title, description, sponsor, videoReference, videoImageReference, teaserImageReference, active, expired);
     }
 
     @Override
@@ -179,6 +191,7 @@ public class IdeasCampaign {
             ", description='" + description + '\'' +
             ", sponsor='" + sponsor + '\'' +
             ", videoReference='" + videoReference + '\'' +
+            ", videoImageReference='" + videoImageReference + '\'' +
             ", teaserImageReference='" + teaserImageReference + '\'' +
             ", active=" + active +
             ", expired=" + expired +

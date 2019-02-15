@@ -19,8 +19,12 @@ $icon-color: #3C3C3C;
   background-color: $white;
 
   &__headline {
-    font-size: $fs-huge;
+    font-size: $fs-xlarge;
     text-align: center;
+
+    @media #{$small-only} {
+      font-size: $fs-xmedium;
+    }
   }
 
   &__heading {
@@ -41,6 +45,9 @@ $icon-color: #3C3C3C;
 
   &__item {
     border-radius: $border-radius-medium;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ddd;
     display: block;
     padding: $padding;
     background-color: #f7f7f6;
@@ -107,7 +114,7 @@ $icon-color: #3C3C3C;
       height: $image-size;
       width: $image-size;
       background-color: yellow;
-      background-image: url('../images/campaign_image_placeholder.svg');
+      background-image: url('../images/fallbacks/campaign-image-fallback.svg');
     }
   }
 
@@ -164,7 +171,7 @@ $icon-color: #3C3C3C;
   &__headline {
 //    color: #56A26B;
     color: $clr-green-shade-3;
-    font-size: $fs-hero;
+    font-size: $fs-large;
     text-transform: uppercase;
   }
 

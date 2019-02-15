@@ -78,7 +78,7 @@ public class IdeasCampaignEntityTest {
         IdeasCampaign cmd = givenIdeasCampaignCmd(userId);
 
         final IdeasCampaign changeCmd = new IdeasCampaign(DateTime.now().plusDays(2), DateTime.now().plusDays(1),
-            new CampaignInitiator(userId, "new username"), "better sponsor", "amazing title", "longer description", "tuuuut", "usw");
+            new CampaignInitiator(userId, "new username"), "better sponsor", "amazing title", "longer description", "tuuuut", "tuuuutImg", "usw");
 
         final IdeasCampaignEntity testee = IdeasCampaignEntity.newIdeasCampaign(cmd, givenUserEntity(userId));
         testee.updateMasterdata(changeCmd);
@@ -90,7 +90,7 @@ public class IdeasCampaignEntityTest {
         IdeasCampaign cmd = givenIdeasCampaignCmd(userId);
 
         final IdeasCampaign changeCmd = new IdeasCampaign(null, DateTime.now().plusDays(1),
-            new CampaignInitiator(userId, "new username"), "better sponsor", "amazing title", "longer description", "tuuuut", "usw");
+            new CampaignInitiator(userId, "new username"), "better sponsor", "amazing title", "longer description", "tuuuut", "tuuuutImg", "usw");
 
         final IdeasCampaignEntity testee = IdeasCampaignEntity.newIdeasCampaign(cmd, givenUserEntity(userId));
         testee.updateMasterdata(changeCmd);
@@ -102,7 +102,7 @@ public class IdeasCampaignEntityTest {
         IdeasCampaign cmd = givenIdeasCampaignCmd(userId);
 
         final IdeasCampaign changeCmd = new IdeasCampaign(DateTime.now().plusDays(2), null,
-            new CampaignInitiator(userId, "new username"), "better sponsor", "amazing title", "longer description", "tuuuut", "usw");
+            new CampaignInitiator(userId, "new username"), "better sponsor", "amazing title", "longer description", "tuuuut", "tuuuutImg","usw");
 
         final IdeasCampaignEntity testee = IdeasCampaignEntity.newIdeasCampaign(cmd, givenUserEntity(userId));
         testee.updateMasterdata(changeCmd);
@@ -155,7 +155,7 @@ public class IdeasCampaignEntityTest {
 
     private IdeasCampaign givenIdeasCampaignCmd(String userId, DateTime startDate, DateTime endDate) {
         return new IdeasCampaign(startDate, endDate,
-            new CampaignInitiator(userId, "test_username"), "test_sponsor", "Test_Title", "test_descr", "test_vidRef", "test_teaserImg");
+            new CampaignInitiator(userId, "test_username"), "test_sponsor", "Test_Title", "test_descr", "test_vidRef", "test_vidImgRef", "test_teaserImg");
     }
 
     private void thenIdeasCampaignContainsExpectedFields(IdeasCampaignEntity actualRes, IdeasCampaign expected) {

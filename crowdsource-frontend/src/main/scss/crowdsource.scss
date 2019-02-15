@@ -46,7 +46,7 @@
 @import "angular-chart.js/angular-chart";
 
 body {
-    background-color: #F5F5F5;
+    background-color: $white;
 }
 
 .page-wrapper {
@@ -80,9 +80,15 @@ content-row {
     }
 }
 
-.content-row{
+.content-row {
 
-    &--white-bg{
+    &--white-bg {
+        // @extend .content-row;
         background-color: $clr-white;
+    }
+
+    &--gray-bg {
+        // @extend .content-row;
+        background-color: #F5F5F5;
     }
 }

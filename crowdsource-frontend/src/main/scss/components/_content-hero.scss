@@ -7,7 +7,17 @@
 
   &__headline {
     color: $clr-green-shade-3;
-    font-size: $fs-hero;
+    font-size: $fs-large;
+    line-height: 1.4;
+    margin-bottom: $mrg-half;
+    text-transform: uppercase;
+  }
+
+  &__headline--solo {
+    color: $clr-green-shade-3;
+    font-size: $fs-large;
+    line-height: 1;
+    margin-bottom: 0;
     text-transform: uppercase;
   }
 

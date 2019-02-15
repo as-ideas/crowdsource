@@ -37,7 +37,7 @@ public class Fixtures {
 
     public static IdeasCampaign givenIdeasCampaign(String initiatorUserId) {
         return new IdeasCampaign(DateTime.now().minusDays(10), DateTime.now().plusDays(2),
-                new CampaignInitiator(initiatorUserId, "new username"), "better sponsor", "amazing title", "longer description", "tuuuut", "usw");
+                new CampaignInitiator(initiatorUserId, "new username"), "better sponsor", "amazing title", "longer description", "tuuuut", "tuuuutImg", "usw");
     }
 
     public static IdeasCampaignEntity givenIdeasCampaignEntity(String initiatorUserId) {

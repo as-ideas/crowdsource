@@ -145,10 +145,10 @@
 @mixin fs-huge {
     font-smoothing: antialiased;
     @media #{$small-only} {
-        font-size: $fs-hero;
+        font-size: $fs-large;
     };
     @media #{$medium-up} {
-        font-style: $fs-huge;
+        font-style: $fs-xlarge;
     };
 }
 

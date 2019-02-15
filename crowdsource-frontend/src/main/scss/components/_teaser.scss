@@ -38,7 +38,7 @@
 .teaser--slim {
     @extend %teaser;
     @extend %teaser-visual-gradient;
-    height: 1rem;
+    height: $mrg-small;
 
     // Remove all HTML inside our slim teaser
 
@@ -78,7 +78,7 @@
 /*h1*/
 .teaser-heading {
     margin: 0 0 $mrg-tripple 0;
-    font-size: $fs-hero;
+    font-size: $fs-large;
     font-weight: 300;
     line-height: 1.33;
     letter-spacing: .5px;

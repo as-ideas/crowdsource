@@ -6,7 +6,6 @@
 %button-shared {
   @include box-shadow;
 
-  display: block;
   border-radius: $border-radius;
   font-size: $fs-small;
   line-height: $lh-regular;

@@ -40,6 +40,7 @@ public class IdeasCampaignEntity {
     private String title;
     private String description;
     private String videoReference;
+    private String videoImageReference;
     private String sponsor;
     private String teaserImageReference;
 
@@ -176,6 +177,11 @@ public class IdeasCampaignEntity {
     public void setVideoReference(String videoReference) {
         this.videoReference = videoReference;
     }
+
+    public String getVideoImageReference() {
+        return videoImageReference;
+    }
+    public void setVideoImageReference(String videoImageReference) { this.videoImageReference = videoImageReference; }
 
     public String getTeaserImageReference() {
         return teaserImageReference;

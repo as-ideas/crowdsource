@@ -199,7 +199,7 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
         final IdeasCampaign givenCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
 
         final IdeasCampaign modifyCmd = new IdeasCampaign(DateTime.now().plusDays(5), DateTime.now().plusDays(10),
-            null, "new Sponsor", "new_title", "newDescr", null, "new teaser image");
+            null, "new Sponsor", "new_title", "newDescr", null, "new video image", "new teaser image");
 
         mockMvc.perform(put("/ideas_campaigns/{campaignId}", givenCampaign.getId())
             .header("Authorization", "Bearer " + adminToken)
@@ -230,7 +230,7 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
         final String userToken = obtainAccessToken(userEntity.getEmail(), userEntity.getPassword());
 
         final IdeasCampaign modifyCmd = new IdeasCampaign(DateTime.now().plusDays(5), DateTime.now().plusDays(10),
-                null, "new Sponsor", "new_title", "newDescr", null, "new teaser image");
+                null, "new Sponsor", "new_title", "newDescr", null, "new video image", "new teaser image");
 
         mockMvc.perform(put("/ideas_campaigns/{campaignId}", givenCampaign.getId())
                 .header("Authorization", "Bearer " + userToken)
@@ -250,7 +250,7 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
         final IdeasCampaign givenCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
 
         final IdeasCampaign modifyCmd = new IdeasCampaign(DateTime.now().plusDays(5), DateTime.now().plusDays(10),
-                null, "new Sponsor", "new_title", "newDescr", null, "new teaser image");
+                null, "new Sponsor", "new_title", "newDescr", null, "new video image", "new teaser image");
 
         mockMvc.perform(put("/ideas_campaigns/{campaignId}", givenCampaign.getId())
                 .header("Authorization", "Bearer " + invalidToken)
@@ -264,7 +264,7 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
 
     private IdeasCampaign givenValidCampaignCmd() {
         return new IdeasCampaign(DateTime.now().minus(1000L), DateTime.now().plus(10000L),
-            null, "The Sponsor", "Test_Title", "test_descr", "test_vidRef", "test_teaserImage");
+            null, "The Sponsor", "Test_Title", "test_descr", "test_vidRef", "test_vidImgRef","test_teaserImage");
     }
 
     private IdeasCampaign givenIdeasCampaignExists(String accessToken, IdeasCampaign cmd) throws Exception {

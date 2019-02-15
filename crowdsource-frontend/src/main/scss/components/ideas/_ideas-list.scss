@@ -421,7 +421,9 @@ $intro-box-break: "only screen and (max-width: 740px)";
 }
 
 .ideas-list__filter {
+    text-align: center;
     margin-bottom: $mrg-double;
+
     a {
         text-decoration: none;
     }
