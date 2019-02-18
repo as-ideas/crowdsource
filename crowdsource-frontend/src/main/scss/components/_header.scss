@@ -7,10 +7,11 @@ $header-height: 56px;
   }
 
   &__header-container {
-    width: 100%;
     background-color: $clr-white;
-    position: fixed;
+    border-bottom: solid $clr-gray-light 1px;
     top: 0;
+    position: fixed;
+    width: 100%;
     z-index: 9999;
   }
 
@@ -171,7 +172,8 @@ $header-height: 56px;
     }
 
     &__nav-container {
-      border-top: solid $clr-black 1px;
+      border-top: solid $clr-gray-light 1px;
+      border-bottom: solid $clr-gray-light 1px;
       flex-direction: column;
       margin-bottom: $mrg-normal;
       position: absolute;

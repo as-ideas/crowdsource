@@ -157,9 +157,9 @@
                     templateUrl: 'app/misc/about.html',
                     title: 'Über Uns'
                 })
-                .when('/faq', {
+                .when('/help', {
                     templateUrl: 'app/misc/faq.html',
-                    title: 'FAQs'
+                    title: 'Hilfe'
                 })
                 .when('/imprint', {
                     templateUrl: 'app/misc/imprint.html',

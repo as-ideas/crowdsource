@@ -45,6 +45,7 @@
         <p class="ideas-grid-tile__rejected-message">{{vm.idea.rejectionComment}}</p>
     </div>
 
+    <div ng-if="vm.isAdminView" class="ideas-grid-tile__approval-spacer">
     <div ng-if="vm.isAdminView" class="ideas-grid-tile__approval-container">
         <div ng-if="vm.idea.status == 'PROPOSED'">
 
@@ -56,7 +57,7 @@
                         <span ng-message="maxlength">Maximal 10000 Zeichen</span>
                         <span ng-message="required">Bitte Ablehnungsgrund angeben</span>
                 </span>
-                    <input campaign-active-aware type="text" ng-minlength="10" ng-model="vm.rejectionComment" name="rejectionMessage" placeholder="Ablehnungsgrund">
+                    <textarea campaign-active-aware rows="3" class="ideas-grid-tile__reject-textarea" ng-minlength="10" ng-model="vm.rejectionComment" name="rejectionMessage" placeholder="Ablehnungsgrund"></textarea>
                 </label>
             </form>
             <button campaign-active-aware ng-click="vm.reject()" class="button-secondary--halfwidth" ng-disabled="!vm.rejectionComment.length">Ablehnen</button>
