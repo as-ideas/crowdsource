@@ -158,7 +158,7 @@
                     title: 'Über Uns'
                 })
                 .when('/help', {
-                    templateUrl: 'app/misc/faq.html',
+                    templateUrl: 'app/misc/help.html',
                     title: 'Hilfe'
                 })
                 .when('/imprint', {

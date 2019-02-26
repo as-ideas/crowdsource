@@ -1,0 +1,66 @@
+.social-link {
+  &__container {
+    display: flex;
+  }
+
+  &__container a:nth-child(n) {
+    margin-right: 18px;
+  }
+
+  &__container a:last-child {
+    margin-right: 0;
+  }
+}
+
+.social-link__container--float-right {
+  @extend .social-link__container;
+  float: right;
+}
+
+$icon-width: 20px;
+
+%icon-base {
+  background-size: cover;
+  display: block;
+  height: $icon-width;
+  width: $icon-width;
+}
+
+.icon-website {
+  @extend %icon-base;
+  background-image: url("/images/icons/icon-website.svg");
+  width: 22px;
+
+  &:hover {
+    background-image: url("/images/icons/icon-website-hover.svg");
+  }
+}
+
+.icon-facebook {
+  @extend %icon-base;
+  background-image: url("/images/icons/icon-facebook.svg");
+  width: 12px;
+
+  &:hover {
+    background-image: url("/images/icons/icon-facebook-hover.svg");
+  }
+}
+
+.icon-twitter {
+  @extend %icon-base;
+  background-image: url("/images/icons/icon-twitter.svg");
+
+  &:hover {
+    background-image: url("/images/icons/icon-twitter-hover.svg");
+  }
+}
+
+.icon-instagram {
+  @extend %icon-base;
+  background-image: url("/images/icons/icon-instagram.svg");
+  width: 19px;
+
+  &:hover {
+    background-image: url("/images/icons/icon-instagram-hover.svg");
+  }
+}
