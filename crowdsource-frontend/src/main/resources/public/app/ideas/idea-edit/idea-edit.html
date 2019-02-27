@@ -23,6 +23,6 @@
         </label>
 
         <button ng-if="vm.cancel" type="cancel" ng-click="vm.cancel()" class="button-secondary--halfwidth">Abbrechen</button>
-        <button ng-disabled="!ideaEditForm.title.$valid || !ideaEditForm.pitch.$valid" ng-click="vm.submit();" ng-class="{'button-primary--halfwidth' : vm.cancel, 'button-primary' : !vm.cancel}">Absenden</button>
+        <button type="submit" ng-disabled="!ideaEditForm.title.$valid || !ideaEditForm.pitch.$valid" ng-click="vm.submit()" ng-class="{'button-primary--halfwidth' : vm.cancel, 'button-primary' : !vm.cancel}">Absenden</button>
     </p>
 </form>
