@@ -301,7 +301,7 @@ describe('user activation view', function () {
     it('should display the right text if the view is used in the registration flow', function () {
         compileView();
 
-        expect(activationForm.getHeadline()).toHaveText('Registrierung - Letzte Schritte');
+        expect(activationForm.getHeadline()).toHaveText('Registrierung - letzte Schritte');
         expect(activationForm.getInformationText()).toHaveText('Bitte vergib ein Passwort, um die Aktivierung Deines Kontos abzuschließen.');
     });
 
