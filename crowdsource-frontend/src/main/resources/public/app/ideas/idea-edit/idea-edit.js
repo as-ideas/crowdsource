@@ -17,6 +17,12 @@ angular.module('crowdsource')
                 vm.cancel = $scope.cancelFn ? cancel : null;
                 vm.submit = $scope.submitFn ? submit : null;
 
+                // Loosely couple to controller that actually sends the idea to the backend
+                // Set form to its pristine state after succesfully sumbit so another idea can be cleanly submitted (in partucular reset error labels to valid labels)
+                $scope.$on('ADD_IDEA_SUCCESS', function(e) {
+                    $scope.ideaEditForm.$setPristine();
+                });
+
                 if (!vm.idea) {
                     throw Error('idea-edit missing idea on scope in directive');
                 }
