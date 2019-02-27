@@ -19,6 +19,7 @@ import org.springframework.util.Assert;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.text.MessageFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -33,14 +34,15 @@ public class UserNotificationService {
     public static final String ACTIVATION_LINK_PATTERN = "/signup/{emailAddress}/activation/{activationToken}";
     public static final String PASSWORD_RECOVERY_LINK_PATTERN = "/login/password-recovery/{emailAddress}/activation/{activationToken}";
     public static final String IDEA_CAMPAIGN_LINK_PATTERN = "/ideas/{campaign}";
+    public static final String IDEA_CAMPAIGN_YOUR_IDEAS_LINK_PATTERN = "/ideas/{campaign}/own";
 
-    public static final String SUBJECT_ACTIVATION = "Bitte vergib ein Passwort für Dein Konto auf der CrowdSource Platform";
-    public static final String SUBJECT_PROJECT_CREATED = "Neues Projekt erstellt";
-    public static final String SUBJECT_IDEA_CREATED = "Neue Idee eingereicht";
-    public static final String SUBJECT_IDEA_ACCEPTED = "Deine Idee wurde freigeschaltet";
-    public static final String SUBJECT_IDEA_REJECTED = "Deine Idee wurde leider abgelehnt";
+    public static final String SUBJECT_ACTIVATION = "Bitte vergib ein Passwort für Dein Konto auf AS.Crowd";
+    public static final String SUBJECT_PASSWORD_FORGOTTEN = "Bitte vergib ein Passwort für Dein Konto auf AS.Crowd";
+    public static final String SUBJECT_IDEA_CREATED = "Neue Idee wude für die Kampagne \"{0}\" eingereicht";
+    public static final String SUBJECT_IDEA_ACCEPTED = "Deine Idee für die Kampagne \"{0}\" wurde freigegeben";
+    public static final String SUBJECT_IDEA_REJECTED = "Deine Idee für die Kampagne \"{0}\" wurde leider abgelehnt";
     public static final String SUBJECT_PROJECT_MODIFIED = "Ein Projekt wurde editiert";
-    public static final String SUBJECT_PASSWORD_FORGOTTEN = "Bitte vergib ein Passwort für Dein Konto auf der CrowdSource Platform";
+    public static final String SUBJECT_PROJECT_CREATED = "Neues Projekt erstellt";
     public static final String SUBJECT_PROJECT_PUBLISHED = "Freigabe Deines Projektes";
     public static final String SUBJECT_PROJECT_REJECTED = "Freigabe Deines Projektes";
     public static final String SUBJECT_PROJECT_DEFERRED = "Dein Projekt setzt in der nächsten Finanzierungsrunde aus.";
@@ -100,7 +102,7 @@ public class UserNotificationService {
 
         StandardEvaluationContext context = new StandardEvaluationContext();
         context.setVariable("link", activationLink);
-        context.setVariable("userName", user.getFullName());
+        context.setVariable("firstName", user.getFirstName());
         final String mailContent = activationEmailTemplate.getValue(context, String.class);
 
         sendMail(user.getEmail(), SUBJECT_ACTIVATION, mailContent);
@@ -113,7 +115,7 @@ public class UserNotificationService {
 
         StandardEvaluationContext context = new StandardEvaluationContext();
         context.setVariable("link", passwordRecoveryLink);
-        context.setVariable("userName", user.getFullName());
+        context.setVariable("firstName", user.getFirstName());
         final String mailContent = passwordForgottenEmailTemplate.getValue(context, String.class);
 
         sendMail(user.getEmail(), SUBJECT_PASSWORD_FORGOTTEN, mailContent);
@@ -174,26 +176,30 @@ public class UserNotificationService {
 
     }
 
-    public void notifyCreatorOnIdeaAccepted(IdeaEntity idea) {
+    public void notifyCreatorOnIdeaAccepted(IdeaEntity idea, String campaignTitle) {
         StandardEvaluationContext context = new StandardEvaluationContext();
-        context.setVariable("userName", idea.getCreator().getFirstName());
+        context.setVariable("firstName", idea.getCreator().getFirstName());
         context.setVariable("link", buildIdeasCampaignLink(idea.getCampaignId()));
-        final String mailContent = ideaAcceptedEmailTemplate.getValue(context, String.class);
 
-        final SimpleMailMessage message = newMailMessage(idea.getCreator().getEmail(), SUBJECT_IDEA_ACCEPTED, mailContent);
+        final String mailSubject = MessageFormat.format(SUBJECT_IDEA_ACCEPTED, campaignTitle);
+        final String mailContent = ideaAcceptedEmailTemplate.getValue(context, String.class);
+        final SimpleMailMessage message = newMailMessage(idea.getCreator().getEmail(), mailSubject, mailContent);
+
         sendMails(Collections.singleton(message));
     }
 
-    public void notifyCreatorOnIdeaRejected(IdeaEntity idea, String rejectionComment) {
+    public void notifyCreatorOnIdeaRejected(IdeaEntity idea, String rejectionComment, String campaignTitle) {
         Assert.hasText(rejectionComment, "rejection-comment must not be empty!");
 
         StandardEvaluationContext context = new StandardEvaluationContext();
-        context.setVariable("userName", idea.getCreator().getFirstName());
+        context.setVariable("firstName", idea.getCreator().getFirstName());
         context.setVariable("rejectionComment", rejectionComment);
-        context.setVariable("link", buildIdeasCampaignLink(idea.getCampaignId()));
-        final String mailContent = ideaRejectedEmailTemplate.getValue(context, String.class);
+        context.setVariable("link", buildYourIdeasCampaignLink(idea.getCampaignId()));
 
-        final SimpleMailMessage message = newMailMessage(idea.getCreator().getEmail(), SUBJECT_IDEA_REJECTED, mailContent);
+        final String mailSubject = MessageFormat.format(SUBJECT_IDEA_REJECTED, campaignTitle);
+        final String mailContent = ideaRejectedEmailTemplate.getValue(context, String.class);
+        final SimpleMailMessage message = newMailMessage(idea.getCreator().getEmail(), mailSubject, mailContent);
+
         sendMails(Collections.singleton(message));
     }
 
@@ -230,7 +236,7 @@ public class UserNotificationService {
         sendMail(emailAddress, SUBJECT_PROJECT_CREATED, mailContent);
     }
 
-    public void notifyAdminOnIdeaCreation(IdeaEntity idea, String emailAddress) {
+    public void notifyAdminOnIdeaCreation(IdeaEntity idea, String emailAddress, String campaignTitle) {
 
         StandardEvaluationContext context = new StandardEvaluationContext();
 
@@ -239,13 +245,15 @@ public class UserNotificationService {
         context.setVariable("ideaPitch", idea.getPitch());
         context.setVariable("link", buildIdeasCampaignLink(idea.getCampaignId()));
 
+        final String mailSubject = MessageFormat.format(SUBJECT_IDEA_CREATED, campaignTitle);
         final String mailContent = ideaCreatedEmailTemplate.getValue(context, String.class);
-        sendMail(emailAddress, SUBJECT_IDEA_CREATED, mailContent);
+
+        sendMail(emailAddress, mailSubject, mailContent);
     }
 
     private String buildProjectLink(String projectId) {
 
-        UriComponentsBuilder uriBuilder = ServletUriComponentsBuilder.fromUriString(applicationUrl);
+        UriComponentsBuilder uriBuilder = ServletUriComponentsBuilder.fromUriString(getApplicationUrl());
         uriBuilder.fragment(PROJECT_LINK_PATTERN);
 
         return uriBuilder.buildAndExpand(projectId).toUriString();
@@ -253,15 +261,23 @@ public class UserNotificationService {
 
     private String buildIdeasCampaignLink(String campaignId) {
 
-        UriComponentsBuilder uriBuilder = ServletUriComponentsBuilder.fromUriString(applicationUrl);
+        UriComponentsBuilder uriBuilder = ServletUriComponentsBuilder.fromUriString(getApplicationUrl());
         uriBuilder.fragment(IDEA_CAMPAIGN_LINK_PATTERN);
+
+        return uriBuilder.buildAndExpand(campaignId).toUriString();
+    }
+
+    private String buildYourIdeasCampaignLink(String campaignId) {
+
+        UriComponentsBuilder uriBuilder = ServletUriComponentsBuilder.fromUriString(getApplicationUrl());
+        uriBuilder.fragment(IDEA_CAMPAIGN_YOUR_IDEAS_LINK_PATTERN);
 
         return uriBuilder.buildAndExpand(campaignId).toUriString();
     }
 
     private String buildLink(String urlPattern, String emailAddress, String activationToken) {
 
-        UriComponentsBuilder uriBuilder = ServletUriComponentsBuilder.fromUriString(applicationUrl);
+        UriComponentsBuilder uriBuilder = ServletUriComponentsBuilder.fromUriString(getApplicationUrl());
         uriBuilder.fragment(urlPattern);
 
         return uriBuilder.buildAndExpand(emailAddress, activationToken).toUriString();
@@ -273,6 +289,12 @@ public class UserNotificationService {
             return commentString;
         }
         return commentString.substring(0, COMMENT_EXCERPT_LENGTH) + " ...";
+    }
+
+    private String getApplicationUrl() {
+
+        // The "/" is for the one before # http://server.com:port/#/. It would be nicer to add it dynamically where the # is added. Did not find it though.
+        return applicationUrl + "/";
     }
 
     private void sendMail(String email, String subject, String messageText) {

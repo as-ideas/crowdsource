@@ -1,4 +1,4 @@
-Hallo #{#userName},
+Hallo #{#firstName},
 
 gute Nachrichten! Deine Idee wurde akzeptiert und steht nun zur Abstimmung bereit.
 

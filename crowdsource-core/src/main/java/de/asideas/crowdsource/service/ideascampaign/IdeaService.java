@@ -114,7 +114,7 @@ public class IdeaService {
         final IdeasCampaignEntity campaign = ideasCampaignRepository.findOne(campaignId);
         final IdeaEntity result = campaign.createIdea(cmd, creator);
 
-        notifyAdminsOnNewIdea(result);
+        notifyAdminsOnNewIdea(result, campaign.getTitle());
         return new Idea(ideaRepository.save(result));
     }
 
@@ -143,7 +143,7 @@ public class IdeaService {
         final IdeaEntity existingIdea = ideaRepository.findOne(ideaId);
         campaign.approveIdea(existingIdea, approvingAdmin);
 
-        userNotificationService.notifyCreatorOnIdeaAccepted(existingIdea);
+        userNotificationService.notifyCreatorOnIdeaAccepted(existingIdea, campaign.getTitle());
 
         ideaRepository.save(existingIdea);
     }
@@ -161,7 +161,7 @@ public class IdeaService {
         final IdeaEntity ideaToReject = ideaRepository.findOne(ideaId);
         campaign.rejectIdea(ideaToReject, approvingAdmin, rejectionComment);
 
-        userNotificationService.notifyCreatorOnIdeaRejected(ideaToReject, rejectionComment);
+        userNotificationService.notifyCreatorOnIdeaRejected(ideaToReject, rejectionComment, campaign.getTitle());
 
         ideaRepository.save(ideaToReject);
     }
@@ -177,10 +177,10 @@ public class IdeaService {
     }
 
 
-    private void notifyAdminsOnNewIdea(final IdeaEntity ideaEntity) {
+    private void notifyAdminsOnNewIdea(final IdeaEntity ideaEntity, String campaignTitle) {
         userRepository.findAllAdminUsers().stream()
             .map(UserEntity::getEmail)
-            .forEach(emailAddress -> userNotificationService.notifyAdminOnIdeaCreation(ideaEntity, emailAddress));
+            .forEach(emailAddress -> userNotificationService.notifyAdminOnIdeaCreation(ideaEntity, emailAddress, campaignTitle));
     }
 
     private List<Idea> toIdeas(List<IdeaEntity> res, UserEntity requestor) {

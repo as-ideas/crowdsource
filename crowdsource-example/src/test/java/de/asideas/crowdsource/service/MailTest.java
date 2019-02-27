@@ -23,6 +23,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.util.ReflectionTestUtils;
 
+import java.text.MessageFormat;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
@@ -83,10 +84,10 @@ public class MailTest {
         assertThat(mail.getTo(), arrayContaining(user.getEmail()));
         assertThat(mail.getSubject(), is(UserNotificationService.SUBJECT_ACTIVATION));
         assertThat(replaceLineBreaksIfWindows(mail.getText()), is(
-                "Hallo Philipp Fry,\n\n" +
+                "Hallo Philipp,\n\n" +
                         "Du hast Dich gerade auf der CrowdSource Platform angemeldet.\n" +
                         "Um Deine Registrierung abzuschließen, öffne bitte diesen Link und setze Dein Passwort:\n\n" +
-                        "https://crowd.asideas.de#/signup/some.creator@email.com/activation/activationTok3n\n\n" +
+                        "https://crowd.asideas.de/#/signup/some.creator@email.com/activation/activationTok3n\n\n" +
                         "Mit freundlichen Grüßen\nDein CrowdSource Team"));
     }
 
@@ -102,10 +103,10 @@ public class MailTest {
         assertThat(mail.getTo(), arrayContaining(user.getEmail()));
         assertThat(mail.getSubject(), is(UserNotificationService.SUBJECT_PASSWORD_FORGOTTEN));
         assertThat(replaceLineBreaksIfWindows(mail.getText()), is(
-                "Hallo Philipp Fry,\n\n" +
+                "Hallo Philipp,\n\n" +
                         "Du hast soeben ein neues Passwort für Dein Konto bei der CrowdSource Plattform angefordert.\n\n" +
                         "Bitte öffne diesen Link:\n\n" +
-                        "https://crowd.asideas.de#/login/password-recovery/some.creator@email.com/activation/activationTok3n\n\n" +
+                        "https://crowd.asideas.de/#/login/password-recovery/some.creator@email.com/activation/activationTok3n\n\n" +
                         "und setze Dein neues Passwort.\n\n" +
                         "Mit freundlichen Grüßen\n" +
                         "Dein CrowdSource Team"));
@@ -126,7 +127,7 @@ public class MailTest {
                         "Dein Projekt wurde erfolgreich freigegeben!\n" +
                         "Weitere Informationen hinsichtlich des Prozesses kannst Du der FAQ entnehmen.\n\n" +
                         "Zu Deinem Projekt:\n\n" +
-                        "https://crowd.asideas.de#/project/proj3ctId\n\n" +
+                        "https://crowd.asideas.de/#/project/proj3ctId\n\n" +
                         "Mit freundlichen Grüßen\n" +
                         "Dein CrowdSource Team"));
     }
@@ -146,7 +147,7 @@ public class MailTest {
                         "Dein Projekt wurde leider abgelehnt.\n" +
                         "Das CrowdSource Team wird in Kürze mit Dir in Kontakt treten, um die nächsten Schritte zu besprechen.\n\n" +
                         "Zu Deinem Projekt:\n\n" +
-                        "https://crowd.asideas.de#/project/proj3ctId\n\n" +
+                        "https://crowd.asideas.de/#/project/proj3ctId\n\n" +
                         "Mit freundlichen Grüßen\nDein CrowdSource Team"));
     }
 
@@ -176,7 +177,7 @@ public class MailTest {
         assertThat(replaceLineBreaksIfWindows(mail.getText()), is(
                 "Hallo Admin,\n\n" +
                         "es liegt ein neues Projekt zur Freigabe vor:\n\n" +
-                        "https://crowd.asideas.de#/project/proj3ctId\n\n" +
+                        "https://crowd.asideas.de/#/project/proj3ctId\n\n" +
                         "Mit freundlichen Grüßen\n" +
                         "Dein CrowdSource Team"));
     }
@@ -208,19 +209,19 @@ public class MailTest {
         UserEntity user = aUser("123456789");
         IdeaEntity newIdea = IdeaEntity.createIdeaEntity(new Idea("SCHOKOLADE", "Schokolade für alle!"), "eatMoreChocolateCampaign", user);
 
-        userNotificationService.notifyAdminOnIdeaCreation(newIdea, ADMIN_EMAIL);
+        userNotificationService.notifyAdminOnIdeaCreation(newIdea, ADMIN_EMAIL, "Schokoladen Kampagne");
 
         SimpleMailMessage mail = getMessageFromMailSender();
         assertThat(mail.getFrom(), is(UserNotificationService.FROM_ADDRESS));
         assertThat(mail.getTo(), arrayContaining(ADMIN_EMAIL));
-        assertThat(mail.getSubject(), is(UserNotificationService.SUBJECT_IDEA_CREATED));
+        assertThat(mail.getSubject(), is(MessageFormat.format(UserNotificationService.SUBJECT_IDEA_CREATED, "Schokoladen Kampagne")));
         assertThat(replaceLineBreaksIfWindows(mail.getText()), is(
                 "Hallo Admin,\n\n" +
                         "es liegt eine neue Idee zur Freigabe vor:\n\n" +
                         "Name: Bojack Horseman\n" +
                         "Title: SCHOKOLADE\n" +
                         "Pitch: Schokolade für alle!\n\n" +
-                        "https://crowd.asideas.de#/ideas/eatMoreChocolateCampaign\n\n" +
+                        "https://crowd.asideas.de/#/ideas/eatMoreChocolateCampaign\n\n" +
                         "Mit freundlichen Grüßen\n" +
                         "Dein CrowdSource Team\n"));
     }
@@ -230,17 +231,17 @@ public class MailTest {
         UserEntity creator = aUser("123456789");
         IdeaEntity newIdea = IdeaEntity.createIdeaEntity(new Idea("SCHOKOLADE", "Schokolade für alle!"), "eatMoreChocolateCampaign", creator);
 
-        userNotificationService.notifyCreatorOnIdeaAccepted(newIdea);
+        userNotificationService.notifyCreatorOnIdeaAccepted(newIdea, "Schokoladen Kampagne");
 
         SimpleMailMessage mail = getMessageFromMailSender();
         assertThat(mail.getFrom(), is(UserNotificationService.FROM_ADDRESS));
         assertThat(mail.getTo(), arrayContaining(creator.getEmail()));
-        assertThat(mail.getSubject(), is(UserNotificationService.SUBJECT_IDEA_ACCEPTED));
+        assertThat(mail.getSubject(), is(MessageFormat.format(UserNotificationService.SUBJECT_IDEA_ACCEPTED,"Schokoladen Kampagne")));
         assertThat(replaceLineBreaksIfWindows(mail.getText()), is(
                 "Hallo Bojack,\n\n" +
                         "gute Nachrichten! Deine Idee wurde akzeptiert und steht nun zur Abstimmung bereit.\n\n" +
                         "Zur Kampagne:\n\n" +
-                        "https://crowd.asideas.de#/ideas/eatMoreChocolateCampaign\n\n" +
+                        "https://crowd.asideas.de/#/ideas/eatMoreChocolateCampaign\n\n" +
                         "Mit freundlichen Grüßen\n" +
                         "Dein CrowdSource Team"));
     }
@@ -250,18 +251,18 @@ public class MailTest {
         UserEntity creator = aUser("123456789");
         IdeaEntity newIdea = IdeaEntity.createIdeaEntity(new Idea("SCHOKOLADE", "Schokolade für alle!"), "eatMoreChocolateCampaign", creator);
 
-        userNotificationService.notifyCreatorOnIdeaRejected(newIdea, "Hatten wir schon.");
+        userNotificationService.notifyCreatorOnIdeaRejected(newIdea, "Hatten wir schon.", "Schokoladen Kampagne");
 
         SimpleMailMessage mail = getMessageFromMailSender();
         assertThat(mail.getFrom(), is(UserNotificationService.FROM_ADDRESS));
         assertThat(mail.getTo(), arrayContaining(creator.getEmail()));
-        assertThat(mail.getSubject(), is(UserNotificationService.SUBJECT_IDEA_REJECTED));
+        assertThat(mail.getSubject(), is(MessageFormat.format(UserNotificationService.SUBJECT_IDEA_REJECTED,"Schokoladen Kampagne")));
         assertThat(replaceLineBreaksIfWindows(mail.getText()), is(
                 "Hallo Bojack,\n\n" +
                         "deine Idee wurde leider nicht zur Abstimmung freigegeben:\n\n" +
                         "Hatten wir schon.\n\n" +
                         "Zur Kampagne:\n\n" +
-                        "https://crowd.asideas.de#/ideas/eatMoreChocolateCampaign\n\n" +
+                        "https://crowd.asideas.de/#/ideas/eatMoreChocolateCampaign/own\n\n" +
                         "Mit freundlichen Grüßen\n" +
                         "Dein CrowdSource Team"));
     }
@@ -271,7 +272,7 @@ public class MailTest {
         UserEntity creator = aUser("123456789");
         IdeaEntity newIdea = IdeaEntity.createIdeaEntity(new Idea("SCHOKOLADE", "Schokolade für alle!"), "eatMoreChocolateCampaign", creator);
 
-        userNotificationService.notifyCreatorOnIdeaRejected(newIdea, "");
+        userNotificationService.notifyCreatorOnIdeaRejected(newIdea, "", "Schokoladen Kampagne");
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -279,7 +280,7 @@ public class MailTest {
         UserEntity creator = aUser("123456789");
         IdeaEntity newIdea = IdeaEntity.createIdeaEntity(new Idea("SCHOKOLADE", "Schokolade für alle!"), "eatMoreChocolateCampaign", creator);
 
-        userNotificationService.notifyCreatorOnIdeaRejected(newIdea, null);
+        userNotificationService.notifyCreatorOnIdeaRejected(newIdea, null, "Schokoladen Kampagne");
     }
 
     @Test
@@ -287,7 +288,7 @@ public class MailTest {
         final UserEntity creator = aProjectCreator();
         final UserEntity commentingUser = aUser("test_id_modifier");
         final ProjectEntity project = project("proj3ctId", ProjectStatus.PUBLISHED, creator, "My Super Project");
-        final String projectLink = "https://crowd.asideas.de#/project/proj3ctId";
+        final String projectLink = "https://crowd.asideas.de/#/project/proj3ctId";
         final String testComment = aTestComment(UserNotificationService.COMMENT_EXCERPT_LENGTH + 5);
         final CommentEntity comment = new CommentEntity(project, commentingUser, testComment);
 
@@ -329,7 +330,7 @@ public class MailTest {
     }
 
     private void assertCreatorModifierAndAdminNotifiedOfProjectEdit(UserEntity creator, UserEntity modifier, UserEntity admin, List<SimpleMailMessage> capturedMessages) {
-        final String projectLink = "https://crowd.asideas.de#/project/proj3ctId";
+        final String projectLink = "https://crowd.asideas.de/#/project/proj3ctId";
         final String expMessage = "Hallo %s,\n\n" +
                 "das folgende Projekt wurde von %s editiert.\n" +
                 "Weitere Informationen hinsichtlich des Prozesses kannst Du der FAQ entnehmen.\n\n" +

@@ -1,5 +1,6 @@
 package de.asideas.crowdsource.service.ideascampaign;
 
+import java.text.MessageFormat;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
@@ -184,7 +185,7 @@ public class IdeaServiceTest {
         assertThat(captor.getValue().getPitch(), is(cmd.getPitch()));
         assertThat(captor.getValue().getCampaignId(), is(campaignId));
 
-        verify(userNotificationService).notifyAdminOnIdeaCreation(captorNotification.capture(), anyString());
+        verify(userNotificationService).notifyAdminOnIdeaCreation(captorNotification.capture(), anyString(), MessageFormat.format(UserNotificationService.SUBJECT_IDEA_CREATED, anyString()));
         assertThat(captorNotification.getValue(), is(captor.getValue()));
     }
 
@@ -320,7 +321,7 @@ public class IdeaServiceTest {
         verify(ideaRepository).save(captor.capture());
         assertThat(captor.getValue().getStatus(), is(PUBLISHED));
 
-        verify(userNotificationService).notifyCreatorOnIdeaAccepted(eq(expectedIdea));
+        verify(userNotificationService).notifyCreatorOnIdeaAccepted(eq(expectedIdea), eq(Fixtures.givenIdeasCampaign("test_user").getTitle()));
     }
 
     @Test
