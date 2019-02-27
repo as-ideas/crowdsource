@@ -116,25 +116,25 @@ $team-width: ($team-container-width - ($team-gutter * $team-items * 2)) / $team-
         }
     }
 
-    &__container div:nth-child(2n+1){
+    &__container > div:nth-child(2n+1){
         @media only screen and (min-width: 768px) {
             padding-right: $mrg-tripple;
         }
     }
 
-    &__container div:nth-child(2n){
+    &__container > div:nth-child(2n){
         @media only screen and (min-width: 768px) {
             padding-left: $mrg-tripple;
         }
     }
 
-    &__container--inverse div:nth-child(2n+1){
+    &__container--inverse > div:nth-child(2n+1){
         @media only screen and (min-width: 768px) {
             padding-left: $mrg-tripple;
         }
     }
 
-    &__container--inverse div:nth-child(2n){
+    &__container--inverse > div:nth-child(2n){
         @media only screen and (min-width: 768px) {
             padding-right: $mrg-tripple;
         }
