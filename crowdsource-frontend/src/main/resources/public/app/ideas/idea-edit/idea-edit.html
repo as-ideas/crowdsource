@@ -5,7 +5,7 @@
             <span form-label-invalid="title" ng-messages="ideaEditForm.title.$error">
                     <span ng-message="minlength">Mindestens 5 Zeichen</span>
                     <span ng-message="maxlength">Maximal 30 Zeichen</span>
-                    <span ng-message="required">Worum geht's? Bitte gebe deiner Idee einen Titel</span>
+                    <span ng-message="required">Bitte gib einen Titel ein</span>
             </span>
 
             <input campaign-active-aware class="idea-add__title" name="title" type="text" ng-model="vm.idea.title" required ng-minlength="5" ng-maxlength="30" maxlength="30">
@@ -16,7 +16,7 @@
             <span form-label-invalid="pitch" ng-messages="ideaEditForm.pitch.$error">
                     <span ng-message="minlength">Mindestens 5 Zeichen</span>
                     <span ng-message="maxlength">Maximal 255 Zeichen</span>
-                    <span ng-message="required">Bitte beschreibe deine Idee mit einem kurzen prägnanten Satz</span>
+                    <span ng-message="required">Bitte gib ein prägnante Beschreibung ein</span>
             </span>
 
             <textarea campaign-active-aware reset-remote-validation name="pitch" class="idea-add__pitch" ng-model="vm.idea.pitch" required  ng-minlength="5" ng-maxlength="255"></textarea>
