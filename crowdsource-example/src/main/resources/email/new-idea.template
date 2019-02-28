@@ -5,6 +5,7 @@ es liegt eine neue Idee zur Freigabe vor:
 Name: #{#fullName}
 Title: #{#ideaTitle}
 Pitch: #{#ideaPitch}
+Kampagne: #{#campaignTitle}
 
 #{#link}
 

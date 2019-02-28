@@ -230,7 +230,8 @@ public class UserNotificationServiceTest {
                         "es liegt eine neue Idee zur Freigabe vor:\n\n" +
                         "Name: Karl Ranseier\n" +
                         "Title: SCHOKOLADE\n" +
-                        "Pitch: Schokolade für alle!\n\n" +
+                        "Pitch: Schokolade für alle!\n" +
+                        "Kampagne: Schokoladen Kampagne\n\n" +
                         "https://crowd.asideas.de/#/ideas/eatMoreChocolateCampaign\n\n" +
                         "Mit freundlichen Grüßen\n" +
                         "Dein CrowdSource Team\n"));
@@ -247,11 +248,14 @@ public class UserNotificationServiceTest {
         SimpleMailMessage mail = getMessageFromMailSender();
         assertThat(mail.getFrom(), is(UserNotificationService.FROM_ADDRESS));
         assertThat(mail.getTo(), arrayContaining(creator.getEmail()));
-        assertThat(mail.getSubject(), is(MessageFormat.format(UserNotificationService.SUBJECT_IDEA_ACCEPTED,"Schokoladen Kampagne")));
+
+        String[] args = {"SCHOKOLADE", "Schokoladen Kampagne"};
+        assertThat(mail.getSubject(), is(MessageFormat.format(UserNotificationService.SUBJECT_IDEA_ACCEPTED,args)));
         assertThat(replaceLineBreaksIfWindows(mail.getText()), is(
                 "Hallo Karl,\n\n" +
-                        "gute Nachrichten! Deine Idee wurde akzeptiert und steht nun zur Abstimmung bereit.\n\n" +
-                        "Zur Kampagne:\n\n" +
+                        "gute Nachrichten! Deine Idee \"SCHOKOLADE\"\n" +
+                        "wurde akzeptiert und steht nun zur Abstimmung bereit.\n\n" +
+                        "Zur Kampagne \"Schokoladen Kampagne\":\n\n" +
                         "https://crowd.asideas.de/#/ideas/eatMoreChocolateCampaign\n\n" +
                         "Mit freundlichen Grüßen\n" +
                         "Dein CrowdSource Team"));
@@ -262,17 +266,20 @@ public class UserNotificationServiceTest {
         UserEntity creator = aUser("123456789");
         IdeaEntity newIdea = IdeaEntity.createIdeaEntity(new Idea("SCHOKOLADE", "Schokolade für alle!"), "eatMoreChocolateCampaign", creator);
 
-        userNotificationService.notifyCreatorOnIdeaRejected(newIdea, "der Vorschlag ist blöd.", "Schokoladen Kampgagne");
+        userNotificationService.notifyCreatorOnIdeaRejected(newIdea, "der Vorschlag ist blöd.", "Schokoladen Kampagne");
 
         SimpleMailMessage mail = getMessageFromMailSender();
         assertThat(mail.getFrom(), is(UserNotificationService.FROM_ADDRESS));
         assertThat(mail.getTo(), arrayContaining(creator.getEmail()));
-        assertThat(mail.getSubject(), is(MessageFormat.format(UserNotificationService.SUBJECT_IDEA_REJECTED, "Schokoladen Kampgagne")));
+
+        String[] args = {"SCHOKOLADE", "Schokoladen Kampagne"};
+        assertThat(mail.getSubject(), is(MessageFormat.format(UserNotificationService.SUBJECT_IDEA_REJECTED, args)));
         assertThat(replaceLineBreaksIfWindows(mail.getText()), is(
                 "Hallo Karl,\n\n" +
-                        "deine Idee wurde leider nicht zur Abstimmung freigegeben:\n\n" +
+                        "deine Idee \"SCHOKOLADE\"\n" +
+                        "wurde leider nicht zur Abstimmung freigegeben:\n\n" +
                         "der Vorschlag ist blöd.\n\n" +
-                        "Zur Kampagne:\n\n" +
+                        "Zur Kampagne \"Schokoladen Kampagne\":\n\n" +
                         "https://crowd.asideas.de/#/ideas/eatMoreChocolateCampaign/own\n\n" +
                         "Mit freundlichen Grüßen\n" +
                         "Dein CrowdSource Team"));

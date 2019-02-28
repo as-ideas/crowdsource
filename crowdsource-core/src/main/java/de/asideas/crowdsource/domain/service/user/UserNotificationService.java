@@ -39,8 +39,8 @@ public class UserNotificationService {
     public static final String SUBJECT_ACTIVATION = "Bitte vergib ein Passwort für Dein Konto auf AS.Crowd";
     public static final String SUBJECT_PASSWORD_FORGOTTEN = "Bitte vergib ein Passwort für Dein Konto auf AS.Crowd";
     public static final String SUBJECT_IDEA_CREATED = "Neue Idee wude für die Kampagne \"{0}\" eingereicht";
-    public static final String SUBJECT_IDEA_ACCEPTED = "Deine Idee für die Kampagne \"{0}\" wurde freigegeben";
-    public static final String SUBJECT_IDEA_REJECTED = "Deine Idee für die Kampagne \"{0}\" wurde leider abgelehnt";
+    public static final String SUBJECT_IDEA_ACCEPTED = "Deine Idee \"{0}\" für die Kampagne \"{1}\" wurde freigegeben";
+    public static final String SUBJECT_IDEA_REJECTED = "Deine Idee \"{0}\" für die Kampagne \"{1}\" wurde leider abgelehnt";
     public static final String SUBJECT_PROJECT_MODIFIED = "Ein Projekt wurde editiert";
     public static final String SUBJECT_PROJECT_CREATED = "Neues Projekt erstellt";
     public static final String SUBJECT_PROJECT_PUBLISHED = "Freigabe Deines Projektes";
@@ -178,10 +178,14 @@ public class UserNotificationService {
 
     public void notifyCreatorOnIdeaAccepted(IdeaEntity idea, String campaignTitle) {
         StandardEvaluationContext context = new StandardEvaluationContext();
+
         context.setVariable("firstName", idea.getCreator().getFirstName());
         context.setVariable("link", buildIdeasCampaignLink(idea.getCampaignId()));
+        context.setVariable("ideaTitle", idea.getTitle());
+        context.setVariable("campaignTitle", campaignTitle);
 
-        final String mailSubject = MessageFormat.format(SUBJECT_IDEA_ACCEPTED, campaignTitle);
+        final String[] args = { idea.getTitle(), campaignTitle };
+        final String mailSubject = MessageFormat.format(SUBJECT_IDEA_ACCEPTED, args);
         final String mailContent = ideaAcceptedEmailTemplate.getValue(context, String.class);
         final SimpleMailMessage message = newMailMessage(idea.getCreator().getEmail(), mailSubject, mailContent);
 
@@ -190,13 +194,16 @@ public class UserNotificationService {
 
     public void notifyCreatorOnIdeaRejected(IdeaEntity idea, String rejectionComment, String campaignTitle) {
         Assert.hasText(rejectionComment, "rejection-comment must not be empty!");
-
         StandardEvaluationContext context = new StandardEvaluationContext();
+
         context.setVariable("firstName", idea.getCreator().getFirstName());
         context.setVariable("rejectionComment", rejectionComment);
         context.setVariable("link", buildYourIdeasCampaignLink(idea.getCampaignId()));
+        context.setVariable("ideaTitle", idea.getTitle());
+        context.setVariable("campaignTitle", campaignTitle);
 
-        final String mailSubject = MessageFormat.format(SUBJECT_IDEA_REJECTED, campaignTitle);
+        final String[] args = { idea.getTitle(), campaignTitle };
+        final String mailSubject = MessageFormat.format(SUBJECT_IDEA_REJECTED, args);
         final String mailContent = ideaRejectedEmailTemplate.getValue(context, String.class);
         final SimpleMailMessage message = newMailMessage(idea.getCreator().getEmail(), mailSubject, mailContent);
 
@@ -244,6 +251,7 @@ public class UserNotificationService {
         context.setVariable("ideaTitle", idea.getTitle());
         context.setVariable("ideaPitch", idea.getPitch());
         context.setVariable("link", buildIdeasCampaignLink(idea.getCampaignId()));
+        context.setVariable("campaignTitle", campaignTitle);
 
         final String mailSubject = MessageFormat.format(SUBJECT_IDEA_CREATED, campaignTitle);
         final String mailContent = ideaCreatedEmailTemplate.getValue(context, String.class);

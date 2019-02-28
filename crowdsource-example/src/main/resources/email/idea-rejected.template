@@ -1,10 +1,11 @@
 Hallo #{#firstName},
 
-deine Idee wurde leider nicht zur Abstimmung freigegeben:
+deine Idee "#{#ideaTitle}"
+wurde leider nicht zur Abstimmung freigegeben:
 
 #{#rejectionComment}
 
-Zur Kampagne:
+Zur Kampagne "#{#campaignTitle}":
 
 #{#link}
 

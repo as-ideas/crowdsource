@@ -220,7 +220,8 @@ public class MailTest {
                         "es liegt eine neue Idee zur Freigabe vor:\n\n" +
                         "Name: Bojack Horseman\n" +
                         "Title: SCHOKOLADE\n" +
-                        "Pitch: Schokolade für alle!\n\n" +
+                        "Pitch: Schokolade für alle!\n" +
+                        "Kampagne: Schokoladen Kampagne\n\n" +
                         "https://crowd.asideas.de/#/ideas/eatMoreChocolateCampaign\n\n" +
                         "Mit freundlichen Grüßen\n" +
                         "Dein CrowdSource Team\n"));
@@ -236,11 +237,14 @@ public class MailTest {
         SimpleMailMessage mail = getMessageFromMailSender();
         assertThat(mail.getFrom(), is(UserNotificationService.FROM_ADDRESS));
         assertThat(mail.getTo(), arrayContaining(creator.getEmail()));
-        assertThat(mail.getSubject(), is(MessageFormat.format(UserNotificationService.SUBJECT_IDEA_ACCEPTED,"Schokoladen Kampagne")));
+
+        String[] args = {"SCHOKOLADE", "Schokoladen Kampagne"};
+        assertThat(mail.getSubject(), is(MessageFormat.format(UserNotificationService.SUBJECT_IDEA_ACCEPTED, args)));
         assertThat(replaceLineBreaksIfWindows(mail.getText()), is(
                 "Hallo Bojack,\n\n" +
-                        "gute Nachrichten! Deine Idee wurde akzeptiert und steht nun zur Abstimmung bereit.\n\n" +
-                        "Zur Kampagne:\n\n" +
+                        "gute Nachrichten! Deine Idee \"SCHOKOLADE\"\n" +
+                        "wurde akzeptiert und steht nun zur Abstimmung bereit.\n\n" +
+                        "Zur Kampagne \"Schokoladen Kampagne\":\n\n" +
                         "https://crowd.asideas.de/#/ideas/eatMoreChocolateCampaign\n\n" +
                         "Mit freundlichen Grüßen\n" +
                         "Dein CrowdSource Team"));
@@ -256,12 +260,15 @@ public class MailTest {
         SimpleMailMessage mail = getMessageFromMailSender();
         assertThat(mail.getFrom(), is(UserNotificationService.FROM_ADDRESS));
         assertThat(mail.getTo(), arrayContaining(creator.getEmail()));
-        assertThat(mail.getSubject(), is(MessageFormat.format(UserNotificationService.SUBJECT_IDEA_REJECTED,"Schokoladen Kampagne")));
+
+        String[] args = {"SCHOKOLADE", "Schokoladen Kampagne"};
+        assertThat(mail.getSubject(), is(MessageFormat.format(UserNotificationService.SUBJECT_IDEA_REJECTED, args)));
         assertThat(replaceLineBreaksIfWindows(mail.getText()), is(
                 "Hallo Bojack,\n\n" +
-                        "deine Idee wurde leider nicht zur Abstimmung freigegeben:\n\n" +
+                        "deine Idee \"SCHOKOLADE\"\n" +
+                        "wurde leider nicht zur Abstimmung freigegeben:\n\n" +
                         "Hatten wir schon.\n\n" +
-                        "Zur Kampagne:\n\n" +
+                        "Zur Kampagne \"Schokoladen Kampagne\":\n\n" +
                         "https://crowd.asideas.de/#/ideas/eatMoreChocolateCampaign/own\n\n" +
                         "Mit freundlichen Grüßen\n" +
                         "Dein CrowdSource Team"));

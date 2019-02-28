@@ -1,8 +1,9 @@
 Hallo #{#firstName},
 
-gute Nachrichten! Deine Idee wurde akzeptiert und steht nun zur Abstimmung bereit.
+gute Nachrichten! Deine Idee "#{#ideaTitle}"
+wurde akzeptiert und steht nun zur Abstimmung bereit.
 
-Zur Kampagne:
+Zur Kampagne "#{#campaignTitle}":
 
 #{#link}
 
