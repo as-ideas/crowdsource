@@ -36,7 +36,7 @@
                 .when('/intro', {
                     templateUrl: 'app/intro/intro.html',
                     controller: 'IntroController as intro',
-                    title: 'Kampagnen'
+                    title: 'Übersicht'
                 })
                 .when('/ideas/:ideasId', {
                     templateUrl: 'app/ideas/list/ideas-list.html',
