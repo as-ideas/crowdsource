@@ -48,7 +48,7 @@ public class TranslationService {
         }
     }
 
-    private List<SingleTranslation> callTranslationServiceForGivenIdea(IdeaEntity ideaEntity) {
+    private List<SingleTranslation> callTranslationServiceForGivenIdea(IdeaEntity ideaEntity) throws Exception {
         List<SingleTranslation> translations = new ArrayList();
         for (String language : supportedLanguages) {
             SingleTranslation singleTranslation = getTranslation(ideaEntity, language);
@@ -57,7 +57,7 @@ public class TranslationService {
         return translations;
     }
 
-    private SingleTranslation getTranslation(IdeaEntity ideaEntity, String targetLang) {
+    private SingleTranslation getTranslation(IdeaEntity ideaEntity, String targetLang) throws Exception {
         final String apiKey = CrowdAWSSecretsManager.getDeepLKey();
 
         final String origTitle = ideaEntity.getTitle();
