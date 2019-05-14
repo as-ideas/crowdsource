@@ -40,6 +40,12 @@ public class IdeaEntity {
 
     private String pitch;
 
+    private IdeaContentEntity contentOriginal;
+
+    private IdeaContentEntity contentGerman;
+
+    private IdeaContentEntity contentEnglish;
+
     private IdeaStatus status;
 
     /** When was the idea approved or rejected by an admin */
@@ -147,6 +153,31 @@ public class IdeaEntity {
         this.pitch = pitch;
     }
 
+    public IdeaContentEntity getContentOriginal() {
+        return contentOriginal;
+    }
+
+    public void setContentOriginal(IdeaContentEntity contentOriginal) {
+        this.contentOriginal = contentOriginal;
+    }
+
+    public IdeaContentEntity getContentGerman() {
+        return contentGerman;
+    }
+
+    public IdeaContentEntity getContentEnglish() {
+        return contentEnglish;
+    }
+
+    public void setContentTranslated(IdeaContentEntity ideaContentEntity) {
+        if ("DE".equals(ideaContentEntity.getLanguage())) {
+            this.contentGerman = ideaContentEntity;
+        }
+        if ("EN".equals(ideaContentEntity.getLanguage())) {
+            this.contentEnglish = ideaContentEntity;
+        }
+    }
+
     public IdeaStatus getStatus() {
         return status;
     }
@@ -223,18 +254,20 @@ public class IdeaEntity {
     @Override
     public String toString() {
         return "IdeaEntity{" +
-            "id='" + id + '\'' +
-            ", title='" + title + '\'' +
-            ", pitch='" + pitch + '\'' +
-            ", status=" + status +
-            ", reviewDate=" + reviewDate +
-            ", rejectionComment='" + rejectionComment + '\'' +
-            ", creator=" + creator +
-            ", approvingAdminId='" + approvingAdminId + '\'' +
-            ", campaignId='" + campaignId + '\'' +
-            ", createdDate=" + createdDate +
-            ", lastModifiedDate=" + lastModifiedDate +
-            '}';
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", pitch='" + pitch + '\'' +
+                ", contentOriginal=" + contentOriginal +
+                ", contentGerman=" + contentGerman +
+                ", contentEnglish=" + contentEnglish +
+                ", status=" + status +
+                ", reviewDate=" + reviewDate +
+                ", rejectionComment='" + rejectionComment + '\'' +
+                ", creator=" + creator +
+                ", approvingAdminId='" + approvingAdminId + '\'' +
+                ", campaignId='" + campaignId + '\'' +
+                ", createdDate=" + createdDate +
+                ", lastModifiedDate=" + lastModifiedDate +
+                '}';
     }
-
 }

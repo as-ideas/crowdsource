@@ -17,6 +17,7 @@ import de.asideas.crowdsource.presentation.ideascampaign.Rating;
 import de.asideas.crowdsource.presentation.ideascampaign.VoteCmd;
 import de.asideas.crowdsource.repository.UserRepository;
 
+import de.asideas.crowdsource.service.translation.TranslationService;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -70,6 +71,9 @@ public class IdeaServiceTest {
     private UserNotificationService userNotificationService;
 
     @Mock
+    private TranslationService translationService;
+
+    @Mock
     private VotingService votingService;
 
     @Mock
@@ -77,12 +81,12 @@ public class IdeaServiceTest {
 
 
     @Test
-    public void fetchIdeasByStatus_ShouldRequestWithDefaultPagesize_onNoPageOrSizeGiven(){
+    public void fetchIdeasByStatus_ShouldRequestWithDefaultPagesize_onNoPageOrSizeGiven() {
         final String campaignId = "test_campId";
 
         final ArgumentCaptor<PageRequest> pReqCap = ArgumentCaptor.forClass(PageRequest.class);
         doReturn(new PageImpl<IdeaEntity>(Collections.emptyList())).when(ideaRepository)
-            .findByCampaignIdAndStatusIn(anyString(), anySet(), pReqCap.capture());
+                .findByCampaignIdAndStatusIn(anyString(), anySet(), pReqCap.capture());
 
         ideaService.fetchIdeasByStatus(campaignId, singleton(PUBLISHED), 1, null, givenUserEntity("requestorId"));
         assertThat(pReqCap.getValue().getPageSize(), is(IdeaService.DEFAULT_PAGE_SIZE));
@@ -94,12 +98,12 @@ public class IdeaServiceTest {
     }
 
     @Test
-    public void fetchIdeasByStatus_ShouldRequestWith_GivenPageNumberAndCount(){
+    public void fetchIdeasByStatus_ShouldRequestWith_GivenPageNumberAndCount() {
         final String campaignId = "test_campId";
 
         final ArgumentCaptor<PageRequest> pReqCap = ArgumentCaptor.forClass(PageRequest.class);
         doReturn(new PageImpl<IdeaEntity>(Collections.emptyList())).when(ideaRepository)
-            .findByCampaignIdAndStatusIn(anyString(), eq(singleton(PUBLISHED)), pReqCap.capture());
+                .findByCampaignIdAndStatusIn(anyString(), eq(singleton(PUBLISHED)), pReqCap.capture());
 
         ideaService.fetchIdeasByStatus(campaignId, singleton(PUBLISHED), 17, 120, givenUserEntity("requestorId"));
         assertThat(pReqCap.getValue().getPageSize(), is(120));
@@ -107,12 +111,12 @@ public class IdeaServiceTest {
     }
 
     @Test
-    public void fetchIdeasByStatus_ShouldResetPagesizeToDefault_OnMaxPagesizeExceeded(){
+    public void fetchIdeasByStatus_ShouldResetPagesizeToDefault_OnMaxPagesizeExceeded() {
         final String campaignId = "test_campId";
 
         final ArgumentCaptor<PageRequest> pReqCap = ArgumentCaptor.forClass(PageRequest.class);
         doReturn(new PageImpl<IdeaEntity>(Collections.emptyList())).when(ideaRepository)
-            .findByCampaignIdAndStatusIn(anyString(), eq(singleton(PUBLISHED)), pReqCap.capture());
+                .findByCampaignIdAndStatusIn(anyString(), eq(singleton(PUBLISHED)), pReqCap.capture());
 
         ideaService.fetchIdeasByStatus(campaignId, singleton(PUBLISHED), 17, IdeaService.MAX_PAGE_SIZE + 1, givenUserEntity("requestorId"));
         assertThat(pReqCap.getValue().getPageSize(), is(IdeaService.DEFAULT_PAGE_SIZE));
@@ -120,13 +124,13 @@ public class IdeaServiceTest {
     }
 
     @Test
-    public void fetchIdeasByStatus_ShouldEnrichIdeas_ByRating(){
+    public void fetchIdeasByStatus_ShouldEnrichIdeas_ByRating() {
         final String campaignId = "test_campId";
 
         final ArgumentCaptor<PageRequest> pReqCap = ArgumentCaptor.forClass(PageRequest.class);
         final IdeaEntity expIdea = Fixtures.givenIdeaEntity("ideaId");
         doReturn(new PageImpl<>(singletonList(expIdea))).when(ideaRepository)
-            .findByCampaignIdAndStatusIn(anyString(), eq(singleton(PUBLISHED)), pReqCap.capture());
+                .findByCampaignIdAndStatusIn(anyString(), eq(singleton(PUBLISHED)), pReqCap.capture());
         final Rating expRating = givenVoteRepositoryReturnsVotes(expIdea.getId());
 
         final Page<Idea> res = ideaService.fetchIdeasByStatus(campaignId, singleton(PUBLISHED), 17, IdeaService.MAX_PAGE_SIZE + 1, givenUserEntity("requestorId"));
@@ -135,7 +139,7 @@ public class IdeaServiceTest {
     }
 
     @Test
-    public void fetchIdeasByRequestorHasVoted_ShouldEnrichIdeas_ByRating(){
+    public void fetchIdeasByRequestorHasVoted_ShouldEnrichIdeas_ByRating() {
         final String campaignId = "test_campId";
 
         final ArgumentCaptor<PageRequest> pReqCap = ArgumentCaptor.forClass(PageRequest.class);
@@ -143,10 +147,10 @@ public class IdeaServiceTest {
         final Set<String> ideasIds = Collections.singleton(expIdea.getId());
 
         doReturn(Collections.singleton(new VoteEntity(new VoteId("votertestid", expIdea.getId()), 1)))
-            .when(voteRepository).findIdsByVoterId(anyString());
+                .when(voteRepository).findIdsByVoterId(anyString());
 
         doReturn(new PageImpl<>(singletonList(expIdea))).when(ideaRepository)
-            .findByCampaignIdAndStatusAndIdIn(eq(campaignId), eq(IdeaStatus.PUBLISHED), eq(ideasIds), pReqCap.capture());
+                .findByCampaignIdAndStatusAndIdIn(eq(campaignId), eq(IdeaStatus.PUBLISHED), eq(ideasIds), pReqCap.capture());
 
         final Rating expRating = givenVoteRepositoryReturnsVotes(expIdea.getId());
         final Page<Idea> res = ideaService.fetchIdeasByRequestorHasVoted(campaignId, true, 0, 10, givenUserEntity("requestorId"));
@@ -341,7 +345,7 @@ public class IdeaServiceTest {
     }
 
     @Test
-    public void voteForIdea_shouldCallVotingService(){
+    public void voteForIdea_shouldCallVotingService() {
         final IdeasCampaignEntity expectedCampaign = givenIdeaCampaignExists("test_campaignId", true);
         final IdeaEntity ideaEntity = givenIdeaExists(new Idea("test_title", "test_pitch"), expectedCampaign.getId());
         final UserEntity voter = givenUserEntity("testvoter_id");
@@ -354,6 +358,7 @@ public class IdeaServiceTest {
     private IdeaEntity givenIdeaExists(Idea idea, String campaignId) {
         final IdeaEntity theIdea = Fixtures.givenIdeaEntity(idea, campaignId);
         theIdea.setId("testidea_id");
+        theIdea.setPitch("A damn good pitch.");
         doReturn(true).when(ideaRepository).exists(anyString());
         doReturn(theIdea).when(ideaRepository).findOne(anyString());
         return theIdea;
@@ -389,11 +394,10 @@ public class IdeaServiceTest {
     /**
      * @return one rating to be found as expected data in final Idea DTOs
      */
-    private Rating givenVoteRepositoryReturnsVotes(String ideaId){
+    private Rating givenVoteRepositoryReturnsVotes(String ideaId) {
         final Rating res = new Rating(ideaId, 1, 0, 4.0f);
         doReturn(singletonList(new VoteEntity(new VoteId("voterId", "anIdeaId"), 4))).when(voteRepository).findByIdIdeaId(anyString());
         return res;
     }
-
 
 }

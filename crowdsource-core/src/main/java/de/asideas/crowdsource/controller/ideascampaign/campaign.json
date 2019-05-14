@@ -1,0 +1,14 @@
+{
+  "id": null,
+  "startDate": "2019-05-01T11:52:49.501+02:00",
+  "endDate": "2019-06-30T11:53:00.501+02:00",
+  "campaignInitiator": null,
+  "title": "Eine tolle Kampagne",
+  "description": "In dieser Kampagne sammeln wir tolle Ideen.",
+  "sponsor": "The Sponsor",
+  "videoReference": "test_vidRef",
+  "videoImageReference": "test_vidImgRef",
+  "teaserImageReference": "test_teaserImage",
+  "active": false,
+  "expired": false
+}

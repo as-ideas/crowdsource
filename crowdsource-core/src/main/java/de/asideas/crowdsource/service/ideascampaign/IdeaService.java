@@ -11,6 +11,8 @@ import de.asideas.crowdsource.domain.service.user.UserNotificationService;
 import de.asideas.crowdsource.presentation.ideascampaign.VoteCmd;
 import de.asideas.crowdsource.repository.UserRepository;
 
+import de.asideas.crowdsource.service.translation.TranslationService;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -29,12 +31,16 @@ import de.asideas.crowdsource.repository.ideascampaign.IdeasCampaignRepository;
 import de.asideas.crowdsource.repository.ideascampaign.VoteRepository;
 import de.asideas.crowdsource.security.Roles;
 
+import static org.slf4j.LoggerFactory.getLogger;
+
 /**
  * Application service, provding use cases around {@link de.asideas.crowdsource.domain.model.ideascampaign.IdeaEntity}ies of
  * {@link de.asideas.crowdsource.domain.model.ideascampaign.IdeasCampaignEntity}ies.
  */
 @Service
 public class IdeaService {
+
+    private static final Logger log = getLogger(IdeaService.class);
 
     static final int DEFAULT_PAGE_SIZE = 20;
     static final int MAX_PAGE_SIZE = 200;
@@ -50,6 +56,9 @@ public class IdeaService {
 
     @Autowired
     private UserNotificationService userNotificationService;
+
+    @Autowired
+    private TranslationService translationService;
 
     @Autowired
     private VotingService votingService;
@@ -68,9 +77,9 @@ public class IdeaService {
         Assert.notNull(campaignId, "campaignId must not be null");
 
         final Page<IdeaEntity> dbRes = ideaRepository.findByCampaignIdAndStatusIn(
-            campaignId,
-            statusSet,
-            calcPageRequest(page, pageSize)
+                campaignId,
+                statusSet,
+                calcPageRequest(page, pageSize)
         );
         return new PageImpl<>(toIdeas(dbRes.getContent(), requestor), calcPageRequest(page, pageSize), dbRes.getTotalElements());
     }
@@ -83,17 +92,17 @@ public class IdeaService {
         final Page<IdeaEntity> dbRes;
         if (hasVoted) {
             dbRes = ideaRepository.findByCampaignIdAndStatusAndIdIn(
-                campaignId,
-                IdeaStatus.PUBLISHED,
-                ideaIds,
-                calcPageRequest(page, pageSize)
+                    campaignId,
+                    IdeaStatus.PUBLISHED,
+                    ideaIds,
+                    calcPageRequest(page, pageSize)
             );
         } else {
             dbRes = ideaRepository.findByCampaignIdAndStatusAndIdNotIn(
-                campaignId,
-                IdeaStatus.PUBLISHED,
-                ideaIds,
-                calcPageRequest(page, pageSize)
+                    campaignId,
+                    IdeaStatus.PUBLISHED,
+                    ideaIds,
+                    calcPageRequest(page, pageSize)
             );
         }
         return new PageImpl<>(toIdeas(dbRes.getContent(), requestor), calcPageRequest(page, pageSize), dbRes.getTotalElements());
@@ -145,6 +154,9 @@ public class IdeaService {
 
         userNotificationService.notifyCreatorOnIdeaAccepted(existingIdea, campaign.getTitle());
 
+        // try to translate incoming idea
+        translationService.translateIdea(existingIdea);
+
         ideaRepository.save(existingIdea);
     }
 
@@ -179,8 +191,8 @@ public class IdeaService {
 
     private void notifyAdminsOnNewIdea(final IdeaEntity ideaEntity, String campaignTitle) {
         userRepository.findAllAdminUsers().stream()
-            .map(UserEntity::getEmail)
-            .forEach(emailAddress -> userNotificationService.notifyAdminOnIdeaCreation(ideaEntity, emailAddress, campaignTitle));
+                .map(UserEntity::getEmail)
+                .forEach(emailAddress -> userNotificationService.notifyAdminOnIdeaCreation(ideaEntity, emailAddress, campaignTitle));
     }
 
     private List<Idea> toIdeas(List<IdeaEntity> res, UserEntity requestor) {
