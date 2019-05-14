@@ -17,28 +17,18 @@ import java.util.Base64;
 
 public class CrowdAWSSecretsManager {
 
-    // Use this code snippet in your app.
-    // If you need more information about configurations or implementing the sample code, visit the AWS docs:
-    // https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/java-dg-samples.html#prerequisites
+    final static String SECRET_NAME = "AS_Crowd_DeepL_API_Key";
+    final static String REGION = "eu-central-1";
 
-    public static String getSecret() {
+    public static String getDeepLKey() {
 
-        String secretName = "AS_Crowd_DeepL_API_Key";
-        String region = "eu-central-1";
-
-        // Create a Secrets Manager client
         AWSSecretsManager client = AWSSecretsManagerClientBuilder.standard()
-                .withRegion(region)
+                .withRegion(REGION)
                 .build();
 
-        // In this sample we only handle the specific exceptions for the 'GetSecretValue' API.
-        // See https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_GetSecretValue.html
-        // We rethrow the exception by default.
-
         String secret = null;
-        String decodedBinarySecret;
         GetSecretValueRequest getSecretValueRequest = new GetSecretValueRequest()
-                .withSecretId(secretName);
+                .withSecretId(SECRET_NAME);
         GetSecretValueResult getSecretValueResult = null;
 
         try {
@@ -70,7 +60,7 @@ public class CrowdAWSSecretsManager {
         if (getSecretValueResult.getSecretString() != null) {
             secret = getSecretValueResult.getSecretString();
         } else {
-            decodedBinarySecret = new String(Base64.getDecoder().decode(getSecretValueResult.getSecretBinary()).array());
+            // TODO
         }
 
         // Your code goes here.

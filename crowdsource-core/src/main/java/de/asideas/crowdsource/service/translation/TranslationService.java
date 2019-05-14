@@ -30,9 +30,14 @@ public class TranslationService {
     }};
 
     public void translateIdea(IdeaEntity ideaEntity) {
-        List<SingleTranslation> translationResults = callTranslationServiceForGivenIdea(ideaEntity);
+        List<SingleTranslation> translationResults = new ArrayList<>();
 
-        // TODO find best fitting source language
+        try {
+            translationResults = callTranslationServiceForGivenIdea(ideaEntity);
+        } catch (Exception e) {
+            log.error("An exception occurred while using the translation service! One or more submitted ideas might be untranslated in the database.", e);
+        }
+
         String bestGuessSourceLanguage = decideSourceLanguage(translationResults);
         IdeaContentEntity originalContent = new IdeaContentEntity(bestGuessSourceLanguage, ideaEntity.getTitle(), ideaEntity.getPitch());
         ideaEntity.setContentOriginal(originalContent);
@@ -53,7 +58,7 @@ public class TranslationService {
     }
 
     private SingleTranslation getTranslation(IdeaEntity ideaEntity, String targetLang) {
-        final String apiKey = CrowdAWSSecretsManager.getSecret();
+        final String apiKey = CrowdAWSSecretsManager.getDeepLKey();
 
         final String origTitle = ideaEntity.getTitle();
         final String origPitch = ideaEntity.getPitch();
@@ -101,9 +106,27 @@ public class TranslationService {
                 .replaceAll("ß", "ss");
     }
 
+    /*
+    Ideally an identical string should always show the same source-language. Just in case the API
+    returns inconsistent responses we fall back to the default language.
+     */
     private String decideSourceLanguage(List<SingleTranslation> singleTranslations) {
-        // TODO
-        return "DE";
+        // use this as a fallback because most of our users are German.
+        final String defaultLanguage = "DE";
+        String detectedLanguage = null;
+
+        if (singleTranslations != null) {
+            for (SingleTranslation singleTranslation : singleTranslations) {
+                if (detectedLanguage != null && !defaultLanguage.equals(singleTranslation.sourceLanguage)) {
+                    //we have a problem
+                    log.error("No unambiguous source language detected! Setting default: " + defaultLanguage);
+                    return defaultLanguage;
+                } else {
+                    detectedLanguage = singleTranslation.sourceLanguage;
+                }
+            }
+        }
+        return detectedLanguage;
     }
 
     private class SingleTranslation {
