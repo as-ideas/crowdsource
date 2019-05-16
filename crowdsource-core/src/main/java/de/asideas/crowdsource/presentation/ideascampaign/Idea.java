@@ -36,8 +36,8 @@ public class Idea {
 
     public Idea(IdeaEntity ideaEntity) {
         this.id = ideaEntity.getId();
-        this.title = ideaEntity.getTitle();
-        this.pitch = ideaEntity.getPitch();
+        this.title = ideaEntity.getOriginalTitle();
+        this.pitch = ideaEntity.getOriginalPitch();
         this.status = ideaEntity.getStatus();
         this.creationDate = ideaEntity.getCreatedDate();
         this.creatorName = ideaEntity.getCreator().getFirstName();

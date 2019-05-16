@@ -43,6 +43,8 @@ public class UserEntity {
 
     private int budget = 0;
 
+    private String preferredLanguage = "EN";
+
     @Indexed
     @CreatedDate
     private DateTime createdDate;
@@ -81,7 +83,6 @@ public class UserEntity {
     }
 
     public String getFirstName() {
-
         return firstName;
     }
 
@@ -169,6 +170,14 @@ public class UserEntity {
 
     public void setLastModifiedDate(DateTime lastModifiedDate) {
         this.lastModifiedDate = lastModifiedDate;
+    }
+
+    public String getPreferredLanguage() {
+        return preferredLanguage;
+    }
+
+    public void setPreferredLanguage(String preferredLanguage) {
+        this.preferredLanguage = preferredLanguage;
     }
 
     @Override

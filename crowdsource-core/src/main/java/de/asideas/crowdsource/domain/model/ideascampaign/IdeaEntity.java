@@ -26,19 +26,15 @@ import static org.springframework.util.Assert.hasText;
 import static org.springframework.util.Assert.notNull;
 
 @CompoundIndexes({
-    @CompoundIndex(def = "{'campaignId': 1, 'creator._id': 1 }", name = "idx_campaignId_creatorId"),
-    @CompoundIndex(def = "{'campaignId': 1, 'status': 1 }", name = "idx_campaignId_status"),
-    @CompoundIndex(def = "{'_id': 1, 'campaignId':1, 'status': 1 }", name = "idx_id_campaignId_status"),
+        @CompoundIndex(def = "{'campaignId': 1, 'creator._id': 1 }", name = "idx_campaignId_creatorId"),
+        @CompoundIndex(def = "{'campaignId': 1, 'status': 1 }", name = "idx_campaignId_status"),
+        @CompoundIndex(def = "{'_id': 1, 'campaignId':1, 'status': 1 }", name = "idx_id_campaignId_status"),
 })
 @Document(collection = "ideas")
 public class IdeaEntity {
 
     @Id
     private String id;
-
-    private String title;
-
-    private String pitch;
 
     private IdeaContentEntity contentOriginal;
 
@@ -48,7 +44,9 @@ public class IdeaEntity {
 
     private IdeaStatus status;
 
-    /** When was the idea approved or rejected by an admin */
+    /**
+     * When was the idea approved or rejected by an admin
+     */
     private DateTime reviewDate;
 
     private String rejectionComment;
@@ -70,15 +68,15 @@ public class IdeaEntity {
     private IdeaEntity() {
     }
 
-    public static IdeaEntity createIdeaEntity(Idea cmd, String campaignId, UserEntity creator){
+    public static IdeaEntity createIdeaEntity(Idea cmd, String campaignId, UserEntity creator) {
         hasText(campaignId, "campaignId must be given");
         hasText(cmd.getTitle(), "Title must contain text.");
         hasText(cmd.getPitch(), "Pitch must contain text.");
         notNull(creator, "Creator must not be null.");
 
         final IdeaEntity result = new IdeaEntity();
-        result.setTitle(cmd.getTitle());
-        result.setPitch(cmd.getPitch());
+
+        result.setContentOriginal(new IdeaContentEntity(cmd.getTitle(), cmd.getPitch()));
         result.setCreator(creator);
         result.setStatus(IdeaStatus.PROPOSED);
         result.setCampaignId(campaignId);
@@ -87,7 +85,7 @@ public class IdeaEntity {
 
     public IdeaEntity modifyIdeaPitch(String newPitch) {
         hasText(newPitch, "new pitch must be given");
-        this.setPitch(newPitch);
+        this.setOriginalPitch(newPitch);
         return this;
     }
 
@@ -119,7 +117,7 @@ public class IdeaEntity {
         Assert.isTrue(vote > 0, "Vote value out of bounds: " + vote);
         Assert.isTrue(vote < 6, "Vote value out of bounds: " + vote);
 
-        if(IdeaStatus.PUBLISHED != this.status){
+        if (IdeaStatus.PUBLISHED != this.status) {
             throw InvalidRequestException.voteOnInvalidIdeaStatus();
         }
 
@@ -132,6 +130,14 @@ public class IdeaEntity {
         return new Rating(this.id, votes.size(), requestorVote.map(VoteEntity::getVote).orElse(0), calculatedAverage.floatValue());
     }
 
+    public String getOriginalLanguage() {
+        return contentOriginal.getLanguage();
+    }
+
+    public void setOriginalLanguage(String originalLanguage) {
+        this.contentOriginal.setLanguage(originalLanguage);
+    }
+
     public String getId() {
         return id;
     }
@@ -139,18 +145,50 @@ public class IdeaEntity {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
-    }
-    public void setTitle(String title) {
-        this.title = title;
+    public String getOriginalTitle() {
+        return this.contentOriginal.getTitle();
     }
 
-    public String getPitch() {
-        return pitch;
+    public void setOriginalTitle(String title) {
+        this.contentOriginal.setTitle(title);
     }
-    public void setPitch(String pitch) {
-        this.pitch = pitch;
+
+    public String getOriginalPitch() {
+        return this.contentOriginal.getPitch();
+    }
+
+    public void setOriginalPitch(String pitch) {
+        this.contentOriginal.setPitch(pitch);
+    }
+
+    public String getTitleInLanguage(String language) {
+        if (language == null) {
+            throw new RuntimeException();
+        }
+        if (!language.equals(contentOriginal.getLanguage())) {
+            if ("DE".equals(language)) {
+                return this.getContentGerman().getTitle();
+            }
+            if ("EN".equals(language)) {
+                return this.getContentEnglish().getTitle();
+            }
+        }
+        return contentOriginal.getTitle();
+    }
+
+    public String getPitchInLanguage(String language) {
+        if (language == null) {
+            throw new RuntimeException();
+        }
+        if (!language.equals(contentOriginal.getLanguage())) {
+            if ("DE".equals(language)) {
+                return this.getContentGerman().getPitch();
+            }
+            if ("EN".equals(language)) {
+                return this.getContentEnglish().getPitch();
+            }
+        }
+        return contentOriginal.getPitch();
     }
 
     public IdeaContentEntity getContentOriginal() {
@@ -181,6 +219,7 @@ public class IdeaEntity {
     public IdeaStatus getStatus() {
         return status;
     }
+
     public void setStatus(IdeaStatus status) {
         this.status = status;
     }
@@ -188,6 +227,7 @@ public class IdeaEntity {
     public String getRejectionComment() {
         return rejectionComment;
     }
+
     public void setRejectionComment(String rejectionComment) {
         this.rejectionComment = rejectionComment;
     }
@@ -195,6 +235,7 @@ public class IdeaEntity {
     public DateTime getCreatedDate() {
         return createdDate;
     }
+
     public void setCreatedDate(DateTime createdDate) {
         this.createdDate = createdDate;
     }
@@ -202,6 +243,7 @@ public class IdeaEntity {
     public DateTime getLastModifiedDate() {
         return lastModifiedDate;
     }
+
     public void setLastModifiedDate(DateTime lastModifiedDate) {
         this.lastModifiedDate = lastModifiedDate;
     }
@@ -209,6 +251,7 @@ public class IdeaEntity {
     public DateTime getReviewDate() {
         return reviewDate;
     }
+
     public void setReviewDate(DateTime reviewDate) {
         this.reviewDate = reviewDate;
     }
@@ -216,6 +259,7 @@ public class IdeaEntity {
     public UserEntity getCreator() {
         return creator;
     }
+
     public void setCreator(UserEntity creator) {
         this.creator = creator;
     }
@@ -223,6 +267,7 @@ public class IdeaEntity {
     public String getCampaignId() {
         return campaignId;
     }
+
     private void setCampaignId(String campaignId) {
         this.campaignId = campaignId;
     }
@@ -230,33 +275,40 @@ public class IdeaEntity {
     public String getApprovingAdminId() {
         return approvingAdminId;
     }
+
     public void setApprovingAdminId(String approvingAdminId) {
         this.approvingAdminId = approvingAdminId;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
         IdeaEntity that = (IdeaEntity) o;
-        return Objects.equals(id, that.id);
+        return Objects.equals(id, that.id) &&
+                Objects.equals(contentOriginal, that.contentOriginal) &&
+                Objects.equals(contentGerman, that.contentGerman) &&
+                Objects.equals(contentEnglish, that.contentEnglish) &&
+                status == that.status &&
+                Objects.equals(reviewDate, that.reviewDate) &&
+                Objects.equals(rejectionComment, that.rejectionComment) &&
+                Objects.equals(creator, that.creator) &&
+                Objects.equals(approvingAdminId, that.approvingAdminId) &&
+                Objects.equals(campaignId, that.campaignId) &&
+                Objects.equals(createdDate, that.createdDate) &&
+                Objects.equals(lastModifiedDate, that.lastModifiedDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+
+        return Objects.hash(id, contentOriginal, contentGerman, contentEnglish, status, reviewDate, rejectionComment, creator, approvingAdminId, campaignId, createdDate, lastModifiedDate);
     }
 
     @Override
     public String toString() {
         return "IdeaEntity{" +
                 "id='" + id + '\'' +
-                ", title='" + title + '\'' +
-                ", pitch='" + pitch + '\'' +
                 ", contentOriginal=" + contentOriginal +
                 ", contentGerman=" + contentGerman +
                 ", contentEnglish=" + contentEnglish +

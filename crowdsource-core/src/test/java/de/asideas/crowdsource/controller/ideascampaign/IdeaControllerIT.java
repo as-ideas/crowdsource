@@ -685,7 +685,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
 
     private void thenIdeaEntityContainsExpectedFields(IdeaEntity actual, Idea expected, String expectedCampaignId) {
         assertThat(actual, is(notNullValue()));
-        assertThat(actual.getPitch(), equalTo(expected.getPitch()));
+        assertThat(actual.getOriginalPitch(), equalTo(expected.getPitch()));
         assertThat(actual.getStatus(), equalTo(IdeaStatus.PROPOSED));
 
         assertThat(actual.getCreatedDate(), notNullValue());

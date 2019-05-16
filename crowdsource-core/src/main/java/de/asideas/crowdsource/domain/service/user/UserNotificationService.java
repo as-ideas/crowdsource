@@ -181,10 +181,10 @@ public class UserNotificationService {
 
         context.setVariable("firstName", idea.getCreator().getFirstName());
         context.setVariable("link", buildIdeasCampaignLink(idea.getCampaignId()));
-        context.setVariable("ideaTitle", idea.getTitle());
+        context.setVariable("ideaTitle", idea.getOriginalTitle());
         context.setVariable("campaignTitle", campaignTitle);
 
-        final String[] args = { idea.getTitle(), campaignTitle };
+        final String[] args = {idea.getOriginalTitle(), campaignTitle};
         final String mailSubject = MessageFormat.format(SUBJECT_IDEA_ACCEPTED, args);
         final String mailContent = ideaAcceptedEmailTemplate.getValue(context, String.class);
         final SimpleMailMessage message = newMailMessage(idea.getCreator().getEmail(), mailSubject, mailContent);
@@ -199,10 +199,10 @@ public class UserNotificationService {
         context.setVariable("firstName", idea.getCreator().getFirstName());
         context.setVariable("rejectionComment", rejectionComment);
         context.setVariable("link", buildYourIdeasCampaignLink(idea.getCampaignId()));
-        context.setVariable("ideaTitle", idea.getTitle());
+        context.setVariable("ideaTitle", idea.getOriginalTitle());
         context.setVariable("campaignTitle", campaignTitle);
 
-        final String[] args = { idea.getTitle(), campaignTitle };
+        final String[] args = {idea.getOriginalTitle(), campaignTitle};
         final String mailSubject = MessageFormat.format(SUBJECT_IDEA_REJECTED, args);
         final String mailContent = ideaRejectedEmailTemplate.getValue(context, String.class);
         final SimpleMailMessage message = newMailMessage(idea.getCreator().getEmail(), mailSubject, mailContent);
@@ -248,8 +248,8 @@ public class UserNotificationService {
         StandardEvaluationContext context = new StandardEvaluationContext();
 
         context.setVariable("fullName", idea.getCreator().getFullName());
-        context.setVariable("ideaTitle", idea.getTitle());
-        context.setVariable("ideaPitch", idea.getPitch());
+        context.setVariable("ideaTitle", idea.getOriginalTitle());
+        context.setVariable("ideaPitch", idea.getOriginalPitch());
         context.setVariable("link", buildIdeasCampaignLink(idea.getCampaignId()));
         context.setVariable("campaignTitle", campaignTitle);
 

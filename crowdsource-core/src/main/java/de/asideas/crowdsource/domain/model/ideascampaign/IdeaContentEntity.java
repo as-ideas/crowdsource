@@ -11,7 +11,12 @@ public class IdeaContentEntity implements Serializable {
 
     private String pitch;
 
-    public IdeaContentEntity() {
+    private IdeaContentEntity() {
+    }
+
+    public IdeaContentEntity(String title, String pitch) {
+        this.title = title;
+        this.pitch = pitch;
     }
 
     public IdeaContentEntity(String language, String title, String pitch) {

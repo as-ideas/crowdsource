@@ -185,8 +185,8 @@ public class IdeaServiceTest {
         final ArgumentCaptor<IdeaEntity> captor = ArgumentCaptor.forClass(IdeaEntity.class);
         final ArgumentCaptor<IdeaEntity> captorNotification = ArgumentCaptor.forClass(IdeaEntity.class);
         verify(ideaRepository).save(captor.capture());
-        assertThat(captor.getValue().getTitle(), is(cmd.getTitle()));
-        assertThat(captor.getValue().getPitch(), is(cmd.getPitch()));
+        assertThat(captor.getValue().getOriginalTitle(), is(cmd.getTitle()));
+        assertThat(captor.getValue().getOriginalPitch(), is(cmd.getPitch()));
         assertThat(captor.getValue().getCampaignId(), is(campaignId));
 
         verify(userNotificationService).notifyAdminOnIdeaCreation(captorNotification.capture(), anyString(), MessageFormat.format(UserNotificationService.SUBJECT_IDEA_CREATED, anyString()));
@@ -213,8 +213,7 @@ public class IdeaServiceTest {
 
     @Test(expected = ResourceNotFoundException.class)
     public void createNewIdea_shouldThrowException_OnNotExistingCampaign() {
-
-        String campaignId = "testcampaignid";
+        final String campaignId = "testcampaignid";
         givenIdeaCampaignDoesntExist(campaignId);
 
         ideaService.createNewIdea(campaignId, new Idea("test_title", "Tu wat!"), givenUserEntity("123459"));
@@ -358,7 +357,7 @@ public class IdeaServiceTest {
     private IdeaEntity givenIdeaExists(Idea idea, String campaignId) {
         final IdeaEntity theIdea = Fixtures.givenIdeaEntity(idea, campaignId);
         theIdea.setId("testidea_id");
-        theIdea.setPitch("A damn good pitch.");
+        theIdea.setOriginalPitch("A damn good pitch.");
         doReturn(true).when(ideaRepository).exists(anyString());
         doReturn(theIdea).when(ideaRepository).findOne(anyString());
         return theIdea;

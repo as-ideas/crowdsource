@@ -21,7 +21,7 @@ public class CrowdAWSSecretsManager {
 
     private static final Logger log = getLogger(CrowdAWSSecretsManager.class);
 
-    final static String SECRET_NAME = "AS_Crowd_DeepL_API_Kay";
+    final static String SECRET_NAME = "AS_Crowd_DeepL_API_Key";
     final static String REGION = "eu-central-1";
 
     public static String getDeepLKey() throws Exception {

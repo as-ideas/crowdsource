@@ -32,8 +32,8 @@ public class IdeaEntityTest {
         final Idea expectedIdea = new Idea("test_title", "Make more placstic forks!");
         final IdeaEntity ideaEntity = IdeaEntity.createIdeaEntity(expectedIdea, EXP_CAMPAIGN_ID, INITIATOR);
 
-        assertThat(ideaEntity.getTitle(), equalTo(expectedIdea.getTitle()));
-        assertThat(ideaEntity.getPitch(), equalTo(expectedIdea.getPitch()));
+        assertThat(ideaEntity.getOriginalTitle(), equalTo(expectedIdea.getTitle()));
+        assertThat(ideaEntity.getOriginalPitch(), equalTo(expectedIdea.getPitch()));
         assertThat(ideaEntity.getCreator(), equalTo(INITIATOR));
         assertThat(ideaEntity.getStatus(), equalTo(IdeaStatus.PROPOSED));
         assertThat(ideaEntity.getCampaignId(), equalTo(EXP_CAMPAIGN_ID));

@@ -29,6 +29,12 @@ public class TranslationService {
         add("EN");
     }};
 
+    /**
+     * This method tries to translate an idea but does NOT throw any exception. If the translation fails, the
+     * unmodified IdeaEntity should still be saved.
+     *
+     * @param ideaEntity The IdeaEntity to be translated
+     */
     public void translateIdea(IdeaEntity ideaEntity) {
         List<SingleTranslation> translationResults = new ArrayList<>();
 
@@ -39,8 +45,7 @@ public class TranslationService {
         }
 
         String bestGuessSourceLanguage = decideSourceLanguage(translationResults);
-        IdeaContentEntity originalContent = new IdeaContentEntity(bestGuessSourceLanguage, ideaEntity.getTitle(), ideaEntity.getPitch());
-        ideaEntity.setContentOriginal(originalContent);
+        ideaEntity.setOriginalLanguage(bestGuessSourceLanguage);
 
         for (SingleTranslation translation : translationResults) {
             IdeaContentEntity ideaContentEntity = new IdeaContentEntity(translation.targetLanguage, translation.getTitle(), translation.getPitch());
@@ -60,8 +65,8 @@ public class TranslationService {
     private SingleTranslation getTranslation(IdeaEntity ideaEntity, String targetLang) throws Exception {
         final String apiKey = CrowdAWSSecretsManager.getDeepLKey();
 
-        final String origTitle = ideaEntity.getTitle();
-        final String origPitch = ideaEntity.getPitch();
+        final String origTitle = ideaEntity.getOriginalTitle();
+        final String origPitch = ideaEntity.getOriginalPitch();
 
         final String apiPreppedTitle = URLEncoder.encode(replaceAllUmlauts(origTitle));
         final String apiPreppedPitch = URLEncoder.encode(replaceAllUmlauts(origPitch));

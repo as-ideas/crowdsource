@@ -19,11 +19,10 @@ public class IdeaTest {
         givenIdeaEntity.setRejectionComment("Haste nicht so toll gemacht.");
         final Idea result = new Idea(givenIdeaEntity);
 
-
         assertThat(result.getCreatorName(), is("test_firstname"));
         assertThat(result.getId(), is(givenIdeaEntity.getId()));
-        assertThat(result.getTitle(), is(givenIdeaEntity.getTitle()));
-        assertThat(result.getPitch(), is(givenIdeaEntity.getPitch()));
+        assertThat(result.getTitle(), is(givenIdeaEntity.getOriginalTitle()));
+        assertThat(result.getPitch(), is(givenIdeaEntity.getOriginalPitch()));
         assertThat(result.getCreationDate(), is(givenIdeaEntity.getCreatedDate()));
         assertThat(result.getStatus(), is(givenIdeaEntity.getStatus()));
         assertThat(result.getRejectionComment(), is(givenIdeaEntity.getRejectionComment()));
