@@ -146,6 +146,9 @@ public class IdeaEntity {
     }
 
     public String getOriginalTitle() {
+        if (this.contentOriginal == null) {
+            return "Old entry in incompatible format.";
+        }
         return this.contentOriginal.getTitle();
     }
 
@@ -154,6 +157,9 @@ public class IdeaEntity {
     }
 
     public String getOriginalPitch() {
+        if (this.contentOriginal == null) {
+            return "Old entry in incompatible format.";
+        }
         return this.contentOriginal.getPitch();
     }
 
