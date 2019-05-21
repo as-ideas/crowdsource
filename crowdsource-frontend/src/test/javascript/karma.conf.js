@@ -14,6 +14,7 @@ module.exports = function (config) {
             'bower_components/angular-mocks/angular-mocks.js',
             'bower_components/angular-ellipsis/src/angular-ellipsis.js',
             'bower_components/angular-sanitize/angular-sanitize.min.js',
+            'bower_components/angular-translate/angular-translate.min.js',
             'bower_components/ngScrollTo/ng-scrollto.js',
             'bower_components/moment/moment.js',
             'bower_components/moment-timezone/builds/moment-timezone-with-data.js',

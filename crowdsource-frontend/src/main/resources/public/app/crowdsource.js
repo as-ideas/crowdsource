@@ -21,7 +21,7 @@
      * global application configuration
      */
     angular.module('crowdsource', ['ngRoute', 'ngResource', 'ngMessages', 'dibari.angular-ellipsis', 'ngScrollTo',
-                    'ngSanitize', 'ng-showdown', 'ngFileUpload', 'ngclipboard', 'chart.js'])
+                    'ngSanitize', 'ng-showdown', 'ngFileUpload', 'ngclipboard', 'chart.js', 'pascalprecht.translate'])
 
         .constant('ROUTE_DETAILS', {
             JSON_ROOT: '$$route',

@@ -9,6 +9,7 @@
     "angular-i18n": "1.4.8",
     "angular-mocks": "1.4.8",
     "angular-sanitize": "1.4.8",
+    "angular-translate": "2.18.1",
     "jasmine-jquery": "~2.1.1",
     "foundation": "5.4.7",
     "angular-ellipsis": "dibari/angular-ellipsis#05de0ebe8947e01ac9137767c732246b5c29fff7",
