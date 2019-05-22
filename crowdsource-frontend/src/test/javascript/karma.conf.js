@@ -16,6 +16,7 @@ module.exports = function (config) {
             'bower_components/angular-sanitize/angular-sanitize.min.js',
             'bower_components/angular-translate/angular-translate.min.js',
             'bower_components/angular-translate-handler-log/angular-translate-handler-log.min.js',
+            'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js',
             'bower_components/ngScrollTo/ng-scrollto.js',
             'bower_components/moment/moment.js',
             'bower_components/moment-timezone/builds/moment-timezone-with-data.js',
@@ -34,6 +35,7 @@ module.exports = function (config) {
             'src/test/javascript/testsupport/mocked-libraries.testsupport.js',
             'src/main/resources/public/app/crowdsource.js',
             'src/main/resources/public/app/**/*.js',
+            'src/main/resources/public/app/translations/en.json',
             'src/test/javascript/**/*.js',
 
             // Selective test execution -> comment line above uncomment lines below

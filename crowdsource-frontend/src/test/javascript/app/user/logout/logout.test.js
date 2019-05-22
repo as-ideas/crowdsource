@@ -1,15 +1,17 @@
 describe('user logout view', function () {
 
-    var Authentication, html;
+    var Authentication, html, $httpBackend;
 
     beforeEach(function () {
         module('crowdsource');
         module('crowdsource.templates');
 
         localStorage.clear(); // reset
+        mockTranslation();
 
-        inject(function ($compile, $rootScope, $templateCache, $controller, _Authentication_) {
+        inject(function ($compile, $rootScope, $templateCache, $controller, _$httpBackend_, _Authentication_) {
 
+            $httpBackend = _$httpBackend_;
             Authentication = _Authentication_;
 
             spyOn(Authentication, 'logout');
@@ -26,6 +28,7 @@ describe('user logout view', function () {
 
             $scope.$digest();
         });
+
     });
 
     it('should invoke Authentication.logout() on page view', function () {

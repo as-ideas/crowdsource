@@ -11,6 +11,7 @@ describe('password recovery view', function () {
         });
 
         localStorage.clear(); // reset
+        mockTranslation();
 
         inject(function ($compile, $rootScope, $templateCache, $controller, _$httpBackend_, _$location_, User, RemoteFormValidation) {
             var $scope = $rootScope.$new();

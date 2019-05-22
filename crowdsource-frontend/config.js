@@ -23,6 +23,7 @@ var config = {
             'bower_components/angular-sanitize/angular-sanitize.min.js',
             'bower_components/angular-translate/angular-translate.min.js',
             'bower_components/angular-translate-handler-log/angular-translate-handler-log.min.js',
+            'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js',
             'bower_components/moment/min/moment.min.js',
             'bower_components/moment-timezone/builds/moment-timezone-with-data.min.js',
             'bower_components/bowser/bowser.min.js',

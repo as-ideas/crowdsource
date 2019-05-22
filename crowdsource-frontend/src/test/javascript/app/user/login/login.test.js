@@ -11,6 +11,7 @@ describe('user login view', function () {
         });
 
         localStorage.clear(); // reset
+        mockTranslation();
 
         inject(function ($compile, $rootScope, $templateCache, $controller, _$httpBackend_, _$location_, _Authentication_, RemoteFormValidation, Route) {
             var $scope = $rootScope.$new();
@@ -31,6 +32,7 @@ describe('user login view', function () {
             $scope.$digest();
             loginForm = new LoginForm(view);
         });
+
     });
 
     function expectValidationError(inputName, violatedRule) {

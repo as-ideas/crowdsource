@@ -22,6 +22,7 @@ describe('project likes', function () {
             };
         });
 
+        mockTranslation();
     });
 
     it("should show like counts with zero when not data provided on list page", function () {

@@ -7,6 +7,7 @@ describe('authentication service', function () {
         module('crowdsource.templates');
 
         localStorage.clear();
+        mockTranslation();
 
         inject(function (_$rootScope_, _$httpBackend_, _$http_, _Authentication_, _AuthenticationToken_) {
             $rootScope = _$rootScope_;

@@ -9,6 +9,7 @@ describe('project details', function () {
         module('crowdsource.templates');
 
         localStorage.clear(); // reset, makes the user not logged in
+        mockTranslation();
 
         inject(function ($compile, $rootScope, $templateCache, _$window_, $controller, _$location_, _$httpBackend_, Project, _AuthenticationToken_, _FinancingRound_) {
             $scope = $rootScope.$new();

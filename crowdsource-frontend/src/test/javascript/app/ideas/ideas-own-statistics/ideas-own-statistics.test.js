@@ -30,6 +30,7 @@ describe('Ideas Own Statistics', function () {
         module('crowdsource.templates');
 
         localStorage.clear();
+        mockTranslation();
 
         inject(function (_$rootScope_, _$httpBackend_, _$compile_) {
             $rootScope = _$rootScope_;

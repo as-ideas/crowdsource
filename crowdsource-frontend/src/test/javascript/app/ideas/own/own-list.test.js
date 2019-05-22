@@ -8,6 +8,7 @@ describe('Own ideas list', function () {
         module('crowdsource.templates');
 
         localStorage.clear(); // reset, makes the user not logged in
+        mockTranslation();
 
         inject(function ($compile, $rootScope, $templateCache, _$window_, $controller, _$location_, _$httpBackend_, Idea, _IDEAS_STATUS_, _Authentication_) {
             $scope = $rootScope.$new();

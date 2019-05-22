@@ -7,6 +7,7 @@ describe('project list', function () {
         module('crowdsource.templates');
 
         localStorage.clear();
+        mockTranslation();
 
         inject(function ($compile, $rootScope, $templateCache, $controller, $q, _$httpBackend_, _$location_, Project, Content) {
             $scope = $rootScope.$new();

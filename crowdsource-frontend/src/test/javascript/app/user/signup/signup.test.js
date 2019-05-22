@@ -11,6 +11,7 @@ describe('user signup view', function () {
         });
 
         localStorage.clear(); // reset
+        mockTranslation();
 
         inject(function ($compile, $rootScope, $templateCache, $controller, _$httpBackend_, _$location_, User, RemoteFormValidation) {
             var $scope = $rootScope.$new();
@@ -30,6 +31,7 @@ describe('user signup view', function () {
             $scope.$digest();
             signupForm = new SignupForm(view);
         });
+
     });
 
     function expectValidationError(inputName, violatedRule) {

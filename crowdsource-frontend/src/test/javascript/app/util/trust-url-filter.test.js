@@ -5,6 +5,7 @@ describe('trust-url filter', function () {
     beforeEach(function () {
         module('crowdsource');
         module('crowdsource.templates');
+        mockTranslation();
 
         inject(function (_$compile_, _$rootScope_) {
             $compile = _$compile_;

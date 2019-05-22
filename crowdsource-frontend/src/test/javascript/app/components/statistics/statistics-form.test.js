@@ -7,6 +7,7 @@ describe('statistics form', function () {
         module('crowdsource.templates');
 
         localStorage.clear();
+        mockTranslation();
 
         inject(function (_$compile_, _$rootScope_, _$httpBackend_, _STATISTICS_CONST_) {
             $compile = _$compile_;

@@ -7,6 +7,7 @@ describe('admin list', function () {
         module('crowdsource.templates');
 
         localStorage.clear();
+        mockTranslation();
 
         MOCKED_CAMPAIGN = {
             id: '123',

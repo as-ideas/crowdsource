@@ -7,6 +7,7 @@ describe('idea add', function () {
         module('crowdsource.templates');
 
         localStorage.clear();
+        mockTranslation();
 
         inject(function ($rootScope, _$httpBackend_, _$compile_) {
             $scope = $rootScope.$new();

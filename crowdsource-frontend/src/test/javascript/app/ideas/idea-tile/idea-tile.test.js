@@ -7,6 +7,7 @@ describe('idea-tile', function () {
         module('crowdsource.templates');
 
         localStorage.clear();
+        mockTranslation();
 
         inject(function ($rootScope, _$httpBackend_, _$compile_, _IDEAS_STATUS_) {
             $scope = $rootScope.$new();
@@ -16,6 +17,7 @@ describe('idea-tile', function () {
 
             $scope.campaign = {id:'some_id'}
         });
+
     });
 
     describe('user', function() {

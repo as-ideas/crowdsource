@@ -7,6 +7,8 @@ describe('status bar', function () {
         module('crowdsource');
 
         localStorage.clear();
+        mockTranslation();
+
         inject(function (_$compile_, _$rootScope_, _FinancingRound_, _Authentication_) {
             $rootScope = _$rootScope_;
             scope = $rootScope.$new();

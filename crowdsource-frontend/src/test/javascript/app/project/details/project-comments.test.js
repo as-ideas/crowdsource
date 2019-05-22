@@ -7,6 +7,7 @@ describe('project comments directive', function () {
         module('crowdsource.templates');
 
         localStorage.clear(); // reset
+        mockTranslation();
 
         inject(function ($rootScope, _$compile_, _$httpBackend_, Authentication) {
             $scope = $rootScope.$new();

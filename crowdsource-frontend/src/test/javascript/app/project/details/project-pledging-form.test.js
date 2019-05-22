@@ -7,6 +7,7 @@ describe('project pledging form', function () {
         module('crowdsource.templates');
 
         localStorage.clear(); // reset
+        mockTranslation();
 
         inject(function ($rootScope, _$compile_, _$httpBackend_, _AuthenticationToken_, _FinancingRound_, _$timeout_) {
             $scope = $rootScope.$new();

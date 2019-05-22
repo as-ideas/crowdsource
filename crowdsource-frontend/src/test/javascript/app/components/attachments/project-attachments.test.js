@@ -7,6 +7,8 @@ describe('project attachements', function () {
         module('crowdsource.templates');
         module('crowdsource');
 
+        mockTranslation();
+
         inject(function (_$compile_, _$rootScope_, _$httpBackend_, _$filter_, _$timeout_, _$browser_, _$location_, Bowser) {
             $rootScope = _$rootScope_;
             scope = $rootScope.$new();

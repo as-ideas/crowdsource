@@ -21,6 +21,8 @@ describe('teaser metrics service', function () {
             });
         });
 
+        mockTranslation();
+
         inject(function (_$rootScope_, _$compile_, _$httpBackend_, _$interval_, _$timeout_, _Route_) {
             $rootScope = _$rootScope_;
             $scope = $rootScope.$new();

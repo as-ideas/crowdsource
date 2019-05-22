@@ -7,11 +7,13 @@ describe('user activation view', function () {
         module('crowdsource.templates');
 
         localStorage.clear(); // reset
+        mockTranslation();
 
         inject(function (_$httpBackend_, _$location_) {
             $httpBackend = _$httpBackend_;
             $location = _$location_;
         });
+
     });
 
     function compileView() {

@@ -33,11 +33,9 @@
 
         .config(function ($routeProvider, $locationProvider, $httpProvider, $showdownProvider, $translateProvider, ROUTE_DETAILS) {
             $translateProvider
-                .translations('de', {
-                    'HELLO': 'Hallo Welt :D'
-                })
-                .translations('en', {
-                    'HELLO': 'Hello World'
+                .useStaticFilesLoader({
+                    prefix: '/translations/',
+                    suffix: '.json'
                 })
                 .preferredLanguage('de')
                 .useMissingTranslationHandlerLog();

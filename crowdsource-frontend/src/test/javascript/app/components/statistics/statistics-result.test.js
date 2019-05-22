@@ -8,6 +8,7 @@ describe("statistics result", function () {
         module('crowdsource.templates');
 
         localStorage.clear();
+        mockTranslation();
 
         inject(function (_$compile_, _$rootScope_, _$httpBackend_) {
             $compile = _$compile_;

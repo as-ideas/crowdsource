@@ -8,6 +8,7 @@ describe('intro page', function () {
 
 
         localStorage.clear();
+        mockTranslation();
 
         inject(function (_$compile_, _$rootScope_, $templateCache, _$controller_, $q, _Project_, _Idea_, _Authentication_, _$httpBackend_) {
             $compile = _$compile_;
@@ -26,6 +27,7 @@ describe('intro page', function () {
 
             template = $templateCache.get('app/intro/intro.html');
         });
+
     });
 
 

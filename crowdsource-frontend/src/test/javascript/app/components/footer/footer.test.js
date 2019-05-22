@@ -16,6 +16,7 @@ describe('Footer', function () {
             Authentication = _Authentication_;
         });
 
+        mockTranslation();
         $httpBackend.expectGET('/content').respond(204);
     });
 

@@ -6,6 +6,8 @@ describe('authentication service', function () {
         module('crowdsource');
         module('crowdsource.templates');
 
+        mockTranslation();
+
         inject(function (_$httpBackend_, _ServerTime_) {
             $httpBackend = _$httpBackend_;
             ServerTime = _ServerTime_;

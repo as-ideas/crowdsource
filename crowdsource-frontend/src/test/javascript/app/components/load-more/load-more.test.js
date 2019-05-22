@@ -6,6 +6,7 @@ describe('load more', function () {
         module('crowdsource.templates');
 
         localStorage.clear();
+        mockTranslation();
 
         inject(function (_$compile_, _$rootScope_, _$httpBackend_) {
             $compile = _$compile_;
@@ -14,6 +15,7 @@ describe('load more', function () {
 
             $scope = $rootScope.$new();
         });
+
     });
 
     it('should render LOAD MORE text, when data can be loaded', function () {

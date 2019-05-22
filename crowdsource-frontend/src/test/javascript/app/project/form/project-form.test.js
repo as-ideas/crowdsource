@@ -7,6 +7,7 @@ describe('project form', function () {
         module('crowdsource.templates');
 
         localStorage.clear(); // reset
+        mockTranslation();
 
         inject(function ($compile, $rootScope, $templateCache, $controller, _$httpBackend_, _$location_, Project, RemoteFormValidation) {
             $scope = $rootScope.$new();

@@ -8,6 +8,7 @@ describe('ideas list', function () {
         module('crowdsource.templates');
 
         localStorage.clear(); // reset, makes the user not logged in
+        mockTranslation();
 
         inject(function ($compile, $rootScope, $templateCache, _$window_, $controller, _$location_, _$httpBackend_, Idea, _Authentication_) {
             $scope = $rootScope.$new();
@@ -25,6 +26,7 @@ describe('ideas list', function () {
             var template = $templateCache.get('app/ideas/list/ideas-list.html');
             renderedView = $compile('<div>' + template + '</div>')($scope);
         });
+
     });
 
     it("should load given campaign before rendering", function () {

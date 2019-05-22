@@ -7,6 +7,7 @@ describe('financing rounds', function () {
         module('crowdsource.templates');
 
         localStorage.clear(); // reset
+        mockTranslation();
 
         inject(function ($compile, $rootScope, _$window_, $templateCache, $controller, _$location_, _$httpBackend_, FinancingRound) {
             $scope = $rootScope.$new();
