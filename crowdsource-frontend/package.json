@@ -5,6 +5,7 @@
     "npm": "6.5.0"
   },
   "devDependencies": {
+    "angular-translate-extract": "file:local_modules/angular-translate-extract",
     "bower": "~1.3.12",
     "gulp": "~3.8.10",
     "gulp-autoprefixer": "^2.1.0",
@@ -32,6 +33,7 @@
   },
   "scripts": {
     "postinstall": "bower install --allow-root --config.interactive=false",
+    "translate": "node extract-translation.js",
     "test": "karma start src/test/javascript/karma.conf.js --single-run",
     "test-watch": "karma start src/test/javascript/karma.conf.js --watch",
     "package": "gulp",

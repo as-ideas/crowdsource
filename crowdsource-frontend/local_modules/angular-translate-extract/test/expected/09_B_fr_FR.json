@@ -1,0 +1,29 @@
+{
+  "SUB": {
+    "NAMESPACE": {
+      "VAL 1": "My default SUB.NAMESPACE.VAL 1",
+      "VAL 2": "Waouhh!"
+    },
+    "NS": {
+      "VAL 1": {
+        "test 2": "SUB.NS.VAL 1.test 2",
+        "test1": "SUB.NS.VAL 1.test1"
+      },
+      "VAL 2": "SUB.NS.VAL 2",
+      "vAL 0": "SUB.NS.vAL 0"
+    }
+  },
+  "all": {
+    "tato": {
+      "tIiti": "all.tato.tIiti",
+      "tZti": "all.tato.tZti",
+      "tati": "all.tato.tati",
+      "tbti": "all.tato.tbti",
+      "tdti": "all.tato.tdti",
+      "tzti": "all.tato.tzti"
+    },
+    "toto": {
+      "titi": "all.toto.titi"
+    }
+  }
+}

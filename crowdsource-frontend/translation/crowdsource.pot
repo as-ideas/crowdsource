@@ -1,0 +1,17 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+msgctxt ""
+msgid "BUTTON_LABEL_LOGIN"
+msgstr "Login"
+
+msgctxt ""
+msgid "INTRO_DESC"
+msgstr "Werde Teil der Community! Hier geht's zum Login"
+
+msgctxt ""
+msgid "INTRO_HEADLINE"
+msgstr "Join Crowd"
