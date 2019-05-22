@@ -31,7 +31,17 @@
             VALUE_CAMPAIGN_PROTOTYPE: 'prototype'
         })
 
-        .config(function ($routeProvider, $locationProvider, $httpProvider, $showdownProvider, ROUTE_DETAILS) {
+        .config(function ($routeProvider, $locationProvider, $httpProvider, $showdownProvider, $translateProvider, ROUTE_DETAILS) {
+            $translateProvider
+                .translations('de', {
+                    'HELLO': 'Hallo Welt :D'
+                })
+                .translations('en', {
+                    'HELLO': 'Hello World'
+                })
+                .preferredLanguage('de')
+                .useMissingTranslationHandlerLog();
+
             $routeProvider
                 .when('/intro', {
                     templateUrl: 'app/intro/intro.html',
