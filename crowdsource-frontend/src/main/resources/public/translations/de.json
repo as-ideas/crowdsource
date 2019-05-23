@@ -1,5 +1,4 @@
 {
-   "BUTTON_LABEL_LOGIN": "Login",
    "INTRO_DESC": "INTRO_DESC",
    "INTRO_HEADLINE": "INTRO_HEADLINE",
    "INTRO_HERO_ACTIONBAR_HEADLINE_1": "INTRO_HERO_ACTIONBAR_HEADLINE_1",
@@ -8,5 +7,7 @@
    "INTRO_HERO_ACTIONBAR_LEDGE_1": "INTRO_HERO_ACTIONBAR_LEDGE_1",
    "INTRO_HERO_ACTIONBAR_LEDGE_2": "INTRO_HERO_ACTIONBAR_LEDGE_2",
    "INTRO_HERO_ACTIONBAR_LEDGE_3": "INTRO_HERO_ACTIONBAR_LEDGE_3",
-   "INTRO_HERO_HEADLINE": "INTRO_HERO_HEADLINE"
+   "INTRO_HERO_HEADLINE": "INTRO_HERO_HEADLINE",
+   "PASSWORD_RECOVERY_SUCCESS_DESC": "Wir haben eine E-Mail mit einem Bestätigungslink an {{email}} gesendet. Bitte öffne Dein E-Mail-Postfach und klicke auf den Link, um Dein Passwort neu zu setzen.",
+   "LOGIN_ERROR_INVALID_CREDENTIALS": "Deine Anmeldeinformationen sind ungültig. Bitte überprüfe die eingegebenen Daten."
 }

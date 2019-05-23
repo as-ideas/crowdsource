@@ -9,6 +9,14 @@ msgid "BUTTON_LABEL_LOGIN"
 msgstr "Login"
 
 msgctxt ""
+msgid "BUTTON_LABEL_SUBMIT"
+msgstr ""
+
+msgctxt ""
+msgid "BUTTON_LABEL_SUBMITTING"
+msgstr ""
+
+msgctxt ""
 msgid "FORM_EMAIL_ERROR_ALREADY_ACTIVATED_1"
 msgstr "Die E-Mail-Adresse wurde bereits aktiviert. Du kannst Dich mit Deinem Passwort einloggen. Falls Du Dein Passwort vergessen hast, klicke bitte"
 
@@ -35,6 +43,26 @@ msgstr "Bitte gib Deine E-Mail-Adresse ein"
 msgctxt ""
 msgid "FORM_EMAIL_LABEL"
 msgstr "E-Mail"
+
+msgctxt ""
+msgid "FORM_EMAIL_PLACEHOLDER"
+msgstr ""
+
+msgctxt ""
+msgid "FORM_ERROR_UNEXPECTED"
+msgstr "Es ist ein Fehler aufgetreten. Bitte versuche es erneut."
+
+msgctxt ""
+msgid "FORM_PASSWORD_ERROR_REQUIRED"
+msgstr "Bitte gib Dein Passwort ein"
+
+msgctxt ""
+msgid "FORM_PASSWORD_LABEL"
+msgstr "Passwort"
+
+msgctxt ""
+msgid "FORM_PASSWORD_PLACEHOLDER"
+msgstr ""
 
 msgctxt ""
 msgid "INTRO_DESC"
@@ -97,12 +125,24 @@ msgid "LOGIN_ERROR_INVALID_CREDENTIALS"
 msgstr "Deine Anmeldeinformationen sind ungültig. Bitte überprüfe die eingegebenen Daten."
 
 msgctxt ""
-msgid "LOGIN_ERROR_UNEXPECTED"
-msgstr "Es ist ein Fehler aufgetreten. Bitte versuche es erneut."
+msgid "LOGIN_HEADLINE"
+msgstr ""
 
 msgctxt ""
-msgid "LOGIN_HEADLINE"
-msgstr "Login"
+msgid "LOGIN_LINK_PASSWORD_RECOVERY"
+msgstr "Passwort vergessen?"
+
+msgctxt ""
+msgid "LOGIN_LINK_REGISTER"
+msgstr "oder hier registrieren"
+
+msgctxt ""
+msgid "LOGOUT_HEADLINE"
+msgstr "Du wurdest ausgeloggt"
+
+msgctxt ""
+msgid "LOGOUT_LINK_LOGIN"
+msgstr "Du kannst Dich hier wieder einloggen."
 
 msgctxt ""
 msgid "OVERVIEW_IDEAS_HEADLINE"
@@ -119,3 +159,27 @@ msgstr "Prototypen"
 msgctxt ""
 msgid "OVERVIEW_PROTOTYPES_NO_CAMPAIGN"
 msgstr "Zurzeit gibt es leider keine Prototypen Kampagne"
+
+msgctxt ""
+msgid "PASSWORD_RECOVERY_DESC"
+msgstr "Gib hier die E-Mail-Adresse ein, mit der Du Dich registriert hast. Du erhältst von uns eine E-Mail mit einem Bestätigungslink und kannst Dein Passwort neu setzen."
+
+msgctxt ""
+msgid "PASSWORD_RECOVERY_ERROR_EMAIL_NOT_REGISTERED_1"
+msgstr "Die Email-Adresse wurde noch nicht registriert. Versuche dich einfach zu"
+
+msgctxt ""
+msgid "PASSWORD_RECOVERY_HEADLINE"
+msgstr "Passwort vergessen"
+
+msgctxt ""
+msgid "PASSWORD_RECOVERY_LINK_LOGIN"
+msgstr "oder hier anmelden"
+
+msgctxt ""
+msgid "PASSWORD_RECOVERY_SUCCESS_DESC"
+msgstr "' + passwordRecoverySuccess.email + '"
+
+msgctxt ""
+msgid "PASSWORD_RECOVERY_SUCCESS_HEADLINE"
+msgstr "Passwort vergessen"
