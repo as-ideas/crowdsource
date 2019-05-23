@@ -11,7 +11,6 @@ var data = {
 
 var basePath = __dirname.substring(0,__dirname.lastIndexOf('/'));
 console.log("basepath: " + basePath);
-console.log("__dirname: " + __dirname);
 
 var option = {
     basePath: basePath

@@ -48,7 +48,6 @@ var extractor; /**
     _utils = new _utils2.Utils({
       basePath: _basePath
     });
-    console.log("basepath: " + _basePath)
 
     // Check lang parameter
     if (!_lodash2.default.isArray(this.data.lang) || !this.data.lang.length) {
@@ -74,7 +73,6 @@ var extractor; /**
         keyAsText = this.data.keyAsText || false,
         adapter = this.data.adapter || 'json';
 
-    console.log("Files: " + this.data.src)
 
     // Extract regex strings from content and feed results object
     var _extractTranslation = function _extractTranslation(regexName, regex, content, results) {

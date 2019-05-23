@@ -34,7 +34,8 @@
   },
   "scripts": {
     "postinstall": "bower install --allow-root --config.interactive=false",
-    "translate": "node translation/extract-translation.js",
+    "translation-extract": "node translation/translation-extract.js",
+    "translation-convert": "node translation/translation-convert.js",
     "test": "karma start src/test/javascript/karma.conf.js --single-run",
     "test-watch": "karma start src/test/javascript/karma.conf.js --watch",
     "package": "gulp",
