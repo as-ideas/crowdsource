@@ -73,7 +73,6 @@ var extractor; /**
         keyAsText = this.data.keyAsText || false,
         adapter = this.data.adapter || 'json';
 
-
     // Extract regex strings from content and feed results object
     var _extractTranslation = function _extractTranslation(regexName, regex, content, results) {
       var r;
@@ -92,6 +91,8 @@ var extractor; /**
           switch (regexName) {
             case 'HtmlDirectiveSimpleQuote':
             case 'HtmlDirectiveDoubleQuote':
+            case 'HtmlDirectiveAttrSimpleQuote':
+            case 'HtmlDirectiveAttrDoubleQuote':
               translationKey = r[1].trim();
               translationDefaultValue = (r[2] || "").trim();
               break;
@@ -196,6 +197,8 @@ var extractor; /**
       HtmlDirective: '<(?:[^>"]|"(?:[^"]|\\/")*")*\\stranslate(?:>|\\s[^>]*>)([^<]*)',
       HtmlDirectiveSimpleQuote: '<(?:[^>"]|"(?:[^"]|\\/")*")*\\stranslate=\'([^\']*)\'[^>]*>([^<]*)',
       HtmlDirectiveDoubleQuote: '<(?:[^>"]|"(?:[^"]|\\/")*")*\\stranslate="([^"]*)"[^>]*>([^<]*)',
+      HtmlDirectiveAttrSimpleQuote: '<(?:[^>"]|"(?:[^"]|\\/")*")*\\stranslate-attr-[\\w]+=\'([^\']*)\'[^>]*>([^<]*)',
+      HtmlDirectiveAttrDoubleQuote: '<(?:[^>"]|"(?:[^"]|\\/")*")*\\stranslate-attr-[\\w]+="([^"]*)"[^>]*>([^<]*)',
       HtmlDirectivePluralLast: 'translate="((?:\\\\.|[^"\\\\])*)".*angular-plural-extract="((?:\\\\.|[^"\\\\])*)"',
       HtmlDirectivePluralFirst: 'angular-plural-extract="((?:\\\\.|[^"\\\\])*)".*translate="((?:\\\\.|[^"\\\\])*)"',
       HtmlNgBindHtml: 'ng-bind-html="\\s*\'((?:\\\\.|[^\'\\\\])*)\'\\s*\\|\\s*translate(:.*?)?\\s*"',

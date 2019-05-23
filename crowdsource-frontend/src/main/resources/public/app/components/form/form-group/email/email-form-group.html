@@ -10,9 +10,9 @@
         <span ng-message="non_blacklisted_email" translate="FORM_EMAIL_ERROR_INVALID_BLACKLIST">Dieser Service kann nur von Mitarbeitern mit einer E-Mail-Adresse mit gültiger Domain verwendet werden</span>
         <span ng-message="remote_not_activated" translate="FORM_EMAIL_ERROR_ALREADY_ACTIVATED_1">Die E-Mail-Adresse wurde bereits aktiviert. Du kannst Dich mit Deinem Passwort einloggen. Falls Du Dein Passwort vergessen hast, klicke bitte <a href="#/passwordrecovery" translate="FORM_EMAIL_ERROR_ALREADY_ACTIVATED_2">hier</a></span>
     </span>
-</label>
+    </label>
 
-<div class="full-width">
-    <input type="email" name="{{ fieldName }}" ng-model="model" placeholder="E-Mail"
-           required local-email-part-input non-external-email reset-remote-validation translate-attr-placeholder="{ placeholder: 'FORM_EMAIL_PLACEHOLDER' }>
+    <div class="full-width">
+        <input type="email" name="{{ fieldName }}" ng-model="model" placeholder="E-Mail"
+               required local-email-part-input non-external-email reset-remote-validation translate-attr-placeholder="FORM_EMAIL_PLACEHOLDER">
 </div>
