@@ -4,9 +4,7 @@
 
         <div class="row">
             <div class="small-12 columns">
-                <h1 >
-                    Login
-
+                <h1 translate="LOGIN_HEADLINE">Login
                     <small class="right push--top">
                         <a class="password-recovery-link  text--small" href="#/login/password-recovery">Passwort vergessen?</a>
                     </small>
@@ -16,8 +14,8 @@
 
         <div class="small-12 columns">
             <div class="general-error alert-box alert" ng-messages="login.generalErrors" ng-if="login.generalErrors">
-                <span ng-message="remote_bad_credentials">Deine Anmeldeinformationen sind ungültig. Bitte überprüfe die eingegebenen Daten.</span>
-                <span ng-message="remote_unknown">Es ist ein Fehler aufgetreten. Bitte versuche es erneut.</span>
+                <span ng-message="remote_bad_credentials" translate="LOGIN_ERROR_INVALID_CREDENTIALS">Deine Anmeldeinformationen sind ungültig. Bitte überprüfe die eingegebenen Daten.</span>
+                <span ng-message="remote_unknown" translate="LOGIN_ERROR_UNEXPECTED">Es ist ein Fehler aufgetreten. Bitte versuche es erneut.</span>
             </div>
         </div>
 

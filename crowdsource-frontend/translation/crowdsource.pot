@@ -9,6 +9,34 @@ msgid "BUTTON_LABEL_LOGIN"
 msgstr "Login"
 
 msgctxt ""
+msgid "FORM_EMAIL_ERROR_ALREADY_ACTIVATED_1"
+msgstr "Die E-Mail-Adresse wurde bereits aktiviert. Du kannst Dich mit Deinem Passwort einloggen. Falls Du Dein Passwort vergessen hast, klicke bitte"
+
+msgctxt ""
+msgid "FORM_EMAIL_ERROR_ALREADY_ACTIVATED_2"
+msgstr "hier"
+
+msgctxt ""
+msgid "FORM_EMAIL_ERROR_INVALID"
+msgstr "Bitte gib eine valide E-Mail Adresse ein"
+
+msgctxt ""
+msgid "FORM_EMAIL_ERROR_INVALID_BLACKLIST"
+msgstr "Dieser Service kann nur von Mitarbeitern mit einer E-Mail-Adresse mit gültiger Domain verwendet werden"
+
+msgctxt ""
+msgid "FORM_EMAIL_ERROR_INVALID_UNIT"
+msgstr "Deine Unit wird noch nicht unterstützt"
+
+msgctxt ""
+msgid "FORM_EMAIL_ERROR_REQUIRED"
+msgstr "Bitte gib Deine E-Mail-Adresse ein"
+
+msgctxt ""
+msgid "FORM_EMAIL_LABEL"
+msgstr "E-Mail"
+
+msgctxt ""
 msgid "INTRO_DESC"
 msgstr "Werde Teil der Community! Hier geht's zum Login"
 
@@ -43,3 +71,51 @@ msgstr "Gestaltet die Zukunft"
 msgctxt ""
 msgid "INTRO_HERO_HEADLINE"
 msgstr "Deine Innovation startet hier"
+
+msgctxt ""
+msgid "INTRO_HERO_P_1"
+msgstr "Du hast eine neuartige Idee für ein Projekt, doch noch nie den richtigen Moment gehabt darüber zu reden?"
+
+msgctxt ""
+msgid "INTRO_HERO_P_2"
+msgstr "Hier ist Deine Chance! Endlich kannst Du Deine Ideen und Vorschläge zu verschiedenen Kampagnen des Konzerns veröffentlichen, bewerten, diskutieren und bei erfolgreichem Abschluss aktiv an der Gestaltung mitwirken. Komm mit Zweiflern und Unterstützern ins Gespräch, diskutiere Vorschläge und Binärcodes, profitiere vom Feedback Deiner Kollegen, und erstelle das für Dich optimale Projekt. Aber Vorsicht:"
+
+msgctxt ""
+msgid "INTRO_HERO_P_3"
+msgstr "Be creative! Be smart! Be innovative!"
+
+msgctxt ""
+msgid "INTRO_HERO_P_4"
+msgstr "Die Konkurrenz schläft nicht! Sei ganz vorn mit dabei, wenn es heißt:"
+
+msgctxt ""
+msgid "INTRO_HERO_P_5"
+msgstr "AXEL SPRINGER - MIT UNS FÜR DIE ZUKUNFT"
+
+msgctxt ""
+msgid "LOGIN_ERROR_INVALID_CREDENTIALS"
+msgstr "Deine Anmeldeinformationen sind ungültig. Bitte überprüfe die eingegebenen Daten."
+
+msgctxt ""
+msgid "LOGIN_ERROR_UNEXPECTED"
+msgstr "Es ist ein Fehler aufgetreten. Bitte versuche es erneut."
+
+msgctxt ""
+msgid "LOGIN_HEADLINE"
+msgstr "Login"
+
+msgctxt ""
+msgid "OVERVIEW_IDEAS_HEADLINE"
+msgstr "Ideen"
+
+msgctxt ""
+msgid "OVERVIEW_IDEAS_NO_CAMPAIGN"
+msgstr "Zurzeit gibt es leider keine Ideen Kampagne"
+
+msgctxt ""
+msgid "OVERVIEW_PROTOTYPES_HEADLINE"
+msgstr "Prototypen"
+
+msgctxt ""
+msgid "OVERVIEW_PROTOTYPES_NO_CAMPAIGN"
+msgstr "Zurzeit gibt es leider keine Prototypen Kampagne"

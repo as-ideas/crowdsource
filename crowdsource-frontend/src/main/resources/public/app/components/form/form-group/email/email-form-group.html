@@ -1,18 +1,18 @@
 <label form-group="{{ fieldName }}">
 
-    <span form-label-valid="{{ fieldName }}">E-Mail</span>
+    <span form-label-valid="{{ fieldName }}" translate="FORM_EMAIL_LABEL">E-Mail</span>
 
     <span form-label-invalid="{{ fieldName }}" ng-messages="form[fieldName].$error">
         <!-- required and 'pattern' are build-in validations of angular.js -->
-        <span ng-message="required">Bitte gib Deine E-Mail-Adresse ein</span>
-        <span ng-message="email">Bitte gib eine valide E-Mail Adresse ein</span>
-        <span ng-message="remote_eligible">Deine Unit wird noch nicht unterstützt</span>
-        <span ng-message="non_blacklisted_email">Dieser Service kann nur von Mitarbeitern mit einer E-Mail-Adresse mit gültiger Domain verwendet werden</span>
-        <span ng-message="remote_not_activated">Die E-Mail-Adresse wurde bereits aktiviert. Du kannst Dich mit Deinem Passwort einloggen. Falls Du Dein Passwort vergessen hast, klicke bitte <a href="#/passwordrecovery">hier</a></span>
+        <span ng-message="required" translate="FORM_EMAIL_ERROR_REQUIRED">Bitte gib Deine E-Mail-Adresse ein</span>
+        <span ng-message="email" translate="FORM_EMAIL_ERROR_INVALID">Bitte gib eine valide E-Mail Adresse ein</span>
+        <span ng-message="remote_eligible" translate="FORM_EMAIL_ERROR_INVALID_UNIT">Deine Unit wird noch nicht unterstützt</span>
+        <span ng-message="non_blacklisted_email" translate="FORM_EMAIL_ERROR_INVALID_BLACKLIST">Dieser Service kann nur von Mitarbeitern mit einer E-Mail-Adresse mit gültiger Domain verwendet werden</span>
+        <span ng-message="remote_not_activated" translate="FORM_EMAIL_ERROR_ALREADY_ACTIVATED_1">Die E-Mail-Adresse wurde bereits aktiviert. Du kannst Dich mit Deinem Passwort einloggen. Falls Du Dein Passwort vergessen hast, klicke bitte <a href="#/passwordrecovery" translate="FORM_EMAIL_ERROR_ALREADY_ACTIVATED_2">hier</a></span>
     </span>
 </label>
 
 <div class="full-width">
     <input type="email" name="{{ fieldName }}" ng-model="model" placeholder="E-Mail"
-           required local-email-part-input non-external-email reset-remote-validation>
+           required local-email-part-input non-external-email reset-remote-validation translate-attr-placeholder="{ placeholder: 'FORM_EMAIL_PLACEHOLDER' }>
 </div>
