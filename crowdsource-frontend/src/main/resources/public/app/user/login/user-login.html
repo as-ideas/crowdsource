@@ -45,11 +45,9 @@
             <div class="small-12 columns text-center">
                 <div>
                     <button type="submit" class="crwd-success radius shadow margin-top"
-                            ng-click="login.login()" ng-disabled="login.loading">
-                        {{ login.loading ? 'Login...' : 'Login' }}
-                    </button>
+                            ng-click="login.login()" ng-disabled="login.loading">{{ login.loading ? 'BUTTON_LABEL_LOGGING_IN' : 'BUTTON_LABEL_LOGIN' | translate}}</button>
                 </div>
-                <div class="text--small push--top" translate="LOGIN_REGISTER" translate-compile translate-values="{ link: <a href=\'#/signup\' translate=\'LOGIN_REGISTER_LINK\' translate-compile>temp</a>'}"></div>
+                <div class="text--small push--top" translate="LOGIN_REGISTER" translate-compile translate-values="{ link: '<a href=\'#/signup\' translate=\'LOGIN_REGISTER_LINK\'></a>'}"></div>
             </div>
         </div>
     </form>

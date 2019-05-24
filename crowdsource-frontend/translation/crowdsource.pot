@@ -5,8 +5,12 @@ msgstr ""
 "Project-Id-Version: \n"
 
 msgctxt ""
+msgid "BUTTON_LABEL_LOGGING_IN"
+msgstr ""
+
+msgctxt ""
 msgid "BUTTON_LABEL_LOGIN"
-msgstr "Login"
+msgstr ""
 
 msgctxt ""
 msgid "BUTTON_LABEL_SUBMIT"
@@ -134,11 +138,11 @@ msgstr "Passwort vergessen?"
 
 msgctxt ""
 msgid "LOGIN_REGISTER"
-msgstr "temp"
+msgstr ""
 
 msgctxt ""
-msgid "LOGIN_REGISTER_LINK\"
-msgstr "temp"
+msgid "LOGIN_REGISTER_LINK"
+msgstr ""
 
 msgctxt ""
 msgid "LOGOUT_HEADLINE"
@@ -146,7 +150,11 @@ msgstr "Du wurdest ausgeloggt"
 
 msgctxt ""
 msgid "LOGOUT_LINK_LOGIN"
-msgstr "Du kannst Dich hier wieder einloggen."
+msgstr ""
+
+msgctxt ""
+msgid "LOGOUT_LINK_LOGIN_LINK"
+msgstr ""
 
 msgctxt ""
 msgid "OVERVIEW_IDEAS_HEADLINE"
@@ -169,8 +177,12 @@ msgid "PASSWORD_RECOVERY_DESC"
 msgstr "Gib hier die E-Mail-Adresse ein, mit der Du Dich registriert hast. Du erhältst von uns eine E-Mail mit einem Bestätigungslink und kannst Dein Passwort neu setzen."
 
 msgctxt ""
-msgid "PASSWORD_RECOVERY_ERROR_EMAIL_NOT_REGISTERED_1"
-msgstr "Die Email-Adresse wurde noch nicht registriert. Versuche dich einfach zu"
+msgid "PASSWORD_RECOVERY_ERROR_EMAIL_NOT_REGISTERED"
+msgstr ""
+
+msgctxt ""
+msgid "PASSWORD_RECOVERY_ERROR_EMAIL_NOT_REGISTERED_LINK"
+msgstr ""
 
 msgctxt ""
 msgid "PASSWORD_RECOVERY_HEADLINE"
