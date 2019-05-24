@@ -74,6 +74,7 @@ var extractor
             case 'HtmlDirectiveSimpleQuote':
             case 'HtmlDirectiveDoubleQuote':
             case 'HtmlDirectiveAttrSimpleQuote':
+            case 'HtmlDirectiveSimpleQuoteEscaped':
             case 'HtmlDirectiveAttrDoubleQuote':
               translationKey = r[1].trim()
               translationDefaultValue = (r[2] || "").trim()
@@ -180,6 +181,7 @@ var extractor
       HtmlFilterTernary: _utils.escapeRegExp(interpolation.startDelimiter) + '\\s*(?:::)?([^?]*\\?[^:]*:[^|}]*)\\s*\\|\\s*translate(:.*?)?\\s*' + _utils.escapeRegExp(interpolation.endDelimiter),
       HtmlDirective: '<(?:[^>"]|"(?:[^"]|\\/")*")*\\stranslate(?:>|\\s[^>]*>)([^<]*)',
       HtmlDirectiveSimpleQuote: '<(?:[^>"]|"(?:[^"]|\\/")*")*\\stranslate=\'([^\']*)\'[^>]*>([^<]*)',
+      HtmlDirectiveSimpleQuoteEscaped: '<(?:[^>"]|"(?:[^"]|\\/")*")*\\stranslate=[\\\\]?\'([^\']*)\'[^>]*>([^<]*)',
       HtmlDirectiveDoubleQuote: '<(?:[^>"]|"(?:[^"]|\\/")*")*\\stranslate="([^"]*)"[^>]*>([^<]*)',
       HtmlDirectiveAttrSimpleQuote: '<(?:[^>"]|"(?:[^"]|\\/")*")*\\stranslate-attr-[\\w]+=\'([^\']*)\'[^>]*>([^<]*)',
       HtmlDirectiveAttrDoubleQuote: '<(?:[^>"]|"(?:[^"]|\\/")*")*\\stranslate-attr-[\\w]+="([^"]*)"[^>]*>([^<]*)',

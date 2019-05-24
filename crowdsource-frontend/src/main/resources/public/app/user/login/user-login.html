@@ -16,7 +16,7 @@
         <div class="small-12 columns">
             <div class="general-error alert-box alert" ng-messages="login.generalErrors" ng-if="login.generalErrors">
                 <span ng-message="remote_bad_credentials">{{'LOGIN_ERROR_INVALID_CREDENTIALS' | translate}}</span>
-                <span ng-message="remote_unknown" translate="FORM_ERROR_UNEXPECTED">Es ist ein Fehler aufgetreten. Bitte versuche es erneut.</span>
+                <span ng-message="remote_unknown">{{'FORM_ERROR_UNEXPECTED' | translate}}</span>
             </div>
         </div>
 
@@ -32,7 +32,7 @@
                     <span form-label-valid="password" translate="FORM_PASSWORD_LABEL">Passwort</span>
 
                     <span form-label-invalid="password" ng-messages="login.form.password.$error">
-                        <span ng-message="required" translate="FORM_PASSWORD_ERROR_REQUIRED">Bitte gib Dein Passwort ein</span>
+                        <span ng-message="required">{{'FORM_PASSWORD_ERROR_REQUIRED' | translate}}</span>
                     </span>
 
                     <input type="password" name="password" ng-model="login.user.password" placeholder="Passwort"
@@ -49,8 +49,7 @@
                         {{ login.loading ? 'Login...' : 'Login' }}
                     </button>
                 </div>
-                <div class="text--small push--top"><a href="#/signup" translate="LOGIN_LINK_REGISTER">oder hier registrieren</a>
-                </div>
+                <div class="text--small push--top" translate="LOGIN_REGISTER" translate-compile translate-values="{ link: <a href=\'#/signup\' translate=\'LOGIN_REGISTER_LINK\' translate-compile>temp</a>'}"></div>
             </div>
         </div>
     </form>

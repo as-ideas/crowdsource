@@ -18,27 +18,27 @@ msgstr ""
 
 msgctxt ""
 msgid "FORM_EMAIL_ERROR_ALREADY_ACTIVATED_1"
-msgstr "Die E-Mail-Adresse wurde bereits aktiviert. Du kannst Dich mit Deinem Passwort einloggen. Falls Du Dein Passwort vergessen hast, klicke bitte"
+msgstr ""
 
 msgctxt ""
 msgid "FORM_EMAIL_ERROR_ALREADY_ACTIVATED_2"
-msgstr "hier"
+msgstr ""
 
 msgctxt ""
 msgid "FORM_EMAIL_ERROR_INVALID"
-msgstr "Bitte gib eine valide E-Mail Adresse ein"
+msgstr ""
 
 msgctxt ""
 msgid "FORM_EMAIL_ERROR_INVALID_BLACKLIST"
-msgstr "Dieser Service kann nur von Mitarbeitern mit einer E-Mail-Adresse mit gültiger Domain verwendet werden"
+msgstr ""
 
 msgctxt ""
 msgid "FORM_EMAIL_ERROR_INVALID_UNIT"
-msgstr "Deine Unit wird noch nicht unterstützt"
+msgstr ""
 
 msgctxt ""
 msgid "FORM_EMAIL_ERROR_REQUIRED"
-msgstr "Bitte gib Deine E-Mail-Adresse ein"
+msgstr ""
 
 msgctxt ""
 msgid "FORM_EMAIL_LABEL"
@@ -50,11 +50,11 @@ msgstr ""
 
 msgctxt ""
 msgid "FORM_ERROR_UNEXPECTED"
-msgstr "Es ist ein Fehler aufgetreten. Bitte versuche es erneut."
+msgstr ""
 
 msgctxt ""
 msgid "FORM_PASSWORD_ERROR_REQUIRED"
-msgstr "Bitte gib Dein Passwort ein"
+msgstr ""
 
 msgctxt ""
 msgid "FORM_PASSWORD_LABEL"
@@ -122,7 +122,7 @@ msgstr "AXEL SPRINGER - MIT UNS FÜR DIE ZUKUNFT"
 
 msgctxt ""
 msgid "LOGIN_ERROR_INVALID_CREDENTIALS"
-msgstr "Deine Anmeldeinformationen sind ungültig. Bitte überprüfe die eingegebenen Daten."
+msgstr ""
 
 msgctxt ""
 msgid "LOGIN_HEADLINE"
@@ -133,8 +133,12 @@ msgid "LOGIN_LINK_PASSWORD_RECOVERY"
 msgstr "Passwort vergessen?"
 
 msgctxt ""
-msgid "LOGIN_LINK_REGISTER"
-msgstr "oder hier registrieren"
+msgid "LOGIN_REGISTER"
+msgstr "temp"
+
+msgctxt ""
+msgid "LOGIN_REGISTER_LINK\"
+msgstr "temp"
 
 msgctxt ""
 msgid "LOGOUT_HEADLINE"

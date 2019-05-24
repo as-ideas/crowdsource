@@ -4,11 +4,11 @@
 
     <span form-label-invalid="{{ fieldName }}" ng-messages="form[fieldName].$error">
         <!-- required and 'pattern' are build-in validations of angular.js -->
-        <span ng-message="required" translate="FORM_EMAIL_ERROR_REQUIRED">Bitte gib Deine E-Mail-Adresse ein</span>
-        <span ng-message="email" translate="FORM_EMAIL_ERROR_INVALID">Bitte gib eine valide E-Mail Adresse ein</span>
-        <span ng-message="remote_eligible" translate="FORM_EMAIL_ERROR_INVALID_UNIT">Deine Unit wird noch nicht unterstützt</span>
-        <span ng-message="non_blacklisted_email" translate="FORM_EMAIL_ERROR_INVALID_BLACKLIST">Dieser Service kann nur von Mitarbeitern mit einer E-Mail-Adresse mit gültiger Domain verwendet werden</span>
-        <span ng-message="remote_not_activated" translate="FORM_EMAIL_ERROR_ALREADY_ACTIVATED_1">Die E-Mail-Adresse wurde bereits aktiviert. Du kannst Dich mit Deinem Passwort einloggen. Falls Du Dein Passwort vergessen hast, klicke bitte <a href="#/passwordrecovery" translate="FORM_EMAIL_ERROR_ALREADY_ACTIVATED_2">hier</a></span>
+        <span ng-message="required">{{'FORM_EMAIL_ERROR_REQUIRED' | translate}}</span>
+        <span ng-message="email">{{'FORM_EMAIL_ERROR_INVALID' | translate}}</span>
+        <span ng-message="remote_eligible">{{'FORM_EMAIL_ERROR_INVALID_UNIT' | translate}}</span>
+        <span ng-message="non_blacklisted_email">{{'FORM_EMAIL_ERROR_INVALID_BLACKLIST' | translate}}</span>
+        <span ng-message="remote_not_activated">{{'FORM_EMAIL_ERROR_ALREADY_ACTIVATED_1' | translate}}<a href="#/passwordrecovery">{{'FORM_EMAIL_ERROR_ALREADY_ACTIVATED_2' | translate}}</a></span>
     </span>
     </label>
 
