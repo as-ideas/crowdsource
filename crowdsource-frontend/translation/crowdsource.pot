@@ -13,12 +13,32 @@ msgid "BUTTON_LABEL_LOGIN"
 msgstr ""
 
 msgctxt ""
+msgid "BUTTON_LABEL_REGISTER"
+msgstr ""
+
+msgctxt ""
+msgid "BUTTON_LABEL_REGISTERING"
+msgstr ""
+
+msgctxt ""
 msgid "BUTTON_LABEL_SUBMIT"
 msgstr ""
 
 msgctxt ""
 msgid "BUTTON_LABEL_SUBMITTING"
 msgstr ""
+
+msgctxt ""
+msgid "FORM_AGB_ERROR_REQUIRED"
+msgstr ""
+
+msgctxt ""
+msgid "FORM_AGB_LABEL"
+msgstr "Nutzungsbedingung"
+
+msgctxt ""
+msgid "FORM_AGB_LABEL_LINK"
+msgstr "Nutzungsbedingung"
 
 msgctxt ""
 msgid "FORM_EMAIL_ERROR_ALREADY_ACTIVATED_1"
@@ -57,6 +77,18 @@ msgid "FORM_ERROR_UNEXPECTED"
 msgstr ""
 
 msgctxt ""
+msgid "FORM_FORENAME_ERROR_REQUIRED"
+msgstr ""
+
+msgctxt ""
+msgid "FORM_FORENAME_LABEL"
+msgstr "Vorname"
+
+msgctxt ""
+msgid "FORM_FORENAME_PLACEHOLDER"
+msgstr ""
+
+msgctxt ""
 msgid "FORM_PASSWORD_ERROR_REQUIRED"
 msgstr ""
 
@@ -65,7 +97,15 @@ msgid "FORM_PASSWORD_LABEL"
 msgstr "Passwort"
 
 msgctxt ""
-msgid "FORM_PASSWORD_PLACEHOLDER"
+msgid "FORM_SURNAME_ERROR_REQUIRED"
+msgstr ""
+
+msgctxt ""
+msgid "FORM_SURNAME_LABEL"
+msgstr "Nachname"
+
+msgctxt ""
+msgid "FORM_SURNAME_PLACEHOLDER"
 msgstr ""
 
 msgctxt ""
@@ -150,11 +190,35 @@ msgstr "Du wurdest ausgeloggt"
 
 msgctxt ""
 msgid "LOGOUT_LINK_LOGIN"
-msgstr ""
+msgstr "temp"
 
 msgctxt ""
 msgid "LOGOUT_LINK_LOGIN_LINK"
-msgstr ""
+msgstr "temp"
+
+msgctxt ""
+msgid "NAV_LABEL_HELP"
+msgstr "Hilfe"
+
+msgctxt ""
+msgid "NAV_LABEL_LOGIN"
+msgstr "Login"
+
+msgctxt ""
+msgid "NAV_LABEL_LOGOUT"
+msgstr "Logout"
+
+msgctxt ""
+msgid "NAV_LABEL_REGISTER"
+msgstr "Registieren"
+
+msgctxt ""
+msgid "NAV_LANG_ENGLISH"
+msgstr "Englisch"
+
+msgctxt ""
+msgid "NAV_LANG_GERMAN"
+msgstr "Deutsch"
 
 msgctxt ""
 msgid "OVERVIEW_IDEAS_HEADLINE"
@@ -181,16 +245,16 @@ msgid "PASSWORD_RECOVERY_ERROR_EMAIL_NOT_REGISTERED"
 msgstr ""
 
 msgctxt ""
-msgid "PASSWORD_RECOVERY_ERROR_EMAIL_NOT_REGISTERED_LINK"
-msgstr ""
-
-msgctxt ""
 msgid "PASSWORD_RECOVERY_HEADLINE"
 msgstr "Passwort vergessen"
 
 msgctxt ""
-msgid "PASSWORD_RECOVERY_LINK_LOGIN"
-msgstr "oder hier anmelden"
+msgid "PASSWORD_RECOVERY_LOGIN"
+msgstr ""
+
+msgctxt ""
+msgid "PASSWORD_RECOVERY_LOGIN_LINK"
+msgstr ""
 
 msgctxt ""
 msgid "PASSWORD_RECOVERY_SUCCESS_DESC"
@@ -199,3 +263,19 @@ msgstr "' + passwordRecoverySuccess.email + '"
 msgctxt ""
 msgid "PASSWORD_RECOVERY_SUCCESS_HEADLINE"
 msgstr "Passwort vergessen"
+
+msgctxt ""
+msgid "REGISTER_AGB"
+msgstr "Hiermit gestatte ich der Axel Springer Ideas Engineering GmbH mich für Neuigkeiten (bspw. Start einer Kampagne sowie Status meiner Idee) rund um AS.Crowd  zu kontaktieren. Ich habe die Möglichkeit mich jederzeit vom Newsletter abzumelden. Dazu kann ich den Link in der Fußzeile unserer E-Mails betätigen. Weitere Informationen zum Datenschutz sind der Datenschutzerklärung zu entnehmen."
+
+msgctxt ""
+msgid "REGISTER_HEADLINE"
+msgstr "Registrierung"
+
+msgctxt ""
+msgid "REGISTER_LOGIN"
+msgstr ""
+
+msgctxt ""
+msgid "REGISTER_LOGIN_LINK"
+msgstr ""

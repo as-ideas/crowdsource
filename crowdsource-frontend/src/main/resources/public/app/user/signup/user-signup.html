@@ -4,38 +4,38 @@
 
         <div class="row">
             <div class="small-12 columns">
-                <h1>Registrierung</h1>
+                <h1 translate="REGISTER_HEADLINE">Registrierung</h1>
             </div>
         </div>
 
 
         <div class="general-error alert-box alert" ng-messages="signup.generalErrors" ng-if="signup.generalErrors">
-            <span ng-message="remote_unknown">Es ist ein Fehler aufgetreten. Bitte versuche es erneut.</span>
+            <span ng-message="remote_unknown">{{'FORM_ERROR_UNEXPECTED' | translate}}</span>
         </div>
 
         <div class="row">
             <div class="small-12 columns form-controls-firstname">
                 <label form-group="firstName">
 
-                    <span form-label-valid="firstName">Vorname</span>
+                    <span form-label-valid="firstName" translate="FORM_FORENAME_LABEL">Vorname</span>
 
                     <span form-label-invalid="firstName" ng-messages="signup.form.firstName.$error">
-                        <span ng-message="required">Bitte gib Deinen Vornamen ein</span>
+                        <span ng-message="required">{{'FORM_FORENAME_ERROR_REQUIRED' | translate}}</span>
                     </span>
 
-                    <input type="text" name="firstName" ng-model="signup.user.firstName" field-name="firstName" required reset-remote-validation placeholder="Vorname"/>
+                    <input type="text" name="firstName" ng-model="signup.user.firstName" field-name="firstName" required reset-remote-validation translate-attr="{ placeholder: 'FORM_FORENAME_PLACEHOLDER' }"/>
                 </label>
             </div>
             <div class="small-12 columns form-controls-lastname">
                 <label form-group="lastName">
 
-                    <span form-label-valid="lastName">Nachname</span>
+                    <span form-label-valid="lastName" translate="FORM_SURNAME_LABEL">Nachname</span>
 
                     <span form-label-invalid="lastName" ng-messages="signup.form.lastName.$error">
-                        <span ng-message="required">Bitte gib Deinen Nachnamen ein</span>
+                        <span ng-message="required">{{'FORM_SURNAME_ERROR_REQUIRED' | translate}}</span>
                     </span>
 
-                    <input type="text" name="lastName" ng-model="signup.user.lastName" field-name="lastName" required reset-remote-validation placeholder="Nachname"/>
+                    <input type="text" name="lastName" ng-model="signup.user.lastName" field-name="lastName" required reset-remote-validation translate-attr="{ placeholder: 'FORM_SURNAME_PLACEHOLDER' }"/>
                 </label>
             </div>
         </div>
@@ -50,16 +50,9 @@
                 <label form-group="termsOfServiceAccepted">
 
                     <input type="checkbox" name="termsOfServiceAccepted" ng-model="signup.user.termsOfServiceAccepted" required>
-
-                    <span form-label-valid="termsOfServiceAccepted">
-                        Ich akzeptiere die
-                        <a class="crowd-tos-link" ng-click="signup.showTermsOfService = !signup.showTermsOfService">Nutzungsbedingung</a>
-                    </span>
-
+                    <span form-label-valid="termsOfServiceAccepted" translate="FORM_AGB_LABEL" translate-compile translate-values="{ link: '<a class=\'crowd-tos-link\' ng-click=\'signup.showTermsOfService = !signup.showTermsOfService\' translate=\'FORM_AGB_LABEL_LINK\'>Nutzungsbedingung</a>'}"></span>
                     <span form-label-invalid="termsOfServiceAccepted" ng-messages="signup.form.termsOfServiceAccepted.$error">
-                        <span ng-message="required">Bitte akzeptiere die
-                            <a class="crowd-tos-link" ng-click="signup.showTermsOfService = !signup.showTermsOfService">Nutzungsbedingungen</a>
-                        </span>
+                        <span ng-message="required">{{'FORM_AGB_ERROR_REQUIRED' | translate}}</span>
                     </span>
                 </label>
             </div>
@@ -67,21 +60,16 @@
 
         <div class="row" ng-if="signup.showTermsOfService">
             <div class="small-12 columns">
-                <div class="crowd-tos-panel panel callout radius font-small">Hiermit gestatte ich der Axel Springer Ideas Engineering GmbH mich für Neuigkeiten (bspw. Start einer Kampagne sowie Status meiner Idee) rund um AS.Crowd  zu kontaktieren. Ich habe die Möglichkeit mich jederzeit vom Newsletter abzumelden. Dazu kann ich den Link in der Fußzeile unserer E-Mails betätigen. Weitere Informationen zum Datenschutz sind der Datenschutzerklärung zu entnehmen.</div>
+                <div class="crowd-tos-panel panel callout radius font-small" translate="REGISTER_AGB">Hiermit gestatte ich der Axel Springer Ideas Engineering GmbH mich für Neuigkeiten (bspw. Start einer Kampagne sowie Status meiner Idee) rund um AS.Crowd  zu kontaktieren. Ich habe die Möglichkeit mich jederzeit vom Newsletter abzumelden. Dazu kann ich den Link in der Fußzeile unserer E-Mails betätigen. Weitere Informationen zum Datenschutz sind der Datenschutzerklärung zu entnehmen.</div>
             </div>
         </div>
 
         <div class="row">
             <div class="small-12 columns text-center">
                 <div>
-                    <button type="submit" class="crwd-success radius shadow margin-top"
-                            ng-click="signup.signUp()" ng-disabled="signup.loading">
-                        {{ signup.loading ? 'Registrieren...' : 'Registrieren' }}
-                    </button>
+                    <button type="submit" class="crwd-success radius shadow margin-top" ng-click="signup.signUp()" ng-disabled="signup.loading">{{ signup.loading ? 'BUTTON_LABEL_REGISTERING' : 'BUTTON_LABEL_REGISTER' | translate}}</button>
                 </div>
-                <div class="text--small push--top">
-                    oder <a href="#/login">hier</a> anmelden
-                </div>
+                <div class="text--small push--top" translate="REGISTER_LOGIN" translate-compile translate-values="{ link: '<a href=\'#/login\' translate=\'REGISTER_LOGIN_LINK\'></a>'}"></div>
             </div>
         </div>
 

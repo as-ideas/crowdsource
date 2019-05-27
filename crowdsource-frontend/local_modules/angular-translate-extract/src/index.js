@@ -73,7 +73,6 @@ var extractor
           switch (regexName) {
             case 'HtmlDirectiveSimpleQuote':
             case 'HtmlDirectiveDoubleQuote':
-            case 'HtmlDirectiveAttrSimpleQuote':
             case 'HtmlDirectiveSimpleQuoteEscaped':
             case 'HtmlDirectiveAttrDoubleQuote':
               translationKey = r[1].trim()
@@ -183,8 +182,7 @@ var extractor
       HtmlDirectiveSimpleQuote: '<(?:[^>"]|"(?:[^"]|\\/")*")*\\stranslate=\'([^\']*)\'[^>]*>([^<]*)',
       HtmlDirectiveSimpleQuoteEscaped: '<(?:[^>"]|"(?:[^"]|\\/")*")*\\stranslate=[\\\\]\'([^\']*)[\\\\]\'[^>]*>([^<]*)',
       HtmlDirectiveDoubleQuote: '<(?:[^>"]|"(?:[^"]|\\/")*")*\\stranslate="([^"]*)"[^>]*>([^<]*)',
-      HtmlDirectiveAttrSimpleQuote: '<(?:[^>"]|"(?:[^"]|\\/")*")*\\stranslate-attr-[\\w]+=\'([^\']*)\'[^>]*>([^<]*)',
-      HtmlDirectiveAttrDoubleQuote: '<(?:[^>"]|"(?:[^"]|\\/")*")*\\stranslate-attr-[\\w]+="([^"]*)"[^>]*>([^<]*)',
+      HtmlDirectiveAttrDoubleQuote: '<(?:[^>"]|"(?:[^"]|\\/")*")*\\stranslate-attr="(?:[^\']*)\'([^\']*)\'[^>]*>([^<]*)',
       HtmlDirectivePluralLast: 'translate="((?:\\\\.|[^"\\\\])*)".*angular-plural-extract="((?:\\\\.|[^"\\\\])*)"',
       HtmlDirectivePluralFirst: 'angular-plural-extract="((?:\\\\.|[^"\\\\])*)".*translate="((?:\\\\.|[^"\\\\])*)"',
       HtmlNgBindHtml: 'ng-bind-html="\\s*\'((?:\\\\.|[^\'\\\\])*)\'\\s*\\|\\s*translate(:.*?)?\\s*"',

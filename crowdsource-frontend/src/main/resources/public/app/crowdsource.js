@@ -37,7 +37,7 @@
                     prefix: '/translations/',
                     suffix: '.json'
                 })
-                .preferredLanguage('de')
+                .preferredLanguage('en')
                 .useMissingTranslationHandlerLog();
 
             $routeProvider

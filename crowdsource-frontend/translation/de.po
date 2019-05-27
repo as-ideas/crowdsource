@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2019-05-24 15:31+0200\n"
+"PO-Revision-Date: 2019-05-27 16:05+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -22,12 +22,32 @@ msgid "BUTTON_LABEL_LOGIN"
 msgstr "Login"
 
 msgctxt ""
+msgid "BUTTON_LABEL_REGISTER"
+msgstr "Registrieren"
+
+msgctxt ""
+msgid "BUTTON_LABEL_REGISTERING"
+msgstr "Registrieren…"
+
+msgctxt ""
 msgid "BUTTON_LABEL_SUBMIT"
 msgstr "Absenden"
 
 msgctxt ""
 msgid "BUTTON_LABEL_SUBMITTING"
 msgstr "Absenden…"
+
+msgctxt ""
+msgid "FORM_AGB_ERROR_REQUIRED"
+msgstr "Bitte akzeptiere die Nutzungsbedingungen"
+
+msgctxt ""
+msgid "FORM_AGB_LABEL"
+msgstr "Ich akzeptiere die {{link}}"
+
+msgctxt ""
+msgid "FORM_AGB_LABEL_LINK"
+msgstr "Nutzungsbedingungen"
 
 msgctxt ""
 msgid "FORM_EMAIL_ERROR_ALREADY_ACTIVATED_1"
@@ -70,6 +90,18 @@ msgid "FORM_ERROR_UNEXPECTED"
 msgstr "Es ist ein Fehler aufgetreten. Bitte versuche es erneut"
 
 msgctxt ""
+msgid "FORM_FORENAME_ERROR_REQUIRED"
+msgstr "Bitte gib Deinen Vornamen ein"
+
+msgctxt ""
+msgid "FORM_FORENAME_LABEL"
+msgstr "Vorname"
+
+msgctxt ""
+msgid "FORM_FORENAME_PLACEHOLDER"
+msgstr "Vorname"
+
+msgctxt ""
 msgid "FORM_PASSWORD_ERROR_REQUIRED"
 msgstr "Bitte gib Dein Passwort ein"
 
@@ -78,8 +110,16 @@ msgid "FORM_PASSWORD_LABEL"
 msgstr "Passwort"
 
 msgctxt ""
-msgid "FORM_PASSWORD_PLACEHOLDER"
-msgstr "Passwort"
+msgid "FORM_SURNAME_ERROR_REQUIRED"
+msgstr "Bitte gib Deinen Nachnamen ein"
+
+msgctxt ""
+msgid "FORM_SURNAME_LABEL"
+msgstr "Nachname"
+
+msgctxt ""
+msgid "FORM_SURNAME_PLACEHOLDER"
+msgstr "Nachname"
 
 msgctxt ""
 msgid "INTRO_DESC"
@@ -180,6 +220,30 @@ msgid "LOGOUT_LINK_LOGIN_LINK"
 msgstr "hier"
 
 msgctxt ""
+msgid "NAV_LABEL_HELP"
+msgstr "Hilfe"
+
+msgctxt ""
+msgid "NAV_LABEL_LOGIN"
+msgstr "Login"
+
+msgctxt ""
+msgid "NAV_LABEL_LOGOUT"
+msgstr "Logout"
+
+msgctxt ""
+msgid "NAV_LABEL_REGISTER"
+msgstr "Registrieren"
+
+msgctxt ""
+msgid "NAV_LANG_ENGLISH"
+msgstr "Englisch"
+
+msgctxt ""
+msgid "NAV_LANG_GERMAN"
+msgstr "Deutsch"
+
+msgctxt ""
 msgid "OVERVIEW_IDEAS_HEADLINE"
 msgstr "Ideen"
 
@@ -209,16 +273,16 @@ msgstr ""
 "registrieren"
 
 msgctxt ""
-msgid "PASSWORD_RECOVERY_ERROR_EMAIL_NOT_REGISTERED_LINK"
-msgstr "registrieren"
-
-msgctxt ""
 msgid "PASSWORD_RECOVERY_HEADLINE"
 msgstr "Passwort vergessen"
 
 msgctxt ""
-msgid "PASSWORD_RECOVERY_LINK_LOGIN"
-msgstr ""
+msgid "PASSWORD_RECOVERY_LOGIN"
+msgstr "oder {{link}} anmelden"
+
+msgctxt ""
+msgid "PASSWORD_RECOVERY_LOGIN_LINK"
+msgstr "hier"
 
 msgctxt ""
 msgid "PASSWORD_RECOVERY_SUCCESS_DESC"
@@ -230,3 +294,37 @@ msgstr ""
 msgctxt ""
 msgid "PASSWORD_RECOVERY_SUCCESS_HEADLINE"
 msgstr "Passwort vergessen"
+
+msgctxt ""
+msgid "REGISTER_AGB"
+msgstr ""
+"Hiermit gestatte ich der Axel Springer Ideas Engineering GmbH mich für "
+"Neuigkeiten (bspw. Start einer Kampagne sowie Status meiner Idee) rund um AS."
+"Crowd  zu kontaktieren. Ich habe die Möglichkeit mich jederzeit vom "
+"Newsletter abzumelden. Dazu kann ich den Link in der Fußzeile unserer E-"
+"Mails betätigen. Weitere Informationen zum Datenschutz sind der "
+"Datenschutzerklärung zu entnehmen."
+
+msgctxt ""
+msgid "REGISTER_HEADLINE"
+msgstr "Registrierung"
+
+msgctxt ""
+msgid "REGISTER_LOGIN"
+msgstr "oder {{link}} anmelden"
+
+msgctxt ""
+msgid "REGISTER_LOGIN_LINK"
+msgstr "hier"
+
+#~ msgctxt ""
+#~ msgid "FORM_PASSWORD_PLACEHOLDER"
+#~ msgstr "Passwort"
+
+#~ msgctxt ""
+#~ msgid "REGISTER_ACCEPT_AGB"
+#~ msgstr "Ich akzeptiere die {{link}}"
+
+#~ msgctxt ""
+#~ msgid "PASSWORD_RECOVERY_ERROR_EMAIL_NOT_REGISTERED_LINK"
+#~ msgstr "registrieren"
