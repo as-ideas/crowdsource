@@ -16,6 +16,8 @@
                 <a ng-if="!vm.auth.currentUser.loggedIn" class="header__nav-link" href="#/signup" ng-click="vm.closeMobileMenu()">Registieren</a>
                 <a ng-if="!vm.auth.currentUser.loggedIn" class="header__nav-link" href="#/login" ng-click="vm.closeMobileMenu()">Login</a>
                 <a ng-if="vm.auth.currentUser.loggedIn" class="header__nav-link" href="#/logout" ng-click="vm.closeMobileMenu()">Logout</a>
+                <a class="header__nav-link" ng-if="vm.currentLanguage=='de'" ng-click="vm.changeLanguage('en')">Deutsch</a>
+                <a class="header__nav-link" ng-if="vm.currentLanguage=='en'" ng-click="vm.changeLanguage('de')">Englisch</a>
                 </div>
             </nav>
         </div>
