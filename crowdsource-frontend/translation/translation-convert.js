@@ -15,15 +15,25 @@ let options = {
     format: 'mf'
 }
 
+let convert = function() {
+    files.forEach(function(file) {
+        try {
+            let jsonData = po2json.parseFileSync(`${baseDir}/${file}.po`, options);
 
-files.forEach(function(file) {
-    try {
-        let jsonData = po2json.parseFileSync(`${baseDir}/${file}.po`, options);
-        // do something interesting ...
-        console.log(jsonData);
-        fs.writeFileSync(`${destDir}/${file}.json`, jsonData);
-    } catch (e) {
-        console.error(e);
-    }
-})
+            jsonData = unescapeChars(jsonData);
+            console.log(jsonData);
+            fs.writeFileSync(`${destDir}/${file}.json`, jsonData);
+        } catch (e) {
+            console.error(e);
+        }
+    })
+}
 
+let unescapeChars = function(text) {
+    let newtext;
+    newtext = text.replace(/\\\\{\\\\{/g,"{{");
+    newtext = newtext.replace(/\\\\}\\\\}/g,"}}");
+    return newtext;
+}
+
+convert();
