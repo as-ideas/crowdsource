@@ -305,6 +305,10 @@ msgid "PASSWORD_RECOVERY_ERROR_EMAIL_NOT_REGISTERED"
 msgstr ""
 
 msgctxt ""
+msgid "PASSWORD_RECOVERY_ERROR_EMAIL_NOT_REGISTERED_LINK"
+msgstr ""
+
+msgctxt ""
 msgid "PASSWORD_RECOVERY_HEADLINE"
 msgstr "Passwort vergessen"
 
