@@ -103,8 +103,8 @@ angular.module('crowdsource')
 
             function getIdeasLocalNavItems() {
                 var localNavItems = [];
-                localNavItems.push({target: '/#/ideas/' + Idea.currentCampaign.id + '/own', label: 'Deine Ideen'});
-                if(Authentication.isAdmin()) localNavItems.push({target: '/#/ideas/' + Idea.currentCampaign.id + '/admin', label: 'Admin'});
+                localNavItems.push({target: '/#/ideas/' + Idea.currentCampaign.id + '/own', label: 'NAV_LABEL_IDEAS_OWN'});
+                if(Authentication.isAdmin()) localNavItems.push({target: '/#/ideas/' + Idea.currentCampaign.id + '/admin', label: 'NAV_LABEL_ADMIN'});
                 return localNavItems;
             }
 

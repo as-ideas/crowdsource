@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2019-05-28 16:03+0200\n"
+"PO-Revision-Date: 2019-05-28 16:58+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -288,8 +288,44 @@ msgid "LOGOUT_LINK_LOGIN_LINK"
 msgstr "hier"
 
 msgctxt ""
+msgid "NAV_LABEL_ABOUT_US"
+msgstr "Über uns"
+
+msgctxt ""
+msgid "NAV_LABEL_ACTIVATE"
+msgstr "Aktivierung"
+
+msgctxt ""
+msgid "NAV_LABEL_ADMIN"
+msgstr "Admin"
+
+msgctxt ""
+msgid "NAV_LABEL_ERROR_FORBIDDEN"
+msgstr "Zugriff verweigert"
+
+msgctxt ""
+msgid "NAV_LABEL_ERROR_PAGE_NOT_FOUND"
+msgstr "Seite nicht gefunden"
+
+msgctxt ""
+msgid "NAV_LABEL_ERROR_UNEXPECTED"
+msgstr "Technischer Fehler"
+
+msgctxt ""
+msgid "NAV_LABEL_FINANCING"
+msgstr "Finanzierungsrunden"
+
+msgctxt ""
 msgid "NAV_LABEL_HELP"
 msgstr "Hilfe"
+
+msgctxt ""
+msgid "NAV_LABEL_IDEAS_OWN"
+msgstr "Deine Ideen"
+
+msgctxt ""
+msgid "NAV_LABEL_IMPRINT"
+msgstr "Impressum"
 
 msgctxt ""
 msgid "NAV_LABEL_LOGIN"
@@ -300,8 +336,56 @@ msgid "NAV_LABEL_LOGOUT"
 msgstr "Logout"
 
 msgctxt ""
+msgid "NAV_LABEL_OVERVIEW"
+msgstr "Übersicht"
+
+msgctxt ""
+msgid "NAV_LABEL_PASSWORD_RECOVERY"
+msgstr "Passwort vergessen"
+
+msgctxt ""
+msgid "NAV_LABEL_PASSWORD_RECOVERY_SUCCESS"
+msgstr "Passwort vergessen erfolgreich"
+
+msgctxt ""
+msgid "NAV_LABEL_PASSWORD_RESET"
+msgstr "Passwort setzen"
+
+msgctxt ""
+msgid "NAV_LABEL_PRIVACY"
+msgstr "Datenschutzerklärung"
+
+msgctxt ""
+msgid "NAV_LABEL_PROJECT_ADDED"
+msgstr "Neues Projekt angelegt"
+
+msgctxt ""
+msgid "NAV_LABEL_PROJECT_DETAILS"
+msgstr "Projektdetails"
+
+msgctxt ""
+msgid "NAV_LABEL_PROJECT_EDIT"
+msgstr "Projekt bearbeiten"
+
+msgctxt ""
+msgid "NAV_LABEL_PROJECT_NEW"
+msgstr "Neues Projekt"
+
+msgctxt ""
+msgid "NAV_LABEL_PROJECTS"
+msgstr "Projekte"
+
+msgctxt ""
 msgid "NAV_LABEL_REGISTER"
 msgstr "Registrieren"
+
+msgctxt ""
+msgid "NAV_LABEL_REGISTER_SUCCESS"
+msgstr "Registrierung erfolgreich"
+
+msgctxt ""
+msgid "NAV_LABEL_STATISTIC"
+msgstr "Statistiken"
 
 msgctxt ""
 msgid "NAV_LANG_ENGLISH"

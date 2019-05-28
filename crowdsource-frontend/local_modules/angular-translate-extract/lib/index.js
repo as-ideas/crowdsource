@@ -159,7 +159,9 @@ var extractor; /**
           // Check for customRegex
           if (_lodash2.default.isObject(customRegex) && !_lodash2.default.isArray(customRegex) && customRegex.hasOwnProperty(regexName)) {
             if (_lodash2.default.isFunction(customRegex[regexName])) {
+              console.log("execute custom regex");
               translationKey = customRegex[regexName](translationKey) || translationKey;
+              console.log("translationKey: " + translationKey);
             }
           }
 
@@ -214,6 +216,7 @@ var extractor; /**
 
       // Build dynamic regex from custom regex Object/Array
     };_lodash2.default.forEach(customRegex, function (regex, key) {
+      console.log("build custom regex");
       if (_lodash2.default.isObject(customRegex) && !_lodash2.default.isArray(customRegex)) {
         regexs[key] = key;
       } else {

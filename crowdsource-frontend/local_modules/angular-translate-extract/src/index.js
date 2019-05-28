@@ -141,7 +141,9 @@ var extractor
           // Check for customRegex
           if (_.isObject(customRegex) && !_.isArray(customRegex) && customRegex.hasOwnProperty(regexName)) {
             if (_.isFunction(customRegex[regexName])) {
+              console.log("execute custom regex");
               translationKey = customRegex[regexName](translationKey) || translationKey
+              console.log("translationKey: " + translationKey);
             }
           }
 
@@ -199,6 +201,7 @@ var extractor
 
     // Build dynamic regex from custom regex Object/Array
     _.forEach(customRegex, function (regex, key) {
+      console.log("build custom regex")
       if (_.isObject(customRegex) && !_.isArray(customRegex)) {
         regexs[key] = key
       } else {

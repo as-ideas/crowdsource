@@ -261,20 +261,104 @@ msgid "LOGOUT_LINK_LOGIN_LINK"
 msgstr "temp"
 
 msgctxt ""
+msgid "NAV_LABEL_ABOUT_US"
+msgstr ""
+
+msgctxt ""
+msgid "NAV_LABEL_ACTIVATE"
+msgstr ""
+
+msgctxt ""
+msgid "NAV_LABEL_ADMIN"
+msgstr ""
+
+msgctxt ""
+msgid "NAV_LABEL_ERROR_FORBIDDEN"
+msgstr ""
+
+msgctxt ""
+msgid "NAV_LABEL_ERROR_PAGE_NOT_FOUND"
+msgstr ""
+
+msgctxt ""
+msgid "NAV_LABEL_ERROR_UNEXPECTED"
+msgstr ""
+
+msgctxt ""
+msgid "NAV_LABEL_FINANCING"
+msgstr ""
+
+msgctxt ""
 msgid "NAV_LABEL_HELP"
-msgstr "Hilfe"
+msgstr ""
+
+msgctxt ""
+msgid "NAV_LABEL_IDEAS_OWN"
+msgstr ""
+
+msgctxt ""
+msgid "NAV_LABEL_IMPRINT"
+msgstr ""
 
 msgctxt ""
 msgid "NAV_LABEL_LOGIN"
-msgstr "Login"
+msgstr ""
 
 msgctxt ""
 msgid "NAV_LABEL_LOGOUT"
-msgstr "Logout"
+msgstr ""
+
+msgctxt ""
+msgid "NAV_LABEL_OVERVIEW"
+msgstr ""
+
+msgctxt ""
+msgid "NAV_LABEL_PASSWORD_RECOVERY"
+msgstr ""
+
+msgctxt ""
+msgid "NAV_LABEL_PASSWORD_RECOVERY_SUCCESS"
+msgstr ""
+
+msgctxt ""
+msgid "NAV_LABEL_PASSWORD_RESET"
+msgstr ""
+
+msgctxt ""
+msgid "NAV_LABEL_PRIVACY"
+msgstr ""
+
+msgctxt ""
+msgid "NAV_LABEL_PROJECT_ADDED"
+msgstr ""
+
+msgctxt ""
+msgid "NAV_LABEL_PROJECT_DETAILS"
+msgstr ""
+
+msgctxt ""
+msgid "NAV_LABEL_PROJECT_EDIT"
+msgstr ""
+
+msgctxt ""
+msgid "NAV_LABEL_PROJECT_NEW"
+msgstr ""
+
+msgctxt ""
+msgid "NAV_LABEL_PROJECTS"
+msgstr ""
 
 msgctxt ""
 msgid "NAV_LABEL_REGISTER"
-msgstr "Registieren"
+msgstr ""
+
+msgctxt ""
+msgid "NAV_LABEL_REGISTER_SUCCESS"
+msgstr ""
+
+msgctxt ""
+msgid "NAV_LABEL_STATISTIC"
+msgstr ""
 
 msgctxt ""
 msgid "NAV_LANG_ENGLISH"

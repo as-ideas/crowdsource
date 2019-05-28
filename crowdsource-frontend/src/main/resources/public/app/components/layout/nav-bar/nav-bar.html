@@ -8,9 +8,9 @@
                 </div>
                 <div class="header__nav-container" ng-show="!vm.isMobile || (vm.isMobile && vm.isMobileMenuOpen)">
                     <div ng-repeat-start="breadcrumb in vm.breadcrumbs" class="header__breadcrumb-divider"/>
-                    <a ng-repeat-end="" ng-class="{'header__nav-active':$last, 'header__breadcrumb-link':!$last}" ng-href="{{breadcrumb.target}}" ng-click="vm.closeMobileMenu()">{{breadcrumb.label}}</a>
+                    <a ng-repeat-end="" ng-class="{'header__nav-active':$last, 'header__breadcrumb-link':!$last}" ng-href="{{breadcrumb.target}}" ng-click="vm.closeMobileMenu()">{{breadcrumb.label | translate}}</a>
                     <div class="header__breadcrumb-nav-divider" />
-                    <a ng-repeat="localNavItem in vm.localNavItems" class="header__nav-link" ng-href="{{localNavItem.target}}" ng-click="vm.closeMobileMenu()">{{localNavItem.label}}</a>
+                    <a ng-repeat="localNavItem in vm.localNavItems" class="header__nav-link" ng-href="{{localNavItem.target}}" ng-click="vm.closeMobileMenu()">{{localNavItem.label | translate}}</a>
                     <div ng-if="vm.localNavItems.length > 0" class="header__nav-divider"></div>
                 <a class="header__nav-link" href="#/help" ng-click="vm.closeMobileMenu()" translate="NAV_LABEL_HELP">Hilfe</a>
                 <a ng-if="!vm.auth.currentUser.loggedIn" class="header__nav-link" href="#/signup" ng-click="vm.closeMobileMenu()" translate="NAV_LABEL_REGISTER">Registieren</a>
