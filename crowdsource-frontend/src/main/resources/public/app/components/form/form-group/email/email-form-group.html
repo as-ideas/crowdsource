@@ -4,11 +4,11 @@
 
     <span form-label-invalid="{{ fieldName }}" ng-messages="form[fieldName].$error">
         <!-- required and 'pattern' are build-in validations of angular.js -->
-        <span ng-message="required">{{'FORM_EMAIL_ERROR_REQUIRED' | translate}}</span>
-        <span ng-message="email">{{'FORM_EMAIL_ERROR_INVALID' | translate}}</span>
-        <span ng-message="remote_eligible">{{'FORM_EMAIL_ERROR_INVALID_UNIT' | translate}}</span>
-        <span ng-message="non_blacklisted_email">{{'FORM_EMAIL_ERROR_INVALID_BLACKLIST' | translate}}</span>
-        <span ng-message="remote_not_activated">{{'FORM_EMAIL_ERROR_ALREADY_ACTIVATED_1' | translate}}<a href="#/passwordrecovery">{{'FORM_EMAIL_ERROR_ALREADY_ACTIVATED_2' | translate}}</a></span>
+        <div ng-message="required"><span translate="FORM_EMAIL_ERROR_REQUIRED"></span></div>
+        <div ng-message="email"><span translate="FORM_EMAIL_ERROR_INVALID"></span></div>
+        <div ng-message="remote_eligible"><span translate="FORM_EMAIL_ERROR_INVALID_UNIT"></span></div>
+        <div ng-message="non_blacklisted_email"><span translate="FORM_EMAIL_ERROR_INVALID_BLACKLIST"></span></div>
+        <div ng-message="remote_not_activated"><span translate="FORM_EMAIL_ERROR_ALREADY_ACTIVATED_1"nslate}}<a href="#/passwordrecovery">{{'FORM_EMAIL_ERROR_ALREADY_ACTIVATED_2' | translate}}</a></div>
     </span>
     </label>
 

@@ -1,6 +1,6 @@
 <content-row class="signup-success confirmation-view">
     <div class="box">
-        <h1>Registrierung erfolgreich</h1>
-        <p>Deine Registrierung unter dem Namen {{ signupSuccess.firstName }} {{ signupSuccess.lastName }} war erfolgreich. Wir haben eine E-Mail mit einem Bestätigungslink an <strong class="email-recipient">{{ signupSuccess.email }}</strong> gesendet. Bitte öffne Dein E-Mail-Postfach und klicke auf den Link, um die Registrierung abzuschließen.</p>
+        <h1 translate="REGISTER_SUCCESS_HEADLINE">Registrierung erfolgreich</h1>
+        <p translate="REGISTER_SUCCESS_DESC" translate-value-forename="{{ signupSuccess.firstName }}" translate-value-surname="{{ signupSuccess.lastName }}" translate-value-email="<strong class='email-recipient'>{{ signupSuccess.email }}</strong>"></p>
     </div>
 </content-row>

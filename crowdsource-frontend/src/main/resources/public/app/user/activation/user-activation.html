@@ -4,42 +4,37 @@
 
         <div class="row">
             <div class="small-12 columns">
-                <h1 ng-if="::activation.isRegistrationFlow">Registrierung - letzte Schritte</h1>
+                <h1 ng-if="::activation.isRegistrationFlow" translate="ACTIVATION_HEADLINE">Registrierung - letzte Schritte</h1>
+                <h1 ng-if="::activation.isPasswordRecoveryFlow" translate="PASSWORD_RESET_HEADLINE">Passwort neu setzen</h1>
 
-                <h1 ng-if="::activation.isPasswordRecoveryFlow">Passwort neu setzen</h1>
-
-                <div class="info-text margin-bottom-small" ng-if="::activation.isRegistrationFlow">Bitte vergib ein Passwort, um die Aktivierung Deines Kontos abzuschließen.</div>
-                <div class="info-text margin-bottom-small" ng-if="::activation.isPasswordRecoveryFlow">Bitte vergib jetzt ein neues Passwort.</div>
+                <div class="info-text margin-bottom-small" ng-if="::activation.isRegistrationFlow" translate="ACTIVATION_DESC">Bitte vergib ein Passwort, um die Aktivierung Deines Kontos abzuschließen.</div>
+                <div class="info-text margin-bottom-small" ng-if="::activation.isPasswordRecoveryFlow" translate="PASSWORD_RESET_DESC">Bitte vergib jetzt ein neues Passwort.</div>
             </div>
         </div>
 
         <div class="general-error alert-box alert" ng-messages="activation.generalErrors" ng-if="activation.generalErrors">
             <span ng-message="remote_already_activated">
-                <span ng-if="::activation.isRegistrationFlow">
-                    Dein Konto wurde bereits aktiviert. Du kannst Dich mit Deiner Email-Adresse und Deinem Passwort <a href="#/login">einloggen</a>.
-                </span>
-                <span ng-if="::activation.isPasswordRecoveryFlow">
-                    Du hast dein Passwort bereits mit dem Link aus deiner E-Mail neu gesetzt. Du kannst die <a href="#/login/password-recovery">Passwort vergessen</a> Funktion erneut benutzen, um einen neuen Link zugesendet zu bekommen.
-                </span>
+                <span ng-if="::activation.isRegistrationFlow" translate="ACTIVATION_ERROR_ALREADY_ACTIVE"></span>
+                <span ng-if="::activation.isPasswordRecoveryFlow" translate="PASSWORD_RESET_ALREADY_RESET"></span>
             </span>
-            <span ng-message="remote_activation_token_invalid">Der Aktivierungslink ist ungültig.</span>
-            <span ng-message="remote_not_found">Du musst Dich zunächst mit Deiner Email-Adresse <a href="#/signup">registrieren</a>.</span>
-            <span ng-message="remote_unknown">Es ist ein Fehler aufgetreten. Bitte versuche es erneut.</span>
+            <div ng-message="remote_activation_token_invalid"><span translate="ACTIVATION_ERROR_INVALID_LINK">Der Aktivierungslink ist ungültig.</span></div>
+            <div ng-message="remote_not_found"><span translate="ACTIVATION_ERROR_NOT_REGISTERED" translate-value-link="<a href='#/signup' translate='ACTIVATION_ERROR_NOT_REGISTERED_LINK'></a>"></span></div>
+            <div ng-message="remote_unknown"><span translate="FORM_ERROR_UNEXPECTED"></span></div>
         </div>
 
         <div class="row">
             <div class="small-12 columns form-controls-password">
                 <label form-group="password">
 
-                    <span form-label-valid="password">Passwort</span>
+                    <span form-label-valid="password" translate="FORM_PASSWORD_LABEL">Passwort</span>
 
                     <span form-label-invalid="password" ng-messages="activation.form.password.$error">
-                        <span ng-message="required">Bitte gib Dein Passwort ein</span>
-                        <span ng-message="pattern">Das Passwort muss aus mindestens 8 Zeichen und einem Sonderzeichen bestehen</span>
+                        <div ng-message="required"><span translate="FORM_PASSWORD_ERROR_REQUIRED">Bitte gib Dein Passwort ein</span></div>
+                        <div ng-message="pattern"><span translate="FORM_PASSWORD_ERROR_PATTERN">Das Passwort muss aus mindestens 8 Zeichen und einem Sonderzeichen bestehen</span></div>
                     </span>
 
                     <input type="password" name="password" ng-model="activation.user.password" placeholder="Passwort"
-                           required pattern="^(?=.*\W)(?=\S+$).{8,}$" reset-remote-validation>
+                           required pattern="^(?=.*\W)(?=\S+$).{8,}$" reset-remote-validation translate-attr="{ placeholder: 'FORM_PASSWORD_PLACEHOLDER'}">
                 </label>
             </div>
         </div>
@@ -48,15 +43,15 @@
             <div class="small-12 columns form-controls-repeated-password">
                 <label form-group="repeatedPassword">
 
-                    <span form-label-valid="repeatedPassword">Passwort wiederholen</span>
+                    <span form-label-valid="repeatedPassword" translate="FORM_PASSWORD_REPEAT_LABEL">Passwort wiederholen</span>
 
                     <span form-label-invalid="repeatedPassword" ng-messages="activation.form.repeatedPassword.$error">
-                        <span ng-message="required">Bitte gib Dein Passwort erneut ein</span>
-                        <span ng-message="remote_equal">Die beiden Passwörter stimmen nicht überein</span>
+                        <div ng-message="required"><span translate="FORM_PASSWORD_REPEAT_ERROR_REQUIRED">Bitte gib Dein Passwort erneut ein</span></div>
+                        <div ng-message="remote_equal"><span translate="FORM_PASSWORD_REPEAT_ERROR_NOT_EQUAL">Die beiden Passwörter stimmen nicht überein</span></div>
                     </span>
 
                     <input type="password" name="repeatedPassword" ng-model="activation.user.repeatedPassword" placeholder="Passwort wiederholen"
-                           required reset-remote-validation>
+                           required reset-remote-validation translate-attr="{ placeholder: 'FORM_PASSWORD_REPEAT_PLACEHOLDER'}">
                 </label>
             </div>
         </div>
@@ -64,9 +59,8 @@
         <div class="row">
             <div class="small-12 columns text-center">
                 <div>
-                    <button type="submit" class="crwd-success radius shadow margin-top" ng-click="activation.activate()" ng-disabled="activation.loading">
-                        {{ activation.loading ? 'Speichern...' : 'Speichern' }}
-                    </button>
+                    <button ng-if="activation.loading" type="submit" class="crwd-success radius shadow margin-top" ng-click="activation.activate()" ng-disabled="activation.loading" translate="BUTTON_LABEL_SAVING">Speichern...</button>
+                    <button ng-if="!activation.loading" type="submit" class="crwd-success radius shadow margin-top" ng-click="activation.activate()" ng-disabled="activation.loading" translate="BUTTON_LABEL_SAVE">Speichern</button>
                 </div>
             </div>
         </div>

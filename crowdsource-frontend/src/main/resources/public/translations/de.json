@@ -67,5 +67,7 @@
    "REGISTER_AGB": "Hiermit gestatte ich der Axel Springer Ideas Engineering GmbH mich für Neuigkeiten (bspw. Start einer Kampagne sowie Status meiner Idee) rund um AS.Crowd  zu kontaktieren. Ich habe die Möglichkeit mich jederzeit vom Newsletter abzumelden. Dazu kann ich den Link in der Fußzeile unserer E-Mails betätigen. Weitere Informationen zum Datenschutz sind der Datenschutzerklärung zu entnehmen.",
    "REGISTER_HEADLINE": "Registrierung",
    "REGISTER_LOGIN": "oder {{link}} anmelden",
-   "REGISTER_LOGIN_LINK": "hier"
+   "REGISTER_LOGIN_LINK": "hier",
+   "REGISTER_SUCCESS_DESC": "Deine Registrierung unter dem Namen {{forename}} {{surname}} war erfolgreich. Wir haben eine E-Mail mit einem Bestätigungslink an {{email}} gesendet. Bitte öffne Dein E-Mail-Postfach und klicke auf den Link, um die Registrierung abzuschließen.",
+   "REGISTER_SUCCESS_HEADLINE": "Registrierung erfolgreich"
 }

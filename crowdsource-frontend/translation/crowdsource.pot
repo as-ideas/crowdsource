@@ -279,3 +279,11 @@ msgstr ""
 msgctxt ""
 msgid "REGISTER_LOGIN_LINK"
 msgstr ""
+
+msgctxt ""
+msgid "REGISTER_SUCCESS_DESC"
+msgstr "{{ signupSuccess.email }}"
+
+msgctxt ""
+msgid "REGISTER_SUCCESS_HEADLINE"
+msgstr "Registrierung erfolgreich"

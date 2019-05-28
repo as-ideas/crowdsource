@@ -15,8 +15,8 @@
 
         <div class="small-12 columns">
             <div class="general-error alert-box alert" ng-messages="login.generalErrors" ng-if="login.generalErrors">
-                <span ng-message="remote_bad_credentials">{{'LOGIN_ERROR_INVALID_CREDENTIALS' | translate}}</span>
-                <span ng-message="remote_unknown">{{'FORM_ERROR_UNEXPECTED' | translate}}</span>
+                <div ng-message="remote_bad_credentials"><span translate="LOGIN_ERROR_INVALID_CREDENTIALS"></span></div>
+                <div ng-message="remote_unknown"><span translate="FORM_ERROR_UNEXPECTED"></span></div>
             </div>
         </div>
 
@@ -32,11 +32,11 @@
                     <span form-label-valid="password" translate="FORM_PASSWORD_LABEL">Passwort</span>
 
                     <span form-label-invalid="password" ng-messages="login.form.password.$error">
-                        <span ng-message="required">{{'FORM_PASSWORD_ERROR_REQUIRED' | translate}}</span>
+                        <div ng-message="required"><span translate="FORM_PASSWORD_ERROR_REQUIRED"></span></div>
                     </span>
 
                     <input type="password" name="password" ng-model="login.user.password" placeholder="Passwort"
-                           required reset-remote-validation translate-attr-placeholder="FORM_PASSWORD_PLACEHOLDER">
+                           required reset-remote-validation translate-attr="{ placeholder: 'FORM_PASSWORD_PLACEHOLDER' }">
                 </label>
             </div>
         </div>
@@ -44,10 +44,10 @@
         <div class="row">
             <div class="small-12 columns text-center">
                 <div>
-                    <button type="submit" class="crwd-success radius shadow margin-top"
-                            ng-click="login.login()" ng-disabled="login.loading">{{ login.loading ? 'BUTTON_LABEL_LOGGING_IN' : 'BUTTON_LABEL_LOGIN' | translate}}</button>
+                    <button ng-if="login.loading" type="submit" class="crwd-success radius shadow margin-top" ng-click="login.login()" ng-disabled="login.loading" translate="BUTTON_LABEL_LOGGING_IN"></button>
+                    <button ng-if="!login.loading" type="submit" class="crwd-success radius shadow margin-top" ng-click="login.login()" ng-disabled="login.loading" translate="BUTTON_LABEL_LOGIN"></button>
                 </div>
-                <div class="text--small push--top" translate="LOGIN_REGISTER" translate-compile translate-values="{ link: '<a href=\'#/signup\' translate=\'LOGIN_REGISTER_LINK\'></a>'}"></div>
+                <div class="text--small push--top" translate="LOGIN_REGISTER" translate-compile translate-value-link="<a href='#/signup' translate='LOGIN_REGISTER_LINK'></a>"></div>
             </div>
         </div>
     </form>

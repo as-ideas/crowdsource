@@ -10,7 +10,7 @@
 
 
         <div class="general-error alert-box alert" ng-messages="signup.generalErrors" ng-if="signup.generalErrors">
-            <span ng-message="remote_unknown">{{'FORM_ERROR_UNEXPECTED' | translate}}</span>
+            <div ng-message="remote_unknown"><span translate="FORM_ERROR_UNEXPECTED"></span></div>
         </div>
 
         <div class="row">
@@ -20,7 +20,7 @@
                     <span form-label-valid="firstName" translate="FORM_FORENAME_LABEL">Vorname</span>
 
                     <span form-label-invalid="firstName" ng-messages="signup.form.firstName.$error">
-                        <span ng-message="required">{{'FORM_FORENAME_ERROR_REQUIRED' | translate}}</span>
+                        <div ng-message="required"><span translate="FORM_FORENAME_ERROR_REQUIRED"></span></div>
                     </span>
 
                     <input type="text" name="firstName" ng-model="signup.user.firstName" field-name="firstName" required reset-remote-validation translate-attr="{ placeholder: 'FORM_FORENAME_PLACEHOLDER' }"/>
@@ -32,7 +32,7 @@
                     <span form-label-valid="lastName" translate="FORM_SURNAME_LABEL">Nachname</span>
 
                     <span form-label-invalid="lastName" ng-messages="signup.form.lastName.$error">
-                        <span ng-message="required">{{'FORM_SURNAME_ERROR_REQUIRED' | translate}}</span>
+                        <div ng-message="required"><span translate="FORM_SURNAME_ERROR_REQUIRED"></span></div>
                     </span>
 
                     <input type="text" name="lastName" ng-model="signup.user.lastName" field-name="lastName" required reset-remote-validation translate-attr="{ placeholder: 'FORM_SURNAME_PLACEHOLDER' }"/>
@@ -50,9 +50,9 @@
                 <label form-group="termsOfServiceAccepted">
 
                     <input type="checkbox" name="termsOfServiceAccepted" ng-model="signup.user.termsOfServiceAccepted" required>
-                    <span form-label-valid="termsOfServiceAccepted" translate="FORM_AGB_LABEL" translate-compile translate-values="{ link: '<a class=\'crowd-tos-link\' ng-click=\'signup.showTermsOfService = !signup.showTermsOfService\' translate=\'FORM_AGB_LABEL_LINK\'>Nutzungsbedingung</a>'}"></span>
+                    <span form-label-valid="termsOfServiceAccepted" translate="FORM_AGB_LABEL" translate-compile translate-value-link="<a class='crowd-tos-link' ng-click='signup.showTermsOfService = !signup.showTermsOfService' translate='FORM_AGB_LABEL_LINK'>Nutzungsbedingung</a>"></span>
                     <span form-label-invalid="termsOfServiceAccepted" ng-messages="signup.form.termsOfServiceAccepted.$error">
-                        <span ng-message="required">{{'FORM_AGB_ERROR_REQUIRED' | translate}}</span>
+                        <span ng-message="required"><span translate="FORM_AGB_ERROR_REQUIRED"></span></span>
                     </span>
                 </label>
             </div>
@@ -67,9 +67,10 @@
         <div class="row">
             <div class="small-12 columns text-center">
                 <div>
-                    <button type="submit" class="crwd-success radius shadow margin-top" ng-click="signup.signUp()" ng-disabled="signup.loading">{{ signup.loading ? 'BUTTON_LABEL_REGISTERING' : 'BUTTON_LABEL_REGISTER' | translate}}</button>
+                    <button ng-if="signup.loading" type="submit" class="crwd-success radius shadow margin-top" ng-click="signup.signUp()" ng-disabled="signup.loading" translate="BUTTON_LABEL_REGISTERING"></button>
+                    <button ng-if="!signup.loading" type="submit" class="crwd-success radius shadow margin-top" ng-click="signup.signUp()" ng-disabled="signup.loading" translate="BUTTON_LABEL_REGISTER"></button>
                 </div>
-                <div class="text--small push--top" translate="REGISTER_LOGIN" translate-compile translate-values="{ link: '<a href=\'#/login\' translate=\'REGISTER_LOGIN_LINK\'></a>'}"></div>
+                <div class="text--small push--top" translate="REGISTER_LOGIN" translate-compile translate-value-link="<a href='#/login' translate='REGISTER_LOGIN_LINK'></a>"></div>
             </div>
         </div>
 
