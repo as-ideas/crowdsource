@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2019-05-27 21:29+0200\n"
+"PO-Revision-Date: 2019-05-28 11:53+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -12,6 +12,37 @@ msgstr ""
 "X-Generator: Poedit 2.2.3\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt ""
+msgid "ACTIVATION_DESC"
+msgstr ""
+"Bitte vergib ein Passwort, um die Aktivierung Deines Kontos abzuschließen."
+
+msgctxt ""
+msgid "ACTIVATION_ERROR_ALREADY_ACTIVE"
+msgstr ""
+"Dein Konto wurde bereits aktiviert. Du kannst Dich mit Deiner Email-Adresse "
+"und Deinem Passwort {{link}}."
+
+msgctxt ""
+msgid "ACTIVATION_ERROR_ALREADY_ACTIVE_LINK"
+msgstr "einloggen"
+
+msgctxt ""
+msgid "ACTIVATION_ERROR_INVALID_LINK"
+msgstr "Der Aktivierungslink ist ungültig."
+
+msgctxt ""
+msgid "ACTIVATION_ERROR_NOT_REGISTERED"
+msgstr "Du musst Dich zunächst mit Deiner Email-Adresse {{link}}."
+
+msgctxt ""
+msgid "ACTIVATION_ERROR_NOT_REGISTERED_LINK"
+msgstr "registrieren"
+
+msgctxt ""
+msgid "ACTIVATION_HEADLINE"
+msgstr "Registrierung - letzte Schritte"
 
 msgctxt ""
 msgid "BUTTON_LABEL_LOGGING_IN"
@@ -28,6 +59,14 @@ msgstr "Registrieren"
 msgctxt ""
 msgid "BUTTON_LABEL_REGISTERING"
 msgstr "Registrieren…"
+
+msgctxt ""
+msgid "BUTTON_LABEL_SAVE"
+msgstr "Speichern"
+
+msgctxt ""
+msgid "BUTTON_LABEL_SAVING"
+msgstr "Speichern…"
 
 msgctxt ""
 msgid "BUTTON_LABEL_SUBMIT"
@@ -102,12 +141,37 @@ msgid "FORM_FORENAME_PLACEHOLDER"
 msgstr "Vorname"
 
 msgctxt ""
+msgid "FORM_PASSWORD_ERROR_PATTERN"
+msgstr ""
+"Das Passwort muss aus mindestens 8 Zeichen und einem Sonderzeichen bestehen"
+
+msgctxt ""
 msgid "FORM_PASSWORD_ERROR_REQUIRED"
 msgstr "Bitte gib Dein Passwort ein"
 
 msgctxt ""
 msgid "FORM_PASSWORD_LABEL"
 msgstr "Passwort"
+
+msgctxt ""
+msgid "FORM_PASSWORD_PLACEHOLDER"
+msgstr "Passwort"
+
+msgctxt ""
+msgid "FORM_PASSWORD_REPEAT_ERROR_NOT_EQUAL"
+msgstr "Die beiden Passwörter stimmen nicht überein"
+
+msgctxt ""
+msgid "FORM_PASSWORD_REPEAT_ERROR_REQUIRED"
+msgstr "Bitte gib Dein Passwort erneut ein"
+
+msgctxt ""
+msgid "FORM_PASSWORD_REPEAT_LABEL"
+msgstr "Passwort wiederholen"
+
+msgctxt ""
+msgid "FORM_PASSWORD_REPEAT_PLACEHOLDER"
+msgstr "Passwort wiederholen"
 
 msgctxt ""
 msgid "FORM_SURNAME_ERROR_REQUIRED"
@@ -296,6 +360,25 @@ msgid "PASSWORD_RECOVERY_SUCCESS_HEADLINE"
 msgstr "Passwort vergessen"
 
 msgctxt ""
+msgid "PASSWORD_RESET_DESC"
+msgstr "Bitte vergib jetzt ein neues Passwort."
+
+msgctxt ""
+msgid "PASSWORD_RESET_ERROR_ALREADY_RESET"
+msgstr ""
+"Du hast dein Passwort bereits mit dem Link aus deiner E-Mail neu gesetzt. Du "
+"kannst die {{link}} Funktion erneut benutzen, um einen neuen Link zugesendet "
+"zu bekommen."
+
+msgctxt ""
+msgid "PASSWORD_RESET_ERROR_ALREADY_RESET_LINK"
+msgstr "Passwort vergessen"
+
+msgctxt ""
+msgid "PASSWORD_RESET_HEADLINE"
+msgstr "Passwort neu setzen"
+
+msgctxt ""
 msgid "REGISTER_AGB"
 msgstr ""
 "Hiermit gestatte ich der Axel Springer Ideas Engineering GmbH mich für "
@@ -330,13 +413,5 @@ msgid "REGISTER_SUCCESS_HEADLINE"
 msgstr "Registrierung erfolgreich"
 
 #~ msgctxt ""
-#~ msgid "FORM_PASSWORD_PLACEHOLDER"
-#~ msgstr "Passwort"
-
-#~ msgctxt ""
 #~ msgid "REGISTER_ACCEPT_AGB"
 #~ msgstr "Ich akzeptiere die {{link}}"
-
-#~ msgctxt ""
-#~ msgid "PASSWORD_RECOVERY_ERROR_EMAIL_NOT_REGISTERED_LINK"
-#~ msgstr "registrieren"

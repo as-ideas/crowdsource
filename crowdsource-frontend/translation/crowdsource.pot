@@ -5,6 +5,34 @@ msgstr ""
 "Project-Id-Version: \n"
 
 msgctxt ""
+msgid "ACTIVATION_DESC"
+msgstr "Bitte vergib ein Passwort, um die Aktivierung Deines Kontos abzuschließen."
+
+msgctxt ""
+msgid "ACTIVATION_ERROR_ALREADY_ACTIVE"
+msgstr ""
+
+msgctxt ""
+msgid "ACTIVATION_ERROR_ALREADY_ACTIVE_LINK"
+msgstr ""
+
+msgctxt ""
+msgid "ACTIVATION_ERROR_INVALID_LINK"
+msgstr "Der Aktivierungslink ist ungültig."
+
+msgctxt ""
+msgid "ACTIVATION_ERROR_NOT_REGISTERED"
+msgstr ""
+
+msgctxt ""
+msgid "ACTIVATION_ERROR_NOT_REGISTERED_LINK"
+msgstr ""
+
+msgctxt ""
+msgid "ACTIVATION_HEADLINE"
+msgstr "Registrierung - letzte Schritte"
+
+msgctxt ""
 msgid "BUTTON_LABEL_LOGGING_IN"
 msgstr ""
 
@@ -19,6 +47,14 @@ msgstr ""
 msgctxt ""
 msgid "BUTTON_LABEL_REGISTERING"
 msgstr ""
+
+msgctxt ""
+msgid "BUTTON_LABEL_SAVE"
+msgstr "Speichern"
+
+msgctxt ""
+msgid "BUTTON_LABEL_SAVING"
+msgstr "Speichern..."
 
 msgctxt ""
 msgid "BUTTON_LABEL_SUBMIT"
@@ -42,7 +78,7 @@ msgstr "Nutzungsbedingung"
 
 msgctxt ""
 msgid "FORM_EMAIL_ERROR_ALREADY_ACTIVATED_1"
-msgstr ""
+msgstr "{{'FORM_EMAIL_ERROR_ALREADY_ACTIVATED_2' | translate}}"
 
 msgctxt ""
 msgid "FORM_EMAIL_ERROR_ALREADY_ACTIVATED_2"
@@ -89,12 +125,36 @@ msgid "FORM_FORENAME_PLACEHOLDER"
 msgstr ""
 
 msgctxt ""
+msgid "FORM_PASSWORD_ERROR_PATTERN"
+msgstr "Das Passwort muss aus mindestens 8 Zeichen und einem Sonderzeichen bestehen"
+
+msgctxt ""
 msgid "FORM_PASSWORD_ERROR_REQUIRED"
 msgstr ""
 
 msgctxt ""
 msgid "FORM_PASSWORD_LABEL"
 msgstr "Passwort"
+
+msgctxt ""
+msgid "FORM_PASSWORD_PLACEHOLDER"
+msgstr ""
+
+msgctxt ""
+msgid "FORM_PASSWORD_REPEAT_ERROR_NOT_EQUAL"
+msgstr "Die beiden Passwörter stimmen nicht überein"
+
+msgctxt ""
+msgid "FORM_PASSWORD_REPEAT_ERROR_REQUIRED"
+msgstr "Bitte gib Dein Passwort erneut ein"
+
+msgctxt ""
+msgid "FORM_PASSWORD_REPEAT_LABEL"
+msgstr "Passwort wiederholen"
+
+msgctxt ""
+msgid "FORM_PASSWORD_REPEAT_PLACEHOLDER"
+msgstr ""
 
 msgctxt ""
 msgid "FORM_SURNAME_ERROR_REQUIRED"
@@ -258,11 +318,27 @@ msgstr ""
 
 msgctxt ""
 msgid "PASSWORD_RECOVERY_SUCCESS_DESC"
-msgstr "' + passwordRecoverySuccess.email + '"
+msgstr "{{ passwordRecoverySuccess.email }}"
 
 msgctxt ""
 msgid "PASSWORD_RECOVERY_SUCCESS_HEADLINE"
 msgstr "Passwort vergessen"
+
+msgctxt ""
+msgid "PASSWORD_RESET_DESC"
+msgstr "Bitte vergib jetzt ein neues Passwort."
+
+msgctxt ""
+msgid "PASSWORD_RESET_ERROR_ALREADY_RESET"
+msgstr ""
+
+msgctxt ""
+msgid "PASSWORD_RESET_ERROR_ALREADY_RESET_LINK"
+msgstr ""
+
+msgctxt ""
+msgid "PASSWORD_RESET_HEADLINE"
+msgstr "Passwort neu setzen"
 
 msgctxt ""
 msgid "REGISTER_AGB"

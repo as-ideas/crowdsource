@@ -14,8 +14,8 @@
 
         <div class="general-error alert-box alert" ng-messages="activation.generalErrors" ng-if="activation.generalErrors">
             <span ng-message="remote_already_activated">
-                <span ng-if="::activation.isRegistrationFlow" translate="ACTIVATION_ERROR_ALREADY_ACTIVE"></span>
-                <span ng-if="::activation.isPasswordRecoveryFlow" translate="PASSWORD_RESET_ALREADY_RESET"></span>
+                <span ng-if="::activation.isRegistrationFlow" translate="ACTIVATION_ERROR_ALREADY_ACTIVE" translate-value-link="<a href='#/login' translate='ACTIVATION_ERROR_ALREADY_ACTIVE_LINK'></a>"></span>
+                <span ng-if="::activation.isPasswordRecoveryFlow" translate="PASSWORD_RESET_ERROR_ALREADY_RESET" translate-value-link="<a href='#/login/password-recovery' translate='PASSWORD_RESET_ERROR_ALREADY_RESET_LINK'></a>"></span>
             </span>
             <div ng-message="remote_activation_token_invalid"><span translate="ACTIVATION_ERROR_INVALID_LINK">Der Aktivierungslink ist ungültig.</span></div>
             <div ng-message="remote_not_found"><span translate="ACTIVATION_ERROR_NOT_REGISTERED" translate-value-link="<a href='#/signup' translate='ACTIVATION_ERROR_NOT_REGISTERED_LINK'></a>"></span></div>
