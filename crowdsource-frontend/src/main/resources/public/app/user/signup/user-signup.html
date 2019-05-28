@@ -52,7 +52,7 @@
                     <input type="checkbox" name="termsOfServiceAccepted" ng-model="signup.user.termsOfServiceAccepted" required>
                     <span form-label-valid="termsOfServiceAccepted" translate="FORM_AGB_LABEL" translate-compile translate-value-link="<a class='crowd-tos-link' ng-click='signup.showTermsOfService = !signup.showTermsOfService' translate='FORM_AGB_LABEL_LINK'>Nutzungsbedingung</a>"></span>
                     <span form-label-invalid="termsOfServiceAccepted" ng-messages="signup.form.termsOfServiceAccepted.$error">
-                        <span ng-message="required"><span translate="FORM_AGB_ERROR_REQUIRED"></span></span>
+                        <span ng-message="required"><span translate="FORM_AGB_ERROR_REQUIRED" translate-value-link="<a class='crowd-tos-link' ng-click='signup.showTermsOfService = !signup.showTermsOfService' translate='FORM_AGB_ERROR_REQUIRED_LINK'>Nutzungsbedingung</a>" translate-compile></span></span>
                     </span>
                 </label>
             </div>
