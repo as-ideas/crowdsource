@@ -3,8 +3,7 @@
     <div ng-if="vm.idea.status == 'PUBLISHED'">
         <span class="ideas-grid-tile__title" title="{{ vm.idea.title }}">{{ vm.idea.title }}</span>
         <span class="ideas-grid-tile__star--single"></span>
-        <span class="ideas-grid-tile__votes">{{ vm.rating.averageRating || 0 }} </span>
-        <span class="ideas-grid-tile__votes"> von {{ vm.rating.countVotes|| 0 }} Personen</span>
+        <span class="ideas-grid-tile__votes" translate="IDEA_TILE_AVG_RATING" translate-value-rating="{{vm.rating.averageRating}}" translate-value-votes="{{vm.rating.countVotes}}"></span>
     </div>
 
     <div ng-if="!(vm.idea.status == 'PUBLISHED') && !vm.isEditable">

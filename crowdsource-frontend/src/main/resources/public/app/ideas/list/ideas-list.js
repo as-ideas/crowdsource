@@ -3,20 +3,6 @@ angular.module('crowdsource')
         var FILTER_ALL = 'ALL';
         var FILTER_VOTED = 'VOTED';
         var FILTER_NOT_VOTED = 'NOT_VOTED';
-        var FILTER_STATES = [
-            {
-                state: FILTER_ALL,
-                label : "Alle"
-            },
-            {
-                state: FILTER_NOT_VOTED,
-                label : "Noch nicht bewertet"
-            },
-            {
-                state: FILTER_VOTED,
-                label : "Bereits bewertet"
-            }
-        ];
 
         var vm = this;
         vm.auth = Authentication;
@@ -26,8 +12,6 @@ angular.module('crowdsource')
         vm.loadMore = loadMore;
         vm.selectedFilter = FILTER_ALL;
         vm.setFilter = setFilter;
-
-        vm.FILTER_STATES = FILTER_STATES;
 
         vm.filterState = {};
 

@@ -10,9 +10,15 @@ var data = {
     adapter: "pot",
     lang: ["de"],
     customRegex: [
-        "title: '(\\w*)'" // This regex collects routing titles from crowdsource.js
+        "title: '(\\w*)'",                                                      // Extract routing titles from crowdsource.js
+        "<content-hero[^]*title=\"'([^'\"]*)'\"[^]*><\\/content-hero>",         // Extract title from content-hero directives
+        "<content-hero[^]*description=\"'([^'\"]*)'\"[^]*><\\/content-hero>",   // Extract description from content-hero directives
+        "<load-more[^]*load-more-label=\"'([^'\"]*)'\"[^]*><\\/load-more>",     // Extract load more label from load-more directives
+        "<load-more[^]*no-more-label=\"'([^'\"]*)'\"[^]*><\\/load-more>"        // Extract load no more label from load-more directives
     ]
 }
+
+var str = "<content-hero[^]*title=\"'([^'\"]*)'\"[^]*><\\/content-hero>"
 
 var basePath = __dirname.substring(0,__dirname.lastIndexOf('/'));
 console.log("basepath: " + basePath);

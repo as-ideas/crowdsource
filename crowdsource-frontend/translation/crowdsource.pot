@@ -33,6 +33,22 @@ msgid "ACTIVATION_HEADLINE"
 msgstr "Registrierung - letzte Schritte"
 
 msgctxt ""
+msgid "ADMIN_IDEAS_DENIED_DESC"
+msgstr ""
+
+msgctxt ""
+msgid "ADMIN_IDEAS_DENIED_HEADLINE"
+msgstr ""
+
+msgctxt ""
+msgid "ADMIN_IDEAS_PENDING_DESC"
+msgstr ""
+
+msgctxt ""
+msgid "ADMIN_IDEAS_PENDING_HEADLINE"
+msgstr ""
+
+msgctxt ""
 msgid "BUTTON_LABEL_LOGGING_IN"
 msgstr ""
 
@@ -62,6 +78,18 @@ msgstr ""
 
 msgctxt ""
 msgid "BUTTON_LABEL_SUBMITTING"
+msgstr ""
+
+msgctxt ""
+msgid "FILTER_ALL_LABEL"
+msgstr ""
+
+msgctxt ""
+msgid "FILTER_NOT_VOTED_LABEL"
+msgstr ""
+
+msgctxt ""
+msgid "FILTER_VOTED_LABEL"
 msgstr ""
 
 msgctxt ""
@@ -113,6 +141,14 @@ msgid "FORM_EMAIL_PLACEHOLDER"
 msgstr ""
 
 msgctxt ""
+msgid "FORM_ERROR_MAX_CHARS"
+msgstr "Maximal 255 Zeichen"
+
+msgctxt ""
+msgid "FORM_ERROR_MIN_CHARS"
+msgstr "Mindestens 5 Zeichen"
+
+msgctxt ""
 msgid "FORM_ERROR_UNEXPECTED"
 msgstr ""
 
@@ -127,6 +163,22 @@ msgstr "Vorname"
 msgctxt ""
 msgid "FORM_FORENAME_PLACEHOLDER"
 msgstr ""
+
+msgctxt ""
+msgid "FORM_IDEA_EDIT_PITCH_ERROR_REQUIRED"
+msgstr "Bitte gib ein prägnante Beschreibung ein"
+
+msgctxt ""
+msgid "FORM_IDEA_EDIT_PITCH_LABEL"
+msgstr "Deine Idee im Detail"
+
+msgctxt ""
+msgid "FORM_IDEA_EDIT_TITLE_ERROR_REQUIRED"
+msgstr "Bitte gib einen Titel ein"
+
+msgctxt ""
+msgid "FORM_IDEA_EDIT_TITLE_LABEL"
+msgstr "Titel Deiner Idee"
 
 msgctxt ""
 msgid "FORM_PASSWORD_ERROR_PATTERN"
@@ -170,6 +222,34 @@ msgstr "Nachname"
 
 msgctxt ""
 msgid "FORM_SURNAME_PLACEHOLDER"
+msgstr ""
+
+msgctxt ""
+msgid "IDEA_TILE_AVG_RATING"
+msgstr ""
+
+msgctxt ""
+msgid "IDEAS_ADD_DESC"
+msgstr ""
+
+msgctxt ""
+msgid "IDEAS_ADD_HEADLINE"
+msgstr ""
+
+msgctxt ""
+msgid "IDEAS_LOAD_MORE_LABEL"
+msgstr ""
+
+msgctxt ""
+msgid "IDEAS_LOAD_MORE_LABEL_NO_MORE"
+msgstr ""
+
+msgctxt ""
+msgid "IDEAS_VOTE_DESC"
+msgstr ""
+
+msgctxt ""
+msgid "IDEAS_VOTE_HEADLINE"
 msgstr ""
 
 msgctxt ""

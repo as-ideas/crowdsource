@@ -1,28 +1,28 @@
 <form name="ideaEditForm" novalidate>
     <p>
         <label form-group="title">
-            <span form-label-valid="title">Titel Deiner Idee</span>
+            <span form-label-valid="title" translate="FORM_IDEA_EDIT_TITLE_LABEL">Titel Deiner Idee</span>
             <span form-label-invalid="title" ng-messages="ideaEditForm.title.$error">
-                    <span ng-message="minlength">Mindestens 5 Zeichen</span>
-                    <span ng-message="maxlength">Maximal 30 Zeichen</span>
-                    <span ng-message="required">Bitte gib einen Titel ein</span>
+                <span ng-message="minlength"><span translate="FORM_ERROR_MIN_CHARS" translate-value-value="5">Mindestens 5 Zeichen</span></span>
+                <span ng-message="maxlength"><span translate="FORM_ERROR_MAX_CHARS" translate-value-value="30">Maximal 30 Zeichen</span></span>
+                <span ng-message="required"><span translate="FORM_IDEA_EDIT_TITLE_ERROR_REQUIRED">Bitte gib einen Titel ein</span></span>
             </span>
 
             <input campaign-active-aware class="idea-add__title" name="title" type="text" ng-model="vm.idea.title" required ng-minlength="5" ng-maxlength="30" maxlength="30">
         </label>
 
         <label form-group="pitch">
-            <span form-label-valid="pitch">Deine Idee im Detail</span>
+            <span form-label-valid="pitch" translate="FORM_IDEA_EDIT_PITCH_LABEL">Deine Idee im Detail</span>
             <span form-label-invalid="pitch" ng-messages="ideaEditForm.pitch.$error">
-                    <span ng-message="minlength">Mindestens 5 Zeichen</span>
-                    <span ng-message="maxlength">Maximal 255 Zeichen</span>
-                    <span ng-message="required">Bitte gib ein prägnante Beschreibung ein</span>
+                <span ng-message="minlength"><span translate="FORM_ERROR_MIN_CHARS" translate-value-value="5">Mindestens 5 Zeichen</span></span>
+                <span ng-message="maxlength"><span translate="FORM_ERROR_MAX_CHARS" translate-value-value="255">Maximal 255 Zeichen</span></span>
+                <span ng-message="required"><span translate="FORM_IDEA_EDIT_PITCH_ERROR_REQUIRED">Bitte gib ein prägnante Beschreibung ein</span></span>
             </span>
 
             <textarea campaign-active-aware reset-remote-validation name="pitch" class="idea-add__pitch" ng-model="vm.idea.pitch" required  ng-minlength="5" ng-maxlength="255"></textarea>
         </label>
 
         <button ng-if="vm.cancel" type="cancel" ng-click="vm.cancel()" class="button-secondary--halfwidth">Abbrechen</button>
-        <button type="submit" ng-disabled="!ideaEditForm.title.$valid || !ideaEditForm.pitch.$valid" ng-click="vm.submit()" ng-class="{'button-primary--halfwidth' : vm.cancel, 'button-primary' : !vm.cancel}">Absenden</button>
+        <button type="submit" ng-disabled="!ideaEditForm.title.$valid || !ideaEditForm.pitch.$valid" ng-click="vm.submit()" ng-class="{'button-primary--halfwidth' : vm.cancel, 'button-primary' : !vm.cancel}" translate="BUTTON_LABEL_SAVE">Absenden</button>
     </p>
 </form>

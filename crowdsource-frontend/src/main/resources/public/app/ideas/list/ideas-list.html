@@ -6,12 +6,12 @@
 
 <content-row class="content-row--gray-bg">
     <section>
-        <content-hero title="'Eure Ideen'" description="'Hier kannst Du eingereichte Ideen bewerten. Jede Stimme zählt!'"></content-hero>
+        <content-hero title="'IDEAS_VOTE_HEADLINE'" description="'IDEAS_VOTE_DESC'"></content-hero>
 
         <ul class="ideas-list__filter">
-            <li ng-repeat="entry in ideasList.FILTER_STATES">
-                <a name="{{entry.state}}" ng-class="ideasList.selectedFilter == entry.state ? 'active' : ''" ng-click="ideasList.setFilter(entry.state)">{{entry.label}}</a>
-            </li>
+            <li><a name="FILTER_ALL" ng-class="ideasList.selectedFilter == entry.state ? 'active' : ''" ng-click="ideasList.setFilter('ALL')" translate="FILTER_ALL_LABEL"></a></li>
+            <li><a name="FILTER_NOT_VOTED" ng-class="ideasList.selectedFilter == entry.state ? 'active' : ''" ng-click="ideasList.setFilter('NOT_VOTED')" translate="FILTER_NOT_VOTED_LABEL"></a></li>
+            <li><a name="FILTER_VOTED" ng-class="ideasList.selectedFilter == entry.state ? 'active' : ''" ng-click="ideasList.setFilter('VOTED')" translate="FILTER_VOTED_LABEL"></a></li>
         </ul>
         <div class="ideas-grid__container">
             <div class="ideas-grid__box" ng-repeat="idea in ideasList.ideas" overlay="{{'VOTE_'+idea.id}}">
@@ -24,5 +24,5 @@
         <img class="campaign-noentry__image" src="/images/campaigns-not-available-robot.svg">
     </div>
 
-    <load-more paging="ideasList.paging" no-more-label="Es sind keine weiteren Ideen vorhanden" ng-if="!ideasList.paging.last" load-more-label="Lade mehr Ideen!!" load-fn="ideasList.loadMore"></load-more>
+    <load-more paging="ideasList.paging" no-more-label="'IDEAS_LOAD_MORE_LABEL_NO_MORE'" ng-if="!ideasList.paging.last" load-more-label="'IDEAS_LOAD_MORE_LABEL'" load-fn="ideasList.loadMore"></load-more>
 </content-row>

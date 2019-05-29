@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2019-05-28 16:58+0200\n"
+"PO-Revision-Date: 2019-05-29 14:38+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -45,6 +45,22 @@ msgid "ACTIVATION_HEADLINE"
 msgstr "Registrierung - letzte Schritte"
 
 msgctxt ""
+msgid "ADMIN_IDEAS_DENIED_DESC"
+msgstr "Ideen, die leider abgelehnt wurden: {{value}}"
+
+msgctxt ""
+msgid "ADMIN_IDEAS_DENIED_HEADLINE"
+msgstr "Abgelehnte Ideen"
+
+msgctxt ""
+msgid "ADMIN_IDEAS_PENDING_DESC"
+msgstr "Ideen, die auf Freigabe warten: {{value}}"
+
+msgctxt ""
+msgid "ADMIN_IDEAS_PENDING_HEADLINE"
+msgstr "Ausstehende Ideen"
+
+msgctxt ""
 msgid "BUTTON_LABEL_LOGGING_IN"
 msgstr "Login…"
 
@@ -75,6 +91,18 @@ msgstr "Absenden"
 msgctxt ""
 msgid "BUTTON_LABEL_SUBMITTING"
 msgstr "Absenden…"
+
+msgctxt ""
+msgid "FILTER_ALL_LABEL"
+msgstr "Alle"
+
+msgctxt ""
+msgid "FILTER_NOT_VOTED_LABEL"
+msgstr "Noch nicht bewertet"
+
+msgctxt ""
+msgid "FILTER_VOTED_LABEL"
+msgstr "Bereits bewertet"
 
 msgctxt ""
 msgid "FORM_AGB_ERROR_REQUIRED"
@@ -129,6 +157,14 @@ msgid "FORM_EMAIL_PLACEHOLDER"
 msgstr "E-Mail"
 
 msgctxt ""
+msgid "FORM_ERROR_MAX_CHARS"
+msgstr "Maximal {{value}} Zeichen"
+
+msgctxt ""
+msgid "FORM_ERROR_MIN_CHARS"
+msgstr "Mindestens {{value}} Zeichen"
+
+msgctxt ""
 msgid "FORM_ERROR_UNEXPECTED"
 msgstr "Es ist ein Fehler aufgetreten. Bitte versuche es erneut"
 
@@ -143,6 +179,22 @@ msgstr "Vorname"
 msgctxt ""
 msgid "FORM_FORENAME_PLACEHOLDER"
 msgstr "Vorname"
+
+msgctxt ""
+msgid "FORM_IDEA_EDIT_PITCH_ERROR_REQUIRED"
+msgstr "Bitte gib ein prägnante Beschreibung ein"
+
+msgctxt ""
+msgid "FORM_IDEA_EDIT_PITCH_LABEL"
+msgstr "Deine Idee im Detail"
+
+msgctxt ""
+msgid "FORM_IDEA_EDIT_TITLE_ERROR_REQUIRED"
+msgstr "Bitte gib einen Titel ein"
+
+msgctxt ""
+msgid "FORM_IDEA_EDIT_TITLE_LABEL"
+msgstr "Titel Deiner Idee"
 
 msgctxt ""
 msgid "FORM_PASSWORD_ERROR_PATTERN"
@@ -188,6 +240,34 @@ msgstr "Nachname"
 msgctxt ""
 msgid "FORM_SURNAME_PLACEHOLDER"
 msgstr "Nachname"
+
+msgctxt ""
+msgid "IDEA_TILE_AVG_RATING"
+msgstr "{{rating}} von {{votes}} Personen"
+
+msgctxt ""
+msgid "IDEAS_ADD_DESC"
+msgstr "Du hast eine Idee? Dann reiche sie doch gleich hier ein."
+
+msgctxt ""
+msgid "IDEAS_ADD_HEADLINE"
+msgstr "Reiche eine Idee ein"
+
+msgctxt ""
+msgid "IDEAS_LOAD_MORE_LABEL"
+msgstr "Lade mehr Ideen!!"
+
+msgctxt ""
+msgid "IDEAS_LOAD_MORE_LABEL_NO_MORE"
+msgstr "Es sind keine weiteren Ideen vorhanden"
+
+msgctxt ""
+msgid "IDEAS_VOTE_DESC"
+msgstr "Hier kannst Du eingereichte Ideen bewerten. Jede Stimme zählt!"
+
+msgctxt ""
+msgid "IDEAS_VOTE_HEADLINE"
+msgstr "Eure Ideen"
 
 msgctxt ""
 msgid "INTRO_DESC"
@@ -504,17 +584,30 @@ msgctxt ""
 msgid "REGISTER_SUCCESS_HEADLINE"
 msgstr "Registrierung erfolgreich"
 
+#, fuzzy
+#~| msgctxt ""
+#~| msgid "FORM_EMAIL_ERROR_INVALID"
+#~ msgctxt ""
+#~ msgid "FORM_IDEA_EDIT_PITCH_ERROR_MIN"
+#~ msgstr "Bitte gib eine valide E-Mail Adresse ein"
+
+#, fuzzy
+#~| msgctxt ""
+#~| msgid "FORM_EMAIL_ERROR_INVALID"
+#~ msgctxt ""
+#~ msgid "FORM_IDEA_EDIT_TITLE_ERROR_MAX"
+#~ msgstr "Bitte gib eine valide E-Mail Adresse ein"
+
+#, fuzzy
+#~| msgctxt ""
+#~| msgid "FORM_EMAIL_ERROR_INVALID"
+#~ msgctxt ""
+#~ msgid "FORM_IDEA_EDIT_TITLE_ERROR_MIN"
+#~ msgstr "Bitte gib eine valide E-Mail Adresse ein"
+
 #~ msgctxt ""
 #~ msgid "PASSWORD_RECOVERY_EMAIL_NOT_REGISTERED_LINK"
 #~ msgstr "registrieren"
-
-#~ msgctxt ""
-#~ msgid "IDEAS_ALL_DESC"
-#~ msgstr "Hier kannst Du eingereichte Ideen bewerten. Jede Stimme zählt!"
-
-#~ msgctxt ""
-#~ msgid "IDEAS_ALL_HEADLINE"
-#~ msgstr "Eure Ideen"
 
 #~ msgctxt ""
 #~ msgid "REGISTER_ACCEPT_AGB"

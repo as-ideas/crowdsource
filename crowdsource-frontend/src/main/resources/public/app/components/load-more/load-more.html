@@ -1,0 +1,4 @@
+<div class="loadMore__container">
+    <button ng-if="!vm.paging.last" ng-click="vm.loadMore()" class="button-secondary loadMore__button">{{ vm.loadMoreLabel | translate }}</button>
+    <button ng-if="vm.paging.last" ng-click="vm.loadMore()" class="button-secondary loadMore__button">{{ vm.noMoreLabel | translate }}</button>
+</div>
