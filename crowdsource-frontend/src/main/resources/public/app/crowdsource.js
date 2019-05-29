@@ -21,7 +21,7 @@
      * global application configuration
      */
     angular.module('crowdsource', ['ngRoute', 'ngResource', 'ngMessages', 'dibari.angular-ellipsis', 'ngScrollTo',
-                    'ngSanitize', 'ng-showdown', 'ngFileUpload', 'ngclipboard', 'chart.js', 'pascalprecht.translate'])
+                    'ngSanitize', 'ng-showdown', 'ngFileUpload', 'ngclipboard', 'chart.js', 'pascalprecht.translate','tmh.dynamicLocale'])
 
         .constant('ROUTE_DETAILS', {
             JSON_ROOT: '$$route',
@@ -31,13 +31,16 @@
             VALUE_CAMPAIGN_PROTOTYPE: 'prototype'
         })
 
-        .config(function ($routeProvider, $locationProvider, $httpProvider, $showdownProvider, $translateProvider, ROUTE_DETAILS) {
+        .config(function ($routeProvider, $locationProvider, $httpProvider, $showdownProvider, $translateProvider, ROUTE_DETAILS, tmhDynamicLocaleProvider) {
+            var defaultLang = 'de';
+
+            tmhDynamicLocaleProvider.defaultLocale(defaultLang);
             $translateProvider
                 .useStaticFilesLoader({
                     prefix: '/translations/',
                     suffix: '.json'
                 })
-                .preferredLanguage('en')
+                .preferredLanguage(defaultLang)
                 .useMissingTranslationHandlerLog();
 
             $routeProvider

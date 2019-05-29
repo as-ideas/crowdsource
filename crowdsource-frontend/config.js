@@ -1,14 +1,13 @@
 var baseDir = 'src/main',
     scssDir = baseDir + '/scss',
     appDir = baseDir + '/resources/public',
-    jsFiles = appDir + '/**/*.js';
-
+    jsFiles = appDir + '/app/**/*.js';
 
 var config = {
     baseDir: baseDir,
     scssDir: scssDir,
-    appDir: baseDir + '/resources/public',
-    jsFiles: appDir + '/**/*.js',
+    appDir: appDir,
+    jsFiles: jsFiles,
     scssFiles: scssDir + '/**/*.scss',
     resourceFiles: [appDir + '/**/*', '!' + jsFiles],
 
@@ -16,6 +15,7 @@ var config = {
         minified: [
             'bower_components/jquery/dist/jquery.min.js',
             'bower_components/angular/angular.min.js',
+            'bower_components/angular-dynamic-locale/dist/tmhDynamicLocale.min.js',
             'bower_components/angular-resource/angular-resource.min.js',
             'bower_components/angular-route/angular-route.min.js',
             'bower_components/angular-messages/angular-messages.min.js',
@@ -43,7 +43,6 @@ var config = {
             'bower_components/foundation/js/foundation/foundation.topbar.js',
             'bower_components/foundation/js/foundation/foundation.equalizer.js',
             'bower_components/foundation/js/foundation/foundation.slider.js',
-            'bower_components/angular-i18n/angular-locale_de.js',
             'bower_components/ngScrollTo/ng-scrollto.js',
             'bower_components/foundation-datepicker/js/foundation-datepicker.js'
         ]

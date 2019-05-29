@@ -105,6 +105,10 @@ msgid "BUTTON_LABEL_SUBMITTING"
 msgstr ""
 
 msgctxt ""
+msgid "CAMPAIGN_LABEL_ENDED"
+msgstr "(beendet)"
+
+msgctxt ""
 msgid "FILTER_ALL_LABEL"
 msgstr ""
 
