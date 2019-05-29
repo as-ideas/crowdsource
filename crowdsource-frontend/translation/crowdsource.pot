@@ -33,6 +33,14 @@ msgid "ACTIVATION_HEADLINE"
 msgstr "Registrierung - letzte Schritte"
 
 msgctxt ""
+msgid "ADMIN_IDEA_PUBLISH_MESSAGE"
+msgstr ""
+
+msgctxt ""
+msgid "ADMIN_IDEA_REJECT_MESSAGE"
+msgstr ""
+
+msgctxt ""
 msgid "ADMIN_IDEAS_DENIED_DESC"
 msgstr ""
 
@@ -225,7 +233,27 @@ msgid "FORM_SURNAME_PLACEHOLDER"
 msgstr ""
 
 msgctxt ""
+msgid "IDEA_ADD_MESSAGE_1"
+msgstr ""
+
+msgctxt ""
+msgid "IDEA_ADD_MESSAGE_2"
+msgstr ""
+
+msgctxt ""
+msgid "IDEA_REMOVE_VOTE_MESSAGE"
+msgstr ""
+
+msgctxt ""
 msgid "IDEA_TILE_AVG_RATING"
+msgstr ""
+
+msgctxt ""
+msgid "IDEA_UPDATE_MESSAGE"
+msgstr ""
+
+msgctxt ""
+msgid "IDEA_VOTE_MESSAGE"
 msgstr ""
 
 msgctxt ""

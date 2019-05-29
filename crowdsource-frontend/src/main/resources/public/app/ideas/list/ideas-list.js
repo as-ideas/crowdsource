@@ -1,5 +1,7 @@
 angular.module('crowdsource')
-    .controller('IdeasListController', function (campaign, Authentication, Idea, $rootScope) {
+    .controller('IdeasListController', function (campaign, Authentication, Idea, $rootScope, $filter) {
+        var $translate = $filter('translate');
+
         var FILTER_ALL = 'ALL';
         var FILTER_VOTED = 'VOTED';
         var FILTER_NOT_VOTED = 'NOT_VOTED';
@@ -24,7 +26,7 @@ angular.module('crowdsource')
         vm.reloadOwnIdeas = function () {
             // TODO: Candidate to extract into an own eventing object, see: http://eburley.github.io/2013/01/31/angularjs-watch-pub-sub-best-practices.html
             $rootScope.$broadcast('UPDATE_OWN_STATISTICS', {}, {});
-            $rootScope.$broadcast('ADD_IDEA_SUCCESS', {type: 'success', message: 'Deine Idee wurde erfolgreich eingereicht. <br> Deine Idee wird bald freigeschaltet, wir prüfen sie nur noch schnell..'});
+            $rootScope.$broadcast('ADD_IDEA_SUCCESS', { type: 'success', message: $translate('IDEA_ADD_MESSAGE_1') + '<br>' + $translate('IDEA_ADD_MESSAGE_2') });
         };
 
         function loadMore(page) {

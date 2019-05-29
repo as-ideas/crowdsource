@@ -17,7 +17,9 @@ angular.module('crowdsource')
             },
             controllerAs: 'vm',
             templateUrl: 'app/ideas/idea-tile/idea-tile.html',
-            controller: function ($scope) {
+            controller: function ($scope, $filter) {
+                var $translate = $filter('translate');
+
                 var vm = this;
                 vm.idea = $scope.idea;
                 vm.rating = $scope.idea.rating || DEFAULT_RATING;
@@ -40,11 +42,11 @@ angular.module('crowdsource')
                     vm.isVotingDisabled = true;
                     Idea.voteIdea(vm.campaignId, vm.idea.id, value)
                         .then(function (rating) {
-                            var message = 'Vielen Dank für deine Bewertung.';
                             if (value === 0) {
-                                message = 'Wir haben deine Bewertung entfernt.';
+                                $rootScope.$broadcast('VOTE_'+vm.idea.id, { type:'success', message: $translate('IDEA_REMOVE_VOTE_MESSAGE')});
+                            } else {
+                                $rootScope.$broadcast('VOTE_'+vm.idea.id, { type:'success', message: $translate('IDEA_VOTE_MESSAGE')});
                             }
-                            $rootScope.$broadcast('VOTE_'+vm.idea.id, {type:'success', message: message});
                             vm.rating = rating;
                         })
                         .finally(function () {
@@ -60,7 +62,8 @@ angular.module('crowdsource')
 
                 vm.update = function () {
                     Idea.updateIdea(vm.campaignId, vm.idea).then(function (res) {
-                        $rootScope.$broadcast('VOTE_'+vm.idea.id, {type:'success', message: 'Deine Änderung wurde erfolgreich gespeichert.'});
+
+                        $rootScope.$broadcast('VOTE_'+vm.idea.id, { type:'success', message: $translate('IDEA_UPDATE_MESSAGE') });
                         vm.isEditable = false;
                     })
                 };
@@ -71,7 +74,7 @@ angular.module('crowdsource')
                     }
                     Idea.publishIdea(vm.campaignId, vm.idea.id)
                         .then(function () {
-                            $rootScope.$broadcast('ADMIN_'+vm.idea.id, {type:'success', message: 'Die Idee wurde freigegeben.'});
+                            $rootScope.$broadcast('ADMIN_'+vm.idea.id, { type:'success', message: $translate('ADMIN_IDEA_PUBLISH_MESSAGE') });
                             handleSuccessCallback();
                         });
                 };
@@ -82,7 +85,7 @@ angular.module('crowdsource')
                     }
                     Idea.rejectIdea(vm.campaignId, vm.idea.id, vm.rejectionComment)
                         .then(function () {
-                            $rootScope.$broadcast('ADMIN_'+vm.idea.id, {type:'failure', message: 'Die Idee wurde abgelehnt.'});
+                            $rootScope.$broadcast('ADMIN_'+vm.idea.id, { type:'failure', message: $translate('ADMIN_IDEA_REJECT_MESSAGE') });
                             handleSuccessCallback();
                         });
                 };

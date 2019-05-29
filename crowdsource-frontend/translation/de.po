@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2019-05-29 14:38+0200\n"
+"PO-Revision-Date: 2019-05-29 15:41+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -43,6 +43,14 @@ msgstr "registrieren"
 msgctxt ""
 msgid "ACTIVATION_HEADLINE"
 msgstr "Registrierung - letzte Schritte"
+
+msgctxt ""
+msgid "ADMIN_IDEA_PUBLISH_MESSAGE"
+msgstr "Die Idee wurde freigegeben."
+
+msgctxt ""
+msgid "ADMIN_IDEA_REJECT_MESSAGE"
+msgstr "Die Idee wurde abgelehnt."
 
 msgctxt ""
 msgid "ADMIN_IDEAS_DENIED_DESC"
@@ -242,8 +250,28 @@ msgid "FORM_SURNAME_PLACEHOLDER"
 msgstr "Nachname"
 
 msgctxt ""
+msgid "IDEA_ADD_MESSAGE_1"
+msgstr "Deine Idee wurde erfolgreich eingereicht."
+
+msgctxt ""
+msgid "IDEA_ADD_MESSAGE_2"
+msgstr "Deine Idee wird bald freigeschaltet, wir prüfen sie nur noch schnell.."
+
+msgctxt ""
+msgid "IDEA_REMOVE_VOTE_MESSAGE"
+msgstr "Wir haben deine Bewertung entfernt."
+
+msgctxt ""
 msgid "IDEA_TILE_AVG_RATING"
 msgstr "{{rating}} von {{votes}} Personen"
+
+msgctxt ""
+msgid "IDEA_UPDATE_MESSAGE"
+msgstr "Deine Änderung wurde erfolgreich gespeichert."
+
+msgctxt ""
+msgid "IDEA_VOTE_MESSAGE"
+msgstr "Vielen Dank für deine Bewertung."
 
 msgctxt ""
 msgid "IDEAS_ADD_DESC"
