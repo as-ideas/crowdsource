@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2019-05-29 15:41+0200\n"
+"PO-Revision-Date: 2019-05-29 16:43+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -69,6 +69,18 @@ msgid "ADMIN_IDEAS_PENDING_HEADLINE"
 msgstr "Ausstehende Ideen"
 
 msgctxt ""
+msgid "BUTTON_LABEL_APPROVE"
+msgstr "Freigeben"
+
+msgctxt ""
+msgid "BUTTON_LABEL_CANCEL"
+msgstr "Abbrechen"
+
+msgctxt ""
+msgid "BUTTON_LABEL_EDIT"
+msgstr "Bearbeiten"
+
+msgctxt ""
 msgid "BUTTON_LABEL_LOGGING_IN"
 msgstr "Login…"
 
@@ -83,6 +95,10 @@ msgstr "Registrieren"
 msgctxt ""
 msgid "BUTTON_LABEL_REGISTERING"
 msgstr "Registrieren…"
+
+msgctxt ""
+msgid "BUTTON_LABEL_REJECT"
+msgstr "Ablehnen"
 
 msgctxt ""
 msgid "BUTTON_LABEL_SAVE"
@@ -111,6 +127,18 @@ msgstr "Noch nicht bewertet"
 msgctxt ""
 msgid "FILTER_VOTED_LABEL"
 msgstr "Bereits bewertet"
+
+msgctxt ""
+msgid "FORM_ADMIN_IDEA_REJECT_REASON_ERROR_REQUIRED"
+msgstr "Bitte Ablehnungsgrund angeben"
+
+msgctxt ""
+msgid "FORM_ADMIN_IDEA_REJECT_REASON_LABEL"
+msgstr "Ablehnungsgrund"
+
+msgctxt ""
+msgid "FORM_ADMIN_IDEA_REJECT_REASON_PLACEHOLDER"
+msgstr "Ablehnungsgrund"
 
 msgctxt ""
 msgid "FORM_AGB_ERROR_REQUIRED"
@@ -288,6 +316,42 @@ msgstr "Lade mehr Ideen!!"
 msgctxt ""
 msgid "IDEAS_LOAD_MORE_LABEL_NO_MORE"
 msgstr "Es sind keine weiteren Ideen vorhanden"
+
+msgctxt ""
+msgid "IDEAS_OWN_PUBLISHED_DESC"
+msgstr "Ideen, die sich noch in der Abstimmung befinden: {{value}}"
+
+msgctxt ""
+msgid "IDEAS_OWN_PUBLISHED_HEADLINE"
+msgstr "Veröffentliche Ideen"
+
+msgctxt ""
+msgid "IDEAS_OWN_REJECTED_DESC"
+msgstr "Ideen, die leider abgelehnt wurden: {{value}}"
+
+msgctxt ""
+msgid "IDEAS_OWN_REJECTED_HEADLINE"
+msgstr "Abgelehnte Ideen"
+
+msgctxt ""
+msgid "IDEAS_OWN_STATISTIC_LABEL_IDEAS_APPROVED"
+msgstr "Freigegebene Ideen"
+
+msgctxt ""
+msgid "IDEAS_OWN_STATISTIC_LABEL_IDEAS_PENDING"
+msgstr "Ausstehende Ideen"
+
+msgctxt ""
+msgid "IDEAS_OWN_STATISTIC_LABEL_IDEAS_REJECTED"
+msgstr "Abgelehnte Ideen"
+
+msgctxt ""
+msgid "IDEAS_OWN_SUBMITTED_DESC"
+msgstr "Ideen, die noch auf eine Freigabe warten: {{value}}"
+
+msgctxt ""
+msgid "IDEAS_OWN_SUBMITTED_HEADLINE"
+msgstr "Eingereichte Ideen"
 
 msgctxt ""
 msgid "IDEAS_VOTE_DESC"

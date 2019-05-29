@@ -11,8 +11,8 @@
 <content-row>
     <section class="own-list__section">
         <div class="campaign-login__container ng-scope">
-            <h2 class="campaign-login__headline">Eingereichte Ideen</h2>
-            <p class="campaign-login__description">Ideen, die noch auf eine Freigabe warten: {{ ideasList.proposed.length }}</p>
+            <h2 class="campaign-login__headline" translate="IDEAS_OWN_SUBMITTED_HEADLINE">Eingereichte Ideen</h2>
+            <p class="campaign-login__description" translate="IDEAS_OWN_SUBMITTED_DESC" translate-value-value="{{ ideasList.proposed.length }}">Ideen, die noch auf eine Freigabe warten: </p>
         </div>
         <div class="ideas-grid__container">
             <div class="ideas-grid__box ideas-grid__proposed" ng-repeat="idea in ideasList.proposed" overlay="{{'VOTE_'+idea.id}}">
@@ -29,8 +29,8 @@
     <section class="own-list__section">
 
         <div class="campaign-login__container ng-scope">
-            <h2 class="campaign-login__headline">Veröffentlichte Ideen</h2>
-            <p class="campaign-login__description">Ideen, die sich noch in der Abstimmung befinden: {{ ideasList.published.length }}</p>
+            <h2 class="campaign-login__headline" translate="IDEAS_OWN_PUBLISHED_HEADLINE">Veröffentlichte Ideen</h2>
+            <p class="campaign-login__description" translate="IDEAS_OWN_PUBLISHED_DESC" translate-value-value="{{ ideasList.published.length }}">Ideen, die sich noch in der Abstimmung befinden: </p>
         </div>
 
         <div class="ideas-grid__container">
@@ -47,8 +47,8 @@
 <content-row>
     <section class="own-list__section">
         <div class="campaign-login__container ng-scope">
-            <h2 class="campaign-login__headline">Abgelehnte Ideen</h2>
-            <p class="campaign-login__description">Ideen, die leider abgelehnt wurden: {{ ideasList.rejected.length }}</p>
+            <h2 class="campaign-login__headline" translate="IDEAS_OWN_REJECTED_HEADLINE">Abgelehnte Ideen</h2>
+            <p class="campaign-login__description" translate="IDEAS_OWN_REJECTED_DESC" translate-value-value="{{ ideasList.rejected.length }}">Ideen, die leider abgelehnt wurden: </p>
         </div>
         <div class="ideas-grid__container">
             <div class="ideas-grid__box ideas-grid__rejected" ng-repeat="idea in ideasList.rejected">

@@ -57,6 +57,18 @@ msgid "ADMIN_IDEAS_PENDING_HEADLINE"
 msgstr ""
 
 msgctxt ""
+msgid "BUTTON_LABEL_APPROVE"
+msgstr "Freigeben"
+
+msgctxt ""
+msgid "BUTTON_LABEL_CANCEL"
+msgstr "Abbrechen"
+
+msgctxt ""
+msgid "BUTTON_LABEL_EDIT"
+msgstr "Bearbeiten"
+
+msgctxt ""
 msgid "BUTTON_LABEL_LOGGING_IN"
 msgstr ""
 
@@ -71,6 +83,10 @@ msgstr ""
 msgctxt ""
 msgid "BUTTON_LABEL_REGISTERING"
 msgstr ""
+
+msgctxt ""
+msgid "BUTTON_LABEL_REJECT"
+msgstr "Ablehnen"
 
 msgctxt ""
 msgid "BUTTON_LABEL_SAVE"
@@ -98,6 +114,18 @@ msgstr ""
 
 msgctxt ""
 msgid "FILTER_VOTED_LABEL"
+msgstr ""
+
+msgctxt ""
+msgid "FORM_ADMIN_IDEA_REJECT_REASON_ERROR_REQUIRED"
+msgstr "Bitte Ablehnungsgrund angeben"
+
+msgctxt ""
+msgid "FORM_ADMIN_IDEA_REJECT_REASON_LABEL"
+msgstr "Ablehnungsgrund"
+
+msgctxt ""
+msgid "FORM_ADMIN_IDEA_REJECT_REASON_PLACEHOLDER"
 msgstr ""
 
 msgctxt ""
@@ -150,11 +178,11 @@ msgstr ""
 
 msgctxt ""
 msgid "FORM_ERROR_MAX_CHARS"
-msgstr "Maximal 255 Zeichen"
+msgstr "Maximal 10000 Zeichen"
 
 msgctxt ""
 msgid "FORM_ERROR_MIN_CHARS"
-msgstr "Mindestens 5 Zeichen"
+msgstr "Mindestens 10 Zeichen"
 
 msgctxt ""
 msgid "FORM_ERROR_UNEXPECTED"
@@ -271,6 +299,42 @@ msgstr ""
 msgctxt ""
 msgid "IDEAS_LOAD_MORE_LABEL_NO_MORE"
 msgstr ""
+
+msgctxt ""
+msgid "IDEAS_OWN_PUBLISHED_DESC"
+msgstr "Ideen, die sich noch in der Abstimmung befinden:"
+
+msgctxt ""
+msgid "IDEAS_OWN_PUBLISHED_HEADLINE"
+msgstr "Veröffentlichte Ideen"
+
+msgctxt ""
+msgid "IDEAS_OWN_REJECTED_DESC"
+msgstr "Ideen, die leider abgelehnt wurden:"
+
+msgctxt ""
+msgid "IDEAS_OWN_REJECTED_HEADLINE"
+msgstr "Abgelehnte Ideen"
+
+msgctxt ""
+msgid "IDEAS_OWN_STATISTIC_LABEL_IDEAS_APPROVED"
+msgstr "Freigegebene Ideen"
+
+msgctxt ""
+msgid "IDEAS_OWN_STATISTIC_LABEL_IDEAS_PENDING"
+msgstr "Ausstehende Ideen"
+
+msgctxt ""
+msgid "IDEAS_OWN_STATISTIC_LABEL_IDEAS_REJECTED"
+msgstr "Abgelehnte Ideen"
+
+msgctxt ""
+msgid "IDEAS_OWN_SUBMITTED_DESC"
+msgstr "Ideen, die noch auf eine Freigabe warten:"
+
+msgctxt ""
+msgid "IDEAS_OWN_SUBMITTED_HEADLINE"
+msgstr "Eingereichte Ideen"
 
 msgctxt ""
 msgid "IDEAS_VOTE_DESC"
