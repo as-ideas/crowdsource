@@ -122,7 +122,7 @@ describe('ideas list', function () {
             return this.element.find('.ideas-grid-tile');
         };
         this.clickFilter = function (state) {
-            this.element.find('a[name="' + state + '"]').click();
+            this.element.find('a[name="FILTER_' + state + '"]').click();
         }
         this.clickLoadMore = function (state) {
             this.element.find('.loadMore__button').click();

@@ -7,6 +7,7 @@ module.exports = function (config) {
             'bower_components/jquery/dist/jquery.js',
             'bower_components/jasmine-jquery/lib/jasmine-jquery.js',
             'bower_components/angular/angular.js',
+            'bower_components/angular-dynamic-locale/dist/tmhDynamicLocale.min.js',
             'bower_components/angular-resource/angular-resource.js',
             'bower_components/angular-route/angular-route.js',
             'bower_components/angular-messages/angular-messages.js',
@@ -35,7 +36,8 @@ module.exports = function (config) {
             'src/test/javascript/testsupport/mocked-libraries.testsupport.js',
             'src/main/resources/public/app/crowdsource.js',
             'src/main/resources/public/app/**/*.js',
-            'src/main/resources/public/app/translations/en.json',
+            'src/main/resources/public/app/translations/de.json',
+            'src/main/resources/public/angular/i18n/angular-locale_de.js',
             'src/test/javascript/**/*.js',
 
             // Selective test execution -> comment line above uncomment lines below
