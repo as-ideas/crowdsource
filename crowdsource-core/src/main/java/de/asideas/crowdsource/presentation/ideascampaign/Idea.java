@@ -27,6 +27,8 @@ public class Idea {
     @Size(min = 5, max = 255)
     private String pitch;
 
+    private IdeaContentList content;
+
     private String rejectionComment;
 
     private Rating rating;
@@ -39,6 +41,8 @@ public class Idea {
         this.title = ideaEntity.getOriginalTitle();
         this.pitch = ideaEntity.getOriginalPitch();
         this.status = ideaEntity.getStatus();
+        this.content = new IdeaContentList(ideaEntity);
+
         this.creationDate = ideaEntity.getCreatedDate();
         this.creatorName = ideaEntity.getCreator().getFirstName();
         this.rejectionComment = ideaEntity.getRejectionComment();
@@ -102,6 +106,9 @@ public class Idea {
         this.pitch = pitch;
     }
 
+    public IdeaContentList getContent() { return content; }
+    public void setContent(IdeaContentList content) { this.content = content; }
+
     public String getRejectionComment() {
         return rejectionComment;
     }
@@ -138,7 +145,7 @@ public class Idea {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, creatorName, status, creationDate, title, pitch, rejectionComment, rating);
+        return Objects.hash(id, creatorName, status, creationDate, content, title, pitch, rejectionComment, rating);
     }
 
     @Override
@@ -150,6 +157,7 @@ public class Idea {
             ", creationDate=" + creationDate +
             ", title='" + title + '\'' +
             ", pitch='" + pitch + '\'' +
+            ", content='" + content + '\'' +
             ", rejectionComment='" + rejectionComment + '\'' +
             ", rating=" + rating +
             '}';

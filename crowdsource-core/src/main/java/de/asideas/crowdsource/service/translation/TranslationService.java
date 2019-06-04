@@ -98,7 +98,12 @@ public class TranslationService {
         }
 
         // TODO error handling
-        return new SingleTranslation(sourceLang, targetLang, URLDecoder.decode(translatedTitle), URLDecoder.decode(translatedPitch));
+        if(sourceLang == targetLang) {
+            log.info("source and target language are the same. Use original title and pitch instead of translated: " + sourceLang);
+            return new SingleTranslation(sourceLang, targetLang, origTitle, origPitch);
+        } else {
+            return new SingleTranslation(sourceLang, targetLang, URLDecoder.decode(translatedTitle), URLDecoder.decode(translatedPitch));
+        }
     }
 
     private String replaceAllUmlauts(String input) {
@@ -122,7 +127,7 @@ public class TranslationService {
 
         if (singleTranslations != null) {
             for (SingleTranslation singleTranslation : singleTranslations) {
-                if (detectedLanguage != null && !defaultLanguage.equals(singleTranslation.sourceLanguage)) {
+                if (detectedLanguage != null && !detectedLanguage.equals(singleTranslation.sourceLanguage)) {
                     //we have a problem
                     log.error("No unambiguous source language detected! Setting default: " + defaultLanguage);
                     return defaultLanguage;
@@ -131,6 +136,8 @@ public class TranslationService {
                 }
             }
         }
+
+        log.info("Detected language: " + detectedLanguage);
         return detectedLanguage;
     }
 
