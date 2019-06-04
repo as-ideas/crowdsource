@@ -12,12 +12,13 @@
                     <div class="header__breadcrumb-nav-divider" />
                     <a ng-repeat="localNavItem in vm.localNavItems" class="header__nav-link" ng-href="{{localNavItem.target}}" ng-click="vm.closeMobileMenu()">{{localNavItem.label | translate}}</a>
                     <div ng-if="vm.localNavItems.length > 0" class="header__nav-divider"></div>
-                <a class="header__nav-link" href="#/help" ng-click="vm.closeMobileMenu()" translate="NAV_LABEL_HELP">Hilfe</a>
-                <a ng-if="!vm.auth.currentUser.loggedIn" class="header__nav-link" href="#/signup" ng-click="vm.closeMobileMenu()" translate="NAV_LABEL_REGISTER">Registieren</a>
-                <a ng-if="!vm.auth.currentUser.loggedIn" class="header__nav-link" href="#/login" ng-click="vm.closeMobileMenu()" translate="NAV_LABEL_LOGIN">Login</a>
-                <a ng-if="vm.auth.currentUser.loggedIn" class="header__nav-link" href="#/logout" ng-click="vm.closeMobileMenu()" translate="NAV_LABEL_LOGOUT">Logout</a>
-                <a class="header__nav-link" ng-if="vm.currentLanguage=='de'" ng-click="vm.changeLanguage('en')" translate="NAV_LANG_GERMAN">Deutsch</a>
-                <a class="header__nav-link" ng-if="vm.currentLanguage=='en'" ng-click="vm.changeLanguage('de')" translate="NAV_LANG_ENGLISH">Englisch</a>
+                    <a class="header__nav-link" href="#/help" ng-click="vm.closeMobileMenu()" translate="NAV_LABEL_HELP">Hilfe</a>
+                    <a ng-if="!vm.auth.currentUser.loggedIn" class="header__nav-link" href="#/signup" ng-click="vm.closeMobileMenu()" translate="NAV_LABEL_REGISTER">Registieren</a>
+                    <a ng-if="!vm.auth.currentUser.loggedIn" class="header__nav-link" href="#/login" ng-click="vm.closeMobileMenu()" translate="NAV_LABEL_LOGIN">Login</a>
+                    <a ng-if="vm.auth.currentUser.loggedIn" class="header__nav-link" href="#/logout" ng-click="vm.closeMobileMenu()" translate="NAV_LABEL_LOGOUT">Logout</a>
+                    <div class="header__nav-divider"></div>
+                    <a class="header__nav-link" ng-if="vm.currentLanguage=='de'" ng-click="vm.changeLanguage('en')" translate="NAV_LANG_ENGLISH">English</a>
+                    <a class="header__nav-link" ng-if="vm.currentLanguage=='en'" ng-click="vm.changeLanguage('de')" translate="NAV_LANG_GERMAN">Deutsch</a>
                 </div>
             </nav>
         </div>

@@ -6,10 +6,16 @@ angular.module('crowdsource')
         directive.templateUrl = 'app/components/layout/nav-bar/nav-bar.html';
         directive.controllerAs = 'vm';
         directive.bindToController = true;
-        directive.controller = ['$scope','$window','$translate','tmhDynamicLocale','Authentication','Route','Idea','ROUTE_DETAILS', NavBarController]
+        directive.controller = ['$scope','$rootScope','$window','$translate','tmhDynamicLocale','Authentication','Route','Idea','ROUTE_DETAILS', NavBarController]
 
-        function NavBarController($scope, $window, $translate, tmhDynamicLocale, Authentication, Route, Idea, ROUTE_DETAILS) {
+        function NavBarController($scope, $rootScope, $window, $translate, tmhDynamicLocale, Authentication, Route, Idea, ROUTE_DETAILS) {
             var vm = this;
+            vm.currentLanguage = $translate.use();
+
+            $rootScope.$on('$translateChangeSuccess', function (event, data) {
+                // Set language var for UI
+                vm.currentLanguage = data.language;
+            });
 
             vm.auth = Authentication;
             vm.breadcrumbs = [];
@@ -18,7 +24,6 @@ angular.module('crowdsource')
             vm.isMobileMenuOpen = false;
             vm.toggleMobileMenu = toggleMobileMenu;
             vm.closeMobileMenu = closeMobileMenu;0
-            vm.currentLanguage = $translate.use();
 
             vm.changeLanguage = function(langKey) {
                 // Set Angular locale
@@ -26,9 +31,6 @@ angular.module('crowdsource')
 
                 // Set angular-translate language
                 $translate.use(langKey);
-
-                // Set language var for UI
-                vm.currentLanguage = langKey;
 
                 // Close Mobile Menu (if open)
                 vm.closeMobileMenu();

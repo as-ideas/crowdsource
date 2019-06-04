@@ -1,7 +1,7 @@
 <div class="ideas-grid-tile">
 
     <div ng-if="vm.idea.status == 'PUBLISHED'">
-        <span class="ideas-grid-tile__title" title="{{ vm.idea.title }}">{{ vm.idea.title }}</span>
+        <span class="ideas-grid-tile__title" title="{{ vm.idea.title }}">{{ vm.idea.content[vm.currentLanguage].title }}</span>
         <span class="ideas-grid-tile__star--single"></span>
         <span class="ideas-grid-tile__votes" translate="IDEA_TILE_AVG_RATING" translate-value-rating="{{vm.rating.averageRating}}" translate-value-votes="{{vm.rating.countVotes}}"></span>
     </div>
@@ -10,7 +10,7 @@
         <span class="ideas-grid-tile__title" title="{{ vm.idea.title }}">{{ idea.title }}</span>
     </div>
 
-    <p ng-if="!vm.isEditable" class="ideas-grid-tile__text">{{::idea.pitch}} <i class="ideas-grid-tile__author">({{::idea.creatorName}})</i></p>
+    <p ng-if="!vm.isEditable" class="ideas-grid-tile__text">{{ vm.idea.content[vm.currentLanguage].pitch }} <i class="ideas-grid-tile__author">({{::idea.creatorName}})</i></p>
 
     <div class="ideas-grid-tile__rating ideas-grid-tile__bottom-container" ng-if="vm.idea.status == 'PUBLISHED' && !vm.isAdminView">
     <!-- Approved, regular -->

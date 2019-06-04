@@ -1,5 +1,5 @@
 angular.module('crowdsource')
-    .directive('ideaTile', function ($timeout, Idea, $rootScope, OVERLAY_ANIMATION_DURATION) {
+    .directive('ideaTile', function ($timeout, Idea, $rootScope, $translate, OVERLAY_ANIMATION_DURATION) {
 
         var DEFAULT_RATING = {
             ownVote: 0,
@@ -17,10 +17,15 @@ angular.module('crowdsource')
             },
             controllerAs: 'vm',
             templateUrl: 'app/ideas/idea-tile/idea-tile.html',
-            controller: function ($scope, $filter) {
-                var $translate = $filter('translate');
+            controller: function ($scope, $rootScope, $translate) {
+
+                $rootScope.$on('$translateChangeSuccess', function (event,data) {
+                    vm.currentLanguage = data.language;
+                });
 
                 var vm = this;
+                vm.currentLanguage = $translate.use();
+
                 vm.idea = $scope.idea;
                 vm.rating = $scope.idea.rating || DEFAULT_RATING;
                 vm.rating.averageRating = Math.round(vm.rating.averageRating * 10) / 10;
