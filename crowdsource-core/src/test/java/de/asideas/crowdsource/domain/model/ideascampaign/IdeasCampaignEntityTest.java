@@ -15,6 +15,17 @@ import static org.junit.Assert.assertThat;
 
 public class IdeasCampaignEntityTest {
 
+    private IdeasCampaignContent createTestIdeasCampaignContentEntity() {
+        return new IdeasCampaignContent("amazing title", "longer description", "tuuuutImg", "tuuuut", "videoImageRef");
+    }
+
+    private IdeasCampaignContentList createTestIdeasCampaignContentEntityList() {
+        return new IdeasCampaignContentList(
+                createTestIdeasCampaignContentEntity(),
+                createTestIdeasCampaignContentEntity()
+        );
+    }
+
     @Test
     public void newIdeasCampaign_ShouldReturnFullyInitializedCampaign() {
 
@@ -67,9 +78,7 @@ public class IdeasCampaignEntityTest {
 
         final IdeasCampaignEntity testee = IdeasCampaignEntity.newIdeasCampaign(cmd, givenUserEntity(userId));
         testee.updateMasterdata(changeCmd);
-
         thenIdeasCampaignContainsExpectedFields(testee, changeCmd);
-
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -77,8 +86,12 @@ public class IdeasCampaignEntityTest {
         final String userId = "test_userId";
         IdeasCampaign cmd = givenIdeasCampaignCmd(userId);
 
-        final IdeasCampaign changeCmd = new IdeasCampaign(DateTime.now().plusDays(2), DateTime.now().plusDays(1),
-            new CampaignInitiator(userId, "new username"), "better sponsor", "amazing title", "longer description", "tuuuut", "tuuuutImg", "usw");
+        final IdeasCampaign changeCmd = new IdeasCampaign(
+                null,
+                DateTime.now().plusDays(1),
+                new CampaignInitiator(userId, "new username"),
+                "better sponsor",
+                createTestIdeasCampaignContentEntityList());
 
         final IdeasCampaignEntity testee = IdeasCampaignEntity.newIdeasCampaign(cmd, givenUserEntity(userId));
         testee.updateMasterdata(changeCmd);
@@ -89,8 +102,12 @@ public class IdeasCampaignEntityTest {
         final String userId = "test_userId";
         IdeasCampaign cmd = givenIdeasCampaignCmd(userId);
 
-        final IdeasCampaign changeCmd = new IdeasCampaign(null, DateTime.now().plusDays(1),
-            new CampaignInitiator(userId, "new username"), "better sponsor", "amazing title", "longer description", "tuuuut", "tuuuutImg", "usw");
+        final IdeasCampaign changeCmd = new IdeasCampaign(
+                null,
+                DateTime.now().plusDays(1),
+                new CampaignInitiator(userId, "new username"),
+                "better sponsor",
+                createTestIdeasCampaignContentEntityList());
 
         final IdeasCampaignEntity testee = IdeasCampaignEntity.newIdeasCampaign(cmd, givenUserEntity(userId));
         testee.updateMasterdata(changeCmd);
@@ -101,8 +118,12 @@ public class IdeasCampaignEntityTest {
         final String userId = "test_userId";
         IdeasCampaign cmd = givenIdeasCampaignCmd(userId);
 
-        final IdeasCampaign changeCmd = new IdeasCampaign(DateTime.now().plusDays(2), null,
-            new CampaignInitiator(userId, "new username"), "better sponsor", "amazing title", "longer description", "tuuuut", "tuuuutImg","usw");
+        final IdeasCampaign changeCmd = new IdeasCampaign(
+                null,
+                DateTime.now().plusDays(2),
+                new CampaignInitiator(userId, "new username"),
+                "better sponsor",
+                createTestIdeasCampaignContentEntityList());
 
         final IdeasCampaignEntity testee = IdeasCampaignEntity.newIdeasCampaign(cmd, givenUserEntity(userId));
         testee.updateMasterdata(changeCmd);
@@ -154,21 +175,29 @@ public class IdeasCampaignEntityTest {
     }
 
     private IdeasCampaign givenIdeasCampaignCmd(String userId, DateTime startDate, DateTime endDate) {
-        return new IdeasCampaign(startDate, endDate,
-            new CampaignInitiator(userId, "test_username"), "test_sponsor", "Test_Title", "test_descr", "test_vidRef", "test_vidImgRef", "test_teaserImg");
+        return new IdeasCampaign(
+                startDate,
+                endDate,
+                new CampaignInitiator(userId, "test_username"),
+                "test_sponsor",
+                createTestIdeasCampaignContentEntityList());
     }
 
     private void thenIdeasCampaignContainsExpectedFields(IdeasCampaignEntity actualRes, IdeasCampaign expected) {
         assertThat(actualRes.getStartDate(), equalTo(expected.getStartDate()));
         assertThat(actualRes.getEndDate(), equalTo(expected.getEndDate()));
-
         assertThat(actualRes.getSponsor(), equalTo(expected.getSponsor()));
-        assertThat(actualRes.getTitle(), equalTo(expected.getTitle()));
-        assertThat(actualRes.getDescription(), equalTo(expected.getDescription()));
-        assertThat(actualRes.getVideoReference(), equalTo(expected.getVideoReference()));
-        assertThat(actualRes.getTeaserImageReference(), equalTo(expected.getTeaserImageReference()));
-
         assertThat(actualRes.getInitiator().getId(), equalTo(expected.getCampaignInitiator().getId()));
+
+        assertThat(actualRes.getContent().getDe().getTitle(), equalTo(expected.getContent().getDe().getTitle()));
+        assertThat(actualRes.getContent().getDe().getDescription(), equalTo(expected.getContent().getDe().getDescription()));
+        assertThat(actualRes.getContent().getDe().getVideoReference(), equalTo(expected.getContent().getDe().getVideoReference()));
+        assertThat(actualRes.getContent().getDe().getTeaserImageReference(), equalTo(expected.getContent().getDe().getTeaserImageReference()));
+
+        assertThat(actualRes.getContent().getEn().getTitle(), equalTo(expected.getContent().getEn().getTitle()));
+        assertThat(actualRes.getContent().getEn().getDescription(), equalTo(expected.getContent().getEn().getDescription()));
+        assertThat(actualRes.getContent().getEn().getVideoReference(), equalTo(expected.getContent().getEn().getVideoReference()));
+        assertThat(actualRes.getContent().getEn().getTeaserImageReference(), equalTo(expected.getContent().getEn().getTeaserImageReference()));
     }
 
 }

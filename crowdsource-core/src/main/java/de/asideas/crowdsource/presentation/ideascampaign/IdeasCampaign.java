@@ -1,12 +1,15 @@
 package de.asideas.crowdsource.presentation.ideascampaign;
 
 import java.util.Objects;
+import javax.validation.Valid;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
-
+import de.asideas.crowdsource.controller.ideascampaign.IdeaController;
+import de.asideas.crowdsource.domain.model.ideascampaign.IdeasCampaignContentList;
 import org.joda.time.DateTime;
-
 import de.asideas.crowdsource.domain.model.ideascampaign.IdeasCampaignEntity;
+import org.slf4j.Logger;
+import static org.slf4j.LoggerFactory.getLogger;
 
 
 public class IdeasCampaign {
@@ -21,51 +24,44 @@ public class IdeasCampaign {
 
     private CampaignInitiator campaignInitiator;
 
-    @NotNull
-    private String title;
-
-    @NotNull
-    private String description;
-
-    private String sponsor;
-
-    private String videoReference;
-
-    private String videoImageReference;
-
-    private String teaserImageReference;
-
     private boolean active;
 
     private boolean expired;
 
+    private String sponsor;
+
+    @Valid
+    @NotNull
+    private IdeasCampaignContentList content;
+
+
+    private static final Logger log = getLogger(IdeaController.class);
+
+
     private IdeasCampaign() {
     }
+
     public IdeasCampaign(IdeasCampaignEntity input) {
+
+        log.debug(input.toString());
+        log.info(input.toString());
+
         this.id = input.getId();
         this.startDate = input.getStartDate();
         this.endDate = input.getEndDate();
         this.campaignInitiator = new CampaignInitiator(input.getInitiator());
         this.sponsor = input.getSponsor();
-        this.title = input.getTitle();
-        this.description = input.getDescription();
-        this.videoReference = input.getVideoReference();
-        this.videoImageReference = input.getVideoImageReference();
-        this.teaserImageReference = input.getTeaserImageReference();
         this.active = input.isActive();
         this.expired = input.isExpired();
+        this.content = input.getContent();
     }
 
-    public IdeasCampaign(DateTime startDate, DateTime endDate, CampaignInitiator campaignInitiator, String sponsor, String title, String description, String videoReference, String videoImageReference, String teaserImageReference) {
+    public IdeasCampaign(DateTime startDate, DateTime endDate, CampaignInitiator campaignInitiator, String sponsor, IdeasCampaignContentList content) {
         this.startDate = startDate;
         this.endDate = endDate;
         this.campaignInitiator = campaignInitiator;
         this.sponsor = sponsor;
-        this.title = title;
-        this.description = description;
-        this.videoReference = videoReference;
-        this.videoImageReference = videoImageReference;
-        this.teaserImageReference = teaserImageReference;
+        this.content = content;
     }
 
     public String getId() {
@@ -92,44 +88,7 @@ public class IdeasCampaign {
     public CampaignInitiator getCampaignInitiator() {
         return campaignInitiator;
     }
-    public void setCampaignInitiator(CampaignInitiator campaignInitiator) {
-        this.campaignInitiator = campaignInitiator;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getVideoReference() {
-        return videoReference;
-    }
-    public void setVideoReference(String videoReference) {
-        this.videoReference = videoReference;
-    }
-
-    public String getVideoImageReference() {
-        return videoImageReference;
-    }
-    public void setVideoImageReference(String videoImageReference) {
-        this.videoImageReference = videoImageReference;
-    }
-
-    public String getTeaserImageReference() {
-        return teaserImageReference;
-    }
-    public void setTeaserImageReference(String teaserImageReference) {
-        this.teaserImageReference = teaserImageReference;
-    }
+    public void setCampaignInitiator(CampaignInitiator campaignInitiator) { this.campaignInitiator = campaignInitiator; }
 
     public String getSponsor() {
         return sponsor;
@@ -145,12 +104,12 @@ public class IdeasCampaign {
         this.active = active;
     }
 
-    public boolean isExpired() {
-        return expired;
-    }
-    public void isExpired(boolean expired) {
-        this.expired = expired;
-    }
+    public boolean isExpired() { return expired; }
+    public void isExpired(boolean expired) { this.expired = expired; }
+
+    public IdeasCampaignContentList getContent() { return content; }
+    public void setContent(IdeasCampaignContentList content) { this.content = content; }
+
 
     @Override
     public boolean equals(Object o) {
@@ -167,17 +126,13 @@ public class IdeasCampaign {
             Objects.equals(startDate, that.startDate) &&
             Objects.equals(endDate, that.endDate) &&
             Objects.equals(campaignInitiator, that.campaignInitiator) &&
-            Objects.equals(title, that.title) &&
-            Objects.equals(description, that.description) &&
             Objects.equals(sponsor, that.sponsor) &&
-            Objects.equals(videoReference, that.videoReference) &&
-            Objects.equals(videoImageReference, that.videoImageReference) &&
-            Objects.equals(teaserImageReference, that.teaserImageReference);
+            Objects.equals(content, that.content);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, startDate, endDate, campaignInitiator, title, description, sponsor, videoReference, videoImageReference, teaserImageReference, active, expired);
+        return Objects.hash(id, startDate, endDate, campaignInitiator, sponsor, active, expired, content);
     }
 
     @Override
@@ -187,14 +142,9 @@ public class IdeasCampaign {
             ", startDate=" + startDate +
             ", endDate=" + endDate +
             ", campaignInitiator=" + campaignInitiator +
-            ", title='" + title + '\'' +
-            ", description='" + description + '\'' +
-            ", sponsor='" + sponsor + '\'' +
-            ", videoReference='" + videoReference + '\'' +
-            ", videoImageReference='" + videoImageReference + '\'' +
-            ", teaserImageReference='" + teaserImageReference + '\'' +
             ", active=" + active +
             ", expired=" + expired +
+            ", content=" + content +
             '}';
     }
 }

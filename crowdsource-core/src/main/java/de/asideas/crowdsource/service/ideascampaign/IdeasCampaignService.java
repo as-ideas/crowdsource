@@ -1,9 +1,6 @@
 package de.asideas.crowdsource.service.ideascampaign;
 
-import java.util.Comparator;
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.joda.time.DateTime;

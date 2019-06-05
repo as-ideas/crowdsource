@@ -123,7 +123,9 @@ public class IdeaService {
         final IdeasCampaignEntity campaign = ideasCampaignRepository.findOne(campaignId);
         final IdeaEntity result = campaign.createIdea(cmd, creator);
 
-        notifyAdminsOnNewIdea(result, campaign.getTitle());
+        // TODO: Fix according to translation concept
+        log.info("Create new idea: campaign: " + campaign.toString());
+        notifyAdminsOnNewIdea(result, campaign.getContent().getDe().getTitle());
         return new Idea(ideaRepository.save(result));
     }
 
@@ -152,7 +154,7 @@ public class IdeaService {
         final IdeaEntity existingIdea = ideaRepository.findOne(ideaId);
         campaign.approveIdea(existingIdea, approvingAdmin);
 
-        userNotificationService.notifyCreatorOnIdeaAccepted(existingIdea, campaign.getTitle());
+        userNotificationService.notifyCreatorOnIdeaAccepted(existingIdea, campaign.getContent().getDe().getTitle());
 
         // try to translate incoming idea
         translationService.translateIdea(existingIdea);
@@ -173,8 +175,7 @@ public class IdeaService {
         final IdeaEntity ideaToReject = ideaRepository.findOne(ideaId);
         campaign.rejectIdea(ideaToReject, approvingAdmin, rejectionComment);
 
-        userNotificationService.notifyCreatorOnIdeaRejected(ideaToReject, rejectionComment, campaign.getTitle());
-
+        userNotificationService.notifyCreatorOnIdeaRejected(ideaToReject, rejectionComment, campaign.getContent().getDe().getTitle());
         ideaRepository.save(ideaToReject);
     }
 

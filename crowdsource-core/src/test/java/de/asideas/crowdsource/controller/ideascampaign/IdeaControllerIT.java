@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
+import de.asideas.crowdsource.domain.model.ideascampaign.*;
+import de.asideas.crowdsource.presentation.ideascampaign.*;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,15 +15,7 @@ import org.springframework.test.web.servlet.ResultActions;
 
 import de.asideas.crowdsource.AbstractCrowdIT;
 import de.asideas.crowdsource.domain.model.UserEntity;
-import de.asideas.crowdsource.domain.model.ideascampaign.IdeaEntity;
-import de.asideas.crowdsource.domain.model.ideascampaign.IdeasCampaignEntity;
-import de.asideas.crowdsource.domain.model.ideascampaign.VoteEntity;
-import de.asideas.crowdsource.domain.model.ideascampaign.VoteId;
 import de.asideas.crowdsource.domain.shared.ideascampaign.IdeaStatus;
-import de.asideas.crowdsource.presentation.ideascampaign.Idea;
-import de.asideas.crowdsource.presentation.ideascampaign.IdeasCampaign;
-import de.asideas.crowdsource.presentation.ideascampaign.IdeaRejectCmd;
-import de.asideas.crowdsource.presentation.ideascampaign.VoteCmd;
 import de.asideas.crowdsource.repository.ideascampaign.IdeaRepository;
 import de.asideas.crowdsource.repository.ideascampaign.IdeasCampaignRepository;
 import de.asideas.crowdsource.repository.ideascampaign.VoteRepository;
@@ -706,8 +700,15 @@ public class IdeaControllerIT extends AbstractCrowdIT {
     }
 
     private IdeasCampaign givenValidCampaignCmd() {
-        return new IdeasCampaign(DateTime.now().minus(1000L), DateTime.now().plus(10000L),
-                null, "The Sponsor", "Test_Title", "test_descr", "test_vidRef", "test_vidImgRef", "test_teaserImage");
+        return new IdeasCampaign(
+                DateTime.now().minus(1000L),
+                DateTime.now().plus(10000L),
+                null,
+                "The Sponsor",
+                new IdeasCampaignContentList(
+                    new IdeasCampaignContent("Test_Title", "test_descr", "test_teaserImage", "test_vidRef", "videoImageRef"),
+                    new IdeasCampaignContent("Test_Title", "test_descr", "test_teaserImage", "test_vidRef", "videoImageRef")
+                ));
     }
 
     private Idea toIdea(ResultActions givenIdeaExists) throws IOException {

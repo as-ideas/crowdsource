@@ -37,29 +37,27 @@ public class IdeasCampaignEntity {
     @DBRef
     private UserEntity initiator;
 
-    private String title;
-    private String description;
-    private String videoReference;
-    private String videoImageReference;
     private String sponsor;
-    private String teaserImageReference;
+
+    private IdeasCampaignContentList content;
+
 
     private IdeasCampaignEntity() {
     }
 
     public static IdeasCampaignEntity newIdeasCampaign(IdeasCampaign creationCmd, UserEntity initiator) {
 
+        log.info(creationCmd.toString());
+        log.debug(creationCmd.toString());
         verifyActiveTimeSpan(creationCmd);
 
         final IdeasCampaignEntity res = new IdeasCampaignEntity();
         res.setStartDate(creationCmd.getStartDate());
         res.setEndDate(creationCmd.getEndDate());
         res.setInitiator(initiator);
-        res.setTitle(creationCmd.getTitle());
-        res.setDescription(creationCmd.getDescription());
-        res.setVideoReference(creationCmd.getVideoReference());
         res.setSponsor(creationCmd.getSponsor());
-        res.setTeaserImageReference(creationCmd.getTeaserImageReference());
+        res.setContent(creationCmd.getContent());
+
         return res;
     }
 
@@ -77,11 +75,9 @@ public class IdeasCampaignEntity {
 
         this.setStartDate(cmd.getStartDate());
         this.setEndDate(cmd.getEndDate());
-        this.setTitle(cmd.getTitle());
-        this.setDescription(cmd.getDescription());
-        this.setVideoReference(cmd.getVideoReference());
-        this.setTeaserImageReference(cmd.getTeaserImageReference());
         this.setSponsor(cmd.getSponsor());
+        this.setContent(cmd.getContent());
+
     }
 
     public boolean isActive() {
@@ -157,45 +153,20 @@ public class IdeasCampaignEntity {
         this.initiator = initiator;
     }
 
-    public String getTitle() {
-        return title;
-    }
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getVideoReference() {
-        return videoReference;
-    }
-    public void setVideoReference(String videoReference) {
-        this.videoReference = videoReference;
-    }
-
-    public String getVideoImageReference() {
-        return videoImageReference;
-    }
-    public void setVideoImageReference(String videoImageReference) { this.videoImageReference = videoImageReference; }
-
-    public String getTeaserImageReference() {
-        return teaserImageReference;
-    }
-    public void setTeaserImageReference(String teaserImageReference) {
-        this.teaserImageReference = teaserImageReference;
-    }
-
     public String getSponsor() {
         return sponsor;
     }
     public void setSponsor(String sponsor) {
         this.sponsor = sponsor;
     }
+
+    public IdeasCampaignContentList getContent() {
+        return content;
+    }
+    public void setContent(IdeasCampaignContentList content) {
+        this.content = content;
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -212,6 +183,19 @@ public class IdeasCampaignEntity {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "IdeasCampaignEntity{" +
+                "id='" + id + '\'' +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", active=" + createdDate +
+                ", expired=" + lastModifiedDate +
+                ", initiator=" + initiator +
+                ", content=" + content +
+                '}';
     }
 
 }

@@ -39,6 +39,8 @@ import de.asideas.crowdsource.repository.ideascampaign.IdeasCampaignRepository;
 import de.asideas.crowdsource.repository.ideascampaign.VoteRepository;
 import de.asideas.crowdsource.security.Roles;
 import de.asideas.crowdsource.testutil.Fixtures;
+import org.slf4j.Logger;
+import static org.slf4j.LoggerFactory.getLogger;
 
 import static de.asideas.crowdsource.domain.shared.ideascampaign.IdeaStatus.PUBLISHED;
 import static de.asideas.crowdsource.testutil.Fixtures.givenUserEntity;
@@ -79,6 +81,7 @@ public class IdeaServiceTest {
     @Mock
     private VoteRepository voteRepository;
 
+    private static final Logger log = getLogger(Fixtures.class);
 
     @Test
     public void fetchIdeasByStatus_ShouldRequestWithDefaultPagesize_onNoPageOrSizeGiven() {
@@ -324,7 +327,7 @@ public class IdeaServiceTest {
         verify(ideaRepository).save(captor.capture());
         assertThat(captor.getValue().getStatus(), is(PUBLISHED));
 
-        verify(userNotificationService).notifyCreatorOnIdeaAccepted(eq(expectedIdea), eq(Fixtures.givenIdeasCampaign("test_user").getTitle()));
+        verify(userNotificationService).notifyCreatorOnIdeaAccepted(eq(expectedIdea), eq(Fixtures.givenIdeasCampaign("test_user").getContent().getDe().getTitle()));
     }
 
     @Test

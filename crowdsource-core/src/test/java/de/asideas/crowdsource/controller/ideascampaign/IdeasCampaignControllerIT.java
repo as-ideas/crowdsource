@@ -3,6 +3,8 @@ package de.asideas.crowdsource.controller.ideascampaign;
 import java.util.Arrays;
 import java.util.List;
 
+import de.asideas.crowdsource.domain.model.ideascampaign.IdeasCampaignContent;
+import de.asideas.crowdsource.domain.model.ideascampaign.IdeasCampaignContentList;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,17 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 public class IdeasCampaignControllerIT extends AbstractCrowdIT {
+
+    private IdeasCampaignContent createTestIdeasCampaignContentEntity() {
+        return new IdeasCampaignContent("new_title", "newDescr", "new teaser image","new video image", "videoImageRef");
+    }
+
+    private IdeasCampaignContentList createTestIdeasCampaignContentEntityList() {
+        return new IdeasCampaignContentList(
+                createTestIdeasCampaignContentEntity(),
+                createTestIdeasCampaignContentEntity()
+        );
+    }
 
     @Autowired
     private IdeasCampaignRepository ideasCampaignRepository;
@@ -100,10 +113,10 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
 
         final List<IdeasCampaign> actual = Arrays.asList(mapper.readValue(mvcResult.getResponse().getContentAsString(), IdeasCampaign[].class));
         assertThat(actual.size(), equalTo(4));
-        assertThat(actual.get(0).getTitle(), equalTo("EXPECTED_0"));
-        assertThat(actual.get(1).getTitle(), equalTo("EXPECTED_1"));
-        assertThat(actual.get(2).getTitle(), equalTo("EXPECTED_2"));
-        assertThat(actual.get(3).getTitle(), equalTo("EXPECTED_3"));
+        assertThat(actual.get(0).getContent().getDe().getTitle(), equalTo("EXPECTED_0"));
+        assertThat(actual.get(1).getContent().getDe().getTitle(), equalTo("EXPECTED_1"));
+        assertThat(actual.get(2).getContent().getDe().getTitle(), equalTo("EXPECTED_2"));
+        assertThat(actual.get(3).getContent().getDe().getTitle(), equalTo("EXPECTED_3"));
     }
 
     private List<IdeasCampaign> givenCampaignCommandsWithValidityVariations(String accessTokenAdmin) throws Exception {
@@ -127,7 +140,7 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
         final IdeasCampaignEntity campaign = this.ideasCampaignRepository.findOne(cmd.getId());
         campaign.setStartDate(start);
         campaign.setEndDate(end);
-        campaign.setTitle(title);
+        campaign.getContent().getDe().setTitle(title);
         ideasCampaignRepository.save(campaign);
     }
 
@@ -198,8 +211,13 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
         final String adminToken = obtainAccessToken(userEntityAdmin.getEmail(), userEntityAdmin.getPassword());
         final IdeasCampaign givenCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
 
-        final IdeasCampaign modifyCmd = new IdeasCampaign(DateTime.now().plusDays(5), DateTime.now().plusDays(10),
-            null, "new Sponsor", "new_title", "newDescr", null, "new video image", "new teaser image");
+        final IdeasCampaign modifyCmd = new IdeasCampaign(
+                DateTime.now().plusDays(5),
+                DateTime.now().plusDays(10),
+                null,
+                "new Sponsor",
+                createTestIdeasCampaignContentEntityList());
+
 
         mockMvc.perform(put("/ideas_campaigns/{campaignId}", givenCampaign.getId())
             .header("Authorization", "Bearer " + adminToken)
@@ -211,13 +229,15 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
             .andExpect(status().isOk());
 
         final IdeasCampaign actual = new IdeasCampaign(ideasCampaignRepository.findOne(givenCampaign.getId()));
-        assertThat(actual.getTitle(), equalTo(modifyCmd.getTitle()));
         assertThat(actual.getSponsor(), equalTo(modifyCmd.getSponsor()));
-        assertThat(actual.getDescription(), equalTo(modifyCmd.getDescription()));
-        assertThat(actual.getVideoReference(), equalTo(modifyCmd.getVideoReference()));
-        assertThat(actual.getTeaserImageReference(), equalTo(modifyCmd.getTeaserImageReference()));
         assertThat(actual.getStartDate().getMillis(), equalTo(modifyCmd.getStartDate().getMillis()));
         assertThat(actual.getEndDate().getMillis(), equalTo(modifyCmd.getEndDate().getMillis()));
+
+        assertThat(actual.getContent().getDe().getTitle(), equalTo(modifyCmd.getContent().getDe().getTitle()));
+        assertThat(actual.getContent().getDe().getDescription(), equalTo(modifyCmd.getContent().getDe().getDescription()));
+        assertThat(actual.getContent().getDe().getVideoReference(), equalTo(modifyCmd.getContent().getDe().getVideoReference()));
+        assertThat(actual.getContent().getDe().getTeaserImageReference(), equalTo(modifyCmd.getContent().getDe().getTeaserImageReference()));
+
     }
 
     @Test
@@ -229,8 +249,11 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
         final UserEntity userEntity = givenUserExists();
         final String userToken = obtainAccessToken(userEntity.getEmail(), userEntity.getPassword());
 
-        final IdeasCampaign modifyCmd = new IdeasCampaign(DateTime.now().plusDays(5), DateTime.now().plusDays(10),
-                null, "new Sponsor", "new_title", "newDescr", null, "new video image", "new teaser image");
+        final IdeasCampaign modifyCmd = new IdeasCampaign(
+                DateTime.now().plusDays(5),
+                DateTime.now().plusDays(10),
+                null, "new Sponsor",
+                createTestIdeasCampaignContentEntityList());
 
         mockMvc.perform(put("/ideas_campaigns/{campaignId}", givenCampaign.getId())
                 .header("Authorization", "Bearer " + userToken)
@@ -249,8 +272,13 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
         final String adminToken = obtainAccessToken(userEntityAdmin.getEmail(), userEntityAdmin.getPassword());
         final IdeasCampaign givenCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
 
-        final IdeasCampaign modifyCmd = new IdeasCampaign(DateTime.now().plusDays(5), DateTime.now().plusDays(10),
-                null, "new Sponsor", "new_title", "newDescr", null, "new video image", "new teaser image");
+        final IdeasCampaign modifyCmd = new IdeasCampaign(
+                DateTime.now().plusDays(5),
+                DateTime.now().plusDays(10),
+                null,
+                "new Sponsor",
+                createTestIdeasCampaignContentEntityList());
+
 
         mockMvc.perform(put("/ideas_campaigns/{campaignId}", givenCampaign.getId())
                 .header("Authorization", "Bearer " + invalidToken)
@@ -263,8 +291,12 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
     }
 
     private IdeasCampaign givenValidCampaignCmd() {
-        return new IdeasCampaign(DateTime.now().minus(1000L), DateTime.now().plus(10000L),
-            null, "The Sponsor", "Test_Title", "test_descr", "test_vidRef", "test_vidImgRef","test_teaserImage");
+        return new IdeasCampaign(
+                DateTime.now().minus(1000L),
+                DateTime.now().plus(10000L),
+                null,
+                "The Sponsor",
+                createTestIdeasCampaignContentEntityList());
     }
 
     private IdeasCampaign givenIdeasCampaignExists(String accessToken, IdeasCampaign cmd) throws Exception {
@@ -287,11 +319,18 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
         assertThat(actual.isExpired(), is(false));
         assertThat(actual.getStartDate().getMillis(), equalTo(expected.getStartDate().getMillis()));
         assertThat(actual.getEndDate().getMillis(), equalTo(expected.getEndDate().getMillis()));
-        assertThat(actual.getTitle(), equalTo(expected.getTitle()));
-        assertThat(actual.getDescription(), equalTo(expected.getDescription()));
-        assertThat(actual.getVideoReference(), equalTo(expected.getVideoReference()));
-        assertThat(actual.getTeaserImageReference(), equalTo(expected.getTeaserImageReference()));
         assertThat(actual.getSponsor(), equalTo(expected.getSponsor()));
+
+        assertThat(actual.getContent().getDe().getTitle(), equalTo(expected.getContent().getDe().getTitle()));
+        assertThat(actual.getContent().getDe().getDescription(), equalTo(expected.getContent().getDe().getDescription()));
+        assertThat(actual.getContent().getDe().getVideoReference(), equalTo(expected.getContent().getDe().getVideoReference()));
+        assertThat(actual.getContent().getDe().getTeaserImageReference(), equalTo(expected.getContent().getDe().getTeaserImageReference()));
+
+        assertThat(actual.getContent().getEn().getTitle(), equalTo(expected.getContent().getEn().getTitle()));
+        assertThat(actual.getContent().getEn().getDescription(), equalTo(expected.getContent().getEn().getDescription()));
+        assertThat(actual.getContent().getEn().getVideoReference(), equalTo(expected.getContent().getEn().getVideoReference()));
+        assertThat(actual.getContent().getEn().getTeaserImageReference(), equalTo(expected.getContent().getEn().getTeaserImageReference()));
+
     }
 
 }
