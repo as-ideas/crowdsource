@@ -39,7 +39,7 @@ public class IdeasCampaignEntity {
 
     private String sponsor;
 
-    private IdeasCampaignContentList content;
+    private IdeasCampaignContentI18nMap content;
 
 
     private IdeasCampaignEntity() {
@@ -56,7 +56,7 @@ public class IdeasCampaignEntity {
         res.setEndDate(creationCmd.getEndDate());
         res.setInitiator(initiator);
         res.setSponsor(creationCmd.getSponsor());
-        res.setContent(creationCmd.getContent());
+        res.setContent(creationCmd.getContentI18n());
 
         return res;
     }
@@ -76,7 +76,7 @@ public class IdeasCampaignEntity {
         this.setStartDate(cmd.getStartDate());
         this.setEndDate(cmd.getEndDate());
         this.setSponsor(cmd.getSponsor());
-        this.setContent(cmd.getContent());
+        this.setContent(cmd.getContentI18n());
 
     }
 
@@ -160,10 +160,10 @@ public class IdeasCampaignEntity {
         this.sponsor = sponsor;
     }
 
-    public IdeasCampaignContentList getContent() {
+    public IdeasCampaignContentI18nMap getContent() {
         return content;
     }
-    public void setContent(IdeasCampaignContentList content) {
+    public void setContent(IdeasCampaignContentI18nMap content) {
         this.content = content;
     }
 

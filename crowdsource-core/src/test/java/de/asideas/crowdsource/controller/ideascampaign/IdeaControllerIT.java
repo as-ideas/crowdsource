@@ -109,8 +109,8 @@ public class IdeaControllerIT extends AbstractCrowdIT {
             .andExpect(jsonPath("$.first", is(true)))
             .andExpect(jsonPath("$.last", is(true)))
             .andExpect(jsonPath("$.content.length()", is(2)))
-            .andExpect(jsonPath("$.content[0].content.original.pitch", is("pitch 1")))
-            .andExpect(jsonPath("$.content[1].content.original.pitch", is("pitch 2")))
+            .andExpect(jsonPath("$.content[0].contentI18n.original.pitch", is("pitch 1")))
+            .andExpect(jsonPath("$.content[1].contentI18n.original.pitch", is("pitch 2")))
             .andReturn().getResponse().getContentAsString()
             ;
     }
@@ -180,7 +180,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
             .andExpect(jsonPath("$.first", is(true)))
             .andExpect(jsonPath("$.last", is(true)))
             .andExpect(jsonPath("$.content.length()", is(1)))
-            .andExpect(jsonPath("$.content[0].content.original.pitch", is("pitch 3")))
+            .andExpect(jsonPath("$.content[0].contentI18n.original.pitch", is("pitch 3")))
             .andReturn().getResponse().getContentAsString()
         ;
 
@@ -705,7 +705,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
                 DateTime.now().plus(10000L),
                 null,
                 "The Sponsor",
-                new IdeasCampaignContentList(
+                new IdeasCampaignContentI18nMap(
                     new IdeasCampaignContent("Test_Title", "test_descr", "test_teaserImage", "test_vidRef", "videoImageRef"),
                     new IdeasCampaignContent("Test_Title", "test_descr", "test_teaserImage", "test_vidRef", "videoImageRef")
                 ));

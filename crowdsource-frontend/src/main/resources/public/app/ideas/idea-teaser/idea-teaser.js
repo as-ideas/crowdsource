@@ -7,7 +7,7 @@ angular.module('crowdsource')
                 'campaign': "="
             },
             templateUrl: 'app/ideas/idea-teaser/idea-teaser.html',
-            controller: function ($scope, $translate) {
+            controller: function ($scope, $rootScope, $translate) {
 
                 $rootScope.$on('$translateChangeSuccess', function (event,data) {
                     vm.currentLanguage = data.language;

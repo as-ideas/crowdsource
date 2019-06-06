@@ -11,12 +11,12 @@
                     <video class="ideas-teaser__video" poster="/images/transparent.png" controls>
                         <source src="{{ campaign.contentI18n[vm.currentLanguage].videoReference | trustUrl}}" type="video/mp4">
                         Your browser does not support the video tag.
-                    </video>#
+                    </video>
                 </div>
             </div>
             <div class="ideas-teaser__item">
                 <h1 class="ideas-teaser__heading">{{ campaign.contentI18n[vm.currentLanguage].title }}</h1>
-                <p class="ideas-teaser__sponsor">{{ campaign.contentI18n[vm.currentLanguage].sponsor }}</p>
+                <p class="ideas-teaser__sponsor">{{ campaign.sponsor }}</p>
                 <p class="ideas-teaser__date">{{ campaign.startDate | date: 'shortDate'}} - {{ campaign.endDate | date: 'shortDate'}}<span ng-if="campaign.expired" translate="CAMPAIGN_LABEL_ENDED"> (beendet)</span></p>
                 <p class="ideas-teaser__description">{{ campaign.contentI18n[vm.currentLanguage].description}}</p>
             </div>

@@ -1,23 +1,24 @@
 package de.asideas.crowdsource.domain.model.ideascampaign;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 public class IdeasCampaignContent {
 
-    @NotNull
+    @NotEmpty
     private String title;
 
-    @NotNull
+    @NotEmpty
     private String description;
 
-    @NotNull
+    @NotEmpty
     private String teaserImageReference;
 
-    @NotNull
+    @NotEmpty
     private String videoReference;
 
-    @NotNull
     private String videoImageReference;
 
     private IdeasCampaignContent() {

@@ -5,7 +5,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 import de.asideas.crowdsource.controller.ideascampaign.IdeaController;
-import de.asideas.crowdsource.domain.model.ideascampaign.IdeasCampaignContentList;
+import de.asideas.crowdsource.domain.model.ideascampaign.IdeasCampaignContentI18nMap;
 import org.joda.time.DateTime;
 import de.asideas.crowdsource.domain.model.ideascampaign.IdeasCampaignEntity;
 import org.slf4j.Logger;
@@ -32,7 +32,7 @@ public class IdeasCampaign {
 
     @Valid
     @NotNull
-    private IdeasCampaignContentList content;
+    private IdeasCampaignContentI18nMap contentI18n;
 
 
     private static final Logger log = getLogger(IdeaController.class);
@@ -53,15 +53,15 @@ public class IdeasCampaign {
         this.sponsor = input.getSponsor();
         this.active = input.isActive();
         this.expired = input.isExpired();
-        this.content = input.getContent();
+        this.contentI18n = input.getContent();
     }
 
-    public IdeasCampaign(DateTime startDate, DateTime endDate, CampaignInitiator campaignInitiator, String sponsor, IdeasCampaignContentList content) {
+    public IdeasCampaign(DateTime startDate, DateTime endDate, CampaignInitiator campaignInitiator, String sponsor, IdeasCampaignContentI18nMap contentI18n) {
         this.startDate = startDate;
         this.endDate = endDate;
         this.campaignInitiator = campaignInitiator;
         this.sponsor = sponsor;
-        this.content = content;
+        this.contentI18n = contentI18n;
     }
 
     public String getId() {
@@ -107,8 +107,8 @@ public class IdeasCampaign {
     public boolean isExpired() { return expired; }
     public void isExpired(boolean expired) { this.expired = expired; }
 
-    public IdeasCampaignContentList getContent() { return content; }
-    public void setContent(IdeasCampaignContentList content) { this.content = content; }
+    public IdeasCampaignContentI18nMap getContentI18n() { return contentI18n; }
+    public void setContentI18n(IdeasCampaignContentI18nMap contentI18n) { this.contentI18n = contentI18n; }
 
 
     @Override
@@ -127,12 +127,12 @@ public class IdeasCampaign {
             Objects.equals(endDate, that.endDate) &&
             Objects.equals(campaignInitiator, that.campaignInitiator) &&
             Objects.equals(sponsor, that.sponsor) &&
-            Objects.equals(content, that.content);
+            Objects.equals(contentI18n, that.contentI18n);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, startDate, endDate, campaignInitiator, sponsor, active, expired, content);
+        return Objects.hash(id, startDate, endDate, campaignInitiator, sponsor, active, expired, contentI18n);
     }
 
     @Override
@@ -144,7 +144,7 @@ public class IdeasCampaign {
             ", campaignInitiator=" + campaignInitiator +
             ", active=" + active +
             ", expired=" + expired +
-            ", content=" + content +
+            ", content=" + contentI18n +
             '}';
     }
 }

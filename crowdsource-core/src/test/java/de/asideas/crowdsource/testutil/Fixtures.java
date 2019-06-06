@@ -1,7 +1,7 @@
 package de.asideas.crowdsource.testutil;
 
 import de.asideas.crowdsource.domain.model.ideascampaign.IdeasCampaignContent;
-import de.asideas.crowdsource.domain.model.ideascampaign.IdeasCampaignContentList;
+import de.asideas.crowdsource.domain.model.ideascampaign.IdeasCampaignContentI18nMap;
 import de.asideas.crowdsource.presentation.ideascampaign.IdeaIn;
 import org.joda.time.DateTime;
 import de.asideas.crowdsource.domain.model.UserEntity;
@@ -21,8 +21,8 @@ public class Fixtures {
         return new IdeasCampaignContent("amazing title", "longer description", "tuuuut", "tuuuutImg", "videoImageRef");
     }
 
-    private static IdeasCampaignContentList createTestIdeasCampaignContentEntityList() {
-        return new IdeasCampaignContentList(
+    private static IdeasCampaignContentI18nMap createTestIdeasCampaignContentEntityList() {
+        return new IdeasCampaignContentI18nMap(
                 createTestIdeasCampaignContentEntity(),
                 createTestIdeasCampaignContentEntity()
         );

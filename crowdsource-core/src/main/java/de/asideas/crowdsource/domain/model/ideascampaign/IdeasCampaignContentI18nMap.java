@@ -4,7 +4,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
-public class IdeasCampaignContentList {
+public class IdeasCampaignContentI18nMap {
 
     @Valid
     @NotNull
@@ -14,10 +14,10 @@ public class IdeasCampaignContentList {
     @NotNull
     private IdeasCampaignContent en;
 
-    private IdeasCampaignContentList() {
+    private IdeasCampaignContentI18nMap() {
     }
 
-    public IdeasCampaignContentList(IdeasCampaignContent de, IdeasCampaignContent en) {
+    public IdeasCampaignContentI18nMap(IdeasCampaignContent de, IdeasCampaignContent en) {
         this.de = de;
         this.en = en;
     }
@@ -41,7 +41,7 @@ public class IdeasCampaignContentList {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        IdeasCampaignContentList that = (IdeasCampaignContentList) o;
+        IdeasCampaignContentI18nMap that = (IdeasCampaignContentI18nMap) o;
         return Objects.equals(de, that.de) &&
                 Objects.equals(en, that.en);
     }
@@ -54,7 +54,7 @@ public class IdeasCampaignContentList {
 
     @Override
     public String toString() {
-        return "IdeasCampaignContentList{" +
+        return "IdeasCampaignContentI18nMap{" +
                 "de=" + de +
                 ", en=" + en +
                 '}';

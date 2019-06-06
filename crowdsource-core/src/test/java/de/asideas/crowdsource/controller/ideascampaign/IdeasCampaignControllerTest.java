@@ -2,7 +2,7 @@ package de.asideas.crowdsource.controller.ideascampaign;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import de.asideas.crowdsource.domain.model.ideascampaign.IdeasCampaignContent;
-import de.asideas.crowdsource.domain.model.ideascampaign.IdeasCampaignContentList;
+import de.asideas.crowdsource.domain.model.ideascampaign.IdeasCampaignContentI18nMap;
 import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;
@@ -88,7 +88,7 @@ public class IdeasCampaignControllerTest {
                 endDate,
                 new CampaignInitiator(userId, "test_username"),
                 "test_sponsor",
-                new IdeasCampaignContentList(
+                new IdeasCampaignContentI18nMap(
                     new IdeasCampaignContent("Test_Title", "test_descr", "test_teaserImg","test_vidRef", "videoImageRef"),
                     new IdeasCampaignContent("Test_Title", "test_descr", "test_teaserImg","test_vidRef", "videoImageRef")
                 ));

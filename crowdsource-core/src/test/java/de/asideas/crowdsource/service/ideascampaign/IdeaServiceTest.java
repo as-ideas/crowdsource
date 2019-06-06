@@ -328,7 +328,7 @@ public class IdeaServiceTest {
         verify(ideaRepository).save(captor.capture());
         assertThat(captor.getValue().getStatus(), is(PUBLISHED));
 
-        verify(userNotificationService).notifyCreatorOnIdeaAccepted(eq(expectedIdea), eq(Fixtures.givenIdeasCampaign("test_user").getContent().getDe().getTitle()));
+        verify(userNotificationService).notifyCreatorOnIdeaAccepted(eq(expectedIdea), eq(Fixtures.givenIdeasCampaign("test_user").getContentI18n().getDe().getTitle()));
     }
 
     @Test

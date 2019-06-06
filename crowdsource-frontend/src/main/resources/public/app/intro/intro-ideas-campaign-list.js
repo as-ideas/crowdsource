@@ -7,22 +7,16 @@ angular.module('crowdsource')
             controllerAs: "list",
             scope: {},
             bindToController: true,
-            controller: function () {
+            controller: function ($scope, $rootScope, $translate) {
                 var vm = this;
+
+                $rootScope.$on('$translateChangeSuccess', function (event,data) {
+                    vm.currentLanguage = data.language;
+                    console.log("language change: " + vm.currentLanguage);
+                });
+
+                vm.currentLanguage = $translate.use();
                 vm.entries = [];
-
-                var startDate;
-                var endDate;
-
-                function formatDateString(entries) {
-                    for(var i=0; i < entries.length; i++) {
-                        startDate = new Date(vm.entries[i].startDate);
-                        endDate = new Date(vm.entries[i].endDate);
-
-                        entries[i].startDateString = startDate.getDate() + "." + (startDate.getMonth()+1) + "." + startDate.getFullYear();
-                        entries[i].endDateString = endDate.getDate() + "." + (endDate.getMonth()+1) + "." + endDate.getFullYear();
-                    }
-                }
 
                 getIdeaCampaigns();
 
@@ -30,7 +24,6 @@ angular.module('crowdsource')
                     Idea.getCampaigns().then(
                         function(response) {
                             vm.entries = response;
-                            formatDateString(vm.entries)
                         },
                         function() {
                             vm.entries = []

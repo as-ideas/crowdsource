@@ -19,8 +19,8 @@ public class IdeasCampaignEntityTest {
         return new IdeasCampaignContent("amazing title", "longer description", "tuuuutImg", "tuuuut", "videoImageRef");
     }
 
-    private IdeasCampaignContentList createTestIdeasCampaignContentEntityList() {
-        return new IdeasCampaignContentList(
+    private IdeasCampaignContentI18nMap createTestIdeasCampaignContentEntityList() {
+        return new IdeasCampaignContentI18nMap(
                 createTestIdeasCampaignContentEntity(),
                 createTestIdeasCampaignContentEntity()
         );
@@ -189,15 +189,15 @@ public class IdeasCampaignEntityTest {
         assertThat(actualRes.getSponsor(), equalTo(expected.getSponsor()));
         assertThat(actualRes.getInitiator().getId(), equalTo(expected.getCampaignInitiator().getId()));
 
-        assertThat(actualRes.getContent().getDe().getTitle(), equalTo(expected.getContent().getDe().getTitle()));
-        assertThat(actualRes.getContent().getDe().getDescription(), equalTo(expected.getContent().getDe().getDescription()));
-        assertThat(actualRes.getContent().getDe().getVideoReference(), equalTo(expected.getContent().getDe().getVideoReference()));
-        assertThat(actualRes.getContent().getDe().getTeaserImageReference(), equalTo(expected.getContent().getDe().getTeaserImageReference()));
+        assertThat(actualRes.getContent().getDe().getTitle(), equalTo(expected.getContentI18n().getDe().getTitle()));
+        assertThat(actualRes.getContent().getDe().getDescription(), equalTo(expected.getContentI18n().getDe().getDescription()));
+        assertThat(actualRes.getContent().getDe().getVideoReference(), equalTo(expected.getContentI18n().getDe().getVideoReference()));
+        assertThat(actualRes.getContent().getDe().getTeaserImageReference(), equalTo(expected.getContentI18n().getDe().getTeaserImageReference()));
 
-        assertThat(actualRes.getContent().getEn().getTitle(), equalTo(expected.getContent().getEn().getTitle()));
-        assertThat(actualRes.getContent().getEn().getDescription(), equalTo(expected.getContent().getEn().getDescription()));
-        assertThat(actualRes.getContent().getEn().getVideoReference(), equalTo(expected.getContent().getEn().getVideoReference()));
-        assertThat(actualRes.getContent().getEn().getTeaserImageReference(), equalTo(expected.getContent().getEn().getTeaserImageReference()));
+        assertThat(actualRes.getContent().getEn().getTitle(), equalTo(expected.getContentI18n().getEn().getTitle()));
+        assertThat(actualRes.getContent().getEn().getDescription(), equalTo(expected.getContentI18n().getEn().getDescription()));
+        assertThat(actualRes.getContent().getEn().getVideoReference(), equalTo(expected.getContentI18n().getEn().getVideoReference()));
+        assertThat(actualRes.getContent().getEn().getTeaserImageReference(), equalTo(expected.getContentI18n().getEn().getTeaserImageReference()));
     }
 
 }

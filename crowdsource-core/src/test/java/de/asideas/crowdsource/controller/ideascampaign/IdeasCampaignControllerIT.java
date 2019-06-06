@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import de.asideas.crowdsource.domain.model.ideascampaign.IdeasCampaignContent;
-import de.asideas.crowdsource.domain.model.ideascampaign.IdeasCampaignContentList;
+import de.asideas.crowdsource.domain.model.ideascampaign.IdeasCampaignContentI18nMap;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,8 +36,8 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
         return new IdeasCampaignContent("new_title", "newDescr", "new teaser image","new video image", "videoImageRef");
     }
 
-    private IdeasCampaignContentList createTestIdeasCampaignContentEntityList() {
-        return new IdeasCampaignContentList(
+    private IdeasCampaignContentI18nMap createTestIdeasCampaignContentEntityList() {
+        return new IdeasCampaignContentI18nMap(
                 createTestIdeasCampaignContentEntity(),
                 createTestIdeasCampaignContentEntity()
         );
@@ -113,10 +113,10 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
 
         final List<IdeasCampaign> actual = Arrays.asList(mapper.readValue(mvcResult.getResponse().getContentAsString(), IdeasCampaign[].class));
         assertThat(actual.size(), equalTo(4));
-        assertThat(actual.get(0).getContent().getDe().getTitle(), equalTo("EXPECTED_0"));
-        assertThat(actual.get(1).getContent().getDe().getTitle(), equalTo("EXPECTED_1"));
-        assertThat(actual.get(2).getContent().getDe().getTitle(), equalTo("EXPECTED_2"));
-        assertThat(actual.get(3).getContent().getDe().getTitle(), equalTo("EXPECTED_3"));
+        assertThat(actual.get(0).getContentI18n().getDe().getTitle(), equalTo("EXPECTED_0"));
+        assertThat(actual.get(1).getContentI18n().getDe().getTitle(), equalTo("EXPECTED_1"));
+        assertThat(actual.get(2).getContentI18n().getDe().getTitle(), equalTo("EXPECTED_2"));
+        assertThat(actual.get(3).getContentI18n().getDe().getTitle(), equalTo("EXPECTED_3"));
     }
 
     private List<IdeasCampaign> givenCampaignCommandsWithValidityVariations(String accessTokenAdmin) throws Exception {
@@ -233,10 +233,10 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
         assertThat(actual.getStartDate().getMillis(), equalTo(modifyCmd.getStartDate().getMillis()));
         assertThat(actual.getEndDate().getMillis(), equalTo(modifyCmd.getEndDate().getMillis()));
 
-        assertThat(actual.getContent().getDe().getTitle(), equalTo(modifyCmd.getContent().getDe().getTitle()));
-        assertThat(actual.getContent().getDe().getDescription(), equalTo(modifyCmd.getContent().getDe().getDescription()));
-        assertThat(actual.getContent().getDe().getVideoReference(), equalTo(modifyCmd.getContent().getDe().getVideoReference()));
-        assertThat(actual.getContent().getDe().getTeaserImageReference(), equalTo(modifyCmd.getContent().getDe().getTeaserImageReference()));
+        assertThat(actual.getContentI18n().getDe().getTitle(), equalTo(modifyCmd.getContentI18n().getDe().getTitle()));
+        assertThat(actual.getContentI18n().getDe().getDescription(), equalTo(modifyCmd.getContentI18n().getDe().getDescription()));
+        assertThat(actual.getContentI18n().getDe().getVideoReference(), equalTo(modifyCmd.getContentI18n().getDe().getVideoReference()));
+        assertThat(actual.getContentI18n().getDe().getTeaserImageReference(), equalTo(modifyCmd.getContentI18n().getDe().getTeaserImageReference()));
 
     }
 
@@ -321,15 +321,15 @@ public class IdeasCampaignControllerIT extends AbstractCrowdIT {
         assertThat(actual.getEndDate().getMillis(), equalTo(expected.getEndDate().getMillis()));
         assertThat(actual.getSponsor(), equalTo(expected.getSponsor()));
 
-        assertThat(actual.getContent().getDe().getTitle(), equalTo(expected.getContent().getDe().getTitle()));
-        assertThat(actual.getContent().getDe().getDescription(), equalTo(expected.getContent().getDe().getDescription()));
-        assertThat(actual.getContent().getDe().getVideoReference(), equalTo(expected.getContent().getDe().getVideoReference()));
-        assertThat(actual.getContent().getDe().getTeaserImageReference(), equalTo(expected.getContent().getDe().getTeaserImageReference()));
+        assertThat(actual.getContentI18n().getDe().getTitle(), equalTo(expected.getContentI18n().getDe().getTitle()));
+        assertThat(actual.getContentI18n().getDe().getDescription(), equalTo(expected.getContentI18n().getDe().getDescription()));
+        assertThat(actual.getContentI18n().getDe().getVideoReference(), equalTo(expected.getContentI18n().getDe().getVideoReference()));
+        assertThat(actual.getContentI18n().getDe().getTeaserImageReference(), equalTo(expected.getContentI18n().getDe().getTeaserImageReference()));
 
-        assertThat(actual.getContent().getEn().getTitle(), equalTo(expected.getContent().getEn().getTitle()));
-        assertThat(actual.getContent().getEn().getDescription(), equalTo(expected.getContent().getEn().getDescription()));
-        assertThat(actual.getContent().getEn().getVideoReference(), equalTo(expected.getContent().getEn().getVideoReference()));
-        assertThat(actual.getContent().getEn().getTeaserImageReference(), equalTo(expected.getContent().getEn().getTeaserImageReference()));
+        assertThat(actual.getContentI18n().getEn().getTitle(), equalTo(expected.getContentI18n().getEn().getTitle()));
+        assertThat(actual.getContentI18n().getEn().getDescription(), equalTo(expected.getContentI18n().getEn().getDescription()));
+        assertThat(actual.getContentI18n().getEn().getVideoReference(), equalTo(expected.getContentI18n().getEn().getVideoReference()));
+        assertThat(actual.getContentI18n().getEn().getTeaserImageReference(), equalTo(expected.getContentI18n().getEn().getTeaserImageReference()));
 
     }
 

@@ -8,7 +8,7 @@
                 <span ng-message="required"><span translate="FORM_IDEA_EDIT_TITLE_ERROR_REQUIRED">Bitte gib einen Titel ein</span></span>
             </span>
 
-            <input campaign-active-aware class="idea-add__title" name="title" type="text" ng-model="vm.idea.title" required ng-minlength="5" ng-maxlength="30" maxlength="30">
+            <input campaign-active-aware class="idea-add__title" name="title" type="text" ng-model="vm.idea.contentI18n.original.title" required ng-minlength="5" ng-maxlength="30" maxlength="30">
         </label>
 
         <label form-group="pitch">
@@ -19,7 +19,7 @@
                 <span ng-message="required"><span translate="FORM_IDEA_EDIT_PITCH_ERROR_REQUIRED">Bitte gib ein prägnante Beschreibung ein</span></span>
             </span>
 
-            <textarea campaign-active-aware reset-remote-validation name="pitch" class="idea-add__pitch" ng-model="vm.idea.pitch" required  ng-minlength="5" ng-maxlength="255"></textarea>
+            <textarea campaign-active-aware reset-remote-validation name="pitch" class="idea-add__pitch" ng-model="vm.idea.contentI18n.original.pitch" required  ng-minlength="5" ng-maxlength="255"></textarea>
         </label>
 
         <button ng-if="vm.cancel" type="cancel" ng-click="vm.cancel()" class="button-secondary--halfwidth" translate="BUTTON_LABEL_CANCEL">Abbrechen</button>

@@ -10,12 +10,12 @@
         <article class="campaign__item">
 
             <div class="campaign__image-container">
-                <img class="campaign__image" ng-src="{{entry.teaserImageReference}}">
+                <img class="campaign__image" ng-src="{{ entry.contentI18n[list.currentLanguage].teaserImageReference }}">
             </div>
 
             <div class="campaign__details-container">
-                <h1 class="campaign__title">{{entry.title}}</h1>
-                <p class="campaign__sponsor">{{entry.sponsor}}</p>
+                <h1 class="campaign__title">{{ entry.contentI18n[list.currentLanguage].title }}</h1>
+                <p class="campaign__sponsor">{{ entry.sponsor }}</p>
                 <p class="campaign__date">{{ entry.startDate | date: 'shortDate'}} - {{ entry.endDate | date: 'shortDate' }} <span ng-if="entry.expired" translate="CAMPAIGN_LABEL_ENDED"> (beendet)</span></p>
             </div>
         </article>
