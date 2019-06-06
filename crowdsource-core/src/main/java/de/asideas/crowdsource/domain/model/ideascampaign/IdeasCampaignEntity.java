@@ -2,6 +2,7 @@ package de.asideas.crowdsource.domain.model.ideascampaign;
 
 import java.util.Objects;
 
+import de.asideas.crowdsource.presentation.ideascampaign.IdeaIn;
 import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,7 +14,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import de.asideas.crowdsource.domain.exception.InvalidRequestException;
 import de.asideas.crowdsource.domain.model.UserEntity;
-import de.asideas.crowdsource.presentation.ideascampaign.Idea;
 import de.asideas.crowdsource.presentation.ideascampaign.IdeasCampaign;
 
 @Document(collection = "ideascampaigns")
@@ -88,7 +88,7 @@ public class IdeasCampaignEntity {
         return this.endDate.isBeforeNow();
     }
 
-    public IdeaEntity createIdea(Idea cmd, UserEntity creator) {
+    public IdeaEntity createIdea(IdeaIn cmd, UserEntity creator) {
         if (!this.isActive()) {
             throw InvalidRequestException.campaignNotActive();
         }

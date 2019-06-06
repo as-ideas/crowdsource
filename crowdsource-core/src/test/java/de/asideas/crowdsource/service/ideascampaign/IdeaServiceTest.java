@@ -13,6 +13,8 @@ import de.asideas.crowdsource.domain.model.ideascampaign.VoteEntity;
 import de.asideas.crowdsource.domain.model.ideascampaign.VoteId;
 import de.asideas.crowdsource.domain.service.ideascampaign.VotingService;
 import de.asideas.crowdsource.domain.service.user.UserNotificationService;
+import de.asideas.crowdsource.presentation.ideascampaign.IdeaIn;
+import de.asideas.crowdsource.presentation.ideascampaign.IdeaOut;
 import de.asideas.crowdsource.presentation.ideascampaign.Rating;
 import de.asideas.crowdsource.presentation.ideascampaign.VoteCmd;
 import de.asideas.crowdsource.repository.UserRepository;
@@ -33,7 +35,6 @@ import org.springframework.security.access.AuthorizationServiceException;
 import de.asideas.crowdsource.domain.exception.ResourceNotFoundException;
 import de.asideas.crowdsource.domain.model.ideascampaign.IdeaEntity;
 import de.asideas.crowdsource.domain.shared.ideascampaign.IdeaStatus;
-import de.asideas.crowdsource.presentation.ideascampaign.Idea;
 import de.asideas.crowdsource.repository.ideascampaign.IdeaRepository;
 import de.asideas.crowdsource.repository.ideascampaign.IdeasCampaignRepository;
 import de.asideas.crowdsource.repository.ideascampaign.VoteRepository;
@@ -136,7 +137,7 @@ public class IdeaServiceTest {
                 .findByCampaignIdAndStatusIn(anyString(), eq(singleton(PUBLISHED)), pReqCap.capture());
         final Rating expRating = givenVoteRepositoryReturnsVotes(expIdea.getId());
 
-        final Page<Idea> res = ideaService.fetchIdeasByStatus(campaignId, singleton(PUBLISHED), 17, IdeaService.MAX_PAGE_SIZE + 1, givenUserEntity("requestorId"));
+        final Page<IdeaOut> res = ideaService.fetchIdeasByStatus(campaignId, singleton(PUBLISHED), 17, IdeaService.MAX_PAGE_SIZE + 1, givenUserEntity("requestorId"));
 
         assertThat(res.getContent().get(0).getRating(), equalTo(expRating));
     }
@@ -156,7 +157,7 @@ public class IdeaServiceTest {
                 .findByCampaignIdAndStatusAndIdIn(eq(campaignId), eq(IdeaStatus.PUBLISHED), eq(ideasIds), pReqCap.capture());
 
         final Rating expRating = givenVoteRepositoryReturnsVotes(expIdea.getId());
-        final Page<Idea> res = ideaService.fetchIdeasByRequestorHasVoted(campaignId, true, 0, 10, givenUserEntity("requestorId"));
+        final Page<IdeaOut> res = ideaService.fetchIdeasByRequestorHasVoted(campaignId, true, 0, 10, givenUserEntity("requestorId"));
 
         assertThat(res.getContent().get(0).getRating(), equalTo(expRating));
     }
@@ -169,7 +170,7 @@ public class IdeaServiceTest {
         doReturn(singletonList(expIdea)).when(ideaRepository).findByCampaignIdAndCreator(eq(campaignId), eq(givenUserEntity("creatorId")));
         final Rating expRating = givenVoteRepositoryReturnsVotes(expIdea.getId());
 
-        final List<Idea> res = ideaService.fetchIdeasByCampaignAndCreator(campaignId, givenUserEntity("creatorId"), givenUserEntity("requestorId"));
+        final List<IdeaOut> res = ideaService.fetchIdeasByCampaignAndCreator(campaignId, givenUserEntity("creatorId"), givenUserEntity("requestorId"));
         assertThat(res.get(0).getRating(), equalTo(expRating));
     }
 
@@ -177,7 +178,7 @@ public class IdeaServiceTest {
     public void createNewIdea_shouldPersistIdeaAndNotify() {
         final String campaignId = "mycampaign";
         final UserEntity creator = givenUserEntity("test_adminId");
-        final Idea cmd = new Idea("test_title", "test_pitch");
+        final IdeaIn cmd = new IdeaIn("test_title", "test_pitch");
 
         givenIdeaCampaignExists(campaignId, true);
         givenAdminUserExists();
@@ -200,7 +201,7 @@ public class IdeaServiceTest {
     public void createNewIdea_shouldThrowOn_CampaignNotActive() {
         final String campaignId = "mycampaign";
         final UserEntity creator = givenUserEntity("test_adminId");
-        final Idea cmd = new Idea("test_title", "test_pitch");
+        final IdeaIn cmd = new IdeaIn("test_title", "test_pitch");
 
         givenIdeaCampaignExists(campaignId, false);
         givenAdminUserExists();
@@ -219,7 +220,7 @@ public class IdeaServiceTest {
         final String campaignId = "testcampaignid";
         givenIdeaCampaignDoesntExist(campaignId);
 
-        ideaService.createNewIdea(campaignId, new Idea("test_title", "Tu wat!"), givenUserEntity("123459"));
+        ideaService.createNewIdea(campaignId, new IdeaIn("test_title", "Tu wat!"), givenUserEntity("123459"));
     }
 
     @Test(expected = ResourceNotFoundException.class)
@@ -227,7 +228,7 @@ public class IdeaServiceTest {
         final String missingIdeaId = "idea27";
         givenIdeaDoesntExist(missingIdeaId);
 
-        ideaService.modifyIdea(missingIdeaId, new Idea("test_title", "my faulty pitch"), new UserEntity());
+        ideaService.modifyIdea(missingIdeaId, new IdeaIn("test_title", "my faulty pitch"), new UserEntity());
     }
 
     @Test
@@ -237,7 +238,7 @@ public class IdeaServiceTest {
         approver.setRoles(singletonList(Roles.ROLE_ADMIN));
 
         final IdeasCampaignEntity campaign = givenIdeaCampaignExists("test_campaignId", true);
-        givenIdeaExists(new Idea("test_title", "test_pitch"), campaign.getId());
+        givenIdeaExists(new IdeaIn("test_title", "test_pitch"), campaign.getId());
 
         ideaService.rejectIdea(campaign.getId(), missingIdeaId, "you are rejected!", approver);
 
@@ -267,7 +268,7 @@ public class IdeaServiceTest {
         approver.setRoles(Collections.emptyList());
 
         final IdeasCampaignEntity campaignEntity = givenIdeaCampaignExists("test_campaignId", true);
-        givenIdeaExists(new Idea("test_title", "test_pitch"), campaignEntity.getId());
+        givenIdeaExists(new IdeaIn("test_title", "test_pitch"), campaignEntity.getId());
 
         ideaService.rejectIdea(campaignEntity.getId(), missingIdeaId, "ich bin ein admin", approver);
     }
@@ -278,7 +279,7 @@ public class IdeaServiceTest {
         approver.setRoles(singletonList(Roles.ROLE_ADMIN));
 
         final IdeasCampaignEntity campaign = givenIdeaCampaignExists("test_campaignId", false);
-        final IdeaEntity ideaEntity = givenIdeaExists(new Idea("test_title", "test_pitch"), campaign.getId());
+        final IdeaEntity ideaEntity = givenIdeaExists(new IdeaIn("test_title", "test_pitch"), campaign.getId());
 
         try {
             ideaService.rejectIdea(campaign.getId(), ideaEntity.getCampaignId(), ideaEntity.getId(), approver);
@@ -296,7 +297,7 @@ public class IdeaServiceTest {
         approver.setRoles(Collections.emptyList());
 
         final IdeasCampaignEntity campaign = givenIdeaCampaignExists("test_campaignId", true);
-        givenIdeaExists(new Idea("test_title", "test_pitch"), campaign.getId());
+        givenIdeaExists(new IdeaIn("test_title", "test_pitch"), campaign.getId());
 
         ideaService.approveIdea("test_campaignId", missingIdeaId, approver);
     }
@@ -319,7 +320,7 @@ public class IdeaServiceTest {
         approver.setRoles(singletonList(Roles.ROLE_ADMIN));
 
         final IdeasCampaignEntity campaign = givenIdeaCampaignExists("test_campaignId", true);
-        IdeaEntity expectedIdea = givenIdeaExists(new Idea("test_title", "test_pitch"), campaign.getId());
+        IdeaEntity expectedIdea = givenIdeaExists(new IdeaIn("test_title", "test_pitch"), campaign.getId());
 
         ideaService.approveIdea(expectedIdea.getCampaignId(), missingIdeaId, approver);
 
@@ -336,7 +337,7 @@ public class IdeaServiceTest {
         approver.setRoles(singletonList(Roles.ROLE_ADMIN));
 
         final IdeasCampaignEntity campaign = givenIdeaCampaignExists("test_campaignId", false);
-        final IdeaEntity ideaEntity = givenIdeaExists(new Idea("test_title", "test_pitch"), campaign.getId());
+        final IdeaEntity ideaEntity = givenIdeaExists(new IdeaIn("test_title", "test_pitch"), campaign.getId());
 
         try {
             ideaService.approveIdea(ideaEntity.getCampaignId(), ideaEntity.getId(), approver);
@@ -349,7 +350,7 @@ public class IdeaServiceTest {
     @Test
     public void voteForIdea_shouldCallVotingService() {
         final IdeasCampaignEntity expectedCampaign = givenIdeaCampaignExists("test_campaignId", true);
-        final IdeaEntity ideaEntity = givenIdeaExists(new Idea("test_title", "test_pitch"), expectedCampaign.getId());
+        final IdeaEntity ideaEntity = givenIdeaExists(new IdeaIn("test_title", "test_pitch"), expectedCampaign.getId());
         final UserEntity voter = givenUserEntity("testvoter_id");
 
         ideaService.voteForIdea(new VoteCmd(ideaEntity.getId(), 1), voter);
@@ -357,10 +358,10 @@ public class IdeaServiceTest {
         verify(votingService).voteForIdea(eq(ideaEntity), eq(expectedCampaign), eq(voter), eq(1));
     }
 
-    private IdeaEntity givenIdeaExists(Idea idea, String campaignId) {
+    private IdeaEntity givenIdeaExists(IdeaIn idea, String campaignId) {
         final IdeaEntity theIdea = Fixtures.givenIdeaEntity(idea, campaignId);
         theIdea.setId("testidea_id");
-        theIdea.setOriginalPitch("A damn good pitch.");
+        theIdea.getContent().getOriginal().setPitch("A damn good pitch.");
         doReturn(true).when(ideaRepository).exists(anyString());
         doReturn(theIdea).when(ideaRepository).findOne(anyString());
         return theIdea;

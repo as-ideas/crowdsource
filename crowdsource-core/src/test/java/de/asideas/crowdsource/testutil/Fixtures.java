@@ -2,12 +2,12 @@ package de.asideas.crowdsource.testutil;
 
 import de.asideas.crowdsource.domain.model.ideascampaign.IdeasCampaignContent;
 import de.asideas.crowdsource.domain.model.ideascampaign.IdeasCampaignContentList;
+import de.asideas.crowdsource.presentation.ideascampaign.IdeaIn;
 import org.joda.time.DateTime;
 import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.domain.model.ideascampaign.IdeaEntity;
 import de.asideas.crowdsource.domain.model.ideascampaign.IdeasCampaignEntity;
 import de.asideas.crowdsource.presentation.ideascampaign.CampaignInitiator;
-import de.asideas.crowdsource.presentation.ideascampaign.Idea;
 import de.asideas.crowdsource.presentation.ideascampaign.IdeasCampaign;
 import org.slf4j.Logger;
 import static org.slf4j.LoggerFactory.getLogger;
@@ -34,20 +34,20 @@ public class Fixtures {
         return initiator;
     }
 
-    public static IdeaEntity givenIdeaEntity(Idea idea) {
+    public static IdeaEntity givenIdeaEntity(IdeaIn idea) {
         return givenIdeaEntity(idea, "test_campaignId");
     }
 
-    public static IdeaEntity givenIdeaEntity(Idea idea, String campaignId) {
+    public static IdeaEntity givenIdeaEntity(IdeaIn idea, String campaignId) {
         return IdeaEntity.createIdeaEntity(idea, campaignId, givenUserEntity("test_userId"));
     }
 
     public static IdeaEntity givenIdeaEntity() {
-        return givenIdeaEntity(new Idea("test_title", "test_pitch"));
+        return givenIdeaEntity(new IdeaIn("test_title", "test_pitch"));
     }
 
     public static IdeaEntity givenIdeaEntity(String ideaId) {
-        final IdeaEntity res = givenIdeaEntity(new Idea("test_title", "test_pitch"));
+        final IdeaEntity res = givenIdeaEntity(new IdeaIn("test_title", "test_pitch"));
         res.setId(ideaId);
         return res;
     }

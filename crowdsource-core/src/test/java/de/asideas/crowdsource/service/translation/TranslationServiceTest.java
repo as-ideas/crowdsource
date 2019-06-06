@@ -10,7 +10,6 @@ import de.asideas.crowdsource.domain.model.ideascampaign.VoteId;
 import de.asideas.crowdsource.domain.service.ideascampaign.VotingService;
 import de.asideas.crowdsource.domain.service.user.UserNotificationService;
 import de.asideas.crowdsource.domain.shared.ideascampaign.IdeaStatus;
-import de.asideas.crowdsource.presentation.ideascampaign.Idea;
 import de.asideas.crowdsource.presentation.ideascampaign.Rating;
 import de.asideas.crowdsource.presentation.ideascampaign.VoteCmd;
 import de.asideas.crowdsource.repository.UserRepository;

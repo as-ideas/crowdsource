@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import javax.validation.Valid;
 
+import de.asideas.crowdsource.presentation.ideascampaign.*;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -18,10 +19,6 @@ import org.springframework.web.bind.annotation.*;
 import de.asideas.crowdsource.domain.exception.ForbiddenException;
 import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.domain.shared.ideascampaign.IdeaStatus;
-import de.asideas.crowdsource.presentation.ideascampaign.Idea;
-import de.asideas.crowdsource.presentation.ideascampaign.IdeaRejectCmd;
-import de.asideas.crowdsource.presentation.ideascampaign.Rating;
-import de.asideas.crowdsource.presentation.ideascampaign.VoteCmd;
 import de.asideas.crowdsource.security.Roles;
 import de.asideas.crowdsource.service.UserService;
 import de.asideas.crowdsource.service.ideascampaign.IdeaService;
@@ -43,7 +40,7 @@ public class IdeaController {
 
     @Secured(Roles.ROLE_USER)
     @GetMapping(value = Paths.IDEAS, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public Page<Idea> fetchIdeas(@PathVariable String campaignId,
+    public Page<IdeaOut> fetchIdeas(@PathVariable String campaignId,
                                  @RequestParam(value = "page", required = false) Integer page,
                                  @RequestParam(value = "pageSize", required = false) Integer pageSize,
                                  @RequestParam(value = "status", required = false) IdeaStatus status,
@@ -63,11 +60,11 @@ public class IdeaController {
 
     @Secured(Roles.ROLE_USER)
     @GetMapping(value = Paths.IDEAS_FILTERED, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public Page<Idea> fetchIdeasFiltered(@PathVariable String campaignId,
-                                 @RequestParam(value = "page", required = false) Integer page,
-                                 @RequestParam(value = "pageSize", required = false) Integer pageSize,
-                                 @RequestParam(value = "alreadyVoted", required = true) Boolean alreadyVotedFor,
-                                 Principal principal ) {
+    public Page<IdeaOut> fetchIdeasFiltered(@PathVariable String campaignId,
+                                            @RequestParam(value = "page", required = false) Integer page,
+                                            @RequestParam(value = "pageSize", required = false) Integer pageSize,
+                                            @RequestParam(value = "alreadyVoted", required = true) Boolean alreadyVotedFor,
+                                            Principal principal ) {
 
         log.info("Fetching filtered Ideas: campaignId={}", campaignId);
         return ideaService.fetchIdeasByRequestorHasVoted(campaignId, alreadyVotedFor, page, pageSize, userByPrincipal(principal));
@@ -75,7 +72,7 @@ public class IdeaController {
 
     @Secured(Roles.ROLE_USER)
     @GetMapping(value = Paths.USERS_IDEAS, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<Idea> fetchIdeasOfCurrentUser(@PathVariable String campaignId, Principal principal) {
+    public List<IdeaOut> fetchIdeasOfCurrentUser(@PathVariable String campaignId, Principal principal) {
         final UserEntity requestor = userByPrincipal(principal);
         return ideaService.fetchIdeasByCampaignAndCreator(campaignId, requestor, requestor);
     }
@@ -83,14 +80,14 @@ public class IdeaController {
     @Secured(Roles.ROLE_USER)
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(value = Paths.IDEAS, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public Idea createIdea(@Valid @RequestBody Idea cmd, @PathVariable String campaignId, Principal principal) {
+    public IdeaOut createIdea(@Valid @RequestBody IdeaIn cmd, @PathVariable String campaignId, Principal principal) {
         log.info("Going to create idea by cmd: {}", cmd);
         return ideaService.createNewIdea(campaignId, cmd, userByPrincipal(principal));
     }
 
     @Secured(Roles.ROLE_USER)
     @PutMapping(value = Paths.IDEA, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public Idea modifyIdea(@Valid @RequestBody Idea cmd, @PathVariable String campaignId, @PathVariable String ideaId, Principal principal) {
+    public IdeaOut modifyIdea(@Valid @RequestBody IdeaIn cmd, @PathVariable String campaignId, @PathVariable String ideaId, Principal principal) {
         log.info("Going to modify idea by cmd: {}", cmd);
         return ideaService.modifyIdea(ideaId, cmd, userByPrincipal(principal));
     }
@@ -119,7 +116,7 @@ public class IdeaController {
         final UserEntity voter = userByPrincipal(principal);
         ideaService.voteForIdea(cmd, voter);
 
-        Idea idea = ideaService.fetchIdea(ideaId, voter);
+        IdeaOut idea = ideaService.fetchIdea(ideaId, voter);
 
         return idea.getRating();
     }

@@ -6,7 +6,7 @@ import de.asideas.crowdsource.domain.model.prototypecampaign.CommentEntity;
 import de.asideas.crowdsource.domain.model.prototypecampaign.ProjectEntity;
 import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.domain.shared.prototypecampaign.ProjectStatus;
-import de.asideas.crowdsource.presentation.ideascampaign.Idea;
+import de.asideas.crowdsource.presentation.ideascampaign.IdeaIn;
 import de.asideas.crowdsource.repository.UserRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -217,7 +217,7 @@ public class UserNotificationServiceTest {
     @Test
     public void notifyAdminOnIdeaCreation_ShouldSendMailWithResolvedTemplate() {
         UserEntity user = aUser("123456789");
-        IdeaEntity newIdea = IdeaEntity.createIdeaEntity(new Idea("SCHOKOLADE", "Schokolade für alle!"), "eatMoreChocolateCampaign", user);
+        IdeaEntity newIdea = IdeaEntity.createIdeaEntity(new IdeaIn("SCHOKOLADE", "Schokolade für alle!"), "eatMoreChocolateCampaign", user);
 
         userNotificationService.notifyAdminOnIdeaCreation(newIdea, ADMIN_EMAIL, "Schokoladen Kampagne");
 
@@ -241,7 +241,7 @@ public class UserNotificationServiceTest {
     @Test
     public void notifyCreatorOnIdeaAccepted_ShouldSendMailWithResolvedTemplate() {
         UserEntity creator = aUser("123456789");
-        IdeaEntity newIdea = IdeaEntity.createIdeaEntity(new Idea("SCHOKOLADE", "Schokolade für alle!"), "eatMoreChocolateCampaign", creator);
+        IdeaEntity newIdea = IdeaEntity.createIdeaEntity(new IdeaIn("SCHOKOLADE", "Schokolade für alle!"), "eatMoreChocolateCampaign", creator);
 
         userNotificationService.notifyCreatorOnIdeaAccepted(newIdea, "Schokoladen Kampagne");
 
@@ -264,7 +264,7 @@ public class UserNotificationServiceTest {
     @Test
     public void notifyCreatorOnIdeaRejected_ShouldSendMailWithResolvedTemplate() {
         UserEntity creator = aUser("123456789");
-        IdeaEntity newIdea = IdeaEntity.createIdeaEntity(new Idea("SCHOKOLADE", "Schokolade für alle!"), "eatMoreChocolateCampaign", creator);
+        IdeaEntity newIdea = IdeaEntity.createIdeaEntity(new IdeaIn("SCHOKOLADE", "Schokolade für alle!"), "eatMoreChocolateCampaign", creator);
 
         userNotificationService.notifyCreatorOnIdeaRejected(newIdea, "der Vorschlag ist blöd.", "Schokoladen Kampagne");
 

@@ -1,6 +1,6 @@
 package de.asideas.crowdsource.service.translation;
 
-import de.asideas.crowdsource.domain.model.ideascampaign.IdeaContentEntity;
+import de.asideas.crowdsource.domain.model.ideascampaign.IdeaContent;
 import de.asideas.crowdsource.domain.model.ideascampaign.IdeaEntity;
 import de.asideas.crowdsource.security.CrowdAWSSecretsManager;
 import org.codehaus.jackson.JsonNode;
@@ -45,11 +45,11 @@ public class TranslationService {
         }
 
         String bestGuessSourceLanguage = decideSourceLanguage(translationResults);
-        ideaEntity.setOriginalLanguage(bestGuessSourceLanguage);
+        ideaEntity.getContent().setOriginalLanguage(bestGuessSourceLanguage);
 
         for (SingleTranslation translation : translationResults) {
-            IdeaContentEntity ideaContentEntity = new IdeaContentEntity(translation.targetLanguage, translation.getTitle(), translation.getPitch());
-            ideaEntity.setContentTranslated(ideaContentEntity);
+            IdeaContent ideaContent = new IdeaContent(translation.getTitle(), translation.getPitch());
+            setTranslatedIdeaContent(ideaEntity, ideaContent, translation.targetLanguage);
         }
     }
 
@@ -139,6 +139,19 @@ public class TranslationService {
 
         log.info("Detected language: " + detectedLanguage);
         return detectedLanguage;
+    }
+
+    private void setTranslatedIdeaContent(IdeaEntity idea, IdeaContent content, String language) {
+
+        if (language.equalsIgnoreCase("de")) {
+            idea.getContent().setDe(content);
+        }
+        else if (language.equalsIgnoreCase("en")) {
+            idea.getContent().setEn(content);
+        } else {
+            log.error("setTranslatedIdeaContent: language not supported (" + language + ")");
+        }
+
     }
 
     private class SingleTranslation {

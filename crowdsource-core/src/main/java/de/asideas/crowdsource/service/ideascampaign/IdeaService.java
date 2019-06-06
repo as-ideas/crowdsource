@@ -8,6 +8,8 @@ import de.asideas.crowdsource.domain.model.ideascampaign.IdeasCampaignEntity;
 import de.asideas.crowdsource.domain.model.ideascampaign.VoteEntity;
 import de.asideas.crowdsource.domain.service.ideascampaign.VotingService;
 import de.asideas.crowdsource.domain.service.user.UserNotificationService;
+import de.asideas.crowdsource.presentation.ideascampaign.IdeaIn;
+import de.asideas.crowdsource.presentation.ideascampaign.IdeaOut;
 import de.asideas.crowdsource.presentation.ideascampaign.VoteCmd;
 import de.asideas.crowdsource.repository.UserRepository;
 
@@ -25,7 +27,6 @@ import de.asideas.crowdsource.domain.exception.ResourceNotFoundException;
 import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.domain.model.ideascampaign.IdeaEntity;
 import de.asideas.crowdsource.domain.shared.ideascampaign.IdeaStatus;
-import de.asideas.crowdsource.presentation.ideascampaign.Idea;
 import de.asideas.crowdsource.repository.ideascampaign.IdeaRepository;
 import de.asideas.crowdsource.repository.ideascampaign.IdeasCampaignRepository;
 import de.asideas.crowdsource.repository.ideascampaign.VoteRepository;
@@ -66,14 +67,14 @@ public class IdeaService {
     @Autowired
     private VoteRepository voteRepository;
 
-    public Idea fetchIdea(String ideaId, UserEntity requestor) {
+    public IdeaOut fetchIdea(String ideaId, UserEntity requestor) {
         Assert.notNull(ideaId, "ideaId must not be null");
         validateIdeaExists(ideaId);
 
         return toIdea(ideaRepository.findOne(ideaId), requestor);
     }
 
-    public Page<Idea> fetchIdeasByStatus(String campaignId, Set<IdeaStatus> statusSet, Integer page, Integer pageSize, UserEntity requestor) {
+    public Page<IdeaOut> fetchIdeasByStatus(String campaignId, Set<IdeaStatus> statusSet, Integer page, Integer pageSize, UserEntity requestor) {
         Assert.notNull(campaignId, "campaignId must not be null");
 
         final Page<IdeaEntity> dbRes = ideaRepository.findByCampaignIdAndStatusIn(
@@ -84,7 +85,7 @@ public class IdeaService {
         return new PageImpl<>(toIdeas(dbRes.getContent(), requestor), calcPageRequest(page, pageSize), dbRes.getTotalElements());
     }
 
-    public Page<Idea> fetchIdeasByRequestorHasVoted(String campaignId, boolean hasVoted, Integer page, Integer pageSize, UserEntity requestor) {
+    public Page<IdeaOut> fetchIdeasByRequestorHasVoted(String campaignId, boolean hasVoted, Integer page, Integer pageSize, UserEntity requestor) {
         Assert.notNull(campaignId, "campaignId must not be null");
 
         final Set<String> ideaIds = voteRepository.findIdsByVoterId(requestor.getId()).stream().map(el -> el.getId().getIdeaId()).collect(Collectors.toSet());
@@ -108,13 +109,13 @@ public class IdeaService {
         return new PageImpl<>(toIdeas(dbRes.getContent(), requestor), calcPageRequest(page, pageSize), dbRes.getTotalElements());
     }
 
-    public List<Idea> fetchIdeasByCampaignAndCreator(String campaignId, UserEntity creator, UserEntity requestor) {
+    public List<IdeaOut> fetchIdeasByCampaignAndCreator(String campaignId, UserEntity creator, UserEntity requestor) {
         Assert.notNull(campaignId, "campaignId must not be null");
         Assert.notNull(creator, "creator must not be null");
         return toIdeas(ideaRepository.findByCampaignIdAndCreator(campaignId, creator), requestor);
     }
 
-    public Idea createNewIdea(String campaignId, Idea cmd, UserEntity creator) {
+    public IdeaOut createNewIdea(String campaignId, IdeaIn cmd, UserEntity creator) {
         Assert.notNull(cmd, "cmd must not be null.");
         Assert.notNull(campaignId, "CampaignId must not be null.");
         Assert.notNull(creator, "Creator must not be null.");
@@ -126,10 +127,10 @@ public class IdeaService {
         // TODO: Fix according to translation concept
         log.info("Create new idea: campaign: " + campaign.toString());
         notifyAdminsOnNewIdea(result, campaign.getContent().getDe().getTitle());
-        return new Idea(ideaRepository.save(result));
+        return new IdeaOut(ideaRepository.save(result));
     }
 
-    public Idea modifyIdea(String ideaId, Idea cmd, UserEntity requestingUser) {
+    public IdeaOut modifyIdea(String ideaId, IdeaIn cmd, UserEntity requestingUser) {
         Assert.notNull(cmd, "cmd must not be null.");
         Assert.hasText(ideaId, "ideaId must not be null.");
         Assert.notNull(requestingUser, "user must not be null.");
@@ -138,8 +139,9 @@ public class IdeaService {
 
         final IdeaEntity existingIdea = ideaRepository.findOne(ideaId);
         checkRequestorIsOwner(requestingUser, existingIdea);
+        existingIdea.getContent().getOriginal().setPitch(cmd.getPitch());
 
-        return new Idea(ideaRepository.save(existingIdea.modifyIdeaPitch(cmd.getPitch())));
+        return new IdeaOut(ideaRepository.save(existingIdea));
     }
 
     public void approveIdea(String campaignId, String ideaId, UserEntity approvingAdmin) {
@@ -196,13 +198,13 @@ public class IdeaService {
                 .forEach(emailAddress -> userNotificationService.notifyAdminOnIdeaCreation(ideaEntity, emailAddress, campaignTitle));
     }
 
-    private List<Idea> toIdeas(List<IdeaEntity> res, UserEntity requestor) {
+    private List<IdeaOut> toIdeas(List<IdeaEntity> res, UserEntity requestor) {
         return res.stream().map(idea -> toIdea(idea, requestor)).collect(Collectors.toList());
     }
 
-    private Idea toIdea(IdeaEntity res, UserEntity requestor) {
+    private IdeaOut toIdea(IdeaEntity res, UserEntity requestor) {
         List<VoteEntity> votes = voteRepository.findByIdIdeaId(res.getId());
-        return new Idea(res, votes, requestor);
+        return new IdeaOut(res, votes, requestor);
     }
 
     private void checkRequestorIsOwner(UserEntity requestingUser, IdeaEntity existingIdea) {

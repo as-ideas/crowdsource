@@ -3,6 +3,7 @@ package de.asideas.crowdsource.domain.model.ideascampaign;
 import java.util.Arrays;
 import java.util.Collection;
 
+import de.asideas.crowdsource.presentation.ideascampaign.IdeaIn;
 import org.hamcrest.Matchers;
 import org.hamcrest.number.IsCloseTo;
 import org.joda.time.DateTime;
@@ -12,7 +13,6 @@ import org.junit.Test;
 import de.asideas.crowdsource.domain.exception.InvalidRequestException;
 import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.domain.shared.ideascampaign.IdeaStatus;
-import de.asideas.crowdsource.presentation.ideascampaign.Idea;
 import de.asideas.crowdsource.presentation.ideascampaign.Rating;
 import de.asideas.crowdsource.testutil.Fixtures;
 
@@ -29,7 +29,7 @@ public class IdeaEntityTest {
 
     @Test
     public void createIdeaEntity_shouldContainExpectedFileds() {
-        final Idea expectedIdea = new Idea("test_title", "Make more placstic forks!");
+        final IdeaIn expectedIdea = new IdeaIn("test_title", "Make more placstic forks!");
         final IdeaEntity ideaEntity = IdeaEntity.createIdeaEntity(expectedIdea, EXP_CAMPAIGN_ID, INITIATOR);
 
         assertThat(ideaEntity.getOriginalTitle(), equalTo(expectedIdea.getTitle()));
@@ -41,31 +41,31 @@ public class IdeaEntityTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void createIdeaEntity_shouldFail_on_creator_is_null() {
-        final Idea ideaCommand = new Idea("test_title", "Make more placstic forks!");
+        final IdeaIn ideaCommand = new IdeaIn("test_title", "Make more placstic forks!");
         IdeaEntity.createIdeaEntity(ideaCommand, EXP_CAMPAIGN_ID, null);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void createIdeaEntity_shouldFail_on_pitch_is_empty() {
-        final Idea ideaCommand = new Idea("test_title", "          ");
+        final IdeaIn ideaCommand = new IdeaIn("test_title", "          ");
         IdeaEntity.createIdeaEntity(ideaCommand, EXP_CAMPAIGN_ID, INITIATOR);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void createIdeaEntity_shouldFail_on_campaignId_isEmpty() {
-        final Idea ideaCommand = new Idea("test_title", "          ");
+        final IdeaIn ideaCommand = new IdeaIn("test_title", "          ");
         IdeaEntity.createIdeaEntity(ideaCommand, "   ", INITIATOR);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void createIdeaEntity_shouldFail_on_title_isEmpty() {
-        final Idea ideaCommand = new Idea("", "Make more placstic forks!");
+        final IdeaIn ideaCommand = new IdeaIn("", "Make more placstic forks!");
         IdeaEntity.createIdeaEntity(ideaCommand, EXP_CAMPAIGN_ID, INITIATOR);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void approveIdea_ShouldThrowOnAlreadyApproved() {
-        final Idea givenIdea = new Idea("test_title", "Make more placstic forks!");
+        final IdeaIn givenIdea = new IdeaIn("test_title", "Make more placstic forks!");
         final IdeaEntity ideaEntity = IdeaEntity.createIdeaEntity(givenIdea, EXP_CAMPAIGN_ID, INITIATOR);
 
         assertThat(ideaEntity.getStatus(), is(IdeaStatus.PROPOSED));
@@ -75,7 +75,7 @@ public class IdeaEntityTest {
 
     @Test
     public void approveIdea_ShouldTransformExpectedMembers() {
-        final Idea givenIdea = new Idea("test_title", "Make more placstic forks!");
+        final IdeaIn givenIdea = new IdeaIn("test_title", "Make more placstic forks!");
         final IdeaEntity ideaEntity = IdeaEntity.createIdeaEntity(givenIdea, EXP_CAMPAIGN_ID, INITIATOR);
         assertThat(ideaEntity.getStatus(), is(IdeaStatus.PROPOSED));
 
@@ -88,7 +88,7 @@ public class IdeaEntityTest {
 
     @Test
     public void rejectIdea_ShouldTransformExpectedMembers() {
-        final Idea givenIdea = new Idea("test_title", "Make more placstic forks!");
+        final IdeaIn givenIdea = new IdeaIn("test_title", "Make more placstic forks!");
         final IdeaEntity ideaEntity = IdeaEntity.createIdeaEntity(givenIdea, EXP_CAMPAIGN_ID, INITIATOR);
         assertThat(ideaEntity.getStatus(), is(IdeaStatus.PROPOSED));
 
@@ -103,7 +103,7 @@ public class IdeaEntityTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void approveIdea_ShouldThrowOnAlreadyRejected() {
-        final Idea givenIdea = new Idea("test_title", "Make more placstic forks!");
+        final IdeaIn givenIdea = new IdeaIn("test_title", "Make more placstic forks!");
         final IdeaEntity ideaEntity = IdeaEntity.createIdeaEntity(givenIdea, EXP_CAMPAIGN_ID, INITIATOR);
 
         assertThat(ideaEntity.getStatus(), is(IdeaStatus.PROPOSED));
@@ -180,7 +180,7 @@ public class IdeaEntityTest {
     }
 
     private IdeaEntity givenValidApprovedIdea() {
-        final IdeaEntity givenIdea = IdeaEntity.createIdeaEntity(new Idea("test_title", "test_campaignId"), "aCampaignId", givenUserEntity("creator"));
+        final IdeaEntity givenIdea = IdeaEntity.createIdeaEntity(new IdeaIn("test_title", "test_campaignId"), "aCampaignId", givenUserEntity("creator"));
         givenIdea.setId("test_ideaId");
         givenIdea.approveIdea(Fixtures.givenUserEntity("adminId"));
         return givenIdea;

@@ -1,6 +1,7 @@
 package de.asideas.crowdsource.controller.ideascampaign;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import de.asideas.crowdsource.presentation.ideascampaign.IdeaIn;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,7 +17,6 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import de.asideas.crowdsource.controller.ControllerExceptionAdvice;
-import de.asideas.crowdsource.presentation.ideascampaign.Idea;
 import de.asideas.crowdsource.presentation.ideascampaign.IdeaRejectCmd;
 import de.asideas.crowdsource.presentation.ideascampaign.VoteCmd;
 import de.asideas.crowdsource.service.UserService;
@@ -27,8 +27,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringRunner.class)
 @EnableWebMvc
@@ -59,7 +58,7 @@ public class IdeaControllerTest {
 
     @Test
     public void createIdea_ShouldReturn_400_onEmptyTitle() throws Exception {
-        Idea cmd = new Idea((String) null, "test_pitch");
+        IdeaIn cmd = new IdeaIn((String) null, "test_pitch");
 
         mockMvc.perform(post("/ideas_campaigns/anId/ideas")
             .content(mapper.writeValueAsString(cmd))
@@ -72,7 +71,7 @@ public class IdeaControllerTest {
 
     @Test
     public void createIdea_ShouldReturn_400_onEmptyPitch() throws Exception {
-        Idea cmd = new Idea("test_title", (String) null);
+        IdeaIn cmd = new IdeaIn("test_title", (String) null);
 
         mockMvc.perform(post("/ideas_campaigns/anId/ideas")
             .content(mapper.writeValueAsString(cmd))
@@ -85,7 +84,7 @@ public class IdeaControllerTest {
 
     @Test
     public void updateIdea_ShouldReturn_400_onInvalidPitch() throws Exception {
-        Idea cmd = new Idea("test_title", "nope");
+        IdeaIn cmd = new IdeaIn("test_title", "nope");
 
         mockMvc.perform(put("/ideas_campaigns/aCampaignId/ideas/anIdeaId")
             .content(mapper.writeValueAsString(cmd))
@@ -99,7 +98,7 @@ public class IdeaControllerTest {
     @Test
     public void createIdea_ShouldReturn_400_onPitchSizeInvalid() throws Exception {
         // Longer than 255 chars
-        final Idea cmd = new Idea("test_title", "Lo000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000" +
+        final IdeaIn cmd = new IdeaIn("test_title", "Lo000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000" +
             "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ng");
 
         mockMvc.perform(post("/ideas_campaigns/anId/ideas")
@@ -108,7 +107,7 @@ public class IdeaControllerTest {
         )
             .andDo(log())
             .andExpect(status().isBadRequest())
-            .andExpect(jsonPath("$.fieldViolations.pitch", equalTo("size must be between 5 and 255")));
+           .andExpect(jsonPath("$.fieldViolations.pitch", equalTo("size must be between 5 and 255")));
         ;
     }
 

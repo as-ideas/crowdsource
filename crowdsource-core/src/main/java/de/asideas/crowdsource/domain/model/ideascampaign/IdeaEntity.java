@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import de.asideas.crowdsource.domain.exception.InvalidRequestException;
 import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.domain.shared.ideascampaign.IdeaStatus;
-import de.asideas.crowdsource.presentation.ideascampaign.Idea;
+import de.asideas.crowdsource.presentation.ideascampaign.IdeaIn;
 import de.asideas.crowdsource.presentation.ideascampaign.Rating;
 
 import org.joda.time.DateTime;
@@ -36,11 +36,7 @@ public class IdeaEntity {
     @Id
     private String id;
 
-    private IdeaContentEntity contentOriginal;
-
-    private IdeaContentEntity contentGerman;
-
-    private IdeaContentEntity contentEnglish;
+    private IdeaContentList content;
 
     private IdeaStatus status;
 
@@ -68,7 +64,7 @@ public class IdeaEntity {
     private IdeaEntity() {
     }
 
-    public static IdeaEntity createIdeaEntity(Idea cmd, String campaignId, UserEntity creator) {
+    public static IdeaEntity createIdeaEntity(IdeaIn cmd, String campaignId, UserEntity creator) {
         hasText(campaignId, "campaignId must be given");
         hasText(cmd.getTitle(), "Title must contain text.");
         hasText(cmd.getPitch(), "Pitch must contain text.");
@@ -76,18 +72,19 @@ public class IdeaEntity {
 
         final IdeaEntity result = new IdeaEntity();
 
-        result.setContentOriginal(new IdeaContentEntity(cmd.getTitle(), cmd.getPitch()));
+        result.setContent(new IdeaContentList(cmd.getTitle(), cmd.getPitch()));
         result.setCreator(creator);
         result.setStatus(IdeaStatus.PROPOSED);
         result.setCampaignId(campaignId);
         return result;
     }
-
+/*
     public IdeaEntity modifyIdeaPitch(String newPitch) {
         hasText(newPitch, "new pitch must be given");
         this.setOriginalPitch(newPitch);
         return this;
     }
+*/
 
     public void approveIdea(UserEntity approvingAdmin) {
         Assert.notNull(approvingAdmin, "approvingAdmin must not be null");
@@ -130,14 +127,6 @@ public class IdeaEntity {
         return new Rating(this.id, votes.size(), requestorVote.map(VoteEntity::getVote).orElse(0), calculatedAverage.floatValue());
     }
 
-    public String getOriginalLanguage() {
-        return contentOriginal.getLanguage();
-    }
-
-    public void setOriginalLanguage(String originalLanguage) {
-        this.contentOriginal.setLanguage(originalLanguage);
-    }
-
     public String getId() {
         return id;
     }
@@ -145,82 +134,9 @@ public class IdeaEntity {
         this.id = id;
     }
 
-    public String getOriginalTitle() {
-        if (this.contentOriginal == null) {
-            return "Old entry in incompatible format.";
-        }
-        return this.contentOriginal.getTitle();
-    }
+    public IdeaContentList getContent() { return content; }
+    public void setContent(IdeaContentList content) { this.content = content; }
 
-    public void setOriginalTitle(String title) {
-        this.contentOriginal.setTitle(title);
-    }
-
-    public String getOriginalPitch() {
-        if (this.contentOriginal == null) {
-            return "Old entry in incompatible format.";
-        }
-        return this.contentOriginal.getPitch();
-    }
-
-    public void setOriginalPitch(String pitch) {
-        this.contentOriginal.setPitch(pitch);
-    }
-
-    public String getTitleInLanguage(String language) {
-        if (language == null) {
-            throw new RuntimeException();
-        }
-        if (!language.equals(contentOriginal.getLanguage())) {
-            if ("DE".equals(language)) {
-                return this.getContentGerman().getTitle();
-            }
-            if ("EN".equals(language)) {
-                return this.getContentEnglish().getTitle();
-            }
-        }
-        return contentOriginal.getTitle();
-    }
-
-    public String getPitchInLanguage(String language) {
-        if (language == null) {
-            throw new RuntimeException();
-        }
-        if (!language.equals(contentOriginal.getLanguage())) {
-            if ("DE".equals(language)) {
-                return this.getContentGerman().getPitch();
-            }
-            if ("EN".equals(language)) {
-                return this.getContentEnglish().getPitch();
-            }
-        }
-        return contentOriginal.getPitch();
-    }
-
-    public IdeaContentEntity getContentOriginal() {
-        return contentOriginal;
-    }
-
-    public void setContentOriginal(IdeaContentEntity contentOriginal) {
-        this.contentOriginal = contentOriginal;
-    }
-
-    public IdeaContentEntity getContentGerman() {
-        return contentGerman;
-    }
-
-    public IdeaContentEntity getContentEnglish() {
-        return contentEnglish;
-    }
-
-    public void setContentTranslated(IdeaContentEntity ideaContentEntity) {
-        if ("DE".equals(ideaContentEntity.getLanguage())) {
-            this.contentGerman = ideaContentEntity;
-        }
-        if ("EN".equals(ideaContentEntity.getLanguage())) {
-            this.contentEnglish = ideaContentEntity;
-        }
-    }
 
     public IdeaStatus getStatus() {
         return status;
@@ -286,15 +202,16 @@ public class IdeaEntity {
         this.approvingAdminId = approvingAdminId;
     }
 
+    public String getOriginalTitle() { return this.content.getOriginal().getTitle(); }
+    public String getOriginalPitch() { return this.content.getOriginal().getPitch(); }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         IdeaEntity that = (IdeaEntity) o;
         return Objects.equals(id, that.id) &&
-                Objects.equals(contentOriginal, that.contentOriginal) &&
-                Objects.equals(contentGerman, that.contentGerman) &&
-                Objects.equals(contentEnglish, that.contentEnglish) &&
+                Objects.equals(content, that.content) &&
                 status == that.status &&
                 Objects.equals(reviewDate, that.reviewDate) &&
                 Objects.equals(rejectionComment, that.rejectionComment) &&
@@ -308,16 +225,14 @@ public class IdeaEntity {
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, contentOriginal, contentGerman, contentEnglish, status, reviewDate, rejectionComment, creator, approvingAdminId, campaignId, createdDate, lastModifiedDate);
+        return Objects.hash(id, content, status, reviewDate, rejectionComment, creator, approvingAdminId, campaignId, createdDate, lastModifiedDate);
     }
 
     @Override
     public String toString() {
         return "IdeaEntity{" +
                 "id='" + id + '\'' +
-                ", contentOriginal=" + contentOriginal +
-                ", contentGerman=" + contentGerman +
-                ", contentEnglish=" + contentEnglish +
+                ", content=" + content +
                 ", status=" + status +
                 ", reviewDate=" + reviewDate +
                 ", rejectionComment='" + rejectionComment + '\'' +

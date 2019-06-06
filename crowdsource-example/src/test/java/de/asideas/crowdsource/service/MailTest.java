@@ -7,7 +7,7 @@ import de.asideas.crowdsource.domain.model.prototypecampaign.ProjectEntity;
 import de.asideas.crowdsource.domain.model.UserEntity;
 import de.asideas.crowdsource.domain.service.user.UserNotificationService;
 import de.asideas.crowdsource.domain.shared.prototypecampaign.ProjectStatus;
-import de.asideas.crowdsource.presentation.ideascampaign.Idea;
+import de.asideas.crowdsource.presentation.ideascampaign.IdeaIn;
 import de.asideas.crowdsource.repository.UserRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -207,7 +207,7 @@ public class MailTest {
     @Test
     public void testNotifyAdminOnIdeaCreation() {
         UserEntity user = aUser("123456789");
-        IdeaEntity newIdea = IdeaEntity.createIdeaEntity(new Idea("SCHOKOLADE", "Schokolade für alle!"), "eatMoreChocolateCampaign", user);
+        IdeaEntity newIdea = IdeaEntity.createIdeaEntity(new IdeaIn("SCHOKOLADE", "Schokolade für alle!"), "eatMoreChocolateCampaign", user);
 
         userNotificationService.notifyAdminOnIdeaCreation(newIdea, ADMIN_EMAIL, "Schokoladen Kampagne");
 
@@ -230,7 +230,7 @@ public class MailTest {
     @Test
     public void testNotifyCreatorOnIdeaAccepted() {
         UserEntity creator = aUser("123456789");
-        IdeaEntity newIdea = IdeaEntity.createIdeaEntity(new Idea("SCHOKOLADE", "Schokolade für alle!"), "eatMoreChocolateCampaign", creator);
+        IdeaEntity newIdea = IdeaEntity.createIdeaEntity(new IdeaIn("SCHOKOLADE", "Schokolade für alle!"), "eatMoreChocolateCampaign", creator);
 
         userNotificationService.notifyCreatorOnIdeaAccepted(newIdea, "Schokoladen Kampagne");
 
@@ -253,7 +253,7 @@ public class MailTest {
     @Test
     public void testNotifyCreatorOnIdeaRejected() {
         UserEntity creator = aUser("123456789");
-        IdeaEntity newIdea = IdeaEntity.createIdeaEntity(new Idea("SCHOKOLADE", "Schokolade für alle!"), "eatMoreChocolateCampaign", creator);
+        IdeaEntity newIdea = IdeaEntity.createIdeaEntity(new IdeaIn("SCHOKOLADE", "Schokolade für alle!"), "eatMoreChocolateCampaign", creator);
 
         userNotificationService.notifyCreatorOnIdeaRejected(newIdea, "Hatten wir schon.", "Schokoladen Kampagne");
 
@@ -277,7 +277,7 @@ public class MailTest {
     @Test(expected = IllegalArgumentException.class)
     public void testNotifyCreatorOnIdeaRejected_shouldFailIfEmptyCommentIsProvided() {
         UserEntity creator = aUser("123456789");
-        IdeaEntity newIdea = IdeaEntity.createIdeaEntity(new Idea("SCHOKOLADE", "Schokolade für alle!"), "eatMoreChocolateCampaign", creator);
+        IdeaEntity newIdea = IdeaEntity.createIdeaEntity(new IdeaIn("SCHOKOLADE", "Schokolade für alle!"), "eatMoreChocolateCampaign", creator);
 
         userNotificationService.notifyCreatorOnIdeaRejected(newIdea, "", "Schokoladen Kampagne");
     }
@@ -285,7 +285,7 @@ public class MailTest {
     @Test(expected = IllegalArgumentException.class)
     public void testNotifyCreatorOnIdeaRejected_shouldFailIfNoCommentIsProvided() {
         UserEntity creator = aUser("123456789");
-        IdeaEntity newIdea = IdeaEntity.createIdeaEntity(new Idea("SCHOKOLADE", "Schokolade für alle!"), "eatMoreChocolateCampaign", creator);
+        IdeaEntity newIdea = IdeaEntity.createIdeaEntity(new IdeaIn("SCHOKOLADE", "Schokolade für alle!"), "eatMoreChocolateCampaign", creator);
 
         userNotificationService.notifyCreatorOnIdeaRejected(newIdea, null, "Schokoladen Kampagne");
     }

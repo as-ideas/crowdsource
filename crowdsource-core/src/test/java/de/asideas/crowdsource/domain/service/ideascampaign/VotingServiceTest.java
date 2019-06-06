@@ -1,5 +1,6 @@
 package de.asideas.crowdsource.domain.service.ideascampaign;
 
+import de.asideas.crowdsource.presentation.ideascampaign.IdeaIn;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,7 +14,6 @@ import de.asideas.crowdsource.domain.model.ideascampaign.IdeaEntity;
 import de.asideas.crowdsource.domain.model.ideascampaign.IdeasCampaignEntity;
 import de.asideas.crowdsource.domain.model.ideascampaign.VoteEntity;
 import de.asideas.crowdsource.domain.model.ideascampaign.VoteId;
-import de.asideas.crowdsource.presentation.ideascampaign.Idea;
 import de.asideas.crowdsource.presentation.ideascampaign.IdeasCampaign;
 import de.asideas.crowdsource.repository.ideascampaign.VoteRepository;
 import de.asideas.crowdsource.testutil.Fixtures;
@@ -53,7 +53,7 @@ public class VotingServiceTest {
         givenCampaign.setId("2222");
         givenCampaign.setEndDate(DateTime.now().minusSeconds(1));
 
-        final IdeaEntity givenIdea = IdeaEntity.createIdeaEntity(new Idea("test_title", "test_campaignId"), givenCampaign.getId(), givenUserEntity("creator"));
+        final IdeaEntity givenIdea = IdeaEntity.createIdeaEntity(new IdeaIn("test_title", "test_campaignId"), givenCampaign.getId(), givenUserEntity("creator"));
         votingService.voteForIdea(givenIdea, givenCampaign, givenUserEntity("voterId"), 5);
     }
 
@@ -63,7 +63,7 @@ public class VotingServiceTest {
         givenCampaign.setId("2222");
         givenCampaign.setStartDate(DateTime.now().plusDays(1));
 
-        final IdeaEntity givenIdea = IdeaEntity.createIdeaEntity(new Idea("test_title", "test_campaignId"), givenCampaign.getId(), givenUserEntity("creator"));
+        final IdeaEntity givenIdea = IdeaEntity.createIdeaEntity(new IdeaIn("test_title", "test_campaignId"), givenCampaign.getId(), givenUserEntity("creator"));
         votingService.voteForIdea(givenIdea, givenCampaign, givenUserEntity("voterId"), 5);
     }
 
@@ -72,7 +72,7 @@ public class VotingServiceTest {
         final IdeasCampaignEntity givenCampaign = givenIdeasCampaignEntity("test_InitUser");
         givenCampaign.setId("2222");
 
-        final IdeaEntity givenIdea = IdeaEntity.createIdeaEntity(new Idea("test_title", "test_campaignId"), givenCampaign.getId(), givenUserEntity("creator"));
+        final IdeaEntity givenIdea = IdeaEntity.createIdeaEntity(new IdeaIn("test_title", "test_campaignId"), givenCampaign.getId(), givenUserEntity("creator"));
         givenIdea.setId("test_ideaId");
         givenIdea.approveIdea(Fixtures.givenUserEntity("fake_admin"));
 
@@ -85,7 +85,7 @@ public class VotingServiceTest {
         final IdeasCampaignEntity givenCampaign = givenIdeasCampaignEntity("test_InitUser");
         givenCampaign.setId("2222");
 
-        final IdeaEntity givenIdea = IdeaEntity.createIdeaEntity(new Idea("test_title", "test_campaignId"), givenCampaign.getId(), givenUserEntity("creator"));
+        final IdeaEntity givenIdea = IdeaEntity.createIdeaEntity(new IdeaIn("test_title", "test_campaignId"), givenCampaign.getId(), givenUserEntity("creator"));
         givenIdea.setId("testid");
         givenIdea.approveIdea(Fixtures.givenUserEntity("fake_admin"));
 

@@ -55,11 +55,11 @@ public class IdeaControllerIT extends AbstractCrowdIT {
 
         final IdeasCampaign parentCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
 
-        final Idea cmd = givenValidIdeaCmd();
+        final IdeaIn cmd = givenValidIdeaCmd();
         final MvcResult mvcRes = givenIdeaExists(userToken, parentCampaign.getId(), cmd)
                 .andExpect(status().isCreated()).andReturn();
 
-        final Idea actual = mapper.readValue(mvcRes.getResponse().getContentAsString(), Idea.class);
+        final IdeaOut actual = mapper.readValue(mvcRes.getResponse().getContentAsString(), IdeaOut.class);
 
         final IdeaEntity actualPersisted = ideaRepository.findOne(actual.getId());
         thenIdeaEntityContainsExpectedFields(actualPersisted, cmd, parentCampaign.getId());
@@ -73,7 +73,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
 
         final IdeasCampaign parentCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
 
-        final Idea cmd = givenValidIdeaCmd();
+        final IdeaIn cmd = givenValidIdeaCmd();
         givenIdeaExists(userToken, parentCampaign.getId(), cmd)
                 .andExpect(status().isUnauthorized());
     }
@@ -88,9 +88,9 @@ public class IdeaControllerIT extends AbstractCrowdIT {
 
         final IdeasCampaign parentCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
 
-        final Idea cmd1 = new Idea("test_title_1", "pitch 1");
-        final Idea cmd2 = new Idea("test_title_2", "pitch 2");
-        final Idea cmd3 = new Idea("test_title_3", "pitch 3");
+        final IdeaIn cmd1 = new IdeaIn("test_title_1", "pitch 1");
+        final IdeaIn cmd2 = new IdeaIn("test_title_2", "pitch 2");
+        final IdeaIn cmd3 = new IdeaIn("test_title_3", "pitch 3");
         givenApprovedIdeaExists(userToken, parentCampaign.getId(), cmd1);
         givenApprovedIdeaExists(userToken, parentCampaign.getId(), cmd2);
         givenIdeaExists(userToken, parentCampaign.getId(), cmd3).andExpect(status().isCreated()).andReturn();
@@ -109,8 +109,8 @@ public class IdeaControllerIT extends AbstractCrowdIT {
             .andExpect(jsonPath("$.first", is(true)))
             .andExpect(jsonPath("$.last", is(true)))
             .andExpect(jsonPath("$.content.length()", is(2)))
-            .andExpect(jsonPath("$.content[0].pitch", is("pitch 1")))
-            .andExpect(jsonPath("$.content[1].pitch", is("pitch 2")))
+            .andExpect(jsonPath("$.content[0].content.original.pitch", is("pitch 1")))
+            .andExpect(jsonPath("$.content[1].content.original.pitch", is("pitch 2")))
             .andReturn().getResponse().getContentAsString()
             ;
     }
@@ -125,8 +125,8 @@ public class IdeaControllerIT extends AbstractCrowdIT {
 
         final IdeasCampaign parentCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
 
-        final Idea cmd1 = new Idea("test_title_1", "pitch 1");
-        final Idea cmd2 = new Idea("test_title_2", "pitch 2");
+        final IdeaIn cmd1 = new IdeaIn("test_title_1", "pitch 1");
+        final IdeaIn cmd2 = new IdeaIn("test_title_2", "pitch 2");
         final IdeaEntity idea1 = givenApprovedIdeaExists(userToken, parentCampaign.getId(), cmd1);
         final IdeaEntity idea2 = givenApprovedIdeaExists(userToken, parentCampaign.getId(), cmd2);
         givenIdeaHasVotings(idea1.getCampaignId(), idea1.getId(), userToken, 3);
@@ -158,9 +158,9 @@ public class IdeaControllerIT extends AbstractCrowdIT {
 
         final IdeasCampaign parentCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
 
-        final Idea cmd1 = new Idea("test_title_1", "pitch 1");
-        final Idea cmd2 = new Idea("test_title_2", "pitch 2");
-        final Idea cmd3 = new Idea("test_title_3", "pitch 3");
+        final IdeaIn cmd1 = new IdeaIn("test_title_1", "pitch 1");
+        final IdeaIn cmd2 = new IdeaIn("test_title_2", "pitch 2");
+        final IdeaIn cmd3 = new IdeaIn("test_title_3", "pitch 3");
         givenApprovedIdeaExists(userToken, parentCampaign.getId(), cmd1);
         givenApprovedIdeaExists(userToken, parentCampaign.getId(), cmd2);
         givenIdeaExists(userToken, parentCampaign.getId(), cmd3).andExpect(status().isCreated()).andReturn();
@@ -180,7 +180,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
             .andExpect(jsonPath("$.first", is(true)))
             .andExpect(jsonPath("$.last", is(true)))
             .andExpect(jsonPath("$.content.length()", is(1)))
-            .andExpect(jsonPath("$.content[0].pitch", is("pitch 3")))
+            .andExpect(jsonPath("$.content[0].content.original.pitch", is("pitch 3")))
             .andReturn().getResponse().getContentAsString()
         ;
 
@@ -196,9 +196,9 @@ public class IdeaControllerIT extends AbstractCrowdIT {
 
         final IdeasCampaign parentCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
 
-        final Idea cmd1 = new Idea("test_title_1", "pitch 1");
-        final Idea cmd2 = new Idea("test_title_2", "pitch 2");
-        final Idea cmd3 = new Idea("test_title_3", "pitch 3");
+        final IdeaIn cmd1 = new IdeaIn("test_title_1", "pitch 1");
+        final IdeaIn cmd2 = new IdeaIn("test_title_2", "pitch 2");
+        final IdeaIn cmd3 = new IdeaIn("test_title_3", "pitch 3");
         givenApprovedIdeaExists(userToken, parentCampaign.getId(), cmd1);
         givenApprovedIdeaExists(userToken, parentCampaign.getId(), cmd2);
         givenIdeaExists(userToken, parentCampaign.getId(), cmd3).andExpect(status().isCreated()).andReturn();
@@ -223,9 +223,9 @@ public class IdeaControllerIT extends AbstractCrowdIT {
 
         final IdeasCampaign parentCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
 
-        givenIdeaExists(adminToken, parentCampaign.getId(), new Idea("test_title", "Admin's idea"));
-        final Idea idea1 = toIdea(givenIdeaExists(userToken, parentCampaign.getId(), new Idea("test_title", "User's idea 1")));
-        final Idea idea2 = toIdea(givenIdeaExists(userToken, parentCampaign.getId(), new Idea("test_title", "User's idea 2")));
+        givenIdeaExists(adminToken, parentCampaign.getId(), new IdeaIn("test_title", "Admin's idea"));
+        final IdeaOut idea1 = toIdea(givenIdeaExists(userToken, parentCampaign.getId(), new IdeaIn("test_title", "User's idea 1")));
+        final IdeaOut idea2 = toIdea(givenIdeaExists(userToken, parentCampaign.getId(), new IdeaIn("test_title", "User's idea 2")));
 
         final String resultJson = mockMvc.perform(get(Paths.USERS_IDEAS, parentCampaign.getId())
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
@@ -235,7 +235,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
                 .andDo(log())
                 .andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
 
-        final List<Idea> res = Arrays.asList(mapper.readValue(resultJson, Idea[].class));
+        final List<IdeaOut> res = Arrays.asList(mapper.readValue(resultJson, IdeaOut[].class));
         assertThat(res.size(), is(2));
         assertThat(res.stream().anyMatch(el -> el.getId().equals(idea1.getId())), is(true));
         assertThat(res.stream().anyMatch(el -> el.getId().equals(idea2.getId())), is(true));
@@ -253,9 +253,9 @@ public class IdeaControllerIT extends AbstractCrowdIT {
 
         final IdeasCampaign parentCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
 
-        final IdeaEntity persistedIdea = givenApprovedIdeaExists(adminToken, parentCampaign.getId(), new Idea("test_title", "An Idea"));
+        final IdeaEntity persistedIdea = givenApprovedIdeaExists(adminToken, parentCampaign.getId(), new IdeaIn("test_title", "An Idea"));
         givenIdeaHasVotings(parentCampaign.getId(), persistedIdea.getId(), userToken, 4);
-        givenApprovedIdeaExists(adminToken, parentCampaign.getId(), new Idea("test_title_anotherIdea", "Anotheridea"));
+        givenApprovedIdeaExists(adminToken, parentCampaign.getId(), new IdeaIn("test_title_anotherIdea", "Anotheridea"));
 
         mockMvc.perform(get(Paths.IDEAS_FILTERED, parentCampaign.getId())
             .param("alreadyVoted", "true")
@@ -277,9 +277,9 @@ public class IdeaControllerIT extends AbstractCrowdIT {
 
         final IdeasCampaign parentCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
 
-        final IdeaEntity persistedIdea = givenApprovedIdeaExists(adminToken, parentCampaign.getId(), new Idea("test_title", "An Idea"));
+        final IdeaEntity persistedIdea = givenApprovedIdeaExists(adminToken, parentCampaign.getId(), new IdeaIn("test_title", "An Idea"));
         givenIdeaHasVotings(parentCampaign.getId(), persistedIdea.getId(), userToken, 4);
-        final IdeaEntity anotherIdea = givenApprovedIdeaExists(adminToken, parentCampaign.getId(), new Idea("test_title_anotherIdea", "Anotheridea"));
+        final IdeaEntity anotherIdea = givenApprovedIdeaExists(adminToken, parentCampaign.getId(), new IdeaIn("test_title_anotherIdea", "Anotheridea"));
 
         mockMvc.perform(get(Paths.IDEAS_FILTERED, parentCampaign.getId())
             .param("alreadyVoted", "false")
@@ -302,13 +302,13 @@ public class IdeaControllerIT extends AbstractCrowdIT {
 
         final IdeasCampaign parentCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
 
-        final Idea cmd1 = new Idea("test_title", "this is a poorly written first draft of my pitch");
-        final Idea cmd2 = new Idea("test_title", "This is a perfectly written idea pitch.");
+        final IdeaIn cmd1 = new IdeaIn("test_title", "this is a poorly written first draft of my pitch");
+        final IdeaIn cmd2 = new IdeaIn("test_title", "This is a perfectly written idea pitch.");
 
         final MvcResult mvcRes = givenIdeaExists(userToken, parentCampaign.getId(), cmd1)
                 .andExpect(status().isCreated()).andReturn();
 
-        final Idea initialIdeaInMongo = mapper.readValue(mvcRes.getResponse().getContentAsString(), Idea.class);
+        final IdeaOut initialIdeaInMongo = mapper.readValue(mvcRes.getResponse().getContentAsString(), IdeaOut.class);
 
         mockMvc.perform(put(Paths.IDEA, parentCampaign.getId(), initialIdeaInMongo.getId())
                 .header("Authorization", "Bearer " + userToken)
@@ -329,7 +329,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
                 .header("Authorization", "Bearer " + "bogustoken")
                 .accept(MediaType.APPLICATION_JSON_UTF8)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
-                .content(mapper.writeValueAsBytes(new Idea("test_title", "I am fake.")))
+                .content(mapper.writeValueAsBytes(new IdeaIn("test_title", "I am fake.")))
         )
                 .andDo(log())
                 .andExpect(status().isUnauthorized());
@@ -348,15 +348,15 @@ public class IdeaControllerIT extends AbstractCrowdIT {
 
         final IdeasCampaign parentCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
 
-        final Idea originalIdea = givenValidIdeaCmd();
+        final IdeaIn originalIdea = givenValidIdeaCmd();
         final MvcResult mvcRes = givenIdeaExists(user1Token, parentCampaign.getId(), originalIdea)
                 .andExpect(status().isCreated()).andReturn();
 
-        final Idea actual = mapper.readValue(mvcRes.getResponse().getContentAsString(), Idea.class);
+        final IdeaOut actual = mapper.readValue(mvcRes.getResponse().getContentAsString(), IdeaOut.class);
 
         final IdeaEntity initialIdeaInMongo = ideaRepository.findOne(actual.getId());
 
-        final Idea modifiedIdea = givenValidIdeaCmd();
+        final IdeaIn modifiedIdea = givenValidIdeaCmd();
 
         mockMvc.perform(put(Paths.IDEA, parentCampaign.getId(), initialIdeaInMongo.getId())
                 .header("Authorization", "Bearer " + user2Token)
@@ -379,11 +379,11 @@ public class IdeaControllerIT extends AbstractCrowdIT {
 
         final IdeasCampaign parentCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
 
-        final Idea originalIdea = givenValidIdeaCmd();
+        final IdeaIn originalIdea = givenValidIdeaCmd();
         final MvcResult mvcRes = givenIdeaExists(user1Token, parentCampaign.getId(), originalIdea)
             .andExpect(status().isCreated()).andReturn();
 
-        final Idea actual = mapper.readValue(mvcRes.getResponse().getContentAsString(), Idea.class);
+        final IdeaOut actual = mapper.readValue(mvcRes.getResponse().getContentAsString(), IdeaOut.class);
         final IdeaEntity initialIdeaInMongo = ideaRepository.findOne(actual.getId());
 
         mockMvc.perform(put(Paths.IDEA_APPROVAL, parentCampaign.getId(), initialIdeaInMongo.getId())
@@ -406,11 +406,11 @@ public class IdeaControllerIT extends AbstractCrowdIT {
 
         final IdeasCampaign parentCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
 
-        final Idea originalIdea = givenValidIdeaCmd();
+        final IdeaIn originalIdea = givenValidIdeaCmd();
         final MvcResult mvcRes = givenIdeaExists(user1Token, parentCampaign.getId(), originalIdea)
             .andExpect(status().isCreated()).andReturn();
 
-        final Idea actualIdea = mapper.readValue(mvcRes.getResponse().getContentAsString(), Idea.class);
+        final IdeaOut actualIdea = mapper.readValue(mvcRes.getResponse().getContentAsString(), IdeaOut.class);
 
         mockMvc.perform(put(Paths.IDEA_APPROVAL, parentCampaign.getId(), actualIdea.getId())
             .header("Authorization", "Bearer " + adminToken)
@@ -434,10 +434,10 @@ public class IdeaControllerIT extends AbstractCrowdIT {
         final String userToken = obtainAccessToken(user.getEmail(), user.getPassword());
 
         final IdeasCampaign parentCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
-        final Idea originalIdea = givenValidIdeaCmd();
+        final IdeaIn originalIdea = givenValidIdeaCmd();
 
-        final Idea actualIdea = mapper.readValue(givenIdeaExists(userToken, parentCampaign.getId(), originalIdea)
-            .andExpect(status().isCreated()).andReturn().getResponse().getContentAsString(), Idea.class);
+        final IdeaOut actualIdea = mapper.readValue(givenIdeaExists(userToken, parentCampaign.getId(), originalIdea)
+            .andExpect(status().isCreated()).andReturn().getResponse().getContentAsString(), IdeaOut.class);
 
         mockMvc.perform(put(Paths.IDEA_REJECTION, parentCampaign.getId(), actualIdea.getId())
             .header("Authorization", "Bearer " + userToken)
@@ -460,11 +460,11 @@ public class IdeaControllerIT extends AbstractCrowdIT {
 
         final IdeasCampaign parentCampaign = givenIdeasCampaignExists(adminToken, givenValidCampaignCmd());
 
-        final Idea originalIdea = givenValidIdeaCmd();
+        final IdeaIn originalIdea = givenValidIdeaCmd();
         final MvcResult mvcRes = givenIdeaExists(userToken, parentCampaign.getId(), originalIdea)
             .andExpect(status().isCreated()).andReturn();
 
-        final Idea actualIdea = mapper.readValue(mvcRes.getResponse().getContentAsString(), Idea.class);
+        final IdeaOut actualIdea = mapper.readValue(mvcRes.getResponse().getContentAsString(), IdeaOut.class);
 
         final IdeaRejectCmd cmd = new IdeaRejectCmd("test_rejectionComment");
 
@@ -656,7 +656,7 @@ public class IdeaControllerIT extends AbstractCrowdIT {
 
     }
 
-    private ResultActions givenIdeaExists(String accessToken, String campaignId, Idea cmd) throws Exception {
+    private ResultActions givenIdeaExists(String accessToken, String campaignId, IdeaIn cmd) throws Exception {
         return mockMvc.perform(post(Paths.IDEAS, campaignId)
                 .header("Authorization", "Bearer " + accessToken)
                 .accept(MediaType.APPLICATION_JSON_UTF8)
@@ -665,19 +665,19 @@ public class IdeaControllerIT extends AbstractCrowdIT {
         )
                 .andDo(log());
     }
-    private IdeaEntity givenApprovedIdeaExists(String accessToken, String campaignId, Idea cmd) throws Exception {
-        final Idea givenIdea = mapper.readValue(givenIdeaExists(accessToken, campaignId, cmd).andExpect(status().isCreated()).andReturn().getResponse().getContentAsString(), Idea.class);
+    private IdeaEntity givenApprovedIdeaExists(String accessToken, String campaignId, IdeaIn cmd) throws Exception {
+        final IdeaOut givenIdea = mapper.readValue(givenIdeaExists(accessToken, campaignId, cmd).andExpect(status().isCreated()).andReturn().getResponse().getContentAsString(), IdeaOut.class);
         final IdeaEntity entity = ideaRepository.findOne(givenIdea.getId());
         entity.approveIdea(Fixtures.givenUserEntity("4212"));
         return ideaRepository.save(entity);
     }
 
-    private Idea givenValidIdeaCmd() {
-        final Idea result = new Idea("test_title", "SPOOOOOONS!");
+    private IdeaIn givenValidIdeaCmd() {
+        final IdeaIn result = new IdeaIn("test_title", "SPOOOOOONS!");
         return result;
     }
 
-    private void thenIdeaEntityContainsExpectedFields(IdeaEntity actual, Idea expected, String expectedCampaignId) {
+    private void thenIdeaEntityContainsExpectedFields(IdeaEntity actual, IdeaIn expected, String expectedCampaignId) {
         assertThat(actual, is(notNullValue()));
         assertThat(actual.getOriginalPitch(), equalTo(expected.getPitch()));
         assertThat(actual.getStatus(), equalTo(IdeaStatus.PROPOSED));
@@ -711,8 +711,8 @@ public class IdeaControllerIT extends AbstractCrowdIT {
                 ));
     }
 
-    private Idea toIdea(ResultActions givenIdeaExists) throws IOException {
-        return mapper.readValue(givenIdeaExists.andReturn().getResponse().getContentAsString(), Idea.class);
+    private IdeaOut toIdea(ResultActions givenIdeaExists) throws IOException {
+        return mapper.readValue(givenIdeaExists.andReturn().getResponse().getContentAsString(), IdeaOut.class);
     }
 
     private void givenIdeaHasVotings(String campaignId, String ideaId, String bearerToken, int voting) throws Exception{

@@ -1,10 +1,13 @@
-package de.asideas.crowdsource.presentation.ideascampaign;
+package de.asideas.crowdsource.domain.model.ideascampaign;
 
 import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.Objects;
 
-public class IdeaContent {
+public class IdeaContent implements Serializable {
+
 
     @NotEmpty
     @Size(min = 5, max = 30)
@@ -14,11 +17,7 @@ public class IdeaContent {
     @Size(min = 5, max = 255)
     private String pitch;
 
-    // TODO: Refactor tests and test data.
-    // This constructor should not be needed? Or is it always needed for deserialization?
-    public IdeaContent() {
-        this.title = "Only for compability with IT tests";
-        this.pitch = "Only for compability with IT tests";
+    private IdeaContent() {
     }
 
     public IdeaContent(String title, String pitch) {
@@ -29,6 +28,7 @@ public class IdeaContent {
     public String getTitle() {
         return title;
     }
+
     public void setTitle(String title) {
         this.title = title;
     }
@@ -36,33 +36,32 @@ public class IdeaContent {
     public String getPitch() {
         return pitch;
     }
+
     public void setPitch(String pitch) {
         this.pitch = pitch;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        IdeaContent idea = (IdeaContent) o;
-        return Objects.equals(title, idea.title) &&
-            Objects.equals(pitch, idea.pitch);
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        IdeaContent that = (IdeaContent) o;
+        return Objects.equals(title, that.title) &&
+                Objects.equals(pitch, that.pitch);
     }
 
     @Override
     public int hashCode() {
+
         return Objects.hash(title, pitch);
     }
 
     @Override
     public String toString() {
         return "IdeaContent{" +
-            ", title='" + title + '\'' +
-            ", pitch='" + pitch + '\'' +
-            '}';
+                ", title='" + title + '\'' +
+                ", pitch='" + pitch + '\'' +
+                '}';
     }
+
 }

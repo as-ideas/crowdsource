@@ -1,67 +1,59 @@
 package de.asideas.crowdsource.presentation.ideascampaign;
 
-import java.util.Collection;
-import java.util.Objects;
-import javax.validation.constraints.Size;
-
-import org.hibernate.validator.constraints.NotEmpty;
-import org.joda.time.DateTime;
-
 import de.asideas.crowdsource.domain.model.UserEntity;
+import de.asideas.crowdsource.domain.model.ideascampaign.IdeaContent;
+import de.asideas.crowdsource.domain.model.ideascampaign.IdeaContentList;
 import de.asideas.crowdsource.domain.model.ideascampaign.IdeaEntity;
 import de.asideas.crowdsource.domain.model.ideascampaign.VoteEntity;
 import de.asideas.crowdsource.domain.shared.ideascampaign.IdeaStatus;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+import org.joda.time.DateTime;
 
-public class Idea {
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import java.util.Collection;
+import java.util.Objects;
+
+public class IdeaOut {
 
     private String id;
     private String creatorName;
     private IdeaStatus status;
     private DateTime creationDate;
-
-    @NotEmpty
-    @Size(min = 5, max = 30)
-    private String title;
-
-    @NotEmpty
-    @Size(min = 5, max = 255)
-    private String pitch;
-
-    private IdeaContentList content;
-
     private String rejectionComment;
-
     private Rating rating;
 
-    private Idea() {
+    @Valid
+    @NotNull
+    private IdeaContentList content;
+
+
+    private IdeaOut() {
     }
 
-    public Idea(IdeaEntity ideaEntity) {
+    public IdeaOut(IdeaEntity ideaEntity) {
         this.id = ideaEntity.getId();
-        this.title = ideaEntity.getOriginalTitle();
-        this.pitch = ideaEntity.getOriginalPitch();
         this.status = ideaEntity.getStatus();
-        this.content = new IdeaContentList(ideaEntity);
-
         this.creationDate = ideaEntity.getCreatedDate();
         this.creatorName = ideaEntity.getCreator().getFirstName();
         this.rejectionComment = ideaEntity.getRejectionComment();
+        this.content = ideaEntity.getContent();
     }
 
-    public Idea(IdeaEntity ideaEntity, Collection<VoteEntity> votes, UserEntity requestor) {
+    public IdeaOut(IdeaEntity ideaEntity, Collection<VoteEntity> votes, UserEntity requestor) {
         this(ideaEntity);
         this.rating = ideaEntity.calculateRating(votes, requestor);
     }
 
-    public Idea(String title, String pitch) {
-        this.title = title;
-        this.pitch = pitch;
+    public IdeaOut(String title, String pitch) {
+        IdeaContent original = new IdeaContent(title, pitch);
+        this.content = new IdeaContentList(original);
     }
 
-    public Idea(String id, String title, String pitch) {
+    public IdeaOut(String id, String title, String pitch) {
         this.id = id;
-        this.title = title;
-        this.pitch = pitch;
+        IdeaContent original = new IdeaContent(title, pitch);
+        this.content = new IdeaContentList(original);
     }
 
     public String getId() {
@@ -92,20 +84,6 @@ public class Idea {
         this.creationDate = creationDate;
     }
 
-    public String getTitle() {
-        return title;
-    }
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getPitch() {
-        return pitch;
-    }
-    public void setPitch(String pitch) {
-        this.pitch = pitch;
-    }
-
     public IdeaContentList getContent() { return content; }
     public void setContent(IdeaContentList content) { this.content = content; }
 
@@ -119,10 +97,12 @@ public class Idea {
     public Rating getRating() {
         return rating;
     }
-
     public void setRating(Rating rating) {
         this.rating = rating;
     }
+
+    // public String getOriginalTitle() { return this.content.getOriginal().getTitle(); }
+    // public String getOriginalPitch() { return this.content.getOriginal().getPitch(); }
 
     @Override
     public boolean equals(Object o) {
@@ -132,20 +112,19 @@ public class Idea {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Idea idea = (Idea) o;
+        IdeaOut idea = (IdeaOut) o;
         return Objects.equals(id, idea.id) &&
             Objects.equals(creatorName, idea.creatorName) &&
             status == idea.status &&
             Objects.equals(creationDate, idea.creationDate) &&
-            Objects.equals(title, idea.title) &&
-            Objects.equals(pitch, idea.pitch) &&
+            Objects.equals(content, idea.content) &&
             Objects.equals(rejectionComment, idea.rejectionComment) &&
             Objects.equals(rating, idea.rating);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, creatorName, status, creationDate, content, title, pitch, rejectionComment, rating);
+        return Objects.hash(id, creatorName, status, creationDate, content, rejectionComment, rating);
     }
 
     @Override
@@ -155,8 +134,6 @@ public class Idea {
             ", creatorName='" + creatorName + '\'' +
             ", status=" + status +
             ", creationDate=" + creationDate +
-            ", title='" + title + '\'' +
-            ", pitch='" + pitch + '\'' +
             ", content='" + content + '\'' +
             ", rejectionComment='" + rejectionComment + '\'' +
             ", rating=" + rating +
