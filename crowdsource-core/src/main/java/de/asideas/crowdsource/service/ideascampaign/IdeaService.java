@@ -139,7 +139,7 @@ public class IdeaService {
 
         final IdeaEntity existingIdea = ideaRepository.findOne(ideaId);
         checkRequestorIsOwner(requestingUser, existingIdea);
-        existingIdea.getContent().getOriginal().setPitch(cmd.getPitch());
+        existingIdea.getContentI18n().getOriginal().setPitch(cmd.getPitch());
 
         return new IdeaOut(ideaRepository.save(existingIdea));
     }

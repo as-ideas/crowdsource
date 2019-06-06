@@ -6,19 +6,19 @@
             <div class="ideas-teaser__item">
                 <div class="ideas-teaser__video-container">
                     <style>
-                        video { background: transparent url('{{vm.campaign.videoImageReference}}') 50% 50% / cover no-repeat; }
+                        video { background: transparent url('{{ campaign.contentI18n[vm.currentLanguage].videoImageReference }}') 50% 50% / cover no-repeat; }
                     </style>
                     <video class="ideas-teaser__video" poster="/images/transparent.png" controls>
-                        <source src="{{vm.campaign.videoReference | trustUrl}}" type="video/mp4">
+                        <source src="{{ campaign.contentI18n[vm.currentLanguage].videoReference | trustUrl}}" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>#
                 </div>
             </div>
             <div class="ideas-teaser__item">
-                <h1 class="ideas-teaser__heading">{{vm.campaign.title}}</h1>
-                <p class="ideas-teaser__sponsor">{{vm.campaign.sponsor}}</p>
-                <p class="ideas-teaser__date">{{ vm.campaign.startDateString }} - {{ vm.campaign.endDateString }}<span ng-if="campaign.expired"> (beendet)</span></p>
-                <p class="ideas-teaser__description">{{vm.campaign.description}}</p>
+                <h1 class="ideas-teaser__heading">{{ campaign.contentI18n[vm.currentLanguage].title }}</h1>
+                <p class="ideas-teaser__sponsor">{{ campaign.contentI18n[vm.currentLanguage].sponsor }}</p>
+                <p class="ideas-teaser__date">{{ campaign.startDate | date: 'shortDate'}} - {{ campaign.endDate | date: 'shortDate'}}<span ng-if="campaign.expired" translate="CAMPAIGN_LABEL_ENDED"> (beendet)</span></p>
+                <p class="ideas-teaser__description">{{ campaign.contentI18n[vm.currentLanguage].description}}</p>
             </div>
         </div>
     </div>

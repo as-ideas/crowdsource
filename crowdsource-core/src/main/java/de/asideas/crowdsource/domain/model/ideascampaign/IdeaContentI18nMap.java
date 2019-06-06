@@ -5,31 +5,31 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class IdeaContentList implements Serializable {
+public class IdeaContentI18nMap implements Serializable {
 
     private String originalLanguage;
 
     @Valid
     @NotNull
-    private IdeaContent original;
+    private IdeaContentI18n original;
 
-    private IdeaContent de;
+    private IdeaContentI18n de;
 
-    private IdeaContent en;
+    private IdeaContentI18n en;
 
 
-    private IdeaContentList() {
+    private IdeaContentI18nMap() {
     }
 
-    public IdeaContentList(String originalTitle, String originalPitch) {
-        this.original = new IdeaContent(originalTitle, originalPitch);
+    public IdeaContentI18nMap(String originalTitle, String originalPitch) {
+        this.original = new IdeaContentI18n(originalTitle, originalPitch);
     }
 
-    public IdeaContentList(IdeaContent original) {
+    public IdeaContentI18nMap(IdeaContentI18n original) {
         this.original = original;
     }
 
-    public IdeaContentList(String originalLanguage, IdeaContent original, IdeaContent de, IdeaContent en) {
+    public IdeaContentI18nMap(String originalLanguage, IdeaContentI18n original, IdeaContentI18n de, IdeaContentI18n en) {
         this.original = original;
         this.de = de;
         this.en = en;
@@ -41,18 +41,18 @@ public class IdeaContentList implements Serializable {
         this.originalLanguage = originalLanguage;
     }
 
-    public IdeaContent getOriginal() { return original; }
-    public void setOriginal(IdeaContent original) {
+    public IdeaContentI18n getOriginal() { return original; }
+    public void setOriginal(IdeaContentI18n original) {
         this.original = original;
     }
 
-    public IdeaContent getDe() { return de; }
-    public void setDe(IdeaContent de) {
+    public IdeaContentI18n getDe() { return de; }
+    public void setDe(IdeaContentI18n de) {
         this.de = de;
     }
 
-    public IdeaContent getEn() { return en; }
-    public void setEn(IdeaContent en) {
+    public IdeaContentI18n getEn() { return en; }
+    public void setEn(IdeaContentI18n en) {
         this.en = en;
     }
 
@@ -61,7 +61,7 @@ public class IdeaContentList implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        IdeaContentList that = (IdeaContentList) o;
+        IdeaContentI18nMap that = (IdeaContentI18nMap) o;
         return Objects.equals(originalLanguage, that.originalLanguage) &&
                 Objects.equals(original, that.original) &&
                 Objects.equals(de, that.de) &&
@@ -76,7 +76,7 @@ public class IdeaContentList implements Serializable {
 
     @Override
     public String toString() {
-        return "IdeaContentList{" +
+        return "IdeaContentI18nMap{" +
                 "originalLanguage='" + originalLanguage + '\'' +
                 ", original='" + original + '\'' +
                 ", de='" + de + '\'' +

@@ -6,7 +6,7 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class IdeaContent implements Serializable {
+public class IdeaContentI18n implements Serializable {
 
 
     @NotEmpty
@@ -17,10 +17,10 @@ public class IdeaContent implements Serializable {
     @Size(min = 5, max = 255)
     private String pitch;
 
-    private IdeaContent() {
+    private IdeaContentI18n() {
     }
 
-    public IdeaContent(String title, String pitch) {
+    public IdeaContentI18n(String title, String pitch) {
         this.title = title;
         this.pitch = pitch;
     }
@@ -45,7 +45,7 @@ public class IdeaContent implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        IdeaContent that = (IdeaContent) o;
+        IdeaContentI18n that = (IdeaContentI18n) o;
         return Objects.equals(title, that.title) &&
                 Objects.equals(pitch, that.pitch);
     }
@@ -58,7 +58,7 @@ public class IdeaContent implements Serializable {
 
     @Override
     public String toString() {
-        return "IdeaContent{" +
+        return "IdeaContentI18n{" +
                 ", title='" + title + '\'' +
                 ", pitch='" + pitch + '\'' +
                 '}';

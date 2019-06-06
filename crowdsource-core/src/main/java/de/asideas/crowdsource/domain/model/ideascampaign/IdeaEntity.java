@@ -36,7 +36,7 @@ public class IdeaEntity {
     @Id
     private String id;
 
-    private IdeaContentList content;
+    private IdeaContentI18nMap contentI18n;
 
     private IdeaStatus status;
 
@@ -72,7 +72,7 @@ public class IdeaEntity {
 
         final IdeaEntity result = new IdeaEntity();
 
-        result.setContent(new IdeaContentList(cmd.getTitle(), cmd.getPitch()));
+        result.setContentI18n(new IdeaContentI18nMap(cmd.getTitle(), cmd.getPitch()));
         result.setCreator(creator);
         result.setStatus(IdeaStatus.PROPOSED);
         result.setCampaignId(campaignId);
@@ -134,8 +134,8 @@ public class IdeaEntity {
         this.id = id;
     }
 
-    public IdeaContentList getContent() { return content; }
-    public void setContent(IdeaContentList content) { this.content = content; }
+    public IdeaContentI18nMap getContentI18n() { return contentI18n; }
+    public void setContentI18n(IdeaContentI18nMap contentI18n) { this.contentI18n = contentI18n; }
 
 
     public IdeaStatus getStatus() {
@@ -202,8 +202,8 @@ public class IdeaEntity {
         this.approvingAdminId = approvingAdminId;
     }
 
-    public String getOriginalTitle() { return this.content.getOriginal().getTitle(); }
-    public String getOriginalPitch() { return this.content.getOriginal().getPitch(); }
+    public String getOriginalTitle() { return this.contentI18n.getOriginal().getTitle(); }
+    public String getOriginalPitch() { return this.contentI18n.getOriginal().getPitch(); }
 
     @Override
     public boolean equals(Object o) {
@@ -211,7 +211,7 @@ public class IdeaEntity {
         if (o == null || getClass() != o.getClass()) return false;
         IdeaEntity that = (IdeaEntity) o;
         return Objects.equals(id, that.id) &&
-                Objects.equals(content, that.content) &&
+                Objects.equals(contentI18n, that.contentI18n) &&
                 status == that.status &&
                 Objects.equals(reviewDate, that.reviewDate) &&
                 Objects.equals(rejectionComment, that.rejectionComment) &&
@@ -225,14 +225,14 @@ public class IdeaEntity {
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, content, status, reviewDate, rejectionComment, creator, approvingAdminId, campaignId, createdDate, lastModifiedDate);
+        return Objects.hash(id, contentI18n, status, reviewDate, rejectionComment, creator, approvingAdminId, campaignId, createdDate, lastModifiedDate);
     }
 
     @Override
     public String toString() {
         return "IdeaEntity{" +
                 "id='" + id + '\'' +
-                ", content=" + content +
+                ", contentI18n=" + contentI18n +
                 ", status=" + status +
                 ", reviewDate=" + reviewDate +
                 ", rejectionComment='" + rejectionComment + '\'' +

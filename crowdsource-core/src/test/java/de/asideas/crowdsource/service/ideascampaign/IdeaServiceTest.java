@@ -361,7 +361,7 @@ public class IdeaServiceTest {
     private IdeaEntity givenIdeaExists(IdeaIn idea, String campaignId) {
         final IdeaEntity theIdea = Fixtures.givenIdeaEntity(idea, campaignId);
         theIdea.setId("testidea_id");
-        theIdea.getContent().getOriginal().setPitch("A damn good pitch.");
+        theIdea.getContentI18n().getOriginal().setPitch("A damn good pitch.");
         doReturn(true).when(ideaRepository).exists(anyString());
         doReturn(theIdea).when(ideaRepository).findOne(anyString());
         return theIdea;

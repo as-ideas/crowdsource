@@ -1,12 +1,11 @@
 package de.asideas.crowdsource.presentation.ideascampaign;
 
 import de.asideas.crowdsource.domain.model.UserEntity;
-import de.asideas.crowdsource.domain.model.ideascampaign.IdeaContent;
-import de.asideas.crowdsource.domain.model.ideascampaign.IdeaContentList;
+import de.asideas.crowdsource.domain.model.ideascampaign.IdeaContentI18n;
+import de.asideas.crowdsource.domain.model.ideascampaign.IdeaContentI18nMap;
 import de.asideas.crowdsource.domain.model.ideascampaign.IdeaEntity;
 import de.asideas.crowdsource.domain.model.ideascampaign.VoteEntity;
 import de.asideas.crowdsource.domain.shared.ideascampaign.IdeaStatus;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.joda.time.DateTime;
 
 import javax.validation.Valid;
@@ -25,7 +24,7 @@ public class IdeaOut {
 
     @Valid
     @NotNull
-    private IdeaContentList content;
+    private IdeaContentI18nMap contentI18n;
 
 
     private IdeaOut() {
@@ -37,7 +36,7 @@ public class IdeaOut {
         this.creationDate = ideaEntity.getCreatedDate();
         this.creatorName = ideaEntity.getCreator().getFirstName();
         this.rejectionComment = ideaEntity.getRejectionComment();
-        this.content = ideaEntity.getContent();
+        this.contentI18n = ideaEntity.getContentI18n();
     }
 
     public IdeaOut(IdeaEntity ideaEntity, Collection<VoteEntity> votes, UserEntity requestor) {
@@ -46,14 +45,14 @@ public class IdeaOut {
     }
 
     public IdeaOut(String title, String pitch) {
-        IdeaContent original = new IdeaContent(title, pitch);
-        this.content = new IdeaContentList(original);
+        IdeaContentI18n original = new IdeaContentI18n(title, pitch);
+        this.contentI18n = new IdeaContentI18nMap(original);
     }
 
     public IdeaOut(String id, String title, String pitch) {
         this.id = id;
-        IdeaContent original = new IdeaContent(title, pitch);
-        this.content = new IdeaContentList(original);
+        IdeaContentI18n original = new IdeaContentI18n(title, pitch);
+        this.contentI18n = new IdeaContentI18nMap(original);
     }
 
     public String getId() {
@@ -84,8 +83,8 @@ public class IdeaOut {
         this.creationDate = creationDate;
     }
 
-    public IdeaContentList getContent() { return content; }
-    public void setContent(IdeaContentList content) { this.content = content; }
+    public IdeaContentI18nMap getContentI18n() { return contentI18n; }
+    public void setContentI18n(IdeaContentI18nMap contentI18n) { this.contentI18n = contentI18n; }
 
     public String getRejectionComment() {
         return rejectionComment;
@@ -117,14 +116,14 @@ public class IdeaOut {
             Objects.equals(creatorName, idea.creatorName) &&
             status == idea.status &&
             Objects.equals(creationDate, idea.creationDate) &&
-            Objects.equals(content, idea.content) &&
+            Objects.equals(contentI18n, idea.contentI18n) &&
             Objects.equals(rejectionComment, idea.rejectionComment) &&
             Objects.equals(rating, idea.rating);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, creatorName, status, creationDate, content, rejectionComment, rating);
+        return Objects.hash(id, creatorName, status, creationDate, contentI18n, rejectionComment, rating);
     }
 
     @Override
@@ -134,7 +133,7 @@ public class IdeaOut {
             ", creatorName='" + creatorName + '\'' +
             ", status=" + status +
             ", creationDate=" + creationDate +
-            ", content='" + content + '\'' +
+            ", content='" + contentI18n + '\'' +
             ", rejectionComment='" + rejectionComment + '\'' +
             ", rating=" + rating +
             '}';

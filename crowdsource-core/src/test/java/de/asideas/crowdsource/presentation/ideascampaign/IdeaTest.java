@@ -21,8 +21,8 @@ public class IdeaTest {
 
         assertThat(result.getCreatorName(), is("test_firstname"));
         assertThat(result.getId(), is(givenIdeaEntity.getId()));
-        assertThat(result.getContent().getOriginal().getTitle(), is(givenIdeaEntity.getOriginalTitle()));
-        assertThat(result.getContent().getOriginal().getPitch(), is(givenIdeaEntity.getOriginalPitch()));
+        assertThat(result.getContentI18n().getOriginal().getTitle(), is(givenIdeaEntity.getOriginalTitle()));
+        assertThat(result.getContentI18n().getOriginal().getPitch(), is(givenIdeaEntity.getOriginalPitch()));
         assertThat(result.getCreationDate(), is(givenIdeaEntity.getCreatedDate()));
         assertThat(result.getStatus(), is(givenIdeaEntity.getStatus()));
         assertThat(result.getRejectionComment(), is(givenIdeaEntity.getRejectionComment()));

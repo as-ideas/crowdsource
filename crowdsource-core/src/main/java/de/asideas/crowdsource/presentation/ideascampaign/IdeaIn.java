@@ -1,18 +1,8 @@
 package de.asideas.crowdsource.presentation.ideascampaign;
 
-import de.asideas.crowdsource.domain.model.UserEntity;
-import de.asideas.crowdsource.domain.model.ideascampaign.IdeaContent;
-import de.asideas.crowdsource.domain.model.ideascampaign.IdeaContentList;
-import de.asideas.crowdsource.domain.model.ideascampaign.IdeaEntity;
-import de.asideas.crowdsource.domain.model.ideascampaign.VoteEntity;
-import de.asideas.crowdsource.domain.shared.ideascampaign.IdeaStatus;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.joda.time.DateTime;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Collection;
 import java.util.Objects;
 
 public class IdeaIn {
