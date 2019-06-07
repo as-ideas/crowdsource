@@ -27,12 +27,10 @@ angular.module('crowdsource')
                     throw Error('idea-edit missing idea on scope in directive');
                 }
 
-                var originalIdea = {
-                    title: vm.idea.title,
-                    pitch: vm.idea.pitch
-                };
-
                 function submit() {
+                    // Service endpoint requires flat IdeaIn object which has title and pitch instead of contentI18n
+                    vm.idea.title = vm.idea.contentI18n.original.title;
+                    vm.idea.pitch = vm.idea.contentI18n.original.pitch;
                     $scope.submitFn(vm.idea);
                 };
 
