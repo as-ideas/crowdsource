@@ -5,19 +5,15 @@
  */
 %button-shared {
   @include box-shadow;
+  @include font-button;
 
   border-radius: $border-radius;
-  font-size: $fs-small;
-  line-height: $lh-regular;
-  letter-spacing: 0.5px;
   margin: 3px;
   padding: $pd-smaller $pd-huge;
-  text-decoration: none;
-  text-transform: uppercase;
   transition: background-color 100ms;
 
   &:hover:enabled {
-    color: $clr-body;
+    color: $clr-white;
     transition: background-color 100ms;
   }
 
@@ -26,133 +22,179 @@
   }
 
   &:disabled {
+    background-color: $clr-gray-light;
+    color: $clr-gray-dark;
     cursor: not-allowed;
-    opacity: 0.7;
+
+    &:hover {
+      background-color: $clr-gray-light;
+      color: $clr-gray-dark;
+    }
   }
+
 }
 
 .button-primary {
   @extend %button-shared;
-  background-color: $clr-green-shade-2;
-  color: $clr-body;
 
-  &:hover:enabled {
-    background-color: #35EA87;
-    color: $clr-body;
-  }
-
-  &:hover {
-    background-color: #35EA87;
-    color: $clr-body;
-  }
+  color: $clr-white;
+  background-color: $clr-blue;
 
   &:active {
-    background-color: #35EA87;
-    color: $clr-body;
+    color: $clr-white;
+    background-color: $clr-blue;
   }
 
   &:focus {
-    background-color: #35EA87;
-    color: $clr-body;
+    color: $clr-white;
+    background-color: $clr-blue;
   }
 
-  &:disabled {
-    background-color: $clr-green-shade-2;
-    color: $clr-body;
-
-    &:hover {
-      background-color: $clr-green-shade-2;
-      color: $clr-body;
-    }
+  &:hover {
+    color: $clr-white;
+    background-color: $clr-pink;
   }
+
+  &:hover:enabled {
+    color: $clr-white;
+    background-color: $clr-pink;
+  }
+
 }
+
 
 .button-secondary {
   @extend %button-shared;
 
-  $color: $white; // $clr-body
-  $bg-color: $clr-gray-dark;  // $clr-gray-light;
-  $bg-color-hover: $clr-gray-darker; // $clr-gray;
-
-  background-color: $bg-color;
-  color: $color;
-
-  &:hover:enabled {
-    background-color: $bg-color-hover;
-    color: $color;
-  }
-
-  &:hover {
-    background-color: $bg-color-hover;
-    color: $color;
-  }
+  color: $clr-white;
+  background-color: $clr-black;
 
   &:active {
-    background-color: $bg-color-hover;
-    color: $color;
-  }
-
-  &:disabled {
-    background-color: $bg-color;
-    color: $color;
-
-    &:hover {
-      background-color: $bg-color;
-      color: $color;
-    }
-  }
-
-}
-.button-primary--invert {
-  @extend .button-primary;
-  color: $white;
-
-
-  &:hover:enabled {
-    color: $white;
-  }
-
-  &:hover {
-    color: $white;
-  }
-
-  &:active {
-    color: $white;
+    color: $clr-white;
+    background-color: $clr-black;
   }
 
   &:focus {
-    color: $white;
+    color: $clr-white;
+    background-color: $clr-black;
   }
 
-  &:disabled {
-    color: $white;
-
-    &:hover {
-      color: $white;
-    }
+  &:hover {
+    color: $clr-black;
+    background-color: $clr-gray-light;
   }
+
+  &:hover:enabled {
+    color: $clr-black;
+    background-color: $clr-gray-light;
+  }
+
+}
+
+.button-accept {
+   @extend %button-shared;
+
+  color: $clr-blue;
+  background-color: $clr-green-neon;
+
+  &:active {
+    color: $clr-blue;
+    background-color: $clr-green-neon;
+  }
+
+  &:focus {
+    color: $clr-blue;
+    background-color: $clr-green-neon;
+  }
+
+  &:hover:enabled {
+     color: $clr-green-neon;
+     background-color: $clr-gray-light;
+   }
+
+   &:hover {
+     color: $clr-green-neon;
+     background-color: $clr-gray-light;
+   }
+}
+
+.button-reject {
+  @extend %button-shared;
+
+  color: $clr-white;
+  background-color: $clr-red;
+
+  &:active {
+    color: $clr-white;
+    background-color: $clr-red;
+  }
+
+  &:focus {
+    color: $clr-white;
+    background-color: $clr-red;
+  }
+
+  &:hover {
+    color: $clr-red;
+    background-color: $clr-gray-light;
+  }
+
+
+  &:hover:enabled {
+    color: $clr-red;
+    background-color: $clr-gray-light;
+  }
+}
+
+@mixin button-halfwidth {
+  padding-left: 0;
+  padding-right: 0;
+  width: calc(50% - 9px);
+}
+
+@mixin button-fullwidth {
+  width: 100%;
 }
 
 .button-primary--fullwidth {
   @extend .button-primary;
-  width: 100%;
+  @include button-fullwidth;
 }
 
 .button-primary--halfwidth {
   @extend .button-primary;
-  padding-left: 0;
-  padding-right: 0;
-  width: calc(50% - 8px);
+  @include button-halfwidth;
 }
 
+
 .button-secondary--fullwidth {
-   @extend .button-secondary;
-   width: 100%;
+  @extend .button-secondary;
+  @include button-fullwidth;
  }
 
 .button-secondary--halfwidth {
   @extend .button-secondary;
-  padding-left: 0;
-  padding-right: 0;
-  width: calc(50% - 8px);
+  @include button-halfwidth;
+}
+
+
+.button-accept--fullwidth {
+  @extend .button-accept;
+  @include button-fullwidth;
+}
+
+.button-accept--halfwidth {
+  @extend .button-accept;
+  @include button-halfwidth;
+}
+
+
+.button-reject--fullwidth {
+  @extend .button-reject;
+  @include button-fullwidth;
+}
+
+.button-reject--halfwidth {
+  @extend .button-reject;
+  @include button-halfwidth;
 }

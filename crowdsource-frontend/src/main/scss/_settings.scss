@@ -1,18 +1,6 @@
 /***
 * Crowdsource Settings
-*
-*
-*
-*/
-// ---
-// Type Definitions
-// ---
-// Font families + Colors for Foundation
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,500,600,700,400italic);
-
-$ff: "Source Sans Pro", "Helvetica Neue", "Helvetica", Arial, sans-serif;
-$crowd-font-family: $ff;
-$crowd-line-height: 22px;
+***/
 
 // ---
 // Import AND Extend Foundation Settings
@@ -30,6 +18,12 @@ $success-color: #4BD489;
 
 $crowd-primary-color: $crowd-color-purple;
 $crowd-secondary-color: $success-color;
+$crowd-line-height: 22px;
+
+// Fonts
+$ff-primary: "Mont AS Pro", "Helvetica Neue", "Helvetica", Arial, sans-serif;
+$ff-secondray: "BrixSlab", "Helvetica Neue", "Helvetica", Arial, sans-serif;
+$crowd-font-family: $ff-primary;
 
 @import "foundation/_foundation-settings";
 
@@ -48,6 +42,16 @@ $su-dble: rem-calc($crowd-font-size * 2);
 // ---
 
 // Base Colors
+
+$clr-blue: #0000FF;
+$clr-black: #000000;
+$clr-white: #000000;
+$clr-green-neon: #00FF00;
+$clr-red: #FF0000;
+$clr-pink: #FF00FF;
+$clr-gray-dark: #878787;
+$clr-gray-light: #ededed;
+
 
 $clr-indigo: #4B51D4;
 // Some kind of blue
@@ -101,7 +105,6 @@ $clr-green-shade-6: #0F2A1B;
 $clr-green-shade-transparent: rgba(75, 212, 137, 0.25);
 
 // Black Shades
-$clr-black: #2D2D2D;
 $clr-mine-shaft: #2D2D2D;
 
 // Gray
@@ -213,3 +216,27 @@ $range-slider-handle-width: rem-calc(24px);
 $range-slider-handle-height: rem-calc(24px);
 $range-slider-handle-position-top: rem-calc(-10.5px);
 $range-slider-active-segment-bg-color: $clr-emerald;
+
+
+
+// Mixins
+@mixin font-text {
+  color: $clr-black;
+  font-family: $ff-primary;
+  font-size: $fs-regular;
+  font-style: normal;
+  font-weight: $fw-light;
+  line-height: $lh-regular;
+}
+
+@mixin font-button {
+  color: $clr-white;
+  font-family: $ff-primary;
+  font-size: $fs-small;
+  font-style: normal;
+  font-weight: $fw-bold;
+  letter-spacing: 0.5px;
+  line-height: $lh-regular;
+  text-decoration: none;
+  text-transform: uppercase;
+}

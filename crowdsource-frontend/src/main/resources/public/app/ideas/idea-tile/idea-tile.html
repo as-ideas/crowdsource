@@ -60,8 +60,8 @@
                     <textarea campaign-active-aware rows="3" class="ideas-grid-tile__reject-textarea" ng-minlength="10" ng-model="vm.rejectionComment" name="rejectionMessage" placeholder="Ablehnungsgrund" translate-attr="{ placeholder: 'FORM_ADMIN_IDEA_REJECT_REASON_PLACEHOLDER' }"></textarea>
                 </label>
             </form>
-            <button campaign-active-aware ng-click="vm.reject()" class="button-secondary--halfwidth" ng-disabled="!vm.rejectionComment.length" translate="BUTTON_LABEL_REJECT">Ablehnen</button>
-            <button campaign-active-aware ng-click="vm.publish()" class="button-primary--halfwidth" translate="BUTTON_LABEL_APPROVE">Freigeben</button>
+            <button campaign-active-aware ng-click="vm.reject()" class="button-reject--halfwidth" ng-disabled="!vm.rejectionComment.length" translate="BUTTON_LABEL_REJECT">Ablehnen</button>
+            <button campaign-active-aware ng-click="vm.publish()" class="button-accept--halfwidth" translate="BUTTON_LABEL_APPROVE">Freigeben</button>
         </div>
     </div>
 </div>
