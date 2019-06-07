@@ -16,7 +16,7 @@ $header-height: 56px;
   }
 
   &__icon-crowdsource {
-    margin-bottom: 3px;
+    margin-bottom: 1px;
   }
 
   &__navigation {
@@ -44,14 +44,15 @@ $header-height: 56px;
   }
 
   &__nav-link {
-//    background-color: purple;
-    color: $clr-black;
+    @include font-base;
+
     font-size: $fs-small;
+    line-height: $lh-regular;
     text-decoration: none;
     text-transform: uppercase;
 
     &:hover {
-      color: $clr-gray-light;
+      color: $clr-pink;
     }
   }
 
@@ -66,10 +67,12 @@ $header-height: 56px;
   }
 
   &__nav-active {
+    @include font-base;
+
     font-size: $fs-small;
+    line-height: $lh-regular;
     text-decoration: none;
     text-transform: uppercase;
-    color: $clr-gray;
     pointer-events: none;
     cursor: default;
   }

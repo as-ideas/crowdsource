@@ -229,6 +229,14 @@ $range-slider-active-segment-bg-color: $clr-emerald;
   line-height: $lh-regular;
 }
 
+@mixin font-headline {
+  color: $clr-blue;
+  font-family: $ff-primary;
+  font-size: $fs-large;
+  font-style: normal;
+  font-weight: $fw-bold;
+}
+
 @mixin font-button {
   color: $clr-white;
   font-family: $ff-primary;
@@ -241,10 +249,9 @@ $range-slider-active-segment-bg-color: $clr-emerald;
   text-transform: uppercase;
 }
 
-@mixin font-headline {
-  color: $clr-blue;
+@mixin font-base {
+  color: $clr-black;
   font-family: $ff-primary;
-  font-size: $fs-large;
   font-style: normal;
-  font-weight: $fw-bold;
+  font-weight: $fw-light;
 }
