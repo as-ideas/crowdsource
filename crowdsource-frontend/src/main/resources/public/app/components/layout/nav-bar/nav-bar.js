@@ -15,6 +15,7 @@ angular.module('crowdsource')
             $rootScope.$on('$translateChangeSuccess', function (event, data) {
                 // Set language var for UI
                 vm.currentLanguage = data.language;
+                updateNavigationAndWindowTitle(vm.currentRoute);
             });
 
             vm.auth = Authentication;
@@ -98,7 +99,7 @@ angular.module('crowdsource')
 
             function getIdeasBreadcrumb(currentRoute) {
                 var breadcrumbs = [];
-                breadcrumbs.push({target: '/#/ideas/' + Idea.currentCampaign.id, label: Idea.currentCampaign.title});
+                breadcrumbs.push({target: '/#/ideas/' + Idea.currentCampaign.id, label: Idea.currentCampaign.contentI18n[vm.currentLanguage].title});
 
                 if (currentRoute[ROUTE_DETAILS.JSON_ROOT]
                     && currentRoute[ROUTE_DETAILS.JSON_ROOT][ROUTE_DETAILS.ATTR_IS_OVERVIEW]

@@ -32,7 +32,8 @@
 //
 
 .teaser--hero {
-    @extend %teaser;
+    text-align: center;
+    background-color: #e488c7;
 }
 
 .teaser--slim {
@@ -63,6 +64,11 @@
     @media #{$medium-up} {
         background: url('../images/teaser-bg.png') #39c277 center center no-repeat;
     }
+}
+
+.teaser-hero-image {
+    width: 100%;
+    max-width: 1440px;
 }
 
 .teaser-content {
