@@ -240,3 +240,11 @@ $range-slider-active-segment-bg-color: $clr-emerald;
   text-decoration: none;
   text-transform: uppercase;
 }
+
+@mixin font-headline {
+  color: $clr-blue;
+  font-family: $ff-primary;
+  font-size: $fs-large;
+  font-style: normal;
+  font-weight: $fw-bold;
+}

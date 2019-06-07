@@ -6,23 +6,22 @@
   }
 
   &__headline {
-    color: $clr-blue;
-    font-size: $fs-large;
+    @include font-headline;
+
     line-height: 1.4;
     margin-bottom: $mrg-half;
-    text-transform: uppercase;
   }
 
   &__headline--solo {
-    color: $clr-blue;
-    font-size: $fs-large;
+    @include font-headline;
+
     line-height: 1;
     margin-bottom: 0;
-    text-transform: uppercase;
   }
 
   &__description {
-    font-size: $fs-regular;
+    @include font-text;
+
     position: relative;
     margin-bottom:4.5rem;
 
