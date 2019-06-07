@@ -1,25 +1,637 @@
 msgid ""
 msgstr ""
+"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Project-Id-Version: \n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: \n"
-"Language-Team: \n"
-"MIME-Version: 1.0\n"
-"X-Generator: Poedit 2.2.3\n"
-"Last-Translator: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: crowdsource\n"
 "Language: en\n"
 
-msgctxt ""
+#: 
+msgid "ACTIVATION_DESC"
+msgstr "Please enter a password to complete the activation of your account."
+
+#: 
+msgid "ACTIVATION_ERROR_ALREADY_ACTIVE"
+msgstr "Your account has already been activated. You can log in using your email address and password {{link}}."
+
+#: 
+msgid "ACTIVATION_ERROR_ALREADY_ACTIVE_LINK"
+msgstr "log in"
+
+#: 
+msgid "ACTIVATION_ERROR_INVALID_LINK"
+msgstr "The activation link is invalid."
+
+#: 
+msgid "ACTIVATION_ERROR_NOT_REGISTERED"
+msgstr "You must first enter your email address {{link}}."
+
+#: 
+msgid "ACTIVATION_ERROR_NOT_REGISTERED_LINK"
+msgstr "register"
+
+#: 
+msgid "ACTIVATION_HEADLINE"
+msgstr "Registration - last steps"
+
+#: 
+msgid "ADMIN_IDEA_PUBLISH_MESSAGE"
+msgstr "The idea was released."
+
+#: 
+msgid "ADMIN_IDEA_REJECT_MESSAGE"
+msgstr "The idea was rejected."
+
+#: 
+msgid "ADMIN_IDEAS_DENIED_DESC"
+msgstr "Ideas that were unfortunately rejected: {value}}"
+
+#: 
+msgid "ADMIN_IDEAS_DENIED_HEADLINE"
+msgstr "Rejected ideas"
+
+#: 
+msgid "ADMIN_IDEAS_PENDING_DESC"
+msgstr "Ideas waiting for release: {{value}}"
+
+#: 
+msgid "ADMIN_IDEAS_PENDING_HEADLINE"
+msgstr "Outstanding ideas"
+
+#: 
+msgid "BUTTON_LABEL_APPROVE"
+msgstr "Release"
+
+#: 
+msgid "BUTTON_LABEL_CANCEL"
+msgstr "Abort"
+
+#: 
+msgid "BUTTON_LABEL_EDIT"
+msgstr "Edit"
+
+#: 
+msgid "BUTTON_LABEL_LOGGING_IN"
+msgstr "Login..."
+
+#: 
 msgid "BUTTON_LABEL_LOGIN"
-msgstr ""
+msgstr "Login"
 
-msgctxt ""
+#: 
+msgid "BUTTON_LABEL_REGISTER"
+msgstr "Register"
+
+#: 
+msgid "BUTTON_LABEL_REGISTERING"
+msgstr "Register..."
+
+#: 
+msgid "BUTTON_LABEL_REJECT"
+msgstr "Reject"
+
+#: 
+msgid "BUTTON_LABEL_SAVE"
+msgstr "Save"
+
+#: 
+msgid "BUTTON_LABEL_SAVING"
+msgstr "Save..."
+
+#: 
+msgid "BUTTON_LABEL_SUBMIT"
+msgstr "Submit"
+
+#: 
+msgid "BUTTON_LABEL_SUBMITTING"
+msgstr "Submit..."
+
+#: 
+msgid "CAMPAIGN_LABEL_ENDED"
+msgstr "(finished)"
+
+#: 
+msgid "FILTER_ALL_LABEL"
+msgstr "All"
+
+#: 
+msgid "FILTER_NOT_VOTED_LABEL"
+msgstr "Not yet rated"
+
+#: 
+msgid "FILTER_VOTED_LABEL"
+msgstr "Already rated"
+
+#: 
+msgid "FORM_ADMIN_IDEA_REJECT_REASON_ERROR_REQUIRED"
+msgstr "Please state reason for refusal"
+
+#: 
+msgid "FORM_ADMIN_IDEA_REJECT_REASON_LABEL"
+msgstr "Reason for refusal"
+
+#: 
+msgid "FORM_ADMIN_IDEA_REJECT_REASON_PLACEHOLDER"
+msgstr "Reason for refusal"
+
+#: 
+msgid "FORM_AGB_ERROR_REQUIRED"
+msgstr "Please accept the {{link}}"
+
+#: 
+msgid "FORM_AGB_ERROR_REQUIRED_LINK"
+msgstr "Terms of use"
+
+#: 
+msgid "FORM_AGB_LABEL"
+msgstr "I accept the {{link}}"
+
+#: 
+msgid "FORM_AGB_LABEL_LINK"
+msgstr "Terms of use"
+
+#: 
+msgid "FORM_EMAIL_ERROR_ALREADY_ACTIVATED_1"
+msgstr "The e-mail address has already been activated. You can log in with your password. If you have forgotten your password, please click "
+
+#: 
+msgid "FORM_EMAIL_ERROR_ALREADY_ACTIVATED_2"
+msgstr "here"
+
+#: 
+msgid "FORM_EMAIL_ERROR_INVALID"
+msgstr "Please enter a valid e-mail address"
+
+#: 
+msgid "FORM_EMAIL_ERROR_INVALID_BLACKLIST"
+msgstr "This service can only be used by employees with an e-mail address with a valid domain name."
+
+#: 
+msgid "FORM_EMAIL_ERROR_INVALID_UNIT"
+msgstr "Your unit is not yet supported"
+
+#: 
+msgid "FORM_EMAIL_ERROR_REQUIRED"
+msgstr "Please enter your email address"
+
+#: 
+msgid "FORM_EMAIL_LABEL"
+msgstr "email"
+
+#: 
+msgid "FORM_EMAIL_PLACEHOLDER"
+msgstr "email"
+
+#: 
+msgid "FORM_ERROR_MAX_CHARS"
+msgstr "Maximum {{value}} characters"
+
+#: 
+msgid "FORM_ERROR_MIN_CHARS"
+msgstr "At least {{value}} characters"
+
+#: 
+msgid "FORM_ERROR_UNEXPECTED"
+msgstr "An error has occurred. Please try again."
+
+#: 
+msgid "FORM_FORENAME_ERROR_REQUIRED"
+msgstr "Please enter your first name"
+
+#: 
+msgid "FORM_FORENAME_LABEL"
+msgstr "First name"
+
+#: 
+msgid "FORM_FORENAME_PLACEHOLDER"
+msgstr "First name"
+
+#: 
+msgid "FORM_IDEA_EDIT_PITCH_ERROR_REQUIRED"
+msgstr "Please enter a concise description"
+
+#: 
+msgid "FORM_IDEA_EDIT_PITCH_LABEL"
+msgstr "Your idea in detail"
+
+#: 
+msgid "FORM_IDEA_EDIT_TITLE_ERROR_REQUIRED"
+msgstr "Please enter a title"
+
+#: 
+msgid "FORM_IDEA_EDIT_TITLE_LABEL"
+msgstr "Title of your idea"
+
+#: 
+msgid "FORM_PASSWORD_ERROR_PATTERN"
+msgstr "The password must consist of at least 8 characters and a special character."
+
+#: 
+msgid "FORM_PASSWORD_ERROR_REQUIRED"
+msgstr "Please enter your password"
+
+#: 
+msgid "FORM_PASSWORD_LABEL"
+msgstr "Password"
+
+#: 
+msgid "FORM_PASSWORD_PLACEHOLDER"
+msgstr "Password"
+
+#: 
+msgid "FORM_PASSWORD_REPEAT_ERROR_NOT_EQUAL"
+msgstr "The two passwords do not match"
+
+#: 
+msgid "FORM_PASSWORD_REPEAT_ERROR_REQUIRED"
+msgstr "Please enter your password again"
+
+#: 
+msgid "FORM_PASSWORD_REPEAT_LABEL"
+msgstr "Repeat password"
+
+#: 
+msgid "FORM_PASSWORD_REPEAT_PLACEHOLDER"
+msgstr "Repeat password"
+
+#: 
+msgid "FORM_SURNAME_ERROR_REQUIRED"
+msgstr "Please enter your last name"
+
+#: 
+msgid "FORM_SURNAME_LABEL"
+msgstr "Surname"
+
+#: 
+msgid "FORM_SURNAME_PLACEHOLDER"
+msgstr "Surname"
+
+#: 
+msgid "IDEA_ADD_MESSAGE_1"
+msgstr "Your idea was successfully submitted."
+
+#: 
+msgid "IDEA_ADD_MESSAGE_2"
+msgstr "Your idea will be unlocked soon, we'll just check it out."
+
+#: 
+msgid "IDEA_REMOVE_VOTE_MESSAGE"
+msgstr "We've removed your rating."
+
+#: 
+msgid "IDEA_TILE_AVG_RATING"
+msgstr "{{rating}}} von {{votes}}} Personen"
+
+#: 
+msgid "IDEA_UPDATE_MESSAGE"
+msgstr "Your change has been saved successfully."
+
+#: 
+msgid "IDEA_VOTE_MESSAGE"
+msgstr "Thank you very much for your evaluation."
+
+#: 
+msgid "IDEAS_ADD_DESC"
+msgstr "You have an idea? Then submit it right here."
+
+#: 
+msgid "IDEAS_ADD_HEADLINE"
+msgstr "Submit an idea"
+
+#: 
+msgid "IDEAS_LOAD_MORE_LABEL"
+msgstr "Load more ideas!"
+
+#: 
+msgid "IDEAS_LOAD_MORE_LABEL_NO_MORE"
+msgstr "There are no other ideas available"
+
+#: 
+msgid "IDEAS_OWN_PUBLISHED_DESC"
+msgstr "Ideas that are still being voted on: {value}}"
+
+#: 
+msgid "IDEAS_OWN_PUBLISHED_HEADLINE"
+msgstr "Publish Ideas"
+
+#: 
+msgid "IDEAS_OWN_REJECTED_DESC"
+msgstr "Ideas that were unfortunately rejected: {value}}"
+
+#: 
+msgid "IDEAS_OWN_REJECTED_HEADLINE"
+msgstr "Rejected ideas"
+
+#: 
+msgid "IDEAS_OWN_STATISTIC_LABEL_IDEAS_APPROVED"
+msgstr "Released ideas"
+
+#: 
+msgid "IDEAS_OWN_STATISTIC_LABEL_IDEAS_PENDING"
+msgstr "Outstanding ideas"
+
+#: 
+msgid "IDEAS_OWN_STATISTIC_LABEL_IDEAS_REJECTED"
+msgstr "Rejected ideas"
+
+#: 
+msgid "IDEAS_OWN_SUBMITTED_DESC"
+msgstr "Ideas still waiting for release: {{value}}"
+
+#: 
+msgid "IDEAS_OWN_SUBMITTED_HEADLINE"
+msgstr "Ideas submitted"
+
+#: 
+msgid "IDEAS_VOTE_DESC"
+msgstr "Here you can rate submitted ideas. Every vote counts!"
+
+#: 
+msgid "IDEAS_VOTE_HEADLINE"
+msgstr "Your ideas"
+
+#: 
 msgid "INTRO_DESC"
-msgstr ""
+msgstr "Become part of the community! Click here to login"
 
-msgctxt ""
+#: 
 msgid "INTRO_HEADLINE"
-msgstr ""
+msgstr "Join Crowd"
+
+#: 
+msgid "INTRO_HERO_ACTIONBAR_HEADLINE_1"
+msgstr "From you"
+
+#: 
+msgid "INTRO_HERO_ACTIONBAR_HEADLINE_2"
+msgstr "With you"
+
+#: 
+msgid "INTRO_HERO_ACTIONBAR_HEADLINE_3"
+msgstr "For you"
+
+#: 
+msgid "INTRO_HERO_ACTIONBAR_LEDGE_1"
+msgstr "Be part of the Crowd"
+
+#: 
+msgid "INTRO_HERO_ACTIONBAR_LEDGE_2"
+msgstr "Bring yourselves in"
+
+#: 
+msgid "INTRO_HERO_ACTIONBAR_LEDGE_3"
+msgstr "Shaping the future"
+
+#: 
+msgid "INTRO_HERO_HEADLINE"
+msgstr "our innovation starts here"
+
+#: 
+msgid "INTRO_HERO_P_1"
+msgstr "You have a new idea for a project, but never had the right moment to talk about it?"
+
+#: 
+msgid "INTRO_HERO_P_2"
+msgstr "Here's your chance! Finally you can publish your ideas and suggestions for various campaigns of the group, evaluate, discuss and, if successful, actively participate in the design. Talk to doubters and supporters, discuss suggestions and binary codes, benefit from feedback from your colleagues, and create the optimal project for you. But be careful:"
+
+#: 
+msgid "INTRO_HERO_P_3"
+msgstr "Be creative! Be smart! Be innovative!"
+
+#: 
+msgid "INTRO_HERO_P_4"
+msgstr "The competition's not sleeping! Be at the forefront when the time comes:"
+
+#: 
+msgid "INTRO_HERO_P_5"
+msgstr "AXEL SPRINGER - WITH US FOR THE FUTURE"
+
+#: 
+msgid "LOGIN_ERROR_INVALID_CREDENTIALS"
+msgstr "Your login information is invalid. Please check the data you have entered."
+
+#: 
+msgid "LOGIN_HEADLINE"
+msgstr "Login"
+
+#: 
+msgid "LOGIN_LINK_PASSWORD_RECOVERY"
+msgstr "Forgot your password?"
+
+#: 
+msgid "LOGIN_REGISTER"
+msgstr "or {{link}} register"
+
+#: 
+msgid "LOGIN_REGISTER_LINK"
+msgstr "here"
+
+#: 
+msgid "LOGOUT_HEADLINE"
+msgstr "You've been logged out."
+
+#: 
+msgid "LOGOUT_LINK_LOGIN"
+msgstr "You can log in again {{link}}."
+
+#: 
+msgid "LOGOUT_LINK_LOGIN_LINK"
+msgstr "here"
+
+#: 
+msgid "NAV_LABEL_ABOUT_US"
+msgstr "About us"
+
+#: 
+msgid "NAV_LABEL_ACTIVATE"
+msgstr "Activation"
+
+#: 
+msgid "NAV_LABEL_ADMIN"
+msgstr "Admin"
+
+#: 
+msgid "NAV_LABEL_ERROR_FORBIDDEN"
+msgstr "Access denied"
+
+#: 
+msgid "NAV_LABEL_ERROR_PAGE_NOT_FOUND"
+msgstr "Page not found"
+
+#: 
+msgid "NAV_LABEL_ERROR_UNEXPECTED"
+msgstr "Technical error"
+
+#: 
+msgid "NAV_LABEL_FINANCING"
+msgstr "Financing rounds"
+
+#: 
+msgid "NAV_LABEL_HELP"
+msgstr "Help"
+
+#: 
+msgid "NAV_LABEL_IDEAS_OWN"
+msgstr "Your ideas"
+
+#: 
+msgid "NAV_LABEL_IMPRINT"
+msgstr "Imprint"
+
+#: 
+msgid "NAV_LABEL_LOGIN"
+msgstr "Login"
+
+#: 
+msgid "NAV_LABEL_LOGOUT"
+msgstr "Logout"
+
+#: 
+msgid "NAV_LABEL_OVERVIEW"
+msgstr "Overview"
+
+#: 
+msgid "NAV_LABEL_PASSWORD_RECOVERY"
+msgstr "Password Forgotten"
+
+#: 
+msgid "NAV_LABEL_PASSWORD_RECOVERY_SUCCESS"
+msgstr "Password forgotten successfully"
+
+#: 
+msgid "NAV_LABEL_PASSWORD_RESET"
+msgstr "Set password"
+
+#: 
+msgid "NAV_LABEL_PRIVACY"
+msgstr "Privacy policy"
+
+#: 
+msgid "NAV_LABEL_PROJECT_ADDED"
+msgstr "New project created"
+
+#: 
+msgid "NAV_LABEL_PROJECT_DETAILS"
+msgstr "Project details"
+
+#: 
+msgid "NAV_LABEL_PROJECT_EDIT"
+msgstr "Edit Project"
+
+#: 
+msgid "NAV_LABEL_PROJECT_NEW"
+msgstr "New Project"
+
+#: 
+msgid "NAV_LABEL_PROJECTS"
+msgstr "Project"
+
+#: 
+msgid "NAV_LABEL_REGISTER"
+msgstr "Register"
+
+#: 
+msgid "NAV_LABEL_REGISTER_SUCCESS"
+msgstr "Registration successful"
+
+#: 
+msgid "NAV_LABEL_STATISTIC"
+msgstr "Statistics"
+
+#: 
+msgid "NAV_LANG_ENGLISH"
+msgstr "English"
+
+#: 
+msgid "NAV_LANG_GERMAN"
+msgstr "Deutsch"
+
+#: 
+msgid "OVERVIEW_IDEAS_HEADLINE"
+msgstr "Ideas"
+
+#: 
+msgid "OVERVIEW_IDEAS_NO_CAMPAIGN"
+msgstr "Currently there are no ideas campaign available"
+
+#: 
+msgid "OVERVIEW_PROTOTYPES_HEADLINE"
+msgstr "Prototypes"
+
+#: 
+msgid "OVERVIEW_PROTOTYPES_NO_CAMPAIGN"
+msgstr "Unfortunately there is no prototype campaign at the moment."
+
+#: 
+msgid "PASSWORD_RECOVERY_DESC"
+msgstr "Enter the email address by which you're registered here. You will receive an email from us with a confirmation link and can reset your password."
+
+#: 
+msgid "PASSWORD_RECOVERY_ERROR_EMAIL_NOT_REGISTERED"
+msgstr "The email address has not yet been registered. Just try {{link}}."
+
+#: 
+msgid "PASSWORD_RECOVERY_ERROR_EMAIL_NOT_REGISTERED_LINK"
+msgstr "register"
+
+#: 
+msgid "PASSWORD_RECOVERY_HEADLINE"
+msgstr "Password Forgotten"
+
+#: 
+msgid "PASSWORD_RECOVERY_LOGIN"
+msgstr "or {{link}} register"
+
+#: 
+msgid "PASSWORD_RECOVERY_LOGIN_LINK"
+msgstr "here"
+
+#: 
+msgid "PASSWORD_RECOVERY_SUCCESS_DESC"
+msgstr "We have sent an email with a confirmation link to {{email}}. Please open your mailbox and click on the link to reset your password."
+
+#: 
+msgid "PASSWORD_RECOVERY_SUCCESS_HEADLINE"
+msgstr "Password Forgotten"
+
+#: 
+msgid "PASSWORD_RESET_DESC"
+msgstr "Please enter a new password now."
+
+#: 
+msgid "PASSWORD_RESET_ERROR_ALREADY_RESET"
+msgstr "You have already reset your password with the link from your email. You can change the {{link}} Use this function again to get a new link sent to you."
+
+#: 
+msgid "PASSWORD_RESET_ERROR_ALREADY_RESET_LINK"
+msgstr "Password Forgotten"
+
+#: 
+msgid "PASSWORD_RESET_HEADLINE"
+msgstr "Reset password"
+
+#: 
+msgid "REGISTER_AGB"
+msgstr "Herewith I allow Axel Springer Ideas Engineering GmbH to contact me for news (e.g. start of a campaign and status of my idea) around AS.Crowd. I have the possibility to unsubscribe from the newsletter at any time. To do this, I can click on the link in the footer of our e-mails. Further information on data protection can be found in the data protection declaration."
+
+#: 
+msgid "REGISTER_HEADLINE"
+msgstr "Registration"
+
+#: 
+msgid "REGISTER_LOGIN"
+msgstr "or {{link}} register"
+
+#: 
+msgid "REGISTER_LOGIN_LINK"
+msgstr "here"
+
+#: 
+msgid "REGISTER_SUCCESS_DESC"
+msgstr "Your registration under the name {{forename}}} {surname}} was successful. We sent an email with a confirmation link to {{email}}. Please open your mailbox and click on the link to complete the registration."
+
+#: 
+msgid "REGISTER_SUCCESS_HEADLINE"
+msgstr "Registration successful"
+
