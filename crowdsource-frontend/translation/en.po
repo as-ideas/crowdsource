@@ -177,11 +177,11 @@ msgstr "Please enter your email address"
 
 #: 
 msgid "FORM_EMAIL_LABEL"
-msgstr "email"
+msgstr "E-Mail"
 
 #: 
 msgid "FORM_EMAIL_PLACEHOLDER"
-msgstr "email"
+msgstr "E-Mail"
 
 #: 
 msgid "FORM_ERROR_MAX_CHARS"
@@ -613,7 +613,7 @@ msgstr "Reset password"
 
 #: 
 msgid "REGISTER_AGB"
-msgstr "Herewith I allow Axel Springer Ideas Engineering GmbH to contact me for news (e.g. start of a campaign and status of my idea) around AS.Crowd. I have the possibility to unsubscribe from the newsletter at any time. To do this, I can click on the link in the footer of our e-mails. Further information on data protection can be found in the data protection declaration."
+msgstr "Herewith I allow Axel Springer Ideas Engineering GmbH or Axel Springer People & Culture to contact me for news (e.g. start of a campaign and status of my idea) around Axel Springer Crowd. I have the possibility to unsubscribe from the newsletter at any time. To do this, I can click on the link in the footer of our e-mails. Further information on data protection can be found in the data protection declaration."
 
 #: 
 msgid "REGISTER_HEADLINE"
