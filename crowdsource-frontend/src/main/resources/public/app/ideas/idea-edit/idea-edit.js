@@ -35,8 +35,9 @@ angular.module('crowdsource')
                 };
 
                 function cancel () {
-                    vm.idea.title = originalIdea.title;
-                    vm.idea.pitch = originalIdea.pitch;
+                    // Service endpoint requires flat IdeaIn object which has title and pitch instead of contentI18n
+                    vm.idea.title = vm.idea.contentI18n.original.title;
+                    vm.idea.pitch = vm.idea.contentI18n.original.pitch;
                     $scope.cancelFn();
                 };
             }

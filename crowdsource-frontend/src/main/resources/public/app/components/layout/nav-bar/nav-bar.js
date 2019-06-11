@@ -6,9 +6,9 @@ angular.module('crowdsource')
         directive.templateUrl = 'app/components/layout/nav-bar/nav-bar.html';
         directive.controllerAs = 'vm';
         directive.bindToController = true;
-        directive.controller = ['$scope','$rootScope','$window','$translate','tmhDynamicLocale','Authentication','Route','Idea','ROUTE_DETAILS', NavBarController]
+        directive.controller = ['$scope','$rootScope','$window','$filter', '$translate','tmhDynamicLocale','Authentication','Route','Idea','ROUTE_DETAILS', NavBarController]
 
-        function NavBarController($scope, $rootScope, $window, $translate, tmhDynamicLocale, Authentication, Route, Idea, ROUTE_DETAILS) {
+        function NavBarController($scope, $rootScope, $window, $filter, $translate, tmhDynamicLocale, Authentication, Route, Idea, ROUTE_DETAILS) {
             var vm = this;
             vm.currentLanguage = $translate.use();
 
@@ -91,7 +91,7 @@ angular.module('crowdsource')
                 }
 
                 else {
-                    vm.breadcrumbs.push({target: '#', label: currentRoute.title});
+                    vm.breadcrumbs.push({ target: '#', label: $filter('translate')(currentRoute.title) });
                 }
 
                 updateWindowTitle(vm.breadcrumbs);
@@ -106,7 +106,7 @@ angular.module('crowdsource')
                     && currentRoute[ROUTE_DETAILS.JSON_ROOT][ROUTE_DETAILS.ATTR_IS_OVERVIEW] == true)
                     return breadcrumbs;
 
-                breadcrumbs.push({target: '#', label: currentRoute.title});
+                breadcrumbs.push({target: '#', label: $filter('translate')(currentRoute.title) });
                 return breadcrumbs;
             }
 
