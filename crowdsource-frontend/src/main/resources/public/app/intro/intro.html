@@ -3,14 +3,10 @@
 
 <content-row class="campaign">
     <div class="row" ng-if="intro.isLoggedIn">
-        <h2 class="campaign__headline"></h2>
-        <div class="campaign-ideas columns medium-6">
-            <intro-ideas-campaign-list></intro-ideas-campaign-list>
-        </div>
-
-        <div class="campaign-prototypes columns medium-6">
-            <intro-prototypes-campaign-list></intro-prototypes-campaign-list>
-        </div>
+        <br/><br/><br/>
+        <content-hero title="'OVERVIEW_CAMPAIGN_HEADLINE'" description="'OVERVIEW_CAMPAIGN_DESCRIPTION'"></content-hero>
+        <intro-ideas-campaign-list></intro-ideas-campaign-list>
+        <br/><br/>
     </div>
 
     <div ng-if="!intro.isLoggedIn" class="campaign-login__container">
