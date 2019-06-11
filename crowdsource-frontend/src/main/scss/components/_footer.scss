@@ -78,19 +78,23 @@
         flex-wrap: wrap;
         justify-content: space-between;
         width: 270px;
-        height: 70px;
+        height: 90px;
     }
 
     &__ideas {
         background: url("/images/footer/logo_ideas.svg");
-        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
         height: 26px;
         width: 97px;
     }
 
     &__asdigitalists {
         background: url("/images/footer/logo_asdigitalists.svg");
-        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
         height: 30px;
         width: 133px;
     }
