@@ -150,7 +150,7 @@
    "PASSWORD_RESET_ERROR_ALREADY_RESET": "Du hast dein Passwort bereits mit dem Link aus deiner E-Mail neu gesetzt. Du kannst die {{link}} Funktion erneut benutzen, um einen neuen Link zugesendet zu bekommen.",
    "PASSWORD_RESET_ERROR_ALREADY_RESET_LINK": "Passwort vergessen",
    "PASSWORD_RESET_HEADLINE": "Passwort neu setzen",
-   "REGISTER_AGB": "Hiermit gestatte ich der Axel Springer Ideas Engineering GmbH mich für Neuigkeiten (bspw. Start einer Kampagne sowie Status meiner Idee) rund um AS.Crowd  zu kontaktieren. Ich habe die Möglichkeit mich jederzeit vom Newsletter abzumelden. Dazu kann ich den Link in der Fußzeile unserer E-Mails betätigen. Weitere Informationen zum Datenschutz sind der Datenschutzerklärung zu entnehmen.",
+   "REGISTER_AGB": "Hiermit gestatte ich der Axel Springer Ideas Engineering GmbH sowie Axel Springer People & Culture mich für Neuigkeiten (bspw. Start einer Kampagne sowie Status meiner Idee) rund um Axel Springer Crowd  zu kontaktieren. Ich habe die Möglichkeit mich jederzeit vom Newsletter abzumelden. Dazu kann ich den Link in der Fußzeile unserer E-Mails betätigen. Weitere Informationen zum Datenschutz sind der Datenschutzerklärung zu entnehmen.",
    "REGISTER_HEADLINE": "Registrierung",
    "REGISTER_LOGIN": "oder {{link}} anmelden",
    "REGISTER_LOGIN_LINK": "hier",
