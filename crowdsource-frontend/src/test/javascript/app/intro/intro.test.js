@@ -31,7 +31,7 @@ describe('intro page', function () {
     });
 
 
-    it('should render the list of ideas and prototypes if user is logged in', function () {
+    it('should render the list of ideas if user is logged in', function () {
         var scope = $rootScope.$new();
         Authentication.currentUser.loggedIn = true;
 
@@ -49,11 +49,6 @@ describe('intro page', function () {
         intro = $compile('<div>' + template + '<div>')(scope);
         scope.$digest();
 
-        var ideasCampaign = intro.find('intro-ideas-campaign-list');
-        expect(ideasCampaign.length).toEqual(1);
-
-        var prototypeCampaign = intro.find('intro-prototypes-campaign-list');
-        expect(prototypeCampaign.length).toEqual(1);
     });
 
     it('should show login button if user is not logged in and not the campaign lists', function () {
