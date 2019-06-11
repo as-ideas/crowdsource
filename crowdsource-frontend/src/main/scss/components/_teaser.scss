@@ -37,15 +37,9 @@
 }
 
 .teaser--slim {
-    @extend %teaser;
-    @extend %teaser-visual-gradient;
     height: $mrg-small;
-
-    // Remove all HTML inside our slim teaser
-
-    & * {
-        display: none;
-    }
+    width: 100%;
+    background-color: $clr-blue;
 }
 
 //
