@@ -2,7 +2,7 @@
 
 .ideas-teaser {
   position: relative;
-  background-color: #4a95b2;
+  background-color: $clr-blue;
 
   &__content {
     position: relative;
@@ -42,18 +42,20 @@
   }
 
   &__heading {
-    margin: 0;
+    @include font-text;
+
     font-size: $fs-large;
-    font-weight: 300;
     line-height: 1.33;
+    margin: 0;
     letter-spacing: .5px;
     color: $white;
   }
 
   &__heading--mobile {
+    @include font-text;
+
     margin: 0;
     font-size: $fs-large;
-    font-weight: 300;
     line-height: 1.33;
     letter-spacing: .5px;
     color: $white;
@@ -65,9 +67,11 @@
   }
 
   &__description {
+    @include font-text;
+
+    font-family: "Brix Slab";
     text-align: left;
     color: $clr-white;
-    font-weight: $fw-light;
     margin-bottom: 0;
 
     @media #{$small-only} {
@@ -105,11 +109,15 @@
     }
 
   &__sponsor {
+    @include font-text;
+
     color: $clr-white;
     margin: 0;
   }
 
   &__date {
+    @include font-text;
+
     color: $clr-white;
   }
 }
