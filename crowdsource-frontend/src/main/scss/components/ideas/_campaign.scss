@@ -15,6 +15,13 @@ $icon-color: #3C3C3C;
 .campaign-prototypes {
 }
 
+.campaign-list__container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 .campaign {
   background-color: $white;
 
@@ -35,6 +42,7 @@ $icon-color: #3C3C3C;
 
   &__container {
     margin-bottom: $mrg-medium;
+    width: 48%;
 
     a {
       text-decoration: none;
@@ -45,18 +53,15 @@ $icon-color: #3C3C3C;
 
   &__item {
     border-radius: $border-radius-medium;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #ddd;
     display: block;
     padding: $padding;
-    background-color: #f7f7f6;
+    background-color: $clr-white;
     transition: background 0.2s linear;
 
 
     &:hover {
       transition: background 0.2s linear;
-      background: $clr-green-shade-transparent;
+      background: $clr-gray-light;
     }
   }
 
@@ -67,7 +72,6 @@ $icon-color: #3C3C3C;
   }
 
   &__image-container {
-    border-radius: $border-radius-medium;
     position: relative;
     display: inline-block;
     width: $image-size;
@@ -119,30 +123,26 @@ $icon-color: #3C3C3C;
   }
 
   &__title {
-    font-size: $fs-regular;
-    line-height: $fs-regular;
-    margin-top: $mrg-half;
+    @include font-text;
+
+    font-weight: $fw-regular;
+    margin-top: $mrg-tiny;
+    margin-bottom: $mrg-tiny;
     width: 100%;
   }
 
   &__sponsor {
+    @include font-text;
+
     display: block;
-    font-size: $fs-small;
-    font-weight: $fw-regular;
-    line-height: $fs-small;
     margin: 0;
-    color: $crowd-color-grey;
   }
 
   &__date {
+    @include font-text;
+
     display: block;
-    font-size: $fs-small;
-    font-weight: $fw-regular;
-    line-height: $fs-small;
-    color: $crowd-color-grey;
-    margin-bottom: $mrg-half;
-    position: absolute;
-    bottom: 0;
+    margin: 0;
   }
 
   &-noentry {
@@ -150,8 +150,10 @@ $icon-color: #3C3C3C;
     padding: $padding;
 
     &__description {
+      @include font-text;
+
+      font-family: "Brix Slab";
       display: block;
-      font-size: $fs-small;
     }
 
     &__image {

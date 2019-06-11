@@ -70,19 +70,19 @@ msgstr "Bearbeiten"
 
 msgctxt ""
 msgid "BUTTON_LABEL_LOGGING_IN"
-msgstr ""
+msgstr "Login..."
 
 msgctxt ""
 msgid "BUTTON_LABEL_LOGIN"
-msgstr ""
+msgstr "Login"
 
 msgctxt ""
 msgid "BUTTON_LABEL_REGISTER"
-msgstr ""
+msgstr "Registrieren"
 
 msgctxt ""
 msgid "BUTTON_LABEL_REGISTERING"
-msgstr ""
+msgstr "Registrieren..."
 
 msgctxt ""
 msgid "BUTTON_LABEL_REJECT"
@@ -98,11 +98,11 @@ msgstr "Speichern..."
 
 msgctxt ""
 msgid "BUTTON_LABEL_SUBMIT"
-msgstr ""
+msgstr "Abschicken"
 
 msgctxt ""
 msgid "BUTTON_LABEL_SUBMITTING"
-msgstr ""
+msgstr "Abschicken..."
 
 msgctxt ""
 msgid "CAMPAIGN_LABEL_ENDED"
@@ -350,59 +350,11 @@ msgstr ""
 
 msgctxt ""
 msgid "INTRO_DESC"
-msgstr "Werde Teil der Community! Hier geht's zum Login"
+msgstr ""
 
 msgctxt ""
 msgid "INTRO_HEADLINE"
-msgstr "Join Crowd"
-
-msgctxt ""
-msgid "INTRO_HERO_ACTIONBAR_HEADLINE_1"
-msgstr "From you"
-
-msgctxt ""
-msgid "INTRO_HERO_ACTIONBAR_HEADLINE_2"
-msgstr "With you"
-
-msgctxt ""
-msgid "INTRO_HERO_ACTIONBAR_HEADLINE_3"
-msgstr "For you"
-
-msgctxt ""
-msgid "INTRO_HERO_ACTIONBAR_LEDGE_1"
-msgstr "Seid Teil der Crowd"
-
-msgctxt ""
-msgid "INTRO_HERO_ACTIONBAR_LEDGE_2"
-msgstr "Bringt euch ein"
-
-msgctxt ""
-msgid "INTRO_HERO_ACTIONBAR_LEDGE_3"
-msgstr "Gestaltet die Zukunft"
-
-msgctxt ""
-msgid "INTRO_HERO_HEADLINE"
-msgstr "Deine Innovation startet hier"
-
-msgctxt ""
-msgid "INTRO_HERO_P_1"
-msgstr "Du hast eine neuartige Idee für ein Projekt, doch noch nie den richtigen Moment gehabt darüber zu reden?"
-
-msgctxt ""
-msgid "INTRO_HERO_P_2"
-msgstr "Hier ist Deine Chance! Endlich kannst Du Deine Ideen und Vorschläge zu verschiedenen Kampagnen des Konzerns veröffentlichen, bewerten, diskutieren und bei erfolgreichem Abschluss aktiv an der Gestaltung mitwirken. Komm mit Zweiflern und Unterstützern ins Gespräch, diskutiere Vorschläge und Binärcodes, profitiere vom Feedback Deiner Kollegen, und erstelle das für Dich optimale Projekt. Aber Vorsicht:"
-
-msgctxt ""
-msgid "INTRO_HERO_P_3"
-msgstr "Be creative! Be smart! Be innovative!"
-
-msgctxt ""
-msgid "INTRO_HERO_P_4"
-msgstr "Die Konkurrenz schläft nicht! Sei ganz vorn mit dabei, wenn es heißt:"
-
-msgctxt ""
-msgid "INTRO_HERO_P_5"
-msgstr "AXEL SPRINGER - MIT UNS FÜR DIE ZUKUNFT"
+msgstr ""
 
 msgctxt ""
 msgid "LOGIN_ERROR_INVALID_CREDENTIALS"
@@ -538,15 +490,19 @@ msgstr ""
 
 msgctxt ""
 msgid "NAV_LANG_ENGLISH"
-msgstr "Englisch"
+msgstr "English"
 
 msgctxt ""
 msgid "NAV_LANG_GERMAN"
 msgstr "Deutsch"
 
 msgctxt ""
-msgid "OVERVIEW_IDEAS_HEADLINE"
-msgstr "Ideen"
+msgid "OVERVIEW_CAMPAIGN_DESCRIPTION"
+msgstr ""
+
+msgctxt ""
+msgid "OVERVIEW_CAMPAIGN_HEADLINE"
+msgstr ""
 
 msgctxt ""
 msgid "OVERVIEW_IDEAS_NO_CAMPAIGN"
