@@ -108,7 +108,6 @@ $clr-green-shade-transparent: rgba(75, 212, 137, 0.25);
 $clr-mine-shaft: #2D2D2D;
 
 // Gray
-$clr-gray-light: gainsboro;
 $clr-gray: #CFCFD7;
 $clr-gray-dark: #3C3C3C;
 $clr-gray-darker: #232323;
@@ -157,6 +156,7 @@ $clr-solar-light-end: $clr-emerald;
 $fs-half: rem-calc(8px);
 $fs-small: rem-calc(14px);
 $fs-regular: rem-calc(16px);
+$fs-smedium: rem-calc(20px);
 $fs-medium: rem-calc(24px);
 $fs-xmedium: rem-calc(28px);
 $fs-large: rem-calc(32px);

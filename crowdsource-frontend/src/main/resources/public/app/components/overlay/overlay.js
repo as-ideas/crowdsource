@@ -29,7 +29,7 @@ angular.module('crowdsource')
                             '<div class="overlay__container overlay--hidden {{type == \'failure\' ? \'overlay--failure\' : \'overlay--success\'}}"> ' +
                                 '<div class="overlay__content">' +
                                     '<div class="overlay__icon"></div>' +
-                                    '<div class="{{type == \'failure\' ? \'overlay__text--failure\' : \'overlay__text--success\'}}">Message</div>' +
+                                    '<div class="{{type == \'failure\' ? \'overlay__text--failure\' : \'overlay__text--success\'}}" ng-bind-html="message"></div>' +
                                 '</div>' +
                             '</div>')(scope)
                     );
@@ -43,7 +43,7 @@ angular.module('crowdsource')
                     overlayElement.addClass('overlay--active');
                     $timeout(function () {
                         overlayElement.removeClass('overlay--active');
-                        scope.message = 'Text';
+                        scope.message = '';
                         scope.type = '';
                     }, OVERLAY_ANIMATION_DURATION);
                 }

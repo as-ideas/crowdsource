@@ -20,6 +20,11 @@ angular.module('crowdsource')
                 // Loosely couple to controller that actually sends the idea to the backend
                 // Set form to its pristine state after succesfully sumbit so another idea can be cleanly submitted (in partucular reset error labels to valid labels)
                 $scope.$on('ADD_IDEA_SUCCESS', function(e) {
+                    console.log("SUCCESS")
+                    console.log($scope.ideaEditForm);
+
+                    vm.idea.contentI18n.original.title = '';
+                    vm.idea.contentI18n.original.pitch = '';
                     $scope.ideaEditForm.$setPristine();
                 });
 

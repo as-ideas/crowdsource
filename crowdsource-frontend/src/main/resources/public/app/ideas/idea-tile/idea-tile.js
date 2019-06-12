@@ -1,5 +1,5 @@
 angular.module('crowdsource')
-    .directive('ideaTile', function ($timeout, Idea, $rootScope, $translate, OVERLAY_ANIMATION_DURATION) {
+    .directive('ideaTile', function ($timeout, Idea, $rootScope, $filter, $translate, OVERLAY_ANIMATION_DURATION) {
 
         var DEFAULT_RATING = {
             ownVote: 0,
@@ -17,7 +17,7 @@ angular.module('crowdsource')
             },
             controllerAs: 'vm',
             templateUrl: 'app/ideas/idea-tile/idea-tile.html',
-            controller: function ($scope, $rootScope, $translate) {
+            controller: function ($scope, $rootScope, $filter, $translate) {
 
                 $rootScope.$on('$translateChangeSuccess', function (event,data) {
                     vm.currentLanguage = data.language;
@@ -48,9 +48,9 @@ angular.module('crowdsource')
                     Idea.voteIdea(vm.campaignId, vm.idea.id, value)
                         .then(function (rating) {
                             if (value === 0) {
-                                $rootScope.$broadcast('VOTE_'+vm.idea.id, { type:'success', message: $translate('IDEA_REMOVE_VOTE_MESSAGE')});
+                                $rootScope.$broadcast('VOTE_'+vm.idea.id, { type:'success', message: $filter('translate')('IDEA_REMOVE_VOTE_MESSAGE')});
                             } else {
-                                $rootScope.$broadcast('VOTE_'+vm.idea.id, { type:'success', message: $translate('IDEA_VOTE_MESSAGE')});
+                                $rootScope.$broadcast('VOTE_'+vm.idea.id, { type:'success', message: $filter('translate')('IDEA_VOTE_MESSAGE')});
                             }
                             vm.rating = rating;
                         })
@@ -68,7 +68,7 @@ angular.module('crowdsource')
                 vm.update = function () {
                     Idea.updateIdea(vm.campaignId, vm.idea).then(function (res) {
 
-                        $rootScope.$broadcast('VOTE_'+vm.idea.id, { type:'success', message: $translate('IDEA_UPDATE_MESSAGE') });
+                        $rootScope.$broadcast('VOTE_'+vm.idea.id, { type:'success', message: $filter('translate')('IDEA_UPDATE_MESSAGE') });
                         vm.isEditable = false;
                     })
                 };
@@ -79,7 +79,7 @@ angular.module('crowdsource')
                     }
                     Idea.publishIdea(vm.campaignId, vm.idea.id)
                         .then(function () {
-                            $rootScope.$broadcast('ADMIN_'+vm.idea.id, { type:'success', message: $translate('ADMIN_IDEA_PUBLISH_MESSAGE') });
+                            $rootScope.$broadcast('ADMIN_'+vm.idea.id, { type:'success', message: $filter('translate')('ADMIN_IDEA_PUBLISH_MESSAGE') });
                             handleSuccessCallback();
                         });
                 };
@@ -90,7 +90,7 @@ angular.module('crowdsource')
                     }
                     Idea.rejectIdea(vm.campaignId, vm.idea.id, vm.rejectionComment)
                         .then(function () {
-                            $rootScope.$broadcast('ADMIN_'+vm.idea.id, { type:'failure', message: $translate('ADMIN_IDEA_REJECT_MESSAGE') });
+                            $rootScope.$broadcast('ADMIN_'+vm.idea.id, { type:'failure', message: $filter('translate')('ADMIN_IDEA_REJECT_MESSAGE') });
                             handleSuccessCallback();
                         });
                 };

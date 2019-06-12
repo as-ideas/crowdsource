@@ -9,9 +9,9 @@
         <content-hero title="'IDEAS_VOTE_HEADLINE'" description="'IDEAS_VOTE_DESC'"></content-hero>
 
         <ul class="ideas-list__filter">
-            <li><a name="FILTER_ALL" ng-class="ideasList.selectedFilter == entry.state ? 'active' : ''" ng-click="ideasList.setFilter('ALL')" translate="FILTER_ALL_LABEL"></a></li>
-            <li><a name="FILTER_NOT_VOTED" ng-class="ideasList.selectedFilter == entry.state ? 'active' : ''" ng-click="ideasList.setFilter('NOT_VOTED')" translate="FILTER_NOT_VOTED_LABEL"></a></li>
-            <li><a name="FILTER_VOTED" ng-class="ideasList.selectedFilter == entry.state ? 'active' : ''" ng-click="ideasList.setFilter('VOTED')" translate="FILTER_VOTED_LABEL"></a></li>
+            <li><a name="FILTER_ALL" ng-class="ideasList.selectedFilter == 'ALL' ? 'active' : ''" ng-click="ideasList.setFilter('ALL')" translate="FILTER_ALL_LABEL"></a></li>
+            <li><a name="FILTER_NOT_VOTED" ng-class="ideasList.selectedFilter == 'NOT_VOTED' ? 'active' : ''" ng-click="ideasList.setFilter('NOT_VOTED')" translate="FILTER_NOT_VOTED_LABEL"></a></li>
+            <li><a name="FILTER_VOTED" ng-class="ideasList.selectedFilter == 'VOTED' ? 'active' : ''" ng-click="ideasList.setFilter('VOTED')" translate="FILTER_VOTED_LABEL"></a></li>
         </ul>
         <div class="ideas-grid__container">
             <div class="ideas-grid__box" ng-repeat="idea in ideasList.ideas" overlay="{{'VOTE_'+idea.id}}">

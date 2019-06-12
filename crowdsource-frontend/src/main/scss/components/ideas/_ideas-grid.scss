@@ -33,7 +33,7 @@ $tile-padding-vertical: 15px;
     @include box-shadow;
 
     border-radius: $border-radius;
-    background-color: rgba(223, 223, 223, 0.5);
+    background-color: $clr-gray-light;
     height: 100%;
     padding: $tile-padding-vertical $tile-padding-horizontal;
     position: relative;
@@ -52,12 +52,16 @@ $tile-padding-vertical: 15px;
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;
-      font-size: $fs-medium;
       margin-bottom: $fs-half;
+      font-family: "Mont AS Pro";
+      font-size: $fs-smedium;
+      font-weight: $fw-bold;
+      color: $clr-black;
     }
 
     &__text {
-      font-size: $fs-regular;
+      @include font-text;
+
       margin-top: $mrg-half;
       margin-bottom: $mrg-huge;
       text-align: left;
@@ -87,6 +91,7 @@ $tile-padding-vertical: 15px;
     }
 
     &__rejected-message {
+      @include font-text;
       color: $clr-red;
     }
 
@@ -102,6 +107,8 @@ $tile-padding-vertical: 15px;
     }
 
     &__votes {
+      @include font-text;
+
       margin-top: 0px;
       line-height: 1;
     }
