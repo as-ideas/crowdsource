@@ -230,15 +230,3 @@
         padding: 1rem;
     }
 }
-
-//
-// Teaser Button
-//
-
-/*a*/
-.teaser__btn {
-    @extend .button; // Foundation' styles
-    @extend .round; // Foundation' styles
-    @extend .dark;
-    @extend .flush--bottom;
-}

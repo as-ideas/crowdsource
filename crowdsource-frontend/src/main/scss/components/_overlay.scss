@@ -12,10 +12,12 @@
         width: 100%;
         height: 100%;
         border-radius: 3px;
+        display: flex;
+        align-items: center;
     }
 
     &--success {
-        background-color: rgba(74, 159, 120, 0.8);
+        background-color: $clr-green-neon;
 
         .overlay__icon {
             $dimension: 100px;
@@ -31,7 +33,7 @@
     }
 
     &--failure {
-        background-color: rgba(240, 65, 36, 0.8);
+        background-color: $clr-red;
 
         .overlay__icon {
             $dimension: 100px;
@@ -64,10 +66,19 @@
         transition: opacity 0.5s linear;
     }
 
-    &__text {
+    &__text--success {
+        @include font-base;
+
+        padding: 1rem;
+        word-wrap: break-spaces;
+        color: $clr-blue;
+    }
+
+    &__text--failure {
+        @include font-base;
+
         padding: 1rem;
         word-wrap: break-spaces;
         color: $clr-white;
-        font-size: $fs-small;
     }
 }

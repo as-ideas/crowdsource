@@ -9,100 +9,11 @@
 }
 
 // Angular JS defined class
+.valid-label {
+    @include font-form;
+}
+
 .invalid-label {
-    color: $clr-red !important;
-}
-
-// ---
-// Extends Foundation's global buttons styles
-// ---
-
-// Extends
-
-%btn-crwd {
-    background-color: $clr-blue-shade-3;
-    &:hover {
-        background-color: $clr-blue-shade-2;
-    }
-}
-
-%btn-crwd-success {
-    color: $clr-body;
-    background-color: $clr-green-shade-2;
-    &:hover {
-        background-color: #35EA87;
-        color: $clr-body;
-    }
-}
-
-%btn-dark {
-    font-weight: 200;
-    letter-spacing: 0.25px;
-    background-color: #3C3C3C;
-    &:hover {
-        background-color: darken(#3C3C3C, 10%);
-    }
-}
-
-// Extend Foundation's Button
-
-button, .button {
-
-    padding: rem-calc(12px) rem-calc(32px);
-    font-size: rem-calc(14px);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    // Change Foundation's default transition, mixin in foundation/global.scss
-    @include single-transition(background-color, 100ms);
-
-    // Add a box-shadow
-    &.shadow {
-        @include box-shadow;
-    }
-
-    // Our default button
-    &.crwd {
-        @extend %btn-crwd;
-    }
-
-    // Our own success button
-    &.crwd-success {
-        @extend %btn-crwd-success;
-    }
-
-    // Dark button
-    &.dark {
-        @extend %btn-dark;
-    }
-
-    &:focus {
-        outline: 0;
-    }
-
-    &.ultra-tiny {
-        margin: 0 auto;
-        padding-top: 0.535rem;
-        padding-right: 1.25rem;
-        padding-bottom: 0.5815rem;
-        padding-left: 1.25rem;
-    }
-    &.ultra-tiny--alert {
-        background-color: rgba(255, 60, 60, 0.65);
-    }
-
-    &.ultra-tiny--icon {
-        padding-top: 0.525rem;
-        padding-right: 0.7rem;
-        padding-bottom: 0.5875rem;
-        padding-left: 1.25rem;
-        font-size: 0.6875rem;
-    }
-}
-
-.form-horizontal {
-    button {
-        margin-top: 21px;
-        padding: 9px 20px;
-        font-size: $fs-small;
-    }
+    @include font-form;
+    color: $clr-red;
 }

@@ -220,13 +220,22 @@ $range-slider-active-segment-bg-color: $clr-emerald;
 
 
 // Mixins
-@mixin font-text {
+@mixin font-base {
   color: $clr-black;
   font-family: $ff-primary;
-  font-size: $fs-regular;
   font-style: normal;
   font-weight: $fw-light;
   line-height: $lh-regular;
+}
+
+@mixin font-text {
+  @include font-base;
+  font-size: $fs-regular;
+}
+
+@mixin font-form {
+  @include font-base;
+  font-size: $fs-small;
 }
 
 @mixin font-headline {
@@ -249,9 +258,3 @@ $range-slider-active-segment-bg-color: $clr-emerald;
   text-transform: uppercase;
 }
 
-@mixin font-base {
-  color: $clr-black;
-  font-family: $ff-primary;
-  font-style: normal;
-  font-weight: $fw-light;
-}
