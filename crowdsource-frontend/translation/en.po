@@ -45,7 +45,7 @@ msgstr "The idea was rejected."
 
 #: 
 msgid "ADMIN_IDEAS_DENIED_DESC"
-msgstr "Ideas that were unfortunately rejected: {value}}"
+msgstr "Ideas that were unfortunately rejected: {{value}}"
 
 #: 
 msgid "ADMIN_IDEAS_DENIED_HEADLINE"
@@ -281,7 +281,7 @@ msgstr "We've removed your rating."
 
 #: 
 msgid "IDEA_TILE_AVG_RATING"
-msgstr "{{rating}}} von {{votes}}} Personen"
+msgstr "{{rating}} von {{votes}} Personen"
 
 #: 
 msgid "IDEA_UPDATE_MESSAGE"
@@ -309,7 +309,7 @@ msgstr "There are no other ideas available"
 
 #: 
 msgid "IDEAS_OWN_PUBLISHED_DESC"
-msgstr "Ideas that are still being voted on: {value}}"
+msgstr "Ideas that are still being voted on: {{value}}"
 
 #: 
 msgid "IDEAS_OWN_PUBLISHED_HEADLINE"
@@ -317,7 +317,7 @@ msgstr "Publish Ideas"
 
 #: 
 msgid "IDEAS_OWN_REJECTED_DESC"
-msgstr "Ideas that were unfortunately rejected: {value}}"
+msgstr "Ideas that were unfortunately rejected: {{value}}"
 
 #: 
 msgid "IDEAS_OWN_REJECTED_HEADLINE"
@@ -629,9 +629,17 @@ msgstr "here"
 
 #: 
 msgid "REGISTER_SUCCESS_DESC"
-msgstr "Your registration under the name {{forename}}} {surname}} was successful. We sent an email with a confirmation link to {{email}}. Please open your mailbox and click on the link to complete the registration."
+msgstr "Your registration under the name {{forename}} {{surname}} was successful. We sent an email with a confirmation link to {{email}}. Please open your mailbox and click on the link to complete the registration."
 
 #: 
 msgid "REGISTER_SUCCESS_HEADLINE"
 msgstr "Registration successful"
+
+#: 
+msgid "OVERVIEW_CAMPAIGN_DESCRIPTION"
+msgstr ""
+
+#: 
+msgid "OVERVIEW_CAMPAIGN_HEADLINE"
+msgstr ""
 

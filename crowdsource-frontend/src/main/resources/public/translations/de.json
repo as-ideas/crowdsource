@@ -155,5 +155,7 @@
    "REGISTER_LOGIN": "oder {{link}} anmelden",
    "REGISTER_LOGIN_LINK": "hier",
    "REGISTER_SUCCESS_DESC": "Deine Registrierung unter dem Namen {{forename}} {{surname}} war erfolgreich. Wir haben eine E-Mail mit einem Bestätigungslink an {{email}} gesendet. Bitte öffne Dein E-Mail-Postfach und klicke auf den Link, um die Registrierung abzuschließen.",
-   "REGISTER_SUCCESS_HEADLINE": "Registrierung erfolgreich"
+   "REGISTER_SUCCESS_HEADLINE": "Registrierung erfolgreich",
+   "OVERVIEW_CAMPAIGN_DESCRIPTION": "OVERVIEW_CAMPAIGN_DESCRIPTION",
+   "OVERVIEW_CAMPAIGN_HEADLINE": "OVERVIEW_CAMPAIGN_HEADLINE"
 }

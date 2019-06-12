@@ -635,3 +635,11 @@ msgstr "Deine Registrierung unter dem Namen {{forename}} {{surname}} war erfolgr
 msgid "REGISTER_SUCCESS_HEADLINE"
 msgstr "Registrierung erfolgreich"
 
+#: 
+msgid "OVERVIEW_CAMPAIGN_DESCRIPTION"
+msgstr ""
+
+#: 
+msgid "OVERVIEW_CAMPAIGN_HEADLINE"
+msgstr ""
+
