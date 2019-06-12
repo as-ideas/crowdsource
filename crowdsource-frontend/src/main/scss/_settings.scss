@@ -228,6 +228,14 @@ $range-slider-active-segment-bg-color: $clr-emerald;
   line-height: $lh-regular;
 }
 
+@mixin font-headline-base {
+  color: $clr-black;
+  font-family: $ff-primary;
+  font-style: normal;
+  font-weight: $fw-bold;
+  line-height: $lh-regular;
+}
+
 @mixin font-text {
   @include font-base;
   font-size: $fs-regular;
@@ -239,11 +247,10 @@ $range-slider-active-segment-bg-color: $clr-emerald;
 }
 
 @mixin font-headline {
+  @include font-headline-base;
+
   color: $clr-blue;
-  font-family: $ff-primary;
   font-size: $fs-large;
-  font-style: normal;
-  font-weight: $fw-bold;
 }
 
 @mixin font-button {
@@ -258,3 +265,26 @@ $range-slider-active-segment-bg-color: $clr-emerald;
   text-transform: uppercase;
 }
 
+h2 {
+  @include font-headline-base;
+  font-size: $fs-large;
+}
+
+h3 {
+  @include font-headline-base;
+  font-size: $fs-medium;
+}
+
+h4 {
+  @include font-headline-base;
+  font-size: $fs-smedium;
+}
+
+address {
+  @include font-text;
+  font-style: italic;
+}
+
+p {
+  @include font-text;
+}

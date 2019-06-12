@@ -158,19 +158,18 @@ $team-width: ($team-container-width - ($team-gutter * $team-items * 2)) / $team-
     }
 
     &__headline {
+        @include font-headline-base;
         font-size: $fs-large;
-        font-weight: $fw-regular;
         margin-bottom: $mrg-medium;
     }
 
     &__text {
-        font-size: $fs-regular;
-        font-weight: $fw-regular;
+        @include font-text
     }
 
     &__image-caption {
+        @include font-base;
         font-size: $fs-small;
-        font-weight: $fw-regular;
     }
 
     &__social-links--left {
