@@ -79,7 +79,7 @@ $header-height: 56px;
 
 
   // CSS For Desktop
-  @media screen and (min-width: 769px) {
+  @media screen and (min-width: 1024px) {
 
     &__header-mobile {
       text-align: center;
@@ -123,7 +123,7 @@ $header-height: 56px;
 
 
   // CSS for Mobile
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1023px) {
 
     &__navigation {
       flex-direction: column;
@@ -189,7 +189,7 @@ $header-height: 56px;
 
       &:hover {
         background-color: $clr-gray-light;
-        color: $clr-black;
+        color: $clr-pink;
       }
     }
 
@@ -204,7 +204,7 @@ $header-height: 56px;
     }
 
     &__breadcrumb-nav-divider {
-      border-bottom: solid $clr-gray-light 1px;
+      border-bottom: solid $clr-black 1px;
       width: 100%;
     }
   }

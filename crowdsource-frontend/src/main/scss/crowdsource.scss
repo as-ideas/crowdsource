@@ -76,7 +76,33 @@ content-row {
     }
 
     .box {
-        @extend %box;
+        margin: 0 auto;
+        padding: 1.25rem;
+
+        h1 {
+            font-size: $fs-xmedium;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            margin-bottom: 30px;
+        }
+        max-width: rem-calc(500);
+    }
+
+    .box--centered {
+        margin: 0 auto;
+        padding: 1.25rem;
+        text-align: center;
+
+        h1 {
+            font-size: $fs-xmedium;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            margin-bottom: 30px;
+        }
         max-width: rem-calc(500);
     }
 }

@@ -11,9 +11,23 @@
 // Angular JS defined class
 .valid-label {
     @include font-form;
+
+    a {
+        @include font-form;
+    }
 }
 
 .invalid-label {
     @include font-form;
     color: $clr-red;
+}
+
+.acceptTOSContainer {
+    display: flex;
+    margin-bottom: $mrg-medium;
+
+    input {
+        margin-top: 3px;
+        margin-right: 10px;
+    }
 }

@@ -157,7 +157,7 @@
 }
 
 .text--small {
-    font-size: $fs-small;
+    @include font-text-small;
 }
 
 .text--right {

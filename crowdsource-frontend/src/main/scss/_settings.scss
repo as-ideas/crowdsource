@@ -241,6 +241,11 @@ $range-slider-active-segment-bg-color: $clr-emerald;
   font-size: $fs-regular;
 }
 
+@mixin font-text-small {
+  @include font-base;
+  font-size: $fs-small;
+}
+
 @mixin font-form {
   @include font-base;
   font-size: $fs-small;
@@ -265,9 +270,14 @@ $range-slider-active-segment-bg-color: $clr-emerald;
   text-transform: uppercase;
 }
 
-h2 {
+h1 {
   @include font-headline-base;
   font-size: $fs-large;
+}
+
+h2 {
+  @include font-headline-base;
+  font-size: $fs-xmedium;
 }
 
 h3 {
@@ -287,4 +297,8 @@ address {
 
 p {
   @include font-text;
+}
+
+input {
+  @include font-form;
 }

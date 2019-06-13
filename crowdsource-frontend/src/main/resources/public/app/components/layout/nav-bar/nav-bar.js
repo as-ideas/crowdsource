@@ -54,7 +54,7 @@ angular.module('crowdsource')
             })
 
             function isMobileSize() {
-                return $window.innerWidth <= 768 ? true : false;
+                return $window.innerWidth <= 1024 ? true : false;
             };
 
             function toggleMobileMenu() {
