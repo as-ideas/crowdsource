@@ -34,6 +34,7 @@ $tile-padding-vertical: 15px;
 
     border-radius: $border-radius;
     background-color: $clr-gray-light;
+    min-height: 280px;
     height: 100%;
     padding: $tile-padding-vertical $tile-padding-horizontal;
     position: relative;
@@ -63,7 +64,7 @@ $tile-padding-vertical: 15px;
       @include font-text;
 
       margin-top: $mrg-half;
-      margin-bottom: $mrg-huge;
+      margin-bottom: 4rem;
       text-align: left;
       word-break: break-word;
     }
@@ -79,6 +80,12 @@ $tile-padding-vertical: 15px;
     }
 
     &__approval-container {
+      position: absolute;
+      width: calc(100% - #{2 * $mrg-medium});
+      bottom: $mrg-normal;
+    }
+
+    &__edit-container {
       position: absolute;
       width: calc(100% - #{2 * $mrg-medium});
       bottom: $mrg-normal;

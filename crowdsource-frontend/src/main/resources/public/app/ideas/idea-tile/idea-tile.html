@@ -10,7 +10,7 @@
         <span class="ideas-grid-tile__title">{{ vm.idea.contentI18n.original.title }}</span>
     </div>
 
-    <p ng-if="!vm.isEditable" class="ideas-grid-tile__text">{{ vm.idea.contentI18n[vm.currentLanguage].pitch }} <i class="ideas-grid-tile__author">({{::idea.creatorName}})</i></p>
+    <p ng-if="(vm.idea.status == 'PUBLISHED')" class="ideas-grid-tile__text">{{ vm.idea.contentI18n[vm.currentLanguage].pitch }} <i class="ideas-grid-tile__author">({{::idea.creatorName}})</i></p>
     <p ng-if="!(vm.idea.status == 'PUBLISHED') && !vm.isEditable" class="ideas-grid-tile__text">{{ vm.idea.contentI18n.original.pitch }}</p>
 
     <div class="ideas-grid-tile__rating ideas-grid-tile__bottom-container" ng-if="vm.idea.status == 'PUBLISHED' && !vm.isAdminView">
@@ -46,22 +46,23 @@
     </div>
 
     <div ng-if="vm.isAdminView" class="ideas-grid-tile__approval-spacer">
-    <div ng-if="vm.isAdminView" class="ideas-grid-tile__approval-container">
-        <div ng-if="vm.idea.status == 'PROPOSED'">
+        <div ng-if="vm.isAdminView" class="ideas-grid-tile__approval-container">
+            <div ng-if="vm.idea.status == 'PROPOSED'">
 
-            <form name="rejectionForm">
-                <label>
-                    <span form-label-valid="rejectionMessage" translate="FORM_ADMIN_IDEA_REJECT_REASON_LABEL">Ablehnungsgrund</span>
-                        <span form-label-invalid="rejectionMessage" ng-messages="rejectionForm.rejectionMessage.$error">
-                            <span ng-message="minlength"><span translate="FORM_ERROR_MIN_CHARS">Mindestens 10 Zeichen</span></span>
-                            <span ng-message="maxlength"><span translate="FORM_ERROR_MAX_CHARS">Maximal 10000 Zeichen</span></span>
-                            <span ng-message="required"><span translate="FORM_ADMIN_IDEA_REJECT_REASON_ERROR_REQUIRED">Bitte Ablehnungsgrund angeben</span></span>
-                </span>
-                    <textarea campaign-active-aware rows="3" class="ideas-grid-tile__reject-textarea" ng-minlength="10" ng-model="vm.rejectionComment" name="rejectionMessage" placeholder="Ablehnungsgrund" translate-attr="{ placeholder: 'FORM_ADMIN_IDEA_REJECT_REASON_PLACEHOLDER' }"></textarea>
-                </label>
-            </form>
-            <button campaign-active-aware ng-click="vm.reject()" class="button-reject--halfwidth" ng-disabled="!vm.rejectionComment.length" translate="BUTTON_LABEL_REJECT">Ablehnen</button>
-            <button campaign-active-aware ng-click="vm.publish()" class="button-accept--halfwidth" translate="BUTTON_LABEL_APPROVE">Freigeben</button>
+                <form name="rejectionForm">
+                    <label>
+                        <span form-label-valid="rejectionMessage" translate="FORM_ADMIN_IDEA_REJECT_REASON_LABEL">Ablehnungsgrund</span>
+                            <span form-label-invalid="rejectionMessage" ng-messages="rejectionForm.rejectionMessage.$error">
+                                <span ng-message="minlength"><span translate="FORM_ERROR_MIN_CHARS">Mindestens 10 Zeichen</span></span>
+                                <span ng-message="maxlength"><span translate="FORM_ERROR_MAX_CHARS">Maximal 10000 Zeichen</span></span>
+                                <span ng-message="required"><span translate="FORM_ADMIN_IDEA_REJECT_REASON_ERROR_REQUIRED">Bitte Ablehnungsgrund angeben</span></span>
+                    </span>
+                        <textarea campaign-active-aware rows="3" class="ideas-grid-tile__reject-textarea" ng-minlength="10" ng-model="vm.rejectionComment" name="rejectionMessage" placeholder="Ablehnungsgrund" translate-attr="{ placeholder: 'FORM_ADMIN_IDEA_REJECT_REASON_PLACEHOLDER' }"></textarea>
+                    </label>
+                </form>
+                <button campaign-active-aware ng-click="vm.reject()" class="button-reject--halfwidth" ng-disabled="!vm.rejectionComment.length" translate="BUTTON_LABEL_REJECT">Ablehnen</button>
+                <button campaign-active-aware ng-click="vm.publish()" class="button-accept--halfwidth" translate="BUTTON_LABEL_APPROVE">Freigeben</button>
+            </div>
         </div>
     </div>
 </div>
