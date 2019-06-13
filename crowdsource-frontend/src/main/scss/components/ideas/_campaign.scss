@@ -42,7 +42,11 @@ $icon-color: #3C3C3C;
 
   &__container {
     margin-bottom: $mrg-medium;
-    width: 48%;
+    width: 100%;
+
+    @media screen and (min-width: 768px) {
+      width: 48%;
+    }
 
     a {
       text-decoration: none;
