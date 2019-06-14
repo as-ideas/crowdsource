@@ -19,8 +19,8 @@ describe('idea-tile', function () {
         });
 
     });
-  /*
-      describe('user', function() {
+
+  describe('user', function() {
           it("should render title, pitch and author", function () {
 
               var idea = givenIdea();
@@ -49,8 +49,8 @@ describe('idea-tile', function () {
 
           });
       });
-  */
-    describe('admin', function () {
+
+  describe('admin', function () {
         it("show admin functionality when user isAdmin", function () {
             var idea = givenIdea(IDEAS_STATUS.PROPOSED);
             $scope.admin = true;

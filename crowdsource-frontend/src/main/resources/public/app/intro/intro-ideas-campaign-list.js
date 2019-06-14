@@ -16,8 +16,7 @@ angular.module('crowdsource')
                     console.log("language change: " + vm.currentLanguage);
                 });
 
-//                vm.currentLanguage = $translate.use();
-              vm.currentLanguage = "original";
+              vm.currentLanguage = $translate.use();
                 vm.entries = [];
 
                 getIdeaCampaigns();
