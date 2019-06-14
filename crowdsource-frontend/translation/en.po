@@ -13,7 +13,7 @@ msgstr "Please enter a password to complete the activation of your account."
 
 #: 
 msgid "ACTIVATION_ERROR_ALREADY_ACTIVE"
-msgstr "Your account has already been activated. You can log in using your email address and password {{link}}."
+msgstr "Your account has already been activated. You can log in using your e-mail address and password {{link}}."
 
 #: 
 msgid "ACTIVATION_ERROR_ALREADY_ACTIVE_LINK"
@@ -25,7 +25,7 @@ msgstr "The activation link is invalid."
 
 #: 
 msgid "ACTIVATION_ERROR_NOT_REGISTERED"
-msgstr "You must first enter your email address {{link}}."
+msgstr "Please register with your e-mail address first {{link}}."
 
 #: 
 msgid "ACTIVATION_ERROR_NOT_REGISTERED_LINK"
@@ -33,19 +33,19 @@ msgstr "register"
 
 #: 
 msgid "ACTIVATION_HEADLINE"
-msgstr "Registration - last steps"
+msgstr "Registration - final steps"
 
 #: 
 msgid "ADMIN_IDEA_PUBLISH_MESSAGE"
-msgstr "The idea was released."
+msgstr "The idea has been released."
 
 #: 
 msgid "ADMIN_IDEA_REJECT_MESSAGE"
-msgstr "The idea was rejected."
+msgstr "The idea has been rejected."
 
 #: 
 msgid "ADMIN_IDEAS_DENIED_DESC"
-msgstr "Ideas that were unfortunately rejected: {{value}}"
+msgstr "Ideas that unfortunately have been rejected: {{value}}"
 
 #: 
 msgid "ADMIN_IDEAS_DENIED_HEADLINE"
@@ -57,7 +57,7 @@ msgstr "Ideas waiting for release: {{value}}"
 
 #: 
 msgid "ADMIN_IDEAS_PENDING_HEADLINE"
-msgstr "Outstanding ideas"
+msgstr "Pending ideas"
 
 #: 
 msgid "BUTTON_LABEL_APPROVE"
@@ -109,7 +109,7 @@ msgstr "Submit..."
 
 #: 
 msgid "CAMPAIGN_LABEL_ENDED"
-msgstr "(finished)"
+msgstr "(completed)"
 
 #: 
 msgid "FILTER_ALL_LABEL"
@@ -117,7 +117,7 @@ msgstr "All"
 
 #: 
 msgid "FILTER_NOT_VOTED_LABEL"
-msgstr "Not yet rated"
+msgstr "Not rated yet"
 
 #: 
 msgid "FILTER_VOTED_LABEL"
@@ -125,7 +125,7 @@ msgstr "Already rated"
 
 #: 
 msgid "FORM_ADMIN_IDEA_REJECT_REASON_ERROR_REQUIRED"
-msgstr "Please state reason for refusal"
+msgstr "Please give reason for refusal"
 
 #: 
 msgid "FORM_ADMIN_IDEA_REJECT_REASON_LABEL"
@@ -173,7 +173,7 @@ msgstr "Your unit is not yet supported"
 
 #: 
 msgid "FORM_EMAIL_ERROR_REQUIRED"
-msgstr "Please enter your email address"
+msgstr "Please enter your e-mail address"
 
 #: 
 msgid "FORM_EMAIL_LABEL"
@@ -241,7 +241,7 @@ msgstr "Password"
 
 #: 
 msgid "FORM_PASSWORD_REPEAT_ERROR_NOT_EQUAL"
-msgstr "The two passwords do not match"
+msgstr "The passwords do not match"
 
 #: 
 msgid "FORM_PASSWORD_REPEAT_ERROR_REQUIRED"
@@ -269,19 +269,19 @@ msgstr "Surname"
 
 #: 
 msgid "IDEA_ADD_MESSAGE_1"
-msgstr "Your idea was successfully submitted."
+msgstr "Your idea has been successfully submitted."
 
 #: 
 msgid "IDEA_ADD_MESSAGE_2"
-msgstr "Your idea will be unlocked soon, we'll just check it out."
+msgstr "Your idea will be released soon, we'll just check it quickly."
 
 #: 
 msgid "IDEA_REMOVE_VOTE_MESSAGE"
-msgstr "We've removed your rating."
+msgstr "We have removed your rating."
 
 #: 
 msgid "IDEA_TILE_AVG_RATING"
-msgstr "{{rating}} von {{votes}} Personen"
+msgstr "{{rating}} by {{votes}} people"
 
 #: 
 msgid "IDEA_UPDATE_MESSAGE"
@@ -293,7 +293,7 @@ msgstr "Thank you very much for your evaluation."
 
 #: 
 msgid "IDEAS_ADD_DESC"
-msgstr "You have an idea? Then submit it right here."
+msgstr "You got an idea? Then submit it right here."
 
 #: 
 msgid "IDEAS_ADD_HEADLINE"
@@ -301,7 +301,7 @@ msgstr "Submit an idea"
 
 #: 
 msgid "IDEAS_LOAD_MORE_LABEL"
-msgstr "Load more ideas!"
+msgstr "Load more ideas"
 
 #: 
 msgid "IDEAS_LOAD_MORE_LABEL_NO_MORE"
@@ -313,11 +313,11 @@ msgstr "Ideas that are still being voted on: {{value}}"
 
 #: 
 msgid "IDEAS_OWN_PUBLISHED_HEADLINE"
-msgstr "Publish Ideas"
+msgstr "Publish ideas"
 
 #: 
 msgid "IDEAS_OWN_REJECTED_DESC"
-msgstr "Ideas that were unfortunately rejected: {{value}}"
+msgstr "Ideas that unfortunately have been rejected: {{value}}"
 
 #: 
 msgid "IDEAS_OWN_REJECTED_HEADLINE"
@@ -329,7 +329,7 @@ msgstr "Released ideas"
 
 #: 
 msgid "IDEAS_OWN_STATISTIC_LABEL_IDEAS_PENDING"
-msgstr "Outstanding ideas"
+msgstr "Pending ideas"
 
 #: 
 msgid "IDEAS_OWN_STATISTIC_LABEL_IDEAS_REJECTED"
@@ -377,23 +377,23 @@ msgstr "Be part of the Crowd"
 
 #: 
 msgid "INTRO_HERO_ACTIONBAR_LEDGE_2"
-msgstr "Bring yourselves in"
+msgstr "Participate"
 
 #: 
 msgid "INTRO_HERO_ACTIONBAR_LEDGE_3"
-msgstr "Shaping the future"
+msgstr "Shape the future"
 
 #: 
 msgid "INTRO_HERO_HEADLINE"
-msgstr "our innovation starts here"
+msgstr "Your innovation starts here"
 
 #: 
 msgid "INTRO_HERO_P_1"
-msgstr "You have a new idea for a project, but never had the right moment to talk about it?"
+msgstr "You have a new idea for a project but never had the right opportunity to talk about it?"
 
 #: 
 msgid "INTRO_HERO_P_2"
-msgstr "Here's your chance! Finally you can publish your ideas and suggestions for various campaigns of the group, evaluate, discuss and, if successful, actively participate in the design. Talk to doubters and supporters, discuss suggestions and binary codes, benefit from feedback from your colleagues, and create the optimal project for you. But be careful:"
+msgstr "Here's your chance! Finally you can publish your ideas and suggestions for various campaigns of the group. You can evaluate and discuss them, and even actively participate in their design if successful. Talk to skeptics and supporters, discuss suggestions and binary codes, benefit from feedback from your colleagues and create the optimal project for you. But be aware:"
 
 #: 
 msgid "INTRO_HERO_P_3"
@@ -401,7 +401,7 @@ msgstr "Be creative! Be smart! Be innovative!"
 
 #: 
 msgid "INTRO_HERO_P_4"
-msgstr "The competition's not sleeping! Be at the forefront when the time comes:"
+msgstr "Competition never sleeps! Be at the forefront when the time is coming:"
 
 #: 
 msgid "INTRO_HERO_P_5"
@@ -429,7 +429,7 @@ msgstr "here"
 
 #: 
 msgid "LOGOUT_HEADLINE"
-msgstr "You've been logged out."
+msgstr "You have been logged out."
 
 #: 
 msgid "LOGOUT_LINK_LOGIN"
@@ -493,11 +493,11 @@ msgstr "Overview"
 
 #: 
 msgid "NAV_LABEL_PASSWORD_RECOVERY"
-msgstr "Password Forgotten"
+msgstr "Forgot password"
 
 #: 
 msgid "NAV_LABEL_PASSWORD_RECOVERY_SUCCESS"
-msgstr "Password forgotten successfully"
+msgstr "Forgot password successful"
 
 #: 
 msgid "NAV_LABEL_PASSWORD_RESET"
@@ -505,7 +505,7 @@ msgstr "Set password"
 
 #: 
 msgid "NAV_LABEL_PRIVACY"
-msgstr "Privacy policy"
+msgstr "Privacy statement"
 
 #: 
 msgid "NAV_LABEL_PROJECT_ADDED"
@@ -517,11 +517,11 @@ msgstr "Project details"
 
 #: 
 msgid "NAV_LABEL_PROJECT_EDIT"
-msgstr "Edit Project"
+msgstr "Edit project"
 
 #: 
 msgid "NAV_LABEL_PROJECT_NEW"
-msgstr "New Project"
+msgstr "New project"
 
 #: 
 msgid "NAV_LABEL_PROJECTS"
@@ -553,7 +553,7 @@ msgstr "Ideas"
 
 #: 
 msgid "OVERVIEW_IDEAS_NO_CAMPAIGN"
-msgstr "Currently there are no ideas campaign available"
+msgstr "Currently there are no idea campaigns available"
 
 #: 
 msgid "OVERVIEW_PROTOTYPES_HEADLINE"
@@ -565,11 +565,11 @@ msgstr "Unfortunately there is no prototype campaign at the moment."
 
 #: 
 msgid "PASSWORD_RECOVERY_DESC"
-msgstr "Enter the email address by which you're registered here. You will receive an email from us with a confirmation link and can reset your password."
+msgstr "Enter the e-mail address by which you registered. You will receive an e-mail from us with a confirmation link to reset your password."
 
 #: 
 msgid "PASSWORD_RECOVERY_ERROR_EMAIL_NOT_REGISTERED"
-msgstr "The email address has not yet been registered. Just try {{link}}."
+msgstr "The e-mail address has not been registered yet. Just try {{link}}."
 
 #: 
 msgid "PASSWORD_RECOVERY_ERROR_EMAIL_NOT_REGISTERED_LINK"
@@ -577,7 +577,7 @@ msgstr "register"
 
 #: 
 msgid "PASSWORD_RECOVERY_HEADLINE"
-msgstr "Password Forgotten"
+msgstr "Forgot password"
 
 #: 
 msgid "PASSWORD_RECOVERY_LOGIN"
@@ -589,11 +589,11 @@ msgstr "here"
 
 #: 
 msgid "PASSWORD_RECOVERY_SUCCESS_DESC"
-msgstr "We have sent an email with a confirmation link to {{email}}. Please open your mailbox and click on the link to reset your password."
+msgstr "We have sent an e-mail with a confirmation link to {{email}}. Please open your mailbox and click on the link to reset your password."
 
 #: 
 msgid "PASSWORD_RECOVERY_SUCCESS_HEADLINE"
-msgstr "Password Forgotten"
+msgstr "Forgot password"
 
 #: 
 msgid "PASSWORD_RESET_DESC"
@@ -601,11 +601,11 @@ msgstr "Please enter a new password now."
 
 #: 
 msgid "PASSWORD_RESET_ERROR_ALREADY_RESET"
-msgstr "You have already reset your password with the link from your email. You can change the {{link}} Use this function again to get a new link sent to you."
+msgstr "You have already reset your password with the link from your e-mail. You can use the {{link}} function again to get a new link."
 
 #: 
 msgid "PASSWORD_RESET_ERROR_ALREADY_RESET_LINK"
-msgstr "Password Forgotten"
+msgstr "Forgot password"
 
 #: 
 msgid "PASSWORD_RESET_HEADLINE"
@@ -613,7 +613,7 @@ msgstr "Reset password"
 
 #: 
 msgid "REGISTER_AGB"
-msgstr "Herewith I allow Axel Springer Ideas Engineering GmbH or Axel Springer People & Culture to contact me for news (e.g. start of a campaign and status of my idea) around Axel Springer Crowd. I have the possibility to unsubscribe from the newsletter at any time. To do this, I can click on the link in the footer of our e-mails. Further information on data protection can be found in the data protection declaration."
+msgstr "I allow Axel Springer Ideas Engineering GmbH and Axel Springer People & Culture to contact me for news (e.g. start of a campaign and status of my idea) concerning Axel Springer Crowd. I have the possibility to unsubscribe from the newsletter at any time. To do this, I can click on the link in the footer of those e-mails. Further information on data protection can be found in the data protection declaration."
 
 #: 
 msgid "REGISTER_HEADLINE"
@@ -629,7 +629,7 @@ msgstr "here"
 
 #: 
 msgid "REGISTER_SUCCESS_DESC"
-msgstr "Your registration under the name {{forename}} {{surname}} was successful. We sent an email with a confirmation link to {{email}}. Please open your mailbox and click on the link to complete the registration."
+msgstr "Your registration under the name {{forename}} {{surname}} was successful. We sent an e-mail with a confirmation link to {{email}}. Please open your mailbox and click on the link to complete the registration."
 
 #: 
 msgid "REGISTER_SUCCESS_HEADLINE"
@@ -641,5 +641,5 @@ msgstr ""
 
 #: 
 msgid "OVERVIEW_CAMPAIGN_HEADLINE"
-msgstr ""
+msgstr "Marketplaces"
 
