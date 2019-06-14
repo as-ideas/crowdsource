@@ -15,7 +15,8 @@ angular.module('crowdsource')
                 });
 
                 var vm = this;
-                vm.currentLanguage = $translate.use();
+//                vm.currentLanguage = $translate.use();
+              vm.currentLanguage = "original";
 
                 // vm.campaign = angular.copy($scope.campaign);
                 if($scope.campaign.videoImageReference === null) $scope.campaign.videoImageReference = "/images/fallbacks/campaign-video-image-fallback.png";
