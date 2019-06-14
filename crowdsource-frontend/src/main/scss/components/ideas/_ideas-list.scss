@@ -428,6 +428,7 @@ $intro-box-break: "only screen and (max-width: 740px)";
     a {
         @include font-text;
         text-decoration: none;
+        white-space: nowrap;
     }
 
     a:hover {

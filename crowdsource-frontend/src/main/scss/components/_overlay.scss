@@ -16,18 +16,16 @@
         align-items: center;
     }
 
+    $dimension: 125px;
     &--success {
         background-color: $clr-green-neon;
 
         .overlay__icon {
-            $dimension: 100px;
             display: inline-block;
             width: $dimension;
             height: $dimension;
             border-radius: 50%;
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: rem-calc(100px);
+            background-size: contain;
             background-image: url('../images/icons/icon-overlay-success.svg');
         }
     }
@@ -36,13 +34,11 @@
         background-color: $clr-red;
 
         .overlay__icon {
-            $dimension: 100px;
             display: inline-block;
             width: $dimension;
             height: $dimension;
             border-radius: 50%;
-            background-position: center center;
-            background-repeat: no-repeat;
+            background-size: contain;
             background-size: rem-calc(100px);
             background-image: url('../images/icons/icon-overlay-failure.svg');
         }
@@ -50,7 +46,6 @@
 
     &__content {
         margin: 0 auto;
-        padding-top: 2rem;
         text-align: center;
     }
 
@@ -68,17 +63,21 @@
 
     &__text--success {
         @include font-base;
+        color: $clr-blue;
+        font-size: $fs-smedium;
+        font-weight: $fw-regular;
 
         padding: 1rem;
         word-wrap: break-spaces;
-        color: $clr-blue;
     }
 
     &__text--failure {
         @include font-base;
+        color: $clr-white;
+        font-size: $fs-smedium;
+        font-weight: $fw-regular;
 
         padding: 1rem;
         word-wrap: break-spaces;
-        color: $clr-white;
     }
 }
