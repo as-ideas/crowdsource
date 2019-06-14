@@ -23,6 +23,13 @@
     @include font-text;
 
     position: relative;
+    margin-bottom: 2.5rem;
+  }
+
+  &__description--subline {
+    @include font-text;
+
+    position: relative;
     margin-bottom:4.5rem;
 
     &::after {

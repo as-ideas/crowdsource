@@ -193,6 +193,7 @@ $mrg-small: 0.625rem; // 10px
 $mrg-smaller: 0.875rem; // 14px
 $mrg-normal: 1rem;      // 16px
 $mrg-medium: 1.25rem;   // 20px, Good for component distance
+$mrg-large: 1.5rem;   // 20px, Good for component distance
 $mrg-double: 2rem;      // 32px
 $mrg-huge: 2.5rem;      // 40px
 $mrg-tripple: 3rem;     // 48px;
@@ -256,6 +257,10 @@ $range-slider-active-segment-bg-color: $clr-emerald;
 
   color: $clr-blue;
   font-size: $fs-large;
+  
+  @media (max-width: 767px) {
+    font-size: $fs-xmedium;
+  }
 }
 
 @mixin font-button {

@@ -3,10 +3,8 @@
 
 <content-row class="campaign">
     <div class="row" ng-if="intro.isLoggedIn">
-        <br/><br/><br/>
         <content-hero title="'OVERVIEW_CAMPAIGN_HEADLINE'" description="'OVERVIEW_CAMPAIGN_DESCRIPTION'"></content-hero>
         <intro-ideas-campaign-list></intro-ideas-campaign-list>
-        <br/><br/>
     </div>
 
     <div ng-if="!intro.isLoggedIn" class="campaign-login__container">

@@ -50,10 +50,11 @@ body {
     background-color: $white;
 }
 
+
 .page-wrapper {
     // Make our footer sticky
     @media #{$medium-up} {
-        min-height: calc(100% - 240px); // Our footer has a height of 240px;
+        min-height: calc(100% - 225px); // Our footer has a height of 225px;
     }
 }
 
@@ -63,7 +64,7 @@ body {
 
 content-row {
     display: block;
-    padding: 0;
+    padding: 1.5rem 0;
 
     @media #{$medium-up} {
         padding: rem-calc(40px) 0;

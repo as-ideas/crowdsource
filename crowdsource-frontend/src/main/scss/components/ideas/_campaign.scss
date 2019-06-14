@@ -54,6 +54,10 @@ $icon-color: #3C3C3C;
     }
   }
 
+  &__container:last-of-type {
+    margin-bottom: 0;
+  }
+
 
   &__item {
     border-radius: $border-radius-medium;
