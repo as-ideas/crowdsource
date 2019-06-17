@@ -56,7 +56,7 @@ describe('ideas list', function () {
         $scope.$digest();
         var listView = new ListView(renderedView);
 
-        $httpBackend.expectGET('/ideas_campaigns/SOME_ID/ideas/filtered?alreadyVoted=false&page=0&pageSize=20').respond(givenExamplIdeaResponse(3));
+        $httpBackend.expectGET('/ideas_campaigns/SOME_ID/ideas/filtered?alreadyVoted=false&page=0&pageSize=50').respond(givenExamplIdeaResponse(3));
         listView.clickFilter('NOT_VOTED');
 
         $httpBackend.flush();
@@ -69,11 +69,11 @@ describe('ideas list', function () {
         $scope.$digest();
         var listView = new ListView(renderedView);
 
-        $httpBackend.expectGET('/ideas_campaigns/SOME_ID/ideas/filtered?alreadyVoted=true&page=0&pageSize=20').respond(givenExamplIdeaResponse(5));
+        $httpBackend.expectGET('/ideas_campaigns/SOME_ID/ideas/filtered?alreadyVoted=true&page=0&pageSize=50').respond(givenExamplIdeaResponse(5));
         listView.clickFilter('VOTED');
         $httpBackend.flush();
 
-        $httpBackend.expectGET("/ideas_campaigns/SOME_ID/ideas?page=0&pageSize=20").respond(givenExamplIdeaResponse(10));
+        $httpBackend.expectGET("/ideas_campaigns/SOME_ID/ideas?page=0&pageSize=50").respond(givenExamplIdeaResponse(10));
         listView.clickFilter('ALL');
         $httpBackend.flush();
 
@@ -83,13 +83,13 @@ describe('ideas list', function () {
     it("Load more should append paged ideas to existing model ", function () {
         var response = givenExamplIdeaResponse(2);
         response.last = false;
-        $httpBackend.expectGET("/ideas_campaigns/SOME_ID/ideas?page=0&pageSize=20").respond(response);
+        $httpBackend.expectGET("/ideas_campaigns/SOME_ID/ideas?page=0&pageSize=50").respond(response);
 
         $scope.$digest();
         var listView = new ListView(renderedView);
         $httpBackend.flush();
 
-        $httpBackend.expectGET("/ideas_campaigns/SOME_ID/ideas?page=1&pageSize=20").respond(givenExamplIdeaResponse(3));
+        $httpBackend.expectGET("/ideas_campaigns/SOME_ID/ideas?page=1&pageSize=50").respond(givenExamplIdeaResponse(3));
         listView.clickLoadMore();
 
         $httpBackend.flush();
@@ -119,7 +119,7 @@ describe('ideas list', function () {
     }
 
     function givenInitialRequestsOnPageLoadResonpond() {
-        $httpBackend.expectGET("/ideas_campaigns/SOME_ID/ideas?page=0&pageSize=20").respond(givenExamplIdeaResponse(0));
+        $httpBackend.expectGET("/ideas_campaigns/SOME_ID/ideas?page=0&pageSize=50").respond(givenExamplIdeaResponse(0));
     }
 
     function ListView(element) {

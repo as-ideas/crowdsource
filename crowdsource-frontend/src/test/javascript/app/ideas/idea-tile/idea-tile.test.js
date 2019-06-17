@@ -28,13 +28,13 @@ describe('idea-tile', function () {
               $scope.admin = false;
               var view = compileDirective($scope);
 
-              // TODO:
-              // Fix issue due to translation filter
-              // expect(view.getTitle()).toBe(idea.title);
-              // expect(view.getPitch()).toContain(idea.pitch);
+            // TODO:
+            // Fix issue due to translation filter
+            // expect(view.getTitle()).toBe(idea.title);
+            // expect(view.getPitch()).toContain(idea.pitch);
+            // expect(view.getAuthor()).toContain(idea.creatorName);
+        });
 
-              expect(view.getAuthor()).toContain(idea.creatorName);
-          });
 
           it("not show admin functionality when user not admin", function () {
               var idea = givenIdea(IDEAS_STATUS.PROPOSED);

@@ -83,8 +83,12 @@ $intro-box-break: "only screen and (max-width: 740px)";
 
 /*span*/
 .plist__pill {
+    display: inline-block;
     position: relative;
-    margin: 0 rem-calc(4px);
+    min-width: 31px;
+    text-align: right;
+
+    margin: 0 8px 0 0;
     padding: rem-calc(2px) rem-calc(8px);
 
     color: $white;

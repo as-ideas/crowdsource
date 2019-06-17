@@ -69,6 +69,16 @@ $tile-padding-vertical: 15px;
       word-break: break-word;
     }
 
+    &__text--rejected {
+      @include font-text;
+
+      margin-top: $mrg-half;
+      margin-bottom: $mrg-half;
+      text-align: left;
+      word-break: break-word;
+    }
+
+
     &__rating {
       display: flex;
       flex-direction: row-reverse;
