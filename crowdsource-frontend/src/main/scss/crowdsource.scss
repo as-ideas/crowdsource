@@ -62,12 +62,20 @@ body {
     color: $crowd-color-dark-grey;
 }
 
-content-row {
-    display: block;
+content-row:first-of-type {
     padding: 1.5rem 0;
 
     @media #{$medium-up} {
         padding: rem-calc(40px) 0;
+    }
+}
+
+content-row {
+    display: block;
+    padding: 0 0 1.5rem 0;
+
+    @media #{$medium-up} {
+        padding: 0 0 rem-calc(40px) 0;
     }
 
     .container {

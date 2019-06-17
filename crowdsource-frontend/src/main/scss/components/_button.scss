@@ -22,13 +22,13 @@
   }
 
   &:disabled {
-    background-color: $clr-gray-light;
-    color: $clr-gray-dark;
+    background-color: $clr-gray-dark;
+    color: $clr-gray-light;
     cursor: not-allowed;
 
     &:hover {
-      background-color: $clr-gray-light;
-      color: $clr-gray-dark;
+      background-color: $clr-gray-dark;
+      color: $clr-gray-light;
     }
   }
 
@@ -81,12 +81,12 @@
 
   &:hover {
     color: $clr-black;
-    background-color: $clr-gray-light;
+    background-color: $clr-gray-dark;
   }
 
   &:hover:enabled {
     color: $clr-black;
-    background-color: $clr-gray-light;
+    background-color: $clr-gray-dark;
   }
 
 }
@@ -109,12 +109,12 @@
 
   &:hover:enabled {
      color: $clr-green-neon;
-     background-color: $clr-gray-light;
+     background-color: $clr-gray-dark;
    }
 
    &:hover {
      color: $clr-green-neon;
-     background-color: $clr-gray-light;
+     background-color: $clr-gray-dark;
    }
 }
 
@@ -136,13 +136,13 @@
 
   &:hover {
     color: $clr-red;
-    background-color: $clr-gray-light;
+    background-color: $clr-gray-dark;
   }
 
 
   &:hover:enabled {
     color: $clr-red;
-    background-color: $clr-gray-light;
+    background-color: $clr-gray-dark;
   }
 }
 
