@@ -11,11 +11,12 @@ angular.module('crowdsource')
                 var vm = this;
 
                 $rootScope.$on('$translateChangeSuccess', function (event,data) {
-                    vm.currentLanguage = data.language;
+                  //vm.currentLanguage = data.language;
+                  vm.currentLanguage = "original";
                     console.log("language change: " + vm.currentLanguage);
                 });
 
-                vm.currentLanguage = $translate.use();
+              vm.currentLanguage = $translate.use();
                 vm.entries = [];
 
                 getIdeaCampaigns();

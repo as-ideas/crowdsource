@@ -1,9 +1,9 @@
 {
    "ACTIVATION_DESC": "Bitte vergib ein Passwort, um die Aktivierung Deines Kontos abzuschließen.",
-   "ACTIVATION_ERROR_ALREADY_ACTIVE": "Dein Konto wurde bereits aktiviert. Du kannst Dich mit Deiner Email-Adresse und Deinem Passwort {{link}}.",
+   "ACTIVATION_ERROR_ALREADY_ACTIVE": "Dein Konto wurde bereits aktiviert. Du kannst Dich mit Deiner E-Mail-Adresse und Deinem Passwort {{link}}.",
    "ACTIVATION_ERROR_ALREADY_ACTIVE_LINK": "einloggen",
    "ACTIVATION_ERROR_INVALID_LINK": "Der Aktivierungslink ist ungültig.",
-   "ACTIVATION_ERROR_NOT_REGISTERED": "Du musst Dich zunächst mit Deiner Email-Adresse {{link}}.",
+   "ACTIVATION_ERROR_NOT_REGISTERED": "Du musst Dich zunächst mit Deiner E-Mail-Adresse {{link}}.",
    "ACTIVATION_ERROR_NOT_REGISTERED_LINK": "registrieren",
    "ACTIVATION_HEADLINE": "Registrierung - letzte Schritte",
    "ADMIN_IDEA_PUBLISH_MESSAGE": "Die Idee wurde freigegeben.",
@@ -37,7 +37,7 @@
    "FORM_AGB_LABEL_LINK": "Nutzungsbedingungen",
    "FORM_EMAIL_ERROR_ALREADY_ACTIVATED_1": "Die E-Mail-Adresse wurde bereits aktiviert. Du kannst Dich mit Deinem Passwort einloggen. Falls Du Dein Passwort vergessen hast, klicke bitte ",
    "FORM_EMAIL_ERROR_ALREADY_ACTIVATED_2": "hier",
-   "FORM_EMAIL_ERROR_INVALID": "Bitte gib eine valide E-Mail Adresse ein",
+   "FORM_EMAIL_ERROR_INVALID": "Bitte gib eine valide E-Mail-Adresse ein",
    "FORM_EMAIL_ERROR_INVALID_BLACKLIST": "Dieser Service kann nur von Mitarbeitern mit einer E-Mail-Adresse mit gültiger Domain verwendet werden",
    "FORM_EMAIL_ERROR_INVALID_UNIT": "Deine Unit wird noch nicht unterstützt",
    "FORM_EMAIL_ERROR_REQUIRED": "Bitte gib Deine E-Mail-Adresse ein",
@@ -72,7 +72,7 @@
    "IDEA_VOTE_MESSAGE": "Vielen Dank für deine Bewertung.",
    "IDEAS_ADD_DESC": "Du hast eine Idee? Dann reiche sie doch gleich hier ein.",
    "IDEAS_ADD_HEADLINE": "Reiche eine Idee ein",
-   "IDEAS_LOAD_MORE_LABEL": "Lade mehr Ideen!!",
+   "IDEAS_LOAD_MORE_LABEL": "Lade mehr Ideen",
    "IDEAS_LOAD_MORE_LABEL_NO_MORE": "Es sind keine weiteren Ideen vorhanden",
    "IDEAS_OWN_PUBLISHED_DESC": "Ideen, die sich noch in der Abstimmung befinden: {{value}}",
    "IDEAS_OWN_PUBLISHED_HEADLINE": "Veröffentliche Ideen",
@@ -139,7 +139,7 @@
    "OVERVIEW_PROTOTYPES_HEADLINE": "Prototypen",
    "OVERVIEW_PROTOTYPES_NO_CAMPAIGN": "Zurzeit gibt es leider keine Prototypen Kampagne",
    "PASSWORD_RECOVERY_DESC": "Gib hier die E-Mail-Adresse ein, mit der Du Dich registriert hast. Du erhältst von uns eine E-Mail mit einem Bestätigungslink und kannst Dein Passwort neu setzen.",
-   "PASSWORD_RECOVERY_ERROR_EMAIL_NOT_REGISTERED": "Die Email-Adresse wurde noch nicht registriert. Versuche dich einfach zu {{link}}.",
+   "PASSWORD_RECOVERY_ERROR_EMAIL_NOT_REGISTERED": "Die E-Mail-Adresse wurde noch nicht registriert. Versuche dich einfach zu {{link}}.",
    "PASSWORD_RECOVERY_ERROR_EMAIL_NOT_REGISTERED_LINK": "registrieren",
    "PASSWORD_RECOVERY_HEADLINE": "Passwort vergessen",
    "PASSWORD_RECOVERY_LOGIN": "oder {{link}} anmelden",
@@ -157,5 +157,5 @@
    "REGISTER_SUCCESS_DESC": "Deine Registrierung unter dem Namen {{forename}} {{surname}} war erfolgreich. Wir haben eine E-Mail mit einem Bestätigungslink an {{email}} gesendet. Bitte öffne Dein E-Mail-Postfach und klicke auf den Link, um die Registrierung abzuschließen.",
    "REGISTER_SUCCESS_HEADLINE": "Registrierung erfolgreich",
    "OVERVIEW_CAMPAIGN_DESCRIPTION": "OVERVIEW_CAMPAIGN_DESCRIPTION",
-   "OVERVIEW_CAMPAIGN_HEADLINE": "OVERVIEW_CAMPAIGN_HEADLINE"
+   "OVERVIEW_CAMPAIGN_HEADLINE": "Marktplätze"
 }

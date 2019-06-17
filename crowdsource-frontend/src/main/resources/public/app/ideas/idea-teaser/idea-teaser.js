@@ -10,11 +10,11 @@ angular.module('crowdsource')
             controller: function ($scope, $rootScope, $translate) {
 
                 $rootScope.$on('$translateChangeSuccess', function (event,data) {
-                    vm.currentLanguage = data.language;
+                  vm.currentLanguage = data.language;
                 });
 
                 var vm = this;
-                vm.currentLanguage = $translate.use();
+              vm.currentLanguage = $translate.use();
 
                 // vm.campaign = angular.copy($scope.campaign);
                 if($scope.campaign.videoImageReference === null) $scope.campaign.videoImageReference = "/images/fallbacks/campaign-video-image-fallback.png";

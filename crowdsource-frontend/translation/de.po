@@ -13,7 +13,7 @@ msgstr "Bitte vergib ein Passwort, um die Aktivierung Deines Kontos abzuschließ
 
 #: 
 msgid "ACTIVATION_ERROR_ALREADY_ACTIVE"
-msgstr "Dein Konto wurde bereits aktiviert. Du kannst Dich mit Deiner Email-Adresse und Deinem Passwort {{link}}."
+msgstr "Dein Konto wurde bereits aktiviert. Du kannst Dich mit Deiner E-Mail-Adresse und Deinem Passwort {{link}}."
 
 #: 
 msgid "ACTIVATION_ERROR_ALREADY_ACTIVE_LINK"
@@ -25,7 +25,7 @@ msgstr "Der Aktivierungslink ist ungültig."
 
 #: 
 msgid "ACTIVATION_ERROR_NOT_REGISTERED"
-msgstr "Du musst Dich zunächst mit Deiner Email-Adresse {{link}}."
+msgstr "Du musst Dich zunächst mit Deiner E-Mail-Adresse {{link}}."
 
 #: 
 msgid "ACTIVATION_ERROR_NOT_REGISTERED_LINK"
@@ -161,7 +161,7 @@ msgstr "hier"
 
 #: 
 msgid "FORM_EMAIL_ERROR_INVALID"
-msgstr "Bitte gib eine valide E-Mail Adresse ein"
+msgstr "Bitte gib eine valide E-Mail-Adresse ein"
 
 #: 
 msgid "FORM_EMAIL_ERROR_INVALID_BLACKLIST"
@@ -301,7 +301,7 @@ msgstr "Reiche eine Idee ein"
 
 #: 
 msgid "IDEAS_LOAD_MORE_LABEL"
-msgstr "Lade mehr Ideen!!"
+msgstr "Lade mehr Ideen"
 
 #: 
 msgid "IDEAS_LOAD_MORE_LABEL_NO_MORE"
@@ -569,7 +569,7 @@ msgstr "Gib hier die E-Mail-Adresse ein, mit der Du Dich registriert hast. Du er
 
 #: 
 msgid "PASSWORD_RECOVERY_ERROR_EMAIL_NOT_REGISTERED"
-msgstr "Die Email-Adresse wurde noch nicht registriert. Versuche dich einfach zu {{link}}."
+msgstr "Die E-Mail-Adresse wurde noch nicht registriert. Versuche dich einfach zu {{link}}."
 
 #: 
 msgid "PASSWORD_RECOVERY_ERROR_EMAIL_NOT_REGISTERED_LINK"
@@ -641,5 +641,5 @@ msgstr ""
 
 #: 
 msgid "OVERVIEW_CAMPAIGN_HEADLINE"
-msgstr ""
+msgstr "Marktplätze"
 
