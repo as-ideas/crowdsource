@@ -6,9 +6,11 @@ import de.asideas.crowdsource.config.SecurityConfig;
 import de.asideas.crowdsource.config.mail.MailSenderConfig;
 import de.asideas.crowdsource.config.mail.MailTemplateConfig;
 
+import de.asideas.crowdsource.security.awssecretsmanager.AWSCrowdSecretsManagerCredentials;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -33,6 +35,7 @@ import static org.slf4j.LoggerFactory.getLogger;
     @PropertySource(value = "build.properties", ignoreResourceNotFound = true),
     @PropertySource(value = "build.core.properties", ignoreResourceNotFound = true)
 })
+@EnableConfigurationProperties(AWSCrowdSecretsManagerCredentials.class)
 public class CrowdSource extends WebMvcConfigurerAdapter {
 
     private static final Logger log = getLogger(CrowdSource.class);

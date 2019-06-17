@@ -1,5 +1,7 @@
-package de.asideas.crowdsource.security;
+package de.asideas.crowdsource.security.awssecretsmanager;
 
+import com.amazonaws.auth.AWSCredentials;
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.services.secretsmanager.AWSSecretsManager;
 import com.amazonaws.services.secretsmanager.AWSSecretsManagerClientBuilder;
 import com.amazonaws.services.secretsmanager.model.DecryptionFailureException;
@@ -11,23 +13,30 @@ import de.asideas.crowdsource.domain.exception.ResourceNotFoundException;
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.slf4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.security.InvalidParameterException;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
+@Component
 public class CrowdAWSSecretsManager {
+
+    @Autowired
+    private AWSCrowdSecretsManagerCredentials awsCredentials;
 
     private static final Logger log = getLogger(CrowdAWSSecretsManager.class);
 
     final static String SECRET_NAME = "AS_Crowd_DeepL_API_Key";
     final static String REGION = "eu-central-1";
 
-    public static String getDeepLKey() throws Exception {
+    public String getDeepLKey() throws Exception {
 
         AWSSecretsManager client = AWSSecretsManagerClientBuilder.standard()
                 .withRegion(REGION)
+                .withCredentials(new AWSStaticCredentialsProvider(awsCredentials))
                 .build();
 
         String secret = null;

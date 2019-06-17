@@ -35,7 +35,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
-@TestPropertySource("/application-test.properties")
+@TestPropertySource("classpath:application-test.properties")
 @SpringBootTest(classes = {CrowdsourceTestApp.class}, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public abstract class AbstractCrowdIT {
 
