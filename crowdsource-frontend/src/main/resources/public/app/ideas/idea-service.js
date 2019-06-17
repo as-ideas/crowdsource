@@ -8,7 +8,7 @@ angular.module('crowdsource')
     .factory('Idea', function ($resource, $q) {
 
         var service = {};
-        var DEFAULT_PAGE_SIZE = 20;
+        var DEFAULT_PAGE_SIZE = 50;
         service.currentCampaign = null;
 
         var ideasCampaignResource = $resource('/ideas_campaigns', {}, {
