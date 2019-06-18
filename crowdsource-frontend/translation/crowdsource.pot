@@ -57,6 +57,154 @@ msgid "ADMIN_IDEAS_PENDING_HEADLINE"
 msgstr ""
 
 msgctxt ""
+msgid "AS_ABOUT_AS_IT_CAPTION"
+msgstr "v.l.n.r. Johannes Schrade, Anneke Möhlmann"
+
+msgctxt ""
+msgid "AS_ABOUT_AS_IT_HEADLINE"
+msgstr "AS IT"
+
+msgctxt ""
+msgid "AS_ABOUT_AS_IT_HEADLINE_DESC"
+msgstr ""
+
+msgctxt ""
+msgid "AS_ABOUT_IDEAS_ENGINEERING_CAPTION"
+msgstr "v.l.n.r. Lars Reith, Tarek Madany-Mamlouk, Martin Bild, Julian Godesa, Thomas Wenzinski, Stefan Bieler, Maria Steffen, Hsin-Tung Chen"
+
+msgctxt ""
+msgid "AS_ABOUT_IDEAS_ENGINEERING_DESC"
+msgstr "Wir fokussieren uns auf die Entwicklung neuer Produkte. Dabei haben wir zum besseren Verständnis der sich immer schneller entwickelnden Märkte die neuesten Technologie-Phänomene wie beispielsweise VR, AI, Chatbots, Big Data und Blockchain im Visier. Wir verstehen uns auch als Inkubator für digitale innovative Produkte im Hinblick auf reale unternehmerische Herausforderungen für die Axel Springer-Familie und darüber hinaus."
+
+msgctxt ""
+msgid "AS_ABOUT_IDEAS_ENGINEERING_HEADLINE"
+msgstr "Ideas Engineering"
+
+msgctxt ""
+msgid "AS_ABOUT_NEWS_MEDIA_PRINT_CAPTION"
+msgstr "v.l.n.r. Thomas Wendt, Thomas Eisermann"
+
+msgctxt ""
+msgid "AS_ABOUT_NEWS_MEDIA_PRINT_DESC"
+msgstr "Die Personalabteilung des Verlagsbereichs News Media Print begleitet Mitarbeiterinnen und Mitarbeiter mit Kompetenz, Erfahrung und Weitblick von der Bewerbung über Elternzeit, Sabbatical und Fachkarriere bis hin zum Renteneintritt auf ihrem Weg in der Axel Springer-Familie."
+
+msgctxt ""
+msgid "AS_ABOUT_NEWS_MEDIA_PRINT_HEADLINE"
+msgstr "News Media Print"
+
+msgctxt ""
+msgid "AS_ABOUT_PEOPLE_AND_CULTURE_CAPTION"
+msgstr "v.l.n.r. Johannes Burr, Sven Rebbert, N.N."
+
+msgctxt ""
+msgid "AS_ABOUT_PEOPLE_AND_CULTURE_DESC"
+msgstr "People & Culture steht für die unternehmensweite Vernetzung und den Austausch der Mitarbeiter untereinander, für lebenslanges Lernen und die Potentialentfaltung von Teams und jedem Einzelnen sowie für das Erleben modernen Arbeitens. Mit Leidenschaft setzen wir uns dafür ein, neue Impulse und Innovationen ins Unternehmen zu tragen, die Lust auf Neues machen."
+
+msgctxt ""
+msgid "AS_ABOUT_PEOPLE_AND_CULTURE_HEADLINE"
+msgstr "People & Culture"
+
+msgctxt ""
+msgid "AS_BUTTON_LABEL_NEWSLETTER"
+msgstr "Newsletter"
+
+msgctxt ""
+msgid "AS_FOOTER_INFORMATION"
+msgstr "Informationen"
+
+msgctxt ""
+msgid "AS_FOOTER_LINK_ABOUT_US"
+msgstr "Über uns"
+
+msgctxt ""
+msgid "AS_FOOTER_LINK_IMPRINT"
+msgstr "Impressum"
+
+msgctxt ""
+msgid "AS_FOOTER_LINK_INTRO"
+msgstr "Entdecken"
+
+msgctxt ""
+msgid "AS_FOOTER_LINK_PRIVACY_POLICY"
+msgstr "Datenschutzerklärung"
+
+msgctxt ""
+msgid "AS_FOOTER_LINK_SUPPORT"
+msgstr "Hilfe"
+
+msgctxt ""
+msgid "AS_FOOTER_NEWSLETTER"
+msgstr "Newsletter"
+
+msgctxt ""
+msgid "AS_FOOTER_PARTNER"
+msgstr "Partner"
+
+msgctxt ""
+msgid "AS_FOOTER_SITEMAP"
+msgstr "Sitemap"
+
+msgctxt ""
+msgid "AS_IMPRINT_ADDRESS"
+msgstr "Axel Springer Ideas Engineering GmbH"
+
+msgctxt ""
+msgid "AS_IMPRINT_CONTACT_HEADLINE"
+msgstr "Kontakt"
+
+msgctxt ""
+msgid "AS_IMPRINT_CONTACT_P"
+msgstr "support@crowd.asideas.de"
+
+msgctxt ""
+msgid "AS_IMPRINT_HEADLINE"
+msgstr "Impressum"
+
+msgctxt ""
+msgid "AS_IMPRINT_PROVIDER"
+msgstr "Anbieter"
+
+msgctxt ""
+msgid "AS_IMPRINT_RESPONSIBLE_HEADLINE"
+msgstr "Verantwortlich für den Inhalt nach § 6 Abs.2 MDStV"
+
+msgctxt ""
+msgid "AS_IMPRINT_RESPONSIBLE_P"
+msgstr "Michael Alber"
+
+msgctxt ""
+msgid "AS_PRIVACY_POLICY_HTML"
+msgstr ""
+
+msgctxt ""
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_1_PARAGRAPH"
+msgstr "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+
+msgctxt ""
+msgid "AS_SUPPORT_FAQ_DESC"
+msgstr ""
+
+msgctxt ""
+msgid "AS_SUPPORT_FAQ_HEADLINE"
+msgstr ""
+
+msgctxt ""
+msgid "AS_SUPPORT_HELP_DESC"
+msgstr ""
+
+msgctxt ""
+msgid "AS_SUPPORT_HELP_HEADLINE"
+msgstr ""
+
+msgctxt ""
+msgid "AS_SUPPORT_HELP_P1"
+msgstr "support@crowd.asideas.de"
+
+msgctxt ""
+msgid "AS_SUPPORT_HELP_P2"
+msgstr "Wir versuchen in jedem Fall, eine Lösung für Dein Problem zu finden."
+
+msgctxt ""
 msgid "BUTTON_LABEL_APPROVE"
 msgstr "Freigeben"
 
