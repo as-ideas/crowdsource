@@ -3,12 +3,26 @@
   "startDate": "2019-05-01T11:52:49.501+02:00",
   "endDate": "2019-06-30T11:53:00.501+02:00",
   "campaignInitiator": null,
-  "title": "Eine tolle Kampagne",
-  "description": "In dieser Kampagne sammeln wir tolle Ideen.",
   "sponsor": "The Sponsor",
   "videoReference": "test_vidRef",
   "videoImageReference": "test_vidImgRef",
   "teaserImageReference": "test_teaserImage",
   "active": false,
-  "expired": false
+  "expired": false,
+  "contentI18n": {
+    "de": {
+      "title": "Plastikfreies Büro",
+      "description": "Eine Bürowelt ohne Plastik. Wir als AxelSpringer leisten unseren Beitrag.",
+      "teaserImageReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/plastikfreies-buero/de/preview_image.jpg",
+      "videoReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/plastikfreies-buero/de/starwars_de.mp4",
+      "videoImageReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/plastikfreies-buero/de/videoImage_de.png"
+    },
+    "en": {
+      "title": "Office free of plasitc waste",
+      "description": "An offie world without plastic. We as Axel Springer contribute our part",
+      "teaserImageReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/plastikfreies-buero/en/preview_image.jpg",
+      "videoReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/plastikfreies-buero/en/starwars_en.mp4",
+      "videoImageReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/plastikfreies-buero/en/videoImage_en.png"
+    }
+  }
 }

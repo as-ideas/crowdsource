@@ -2,11 +2,12 @@ package de.asideas.crowdsource.service.translation;
 
 import de.asideas.crowdsource.domain.model.ideascampaign.IdeaContentI18n;
 import de.asideas.crowdsource.domain.model.ideascampaign.IdeaEntity;
-import de.asideas.crowdsource.security.CrowdAWSSecretsManager;
+import de.asideas.crowdsource.security.awssecretsmanager.CrowdAWSSecretsManager;
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import org.slf4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -21,6 +22,9 @@ import static org.slf4j.LoggerFactory.getLogger;
 
 @Service
 public class TranslationService {
+
+    @Autowired
+    private CrowdAWSSecretsManager crowdAWSSecretsManager;
 
     private static final Logger log = getLogger(TranslationService.class);
 
@@ -63,7 +67,7 @@ public class TranslationService {
     }
 
     private SingleTranslation getTranslation(IdeaEntity ideaEntity, String targetLang) throws Exception {
-        final String apiKey = CrowdAWSSecretsManager.getDeepLKey();
+        final String apiKey = crowdAWSSecretsManager.getDeepLKey();
 
         final String origTitle = ideaEntity.getOriginalTitle();
         final String origPitch = ideaEntity.getOriginalPitch();
