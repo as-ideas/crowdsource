@@ -3,11 +3,12 @@
  */
 
 .footer {
-    padding: 3rem 1rem;
+    padding: 1.5rem 1rem 1.5rem 1rem;
     color: $white;
     background-color: $clr-gray-light;
 
     @media #{$medium-up} {
+        padding: 3rem 1rem;
         margin-top: 0;
     }
 }
@@ -52,6 +53,7 @@
 %footer__item-head {
     @include font-text;
 
+    font-size: $fs-small;
     font-weight: $fw-regular;
     margin-bottom: $mrg-small;
 }
@@ -96,7 +98,7 @@
         background-repeat: no-repeat;
         background-size: contain;
         height: 30px;
-        width: 133px;
+        width: 100px;
     }
 
     &__pc {
@@ -104,8 +106,8 @@
         background-position: center center;
         background-repeat: no-repeat;
         background-size: contain;
-        height: 29px;
-        width: 108px;
+        height: 30px;
+        width: 107px;
     }
 
     &__as {
@@ -113,14 +115,15 @@
         background-position: center center;
         background-repeat: no-repeat;
         background-size: contain;
-        height: 33px;
-        width: 128px;
+        height: 32px;
+        width: 98px;
     }
 }
 
 .footer-link {
     @include font-text;
 
+    font-size: $fs-small;
     text-decoration: none;
     transition: color 100ms ease-out;
 

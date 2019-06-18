@@ -103,7 +103,7 @@ $team-width: ($team-container-width - ($team-gutter * $team-items * 2)) / $team-
     &__container {
         display: flex;
         flex-wrap: wrap;
-        width: 100%
+        width: 100%;
     }
 
     &__container--inverse {
@@ -111,31 +111,31 @@ $team-width: ($team-container-width - ($team-gutter * $team-items * 2)) / $team-
         flex-wrap: wrap;
         width: 100%;
 
-        @media only screen and (min-width: 768px) {
+        @media only screen and (min-width: 1024px) {
             flex-direction: row-reverse;
         }
     }
 
     &__container > div:nth-child(2n+1){
-        @media only screen and (min-width: 768px) {
+        @media only screen and (min-width: 1024px) {
             padding-right: $mrg-tripple;
         }
     }
 
     &__container > div:nth-child(2n){
-        @media only screen and (min-width: 768px) {
+        @media only screen and (min-width: 1024px) {
             padding-left: $mrg-tripple;
         }
     }
 
     &__container--inverse > div:nth-child(2n+1){
-        @media only screen and (min-width: 768px) {
+        @media only screen and (min-width: 1024px) {
             padding-left: $mrg-tripple;
         }
     }
 
     &__container--inverse > div:nth-child(2n){
-        @media only screen and (min-width: 768px) {
+        @media only screen and (min-width: 1024px) {
             padding-right: $mrg-tripple;
         }
     }
@@ -144,7 +144,7 @@ $team-width: ($team-container-width - ($team-gutter * $team-items * 2)) / $team-
         box-sizing: border-box;
         width: 100%;
 
-        @media only screen and (min-width: 768px) {
+        @media only screen and (min-width: 1024px) {
             width: 50%;
         }
     }
@@ -170,6 +170,7 @@ $team-width: ($team-container-width - ($team-gutter * $team-items * 2)) / $team-
     &__image-caption {
         @include font-base;
         font-size: $fs-small;
+        margin: 0;
     }
 
     &__social-links--left {
@@ -181,7 +182,7 @@ $team-width: ($team-container-width - ($team-gutter * $team-items * 2)) / $team-
         display: block;
         margin-top: $mrg-huge;
 
-        @media only screen and (min-width: 768px) {
+        @media only screen and (min-width: 1024px) {
             float: right;
             margin-top: $mrg-medium;
         }
