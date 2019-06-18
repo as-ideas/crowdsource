@@ -133,10 +133,6 @@ msgid "AS_FOOTER_LINK_SUPPORT"
 msgstr "Hilfe"
 
 msgctxt ""
-msgid "AS_FOOTER_NEWSLETTER"
-msgstr "Newsletter"
-
-msgctxt ""
 msgid "AS_FOOTER_PARTNER"
 msgstr "Partner"
 
@@ -181,15 +177,7 @@ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_1_PARAGRAPH"
 msgstr "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
 
 msgctxt ""
-msgid "AS_SUPPORT_FAQ_DESC"
-msgstr ""
-
-msgctxt ""
 msgid "AS_SUPPORT_FAQ_HEADLINE"
-msgstr ""
-
-msgctxt ""
-msgid "AS_SUPPORT_HELP_DESC"
 msgstr ""
 
 msgctxt ""

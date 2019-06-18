@@ -951,11 +951,11 @@ msgstr "Help"
 
 #:
 msgid "AS_SUPPORT_HELP_P1"
-msgstr "If you have a problem or a question, please have a look at our FAQ's. Maybe you can already find the right answer there. If you really shouldn't get ahead, then turn to us directly: {{email}}"
+msgstr "If you have a problem or a question, please take a look at our FAQ's. Maybe you can already find the right answer there. If you're still not getting anywhere, turn to us directly: {{email}}"
 
 #:
 msgid "AS_SUPPORT_HELP_P2"
-msgstr "In any case we try to find a solution for your problem."
+msgstr "In any case we will try to find a solution for your problem."
 
 
 

@@ -271,35 +271,56 @@ $range-slider-active-segment-bg-color: $clr-emerald;
   text-transform: uppercase;
 }
 
+// Global styles
 h1 {
   @include font-headline-base;
   font-size: $fs-large;
+
+  @media screen and (max-width: 1023px) {
+    font-size: $fs-xmedium;
+  }
 }
 
 h2 {
   @include font-headline-base;
   font-size: $fs-xmedium;
+
+  @media screen and (max-width: 1023px) {
+    font-size: $fs-medium;
+  }
 }
 
 h3 {
   @include font-headline-base;
   font-size: $fs-medium;
+
+  @media screen and (max-width: 1023px) {
+    font-size: $fs-smedium;
+  }
+
 }
 
 h4 {
   @include font-headline-base;
   font-size: $fs-smedium;
-}
 
-address {
-  @include font-text;
-  font-style: italic;
 }
 
 p {
   @include font-text;
 }
 
+li {
+  @include font-text;
+}
+
 input {
   @include font-form;
 }
+
+address {
+  @include font-text;
+  margin-bottom: $mrg-medium;
+}
+
+
