@@ -234,6 +234,40 @@ $tile-padding-vertical: 15px;
       background-color: $clr-red;
       background-image: url('../images/icons/icon-thumbs-down.svg');
     }
+
+    @mixin deepl-base {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 74px; /*or your image's width*/
+      height: 30px; /*or your image's height*/
+
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+
+      margin-bottom: $mrg-small;
+      margin-right: $mrg-normal;
+      padding: 0;
+
+      cursor: grab;
+
+    }
+
+    &__deepl {
+      @include deepl-base;
+      background-image: url('../images/logo-deepl-active.svg');
+
+      &:hover {
+        background-image: url('../images/logo-deepl-hover.svg');
+      }
+
+      &--inactive {
+        @include deepl-base;
+        background-image: url('../images/logo-deepl-inactive.svg');
+      }
+    }
+
   }
 }
 

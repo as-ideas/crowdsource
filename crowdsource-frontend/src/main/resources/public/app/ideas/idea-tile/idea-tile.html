@@ -1,7 +1,7 @@
 <div class="ideas-grid-tile">
 
     <div ng-if="vm.idea.status == 'PUBLISHED'">
-        <span class="ideas-grid-tile__title">{{ vm.idea.contentI18n[vm.currentLanguage].title }}</span>
+        <span class="ideas-grid-tile__title">{{ vm.title }}</span>
         <span class="ideas-grid-tile__star--single"></span>
         <span class="ideas-grid-tile__votes" translate="IDEA_TILE_AVG_RATING" translate-value-rating="{{vm.rating.averageRating}}" translate-value-votes="{{vm.rating.countVotes}}"></span>
     </div>
@@ -10,7 +10,7 @@
         <span class="ideas-grid-tile__title">{{ vm.idea.contentI18n.original.title }}</span>
     </div>
 
-    <p ng-if="vm.idea.status == 'PUBLISHED'" class="ideas-grid-tile__text">{{ vm.idea.contentI18n[vm.currentLanguage].pitch }} ({{::idea.creatorName}})</p>
+    <p ng-if="vm.idea.status == 'PUBLISHED'" class="ideas-grid-tile__text">{{ vm.pitch }} ({{::idea.creatorName}})</p>
     <p ng-if="!(vm.idea.status == 'PUBLISHED') && vm.isAdminView" ng-class="vm.idea.status == 'REJECTED' ? 'ideas-grid-tile__text--rejected' : 'ideas-grid-tile__text'">{{ vm.idea.contentI18n.original.pitch }} ({{::idea.creatorName}})</p>
     <p ng-if="!(vm.idea.status == 'PUBLISHED') && !vm.isEditable && !vm.isAdminView" ng-class="vm.idea.status == 'REJECTED' ? 'ideas-grid-tile__text--rejected' : 'ideas-grid-tile__text'">{{ vm.idea.contentI18n.original.pitch }}</p>
 
@@ -66,4 +66,7 @@
             </div>
         </div>
     </div>
+
+    <div ng-if="vm.isTranslated && vm.isTranslationSelected" class="ideas-grid-tile__deepl" ng-click="vm.selectTranslation(false)"></div>
+    <div ng-if="vm.isTranslated && !vm.isTranslationSelected" class="ideas-grid-tile__deepl--inactive" ng-click="vm.selectTranslation(true)"></div>
 </div>
