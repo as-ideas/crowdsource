@@ -64,12 +64,12 @@ public class MailSenderConfig {
         properties.setProperty("mail.smtp.timeout", Integer.toString(smtpReadTimeout));
 
         try {
-            final String[] credentials = crowdAWSSecretsManager.getMailGunCredentials();
+            final CrowdAWSSecretsManager.Credentials credentials = crowdAWSSecretsManager.getMailGunCredentials();
 
             properties.setProperty("mail.smtp.auth", "true");
 
-            javaMailSender.setUsername(credentials[0]);
-            javaMailSender.setPassword(credentials[1]);
+            javaMailSender.setUsername(credentials.getUsername());
+            javaMailSender.setPassword(credentials.getPassword());
         } catch (Exception e) {
             log.error("An error occurred while reading the Mailgun credentials from secret-manager.");
         }
