@@ -29,21 +29,24 @@ public class CrowdAWSSecretsManager {
     private static final Logger log = getLogger(CrowdAWSSecretsManager.class);
 
     final static String SECRET_NAME_DEEPL = "AS_Crowd_DeepL_API_Key";
+    final static String SECRET_NAME_MAILGUN = "AS_Crowd_Mailgun";
     final static String SECRET_NAME_MAILGUN_USER = "AS_Crowd_MailGun_User";
     final static String SECRET_NAME_MAILGUN_PASSWORD = "AS_Crowd_MailGun_PW";
 
     final static String REGION = "eu-central-1";
 
     public String getDeepLKey() throws Exception {
-        return getSecret(SECRET_NAME_DEEPL);
+        return extractDeepLKey(getSecret(SECRET_NAME_DEEPL));
     }
 
-    public String getMailGunUser() throws Exception {
-        return getSecret(SECRET_NAME_MAILGUN_USER);
-    }
+    public String[] getMailGunCredentials() throws Exception {
+        final String secret = getSecret(SECRET_NAME_MAILGUN);
+        final String[] credentials = new String[2];
 
-    public String getMailGunPassword() throws Exception {
-        return getSecret(SECRET_NAME_MAILGUN_PASSWORD);
+        credentials[0] = extractMailGunUser(secret);
+        credentials[1] = extractMailGunPW(secret);
+
+        return credentials;
     }
 
     private String getSecret(String secretName) throws Exception {
@@ -84,20 +87,47 @@ public class CrowdAWSSecretsManager {
             throw new ResourceNotFoundException();
         }
 
-        return extractKey(secret);
+        return secret;
     }
 
-    private static String extractKey(String jsonString) throws IOException {
+    private static String extractDeepLKey(String jsonString) throws IOException {
         String key = null;
         try {
             ObjectMapper mapper = new ObjectMapper();
             JsonNode root = mapper.readValue(jsonString, JsonNode.class);
             key = root.get("deepl_api_key").getTextValue();
         } catch (IOException e) {
-            log.error("An error occurred reading the API key from AWS.");
+            log.error("An error occurred reading the DeepL API key from AWS.");
             throw e;
         }
         return key;
+    }
+
+    private static String extractMailGunUser(String jsonString) throws IOException {
+        String user = null;
+        try {
+
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode root = mapper.readValue(jsonString, JsonNode.class);
+            user = root.get(SECRET_NAME_MAILGUN_USER).getTextValue();
+        } catch (IOException e) {
+            log.error("An error occurred reading the datadog user from AWS.");
+            throw e;
+        }
+        return user;
+    }
+
+    private static String extractMailGunPW(String jsonString) throws IOException {
+        String password = null;
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode root = mapper.readValue(jsonString, JsonNode.class);
+            password = root.get(SECRET_NAME_MAILGUN_PASSWORD).getTextValue();
+        } catch (IOException e) {
+            log.error("An error occurred reading the datadog password from AWS.");
+            throw e;
+        }
+        return password;
     }
 
 }
