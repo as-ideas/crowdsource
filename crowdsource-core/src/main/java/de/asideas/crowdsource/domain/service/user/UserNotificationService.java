@@ -256,8 +256,7 @@ public class UserNotificationService {
         context.setVariable("link", buildIdeasCampaignLink(idea.getCampaignId()));
         context.setVariable("campaignTitle", campaignTitle);
 
-        final String formattedSubjectPrefix = "".equals(subjectPrefix) ? "" : "[" + subjectPrefix + "] ";
-        final String mailSubject = MessageFormat.format(formattedSubjectPrefix + SUBJECT_IDEA_CREATED, campaignTitle);
+        final String mailSubject = MessageFormat.format(SUBJECT_IDEA_CREATED, campaignTitle);
         final String mailContent = ideaCreatedEmailTemplate.getValue(context, String.class);
 
         sendMail(emailAddress, mailSubject, mailContent);
@@ -309,9 +308,13 @@ public class UserNotificationService {
         return applicationUrl + "/";
     }
 
+    private String addPrefixToSubjectLine(String subject) {
+        return ("".equals(subjectPrefix) ? "" : "[" + subjectPrefix + "] ") + subject;
+    }
+
     private void sendMail(String email, String subject, String messageText) {
 
-        final SimpleMailMessage mailMessage = newMailMessage(email, subject, messageText);
+        final SimpleMailMessage mailMessage = newMailMessage(email, addPrefixToSubjectLine(subject), messageText);
 
         taskExecutorSmtp.submit(() -> {
             try {
