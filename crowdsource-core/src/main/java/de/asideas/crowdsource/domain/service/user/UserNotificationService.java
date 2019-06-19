@@ -50,6 +50,9 @@ public class UserNotificationService {
 
     private static final Logger LOG = LoggerFactory.getLogger(UserNotificationService.class);
 
+    @Value("${de.asideas.crowdsource.mail.subjectprefix:}")
+    private String subjectPrefix;
+
     @Value("${de.asideas.crowdsource.baseUrl:http://localhost:8080}")
     private String applicationUrl;
 
@@ -253,7 +256,8 @@ public class UserNotificationService {
         context.setVariable("link", buildIdeasCampaignLink(idea.getCampaignId()));
         context.setVariable("campaignTitle", campaignTitle);
 
-        final String mailSubject = MessageFormat.format(SUBJECT_IDEA_CREATED, campaignTitle);
+        final String formattedSubjectPrefix = "".equals(subjectPrefix) ? "" : "[" + subjectPrefix + "] ";
+        final String mailSubject = MessageFormat.format(formattedSubjectPrefix + SUBJECT_IDEA_CREATED, campaignTitle);
         final String mailContent = ideaCreatedEmailTemplate.getValue(context, String.class);
 
         sendMail(emailAddress, mailSubject, mailContent);
