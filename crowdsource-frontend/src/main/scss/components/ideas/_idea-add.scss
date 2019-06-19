@@ -13,18 +13,7 @@
   transition: border .15s ease-in;
   font-size: $fs-small;
   line-height: $lh-regular;
-
-  @media #{$small-only} {
-    min-height: $fs-regular * $lh-regular * 6.5;
-  }
-
-  @media #{$medium-only} {
-    min-height: $fs-regular * $lh-regular * 4.5;
-  }
-
-  @media #{$large-up} {
-    min-height: $fs-regular * $lh-regular * 3.5;
-  }
+  min-height: $fs-regular * $lh-regular * 3.5;
 
 
   &:focus {
