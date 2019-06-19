@@ -132,7 +132,7 @@ public class IdeaControllerTest {
         )
             .andDo(log())
             .andExpect(status().isBadRequest())
-            .andExpect(jsonPath("$.fieldViolations.rejectionComment", equalTo("size must be between 10 and 10000"))
+            .andExpect(jsonPath("$.fieldViolations.rejectionComment", equalTo("size must be between 10 and 1000"))
             );
     }
 

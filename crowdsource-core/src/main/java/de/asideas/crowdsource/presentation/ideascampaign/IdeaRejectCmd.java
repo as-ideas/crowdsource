@@ -10,7 +10,7 @@ import org.springframework.validation.annotation.Validated;
 public class IdeaRejectCmd {
 
     @NotEmpty
-    @Size(min = 10, max = 10000)
+    @Size(min = 10, max = 1000)
     private String rejectionComment;
 
     public IdeaRejectCmd() {
