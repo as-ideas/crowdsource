@@ -39,13 +39,9 @@ public class CrowdAWSSecretsManager {
         return extractDeepLKey(getSecret(SECRET_NAME_DEEPL));
     }
 
-    public String[] getMailGunCredentials() throws Exception {
+    public Credentials getMailGunCredentials() throws Exception {
         final String secret = getSecret(SECRET_NAME_MAILGUN);
-        final String[] credentials = new String[2];
-
-        credentials[0] = extractMailGunUser(secret);
-        credentials[1] = extractMailGunPW(secret);
-
+        Credentials credentials = new Credentials(extractMailGunUser(secret), extractMailGunPW(secret));
         return credentials;
     }
 
@@ -128,6 +124,24 @@ public class CrowdAWSSecretsManager {
             throw e;
         }
         return password;
+    }
+
+    public class Credentials {
+        private String username;
+        private String password;
+
+        public Credentials(String username, String password) {
+            this.username = username;
+            this.password = password;
+        }
+
+        public String getUsername() {
+            return username;
+        }
+
+        public String getPassword() {
+            return password;
+        }
     }
 
 }
