@@ -1,5 +1,9 @@
 package de.asideas.crowdsource.config.mail;
 
+import de.asideas.crowdsource.security.awssecretsmanager.CrowdAWSSecretsManager;
+import de.asideas.crowdsource.service.translation.TranslationService;
+import org.slf4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -7,24 +11,21 @@ import org.springframework.core.task.AsyncTaskExecutor;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
-import org.springframework.util.StringUtils;
 
 import java.util.Properties;
 
+import static org.slf4j.LoggerFactory.getLogger;
+
 @Configuration
 public class MailSenderConfig {
+
+    private static final Logger log = getLogger(MailSenderConfig.class);
 
     @Value("${de.asideas.crowdsource.mail.host:localhost}")
     private String host;
 
     @Value("${de.asideas.crowdsource.mail.port:1025}")
     private Integer port;
-
-    @Value("${de.asideas.crowdsource.mail.username:}")
-    private String username;
-
-    @Value("${de.asideas.crowdsource.mail.password:}")
-    private String password;
 
     @Value("${de.asideas.crowdsource.mail.starttls:false}")
     private boolean useStartTls;
@@ -47,6 +48,9 @@ public class MailSenderConfig {
     @Value("${taskExecutor.email.keepAliveSeconds:60}")
     private int keepAliveSeconds;
 
+    @Autowired
+    private CrowdAWSSecretsManager crowdAWSSecretsManager;
+
     @Bean
     public JavaMailSender javaMailSender() {
         JavaMailSenderImpl javaMailSender = new JavaMailSenderImpl();
@@ -59,11 +63,16 @@ public class MailSenderConfig {
         properties.setProperty("mail.smtp.connectiontimeout", Integer.toString(smtpConnectionTimeout));
         properties.setProperty("mail.smtp.timeout", Integer.toString(smtpReadTimeout));
 
-        if (StringUtils.hasText(username) && StringUtils.hasText(password)) {
+        try {
+            final String username = crowdAWSSecretsManager.getMailGunUser();
+            final String password = crowdAWSSecretsManager.getMailGunPassword();
+
             properties.setProperty("mail.smtp.auth", "true");
 
             javaMailSender.setUsername(username);
             javaMailSender.setPassword(password);
+        } catch (Exception e) {
+            log.error("An error occurred while reading the Mailgun credentials from secret-manager.");
         }
 
         javaMailSender.setJavaMailProperties(properties);

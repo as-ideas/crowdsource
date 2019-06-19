@@ -1,6 +1,5 @@
 package de.asideas.crowdsource.security.awssecretsmanager;
 
-import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.services.secretsmanager.AWSSecretsManager;
 import com.amazonaws.services.secretsmanager.AWSSecretsManagerClientBuilder;
@@ -29,10 +28,25 @@ public class CrowdAWSSecretsManager {
 
     private static final Logger log = getLogger(CrowdAWSSecretsManager.class);
 
-    final static String SECRET_NAME = "AS_Crowd_DeepL_API_Key";
+    final static String SECRET_NAME_DEEPL = "AS_Crowd_DeepL_API_Key";
+    final static String SECRET_NAME_MAILGUN_USER = "AS_Crowd_MailGun_User";
+    final static String SECRET_NAME_MAILGUN_PASSWORD = "AS_Crowd_MailGun_PW";
+
     final static String REGION = "eu-central-1";
 
     public String getDeepLKey() throws Exception {
+        return getSecret(SECRET_NAME_DEEPL);
+    }
+
+    public String getMailGunUser() throws Exception {
+        return getSecret(SECRET_NAME_MAILGUN_USER);
+    }
+
+    public String getMailGunPassword() throws Exception {
+        return getSecret(SECRET_NAME_MAILGUN_PASSWORD);
+    }
+
+    private String getSecret(String secretName) throws Exception {
 
         AWSSecretsManager client = AWSSecretsManagerClientBuilder.standard()
                 .withRegion(REGION)
@@ -41,7 +55,7 @@ public class CrowdAWSSecretsManager {
 
         String secret = null;
         GetSecretValueRequest getSecretValueRequest = new GetSecretValueRequest()
-                .withSecretId(SECRET_NAME);
+                .withSecretId(secretName);
         GetSecretValueResult getSecretValueResult = null;
 
         try {
