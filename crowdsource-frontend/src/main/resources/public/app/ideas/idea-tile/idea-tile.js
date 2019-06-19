@@ -113,23 +113,19 @@ angular.module('crowdsource')
 
                 function isTranslated(currentLanguage) {
                     var contentI18n = $scope.idea.contentI18n;
-                    if(contentI18n == null) {
-                        console.log("No content object")
+                    if(!contentI18n || !contentI18n.originalLanguage) {
                         return false;
                     }
 
                     if(contentI18n.originalLanguage.toLowerCase() != currentLanguage.toLowerCase()) {
-                        console.log("isTranslated");
                         return true;
                     }
                     else {
-                        console.log("isNotTranslated");
                         return false;
                     }
                 }
 
                 function selectTranslation(on) {
-                    console.log("selectTranslation: " + on);
                     if(on) {
                         vm.isTranslationSelected = true;
                     } else {
@@ -142,17 +138,18 @@ angular.module('crowdsource')
                 function setIdeaTitleAndPitch() {
                     var contentI18n =  $scope.idea.contentI18n;
 
-                    if(vm.isTranslated && vm.isTranslationSelected) {
+                    if(!contentI18n || !contentI18n.originalLanguage) {
+                        vm.title = $scope.idea.title;
+                        vm.pitch = $scope.idea.pitch;
+                    }
+
+                    else if (vm.isTranslated && vm.isTranslationSelected) {
                         vm.title = contentI18n[vm.currentLanguage].title;
                         vm.pitch = contentI18n[vm.currentLanguage].pitch;
-
-                        console.log("Tranlated title: " + vm.title)
                     }
                     else {
                         vm.title = contentI18n.original.title;
                         vm.pitch = contentI18n.original.pitch;
-
-                        console.log("Original title: " + vm.title)
                     }
                 }
 
