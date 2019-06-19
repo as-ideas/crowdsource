@@ -204,6 +204,20 @@ public class UserEntity {
 
     @Override
     public String toString() {
-        return ToStringBuilder.reflectionToString(this);
+        return new ToStringBuilder(this)
+            .append("id", id)
+            .append("email", email)
+            .append("firstName", firstName)
+            .append("lastName", lastName)
+            .append("password", "[PROTECTED]")
+            .append("activationToken", "[PROTECTED]")
+            .append("roles", roles)
+            .append("activated", activated)
+            .append("deleted", deleted)
+            .append("budget", budget)
+            .append("preferredLanguage", preferredLanguage)
+            .append("createdDate", createdDate)
+            .append("lastModifiedDate", lastModifiedDate)
+            .toString();
     }
 }
