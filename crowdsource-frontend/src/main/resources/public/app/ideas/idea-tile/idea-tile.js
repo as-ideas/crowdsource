@@ -21,10 +21,14 @@ angular.module('crowdsource')
 
                 $rootScope.$on('$translateChangeSuccess', function (event,data) {
                     vm.currentLanguage = data.language;
+                    resetTranslation();
                 });
 
                 var vm = this;
                 vm.currentLanguage = $translate.use();
+                resetTranslation();
+
+                vm.selectTranslation = selectTranslation;
 
                 vm.idea = $scope.idea;
                 vm.rating = $scope.idea.rating || DEFAULT_RATING;
@@ -33,7 +37,6 @@ angular.module('crowdsource')
                 vm.isVotingDisabled = !$scope.campaign.active || false;
                 vm.rejectionComment = "";
                 vm.isEditable = false;
-
                 vm.isAdminView = $scope.admin || false;
 
                 vm.vote = function (value) {
@@ -106,6 +109,54 @@ angular.module('crowdsource')
                         }, OVERLAY_ANIMATION_DURATION)
 
                     }
+                }
+
+                function isTranslated(currentLanguage) {
+                    var contentI18n = $scope.idea.contentI18n;
+                    if(!contentI18n || !contentI18n.originalLanguage) {
+                        return false;
+                    }
+
+                    if(contentI18n.originalLanguage.toLowerCase() != currentLanguage.toLowerCase()) {
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
+                }
+
+                function selectTranslation(on) {
+                    if(on) {
+                        vm.isTranslationSelected = true;
+                    } else {
+                        vm.isTranslationSelected = false;
+                    }
+
+                    setIdeaTitleAndPitch();
+                }
+
+                function setIdeaTitleAndPitch() {
+                    var contentI18n =  $scope.idea.contentI18n;
+
+                    if(!contentI18n || !contentI18n.originalLanguage) {
+                        vm.title = $scope.idea.title;
+                        vm.pitch = $scope.idea.pitch;
+                    }
+
+                    else if (vm.isTranslated && vm.isTranslationSelected) {
+                        vm.title = contentI18n[vm.currentLanguage].title;
+                        vm.pitch = contentI18n[vm.currentLanguage].pitch;
+                    }
+                    else {
+                        vm.title = contentI18n.original.title;
+                        vm.pitch = contentI18n.original.pitch;
+                    }
+                }
+
+                function resetTranslation() {
+                    vm.isTranslated = isTranslated(vm.currentLanguage);
+                    vm.isTranslationSelected = true;
+                    setIdeaTitleAndPitch();
                 }
             }
         };
