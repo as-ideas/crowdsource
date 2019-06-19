@@ -643,23 +643,23 @@ msgstr ""
 msgid "OVERVIEW_CAMPAIGN_HEADLINE"
 msgstr "Marketplaces"
 
-#:
+#: 
 msgid "AS_ABOUT_AS_IT_CAPTION"
 msgstr "From left: Johannes Schrade, Anneke Möhlmann"
 
-#:
+#: 
 msgid "AS_ABOUT_AS_IT_HEADLINE"
 msgstr "AS IT"
 
-#:
+#: 
 msgid "AS_ABOUT_AS_IT_HEADLINE_DESC"
 msgstr ""
 
-#:
+#: 
 msgid "AS_ABOUT_IDEAS_ENGINEERING_CAPTION"
 msgstr "From left: Lars Reith, Tarek Madany-Mamlouk, Martin Bild, Julian Godesa, Thomas Wenzinski, Stefan Bieler, Maria Steffen, Hsin-Tung Chen"
 
-#:
+#: 
 msgid "AS_ABOUT_IDEAS_ENGINEERING_DESC"
 msgstr "We focus on the development of new products. In order to gain a better understanding of the rapidly developing markets, we target the latest technology phenomena such as VR, AI, Chatbots, Big Data and Blockchain. We also consider ourselves as an incubator for digital and innovative products regarding business challenges of the Axel Springer family. And way beyond.\n"
 "\n"
@@ -667,105 +667,101 @@ msgstr "We focus on the development of new products. In order to gain a better u
 "\n"
 "You want to get to know other innovative products? Talk to us over a good cup of coffee."
 
-#:
+#: 
 msgid "AS_ABOUT_IDEAS_ENGINEERING_HEADLINE"
 msgstr "Ideas Engineering"
 
-#:
+#: 
 msgid "AS_ABOUT_NEWS_MEDIA_PRINT_CAPTION"
 msgstr "From left: Thomas Wendt, Thomas Eisermann"
 
-#:
+#: 
 msgid "AS_ABOUT_NEWS_MEDIA_PRINT_DESC"
 msgstr "The human resources department of the News Media Print division accompanies all employees with competence, experience and foresight on their journey through the Axel Springer family. From their application, parental leave, sabbatical and specialist career to retirement.\n"
 "\n"
 "As creativity and exchange are the cornerstones of our work we support AS.Crowd."
 
-#:
+#: 
 msgid "AS_ABOUT_NEWS_MEDIA_PRINT_HEADLINE"
 msgstr "News Media Print"
 
-#:
+#: 
 msgid "AS_ABOUT_PEOPLE_AND_CULTURE_CAPTION"
 msgstr "From left: Johannes Burr, Sven Rebbert"
 
-#:
+#: 
 msgid "AS_ABOUT_PEOPLE_AND_CULTURE_DESC"
 msgstr "People & Culture stands for company-wide networking and exchange among employees, for lifelong learning and the increase of potential of teams and each individual as well as for experiencing modern work. We are passionately committed to bring new impulses and innovations into the company that encourage our enthusiasm for new things."
 
-#:
+#: 
 msgid "AS_ABOUT_PEOPLE_AND_CULTURE_HEADLINE"
 msgstr "People & Culture"
 
-#:
+#: 
 msgid "AS_BUTTON_LABEL_NEWSLETTER"
 msgstr "Newsletter"
 
-#:
+#: 
 msgid "AS_FOOTER_INFORMATION"
 msgstr "Information"
 
-#:
+#: 
 msgid "AS_FOOTER_LINK_ABOUT_US"
 msgstr "About us"
 
-#:
+#: 
 msgid "AS_FOOTER_LINK_IMPRINT"
 msgstr "Imprint"
 
-#:
+#: 
 msgid "AS_FOOTER_LINK_INTRO"
 msgstr "Discover"
 
-#:
+#: 
 msgid "AS_FOOTER_LINK_PRIVACY_POLICY"
 msgstr "Privacy policy"
 
-#:
+#: 
 msgid "AS_FOOTER_LINK_SUPPORT"
 msgstr "Help"
 
-#:
-msgid "AS_FOOTER_NEWSLETTER"
-msgstr "Newsletter"
-
-#:
+#: 
 msgid "AS_FOOTER_PARTNER"
 msgstr "Partners"
 
-#:
+#: 
 msgid "AS_FOOTER_SITEMAP"
 msgstr "Sitemap"
 
-#:
+#: 
 msgid "AS_IMPRINT_ADDRESS"
 msgstr "Axel Springer Ideas Engineering GmbH\n"
 "A company of Axel Springer SE\n"
 "Axel-Springer-Strasse 65\n"
 "10888 Berlin"
 
-#:
+#: 
 msgid "AS_IMPRINT_CONTACT_HEADLINE"
 msgstr "Contact"
 
-#:
+#: 
 msgid "AS_IMPRINT_CONTACT_P"
 msgstr "E-mail: {{email}}\n"
 "Phone: 030 - 2591 78100"
 
-#:
+#: 
 msgid "AS_IMPRINT_HEADLINE"
 msgstr "Imprint"
 
-#:
+#: 
 msgid "AS_IMPRINT_PROVIDER"
 msgstr "Provider"
 
-#:
+#: 
 msgid "AS_IMPRINT_RESPONSIBLE_HEADLINE"
 msgstr "Responsible for the content according to § 6 Abs.2 MDStV"
 
-#:
+#: 
 msgid "AS_IMPRINT_RESPONSIBLE_P"
 msgstr "Michael Alber\n"
 "COO\n"
@@ -777,7 +773,7 @@ msgstr "Michael Alber\n"
 "VAT ID No. DE 287499537\n"
 "Managing Director: Samir Fadlallah, Michael Alber"
 
-#:
+#: 
 msgid "AS_PRIVACY_POLICY_HTML"
 msgstr "<h1>Privacy policy of Axel Springer Crowd</h1>\n"
 "<p>We are very pleased about your interest in Axel Springer Crowd. To be able to offer Axel Springer Crowd, we of course require certain data about you. We take the protection of personal data very seriously and always process it in compliance with applicable data protection regulations, in particular the European Union General Data Protection Regulation (GDPR). With this privacy policy, we aim to fully inform you about how, why and to what extent we process personal data, and what your rights are as a data subject.</p>\n"
@@ -925,37 +921,39 @@ msgstr "<h1>Privacy policy of Axel Springer Crowd</h1>\n"
 "        <p>We do not perform any automated decision-making or profiling.</p>\n"
 "        <i>Last revised: June 11, 2019</i>"
 
-#:
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_1_HEADLINE"
-msgstr "What is the difference between an idea campaign and a prototype campaign?"
-
-#:
+#: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_1_PARAGRAPH"
 msgstr ""
 
-#:
-msgid "AS_SUPPORT_FAQ_DESC"
-msgstr "You have a question about AS.Crowd? Maybe you'll find the answer here!"
-
-#:
+#: 
 msgid "AS_SUPPORT_FAQ_HEADLINE"
 msgstr "FAQ"
 
-#:
-msgid "AS_SUPPORT_HELP_DESC"
-msgstr "How can we help you?"
-
-#:
+#: 
 msgid "AS_SUPPORT_HELP_HEADLINE"
 msgstr "Help"
 
-#:
+#: 
 msgid "AS_SUPPORT_HELP_P1"
 msgstr "If you have a problem or a question, please take a look at our FAQ's. Maybe you can already find the right answer there. If you're still not getting anywhere, turn to us directly: {{email}}"
 
-#:
+#: 
 msgid "AS_SUPPORT_HELP_P2"
 msgstr "In any case we will try to find a solution for your problem."
 
+#: 
+msgid "AS_FOOTER_NEWSLETTER"
+msgstr "Newsletter"
 
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_1_HEADLINE"
+msgstr "What is the difference between an idea campaign and a prototype campaign?"
+
+#: 
+msgid "AS_SUPPORT_FAQ_DESC"
+msgstr "You have a question about AS.Crowd? Maybe you'll find the answer here!"
+
+#: 
+msgid "AS_SUPPORT_HELP_DESC"
+msgstr "How can we help you?"
 

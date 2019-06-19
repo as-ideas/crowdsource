@@ -643,23 +643,23 @@ msgstr ""
 msgid "OVERVIEW_CAMPAIGN_HEADLINE"
 msgstr "Marktplätze"
 
-#:
+#: 
 msgid "AS_ABOUT_AS_IT_CAPTION"
 msgstr "v.l.n.r.: Johannes Schrade, Anneke Möhlmann"
 
-#:
+#: 
 msgid "AS_ABOUT_AS_IT_HEADLINE"
 msgstr "AS IT"
 
-#:
+#: 
 msgid "AS_ABOUT_AS_IT_HEADLINE_DESC"
-msgstr ""
+msgstr "Wir von der Axel Springer IT konzentrieren uns darauf, Potenziale der digitalen Transformation sowie disruptiver Technologien zu erkennen und sie für die verschiedenen Geschäftsbereiche der Axel-Springer-Familie nutzbar zu machen. Die digitale Disruption ist allgegenwärtig und setzt uns einem starken Wettbewerb in vielen Bereichen unserer täglichen Arbeit aus. Gleichzeitig bietet sie uns ungeahnte Chancen und Möglichkeiten, die wir aktiv gestalten wollen. Diese Entwicklungen reichen von zukunftsweisenden Technologien, über Vorteile durch die Nutzung von Daten, bis hin zu wegweisenden Trends in der Kollaboration zwischen Mitarbeitern. Wir unterstützen unsere Kunden, ihre täglichen Herausforderungen im Markt erfolgreich zu meistern, damit wir unsere führende Position als digitaler Verlag weiter festigen und ausbauen können. Mit unserer Expertise wollen wir die AS.Crowd erfolgreich begleiten."
 
-#:
+#: 
 msgid "AS_ABOUT_IDEAS_ENGINEERING_CAPTION"
 msgstr "v.l.n.r.: Lars Reith, Tarek Madany-Mamlouk, Martin Bild, Julian Godesa, Thomas Wenzinski, Stefan Bieler, Maria Steffen, Hsin-Tung Chen"
 
-#:
+#: 
 msgid "AS_ABOUT_IDEAS_ENGINEERING_DESC"
 msgstr "Wir fokussieren uns auf die Entwicklung neuer Produkte. Dabei haben wir zum besseren Verständnis der sich immer schneller entwickelnden Märkte die neuesten Technologie-Phänomene wie beispielsweise VR, AI, Chatbots, Big Data und Blockchain im Visier. Wir verstehen uns auch als Inkubator für digitale, innovative Produkte im Hinblick auf reale unternehmerische Herausforderungen für die Axel Springer-Familie. Und darüber hinaus.\n"
 "\n"
@@ -667,105 +667,101 @@ msgstr "Wir fokussieren uns auf die Entwicklung neuer Produkte. Dabei haben wir 
 "\n"
 "Du willst andere innovative Produkte kennenlernen? Komm mit uns bei einer guten Tasse Kaffee ins Gespräch."
 
-#:
+#: 
 msgid "AS_ABOUT_IDEAS_ENGINEERING_HEADLINE"
 msgstr "Ideas Engineering"
 
-#:
+#: 
 msgid "AS_ABOUT_NEWS_MEDIA_PRINT_CAPTION"
 msgstr "v.l.n.r.: Thomas Wendt, Thomas Eisermann"
 
-#:
+#: 
 msgid "AS_ABOUT_NEWS_MEDIA_PRINT_DESC"
 msgstr "Die Personalabteilung des Verlagsbereichs News Media Print begleitet Mitarbeiterinnen und Mitarbeiter mit Kompetenz, Erfahrung und Weitblick von der Bewerbung über Elternzeit, Sabbatical und Fachkarriere bis hin zum Renteneintritt auf ihrem Weg in der Axel Springer-Familie.\n"
 "\n"
 "Weil Kreativität und Austausch Grundpfeiler unserer Arbeit sind, unterstützen wir AS.Crowd."
 
-#:
+#: 
 msgid "AS_ABOUT_NEWS_MEDIA_PRINT_HEADLINE"
 msgstr "News Media Print"
 
-#:
+#: 
 msgid "AS_ABOUT_PEOPLE_AND_CULTURE_CAPTION"
 msgstr "v.l.n.r.: Johannes Burr, Sven Rebbert"
 
-#:
+#: 
 msgid "AS_ABOUT_PEOPLE_AND_CULTURE_DESC"
 msgstr "People & Culture steht für die unternehmensweite Vernetzung und den Austausch der Mitarbeiter untereinander, für lebenslanges Lernen und die Potentialentfaltung von Teams und jedem Einzelnen sowie für das Erleben modernen Arbeitens. Mit Leidenschaft setzen wir uns dafür ein, neue Impulse und Innovationen ins Unternehmen zu tragen, die Lust auf Neues machen."
 
-#:
+#: 
 msgid "AS_ABOUT_PEOPLE_AND_CULTURE_HEADLINE"
 msgstr "People & Culture"
 
-#:
+#: 
 msgid "AS_BUTTON_LABEL_NEWSLETTER"
 msgstr "Newsletter"
 
-#:
+#: 
 msgid "AS_FOOTER_INFORMATION"
 msgstr "Informationen"
 
-#:
+#: 
 msgid "AS_FOOTER_LINK_ABOUT_US"
 msgstr "Über uns"
 
-#:
+#: 
 msgid "AS_FOOTER_LINK_IMPRINT"
 msgstr "Impressum"
 
-#:
+#: 
 msgid "AS_FOOTER_LINK_INTRO"
 msgstr "Entdecken"
 
-#:
+#: 
 msgid "AS_FOOTER_LINK_PRIVACY_POLICY"
 msgstr "Datenschutzerklärung"
 
-#:
+#: 
 msgid "AS_FOOTER_LINK_SUPPORT"
 msgstr "Hilfe"
 
-#:
-msgid "AS_FOOTER_NEWSLETTER"
-msgstr "Newsletter"
-
-#:
+#: 
 msgid "AS_FOOTER_PARTNER"
 msgstr "Partner"
 
-#:
+#: 
 msgid "AS_FOOTER_SITEMAP"
 msgstr "Sitemap"
 
-#:
+#: 
 msgid "AS_IMPRINT_ADDRESS"
 msgstr "Axel Springer Ideas Engineering GmbH\n"
 "Ein Unternehmen der Axel Springer SE\n"
 "Axel-Springer-Straße 65\n"
 "10888 Berlin"
 
-#:
+#: 
 msgid "AS_IMPRINT_CONTACT_HEADLINE"
 msgstr "Kontakt"
 
-#:
+#: 
 msgid "AS_IMPRINT_CONTACT_P"
 msgstr "E-Mail: {{email}}\n"
 "Telefon: 030 - 2591 78100"
 
-#:
+#: 
 msgid "AS_IMPRINT_HEADLINE"
 msgstr "Impressum"
 
-#:
+#: 
 msgid "AS_IMPRINT_PROVIDER"
 msgstr "Anbieter"
 
-#:
+#: 
 msgid "AS_IMPRINT_RESPONSIBLE_HEADLINE"
 msgstr "Verantwortlich für den Inhalt nach § 6 Abs.2 MDStV"
 
-#:
+#: 
 msgid "AS_IMPRINT_RESPONSIBLE_P"
 msgstr "Michael Alber\n"
 "COO\n"
@@ -777,7 +773,7 @@ msgstr "Michael Alber\n"
 "USt-IdNr. DE 287499537\n"
 "Geschäftsführer: Samir Fadlallah, Michael Alber"
 
-#:
+#: 
 msgid "AS_PRIVACY_POLICY_HTML"
 msgstr "<h1>Datenschutzerklärung Axel Springer Crowd</h1>\n"
 "<p>Wir freuen uns sehr über Ihr Interesse an Axel Springer Crowd. Um Axel Springer Crowd anbieten zu können, benötigen wir natürlich auch einige Daten über Sie. Dabei nehmen wir den Schutz personenbezogener Daten sehr ernst und verarbeiten diese stets im Einklang mit den anwendbaren datenschutzrechtlichen Bestimmungen, insbesondere der EU Datenschutz-Grundverordnung. Mit dieser Datenschutzerklärung möchten wir Sie vollumfänglich über Art, Umfang und Zweck der von uns verarbeiteten personenbezogenen Daten und Ihre Rechte als betroffene Person informieren.</p>\n"
@@ -876,37 +872,39 @@ msgstr "<h1>Datenschutzerklärung Axel Springer Crowd</h1>\n"
 "        <p>Wir verzichten auf eine automatische Entscheidungsfindung oder ein Profiling, welchesIhnen gegenüber rechtliche Wirkung entfaltet oder Sie in ähnlicher Weise erheblich beeinträchtigt.</p>\n"
 "        <i>Stand: 11. Juni 2019</i>"
 
-#:
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_1_HEADLINE"
-msgstr "Was ist der Unterschied zwischen einer Ideen- und einer Prototypen-Kampagne?"
-
-#:
+#: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_1_PARAGRAPH"
 msgstr ""
 
-#:
-msgid "AS_SUPPORT_FAQ_DESC"
-msgstr "Du hast eine Frage zu AS.Crowd? Vielleicht findest Du hier die Antwort!"
-
-#:
+#: 
 msgid "AS_SUPPORT_FAQ_HEADLINE"
 msgstr "FAQ"
 
-#:
-msgid "AS_SUPPORT_HELP_DESC"
-msgstr "Wie können wir Dir weiterhelfen?"
-
-#:
+#: 
 msgid "AS_SUPPORT_HELP_HEADLINE"
 msgstr "Hilfe"
 
-#:
+#: 
 msgid "AS_SUPPORT_HELP_P1"
 msgstr "Wenn Du ein Problem oder eine Frage hast, schau gern in unsere FAQ’s. Vielleicht kannst Du dort schon die passende Antwort finden. Solltest Du wirklich nicht weiterkommen, dann wende Dich gern direkt an uns: {{email}}"
 
-#:
+#: 
 msgid "AS_SUPPORT_HELP_P2"
 msgstr "Wir versuchen in jedem Fall, eine Lösung für Dein Problem zu finden."
 
+#: 
+msgid "AS_FOOTER_NEWSLETTER"
+msgstr "Newsletter"
 
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_1_HEADLINE"
+msgstr "Was ist der Unterschied zwischen einer Ideen- und einer Prototypen-Kampagne?"
+
+#: 
+msgid "AS_SUPPORT_FAQ_DESC"
+msgstr "Du hast eine Frage zu AS.Crowd? Vielleicht findest Du hier die Antwort!"
+
+#: 
+msgid "AS_SUPPORT_HELP_DESC"
+msgstr "Wie können wir Dir weiterhelfen?"
 
