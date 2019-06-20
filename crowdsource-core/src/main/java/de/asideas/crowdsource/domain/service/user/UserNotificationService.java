@@ -36,11 +36,11 @@ public class UserNotificationService {
     public static final String IDEA_CAMPAIGN_LINK_PATTERN = "/ideas/{campaign}";
     public static final String IDEA_CAMPAIGN_YOUR_IDEAS_LINK_PATTERN = "/ideas/{campaign}/own";
 
-    public static final String SUBJECT_ACTIVATION = "Bitte vergib ein Passwort für Dein Konto auf AS.Crowd";
-    public static final String SUBJECT_PASSWORD_FORGOTTEN = "Bitte vergib ein Passwort für Dein Konto auf AS.Crowd";
-    public static final String SUBJECT_IDEA_CREATED = "Neue Idee wurde für die Kampagne \"{0}\" eingereicht";
-    public static final String SUBJECT_IDEA_ACCEPTED = "Deine Idee \"{0}\" für die Kampagne \"{1}\" wurde freigegeben";
-    public static final String SUBJECT_IDEA_REJECTED = "Deine Idee \"{0}\" für die Kampagne \"{1}\" wurde leider abgelehnt";
+    public static final String SUBJECT_ACTIVATION = "Please set a password for your account on AS.Crowd // Bitte vergib ein Passwort für Dein Konto auf AS.Crowd";
+    public static final String SUBJECT_PASSWORD_FORGOTTEN = "Please set a password for your account on AS.Crowd // Bitte vergib ein Passwort für Dein Konto auf AS.Crowd";
+    public static final String SUBJECT_IDEA_CREATED = "A new idea for campaign \"{0}\" has been submitted // Neue Idee wurde für die Kampagne \"{0}\" eingereicht";
+    public static final String SUBJECT_IDEA_ACCEPTED = "Your idea \"{0}\" for campaign \"{1}\" has been accepted // Deine Idee \"{0}\" für die Kampagne \"{1}\" wurde freigegeben";
+    public static final String SUBJECT_IDEA_REJECTED = "Your idea \"{0}\" for campaign \"{1}\" has been rejected // Deine Idee \"{0}\" für die Kampagne \"{1}\" wurde leider abgelehnt";
     public static final String SUBJECT_PROJECT_MODIFIED = "Ein Projekt wurde editiert";
     public static final String SUBJECT_PROJECT_CREATED = "Neues Projekt erstellt";
     public static final String SUBJECT_PROJECT_PUBLISHED = "Freigabe Deines Projektes";
