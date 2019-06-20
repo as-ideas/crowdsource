@@ -38,7 +38,7 @@ public class UserNotificationService {
 
     public static final String SUBJECT_ACTIVATION = "Bitte vergib ein Passwort für Dein Konto auf AS.Crowd";
     public static final String SUBJECT_PASSWORD_FORGOTTEN = "Bitte vergib ein Passwort für Dein Konto auf AS.Crowd";
-    public static final String SUBJECT_IDEA_CREATED = "Neue Idee wude für die Kampagne \"{0}\" eingereicht";
+    public static final String SUBJECT_IDEA_CREATED = "Neue Idee wurde für die Kampagne \"{0}\" eingereicht";
     public static final String SUBJECT_IDEA_ACCEPTED = "Deine Idee \"{0}\" für die Kampagne \"{1}\" wurde freigegeben";
     public static final String SUBJECT_IDEA_REJECTED = "Deine Idee \"{0}\" für die Kampagne \"{1}\" wurde leider abgelehnt";
     public static final String SUBJECT_PROJECT_MODIFIED = "Ein Projekt wurde editiert";
@@ -314,7 +314,7 @@ public class UserNotificationService {
 
     private void sendMail(String email, String subject, String messageText) {
 
-        final SimpleMailMessage mailMessage = newMailMessage(email, addPrefixToSubjectLine(subject), messageText);
+        final SimpleMailMessage mailMessage = newMailMessage(email, subject, messageText);
 
         taskExecutorSmtp.submit(() -> {
             try {
@@ -343,7 +343,7 @@ public class UserNotificationService {
         final SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setTo(recipientEmail);
         mailMessage.setFrom(FROM_ADDRESS);
-        mailMessage.setSubject(subject);
+        mailMessage.setSubject(addPrefixToSubjectLine(subject));
         mailMessage.setText(messageText);
         return mailMessage;
     }
