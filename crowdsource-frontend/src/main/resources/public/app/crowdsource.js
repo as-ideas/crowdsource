@@ -21,7 +21,7 @@
      * global application configuration
      */
     angular.module('crowdsource', ['ngRoute', 'ngResource', 'ngMessages', 'dibari.angular-ellipsis', 'ngScrollTo',
-                    'ngSanitize', 'ng-showdown', 'ngFileUpload', 'ngclipboard', 'chart.js', 'pascalprecht.translate','tmh.dynamicLocale'])
+                    'ngSanitize', 'ng-showdown', 'ngFileUpload', 'ngclipboard', 'chart.js', 'pascalprecht.translate','tmh.dynamicLocale','angular-google-analytics'])
 
         .constant('ROUTE_DETAILS', {
             JSON_ROOT: '$$route',
@@ -31,9 +31,14 @@
             VALUE_CAMPAIGN_PROTOTYPE: 'prototype'
         })
 
-        .config(function ($routeProvider, $locationProvider, $httpProvider, $showdownProvider, $translateProvider, ROUTE_DETAILS, tmhDynamicLocaleProvider) {
-            var defaultLang = 'de';
+        .config(function ($routeProvider, $locationProvider, $httpProvider, $showdownProvider, $translateProvider, ROUTE_DETAILS, tmhDynamicLocaleProvider,AnalyticsProvider) {
 
+            // Google Analytics
+            AnalyticsProvider.setAccount(window.gaId);
+            AnalyticsProvider.trackPages(false); // Pages are tracked from nav-bar component after the window title has been set
+
+            // I18n
+            var defaultLang = 'de';
             tmhDynamicLocaleProvider.defaultLocale(defaultLang);
             $translateProvider
                 .useStaticFilesLoader({
@@ -221,7 +226,8 @@
                     equalize_on_stack: true
                 }
             });
-        });
+        })
+
 
     angular.module('crowdsource').value('Bowser', bowser);
 

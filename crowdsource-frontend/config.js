@@ -15,6 +15,7 @@ var config = {
         minified: [
             'bower_components/jquery/dist/jquery.min.js',
             'bower_components/angular/angular.min.js',
+            'bower_components/angular-google-analytics/dist/angular-google-analytics.min.js',
             'bower_components/angular-dynamic-locale/dist/tmhDynamicLocale.min.js',
             'bower_components/angular-resource/angular-resource.min.js',
             'bower_components/angular-route/angular-route.min.js',

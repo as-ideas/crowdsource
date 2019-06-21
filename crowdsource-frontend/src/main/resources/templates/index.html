@@ -18,6 +18,14 @@
     <link rel="apple-touch-icon" sizes="180x180" href="device-icons/Icon-60@3x.png" />
     <link rel="stylesheet" href="css/crowdsource.css" th:href="@{${@environment.getProperty('de.asideas.crowdsource.frontend.css.base.url')}}" />
 
+    <!-- Google Analytics Tracking ID -->
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        var gaId = /*[[${@environment.getProperty('de.asideas.crowdsource.frontend.tracking.ga.id')}]]*/ null;
+        window.gaId = gaId;
+        /*]]>*/
+    </script>
+
     <script src="app/libs.min.js"></script>
     <script src="app/crowdsource.min.js"></script>
     <script src="/config.js"></script>

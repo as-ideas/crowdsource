@@ -6,9 +6,9 @@ angular.module('crowdsource')
         directive.templateUrl = 'app/components/layout/nav-bar/nav-bar.html';
         directive.controllerAs = 'vm';
         directive.bindToController = true;
-        directive.controller = ['$scope','$rootScope','$window','$filter', '$translate','tmhDynamicLocale','Authentication','Route','Idea','ROUTE_DETAILS', NavBarController]
+        directive.controller = ['$scope','$rootScope','$window','$filter', '$translate','tmhDynamicLocale','Authentication','Route','Idea','ROUTE_DETAILS','Analytics', NavBarController]
 
-        function NavBarController($scope, $rootScope, $window, $filter, $translate, tmhDynamicLocale, Authentication, Route, Idea, ROUTE_DETAILS) {
+        function NavBarController($scope, $rootScope, $window, $filter, $translate, tmhDynamicLocale, Authentication, Route, Idea, ROUTE_DETAILS, Analytics) {
             var vm = this;
             vm.currentLanguage = $translate.use();
 
@@ -135,6 +135,9 @@ angular.module('crowdsource')
 
                     vm.currentRoute = currentRoute;
                     updateNavigationAndWindowTitle(currentRoute);
+
+                    // Google Tracking
+                    Analytics.pageView();
                 }
             });
         };
