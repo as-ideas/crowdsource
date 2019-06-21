@@ -313,7 +313,7 @@ msgstr "Ideas that are still being voted on: {{value}}"
 
 #: 
 msgid "IDEAS_OWN_PUBLISHED_HEADLINE"
-msgstr "Publish ideas"
+msgstr "Published ideas"
 
 #: 
 msgid "IDEAS_OWN_REJECTED_DESC"
