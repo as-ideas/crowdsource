@@ -106,6 +106,7 @@ $team-width: ($team-container-width - ($team-gutter * $team-items * 2)) / $team-
         width: 100%;
     }
 
+/*
     &__container--inverse {
         display: flex;
         flex-wrap: wrap;
@@ -139,14 +140,12 @@ $team-width: ($team-container-width - ($team-gutter * $team-items * 2)) / $team-
             padding-right: $mrg-tripple;
         }
     }
+*/
+
 
     &__item {
         box-sizing: border-box;
         width: 100%;
-
-        @media only screen and (min-width: 1024px) {
-            width: 50%;
-        }
     }
 
     &__item--left {

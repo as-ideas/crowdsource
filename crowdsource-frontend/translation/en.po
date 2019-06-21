@@ -37,7 +37,7 @@ msgstr "Registration - final steps"
 
 #: 
 msgid "ADMIN_IDEA_PUBLISH_MESSAGE"
-msgstr "The idea has been released."
+msgstr "The idea has been published."
 
 #: 
 msgid "ADMIN_IDEA_REJECT_MESSAGE"
@@ -273,7 +273,7 @@ msgstr "Your idea has been successfully submitted."
 
 #: 
 msgid "IDEA_ADD_MESSAGE_2"
-msgstr "Your idea will be released soon, we'll just check it quickly."
+msgstr "Your idea will be published soon, we'll just check it quickly."
 
 #: 
 msgid "IDEA_REMOVE_VOTE_MESSAGE"
@@ -313,7 +313,7 @@ msgstr "Ideas that are still being voted on: {{value}}"
 
 #: 
 msgid "IDEAS_OWN_PUBLISHED_HEADLINE"
-msgstr "Published ideas"
+msgstr "Publish ideas"
 
 #: 
 msgid "IDEAS_OWN_REJECTED_DESC"
@@ -325,7 +325,7 @@ msgstr "Rejected ideas"
 
 #: 
 msgid "IDEAS_OWN_STATISTIC_LABEL_IDEAS_APPROVED"
-msgstr "Released ideas"
+msgstr "Published ideas"
 
 #: 
 msgid "IDEAS_OWN_STATISTIC_LABEL_IDEAS_PENDING"
@@ -358,54 +358,6 @@ msgstr "Become part of the community! Click here to login"
 #: 
 msgid "INTRO_HEADLINE"
 msgstr "Join Crowd"
-
-#: 
-msgid "INTRO_HERO_ACTIONBAR_HEADLINE_1"
-msgstr "From you"
-
-#: 
-msgid "INTRO_HERO_ACTIONBAR_HEADLINE_2"
-msgstr "With you"
-
-#: 
-msgid "INTRO_HERO_ACTIONBAR_HEADLINE_3"
-msgstr "For you"
-
-#: 
-msgid "INTRO_HERO_ACTIONBAR_LEDGE_1"
-msgstr "Be part of the Crowd"
-
-#: 
-msgid "INTRO_HERO_ACTIONBAR_LEDGE_2"
-msgstr "Participate"
-
-#: 
-msgid "INTRO_HERO_ACTIONBAR_LEDGE_3"
-msgstr "Shape the future"
-
-#: 
-msgid "INTRO_HERO_HEADLINE"
-msgstr "Your innovation starts here"
-
-#: 
-msgid "INTRO_HERO_P_1"
-msgstr "You have a new idea for a project but never had the right opportunity to talk about it?"
-
-#: 
-msgid "INTRO_HERO_P_2"
-msgstr "Here's your chance! Finally you can publish your ideas and suggestions for various campaigns of the group. You can evaluate and discuss them, and even actively participate in their design if successful. Talk to skeptics and supporters, discuss suggestions and binary codes, benefit from feedback from your colleagues and create the optimal project for you. But be aware:"
-
-#: 
-msgid "INTRO_HERO_P_3"
-msgstr "Be creative! Be smart! Be innovative!"
-
-#: 
-msgid "INTRO_HERO_P_4"
-msgstr "Competition never sleeps! Be at the forefront when the time is coming:"
-
-#: 
-msgid "INTRO_HERO_P_5"
-msgstr "AXEL SPRINGER - WITH US FOR THE FUTURE"
 
 #: 
 msgid "LOGIN_ERROR_INVALID_CREDENTIALS"
@@ -548,10 +500,6 @@ msgid "NAV_LANG_GERMAN"
 msgstr "Deutsch"
 
 #: 
-msgid "OVERVIEW_IDEAS_HEADLINE"
-msgstr "Ideas"
-
-#: 
 msgid "OVERVIEW_IDEAS_NO_CAMPAIGN"
 msgstr "Currently there are no idea campaigns available"
 
@@ -653,7 +601,7 @@ msgstr "AS IT"
 
 #: 
 msgid "AS_ABOUT_AS_IT_HEADLINE_DESC"
-msgstr ""
+msgstr "At Axel Springer IT, we concentrate on recognizing the potential of digital transformation and disruptive technologies and making them available to the various business units of the Axel Springer family. Digital disruption is omnipresent and exposes us to strong competition in many areas of our daily work. At the same time, it offers us unexpected opportunities that we want to actively shape. These developments range from future-oriented technologies, over advantages through the use of data to groundbreaking trends in collaboration between employees. We support our customers in successfully mastering their daily challenges in the market so that we can further strengthen and expand our leading position as a digital publishing house. With our expertise we want to support the AS.Crowd effectively."
 
 #: 
 msgid "AS_ABOUT_IDEAS_ENGINEERING_CAPTION"
@@ -923,7 +871,7 @@ msgstr "<h1>Privacy policy of Axel Springer Crowd</h1>\n"
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_1_PARAGRAPH"
-msgstr ""
+msgstr "1"
 
 #: 
 msgid "AS_SUPPORT_FAQ_HEADLINE"
@@ -942,18 +890,158 @@ msgid "AS_SUPPORT_HELP_P2"
 msgstr "In any case we will try to find a solution for your problem."
 
 #: 
-msgid "AS_FOOTER_NEWSLETTER"
-msgstr "Newsletter"
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_10_PARAGRAPH"
+msgstr "10"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_11_PARAGRAPH"
+msgstr "11"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_12_PARAGRAPH"
+msgstr "12"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_13_PARAGRAPH"
+msgstr "13"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_14_PARAGRAPH"
+msgstr "14"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_15_PARAGRAPH"
+msgstr "15"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_16_PARAGRAPH"
+msgstr "16"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_17_PARAGRAPH"
+msgstr "17"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_18_PARAGRAPH"
+msgstr "18"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_19_PARAGRAPH"
+msgstr "19"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_2_PARAGRAPH"
+msgstr "2"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_20_PARAGRAPH"
+msgstr "20"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_3_PARAGRAPH"
+msgstr "3"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_4_PARAGRAPH"
+msgstr "4"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_5_PARAGRAPH"
+msgstr "5"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_6_PARAGRAPH"
+msgstr "6"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_7_PARAGRAPH"
+msgstr "7"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_8_PARAGRAPH"
+msgstr "8"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_9_PARAGRAPH"
+msgstr "9"
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_1_HEADLINE"
-msgstr "What is the difference between an idea campaign and a prototype campaign?"
+msgstr "1"
 
 #: 
-msgid "AS_SUPPORT_FAQ_DESC"
-msgstr "You have a question about AS.Crowd? Maybe you'll find the answer here!"
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_2_HEADLINE"
+msgstr "2"
 
 #: 
-msgid "AS_SUPPORT_HELP_DESC"
-msgstr "How can we help you?"
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_3_HEADLINE"
+msgstr "3"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_4_HEADLINE"
+msgstr "4"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_5_HEADLINE"
+msgstr "5"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_6_HEADLINE"
+msgstr "6"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_7_HEADLINE"
+msgstr "7"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_8_HEADLINE"
+msgstr "8"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_9_HEADLINE"
+msgstr "9"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_10_HEADLINE"
+msgstr "10"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_11_HEADLINE"
+msgstr "11"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_12_HEADLINE"
+msgstr "12"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_13_HEADLINE"
+msgstr "13"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_14_HEADLINE"
+msgstr "14"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_15_HEADLINE"
+msgstr "15"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_16_HEADLINE"
+msgstr "16"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_17_HEADLINE"
+msgstr "17"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_18_HEADLINE"
+msgstr "18"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_19_HEADLINE"
+msgstr "19"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_20_HEADLINE"
+msgstr "20"
 
