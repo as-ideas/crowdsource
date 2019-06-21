@@ -62,7 +62,7 @@
     &__text--success {
         @include font-base;
         color: $clr-blue;
-        font-size: $fs-smedium;
+        font-size: $fs-xregular;
         font-weight: $fw-regular;
 
         padding: 1rem;
@@ -72,7 +72,7 @@
     &__text--failure {
         @include font-base;
         color: $clr-white;
-        font-size: $fs-smedium;
+        font-size: $fs-xregular;
         font-weight: $fw-regular;
 
         padding: 1rem;
