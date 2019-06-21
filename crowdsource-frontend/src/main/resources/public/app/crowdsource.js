@@ -38,7 +38,7 @@
             AnalyticsProvider.trackPages(false); // Pages are tracked from nav-bar component after the window title has been set
 
             // I18n
-            var defaultLang = 'de';
+            var defaultLang = 'en';
             tmhDynamicLocaleProvider.defaultLocale(defaultLang);
             $translateProvider
                 .useStaticFilesLoader({
