@@ -137,7 +137,7 @@ angular.module('crowdsource')
                     updateNavigationAndWindowTitle(currentRoute);
 
                     // Google Tracking
-                    Analytics.pageView();
+                    Analytics.trackPage(currentRoute.originalPath);
                 }
             });
         };
