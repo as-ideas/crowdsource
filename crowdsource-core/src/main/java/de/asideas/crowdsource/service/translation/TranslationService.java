@@ -3,16 +3,24 @@ package de.asideas.crowdsource.service.translation;
 import de.asideas.crowdsource.domain.model.ideascampaign.IdeaContentI18n;
 import de.asideas.crowdsource.domain.model.ideascampaign.IdeaEntity;
 import de.asideas.crowdsource.security.awssecretsmanager.CrowdAWSSecretsManager;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import org.apache.http.client.utils.URIBuilder;
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
+import java.net.URI;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -29,8 +37,8 @@ public class TranslationService {
     private static final Logger log = getLogger(TranslationService.class);
 
     private ArrayList<String> supportedLanguages = new ArrayList<String>() {{
-        add("DE");
-        add("EN");
+        add("de");
+        add("en");
     }};
 
     /**
@@ -58,7 +66,7 @@ public class TranslationService {
     }
 
     private List<SingleTranslation> callTranslationServiceForGivenIdea(IdeaEntity ideaEntity) throws Exception {
-        List<SingleTranslation> translations = new ArrayList();
+        List<SingleTranslation> translations = new ArrayList<>();
         for (String language : supportedLanguages) {
             SingleTranslation singleTranslation = getTranslation(ideaEntity, language);
             translations.add(singleTranslation);
@@ -72,61 +80,32 @@ public class TranslationService {
         final String origTitle = ideaEntity.getOriginalTitle();
         final String origPitch = ideaEntity.getOriginalPitch();
 
-        final String apiPreppedTitle = URLEncoder.encode(replaceAllUmlauts(origTitle));
-        final String apiPreppedPitch = URLEncoder.encode(replaceAllUmlauts(origPitch));
-
-        final String uri = "https://api.deepl.com/v2/translate?auth_key=" + apiKey + "&text=" + apiPreppedTitle + "&text=" + apiPreppedPitch + "&target_lang=" + targetLang;
+        final URI uri = new URIBuilder("https://api.deepl.com/v2/translate?")
+            .addParameter("auth_key", apiKey)
+            .addParameter("text", origTitle)
+            .addParameter("text", origPitch)
+            .addParameter("target_lang", targetLang).build();
 
         RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<String> responseEntity = restTemplate.getForEntity(uri, String.class);
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Accept", MediaType.APPLICATION_JSON_UTF8_VALUE);
+        final RequestEntity<String> requestEntity = new RequestEntity<>(headers, HttpMethod.GET, uri);
 
-        String sourceLang = null;
-        String translatedTitle = null;
-        String translatedPitch = null;
+        final ResponseEntity<DeeplResponse> responseEntity = restTemplate.exchange(requestEntity, DeeplResponse.class);
+        final DeeplResponse resp = responseEntity.getBody();
+        final Translation title = resp.translations.get(0);
+        final Translation pitch = resp.translations.get(1);
 
-        try {
-            ObjectMapper mapper = new ObjectMapper();
-
-            JsonNode root = mapper.readTree(responseEntity.getBody());
-            JsonNode translations = root.get("translations");
-
-            final JsonNode title = translations.get(0);
-            final JsonNode pitch = translations.get(1);
-
-            translatedTitle = title.get("text").getTextValue();
-            translatedPitch = pitch.get("text").getTextValue();
-            sourceLang = pitch.get("detected_source_language").getTextValue();
-
-        } catch (IOException e) {
-            log.error("GAAAAH!");
-        }
-
-        // TODO error handling
-        if(sourceLang == targetLang) {
-            log.info("source and target language are the same. Use original title and pitch instead of translated: " + sourceLang);
-            return new SingleTranslation(sourceLang, targetLang, origTitle, origPitch);
-        } else {
-            return new SingleTranslation(sourceLang, targetLang, URLDecoder.decode(translatedTitle), URLDecoder.decode(translatedPitch));
-        }
-    }
-
-    private String replaceAllUmlauts(String input) {
-        return input.replaceAll("ä", "ae")
-                .replaceAll("ü", "ue")
-                .replaceAll("ö", "oe")
-                .replaceAll("Ä", "Ae")
-                .replaceAll("Ü", "Ue")
-                .replaceAll("Ö", "Oe")
-                .replaceAll("ß", "ss");
+        return new SingleTranslation(pitch.detectedSourceLanguage, targetLang, title.text, pitch.text);
     }
 
     /*
-    Ideally an identical string should always show the same source-language. Just in case the API
-    returns inconsistent responses we fall back to the default language.
+        Ideally an identical string should always show the same source-language. Just in case the API
+        returns inconsistent responses we fall back to the default language.
      */
     private String decideSourceLanguage(List<SingleTranslation> singleTranslations) {
         // use this as a fallback because most of our users are German.
-        final String defaultLanguage = "DE";
+        final String defaultLanguage = "de";
         String detectedLanguage = null;
 
         if (singleTranslations != null) {
@@ -146,19 +125,19 @@ public class TranslationService {
     }
 
     private void setTranslatedIdeaContent(IdeaEntity idea, IdeaContentI18n content, String language) {
-
-        if (language.equalsIgnoreCase("de")) {
-            idea.getContentI18n().setDe(content);
+        switch (language) {
+            case "de":
+                idea.getContentI18n().setDe(content);
+                break;
+            case "en":
+                idea.getContentI18n().setEn(content);
+                break;
+            default:
+                log.error("setTranslatedIdeaContent: language not supported (" + language + ")");
         }
-        else if (language.equalsIgnoreCase("en")) {
-            idea.getContentI18n().setEn(content);
-        } else {
-            log.error("setTranslatedIdeaContent: language not supported (" + language + ")");
-        }
-
     }
 
-    private class SingleTranslation {
+    private static class SingleTranslation {
         private String sourceLanguage;
         private String targetLanguage;
         private String title;
@@ -187,5 +166,18 @@ public class TranslationService {
             return pitch;
         }
     }
+
+    private static class DeeplResponse {
+        @JsonProperty
+        List<Translation> translations;
+    }
+
+    private static class Translation {
+        @JsonProperty
+        String text;
+        @JsonProperty("detected_source_language")
+        String detectedSourceLanguage;
+    }
+
 
 }

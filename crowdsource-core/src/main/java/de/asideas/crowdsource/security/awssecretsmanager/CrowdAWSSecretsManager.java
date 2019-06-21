@@ -52,10 +52,10 @@ public class CrowdAWSSecretsManager {
                 .withCredentials(new AWSStaticCredentialsProvider(awsCredentials))
                 .build();
 
-        String secret = null;
-        GetSecretValueRequest getSecretValueRequest = new GetSecretValueRequest()
+        final String secret;
+        final GetSecretValueResult getSecretValueResult;
+        final GetSecretValueRequest getSecretValueRequest = new GetSecretValueRequest()
                 .withSecretId(secretName);
-        GetSecretValueResult getSecretValueResult = null;
 
         try {
             getSecretValueResult = client.getSecretValue(getSecretValueRequest);
@@ -87,16 +87,14 @@ public class CrowdAWSSecretsManager {
     }
 
     private static String extractDeepLKey(String jsonString) throws IOException {
-        String key = null;
         try {
             ObjectMapper mapper = new ObjectMapper();
             JsonNode root = mapper.readValue(jsonString, JsonNode.class);
-            key = root.get("deepl_api_key").getTextValue();
+            return root.get("deepl_api_key").getTextValue();
         } catch (IOException e) {
             log.error("An error occurred reading the DeepL API key from AWS.");
             throw e;
         }
-        return key;
     }
 
     private static String extractMailGunUser(String jsonString) throws IOException {
