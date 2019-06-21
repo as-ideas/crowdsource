@@ -16,16 +16,19 @@
         align-items: center;
     }
 
-    $dimension: 125px;
+    @mixin overlay-icon {
+        display: inline-block;
+        width: 125px;
+        height: 125px;
+        border-radius: 50%;
+        background-size: contain;
+    }
+
     &--success {
         background-color: $clr-green-neon;
 
         .overlay__icon {
-            display: inline-block;
-            width: $dimension;
-            height: $dimension;
-            border-radius: 50%;
-            background-size: contain;
+            @include overlay-icon;
             background-image: url('../images/icons/icon-overlay-success.svg');
         }
     }
@@ -34,12 +37,7 @@
         background-color: $clr-red;
 
         .overlay__icon {
-            display: inline-block;
-            width: $dimension;
-            height: $dimension;
-            border-radius: 50%;
-            background-size: contain;
-            background-size: rem-calc(100px);
+            @include overlay-icon;
             background-image: url('../images/icons/icon-overlay-failure.svg');
         }
     }
