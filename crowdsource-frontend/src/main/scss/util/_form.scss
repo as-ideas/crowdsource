@@ -31,3 +31,17 @@
         margin-right: 10px;
     }
 }
+
+.acceptTOSPanel {
+    @include font-text;
+    font-size: $fs-xsmall;
+
+    border-radius: $border-radius;
+    border-style: solid;
+    border-width: 1px;
+    border-color: $clr-gray-light;
+    background-color: $clr-whitegray;
+    color: #333333;
+    margin-bottom: 1.25rem;
+    padding: 1.25rem;
+}

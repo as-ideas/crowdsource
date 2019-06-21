@@ -73,12 +73,6 @@ $icon-color: #3C3C3C;
     }
   }
 
-  &__divider {
-    margin: $margin auto;
-    width:80%;
-    border-bottom:2px solid $clr-base-green;
-  }
-
   &__image-container {
     position: relative;
     display: inline-block;
@@ -170,35 +164,3 @@ $icon-color: #3C3C3C;
 
   }
 }
-
-.campaign-login {
-
-  &__container {
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  &__headline {
-//    color: #56A26B;
-    color: $clr-green-shade-3;
-    font-size: $fs-large;
-    text-transform: uppercase;
-  }
-
-  &__description {
-    font-size: $fs-regular;
-    position: relative;
-    margin-bottom:4.5rem;
-
-    &::after {
-      content: '';
-      position: absolute;
-      left: 50%;
-      bottom: -2.5rem;
-      width: 6rem;
-      margin-left: -3rem;
-      border-bottom: 0.25rem solid #2D2D2D;
-    }
-  }
-}
-

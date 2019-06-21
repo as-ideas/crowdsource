@@ -94,7 +94,7 @@ $intro-box-break: "only screen and (max-width: 740px)";
     color: $white;
     letter-spacing: 0.5px;
 
-    background-color: $clr-blue-shade-1;
+    background-color: $clr-blue;
     border-radius: rem-calc($border-radius);
 
     &:first-of-type {
@@ -381,7 +381,7 @@ $intro-box-break: "only screen and (max-width: 740px)";
     width: $dimension;
     height: $dimension;
     border-radius: 50%;
-    background-color: $clr-red-shade-2;
+    background-color: $clr-red;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: rem-calc(22px);
@@ -403,23 +403,23 @@ $intro-box-break: "only screen and (max-width: 740px)";
 }
 
 .intro-box__header {
-    color: $clr-green-shade-4;
+    color: $clr-green-neon;
 }
 
 .round-description-box__item-icon--capital {
     @extend %intro-box__item-icon;
-    background-color: $clr-green-shade-3;
+    background-color: $clr-green-neon;
     background-image: url('../images/icons/credit_card.svg');
 }
 
 .round-description-box__item-icon--user {
     @extend %intro-box__item-icon;
-    background-color: $clr-green-shade-3;
+    background-color: $clr-green-neon;
     background-image: url('../images/icons/ticket_with_star.svg');
 }
 
 .round-description-box__item-icon--clock {
     @extend %intro-box__item-icon;
-    background-color: $clr-green-shade-3;
+    background-color: $clr-green-neon;
     background-image: url('../images/icons/time_clock_with_arrow.svg');
 }

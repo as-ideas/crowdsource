@@ -90,7 +90,7 @@ $intro-box-break: "only screen and (max-width: 740px)";
     color: $white;
     letter-spacing: 0.5px;
 
-    background-color: $clr-blue-shade-1;
+    background-color: $clr-blue;
     border-radius: rem-calc($border-radius);
 
     &:first-of-type {
@@ -222,10 +222,6 @@ $intro-box-break: "only screen and (max-width: 740px)";
     @include ideas-status((content: 'Leider abgelehnt :(', bg-tile: rgba(255, 60, 60, 0.25)));
 }
 
-.ideas-deferred,
-.ideas-published_deferred {
-    @include ideas-status((content: 'Zurückgestellt', bg-status: #8ED61E, bg-tile: rgba(160, 240, 36, 0.20)));
-}
 
 // Every tile has a status div, that gets activated by additional classes:
 // ideas-PROPOSED, ideas-PUBLISHED, ideas-FULLY_PLEDGED, ideas-REJECTED
@@ -276,148 +272,6 @@ $intro-box-break: "only screen and (max-width: 740px)";
 
 .intro-section {
     background-color: $white;
-}
-
-.round-description-section {
-    @extend .intro-section;
-}
-
-/*ul*/
-.intro-box, .round-description-box {
-    @include list--plain;
-    display: flex;
-    margin: 2rem 0;
-    border: 1px solid $clr-border;
-    border-radius: $border-radius;
-    text-align: center;
-
-    @media #{$intro-box-break} {
-        flex-wrap: wrap;
-    }
-}
-
-/*li*/
-.intro-box__item, .round-description-box__item {
-    flex: 0 1 33.333333333%; // Force all flex-items to get the same width
-    order: 1;
-    padding: rem-calc(20px);
-    border-right: 1px solid $clr-border;
-
-    &:last-child {
-        border-right: none;
-    }
-
-    & > * {
-        &:first-child {
-            margin-top: 0;
-        }
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-    }
-
-    @media #{$intro-box-break} {
-        flex: 0 1 100%;
-        border-right: none;
-        border-bottom: 1px solid $clr-border;
-
-        &:last-child {
-            border-bottom: none;
-        }
-    }
-}
-
-/*li*/
-.intro-box__item--important, .round-description-box__item--important {
-    @extend .intro-box__item;
-    background-color: $clr-bg;
-
-    @media only screen and (max-width: 740px) {
-        order: 0;
-    }
-}
-
-/*h3*/
-.intro-box__heading, .round-description-box__heading {
-    margin: 1rem 0;
-    font-size: rem-calc(16px);
-    font-weight: 600;
-    line-height: 1.5;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/*h3*/
-.intro-box__heading--has-divider, .round-description-box__heading--has-divider {
-    @extend .intro-box__heading;
-    @include typographic-divider((height: 0.125rem, width: 2.5rem, offset-bottom: 1rem));
-}
-
-/*p*/
-.intro-box__intro, .round-description-box__intro {
-    // @extend %font-smoothing;
-}
-
-.round-description-box__intro {
-    text-align: left;
-    word-wrap: break-word;
-    word-break: normal;
-
-    ul {
-        list-style-type: none;
-    }
-
-}
-
-%intro-box__item-icon {
-    $dimension: 51px;
-
-    display: inline-block;
-    width: $dimension;
-    height: $dimension;
-    border-radius: 50%;
-    background-color: $clr-red-shade-2;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: rem-calc(22px);
-}
-
-.intro-box__item-icon--capital {
-    @extend %intro-box__item-icon;
-    background-image: url('../images/icon-$$-white.svg');
-}
-
-.intro-box__item-icon--user {
-    @extend %intro-box__item-icon;
-    background-image: url('../images/icon-user-white.svg');
-}
-
-.intro-box__item-icon--clock {
-    @extend %intro-box__item-icon;
-    background-image: url('../images/icon-clock-white.svg');
-}
-
-.intro-box__header {
-    color: $clr-green-shade-4;
-}
-
-.round-description-box__item-icon--capital {
-    @extend %intro-box__item-icon;
-    background-color: $clr-green-shade-3;
-    background-image: url('../images/icons/credit_card.svg');
-}
-
-.round-description-box__item-icon--user {
-    @extend %intro-box__item-icon;
-    background-color: $clr-green-shade-3;
-    background-image: url('../images/icons/ticket_with_star.svg');
-}
-
-.round-description-box__item-icon--clock {
-    @extend %intro-box__item-icon;
-    background-color: $clr-green-shade-3;
-    background-image: url('../images/icons/time_clock_with_arrow.svg');
 }
 
 .ideas-list__filter {

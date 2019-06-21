@@ -51,7 +51,7 @@ $clr-red: #FF0000;
 $clr-pink: #FF00FF;
 $clr-gray-dark: #878787;
 $clr-gray-light: #ededed;
-
+$clr-whitegray: #f6f6f6;
 
 $clr-indigo: #4B51D4;
 // Some kind of blue
@@ -61,51 +61,6 @@ $clr-wattle: #D4CE4B;
 // Dirty Yellow
 $clr-emerald: #4BD489;
 // Mint Green
-
-$clr-base-blue: $clr-indigo;
-$clr-base-red: $clr-cranberry;
-$clr-base-yellow: $clr-wattle;
-$clr-base-green: $clr-emerald;
-
-// Shades Blue
-
-$clr-blue-shade-1: #5A61FE;
-$clr-blue-shade-2: #4B51D4;
-$clr-blue-shade-3: #3C41A9;
-$clr-blue-shade-4: #2D317F;
-$clr-blue-shade-5: #1E2054;
-$clr-blue-shade-6: #0F102A;
-
-// Shades Red
-
-$clr-red-shade-1: #FE5AB3;
-$clr-red-shade-2: #D44B95;
-$clr-red-shade-3: #A93C77;
-$clr-red-shade-4: #7F2D59;
-$clr-red-shade-5: #541E3B;
-$clr-red-shade-6: #2A0F1E;
-
-// Shades Yellow
-
-$clr-yellow-shade-1: #FEF75A;
-$clr-yellow-shade-2: #D4CE4B;
-$clr-yellow-shade-3: #A9A53C;
-$clr-yellow-shade-4: #7F7B2D;
-$clr-yellow-shade-5: #54521E;
-$clr-yellow-shade-6: #2A290F;
-
-// Shades Green
-
-$clr-green-shade-1: #5AFEA4;
-$clr-green-shade-2: #4BD489;
-$clr-green-shade-3: #3CA96E;
-$clr-green-shade-4: #2D7F52;
-$clr-green-shade-5: #1E5437;
-$clr-green-shade-6: #0F2A1B;
-$clr-green-shade-transparent: rgba(75, 212, 137, 0.25);
-
-// Black Shades
-$clr-mine-shaft: #2D2D2D;
 
 
 // Bodycopy
@@ -130,12 +85,11 @@ $clr-blue-bell: #8C82C8;
 
 // Colors by function
 
-$clr-body: $clr-mine-shaft;
+$clr-body: $clr-black;
 $clr-body-light: $clr-boulder;
 $clr-border: lighten($clr-alto, 2.5%);
 $clr-bg: $clr-gallery;
 $clr-teaser-start: $clr-bossanova;
-$clr-teaser-end: $clr-blue-shade-5;
 
 $clr-red: #f04124;
 $clr-rejected: rgba(255, 60, 60, 0.25);
@@ -150,6 +104,7 @@ $clr-solar-light-end: $clr-emerald;
 // ---
 
 $fs-half: rem-calc(8px);
+$fs-xsmall: rem-calc(12px);
 $fs-small: rem-calc(14px);
 $fs-regular: rem-calc(16px);
 $fs-smedium: rem-calc(20px);

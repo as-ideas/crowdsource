@@ -223,18 +223,6 @@ $tile-padding-vertical: 15px;
       cursor: pointer;
     }
 
-    &__btn-approve {
-      background-color: $clr-green-shade-2;
-      background-image: url('../images/icons/icon-thumbs-up.svg');
-      margin-right: $mrg-smaller;
-    }
-
-    &__btn-reject {
-      padding:0 !important;
-      background-color: $clr-red;
-      background-image: url('../images/icons/icon-thumbs-down.svg');
-    }
-
     @mixin deepl-base {
       position: absolute;
       bottom: 0;

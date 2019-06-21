@@ -45,10 +45,6 @@ nav.top-bar {
             line-height: inherit; // Foundation default: 45px
         }
 
-        li.current a {
-            color: $clr-blue-shade-2;
-        }
-
         // Make a list item visually more important
         @media #{$medium-up} {
 
