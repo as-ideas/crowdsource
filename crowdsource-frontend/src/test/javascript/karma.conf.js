@@ -7,6 +7,7 @@ module.exports = function (config) {
             'bower_components/jquery/dist/jquery.js',
             'bower_components/jasmine-jquery/lib/jasmine-jquery.js',
             'bower_components/angular/angular.js',
+            'bower_components/angular-google-analytics/dist/angular-google-analytics.min.js',
             'bower_components/angular-dynamic-locale/dist/tmhDynamicLocale.min.js',
             'bower_components/angular-resource/angular-resource.js',
             'bower_components/angular-route/angular-route.js',
