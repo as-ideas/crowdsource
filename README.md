@@ -33,6 +33,13 @@ Example developer run config
 java -jar crowdsource-example.jar
 
 
+Example developer connect with stage Mongo
+----------------------------
+
+VM Options:
+-Dspring.profiles.active=stage -Dspring.data.mongodb.uri=mongodb://<user>:<password>@crowdstage-shard-00-00-je9bv.mongodb.net:27017,crowdstage-shard-00-01-je9bv.mongodb.net:27017,crowdstage-shard-00-02-je9bv.mongodb.net:27017/crowdsource_as?ssl=true&replicaSet=CrowdStage-shard-0&authSource=admin&retryWrites=true
+
+
 Token signing
 -------------
 CrowdSource uses JWT with a token signing key. These (tokensigningkey/tokensigningkey.pub) must be present under /src/main/resources.
