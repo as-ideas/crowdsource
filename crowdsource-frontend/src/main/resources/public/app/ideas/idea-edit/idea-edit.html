@@ -3,11 +3,12 @@
         <span form-label-valid="title" translate="FORM_IDEA_EDIT_TITLE_LABEL">Titel Deiner Idee</span>
         <span form-label-invalid="title" ng-messages="ideaEditForm.title.$error">
             <span ng-message="minlength"><span translate="FORM_ERROR_MIN_CHARS" translate-value-value="5">Mindestens 5 Zeichen</span></span>
-            <span ng-message="maxlength"><span translate="FORM_ERROR_MAX_CHARS" translate-value-value="30">Maximal 30 Zeichen</span></span>
+            <span ng-message="maxlength"><span translate="FORM_ERROR_MAX_CHARS" translate-value-value="25">Maximal 25 Zeichen</span></span>
             <span ng-message="required"><span translate="FORM_IDEA_EDIT_TITLE_ERROR_REQUIRED">Bitte gib einen Titel ein</span></span>
         </span>
 
-        <input campaign-active-aware class="idea-add__title" name="title" type="text" ng-model="vm.idea.contentI18n.original.title" required ng-minlength="5" ng-maxlength="30" maxlength="30">
+        <input campaign-active-aware class="idea-add__title" name="title" type="text"
+               ng-model="vm.idea.contentI18n.original.title" required ng-minlength="5" ng-maxlength="25" maxlength="25">
     </label>
 
     <label form-group="pitch">
