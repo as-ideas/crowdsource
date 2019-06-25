@@ -1,11 +1,11 @@
 function mockTranslation() {
      inject(function ($httpBackend) {
           $httpBackend
-              .when('GET', '/translations/de.json')
+              .when('GET', '/translations/en.json')
               .respond(200, {});
      })
 
      inject(function ($translate) {
-          $translate.use('de');
+          $translate.use('en');
      })
 }
