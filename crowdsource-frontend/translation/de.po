@@ -281,7 +281,7 @@ msgstr "Wir haben deine Bewertung entfernt."
 
 #: 
 msgid "IDEA_TILE_AVG_RATING"
-msgstr "{{rating}} von {{votes}} Personen"
+msgstr "{rating} Sterne von {votes} Personen"
 
 #: 
 msgid "IDEA_UPDATE_MESSAGE"

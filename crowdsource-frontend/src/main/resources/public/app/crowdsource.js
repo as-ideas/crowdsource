@@ -46,6 +46,7 @@
                     suffix: '.json'
                 })
                 .preferredLanguage(defaultLang)
+                .addInterpolation('$translateMessageFormatInterpolation')
                 .useMissingTranslationHandlerLog();
 
             $routeProvider
