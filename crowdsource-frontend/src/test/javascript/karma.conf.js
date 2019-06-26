@@ -6,6 +6,7 @@ module.exports = function (config) {
             // foundation library is mocked via testsupport/mocked-libraries.testsupport.js
             'bower_components/jquery/dist/jquery.js',
             'bower_components/jasmine-jquery/lib/jasmine-jquery.js',
+            'bower_components/messageformat/messageformat.min.js', // Needed for angular-translate-interpolation-messageformat
             'bower_components/angular/angular.js',
             'bower_components/angular-google-analytics/dist/angular-google-analytics.min.js',
             'bower_components/angular-dynamic-locale/dist/tmhDynamicLocale.min.js',
@@ -19,6 +20,7 @@ module.exports = function (config) {
             'bower_components/angular-translate/angular-translate.min.js',
             'bower_components/angular-translate-handler-log/angular-translate-handler-log.min.js',
             'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js',
+            'bower_components/angular-translate-interpolation-messageformat/angular-translate-interpolation-messageformat.min.js',
             'bower_components/ngScrollTo/ng-scrollto.js',
             'bower_components/moment/moment.js',
             'bower_components/moment-timezone/builds/moment-timezone-with-data.js',
@@ -29,7 +31,6 @@ module.exports = function (config) {
             'bower_components/ngclipboard/dist/ngclipboard.js',
             'bower_components/Chart.js/Chart.min.js',
             'bower_components/angular-chart.js/dist/angular-chart.min.js',
-
 
             // actually, this file would have been picked up by the wildcard pattern app/**/*.js
             // but maybe in a wrong order. crowdsource.js defines the single crowdsource angular module and

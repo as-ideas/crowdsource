@@ -14,6 +14,7 @@ var config = {
     jsLibFiles: {
         minified: [
             'bower_components/jquery/dist/jquery.min.js',
+            'bower_components/messageformat/messageformat.min.js',
             'bower_components/angular/angular.min.js',
             'bower_components/angular-google-analytics/dist/angular-google-analytics.min.js',
             'bower_components/angular-dynamic-locale/dist/tmhDynamicLocale.min.js',
@@ -25,6 +26,7 @@ var config = {
             'bower_components/angular-translate/angular-translate.min.js',
             'bower_components/angular-translate-handler-log/angular-translate-handler-log.min.js',
             'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js',
+            'bower_components/angular-translate-interpolation-messageformat/angular-translate-interpolation-messageformat.min.js',
             'bower_components/moment/min/moment.min.js',
             'bower_components/moment-timezone/builds/moment-timezone-with-data.min.js',
             'bower_components/bowser/bowser.min.js',

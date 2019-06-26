@@ -36,8 +36,8 @@ let unescapeChars = function(json) {
         if (json.hasOwnProperty(key)) {
 
             let text = json[key];
-            text = text.replace(new RegExp("\\\\{\\\\{","g"),"{{");
-            text = text.replace(new RegExp("\\\\}\\\\}","g"),"}}");
+            text = text.replace(new RegExp("\\\\{","g"),"{");
+            text = text.replace(new RegExp("\\\\}","g"),"}");
 
             // Replace within <p> tags all newlines with </br>
             // This is for paragraphs

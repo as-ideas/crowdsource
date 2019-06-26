@@ -10,15 +10,15 @@
 
 // Angular JS defined class
 .valid-label {
-    @include font-form;
+    @include font-form-label;
 
     a {
-        @include font-form;
+        @include font-form-label;
     }
 }
 
 .invalid-label {
-    @include font-form;
+    @include font-form-label;
     color: $clr-red;
 }
 

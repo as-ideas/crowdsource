@@ -40,26 +40,32 @@
   color: $clr-white;
   background-color: $clr-blue;
 
-  &:active {
-    color: $clr-white;
-    background-color: $clr-blue;
-  }
-
   &:focus {
     color: $clr-white;
     background-color: $clr-blue;
   }
 
-  &:hover {
+  &:active {
     color: $clr-white;
     background-color: $clr-pink;
   }
 
-  &:hover:enabled {
-    color: $clr-white;
-    background-color: $clr-pink;
-  }
+  @media #{$medium-up} {
+    &:active {
+      color: $clr-white;
+      background-color: $clr-blue;
+    }
 
+    &:hover {
+      color: $clr-white;
+      background-color: $clr-pink;
+    }
+
+    &:hover:enabled {
+      color: $clr-white;
+      background-color: $clr-pink;
+    }
+  }
 }
 
 
@@ -69,24 +75,31 @@
   color: $clr-white;
   background-color: $clr-black;
 
-  &:active {
-    color: $clr-white;
-    background-color: $clr-black;
-  }
-
   &:focus {
     color: $clr-white;
     background-color: $clr-black;
   }
 
-  &:hover {
+  &:active {
     color: $clr-black;
     background-color: $clr-gray-dark;
   }
 
-  &:hover:enabled {
-    color: $clr-black;
-    background-color: $clr-gray-dark;
+  @media #{$medium-up} {
+    &:active {
+      color: $clr-white;
+      background-color: $clr-black;
+    }
+
+    &:hover {
+      color: $clr-black;
+      background-color: $clr-gray-dark;
+    }
+
+    &:hover:enabled {
+      color: $clr-black;
+      background-color: $clr-gray-dark;
+    }
   }
 
 }
@@ -97,25 +110,32 @@
   color: $clr-blue;
   background-color: $clr-green-neon;
 
-  &:active {
-    color: $clr-blue;
-    background-color: $clr-green-neon;
-  }
-
   &:focus {
     color: $clr-blue;
     background-color: $clr-green-neon;
   }
 
-  &:hover:enabled {
-     color: $clr-green-neon;
-     background-color: $clr-gray-dark;
-   }
+  &:active {
+    color: $clr-green-neon;
+    background-color: $clr-gray-dark;
+  }
 
-   &:hover {
-     color: $clr-green-neon;
-     background-color: $clr-gray-dark;
-   }
+  @media #{$medium-up} {
+    &:active {
+      color: $clr-blue;
+      background-color: $clr-green-neon;
+    }
+
+    &:hover:enabled {
+      color: $clr-green-neon;
+      background-color: $clr-gray-dark;
+    }
+
+    &:hover {
+      color: $clr-green-neon;
+      background-color: $clr-gray-dark;
+    }
+  }
 }
 
 .button-reject {
@@ -124,25 +144,31 @@
   color: $clr-white;
   background-color: $clr-red;
 
-  &:active {
-    color: $clr-white;
-    background-color: $clr-red;
-  }
-
   &:focus {
     color: $clr-white;
     background-color: $clr-red;
   }
 
-  &:hover {
+  &:active {
     color: $clr-red;
     background-color: $clr-gray-dark;
   }
 
+  @media #{$medium-up} {
+    &:active {
+      color: $clr-white;
+      background-color: $clr-red;
+    }
 
-  &:hover:enabled {
-    color: $clr-red;
-    background-color: $clr-gray-dark;
+    &:hover {
+      color: $clr-red;
+      background-color: $clr-gray-dark;
+    }
+
+    &:hover:enabled {
+      color: $clr-red;
+      background-color: $clr-gray-dark;
+    }
   }
 }
 

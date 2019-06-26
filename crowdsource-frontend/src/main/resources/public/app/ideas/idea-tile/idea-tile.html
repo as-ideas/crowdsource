@@ -2,8 +2,7 @@
 
     <div ng-if="vm.idea.status == 'PUBLISHED'">
         <span class="ideas-grid-tile__title">{{ vm.title }}</span>
-        <span class="ideas-grid-tile__star--single"></span>
-        <span class="ideas-grid-tile__votes" translate="IDEA_TILE_AVG_RATING" translate-value-rating="{{vm.rating.averageRating}}" translate-value-votes="{{vm.rating.countVotes}}"></span>
+        <span class="ideas-grid-tile__votes" translate="IDEA_TILE_AVG_RATING" translate-value-ratingplural="{{ (vm.rating.averageRating == 1) ? 'one' : 'many' }}" translate-value-votesplural="{{ (vm.rating.countVotes == 1) ? 'one' : 'many' }}" translate-value-rating="{{vm.rating.averageRating}}" translate-value-votes="{{vm.rating.countVotes}}" translate-interpolation="messageformat"></span>
     </div>
 
     <div ng-if="!(vm.idea.status == 'PUBLISHED') && !vm.isEditable">

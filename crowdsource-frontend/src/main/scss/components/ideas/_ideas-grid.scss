@@ -246,13 +246,19 @@ $tile-padding-vertical: 15px;
       @include deepl-base;
       background-image: url('../images/logo-deepl-active.svg');
 
-      &:hover {
+      &:active {
         background-image: url('../images/logo-deepl-hover.svg');
       }
 
       &--inactive {
         @include deepl-base;
         background-image: url('../images/logo-deepl-inactive.svg');
+      }
+
+      @media #{$medium-up} {
+        &:hover {
+          background-image: url('../images/logo-deepl-hover.svg');
+        }
       }
     }
 
