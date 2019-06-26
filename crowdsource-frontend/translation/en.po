@@ -281,7 +281,7 @@ msgstr "We have removed your rating."
 
 #: 
 msgid "IDEA_TILE_AVG_RATING"
-msgstr "{{rating}} by {{votes}} people"
+msgstr "{rating} {ratingplural, select, many{stars} one{star} other {stars}} by {votes} {votesplural, select, many{people} one{person} other {people}}"
 
 #: 
 msgid "IDEA_UPDATE_MESSAGE"
