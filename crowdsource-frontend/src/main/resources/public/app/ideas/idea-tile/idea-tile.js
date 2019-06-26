@@ -12,6 +12,7 @@ angular.module('crowdsource')
             scope: {
                 'idea': '=',
                 'admin': '=',
+              'own': '=',
                 'campaign': "=",
                 'successFn': "="
             },
@@ -38,6 +39,7 @@ angular.module('crowdsource')
                 vm.rejectionComment = "";
                 vm.isEditable = false;
                 vm.isAdminView = $scope.admin || false;
+              vm.isOwnView = $scope.own || false;
 
                 vm.vote = function (value) {
                     if (vm.isVotingDisabled) return;

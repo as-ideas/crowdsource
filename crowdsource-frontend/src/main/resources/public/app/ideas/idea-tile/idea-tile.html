@@ -10,7 +10,9 @@
         <span class="ideas-grid-tile__title">{{ vm.idea.contentI18n.original.title }}</span>
     </div>
 
-    <p ng-if="vm.idea.status == 'PUBLISHED'" class="ideas-grid-tile__text">{{ vm.pitch }} ({{::idea.creatorName}})</p>
+    <p ng-if="vm.idea.status == 'PUBLISHED' && vm.isOwnView == false" class="ideas-grid-tile__text">{{ vm.pitch }}
+        ({{::idea.creatorName}})</p>
+    <p ng-if="vm.idea.status == 'PUBLISHED' && vm.isOwnView == true" class="ideas-grid-tile__text">{{ vm.pitch }}</p>
     <p ng-if="!(vm.idea.status == 'PUBLISHED') && vm.isAdminView" ng-class="vm.idea.status == 'REJECTED' ? 'ideas-grid-tile__text--rejected' : 'ideas-grid-tile__text'">{{ vm.idea.contentI18n.original.pitch }} ({{::idea.creatorName}})</p>
     <p ng-if="!(vm.idea.status == 'PUBLISHED') && !vm.isEditable && !vm.isAdminView" ng-class="vm.idea.status == 'REJECTED' ? 'ideas-grid-tile__text--rejected' : 'ideas-grid-tile__text'">{{ vm.idea.contentI18n.original.pitch }}</p>
 
