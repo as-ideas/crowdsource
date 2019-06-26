@@ -31,6 +31,8 @@ module.exports = function (config) {
             'bower_components/ngclipboard/dist/ngclipboard.js',
             'bower_components/Chart.js/Chart.min.js',
             'bower_components/angular-chart.js/dist/angular-chart.min.js',
+            'bower_components/he/he.js',
+
 
             // actually, this file would have been picked up by the wildcard pattern app/**/*.js
             // but maybe in a wrong order. crowdsource.js defines the single crowdsource angular module and

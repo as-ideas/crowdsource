@@ -47,7 +47,8 @@ var config = {
             'bower_components/foundation/js/foundation/foundation.equalizer.js',
             'bower_components/foundation/js/foundation/foundation.slider.js',
             'bower_components/ngScrollTo/ng-scrollto.js',
-            'bower_components/foundation-datepicker/js/foundation-datepicker.js'
+            'bower_components/foundation-datepicker/js/foundation-datepicker.js',
+            'bower_components/he/he.js'
         ]
     },
 

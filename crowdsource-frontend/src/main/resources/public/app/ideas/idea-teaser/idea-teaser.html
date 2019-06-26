@@ -16,7 +16,7 @@
                 <h1 class="ideas-teaser__heading">{{ campaign.contentI18n[vm.currentLanguage].title }}</h1>
                 <p class="ideas-teaser__sponsor">{{ campaign.sponsor }}</p>
                 <p class="ideas-teaser__date">{{ campaign.startDate | date: 'shortDate'}} - {{ campaign.endDate | date: 'shortDate'}}<span ng-if="campaign.expired" translate="CAMPAIGN_LABEL_ENDED"> (beendet)</span></p>
-                <p class="ideas-teaser__description">{{ campaign.contentI18n[vm.currentLanguage].description}}</p>
+                <p class="ideas-teaser__description" ng-bind-html="trustedDescriptionHtml"></p>
             </div>
         </div>
     </div>

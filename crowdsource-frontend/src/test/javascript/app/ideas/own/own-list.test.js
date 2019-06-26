@@ -1,7 +1,19 @@
 describe('Own ideas list', function () {
 
     var $scope, $httpBackend, $window, $location, renderedView, Authentication, IDEAS_STATUS;
-    var CAMPAIGN = {id: "SOME_ID", title: 'some title', sponsor: 'peter maffay' };
+    var CAMPAIGN = {
+        id: "SOME_ID",
+        title: 'some title',
+        sponsor: 'peter maffay',
+        contentI18n: {
+            de: {
+                description: 'irgendeine Beschreibung'
+            },
+            en: {
+                description: 'some description'
+            }
+        }
+    };
 
     beforeEach(function () {
         module('crowdsource');

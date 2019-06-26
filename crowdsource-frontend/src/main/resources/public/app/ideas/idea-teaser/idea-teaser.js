@@ -7,27 +7,24 @@ angular.module('crowdsource')
                 'campaign': "="
             },
             templateUrl: 'app/ideas/idea-teaser/idea-teaser.html',
-            controller: function ($scope, $rootScope, $translate) {
+            controller: function ($scope, $rootScope, $translate, $sce) {
 
                 $rootScope.$on('$translateChangeSuccess', function (event,data) {
                   vm.currentLanguage = data.language;
+                  decodeDescriptionHTML();
                 });
 
                 var vm = this;
-              vm.currentLanguage = $translate.use();
+                vm.currentLanguage = $translate.use();
 
-                // vm.campaign = angular.copy($scope.campaign);
                 if($scope.campaign.videoImageReference === null) $scope.campaign.videoImageReference = "/images/fallbacks/campaign-video-image-fallback.png";
+                decodeDescriptionHTML();
 
-                /*
-                function formatDateString(campaign) {
-                    startDate = new Date(campaign.startDate);
-                    endDate = new Date(campaign.endDate);
-
-                    campaign.startDateString = startDate.getDate() + "." + (startDate.getMonth()+1) + "." + startDate.getFullYear();
-                    campaign.endDateString = endDate.getDate() + "." + (endDate.getMonth()+1) + "." + endDate.getFullYear();
+                // Allow HTML with description, for example for </br> or <b>bold</b>
+                function decodeDescriptionHTML() {
+                    var decodedText = he.decode($scope.campaign.contentI18n[vm.currentLanguage].description);
+                    $scope.trustedDescriptionHtml = $sce.trustAsHtml(decodedText);
                 }
-                */
             }
         };
     });
