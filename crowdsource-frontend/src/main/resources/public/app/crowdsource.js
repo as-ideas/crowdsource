@@ -45,9 +45,13 @@
                     prefix: '/translations/',
                     suffix: '.json'
                 })
-                .preferredLanguage(defaultLang)
                 .addInterpolation('$translateMessageFormatInterpolation')
-                .useMissingTranslationHandlerLog();
+                .registerAvailableLanguageKeys(['en', 'de'], {
+                    'de_*': 'de',
+                    'en_*': 'en',
+                    '*': 'en'
+                })
+                .determinePreferredLanguage();
 
             $routeProvider
                 .when('/intro', {
