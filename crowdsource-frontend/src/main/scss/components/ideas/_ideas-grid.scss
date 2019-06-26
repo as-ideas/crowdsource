@@ -242,22 +242,42 @@ $tile-padding-vertical: 15px;
 
     }
 
-    &__deepl {
+    &__deepl_en {
       @include deepl-base;
-      background-image: url('../images/logo-deepl-active.svg');
+      background-image: url('../images/logo-deepl-active_en.png');
 
       &:active {
-        background-image: url('../images/logo-deepl-hover.svg');
+        background-image: url('../images/logo-deepl-hover_en.png');
       }
 
       &--inactive {
         @include deepl-base;
-        background-image: url('../images/logo-deepl-inactive.svg');
+        background-image: url('../images/logo-deepl-inactive_en.png');
       }
 
       @media #{$medium-up} {
         &:hover {
-          background-image: url('../images/logo-deepl-hover.svg');
+          background-image: url('../images/logo-deepl-hover_en.png');
+        }
+      }
+    }
+
+    &__deepl_de {
+      @include deepl-base;
+      background-image: url('../images/logo-deepl-active_de.png');
+
+      &:active {
+        background-image: url('../images/logo-deepl-hover_de.png');
+      }
+
+      &--inactive {
+        @include deepl-base;
+        background-image: url('../images/logo-deepl-inactive_de.png');
+      }
+
+      @media #{$medium-up} {
+        &:hover {
+          background-image: url('../images/logo-deepl-hover_de.png');
         }
       }
     }
