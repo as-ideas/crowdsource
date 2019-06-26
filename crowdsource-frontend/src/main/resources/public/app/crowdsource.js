@@ -37,9 +37,7 @@
             AnalyticsProvider.setAccount(window.gaId);
             AnalyticsProvider.trackPages(false); // Pages are tracked from nav-bar component after the window title has been set
 
-            // I18n
-            var defaultLang = 'en';
-            tmhDynamicLocaleProvider.defaultLocale(defaultLang);
+            // I18n Translation
             $translateProvider
                 .useStaticFilesLoader({
                     prefix: '/translations/',
@@ -53,6 +51,10 @@
                 })
                 .determinePreferredLanguage();
 
+            // I18n Locale
+            tmhDynamicLocaleProvider.defaultLocale($translateProvider.preferredLanguage());
+
+            // Routes
             $routeProvider
                 .when('/intro', {
                     templateUrl: 'app/intro/intro.html',
