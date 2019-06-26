@@ -57,20 +57,12 @@ msgid "ADMIN_IDEAS_PENDING_HEADLINE"
 msgstr ""
 
 msgctxt ""
-msgid "AS_ABOUT_AS_IT_CAPTION"
-msgstr "v.l.n.r. Johannes Schrade, Anneke Möhlmann"
-
-msgctxt ""
 msgid "AS_ABOUT_AS_IT_HEADLINE"
 msgstr "AS IT"
 
 msgctxt ""
 msgid "AS_ABOUT_AS_IT_HEADLINE_DESC"
 msgstr ""
-
-msgctxt ""
-msgid "AS_ABOUT_IDEAS_ENGINEERING_CAPTION"
-msgstr "v.l.n.r. Lars Reith, Tarek Madany-Mamlouk, Martin Bild, Julian Godesa, Thomas Wenzinski, Stefan Bieler, Maria Steffen, Hsin-Tung Chen"
 
 msgctxt ""
 msgid "AS_ABOUT_IDEAS_ENGINEERING_DESC"
@@ -81,10 +73,6 @@ msgid "AS_ABOUT_IDEAS_ENGINEERING_HEADLINE"
 msgstr "Ideas Engineering"
 
 msgctxt ""
-msgid "AS_ABOUT_NEWS_MEDIA_PRINT_CAPTION"
-msgstr "v.l.n.r. Thomas Wendt, Thomas Eisermann"
-
-msgctxt ""
 msgid "AS_ABOUT_NEWS_MEDIA_PRINT_DESC"
 msgstr "Die Personalabteilung des Verlagsbereichs News Media Print begleitet Mitarbeiterinnen und Mitarbeiter mit Kompetenz, Erfahrung und Weitblick von der Bewerbung über Elternzeit, Sabbatical und Fachkarriere bis hin zum Renteneintritt auf ihrem Weg in der Axel Springer-Familie."
 
@@ -93,16 +81,16 @@ msgid "AS_ABOUT_NEWS_MEDIA_PRINT_HEADLINE"
 msgstr "News Media Print"
 
 msgctxt ""
-msgid "AS_ABOUT_PEOPLE_AND_CULTURE_CAPTION"
-msgstr "v.l.n.r. Johannes Burr, Sven Rebbert, N.N."
-
-msgctxt ""
 msgid "AS_ABOUT_PEOPLE_AND_CULTURE_DESC"
 msgstr "People & Culture steht für die unternehmensweite Vernetzung und den Austausch der Mitarbeiter untereinander, für lebenslanges Lernen und die Potentialentfaltung von Teams und jedem Einzelnen sowie für das Erleben modernen Arbeitens. Mit Leidenschaft setzen wir uns dafür ein, neue Impulse und Innovationen ins Unternehmen zu tragen, die Lust auf Neues machen."
 
 msgctxt ""
 msgid "AS_ABOUT_PEOPLE_AND_CULTURE_HEADLINE"
 msgstr "People & Culture"
+
+msgctxt ""
+msgid "AS_ABOUT_TEAM_CAPTION"
+msgstr "v.l.n.r. Tic, Tac, Toe"
 
 msgctxt ""
 msgid "AS_BUTTON_LABEL_NEWSLETTER"
