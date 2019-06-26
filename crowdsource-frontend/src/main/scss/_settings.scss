@@ -199,8 +199,15 @@ $range-slider-active-segment-bg-color: $clr-emerald;
   font-size: $fs-small;
 }
 
-@mixin font-form {
+@mixin font-form-label {
   @include font-base;
+  color: $clr-black;
+  font-size: $fs-small;
+}
+
+@mixin font-form-input {
+  @include font-base;
+  color: rgba(0, 0, 0, 0.75);
   font-size: $fs-small;
 }
 
@@ -271,7 +278,11 @@ li {
 }
 
 input {
-  @include font-form;
+  @include font-form-input;
+}
+
+textarea {
+  @include font-form-input;
 }
 
 address {
