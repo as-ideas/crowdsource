@@ -68,6 +68,13 @@
         </div>
     </div>
 
-    <div ng-if="vm.isTranslated && vm.isTranslationSelected" class="ideas-grid-tile__deepl" ng-click="vm.selectTranslation(false)"></div>
-    <div ng-if="vm.isTranslated && !vm.isTranslationSelected" class="ideas-grid-tile__deepl--inactive" ng-click="vm.selectTranslation(true)"></div>
+    <div ng-if="vm.isTranslated && vm.isTranslationSelected && vm.currentLanguage == 'de'"
+         class="ideas-grid-tile__deepl_de" ng-click="vm.selectTranslation(false)"></div>
+    <div ng-if="vm.isTranslated && vm.isTranslationSelected && vm.currentLanguage == 'en'"
+         class="ideas-grid-tile__deepl_en" ng-click="vm.selectTranslation(false)"></div>
+
+    <div ng-if="vm.isTranslated && !vm.isTranslationSelected && vm.currentLanguage == 'de'"
+         class="ideas-grid-tile__deepl_de--inactive" ng-click="vm.selectTranslation(true)"></div>
+    <div ng-if="vm.isTranslated && !vm.isTranslationSelected && vm.currentLanguage == 'en'"
+         class="ideas-grid-tile__deepl_en--inactive" ng-click="vm.selectTranslation(true)"></div>
 </div>

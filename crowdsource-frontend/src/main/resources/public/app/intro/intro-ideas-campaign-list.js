@@ -11,9 +11,8 @@ angular.module('crowdsource')
                 var vm = this;
 
                 $rootScope.$on('$translateChangeSuccess', function (event,data) {
-                  //vm.currentLanguage = data.language;
-                  vm.currentLanguage = "original";
-                    console.log("language change: " + vm.currentLanguage);
+                  vm.currentLanguage = data.language;
+                  console.log("language change: " + vm.currentLanguage);
                 });
 
               vm.currentLanguage = $translate.use();
