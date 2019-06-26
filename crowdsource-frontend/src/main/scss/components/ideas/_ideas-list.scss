@@ -83,7 +83,11 @@ $intro-box-break: "only screen and (max-width: 740px)";
 
 /*span*/
 .ideaslist__pill {
+    display: inline-block;
     position: relative;
+    min-width: 31px;
+    text-align: center;
+
     margin: 0 rem-calc(4px);
     padding: rem-calc(2px) rem-calc(8px);
 
