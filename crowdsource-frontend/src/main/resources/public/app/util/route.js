@@ -20,7 +20,7 @@ angular.module('crowdsource')
                     $location.path('/login');
                 }
 
-                if (next.requireAdmin && !Authentication.isAdmin()) {
+                else if (next.requireAdmin && !Authentication.isAdmin()) {
 
                     // remember the path where the user would have been redirected to
                   pathBeforeRedirectToLogin = interpolate(next.originalPath, next.pathParams);
