@@ -34,6 +34,7 @@ public class UserNotificationService {
     public static final String ACTIVATION_LINK_PATTERN = "/signup/{emailAddress}/activation/{activationToken}";
     public static final String PASSWORD_RECOVERY_LINK_PATTERN = "/login/password-recovery/{emailAddress}/activation/{activationToken}";
     public static final String IDEA_CAMPAIGN_LINK_PATTERN = "/ideas/{campaign}";
+    public static final String IDEA_CAMPAIGN_LINK_ADMIN_PATTERN = "/ideas/{campaign}/admin";
     public static final String IDEA_CAMPAIGN_YOUR_IDEAS_LINK_PATTERN = "/ideas/{campaign}/own";
 
     public static final String SUBJECT_ACTIVATION = "Please set a password for your account on AS.Crowd // Bitte vergib ein Passwort für Dein Konto auf AS.Crowd";
@@ -253,7 +254,7 @@ public class UserNotificationService {
         context.setVariable("fullName", idea.getCreator().getFullName());
         context.setVariable("ideaTitle", idea.getOriginalTitle());
         context.setVariable("ideaPitch", idea.getOriginalPitch());
-        context.setVariable("link", buildIdeasCampaignLink(idea.getCampaignId()));
+        context.setVariable("link", buildIdeasCampaignAdminLink(idea.getCampaignId()));
         context.setVariable("campaignTitle", campaignTitle);
 
         final String mailSubject = MessageFormat.format(SUBJECT_IDEA_CREATED, campaignTitle);
@@ -274,6 +275,14 @@ public class UserNotificationService {
 
         UriComponentsBuilder uriBuilder = ServletUriComponentsBuilder.fromUriString(getApplicationUrl());
         uriBuilder.fragment(IDEA_CAMPAIGN_LINK_PATTERN);
+
+        return uriBuilder.buildAndExpand(campaignId).toUriString();
+    }
+
+    private String buildIdeasCampaignAdminLink(String campaignId) {
+
+        UriComponentsBuilder uriBuilder = ServletUriComponentsBuilder.fromUriString(getApplicationUrl());
+        uriBuilder.fragment(IDEA_CAMPAIGN_LINK_ADMIN_PATTERN);
 
         return uriBuilder.buildAndExpand(campaignId).toUriString();
     }
