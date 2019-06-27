@@ -281,7 +281,7 @@ msgstr "We have removed your rating."
 
 #: 
 msgid "IDEA_TILE_AVG_RATING"
-msgstr "{{rating}} by {{votes}} people"
+msgstr "{rating} {ratingplural, select, many{stars} one{star} other {stars}} by {votes} {votesplural, select, many{persons} one{person} other {persons}}"
 
 #: 
 msgid "IDEA_UPDATE_MESSAGE"
@@ -1031,5 +1031,21 @@ msgstr ""
 
 #: 
 msgid "AS_ABOUT_TEAM_CAPTION"
+msgstr ""
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_21_HEADLINE"
+msgstr ""
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_22_HEADLINE"
+msgstr ""
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_21_PARAGRAPH"
+msgstr ""
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_22_PARAGRAPH"
 msgstr ""
 
