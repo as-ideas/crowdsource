@@ -78,6 +78,19 @@
     }
   }
 
+  &__description--mobile {
+    @include font-text;
+
+    text-align: left;
+    color: $clr-white;
+    margin-top: $mrg-medium;
+    margin-bottom: 0;
+
+    @media #{$medium-up} {
+      display: none;
+    }
+  }
+
   &__video-container {
     position: relative;
     padding-bottom: 56.25%; /* 16:9 */
