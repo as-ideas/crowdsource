@@ -11,7 +11,7 @@ angular.module('crowdsource')
                 if (next.requireLogin && !Authentication.currentUser.loggedIn) {
 
                     // remember the path where the user would have been redirected to
-                    pathBeforeRedirectToLogin = next.originalPath;
+                  pathBeforeRedirectToLogin = interpolate(next.originalPath, next.pathParams);
 
                     // cancel the requested route change
                     event.preventDefault();
@@ -20,16 +20,33 @@ angular.module('crowdsource')
                     $location.path('/login');
                 }
 
-                if (next.requireAdmin && !Authentication.isAdmin()) {
+                else if (next.requireAdmin && !Authentication.isAdmin()) {
 
                     // remember the path where the user would have been redirected to
-                    pathBeforeRedirectToLogin = next.originalPath;
+                  pathBeforeRedirectToLogin = interpolate(next.originalPath, next.pathParams);
 
                     // cancel the requested route change
                     event.preventDefault();
 
                     $location.path('/error/notfound');
                 }
+
+              function interpolate(string, params) {
+                var result = [];
+                angular.forEach((string || '').split(':'), function (segment, i) {
+                  if (i === 0) {
+                    result.push(segment);
+                  } else {
+                    var segmentMatch = segment.match(/(\w+)(?:[?*])?(.*)/);
+                    var key = segmentMatch[1];
+                    result.push(params[key]);
+                    result.push(segmentMatch[2] || '');
+                    delete params[key];
+                  }
+                });
+                return result.join('');
+              }
+
             });
         };
 

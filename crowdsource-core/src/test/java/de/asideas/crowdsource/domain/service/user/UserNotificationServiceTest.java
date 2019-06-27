@@ -232,7 +232,7 @@ public class UserNotificationServiceTest {
                         "Title: SCHOKOLADE\n" +
                         "Pitch: Schokolade für alle!\n" +
                         "Kampagne: Schokoladen Kampagne\n\n" +
-                        "https://crowd.asideas.de/#/ideas/eatMoreChocolateCampaign\n\n" +
+                        "https://crowd.asideas.de/#/ideas/eatMoreChocolateCampaign/admin\n\n" +
                         "Mit freundlichen Grüßen\n" +
                         "Dein CrowdSource Team\n"));
 
