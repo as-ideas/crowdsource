@@ -17,6 +17,9 @@ angular.module('crowdsource')
                 vm.cancel = $scope.cancelFn ? cancel : null;
                 vm.submit = $scope.submitFn ? submit : null;
 
+                vm.resetTitle = vm.idea.contentI18n.original.title;
+                vm.resetPitch = vm.idea.contentI18n.original.pitch;
+
                 // Loosely couple to controller that actually sends the idea to the backend
                 // Set form to its pristine state after succesfully sumbit so another idea can be cleanly submitted (in partucular reset error labels to valid labels)
                 $scope.$on('ADD_IDEA_SUCCESS', function(e) {
@@ -40,9 +43,8 @@ angular.module('crowdsource')
                 };
 
                 function cancel () {
-                    // Service endpoint requires flat IdeaIn object which has title and pitch instead of contentI18n
-                    vm.idea.title = vm.idea.contentI18n.original.title;
-                    vm.idea.pitch = vm.idea.contentI18n.original.pitch;
+                    vm.idea.contentI18n.original.title = vm.resetTitle;
+                    vm.idea.contentI18n.original.pitch = vm.resetPitch;
                     $scope.cancelFn();
                 };
             }
