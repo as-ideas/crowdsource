@@ -341,7 +341,7 @@ msgstr "Ideas still waiting for release: {{value}}"
 
 #: 
 msgid "IDEAS_OWN_SUBMITTED_HEADLINE"
-msgstr "Ideas submitted"
+msgstr "Submitted Ideas"
 
 #: 
 msgid "IDEAS_VOTE_DESC"
@@ -1051,9 +1051,9 @@ msgstr "Axel Springer Crowd is currently only available in German-speaking count
 
 #: 
 msgid "AS_IMPRINT_COPYRIGHTS_HEADLINE"
-msgstr "Copyrights"
+msgstr "&nbsp;"
 
 #: 
 msgid "AS_IMPRINT_COPYRIGHTS_P"
-msgstr "<a href=\"https://de.freepik.com/fotos-vektoren-kostenlos/hand-gezeichnet-idee-konzept_829848.htm\">\"Hand gezeichnete Idee Konzept 829848\" vector created  by freepik - de.freepik.com</a>"
+msgstr "&nbsp;"
 
