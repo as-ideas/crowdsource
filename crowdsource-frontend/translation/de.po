@@ -834,43 +834,43 @@ msgstr "Ideen werden durch das integrierte Programm DeepL übersetzt. DeepL ist 
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_12_PARAGRAPH"
-msgstr "Solange Deine Idee noch nicht freigegeben wurde, kannst Du jederzeit Deine Idee unter „Meine Ideen“ auch nachträglich noch bearbeiten. Er Menüpunkt „Deine Ideen“ wird sichtbar, sobald Du Dich im entsprechenden Markplatz befindest, für den Du die Idee eingereicht hast."
+msgstr "Solange Deine Idee noch nicht freigegeben wurde, kannst Du jederzeit Deine Idee unter „Meine Ideen“ auch nachträglich noch bearbeiten. Der Menüpunkt „Meine Ideen“ wird sichtbar, sobald Du Dich im entsprechenden Marktplatz befindest, für den Du die Idee eingereicht hast."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_13_PARAGRAPH"
-msgstr "Das AS Crowd-Team gibt Ideen unter Berücksichtigung der entsprechenden Unternehmensrichtlinien frei. Dabei wird geprüft, ob eine Idee den Compliance-Richtlinien entspricht."
+msgstr "Das Axel Springer Crowd Team gibt Ideen unter Berücksichtigung der entsprechenden Unternehmensrichtlinien frei. Dabei wird geprüft, ob eine Idee den Compliance-Richtlinien entspricht."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_14_PARAGRAPH"
-msgstr "Es gilt: Eine Idee muss Compliance-konform sein. Es dürfen weder beleidigende Texte, noch xxx eingereicht werden. Sollte eine Idee nach der Prüfung durch das AS Crowd-Team abgelehnt werden, erhalten Mitarbeiter eine separate E-Mail inklusive des Grunds der Ablehnung. Entspricht die Idee den Compliance-Richtlinien, wird sie freigegeben und erscheint im Marktplatz."
+msgstr "Es gilt: Eine Idee muss Compliance-konform sein. Es dürfen weder beleidigende Texte, noch diffamierende Inhalte eingereicht werden. Sollte eine Idee nach der Prüfung durch das Axel Springer Crowd Team abgelehnt werden, erhalten Mitarbeiter eine separate E-Mail inklusive des Grunds der Ablehnung. Entspricht die Idee den Compliance-Richtlinien, wird sie freigegeben und erscheint im Marktplatz. "
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_15_PARAGRAPH"
-msgstr "Ab dem Zeitpunkt der Freigabe durch das AS Crowd Team bis zum Ende des Zeitraums eines Marktplatzes kann über die Idee abgestimmt werden."
+msgstr "Die Freigabe für eine Idee dauert maximal 72 Stunden."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_16_PARAGRAPH"
-msgstr "Die Freigabe für eine Idee dauert maximal 48 Stunden."
+msgstr "Ab dem Zeitpunkt der Freigabe durch das Axel Springer Crowd Team bis zum Ende des Zeitraums eines Marktplatzes kann über die Idee abgestimmt werden."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_17_PARAGRAPH"
-msgstr "Bei Fragen zur Ablehung kannst Du Dich an das AS Crowd Team wenden. Sollte die Problematik nicht geklärt werden können oder Du noch weitergehende Fragen haben, steht Dir auch der Arbeitskreis Betriebliches Vorschlagswesen unter Mailadresse?! zur Verfügung."
+msgstr ""
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_18_PARAGRAPH"
-msgstr "Die Sieger werden mehrheitlich durch das Voting der Nutzer in Axel Springer Crowd ermittelt. Auch der Betriebsrat entscheidet über einen bestimmten Anteil der Sieger-Ideen."
+msgstr "Bei Fragen zur Ablehung kannst Du Dich an das Axel Springer Crowd Team wenden. Sollte die Problematik nicht geklärt werden können oder Du noch weitergehende Fragen haben, steht Dir auch der Arbeitskreis Betriebliches Vorschlagswesen zur Verfügung."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_19_PARAGRAPH"
-msgstr "Der Arbeitskreis betriebliches Vorschlagswesen hat sich auf ein Budget verständigt, welches für den Markplatz und die Ideen zur Verfügung steht. Die Höhe des Budgets von der Anzahl der eingereichten Vorschläge ab."
+msgstr "Die Sieger werden mehrheitlich durch das Voting der Nutzer in Axel Springer Crowd ermittelt. Auch der Betriebsrat entscheidet über einen bestimmten Anteil der Sieger-Ideen."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_2_PARAGRAPH"
-msgstr "Die <a href=\"https://crowd.asideas.de/#/signup\">Registrierung</a> erfolgt ausschließlich mit der E-Mailadresse des Unternehmens. Nach dem Login erhalten Nutzer per E-Mail einen Link zur Registrierung. Sobald der Prozess abgeschlossen ist, können Ideen eingereicht werden."
+msgstr "Die <a href=\"#/signup\">Registrierung</a> erfolgt ausschließlich mit der E-Mailadresse des Unternehmens. Nach dem Login erhalten Nutzer per E-Mail einen Link zur Registrierung. Sobald der Prozess abgeschlossen ist, können Ideen eingereicht werden."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_20_PARAGRAPH"
-msgstr "Bei Fragen rund um das Thema Innovation stehen Dir xx und yy gerne zur Seite."
+msgstr "Der Arbeitskreis betriebliches Vorschlagswesen hat sich auf ein Budget verständigt, welches für den Markplatz und die Ideen zur Verfügung steht. Die Höhe des Budgets hängt von der Anzahl der eingereichten Vorschläge ab."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_3_PARAGRAPH"
@@ -886,11 +886,11 @@ msgstr "Der Marktplatz „One more idea“ ist ein Sammelplatz für alle Ideen, 
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_6_PARAGRAPH"
-msgstr "Bei Axel Springer Crowd werden kontinuierlich werden neue Marktplätze freigeschaltet. Mitarbeiter können sich auf der Plattform über neue Marktplätze informieren. Zusätzlich werdet Ihr per Newsletter auf über neue Marktplätze auf dem Laufenden gehalten. Hier könnt Ihr Euch für den Newsletter registrieren."
+msgstr "Bei Axel Springer Crowd werden kontinuierlich neue Marktplätze freigeschaltet. Mitarbeiter können sich auf der Plattform über neue Marktplätze informieren. Zusätzlich werdet Ihr per Newsletter über neue Marktplätze auf dem Laufenden gehalten. <a href=\"https://axelspringerideas.us13.list-manage.com/subscribe?u=d4ff5f1c1f7d849d773d43835&id=7658a69b81\">Hier könnt Ihr Euch für den Newsletter registrieren</a>."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_7_PARAGRAPH"
-msgstr "Ideen und Anregungen für einen neuen Marktplatz könnt Ihr unter crowd@asideas.de einreichen."
+msgstr "Ideen und Anregungen für einen neuen Marktplatz könnt Ihr unter <a href=\"mailto:crowd@asideas.de\">crowd@asideas.de</a> einreichen."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_8_PARAGRAPH"
@@ -958,27 +958,27 @@ msgstr "Welche Regeln gelten für die Freigabe und Ablehnung einer Idee?"
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_15_HEADLINE"
-msgstr "Ab wann kann für eine Idee abgestimmt werden?"
-
-#: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_16_HEADLINE"
 msgstr "Wie lange dauert der Prozess bis meine Idee freigegeben wird?"
 
 #: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_16_HEADLINE"
+msgstr "Ab wann kann für eine Idee abgestimmt werden?"
+
+#: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_17_HEADLINE"
-msgstr "An wen wende ich mich bei Rückfragen zu einer Ablehnung?"
+msgstr "Kann ich mein Voting nachträglich ändern?"
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_18_HEADLINE"
-msgstr "Wie werden die Sieger eines Marktplatzes ermittelt?"
+msgstr "An wen wende ich mich bei Rückfragen zu einer Ablehnung?"
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_19_HEADLINE"
-msgstr "Erhalten Gewinner eine Prämie oder einen Bonus?"
+msgstr "Wie werden die Sieger eines Marktplatzes ermittelt?"
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_20_HEADLINE"
-msgstr "Wo kann ich mich zum Thema Innovation informieren?"
+msgstr "Erhalten Gewinner eine Prämie oder einen Bonus?"
 
 #: 
 msgid "AS_ABOUT_TEAM_CAPTION"
@@ -986,17 +986,17 @@ msgstr ""
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_21_HEADLINE"
-msgstr "In welchen Ländern ist Axel Springer Crowd verfügbar?"
+msgstr "Wo kann ich mich zum Thema Innovation informieren?"
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_22_HEADLINE"
-msgstr "Wie geht es mit der Idee nach einem Marktplatz weiter?"
+msgstr "In welchen Ländern ist Axel Springer Crowd verfügbar?"
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_21_PARAGRAPH"
-msgstr "Axel Springer Crowd ist zunächst nur im deutschsprachigen Raum verfügbar. Weitere Länder werden in folgen."
+msgstr "Bei Fragen rund um das Thema Innovation stehen wir Dir gerne zur Seite. Wir bringen vernetzen dich"
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_22_PARAGRAPH"
-msgstr ""
+msgstr "Axel Springer Crowd ist zunächst nur im deutschsprachigen Raum verfügbar. Weitere Länder werden folgen."
 
