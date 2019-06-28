@@ -861,7 +861,7 @@ msgstr "Solange ein Marktplatz geöffnet ist, können User ihr Voting für eine 
 #: 
 #, fuzzy
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_18_PARAGRAPH"
-msgstr "Bei Fragen zur Ablehnung kannst Du Dich an das AS Crowd Team wenden. Sollte die Problematik nicht geklärt werden können oder Du noch weitergehende Fragen haben, steht Dir auch der Arbeitskreis Betriebliches Vorschlagswesen unter Mailadresse?! zur Verfügung."
+msgstr "Bei Fragen zur Ablehnung kannst Du Dich an das AS Crowd Team wenden. Sollte die Problematik nicht geklärt werden können oder Du noch weitergehende Fragen haben, steht Dir auch der Arbeitskreis Betriebliches Vorschlagswesen unter <a href=\"mailto:reconsider.ascrowd@axelspringer.de\">reconsider.ascrowd@axelspringer.de</a> zur Verfügung."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_19_PARAGRAPH"
@@ -1005,12 +1005,11 @@ msgstr "Bei Axel Springer gibt es viele Initiativen zum Thema Innovation, wie zu
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_22_PARAGRAPH"
 msgstr "Axel Springer Crowd ist zunächst nur im deutschsprachigen Raum verfügbar. Weitere Länder werden folgen."
 
-#:
+#: 
 msgid "AS_IMPRINT_COPYRIGHTS_HEADLINE"
-msgstr "Bildrechte"
+msgstr "Urheberrechte"
 
-#:
+#: 
 msgid "AS_IMPRINT_COPYRIGHTS_P"
-msgstr "Das ist ein <a href='#'>Testlink</a> viel Spaß damit"
-
+msgstr "<a href=\"https://de.freepik.com/fotos-vektoren-kostenlos/hand-gezeichnet-idee-konzept_829848.htm\">\"Hand gezeichnete Idee Konzept 829848\" Vektor erstellt von freepik - de.freepik.com</a>"
 

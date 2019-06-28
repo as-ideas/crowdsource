@@ -65,7 +65,7 @@ msgstr "Release"
 
 #: 
 msgid "BUTTON_LABEL_CANCEL"
-msgstr "Abort"
+msgstr "Cancel"
 
 #: 
 msgid "BUTTON_LABEL_EDIT"
@@ -177,11 +177,11 @@ msgstr "Please enter your e-mail address"
 
 #: 
 msgid "FORM_EMAIL_LABEL"
-msgstr "E-Mail"
+msgstr "E-mail"
 
 #: 
 msgid "FORM_EMAIL_PLACEHOLDER"
-msgstr "E-Mail"
+msgstr "E-mail"
 
 #: 
 msgid "FORM_ERROR_MAX_CHARS"
@@ -457,7 +457,7 @@ msgstr "Set password"
 
 #: 
 msgid "NAV_LABEL_PRIVACY"
-msgstr "Privacy statement"
+msgstr "Privacy policy"
 
 #: 
 msgid "NAV_LABEL_PROJECT_ADDED"
@@ -525,7 +525,7 @@ msgstr "register"
 
 #: 
 msgid "PASSWORD_RECOVERY_HEADLINE"
-msgstr "Forgot password"
+msgstr "forgot password"
 
 #: 
 msgid "PASSWORD_RECOVERY_LOGIN"
@@ -855,8 +855,7 @@ msgstr "<h1>Privacy policy of Axel Springer Crowd</h1>\n"
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_1_PARAGRAPH"
-msgstr "Axel Springer Crowd is an Axel Springer platform that offers employees the opportunity to submit innovative ideas on various topics in so-called \"marketplaces\". The platform will initially be tested until the end of the year.\n"
-""
+msgstr "Axel Springer Crowd is an Axel Springer platform that offers employees the opportunity to submit innovative ideas on various topics in so-called \"marketplaces\". The platform will initially be tested until the end of the year."
 
 #: 
 msgid "AS_SUPPORT_FAQ_HEADLINE"
@@ -876,38 +875,31 @@ msgstr "In any case we will try to find a solution for your problem."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_10_PARAGRAPH"
-msgstr "Ideas can be submitted in the language you feel most comfortable with. They will be translated automatically and directly on our platform.\n"
-""
+msgstr "Ideas can be submitted in the language you feel most comfortable with. They will be translated automatically and directly on our platform."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_11_PARAGRAPH"
-msgstr "Ideas will be translated by the integrated program DeepL. DeepL is a machine translation system that is freely available and translates texts from one language to another.\n"
-""
+msgstr "Ideas will be translated by the integrated program DeepL. DeepL is a machine translation system that is freely available and translates texts from one language to another."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_12_PARAGRAPH"
-msgstr "As long as your idea has not yet been released, you can edit your idea at any time under \"My Ideas\". The menu item \"My Ideas\" becomes visible as soon as you are in the corresponding marketplace for which you submitted the idea.\n"
-""
+msgstr "As long as your idea has not yet been released, you can edit your idea at any time under \"My Ideas\". The menu item \"My Ideas\" becomes visible as soon as you are in the corresponding marketplace for which you submitted the idea."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_13_PARAGRAPH"
-msgstr "The Axel Springer Crowd Team releases ideas in accordance with the corporate guidelines. It will be checked if an idea corresponds to the compliance guidelines. \n"
-""
+msgstr "The Axel Springer Crowd Team releases ideas in accordance with the corporate guidelines. It will be checked if an idea corresponds to the compliance guidelines. "
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_14_PARAGRAPH"
-msgstr "It applies: An idea must be compliance-conform. Neither offensive texts nor defamatory contents may be submitted. If an idea is rejected after being reviewed by the Axel Springer Crowd Team, employees will receive a separate e-mail including the reason for the rejection. If the idea complies with the compliance guidelines, it is released and appears in the marketplace.\n"
-""
+msgstr "It applies: An idea must be compliance-conform. Neither offensive texts nor defamatory contents may be submitted. If an idea is rejected after being reviewed by the Axel Springer Crowd Team, employees will receive a separate e-mail including the reason for the rejection. If the idea complies with the compliance guidelines, it is released and appears in the marketplace."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_15_PARAGRAPH"
-msgstr "The release of an idea takes a maximum of 72 hours.\n"
-""
+msgstr "The release of an idea takes a maximum of 72 hours."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_16_PARAGRAPH"
-msgstr "From the time of release by the Axel Springer Crowd Team until the end of the period of a marketplace, the idea can be voted on.\n"
-""
+msgstr "From the time of release by the Axel Springer Crowd Team until the end of the period of a marketplace, the idea can be voted on."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_17_PARAGRAPH"
@@ -915,8 +907,7 @@ msgstr ""
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_18_PARAGRAPH"
-msgstr "If you have any questions regarding the rejection, please contact the Axel Springer Crowd Team. If the problem cannot be clarified or if you have further questions, you can also contact the working group of the company suggestion scheme.\n"
-""
+msgstr "If you have any questions regarding the rejection, please contact the Axel Springer Crowd Team. If the problem cannot be clarified or if you have further questions, you can also contact the working group of the company suggestion scheme."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_19_PARAGRAPH"
@@ -924,148 +915,119 @@ msgstr "The majority of the winners will be determined by the voting of the user
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_2_PARAGRAPH"
-msgstr "The <a href=\"#/signup\">Registration</a> is carried out exclusively with the e-mail address of the company. After login, users will receive an e-mail with a link for registration. Once the process is completed, ideas can be submitted.\n"
-""
+msgstr "The <a href=\"#/signup\">Registration</a> is carried out exclusively with the e-mail address of the company. After login, users will receive an e-mail with a link for registration. Once the process is completed, ideas can be submitted."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_20_PARAGRAPH"
-msgstr "The working group of the company suggestion scheme has agreed on a budget which is available for the marketplace and the ideas. The amount of the budget depends on the number of proposals submitted.\n"
-""
+msgstr "The working group of the company suggestion scheme has agreed on a budget which is available for the marketplace and the ideas. The amount of the budget depends on the number of proposals submitted."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_3_PARAGRAPH"
-msgstr "At Axel Springer Crowd, all employees of Axel Springer SE and the units in which Axel Springer holds a majority interest can participate.\n"
-""
+msgstr "At Axel Springer Crowd, all employees of Axel Springer SE and the units in which Axel Springer holds a majority interest can participate."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_4_PARAGRAPH"
-msgstr "A marketplace is a collection point where Axel Springer employees can submit their ideas on a specific topic.\n"
-""
+msgstr "A marketplace is a collection point where Axel Springer employees can submit their ideas on a specific topic."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_5_PARAGRAPH"
-msgstr "The \"One more idea\" marketplace is a collecting point for all ideas that cannot be thematically assigned to a current marketplace.\n"
-""
+msgstr "The \"One more idea\" marketplace is a collecting point for all ideas that cannot be thematically assigned to a current marketplace."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_6_PARAGRAPH"
-msgstr "At Axel Springer Crowd, new marketplaces are continuously being activated. Employees can use the platform to find out about new marketplaces. In addition, you will be updated on new marketplaces by newsletter. <a href=\"https://axelspringerideas.us13.list-manage.com/subscribe?u=d4ff5f1c1f7d849d773d43835&id=7658a69b81\">Here you can register for the newsletter</a>.\n"
-""
+msgstr "At Axel Springer Crowd, new marketplaces are continuously being activated. Employees can use the platform to find out about new marketplaces. In addition, you will be updated on new marketplaces by newsletter. <a href=\"https://axelspringerideas.us13.list-manage.com/subscribe?u=d4ff5f1c1f7d849d773d43835&id=7658a69b81\">Here you can register for the newsletter</a>."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_7_PARAGRAPH"
-msgstr "You can submit ideas and suggestions for a new marketplace here: <a href=\"mailto:crowd@asideas.de\">crowd@asideas.de</a>.\n"
-""
+msgstr "You can submit ideas and suggestions for a new marketplace here: <a href=\"mailto:crowd@asideas.de\">crowd@asideas.de</a>."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_8_PARAGRAPH"
-msgstr "An idea consists of a title and a short description (maximum 255 characters), which makes clear what it is about.\n"
-""
+msgstr "An idea consists of a title and a short description (maximum 255 characters), which makes clear what it is about."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_9_PARAGRAPH"
-msgstr "As is well known, brevity is the soul of wit. That is why we have limited the number of characters for an idea. You don't have to submit a mature concept, because it's just about your ideas.\n"
-""
+msgstr "As is well known, brevity is the soul of wit. That is why we have limited the number of characters for an idea. You don't have to submit a mature concept, because it's just about your ideas."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_1_HEADLINE"
-msgstr "What is the Axel Springer Crowd?\n"
-""
+msgstr "What is the Axel Springer Crowd?"
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_2_HEADLINE"
-msgstr "How can I register at Axel Springer Crowd?\n"
-""
+msgstr "How can I register at Axel Springer Crowd?"
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_3_HEADLINE"
-msgstr "Which Axel Springer companies can participate?\n"
-""
+msgstr "Which Axel Springer companies can participate?"
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_4_HEADLINE"
-msgstr "What is a marketplace?\n"
-""
+msgstr "What is a marketplace?"
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_5_HEADLINE"
-msgstr "What's the deal with the \"One more idea\" marketplace?\n"
-""
+msgstr "What's the deal with the \"One more idea\" marketplace?"
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_6_HEADLINE"
-msgstr "How often do new marketplaces appear?\n"
-""
+msgstr "How often do new marketplaces appear?"
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_7_HEADLINE"
-msgstr "Can I also submit ideas for a marketplace?\n"
-""
+msgstr "Can I also submit ideas for a marketplace?"
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_8_HEADLINE"
-msgstr "In which format do I submit ideas?\n"
-""
+msgstr "In which format do I submit ideas?"
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_9_HEADLINE"
-msgstr "Why is the number of characters for an idea limited?\n"
-""
+msgstr "Why is the number of characters for an idea limited?"
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_10_HEADLINE"
-msgstr "In which language should I submit my idea?\n"
-""
+msgstr "In which language should I submit my idea?"
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_11_HEADLINE"
-msgstr "How is my idea translated and what is DeepL?\n"
-""
+msgstr "How is my idea translated and what is DeepL?"
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_12_HEADLINE"
-msgstr "Can I edit my idea later on?\n"
-""
+msgstr "Can I edit my idea later on?"
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_13_HEADLINE"
-msgstr "Who is releasing my idea?\n"
-""
+msgstr "Who is releasing my idea?"
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_14_HEADLINE"
-msgstr "Which rules apply to the release and rejection of an idea?\n"
-""
+msgstr "Which rules apply to the release and rejection of an idea?"
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_15_HEADLINE"
-msgstr "How long does take until my idea is released?\n"
-""
+msgstr "How long does take until my idea is released?"
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_16_HEADLINE"
-msgstr "When can an idea be voted on?\n"
-""
+msgstr "When can an idea be voted on?"
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_17_HEADLINE"
-msgstr "Can I change my voting later on?\n"
-""
+msgstr "Can I change my voting later on?"
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_18_HEADLINE"
-msgstr "Who should I contact if I have any questions about a rejection?\n"
-""
+msgstr "Who should I contact if I have any questions about a rejection?"
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_19_HEADLINE"
-msgstr "How are the winners of a marketplace selected?\n"
-""
+msgstr "How are the winners of a marketplace selected?"
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_20_HEADLINE"
-msgstr "Do winners receive a reward or bonus?\n"
-""
+msgstr "Do winners receive a reward or bonus?"
 
 #: 
 msgid "AS_ABOUT_TEAM_CAPTION"
@@ -1073,21 +1035,25 @@ msgstr "from left: Tarek Madany Mamlouk, Martin Bild, Johannes Schrade, Anneke M
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_21_HEADLINE"
-msgstr "Where can I find information about innovation?\n"
-""
+msgstr "Where can I find information about innovation?"
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_22_HEADLINE"
-msgstr "In which countries is Axel Springer Crowd available?\n"
-""
+msgstr "In which countries is Axel Springer Crowd available?"
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_21_PARAGRAPH"
-msgstr "If you have any questions concerning innovation, we will be happy to assist you. We will connect you.\n"
-""
+msgstr "If you have any questions concerning innovation, we will be happy to assist you. We will connect you."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_22_PARAGRAPH"
-msgstr "Axel Springer Crowd is currently only available in German-speaking countries. Other countries will follow.\n"
-""
+msgstr "Axel Springer Crowd is currently only available in German-speaking countries. Other countries will follow."
+
+#: 
+msgid "AS_IMPRINT_COPYRIGHTS_HEADLINE"
+msgstr "Copyrights"
+
+#: 
+msgid "AS_IMPRINT_COPYRIGHTS_P"
+msgstr "<a href=\"https://de.freepik.com/fotos-vektoren-kostenlos/hand-gezeichnet-idee-konzept_829848.htm\">\"Hand gezeichnete Idee Konzept 829848\" vector created  by freepik - de.freepik.com</a>"
 
