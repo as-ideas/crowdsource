@@ -70,7 +70,7 @@ describe('intro page', function () {
         expect(prototypeCampaign.length).toEqual(0);
         expect(ideasCampaign.length).toEqual(0);
 
-    var registerButton = intro.find('button');
+    var registerButton = intro.find('a');
     expect(registerButton).toContainText('Register');
 
     });
