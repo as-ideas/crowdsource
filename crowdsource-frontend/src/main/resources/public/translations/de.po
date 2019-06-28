@@ -1,0 +1,1015 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: crowdsource\n"
+"Language: de\n"
+
+#: 
+msgid "ACTIVATION_DESC"
+msgstr "Bitte vergib ein Passwort, um die Aktivierung Deines Kontos abzuschließen."
+
+#: 
+msgid "ACTIVATION_ERROR_ALREADY_ACTIVE"
+msgstr "Dein Konto wurde bereits aktiviert. Du kannst Dich mit Deiner E-Mail-Adresse und Deinem Passwort {{link}}."
+
+#: 
+msgid "ACTIVATION_ERROR_ALREADY_ACTIVE_LINK"
+msgstr "einloggen"
+
+#: 
+msgid "ACTIVATION_ERROR_INVALID_LINK"
+msgstr "Der Aktivierungslink ist ungültig."
+
+#: 
+msgid "ACTIVATION_ERROR_NOT_REGISTERED"
+msgstr "Du musst Dich zunächst mit Deiner E-Mail-Adresse {{link}}."
+
+#: 
+msgid "ACTIVATION_ERROR_NOT_REGISTERED_LINK"
+msgstr "registrieren"
+
+#: 
+msgid "ACTIVATION_HEADLINE"
+msgstr "Registrierung - letzte Schritte"
+
+#: 
+msgid "ADMIN_IDEA_PUBLISH_MESSAGE"
+msgstr "Die Idee wurde freigegeben."
+
+#: 
+msgid "ADMIN_IDEA_REJECT_MESSAGE"
+msgstr "Die Idee wurde abgelehnt."
+
+#: 
+msgid "ADMIN_IDEAS_DENIED_DESC"
+msgstr "Ideen, die leider abgelehnt wurden: {{value}}"
+
+#: 
+msgid "ADMIN_IDEAS_DENIED_HEADLINE"
+msgstr "Abgelehnte Ideen"
+
+#: 
+msgid "ADMIN_IDEAS_PENDING_DESC"
+msgstr "Ideen, die auf Freigabe warten: {{value}}"
+
+#: 
+msgid "ADMIN_IDEAS_PENDING_HEADLINE"
+msgstr "Ausstehende Ideen"
+
+#: 
+msgid "BUTTON_LABEL_APPROVE"
+msgstr "Freigeben"
+
+#: 
+msgid "BUTTON_LABEL_CANCEL"
+msgstr "Abbrechen"
+
+#: 
+msgid "BUTTON_LABEL_EDIT"
+msgstr "Bearbeiten"
+
+#: 
+msgid "BUTTON_LABEL_LOGGING_IN"
+msgstr "Login…"
+
+#: 
+msgid "BUTTON_LABEL_LOGIN"
+msgstr "Login"
+
+#: 
+msgid "BUTTON_LABEL_REGISTER"
+msgstr "Registrieren"
+
+#: 
+msgid "BUTTON_LABEL_REGISTERING"
+msgstr "Registrieren…"
+
+#: 
+msgid "BUTTON_LABEL_REJECT"
+msgstr "Ablehnen"
+
+#: 
+msgid "BUTTON_LABEL_SAVE"
+msgstr "Speichern"
+
+#: 
+msgid "BUTTON_LABEL_SAVING"
+msgstr "Speichern…"
+
+#: 
+msgid "BUTTON_LABEL_SUBMIT"
+msgstr "Absenden"
+
+#: 
+msgid "BUTTON_LABEL_SUBMITTING"
+msgstr "Absenden…"
+
+#: 
+msgid "CAMPAIGN_LABEL_ENDED"
+msgstr "(beendet)"
+
+#: 
+msgid "FILTER_ALL_LABEL"
+msgstr "Alle"
+
+#: 
+msgid "FILTER_NOT_VOTED_LABEL"
+msgstr "Noch nicht bewertet"
+
+#: 
+msgid "FILTER_VOTED_LABEL"
+msgstr "Bereits bewertet"
+
+#: 
+msgid "FORM_ADMIN_IDEA_REJECT_REASON_ERROR_REQUIRED"
+msgstr "Bitte Ablehnungsgrund angeben"
+
+#: 
+msgid "FORM_ADMIN_IDEA_REJECT_REASON_LABEL"
+msgstr "Ablehnungsgrund"
+
+#: 
+msgid "FORM_ADMIN_IDEA_REJECT_REASON_PLACEHOLDER"
+msgstr "Ablehnungsgrund"
+
+#: 
+msgid "FORM_AGB_ERROR_REQUIRED"
+msgstr "Bitte akzeptiere die {{link}}"
+
+#: 
+msgid "FORM_AGB_ERROR_REQUIRED_LINK"
+msgstr "Nutzungsbedingungen"
+
+#: 
+msgid "FORM_AGB_LABEL"
+msgstr "Ich akzeptiere die {{link}}"
+
+#: 
+msgid "FORM_AGB_LABEL_LINK"
+msgstr "Nutzungsbedingungen"
+
+#: 
+msgid "FORM_EMAIL_ERROR_ALREADY_ACTIVATED_1"
+msgstr "Die E-Mail-Adresse wurde bereits aktiviert. Du kannst Dich mit Deinem Passwort einloggen. Falls Du Dein Passwort vergessen hast, klicke bitte "
+
+#: 
+msgid "FORM_EMAIL_ERROR_ALREADY_ACTIVATED_2"
+msgstr "hier"
+
+#: 
+msgid "FORM_EMAIL_ERROR_INVALID"
+msgstr "Bitte gib eine valide E-Mail-Adresse ein"
+
+#: 
+msgid "FORM_EMAIL_ERROR_INVALID_BLACKLIST"
+msgstr "Dieser Service kann nur von Mitarbeitern mit einer E-Mail-Adresse mit gültiger Domain verwendet werden"
+
+#: 
+msgid "FORM_EMAIL_ERROR_INVALID_UNIT"
+msgstr "Deine Unit wird noch nicht unterstützt"
+
+#: 
+msgid "FORM_EMAIL_ERROR_REQUIRED"
+msgstr "Bitte gib Deine E-Mail-Adresse ein"
+
+#: 
+msgid "FORM_EMAIL_LABEL"
+msgstr "E-Mail"
+
+#: 
+msgid "FORM_EMAIL_PLACEHOLDER"
+msgstr "E-Mail"
+
+#: 
+msgid "FORM_ERROR_MAX_CHARS"
+msgstr "Maximal {{value}} Zeichen"
+
+#: 
+msgid "FORM_ERROR_MIN_CHARS"
+msgstr "Mindestens {{value}} Zeichen"
+
+#: 
+msgid "FORM_ERROR_UNEXPECTED"
+msgstr "Es ist ein Fehler aufgetreten. Bitte versuche es erneut"
+
+#: 
+msgid "FORM_FORENAME_ERROR_REQUIRED"
+msgstr "Bitte gib Deinen Vornamen ein"
+
+#: 
+msgid "FORM_FORENAME_LABEL"
+msgstr "Vorname"
+
+#: 
+msgid "FORM_FORENAME_PLACEHOLDER"
+msgstr "Vorname"
+
+#: 
+msgid "FORM_IDEA_EDIT_PITCH_ERROR_REQUIRED"
+msgstr "Bitte gib ein prägnante Beschreibung ein"
+
+#: 
+msgid "FORM_IDEA_EDIT_PITCH_LABEL"
+msgstr "Deine Idee im Detail"
+
+#: 
+msgid "FORM_IDEA_EDIT_TITLE_ERROR_REQUIRED"
+msgstr "Bitte gib einen Titel ein"
+
+#: 
+msgid "FORM_IDEA_EDIT_TITLE_LABEL"
+msgstr "Titel Deiner Idee"
+
+#: 
+msgid "FORM_PASSWORD_ERROR_PATTERN"
+msgstr "Das Passwort muss aus mindestens 8 Zeichen und einem Sonderzeichen bestehen"
+
+#: 
+msgid "FORM_PASSWORD_ERROR_REQUIRED"
+msgstr "Bitte gib Dein Passwort ein"
+
+#: 
+msgid "FORM_PASSWORD_LABEL"
+msgstr "Passwort"
+
+#: 
+msgid "FORM_PASSWORD_PLACEHOLDER"
+msgstr "Passwort"
+
+#: 
+msgid "FORM_PASSWORD_REPEAT_ERROR_NOT_EQUAL"
+msgstr "Die beiden Passwörter stimmen nicht überein"
+
+#: 
+msgid "FORM_PASSWORD_REPEAT_ERROR_REQUIRED"
+msgstr "Bitte gib Dein Passwort erneut ein"
+
+#: 
+msgid "FORM_PASSWORD_REPEAT_LABEL"
+msgstr "Passwort wiederholen"
+
+#: 
+msgid "FORM_PASSWORD_REPEAT_PLACEHOLDER"
+msgstr "Passwort wiederholen"
+
+#: 
+msgid "FORM_SURNAME_ERROR_REQUIRED"
+msgstr "Bitte gib Deinen Nachnamen ein"
+
+#: 
+msgid "FORM_SURNAME_LABEL"
+msgstr "Nachname"
+
+#: 
+msgid "FORM_SURNAME_PLACEHOLDER"
+msgstr "Nachname"
+
+#: 
+msgid "IDEA_ADD_MESSAGE_1"
+msgstr "Deine Idee wurde erfolgreich eingereicht."
+
+#: 
+msgid "IDEA_ADD_MESSAGE_2"
+msgstr "Deine Idee wird bald freigeschaltet, wir prüfen sie nur noch schnell."
+
+#: 
+msgid "IDEA_REMOVE_VOTE_MESSAGE"
+msgstr "Wir haben deine Bewertung entfernt."
+
+#: 
+msgid "IDEA_TILE_AVG_RATING"
+msgstr "{rating} {ratingplural, select, many{Sterne} one{Stern} other {Sterne}} von {votes} {votesplural, select, many{Personen} one{Person} other {Personen}}"
+
+#: 
+msgid "IDEA_UPDATE_MESSAGE"
+msgstr "Deine Änderung wurde erfolgreich gespeichert."
+
+#: 
+msgid "IDEA_VOTE_MESSAGE"
+msgstr "Vielen Dank für deine Bewertung."
+
+#: 
+msgid "IDEAS_ADD_DESC"
+msgstr "Du hast eine Idee? Dann reiche sie doch gleich hier ein."
+
+#: 
+msgid "IDEAS_ADD_HEADLINE"
+msgstr "Reiche eine Idee ein"
+
+#: 
+msgid "IDEAS_LOAD_MORE_LABEL"
+msgstr "Lade mehr Ideen"
+
+#: 
+msgid "IDEAS_LOAD_MORE_LABEL_NO_MORE"
+msgstr "Es sind keine weiteren Ideen vorhanden"
+
+#: 
+msgid "IDEAS_OWN_PUBLISHED_DESC"
+msgstr "Ideen, die sich noch in der Abstimmung befinden: {{value}}"
+
+#: 
+msgid "IDEAS_OWN_PUBLISHED_HEADLINE"
+msgstr "Veröffentlichte Ideen"
+
+#: 
+msgid "IDEAS_OWN_REJECTED_DESC"
+msgstr "Ideen, die leider abgelehnt wurden: {{value}}"
+
+#: 
+msgid "IDEAS_OWN_REJECTED_HEADLINE"
+msgstr "Abgelehnte Ideen"
+
+#: 
+msgid "IDEAS_OWN_STATISTIC_LABEL_IDEAS_APPROVED"
+msgstr "Freigegebene Ideen"
+
+#: 
+msgid "IDEAS_OWN_STATISTIC_LABEL_IDEAS_PENDING"
+msgstr "Ausstehende Ideen"
+
+#: 
+msgid "IDEAS_OWN_STATISTIC_LABEL_IDEAS_REJECTED"
+msgstr "Abgelehnte Ideen"
+
+#: 
+msgid "IDEAS_OWN_SUBMITTED_DESC"
+msgstr "Ideen, die noch auf eine Freigabe warten: {{value}}"
+
+#: 
+msgid "IDEAS_OWN_SUBMITTED_HEADLINE"
+msgstr "Eingereichte Ideen"
+
+#: 
+msgid "IDEAS_VOTE_DESC"
+msgstr "Hier kannst Du eingereichte Ideen bewerten. Jede Stimme zählt!"
+
+#: 
+msgid "IDEAS_VOTE_HEADLINE"
+msgstr "Unsere Ideen"
+
+#: 
+msgid "INTRO_DESC"
+msgstr "Werde Teil der Community! Hier geht’s zur Registrierung"
+
+#: 
+msgid "INTRO_HEADLINE"
+msgstr "Join Crowd"
+
+#: 
+msgid "LOGIN_ERROR_INVALID_CREDENTIALS"
+msgstr "Deine Anmeldeinformationen sind ungültig. Bitte überprüfe die eingegebenen Daten"
+
+#: 
+msgid "LOGIN_HEADLINE"
+msgstr "Login"
+
+#: 
+msgid "LOGIN_LINK_PASSWORD_RECOVERY"
+msgstr "Passwort vergessen?"
+
+#: 
+msgid "LOGIN_REGISTER"
+msgstr "oder {{link}} registrieren"
+
+#: 
+msgid "LOGIN_REGISTER_LINK"
+msgstr "hier"
+
+#: 
+msgid "LOGOUT_HEADLINE"
+msgstr "Du wurdest ausgeloggt"
+
+#: 
+msgid "LOGOUT_LINK_LOGIN"
+msgstr "Du kannst Dich {{link}} wieder einloggen."
+
+#: 
+msgid "LOGOUT_LINK_LOGIN_LINK"
+msgstr "hier"
+
+#: 
+msgid "NAV_LABEL_ABOUT_US"
+msgstr "Über uns"
+
+#: 
+msgid "NAV_LABEL_ACTIVATE"
+msgstr "Aktivierung"
+
+#: 
+msgid "NAV_LABEL_ADMIN"
+msgstr "Admin"
+
+#: 
+msgid "NAV_LABEL_ERROR_FORBIDDEN"
+msgstr "Zugriff verweigert"
+
+#: 
+msgid "NAV_LABEL_ERROR_PAGE_NOT_FOUND"
+msgstr "Seite nicht gefunden"
+
+#: 
+msgid "NAV_LABEL_ERROR_UNEXPECTED"
+msgstr "Technischer Fehler"
+
+#: 
+msgid "NAV_LABEL_FINANCING"
+msgstr "Finanzierungsrunden"
+
+#: 
+msgid "NAV_LABEL_HELP"
+msgstr "Hilfe"
+
+#: 
+msgid "NAV_LABEL_IDEAS_OWN"
+msgstr "Deine Ideen"
+
+#: 
+msgid "NAV_LABEL_IMPRINT"
+msgstr "Impressum"
+
+#: 
+msgid "NAV_LABEL_LOGIN"
+msgstr "Login"
+
+#: 
+msgid "NAV_LABEL_LOGOUT"
+msgstr "Logout"
+
+#: 
+msgid "NAV_LABEL_OVERVIEW"
+msgstr "Übersicht"
+
+#: 
+msgid "NAV_LABEL_PASSWORD_RECOVERY"
+msgstr "Passwort vergessen"
+
+#: 
+msgid "NAV_LABEL_PASSWORD_RECOVERY_SUCCESS"
+msgstr "Passwort vergessen erfolgreich"
+
+#: 
+msgid "NAV_LABEL_PASSWORD_RESET"
+msgstr "Passwort setzen"
+
+#: 
+msgid "NAV_LABEL_PRIVACY"
+msgstr "Datenschutzerklärung"
+
+#: 
+msgid "NAV_LABEL_PROJECT_ADDED"
+msgstr "Neues Projekt angelegt"
+
+#: 
+msgid "NAV_LABEL_PROJECT_DETAILS"
+msgstr "Projektdetails"
+
+#: 
+msgid "NAV_LABEL_PROJECT_EDIT"
+msgstr "Projekt bearbeiten"
+
+#: 
+msgid "NAV_LABEL_PROJECT_NEW"
+msgstr "Neues Projekt"
+
+#: 
+msgid "NAV_LABEL_PROJECTS"
+msgstr "Projekte"
+
+#: 
+msgid "NAV_LABEL_REGISTER"
+msgstr "Registrieren"
+
+#: 
+msgid "NAV_LABEL_REGISTER_SUCCESS"
+msgstr "Registrierung erfolgreich"
+
+#: 
+msgid "NAV_LABEL_STATISTIC"
+msgstr "Statistiken"
+
+#: 
+msgid "NAV_LANG_ENGLISH"
+msgstr "English"
+
+#: 
+msgid "NAV_LANG_GERMAN"
+msgstr "Deutsch"
+
+#: 
+msgid "OVERVIEW_IDEAS_NO_CAMPAIGN"
+msgstr "Zurzeit gibt es leider keine Ideen Kampagne"
+
+#: 
+msgid "OVERVIEW_PROTOTYPES_HEADLINE"
+msgstr "Prototypen"
+
+#: 
+msgid "OVERVIEW_PROTOTYPES_NO_CAMPAIGN"
+msgstr "Zurzeit gibt es leider keine Prototypen Kampagne"
+
+#: 
+msgid "PASSWORD_RECOVERY_DESC"
+msgstr "Gib hier die E-Mail-Adresse ein, mit der Du Dich registriert hast. Du erhältst von uns eine E-Mail mit einem Bestätigungslink und kannst Dein Passwort neu setzen."
+
+#: 
+msgid "PASSWORD_RECOVERY_ERROR_EMAIL_NOT_REGISTERED"
+msgstr "Die E-Mail-Adresse wurde noch nicht registriert. Versuche dich einfach zu {{link}}."
+
+#: 
+msgid "PASSWORD_RECOVERY_ERROR_EMAIL_NOT_REGISTERED_LINK"
+msgstr "registrieren"
+
+#: 
+msgid "PASSWORD_RECOVERY_HEADLINE"
+msgstr "Passwort vergessen"
+
+#: 
+msgid "PASSWORD_RECOVERY_LOGIN"
+msgstr "oder {{link}} anmelden"
+
+#: 
+msgid "PASSWORD_RECOVERY_LOGIN_LINK"
+msgstr "hier"
+
+#: 
+msgid "PASSWORD_RECOVERY_SUCCESS_DESC"
+msgstr "Wir haben eine E-Mail mit einem Bestätigungslink an {{email}} gesendet. Bitte öffne Dein E-Mail-Postfach und klicke auf den Link, um Dein Passwort neu zu setzen."
+
+#: 
+msgid "PASSWORD_RECOVERY_SUCCESS_HEADLINE"
+msgstr "Passwort vergessen"
+
+#: 
+msgid "PASSWORD_RESET_DESC"
+msgstr "Bitte vergib jetzt ein neues Passwort."
+
+#: 
+msgid "PASSWORD_RESET_ERROR_ALREADY_RESET"
+msgstr "Du hast dein Passwort bereits mit dem Link aus deiner E-Mail neu gesetzt. Du kannst die {{link}} Funktion erneut benutzen, um einen neuen Link zugesendet zu bekommen."
+
+#: 
+msgid "PASSWORD_RESET_ERROR_ALREADY_RESET_LINK"
+msgstr "Passwort vergessen"
+
+#: 
+msgid "PASSWORD_RESET_HEADLINE"
+msgstr "Passwort neu setzen"
+
+#: 
+msgid "REGISTER_AGB"
+msgstr "Hiermit gestatte ich der Axel Springer SE mich für Neuigkeiten (bspw. Start einer Kampagne sowie Status meiner Idee) rund um Axel Springer Crowd  zu kontaktieren. Ich habe die Möglichkeit mich jederzeit vom Newsletter abzumelden. Dazu kann ich den Link in der Fußzeile unserer E-Mails betätigen. Weitere Informationen zum Datenschutz sind der Datenschutzerklärung zu entnehmen."
+
+#: 
+msgid "REGISTER_HEADLINE"
+msgstr "Registrierung"
+
+#: 
+msgid "REGISTER_LOGIN"
+msgstr "oder {{link}} anmelden"
+
+#: 
+msgid "REGISTER_LOGIN_LINK"
+msgstr "hier"
+
+#: 
+msgid "REGISTER_SUCCESS_DESC"
+msgstr "Deine Registrierung unter dem Namen {{forename}} {{surname}} war erfolgreich. Wir haben eine E-Mail mit einem Bestätigungslink an {{email}} gesendet. Bitte öffne Dein E-Mail-Postfach und klicke auf den Link, um die Registrierung abzuschließen."
+
+#: 
+msgid "REGISTER_SUCCESS_HEADLINE"
+msgstr "Registrierung erfolgreich"
+
+#: 
+msgid "OVERVIEW_CAMPAIGN_DESCRIPTION"
+msgstr "Alle Kampagnen auf einen Blick"
+
+#: 
+msgid "OVERVIEW_CAMPAIGN_HEADLINE"
+msgstr "Marktplätze"
+
+#: 
+msgid "AS_ABOUT_AS_IT_HEADLINE"
+msgstr "AS IT"
+
+#: 
+msgid "AS_ABOUT_AS_IT_HEADLINE_DESC"
+msgstr "Wir von der Axel Springer IT konzentrieren uns darauf, Potenziale der digitalen Transformation sowie disruptiver Technologien zu erkennen und sie für die verschiedenen Geschäftsbereiche der Axel-Springer-Familie nutzbar zu machen. Die digitale Disruption ist allgegenwärtig und setzt uns einem starken Wettbewerb in vielen Bereichen unserer täglichen Arbeit aus. Gleichzeitig bietet sie uns ungeahnte Chancen und Möglichkeiten, die wir aktiv gestalten wollen. Diese Entwicklungen reichen von zukunftsweisenden Technologien, über Vorteile durch die Nutzung von Daten, bis hin zu wegweisenden Trends in der Kollaboration zwischen Mitarbeitern. Wir unterstützen unsere Kunden, ihre täglichen Herausforderungen im Markt erfolgreich zu meistern, damit wir unsere führende Position als digitaler Verlag weiter festigen und ausbauen können. Mit unserer Expertise wollen wir die AS.Crowd erfolgreich begleiten."
+
+#: 
+msgid "AS_ABOUT_IDEAS_ENGINEERING_DESC"
+msgstr "Wir fokussieren uns auf die Entwicklung neuer Produkte. Dabei haben wir zum besseren Verständnis der sich immer schneller entwickelnden Märkte die neuesten Technologie-Phänomene wie beispielsweise VR, AI, Chatbots, Big Data und Blockchain im Visier. Wir verstehen uns auch als Inkubator für digitale, innovative Produkte im Hinblick auf reale unternehmerische Herausforderungen für die Axel Springer-Familie. Und darüber hinaus.\n"
+"\n"
+"Dass wir mit unserem Wissen den Konzern aktiv mitgestalten wollen, zeigt nicht nur AS.Crowd.\n"
+"\n"
+"Du willst andere innovative Produkte kennenlernen? Komm mit uns bei einer guten Tasse Kaffee ins Gespräch."
+
+#: 
+msgid "AS_ABOUT_IDEAS_ENGINEERING_HEADLINE"
+msgstr "Ideas Engineering"
+
+#: 
+msgid "AS_ABOUT_NEWS_MEDIA_PRINT_DESC"
+msgstr "Die Personalabteilung des Verlagsbereichs News Media Print begleitet Mitarbeiterinnen und Mitarbeiter mit Kompetenz, Erfahrung und Weitblick von der Bewerbung über Elternzeit, Sabbatical und Fachkarriere bis hin zum Renteneintritt auf ihrem Weg in der Axel Springer-Familie.\n"
+"\n"
+"Weil Kreativität und Austausch Grundpfeiler unserer Arbeit sind, unterstützen wir AS.Crowd."
+
+#: 
+msgid "AS_ABOUT_NEWS_MEDIA_PRINT_HEADLINE"
+msgstr "News Media Print"
+
+#: 
+msgid "AS_ABOUT_PEOPLE_AND_CULTURE_DESC"
+msgstr "People & Culture steht für die unternehmensweite Vernetzung und den Austausch der Mitarbeiter untereinander, für lebenslanges Lernen und die Potentialentfaltung von Teams und jedem Einzelnen sowie für das Erleben modernen Arbeitens. Mit Leidenschaft setzen wir uns dafür ein, neue Impulse und Innovationen ins Unternehmen zu tragen, die Lust auf Neues machen."
+
+#: 
+msgid "AS_ABOUT_PEOPLE_AND_CULTURE_HEADLINE"
+msgstr "People & Culture"
+
+#: 
+msgid "AS_BUTTON_LABEL_NEWSLETTER"
+msgstr "Newsletter"
+
+#: 
+msgid "AS_FOOTER_INFORMATION"
+msgstr "Informationen"
+
+#: 
+msgid "AS_FOOTER_LINK_ABOUT_US"
+msgstr "Über uns"
+
+#: 
+msgid "AS_FOOTER_LINK_IMPRINT"
+msgstr "Impressum"
+
+#: 
+msgid "AS_FOOTER_LINK_INTRO"
+msgstr "Entdecken"
+
+#: 
+msgid "AS_FOOTER_LINK_PRIVACY_POLICY"
+msgstr "Datenschutzerklärung"
+
+#: 
+msgid "AS_FOOTER_LINK_SUPPORT"
+msgstr "Hilfe"
+
+#: 
+msgid "AS_FOOTER_PARTNER"
+msgstr "Partner"
+
+#: 
+msgid "AS_FOOTER_SITEMAP"
+msgstr "Sitemap"
+
+#: 
+msgid "AS_IMPRINT_ADDRESS"
+msgstr "Axel Springer Ideas Engineering GmbH\n"
+"Ein Unternehmen der Axel Springer SE\n"
+"Axel-Springer-Straße 65\n"
+"10888 Berlin"
+
+#: 
+msgid "AS_IMPRINT_CONTACT_HEADLINE"
+msgstr "Kontakt"
+
+#: 
+msgid "AS_IMPRINT_CONTACT_P"
+msgstr "E-Mail: {{email}}\n"
+"Telefon: 030 - 2591 78100"
+
+#: 
+msgid "AS_IMPRINT_HEADLINE"
+msgstr "Impressum"
+
+#: 
+msgid "AS_IMPRINT_PROVIDER"
+msgstr "Anbieter"
+
+#: 
+msgid "AS_IMPRINT_RESPONSIBLE_HEADLINE"
+msgstr "Verantwortlich für den Inhalt nach § 6 Abs.2 MDStV"
+
+#: 
+msgid "AS_IMPRINT_RESPONSIBLE_P"
+msgstr "Michael Alber\n"
+"COO\n"
+"Axel-Springer-Straße 65\n"
+"10888 Berlin\n"
+"\n"
+"Amtsgericht/Handelsregister\n"
+"Sitz Berlin, Amtsgericht Charlottenburg, HRB 138466 B\n"
+"USt-IdNr. DE 287499537\n"
+"Geschäftsführer: Samir Fadlallah, Michael Alber"
+
+#: 
+msgid "AS_PRIVACY_POLICY_HTML"
+msgstr "<h1>Datenschutzerklärung Axel Springer Crowd</h1>\n"
+"<p>Wir freuen uns sehr über Ihr Interesse an Axel Springer Crowd. Um Axel Springer Crowd anbieten zu können, benötigen wir natürlich auch einige Daten über Sie. Dabei nehmen wir den Schutz personenbezogener Daten sehr ernst und verarbeiten diese stets im Einklang mit den anwendbaren datenschutzrechtlichen Bestimmungen, insbesondere der EU Datenschutz-Grundverordnung. Mit dieser Datenschutzerklärung möchten wir Sie vollumfänglich über Art, Umfang und Zweck der von uns verarbeiteten personenbezogenen Daten und Ihre Rechte als betroffene Person informieren.</p>\n"
+"    <h2>1. Verantwortlicher und allgemeine Hinweise</h2>\n"
+"    <p>Ihre Daten werden durch die Axel Springer Ideas Engineering GmbH, Axel Springer Str. 65, 10969 Berlin, Telefon: +49 2591 71000, E-Mail: crowd@asideas.de verarbeitet (Diensteanbieter im Sinne des Telemediengesetzes (TMG) und Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO).</p>\n"
+"    <p>Diese meinen wir auch, wenn wir Formulierungen wie \"wir\" oder \"uns\" benutzen.</p>\n"
+"    <p>Unter \"Axel Springer Crowd\" verstehen wir in diesem Dokument https://crowd.asideas.de, jeweils inklusive aller dort verfügbaren Unterseiten, Inhalte und Funktionen (z. B. Internet-Foren, Gewinnspiele). Einzelne Teile von Axel Springer Crowd werden im Folgenden auch als \"Onlinedienste\" bezeichnet. Diese meinen wir auch, soweit nachfolgend von einer Website die Rede ist.</p>\n"
+"    <p>Unsere Services sind für die allgemeine Öffentlichkeit und nicht für Kinder gedacht. Wir erheben wissentlich keine personenbezogenen Daten von Nutzern, die gemäß der jeweiligen nationalen Gesetzgebung als Kinder gelten.</p>\n"
+"    <h2>2. Erhebung und Verarbeitung personenbezogener Daten</h2>\n"
+"    <p>In der Regel können Sie Onlinedienste, für die keine Bezahlung oder Registrierung erforderlich ist, ohne Angabe personenbezogener Daten nutzen. In bestimmten Fällen verarbeiten wir jedoch die in Ziffer 3 aufgelisteten personenbezogenen Daten. Dies geschieht grundsätzlich nur, soweit dies zur Bereitstellung einer funktionsfähigen Website sowie unserer Inhalte und Leistungen erforderlich. Ferner verarbeiten wir personenbezogene Daten im Zusammenhang mit der Nutzung von Axel Springer Crowd, wenn Sie diese von sich aus angeben, z. B. im Rahmen einer Registrierung, eines Gewinnspieles, einer Anfrage an uns, einer Bewerbung oder beim Abschluss eines Abonnements oder weil hierfür eine andere Rechtsgrundlage vorliegt (siehe Ziffer 4). Sollten Sie dies nicht wünschen, können Sie unsere Dienste leider nicht oder nicht in vollem Umfang in Anspruch nehmen.</p>\n"
+"    <h2>3. Kategorien verarbeiteter Daten</h2>\n"
+"    <p>Sobald Sie Axel Springer Crowd nutzen, erfasst unser System automatisiert Informationen vom Computersystem des aufrufenden Rechners. Dabei können u. a. die folgenden Daten erhoben werden:</p>\n"
+"    <ul>\n"
+"        <li>Informationen über den Browsertyp und die verwendete Version</li>\n"
+"        <li>Betriebssystem des Nutzers</li>\n"
+"        <li>Datum und Uhrzeit des Zugriffs</li>\n"
+"        <li>Webanalysedaten / pseudonyme Nutzungsprofile (Cookie ID, Ad ID etc.)</li>\n"
+"        <li>Websites, von denen der Nutzer auf unsere Website gelangt</li>\n"
+"        <li>Websites, die der Nutzer über unsere Website aufruft</li>\n"
+"    </ul>\n"
+"    <p>Darüber hinaus verarbeiten wir die folgenden personenbezogenen Daten, sofern ein Vertragsverhältnis zwischen Ihnen und uns besteht oder Sie die Daten anderweitig an uns übermittelt haben:</p>\n"
+"    <ul>\n"
+"        <li>Kommunikationsdaten (Telefonnummer, E-Mail-Adresse)</li>\n"
+"        <li>Login Daten mit Passwort</li>\n"
+"        <li>Kommentare, Beiträge u.ä.</li>\n"
+"    </ul>\n"
+"    <h2>4. Rechtsgrundlage und Zwecke der Verarbeitung</h2>\n"
+"    <p>Wir verarbeiten Ihre Daten ausschließlich aufgrund einer oder mehrerer der möglichen gesetzlichen Grundlagen.</p>\n"
+"    <p>Gemäß DSGVO können personenbezogene Daten insbesondere aufgrund eines Vertrages oder zur Durchführung vorvertraglicher Maßnahmen, bei Vorliegen einer Einwilligung, aufgrund eines berechtigten Interesses oder eines Gesetzes sowie zum Schutz lebenswichtiger oder öffentlicher Interessen verarbeitet werden.</p>\n"
+"    <p>Für das Bereitstellen bestimmter Inhalte oder Leistungen auf unserer Website ist eine Anmeldung mittels eines bestehenden Benutzerkontos erforderlich. Für das Benutzerkonto ist eine entsprechende Registrierung notwendig. Die Erhebung und Verarbeitung dieser Daten wie vorstehend beschrieben erfolgt zur Durchführung des Nutzungsvertrags zwischen uns und Ihnen, Art. 6 Abs. 1 lit. b DSGVO.</p>\n"
+"    <p>Ihre im Zuge der Registrierung oder im Rahmen der Vertragsdurchführung erhobene E-Mail-Adresse verwenden wir außerdem, um Sie per E-Mail über eigene ähnliche Waren oder Dienstleistungen sowie über bestehende Abonnements oder generell über Axel Springer Crowd zu informieren. Die Verarbeitung der E-Mail-Adresse erfolgt in diesem Fall auf Grundlage unseres berechtigten Interesses an der Bewerbung unserer Waren und Dienstleistungen (Art. 6 Abs. 1 lit. f DSGVO).</p>\n"
+"    <p>Darüber hinaus nutzen wir Ihre E-Mail-Adresse, um Ihnen unseren Newsletter zuzusenden, wenn Sie uns dazu Ihre vorherige ausdrückliche Einwilligung in den Erhalt eines Newsletters bzw. von Werbung erteilt haben. In diesem Fall verarbeiten wir Ihre E-Mail-Adresse, um Ihnen wunschgemäß den Newsletter zustellen zu können (Art. 6 Abs. 1 lit. a DSGVO). Sie können Ihre Einwilligung jederzeit schriftlich oder in Textform an crowd@asideas.de oder Axel Springer Straße 65 in 10969 Berlin mit Wirkung für die Zukunft widerrufen.</p>\n"
+"    <p>Im Internet benötigt jedes Gerät zur Übertragung von Daten eine eindeutige Adresse, die sogenannte IP-Adresse. Die zumindest vorübergehende Speicherung der IP-Adresse ist technisch erforderlich, um eine Auslieferung der Website an den Rechner des Nutzers zu ermöglichen. Dabei kürzen wir die IP-Adressen vor jeglicher Verarbeitung und verarbeiten diese nur anonymisiert weiter, sofern in dieser Datenschutzerklärung nicht anders angegeben. Unsere Server speichern Ihre IP-Adresse außerdem für 14 Tage zu eigenen Sicherheitszwecken (Art. 6 Abs. 1 lit. f DSGVO).</p>\n"
+"    <p>Wir bieten auf unserer Website und vereinzelt in Blogs eine Kommentarfunktion an, wobei zusätzliche personenbezogene Daten gespeichert werden, die Sie von sich aus angeben. Sofern Sie hierzu eine Einwilligung abgegeben haben, können Sie auf unserer Website in bestimmten Fällen Kommentare abgeben und abonnieren. Das gleiche gilt bei Umfragen, an denen Sie teilnehmen. Wenn Sie einen Kommentar veröffentlichen möchten, müssen Sie die hierfür vorgesehenen Felder ausfüllen. Sie können hierbei auch ein Pseudonym verwenden. Wenn Sie die Felder nicht ausfüllen, können Sie keinen Kommentar veröffentlichen. Wir erheben und verarbeiten die von Ihnen angegebenen Daten, um Ihren Kommentar wunschgemäß veröffentlichen zu können (Art. 6 Abs. 1 lit. b DSGVO). Insbesondere benötigen wir hierbei auch Ihre E-Mail-Adresse, um Sie im Falle von Beanstandungen Ihres Kommentars kontaktieren und Ihnen die Möglichkeit zur Stellungnahme geben zu können (Art. 6 Abs. 1 lit. c DSGVO).</p>\n"
+"    <p>Bei Verarbeitungsvorgängen, die von keiner oder mehreren der vorgenannten Rechtsgrundlagen erfasst werden, erfolgt die Verarbeitung, wenn sie zur Wahrung eines berechtigten Interesses erforderlich ist und aufgrund einer umfassenden Interessensabwägung Ihre Interessen, Grundrechte und Grundfreiheiten nicht überwiegen (Art. 6 Abs. 1 lit. f DSGVO). Ein berechtigtes Interesse ist anzunehmen, wenn die betroffene Person ein Kunde des Verantwortlichen ist. Basiert die Verarbeitung personenbezogener Daten hierauf ist unser berechtigtes Interesse insbesondere die Durchführung unserer Geschäftstätigkeit zugunsten des Wohlergehens all unserer Mitarbeiter und unserer Anteilseigner.</p>\n"
+"    <p>Unser berechtigtes Interesse, Ihnen maßgeschneiderte Produkte anbieten zu können, Sie über unsere Produkte, Neuerungen und Qualitätsmerkale zu informieren sowie unsere Services und Produkte stetig zu verbessern und dadurch auch unseren Umsatz zu steigern, ist die Rechtsgrundlage für die Verarbeitung zwecks Web/Appanalyse. Zu Webanalysediensten im Einzelnen siehe Ziffer 9.</p>\n"
+"    <p>Der Verarbeitung aufgrund eines berechtigten Interesses können Sie jederzeit widersprechen (siehe Ziffer 12).</p>\n"
+"    <p>Für den Fall, dass die Daten zu einem anderen als bei der Datenerhebung angegebenen Zweck verarbeitet werden, erfolgt gemäß Art. 6 Abs. 4 DSGVO eine Kompatibilitätsprüfung. Eine Weiterverarbeitung ist dann nur zulässig, wenn der ursprüngliche Zweck mit dem neuen Zweck vereinbar oder aufgrund einer gesonderten Rechtsgrundlage erlaubt ist. Anerkannte kompatible Zwecke sind u. a. die Geltendmachung, Ausübung oder Verteidigung zivilrechtlicher Ansprüche sofern kein überwiegendes Interesse der betroffenen Person vorliegt. In diesem Fall werden wir Sie über die Zweckänderung informieren. Ist der neue Zweck nicht vereinbar mit dem bei Erhebung angegebenen Zweck, erfolgt eine neue Erhebung aufgrund einer neuen Rechtsgrundlage. Auch hier werden wir Sie über die Zweckänderung informieren.</p>\n"
+"    <h2>5. Ort der Verarbeitung</h2>\n"
+"    <p>Wir selbst übertragen Ihre personenbezogenen Daten nicht in Länder außerhalb des Europäischen Wirtschaftsraumes, außer in Fällen, in denen es nach der DSGVO zulässig ist. Ob Dritte, mit denen Sie eine eigene Vertragsbeziehung haben (wie z. B. mit Facebook, falls Sie einen Facebook-Account haben) Daten in Länder außerhalb des Europäischen Wirtschaftsraums übertragen, entzieht sich unserer Kenntnis und unserem Einfluss.</p>\n"
+"    <h2>6. Herkunft der Daten</h2>\n"
+"    <p>In bestimmten Fällen erhalten wir auch Daten, weil Sie in die Übermittlung an uns eingewilligt haben.</p>\n"
+"    <h2>7. Weitergabe Ihrer Daten an Dritte</h2>\n"
+"    <p>Wir übermitteln Ihre personenbezogenen Daten nur dann an Dritte, wenn die Übermittlung erforderlich ist, um unsere vertraglichen Verpflichtungen Ihnen gegenüber zu erfüllen und dies ersichtlich bei oder gemeinsam mit einem anderen Anbieter erfolgt (z. B. bei Kooperationen), wir zur Weitergabe in sonstiger Weise gesetzlich berechtigt oder verpflichtet sind, oder Sie uns eine entsprechende Einwilligung erteilt haben.</p>\n"
+"    <p>Zur Erbringung unserer Leistung können ausgewählte personenbezogene Daten innerhalb unseres Unternehmens an bestimmte Abteilungen mitgeteilt werden. Dazu gehören Mitarbeiter der Abteilungen Buchhaltung, Product Management, Marketing und IT.</p>\n"
+"    <p>In bestimmten Fällen setzen wir auch externe Dienstleister oder verbundene Unternehmen ein, die von uns beauftragt sind, Daten für uns weisungsgebunden zu verarbeiten. Solche Dienstleister werden von uns nach den strengen Vorgaben der DSGVO vertraglich als Auftragsverarbeiter verpflichtet und dürfen Ihre Daten zu keinen anderen Zwecken weiterverwenden. Von uns eingesetzte Auftragsverarbeiter erbringen für uns insbesondere die folgenden Dienstleistungen: Hosting, Newsletterversand, Wartung und Support und Web/Appanalyse. Zu Webanalysediensten im Einzelnen siehe Ziffer 9.</p>\n"
+"    <p>Die Weitergabe von Daten an Auftragsverarbeiter erfolgt auf Grundlage von Art. 28 Abs. 1 DSGVO, hilfsweise auf Grundlage unseres berechtigten Interesses an den mit dem Einsatz von spezialisierten Auftragsverarbeitern verbundenen wirtschaftlichen und technischen Vorteilen, Art. 6 Abs. 1 lit. f DSGVO.</p>\n"
+"    <p>Sofern wir gesetzlich dazu verpflichtet sind oder dies datenschutzrechtlich erlaubt ist, übermitteln wir personenbezogene Daten an Behörden, zum Beispiel die Polizei oder Staatsanwaltschaft (Art. 6 Abs. 1 lit. c DSGVO). Die Weitergabe dieser Daten erfolgt auf Grundlage unseres berechtigten Interesses an der Bekämpfung von Missbrauch, der Verfolgung von Straftaten und der Sicherung, Geltendmachung und Durchsetzung von Ansprüchen und dass Ihre Rechte und Interessen am Schutz Ihrer personenbezogenen Daten nicht überwiegen, Art. 6 Abs. 1 lit. f DSGVO.</p>\n"
+"    <h2>8. Cookies und ähnliche Technologien</h2>\n"
+"    <p>Wir verwenden Cookies. Cookies sind kleine Dateien, die Ihr Browser auf Ihrem Gerät in einem dafür vorgesehenen Verzeichnis ablegt. Durch sie kann u. a. festgestellt werden, ob Sie eine Website schon einmal besucht haben. Sofern Sie zustimmen, können in Cookies auch Login-Daten für einen Onlinedienst gespeichert werden, so dass Sie diese Login-Daten nicht bei jedem Aufruf der Seite eingeben müssen. Viele Cookies enthalten eine sogenannte Cookie-ID. Eine Cookie-ID ist eine eindeutige Kennung des Cookies. Sie besteht aus einer Zeichenfolge, durch welche Websites und Server dem konkreten Internetbrowser zugeordnet werden können, in dem das Cookie gespeichert wurde. Dies ermöglicht es den besuchten Websites und Servern, den individuellen Browser der betroffenen Person von anderen Internetbrowsern, die andere Cookies enthalten, zu unterscheiden. Ein bestimmter Internetbrowser kann über die eindeutige Cookie-ID wiedererkannt und identifiziert werden.</p>\n"
+"    <p>Wir verwenden zwei Arten von Cookies. Zum einen technisch notwendige Cookies, ohne die die Funktionalität unserer Website eingeschränkt wäre sowie optionale Cookies, um unsere Website nutzerfreundlicher zu gestalten. Die durch technisch notwendige Cookies erhobenen Nutzerdaten werden nicht zur Erstellung von Nutzerprofilen verwendet. Die Verwendung der Analyse-Cookies erfolgt zu dem Zweck, die Qualität unserer Website und ihre Inhalte zu verbessern. Durch die Analyse-Cookies erfahren wir, wie die Website genutzt wird und können so unser Angebot stetig optimieren. Weitere Informationen zu den einzelnen Analysediensten finden Sie in Ziffer 9 dieser Datenschutzhinweise.</p>\n"
+"    <p>Werbeanzeigen werden zumeist durch Drittanbieter bereitgestellt. Diese nutzen möglicherweise und soweit durch Ihre Geräteeinstellungen zugelassen Informationen zu Ihren Besuchen, damit Anzeigen zu Produkten und Diensten geschaltet werden können, die Sie eventuell interessieren. Konkrete Kontaktdaten wie Ihr Name, Ihre Adresse, E-Mail-Adresse oder Telefonnummer werden dabei auf keinen Fall übertragen.</p>\n"
+"    <p>Sie können die Setzung von Cookies durch uns jederzeit mittels einer entsprechenden Einstellung des genutzten Internetbrowsers verhindern und damit der Setzung von Cookies dauerhaft widersprechen. Ferner können bereits gesetzte Cookies jederzeit über einen Internetbrowser oder andere Softwareprogramme gelöscht werden. Dies ist in allen gängigen Internetbrowsern möglich. Deaktivieren Sie die Setzung von Cookies in dem genutzten Internetbrowser, sind unter Umständen nicht alle Funktionen unserer Website vollumfänglich nutzbar.</p>\n"
+"    <p>Cookies können Sie als Person nicht identifizieren. In jedem Fall ist die Verwendung von Cookies auf Grundlage unseres berechtigten Interesses an einer bedarfsgerechten Gestaltung sowie der statistischen Auswertung von Axel Springer Crowd gerechtfertigt (Art. 6 Abs. 1 lit. f DSGVO).</p>\n"
+"    <h2>9. Webanalysedienste</h2>\n"
+"    <p>Um unsere Inhalte stetig zu verbessern und an die Interessen unserer Nutzer anzupassen sowie nutzungsbasierte Online Werbung anzuzeigen, setzen wir einige Dienste ein, die auf unserer Website Daten erheben und für uns auswerten. Sofern diese Dienstleister nicht selbst Verantwortliche im datenschutzrechtlichen Sinne sind, verarbeiten sie die pseudonymisierten Nutzerdaten stets weisungsgebunden auf Grundlage einer Auftragsverarbeitungsvereinbarung. Sie können die einzelnen Analysedienste jederzeit für die Zukunft deaktivieren. Im Folgenden können Sie Einzelheiten über die von uns eingesetzten Analysedienste erfahren:</p>\n"
+"        <h3>Google Analytics</h3>\n"
+"        <p>Wir haben Google Analytics (mit Anonymisierungsfunktion) integriert. Google Analytics ist ein Web-Analyse-Dienst der Google Ireland Limited („Google“), Gordon House, Barrow Street, Dublin 4, Irland. Web-Analyse ist die Erhebung, Sammlung und Auswertung von Daten über das Verhalten von Besuchern von Websites. Ein Web-Analyse-Dienst erfasst unter anderem Daten darüber, von welcher Website eine betroffene Person auf eine Website gekommen ist (sogenannte Referrer), auf welche Unterseiten der Website zugegriffen oder wie oft und für welche Verweildauer eine Unterseite betrachtet wurde. Eine Web-Analyse wird überwiegend zur Optimierung einer Website und zur Kosten-Nutzen-Analyse von Internetwerbung eingesetzt.</p>\n"
+"        <p>Wir verwenden für die Web-Analyse über Google Analytics den Zusatz \"_gat._anonymizeIp\". Mittels dieses Zusatzes wird die IP-Adresse des Internetanschlusses der betroffenen Person von Google gekürzt und anonymisiert, wenn der Zugriff auf unsere Websites aus einem Mitgliedstaat der Europäischen Union oder aus einem anderen Vertragsstaat des Abkommens über den Europäischen Wirtschaftsraum erfolgt.</p>\n"
+"        <p>Der Zweck der Google-Analytics-Komponente ist die Analyse der Besucherströme auf unserer Website. Google nutzt die gewonnenen Daten und Informationen unter anderem dazu, die Nutzung unserer Website auszuwerten, um für uns Online-Reports, welche die Aktivitäten auf unseren Websites aufzeigen, zusammenzustellen, und um weitere mit der Nutzung unserer Website in Verbindung stehende Dienstleistungen zu erbringen.</p>\n"
+"        <p>Google Analytics setzt ein Cookie auf dem informationstechnologischen System der betroffenen Person. Was Cookies sind, wurde oben bereits erläutert. Mit Setzung des Cookies wird Google eine Analyse der Benutzung unserer Website ermöglicht. Durch jeden Aufruf einer der Einzelseiten dieser Website, die durch uns betrieben wird und auf welcher eine Google-Analytics-Komponente integriert wurde, wird der Internetbrowser auf dem informationstechnologischen System der betroffenen Person automatisch durch die jeweilige Google-Analytics-Komponente veranlasst, Daten zum Zwecke der Online-Analyse an Google zu übermitteln. Im Rahmen dieses technischen Verfahrens erhält Google Kenntnis über personenbezogene Daten, wie der IP-Adresse der betroffenen Person, die Google unter anderem dazu dienen, die Herkunft der Besucher und Klicks nachzuvollziehen und in der Folge Provisionsabrechnungen zu ermöglichen.</p>\n"
+"        <p>Mittels des Cookies werden personenbezogene Informationen, beispielsweise die Zugriffszeit, der Ort, von welchem ein Zugriff ausging und die Häufigkeit der Besuche unserer Website durch die betroffene Person, gespeichert. Bei jedem Besuch unserer Websites werden diese personenbezogenen Daten, einschließlich der IP-Adresse des von der betroffenen Person genutzten Internetanschlusses, an Google übertragen. Diese personenbezogenen Daten werden durch Google gespeichert. Google gibt diese über das technische Verfahren erhobenen personenbezogenen Daten unter Umständen an Dritte weiter.</p>\n"
+"        <p>Die betroffene Person kann die Setzung von Cookies durch unsere Website, wie oben bereits dargestellt, jederzeit mittels einer entsprechenden Einstellung des genutzten Internetbrowsers verhindern und damit der Setzung von Cookies dauerhaft widersprechen. Eine solche Einstellung des genutzten Internetbrowsers würde auch verhindern, dass Google ein Cookie auf dem informationstechnologischen System der betroffenen Person setzt. Zudem kann ein von Google Analytics bereits gesetzter Cookie jederzeit über den Internetbrowser oder andere Softwareprogramme gelöscht werden.</p>\n"
+"        <p>Ferner besteht für die betroffene Person die Möglichkeit, einer Erfassung der durch Google Analytics erzeugten, auf eine Nutzung dieser Website bezogenen Daten sowie der Verarbeitung dieser Daten durch Google zu widersprechen und eine solche zu verhindern. Hierzu muss die betroffene Person ein Browser-Add-On unter dem Link <a href=\"http://tools.google.com/dlpage/gaoptout?hl=de\">http://tools.google.com/dlpage/gaoptout?hl=de</a> </p>\n"
+"        <p>herunterladen und installieren. Dieses Browser-Add-On teilt Google Analytics über JavaScript mit, dass keine Daten und Informationen zu den Besuchen von Websites an Google Analytics übermittelt werden dürfen. Die Installation des Browser-Add-Ons wird von Google als Widerspruch gewertet. Wird das informationstechnologische System der betroffenen Person zu einem späteren Zeitpunkt gelöscht, formatiert oder neu installiert, muss durch die betroffene Person eine erneute Installation des Browser-Add-Ons erfolgen, um Google Analytics zu deaktivieren. Sofern das Browser-Add-On durch die betroffene Person oder einer anderen Person, die ihrem Machtbereich zuzurechnen ist, deinstalliert oder deaktiviert wird, besteht die Möglichkeit der Neuinstallation oder der erneuten Aktivierung des Browser-Add-Ons.</p>\n"
+"        <p>Weitere Informationen und die geltenden Datenschutzbestimmungen von Google können unter <a href=\"https://www.google.de/intl/de/policies/privacy/\">https://www.google.de/intl/de/policies/privacy/</a> und unter <a href=\"http://www.google.com/analytics/terms/de.html\">http://www.google.com/analytics/terms/de.html</a> abgerufen werden. Google Analytics wird unter diesem Link <a href=\"https://www.google.com/intl/de_de/analytics/\">https://www.google.com/intl/de_de/analytics/</a> genauer erläutert.</p>\n"
+"    <h2>10. Sonstige Dienste</h2>\n"
+"    <p>Weitere Dienste, die wir verwenden sind:</p>\n"
+"        <h3>Disqus-Kommentierungsfunktion</h3>\n"
+"        <p>Diese Website benutzt die DISQUS-Kommentierungsfunktion, die von der Disqus Inc., 301 Howard Street, Suite 300, San Francisco, CA 94105, USA (im Folgenden als \"Disqus\" bezeichnet), bereitgestellt wird. Disqus ist ein interaktives Kommentarsystem, das es dem registrierten Nutzer ermöglicht, mit nur einer Anmeldung auf jeder Website, die Disqus einsetzt, zu kommentieren. Disqus erlaubt die Anmeldung über bestehende Accounts bei Facebook (über Facebook Connect), Twitter und Google+. Wenn Sie sich über Ihren Facebook-, Twitter-, Google+-Account anmelden, werden auch von diesen Anbietern möglicherweise Daten erhoben, gespeichert und genutzt. Einzelheiten dazu finden Sie in den Datenschutzbestimmungen des jeweiligen Anbieters. Die Nutzung der Kommentierungsfunktion ist auch als \"Gast\" ohne Registrierung möglich. Allerdings stehen dann einige Funktionen nicht zur Verfügung.</p>\n"
+"        <p>Disqus übermittelt neben dem Kommentartext Ihre E-Mail-Adresse und IP-Adresse an uns. Den Kommentartext benötigen wir, um diesen veröffentlichen zu können. Die anderen Informationen benötigen wir ausschließlich für den Zweck der Kontaktaufnahme im Zusammenhang mit Ihrer Nutzung von DISQUS, beispielsweise wenn wir Rückfragen zu Ihrem Nutzerkommentar haben oder zur Vermeidung von Haftung und Missbrauch. Um eine Haftung für Kommentarinhalte zu vermeiden, kann es für uns auch erforderlich sein, Kommentare zu löschen, von der Veröffentlichung auszuschließen oder – als mildere Maßnahme und mit entsprechender Kennzeichnung – zu bearbeiten.</p>\n"
+"        <p>Hinsichtlich der Erhebung, Verarbeitung und Nutzung der betreffenden Daten durch DISQUS sowie zu Ihren Rechten diesbezüglich gelten die Nutzungsbedingungen und Datenschutzhinweise von DISQUS, abrufbar unter <a href=\"http://docs.disqus.com/help/30/\">http://docs.disqus.com/help/30/</a> und <a href=\"http://docs.disqus.com/help/29/\">http://docs.disqus.com/help/29/</a>.</p>\n"
+"    <h2>11. Speicherdauer</h2>\n"
+"    <p>Wir speichern personenbezogene Daten nur solange wir dazu berechtigt sind und der Verarbeitungszweck nicht entfallen ist. Für die Dauer der Speicherung von personenbezogenen Daten gilt die jeweilige gesetzliche Aufbewahrungsfrist. Nach Ablauf der Frist werden die entsprechenden Daten routinemäßig gelöscht, sofern sie nicht mehr zur Vertragserfüllung oder Vertragsanbahnung erforderlich sind.</p>\n"
+"    <h2>12. Kontaktdaten und Ihre Rechte als betroffene Person</h2>\n"
+"    <p>Bitte wenden Sie sich bei Fragen und Anregungen zum Datenschutz sowie zur Durchsetzung Ihrer Rechte als betroffene Person jederzeit an unseren Datenschutzbeauftragten:</p>\n"
+"    <address>Axel Springer Ideas Engineering GmbH<br>\n"
+"    Datenschutz<br>\n"
+"    Axel Springer Str. 65<br>\n"
+"    10969 Berlin<br>\n"
+"    <a href=\"mailto:datenschutz@asideas.de\">datenschutz@asideas.de</a>\n"
+"    </address>\n"
+"        <h3>Auskunft und Berichtigung</h3>\n"
+"        <p>Sie können von uns jederzeit unentgeltlich Auskunft darüber erhalten, ob personenbezogene Daten zu Ihrer Person von uns verarbeitet werden und auch konkret welche Daten über Sie gespeichert werden sowie eine Kopie der gespeicherten Daten verlangen. Sie können ferner unrichtige Daten berichtigen und vervollständigen lassen.</p>\n"
+"        <h3>Löschung, Einschränkung und das Recht auf Vergessenwerden</h3>\n"
+"        <p>Sie können die Löschung und Einschränkung Ihrer personenbezogenen Daten verlangen. Bitte beachten Sie, dass es z. B. für entgeltliche Verträge wie dem Kauf eines Abonnements von Axel Springer Crowd gesetzliche Aufbewahrungspflichten gibt und wir daher Ihre Daten nicht in jedem Fall vollständig löschen dürfen. In diesem Fall werden Ihre Daten mit dem Ziel markiert, ihre künftige Verarbeitung einzuschränken.</p>\n"
+"        <h3>Datenübertragbarkeit</h3>\n"
+"        <p>Sofern anwendbar haben Sie außerdem das Recht, dass die Sie betreffenden personenbezogenen Daten in einem strukturierten, gängigen und maschinenlesbaren Format an Sie oder einen anderen Verantwortlichen übermittelt werden, sofern die Verarbeitung auf der Einwilligung oder einem Vertrag beruht und mithilfe automatisierter Verfahren erfolgt. Dies gilt jedoch nicht, sofern die Verarbeitung für die Wahrnehmung einer Aufgabe erforderlich ist, die im öffentlichen Interesse liegt oder in Ausübung öffentlicher Gewalt erfolgt, welche dem Verantwortlichen übertragen wurde. Ferner haben Sie das Recht, zu erwirken, dass die personenbezogenen Daten direkt von einem Verantwortlichen an einen anderen Verantwortlichen übermittelt werden, soweit dies technisch machbar ist und sofern hiervon nicht die Rechte und Freiheiten anderer Personen beeinträchtigt werden.</p>\n"
+"        <h3>Widerruf / Widerspruch </h3>\n"
+"        <p>Ihre abgegebenen Einwilligungen können Sie jederzeit mit Wirkung für die Zukunft unter der o. g. Kontaktadresse widerrufen. Insbesondere können Sie der Verwendung Ihrer E-Mail-Adresse zum Zwecke des Newsletterversandes jederzeit schriftlich oder in Textform an crowd@asideas.de oder Axel Springer Straße 65 in 10969 Berlin mit Wirkung für die Zukunft widersprechen, ohne dass hierfür andere als die Übermittlungskosten nach den Basistarifen entstehen. </p>\n"
+"        <p>Ferner haben Sie das Recht aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit gegen die Verarbeitung Sie betreffender personenbezogener Daten, die aufgrund eines berechtigten oder öffentlichen Interesses erfolgt, Widerspruch einzulegen. Dies gilt auch für ein auf diese Bestimmungen gestütztes Profiling. Wir verarbeiten die personenbezogenen Daten im Falle des Widerspruchs nicht mehr, es sei denn, wir können zwingende schutzwürdige Gründe für die Verarbeitung nachweisen, die den Interessen, Rechten und Freiheiten der betroffenen Person überwiegen, oder die Verarbeitung dient der Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen.</p>\n"
+"        <p>Sofern wir personenbezogene Daten verarbeiten, um Direktwerbung zu betreiben, so haben Sie das Recht, jederzeit Widerspruch gegen die Verarbeitung der personenbezogenen Daten zum Zwecke derartiger Werbung unter der. o. g. Kontaktadresse einzulegen. Dies gilt auch für das Profiling, soweit es mit solcher Direktwerbung in Verbindung steht. Zudem haben Sie das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, gegen die Sie betreffende Verarbeitung personenbezogener Daten, die bei uns zu wissenschaftlichen oder historischen Forschungszwecken oder zu statistischen Zwecken erfolgen, Widerspruch einzulegen, es sei denn, eine solche Verarbeitung ist zur Erfüllung einer im öffentlichen Interesse liegenden Aufgabe erforderlich.</p>\n"
+"        <h3>Beschwerderecht</h3>\n"
+"        <p>Ferner haben Sie ein Beschwerderecht bei der zuständigen Aufsichtsbehörde sowie die Möglichkeit Rechtsbehelfe einzulegen. Die Aufsichtsbehörde, bei der die Beschwerde eingereicht wurde, unterrichtet den Beschwerdeführer über den Stand und die Ergebnisse der Beschwerde einschließlich der Möglichkeit eines gerichtlichen Rechtsbehelfs.</p>\n"
+"        <h3>Bestehen einer automatisierten Entscheidungsfindung</h3>\n"
+"        <p>Wir verzichten auf eine automatische Entscheidungsfindung oder ein Profiling, welchesIhnen gegenüber rechtliche Wirkung entfaltet oder Sie in ähnlicher Weise erheblich beeinträchtigt.</p>\n"
+"        <i>Stand: 11. Juni 2019</i>"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_1_PARAGRAPH"
+msgstr "Axel Springer Crowd ist eine Plattform von Axel Springer, die Mitarbeitern die Möglichkeit bietet, zu unterschiedlichen Themen innovative Ideen in verschiedenen sogenannten „Markplätzen“ einzureichen. Die Plattform wird zunächst bis Ende des Jahres getestet."
+
+#: 
+msgid "AS_SUPPORT_FAQ_HEADLINE"
+msgstr "FAQ"
+
+#: 
+msgid "AS_SUPPORT_HELP_HEADLINE"
+msgstr "Hilfe"
+
+#: 
+msgid "AS_SUPPORT_HELP_P1"
+msgstr "Wenn Du ein Problem oder eine Frage hast, schau gern in unsere FAQ’s. Vielleicht kannst Du dort schon die passende Antwort finden. Solltest Du wirklich nicht weiterkommen, dann wende Dich gern direkt an uns: {{email}}"
+
+#: 
+msgid "AS_SUPPORT_HELP_P2"
+msgstr "Wir versuchen in jedem Fall, eine Lösung für Dein Problem zu finden."
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_10_PARAGRAPH"
+msgstr "Ideen können in der Sprache eingereicht werden, mit der Du Dich am wohlsten fühlst. Sie werden automatisch und direkt auf unserer Plattform übersetzt."
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_11_PARAGRAPH"
+msgstr "Ideen werden durch das integrierte Programm DeepL übersetzt. DeepL ist ein maschinelles Übersetzungssystem, das frei verfügbar ist und Texte von einer in die andere Sprache übersetzt."
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_12_PARAGRAPH"
+msgstr "Solange Deine Idee noch nicht freigegeben wurde, kannst Du jederzeit Deine Idee unter „Meine Ideen“ auch nachträglich noch bearbeiten. Der Menüpunkt „Meine Ideen“ wird sichtbar, sobald Du Dich im entsprechenden Marktplatz befindest, für den Du die Idee eingereicht hast."
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_13_PARAGRAPH"
+msgstr "Das Axel Springer Crowd Team gibt Ideen unter Berücksichtigung der entsprechenden Unternehmensrichtlinien frei. Dabei wird geprüft, ob eine Idee den Compliance-Richtlinien entspricht."
+
+#: 
+#, fuzzy
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_14_PARAGRAPH"
+msgstr "Es gilt: Eine Idee muss Compliance-konform sein. Es dürfen weder beleidigende Texte, noch diffamierende Inhalte eingereicht werden. Ideen, die vordergründig auf Eigeninteresse beruhen, werden ebenfalls nicht akzeptiert. Sollte eine Idee nach der Prüfung durch das Axel Springer Crowd Team abgelehnt werden, erhalten Mitarbeiter eine separate E-Mail inklusive des Grunds der Ablehnung. Entspricht die Idee den Compliance-Richtlinien, wird sie freigegeben und erscheint im Marktplatz."
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_15_PARAGRAPH"
+msgstr "Die Freigabe für eine Idee dauert maximal 72 Stunden."
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_16_PARAGRAPH"
+msgstr "Ab dem Zeitpunkt der Freigabe durch das Axel Springer Crowd Team bis zum Ende des Zeitraums eines Marktplatzes kann über die Idee abgestimmt werden."
+
+#: 
+#, fuzzy
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_17_PARAGRAPH"
+msgstr "Solange ein Marktplatz geöffnet ist, können User ihr Voting für eine Idee nachträglich jederzeit ändern (Erneutes betätigen der Sterne Skala). Da immer weitere neue Ideen hinzukommen, haben Nutzer die Möglichkeit, das Voting neu zu justieren. Die Abstimmung erfolgt über die Auswahl der Sterne-Skala, die vom einen bis zu fünf Sternen reicht."
+
+#: 
+#, fuzzy
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_18_PARAGRAPH"
+msgstr "Bei Fragen zur Ablehnung kannst Du Dich an das AS Crowd Team wenden. Sollte die Problematik nicht geklärt werden können oder Du noch weitergehende Fragen haben, steht Dir auch der Arbeitskreis Betriebliches Vorschlagswesen unter <a href=\"mailto:reconsider.ascrowd@axelspringer.de\">reconsider.ascrowd@axelspringer.de</a> zur Verfügung."
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_19_PARAGRAPH"
+msgstr "Die Sieger werden mehrheitlich durch das Voting der Nutzer in Axel Springer Crowd ermittelt. Auch der Betriebsrat entscheidet über einen bestimmten Anteil der Sieger-Ideen."
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_2_PARAGRAPH"
+msgstr "Die <a href=\"#/signup\">Registrierung</a> erfolgt ausschließlich mit der E-Mailadresse des Unternehmens. Nach dem Login erhalten Nutzer per E-Mail einen Link zur Registrierung. Sobald der Prozess abgeschlossen ist, können Ideen eingereicht werden."
+
+#: 
+#, fuzzy
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_20_PARAGRAPH"
+msgstr "Der Arbeitskreis Betriebliches Vorschlagswesen hat sich auf ein Budget verständigt, welches für den Marktplatz und die Ideen zur Verfügung steht. Die Höhe des Budgets hängt von der Anzahl der eingereichten Vorschläge ab. Gewinne werden in Form von Prämien oder einem Bonus ausgeschüttet."
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_3_PARAGRAPH"
+msgstr "Bei Axel Springer Crowd können alle Mitarbeiter der Axel Springer SE sowie der Units teilnehmen, an denen Axel Springer mehrheitlich beteiligt ist."
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_4_PARAGRAPH"
+msgstr "Ein Marktplatz ist eine Art Sammelstelle, in die Axel-Springer-Mitarbeiter ihre Ideen zu einem bestimmten Thema einreichen können."
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_5_PARAGRAPH"
+msgstr "Der Marktplatz „One more idea“ ist ein Sammelplatz für alle Ideen, die thematisch nicht zu einem aktuellen Marktpklatz zugeordnet werden können."
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_6_PARAGRAPH"
+msgstr "Bei Axel Springer Crowd werden kontinuierlich neue Marktplätze freigeschaltet. Mitarbeiter können sich auf der Plattform über neue Marktplätze informieren. Zusätzlich werdet Ihr per Newsletter über neue Marktplätze auf dem Laufenden gehalten. <a href=\"https://axelspringerideas.us13.list-manage.com/subscribe?u=d4ff5f1c1f7d849d773d43835&id=7658a69b81\">Hier könnt Ihr Euch für den Newsletter registrieren</a>."
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_7_PARAGRAPH"
+msgstr "Ideen und Anregungen für einen neuen Marktplatz könnt Ihr unter <a href=\"mailto:crowd@asideas.de\">crowd@asideas.de</a> einreichen."
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_8_PARAGRAPH"
+msgstr "Eine Idee besteht aus einem Titel und einer kurzen Beschreibung (maximal 255 Zeichen), die deutlich macht, um was es dabei geht."
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_9_PARAGRAPH"
+msgstr "In der Kürze liegt bekanntlich die Würze. Darum haben wir die Zeichenanzahl für eine Idee beschränkt. Es muss kein ausgereiftes Konzept eingereicht werden, denn es geht hier zunächst um Eure Ideen."
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_1_HEADLINE"
+msgstr "Was ist die Axel Springer Crowd?"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_2_HEADLINE"
+msgstr "Wie kann ich mich bei Axel Springer Crowd registrieren?"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_3_HEADLINE"
+msgstr "Welche Unternehmen von Axel Springer können teilnehmen?"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_4_HEADLINE"
+msgstr "Was ist ein Marktplatz?"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_5_HEADLINE"
+msgstr "Was hat es mit dem „One more idea“-Marktplatz auf sich?"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_6_HEADLINE"
+msgstr "Wie häufig erscheinen neue Marktplätze?"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_7_HEADLINE"
+msgstr "Kann ich auch Ideen für einen Marktplatz einreichen?"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_8_HEADLINE"
+msgstr "In welchem Format reiche ich Ideen ein?"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_9_HEADLINE"
+msgstr "Warum ist die Anzahl an Zeichen für eine Idee beschränkt?"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_10_HEADLINE"
+msgstr "In welcher Sprache sollte ich meine Idee einreichen?"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_11_HEADLINE"
+msgstr "Wie wird meine Idee übersetzt und was ist DeepL?"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_12_HEADLINE"
+msgstr "Kann ich meine Idee nachträglich bearbeiten?"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_13_HEADLINE"
+msgstr "Wer gibt meine Idee frei?"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_14_HEADLINE"
+msgstr "Welche Regeln gelten für die Freigabe und Ablehnung einer Idee?"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_15_HEADLINE"
+msgstr "Wie lange dauert der Prozess bis meine Idee freigegeben wird?"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_16_HEADLINE"
+msgstr "Ab wann kann für eine Idee abgestimmt werden?"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_17_HEADLINE"
+msgstr "Kann ich mein Voting nachträglich ändern?"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_18_HEADLINE"
+msgstr "An wen wende ich mich bei Rückfragen zu einer Ablehnung?"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_19_HEADLINE"
+msgstr "Wie werden die Sieger eines Marktplatzes ermittelt?"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_20_HEADLINE"
+msgstr "Erhalten Gewinner eine Prämie oder einen Bonus?"
+
+#: 
+msgid "AS_ABOUT_TEAM_CAPTION"
+msgstr "v.l.n.r. Tarek Madany Mamlouk, Martin Bild, Johannes Schrade, Anneke Möhlmann, Jasmin Heumann, Thomas Eisermann, Christian Sell, Julian Godesa, Max Weber, Lars Reith, Thomas Wendzinski, Johannes Burr, Sven Rebbert"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_21_HEADLINE"
+msgstr "Wo kann ich mich zum Thema Innovation informieren?"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_22_HEADLINE"
+msgstr "In welchen Ländern ist Axel Springer Crowd verfügbar?"
+
+#: 
+#, fuzzy
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_21_PARAGRAPH"
+msgstr "Bei Axel Springer gibt es viele Initiativen zum Thema Innovation, wie zum Beispiel Community of Practices und Hackathons. Gern vernetzen wir euch mit den Ansprechpartnern der einzelnen Projekte. Du beschäftigst dich ebenfalls mit spannenden Projekten rund um Innovation oder möchtest mehr über unsere Arbeit erfahren oder dich vielleicht einbringen? Dann schreib uns gerne einfach per Mail unter <a href=\"mailto:crowd@asideas.de\">crowd@asideas.de</a> an."
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_22_PARAGRAPH"
+msgstr "Axel Springer Crowd ist zunächst nur im deutschsprachigen Raum verfügbar. Weitere Länder werden folgen."
+
+#: 
+msgid "AS_IMPRINT_COPYRIGHTS_HEADLINE"
+msgstr "Urheberrechte"
+
+#: 
+msgid "AS_IMPRINT_COPYRIGHTS_P"
+msgstr "<a href=\"https://de.freepik.com/fotos-vektoren-kostenlos/hand-gezeichnet-idee-konzept_829848.htm\">\"Hand gezeichnete Idee Konzept 829848\" Vektor erstellt von freepik - de.freepik.com</a>"
+
