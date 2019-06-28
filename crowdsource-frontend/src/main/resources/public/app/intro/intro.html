@@ -9,6 +9,8 @@
 
     <div ng-if="!intro.isLoggedIn" class="campaign-login__container">
         <content-hero title="'INTRO_HEADLINE'" description="'INTRO_DESC'"></content-hero>
-        <a class="button-primary" href="#/signup" translate="BUTTON_LABEL_REGISTER">Register</a>
+        <button class="button-primary" onclick="window.location='#/signup';" translate="BUTTON_LABEL_REGISTER">
+            Register
+        </button>
     </div>
 </content-row>
