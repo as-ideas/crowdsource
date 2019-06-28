@@ -51,7 +51,7 @@ describe('intro page', function () {
 
     });
 
-    it('should show login button if user is not logged in and not the campaign lists', function () {
+  it('should show register button if user is not logged in and not the campaign lists', function () {
         var scope = $rootScope.$new();
 
         Authentication.currentUser.loggedIn = false;
@@ -70,8 +70,8 @@ describe('intro page', function () {
         expect(prototypeCampaign.length).toEqual(0);
         expect(ideasCampaign.length).toEqual(0);
 
-        var loginButton = intro.find('a');
-        expect(loginButton).toContainText('Login');
+    var registerButton = intro.find('a');
+    expect(registerButton).toContainText('Register');
 
     });
 });
