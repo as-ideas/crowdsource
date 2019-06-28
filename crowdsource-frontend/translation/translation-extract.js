@@ -14,8 +14,8 @@ var data = {
         "<content-hero[^<>]*title=\"'([^'\"]*)'\"[^<>]*>[^<>]*<\\/content-hero>",       // Extract title from content-hero directives
         "<content-hero[^<>]*description=\"'([^'\"]*)'\"[^<>]*>[^<>]*<\\/content-hero>", // Extract description from content-hero directives
         "<load-more[^]*load-more-label=\"'([^'\"]*)'\"[^]*><\\/load-more>",             // Extract load more label from load-more directives
-        "<load-more[^]*no-more-label=\"'([^'\"]*)'\"[^]*><\\/load-more>"               // Extract load no more label from load-more directives
-        //"<accordion-item[^]*title=\"'([^'\"]*)'\"[^]*>[^]*<\\/accordion-item>"         // Extract title from accordion-item directives
+        "<load-more[^]*no-more-label=\"'([^'\"]*)'\"[^]*><\\/load-more>",               // Extract load no more label from load-more directives
+        "<accordion-item[^>]*title=\"'([^'\"]*)'\"[^>]*[>]{1}"                          // Extract title from accordion-item directives
     ]
 }
 
