@@ -700,7 +700,7 @@ msgstr "Michael Alber\n"
 "Axel-Springer-Straße 65\n"
 "10888 Berlin\n"
 "\n"
-"Amtsgericht/ Handelsregister\n"
+"Amtsgericht/Handelsregister\n"
 "Sitz Berlin, Amtsgericht Charlottenburg, HRB 138466 B\n"
 "USt-IdNr. DE 287499537\n"
 "Geschäftsführer: Samir Fadlallah, Michael Alber"
@@ -858,7 +858,7 @@ msgstr ""
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_18_PARAGRAPH"
-msgstr "Bei Fragen zur Ablehung kannst Du Dich an das Axel Springer Crowd Team wenden. Sollte die Problematik nicht geklärt werden können oder Du noch weitergehende Fragen haben, steht Dir auch der Arbeitskreis Betriebliches Vorschlagswesen zur Verfügung."
+msgstr "Bei Fragen zur Ablehung kannst Du Dich an das Axel Springer Crowd Team wenden. Sollte die Problematik nicht geklärt werden können oder solltest Du noch weitergehende Fragen haben, steht Dir auch der Arbeitskreis Betriebliches Vorschlagswesen zur Verfügung."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_19_PARAGRAPH"
@@ -870,7 +870,7 @@ msgstr "Die <a href=\"#/signup\">Registrierung</a> erfolgt ausschließlich mit d
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_20_PARAGRAPH"
-msgstr "Der Arbeitskreis betriebliches Vorschlagswesen hat sich auf ein Budget verständigt, welches für den Markplatz und die Ideen zur Verfügung steht. Die Höhe des Budgets hängt von der Anzahl der eingereichten Vorschläge ab."
+msgstr "Der Arbeitskreis betriebliches Vorschlagswesen hat sich auf ein Budget verständigt, welches für den Marktplatz und die Ideen zur Verfügung steht. Die Höhe des Budgets hängt von der Anzahl der eingereichten Vorschläge ab."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_3_PARAGRAPH"
@@ -982,7 +982,7 @@ msgstr "Erhalten Gewinner eine Prämie oder einen Bonus?"
 
 #: 
 msgid "AS_ABOUT_TEAM_CAPTION"
-msgstr ""
+msgstr "v.l.n.r. Tarek Madany Mamlouk, Martin Bild, Johannes Schrade, Anneke Möhlmann, Jasmin Heumann, Thomas Eisermann, Christian Sell, Julian Godesa, Max Weber, Lars Reith, Thomas Wendzinski, Johannes Burr, Sven Rebbert"
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_21_HEADLINE"
@@ -994,7 +994,7 @@ msgstr "In welchen Ländern ist Axel Springer Crowd verfügbar?"
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_21_PARAGRAPH"
-msgstr "Bei Fragen rund um das Thema Innovation stehen wir Dir gerne zur Seite. Wir bringen vernetzen dich"
+msgstr "Bei Fragen rund um das Thema Innovation stehen wir Dir gerne zur Seite. Wir vernetzen dich"
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_22_PARAGRAPH"
