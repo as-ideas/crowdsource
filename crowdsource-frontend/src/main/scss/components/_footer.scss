@@ -79,8 +79,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        width: 270px;
-        height: 90px;
+        width: 130px;
     }
 
     &__ideas {
@@ -90,6 +89,7 @@
         background-size: contain;
         height: 26px;
         width: 97px;
+        margin-bottom: $mrg-normal;
     }
 
     &__asdigitalists {
@@ -108,6 +108,7 @@
         background-size: contain;
         height: 30px;
         width: 107px;
+        margin-bottom: $mrg-normal;
     }
 
     &__as {
