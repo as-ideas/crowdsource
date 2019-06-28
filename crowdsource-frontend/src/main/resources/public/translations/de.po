@@ -1007,9 +1007,9 @@ msgstr "Axel Springer Crowd ist zunächst nur im deutschsprachigen Raum verfügb
 
 #: 
 msgid "AS_IMPRINT_COPYRIGHTS_HEADLINE"
-msgstr "Urheberrechte"
+msgstr "&nbsp;"
 
 #: 
 msgid "AS_IMPRINT_COPYRIGHTS_P"
-msgstr "<a href=\"https://de.freepik.com/fotos-vektoren-kostenlos/hand-gezeichnet-idee-konzept_829848.htm\">\"Hand gezeichnete Idee Konzept 829848\" Vektor erstellt von freepik - de.freepik.com</a>"
+msgstr "&nbsp;"
 
