@@ -1005,3 +1005,12 @@ msgstr "Bei Axel Springer gibt es viele Initiativen zum Thema Innovation, wie zu
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_22_PARAGRAPH"
 msgstr "Axel Springer Crowd ist zunächst nur im deutschsprachigen Raum verfügbar. Weitere Länder werden folgen."
 
+#:
+msgid "AS_IMPRINT_COPYRIGHTS_HEADLINE"
+msgstr "Bildrechte"
+
+#:
+msgid "AS_IMPRINT_COPYRIGHTS_P"
+msgstr "Das ist ein <a href='#'>Testlink</a> viel Spaß damit"
+
+

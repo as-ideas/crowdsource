@@ -141,6 +141,14 @@ msgid "AS_IMPRINT_CONTACT_P"
 msgstr "crowd@asideas.de"
 
 msgctxt ""
+msgid "AS_IMPRINT_COPYRIGHTS_HEADLINE"
+msgstr "Bildrechte"
+
+msgctxt ""
+msgid "AS_IMPRINT_COPYRIGHTS_P"
+msgstr ""
+
+msgctxt ""
 msgid "AS_IMPRINT_HEADLINE"
 msgstr "Impressum"
 
