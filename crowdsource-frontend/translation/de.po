@@ -353,7 +353,7 @@ msgstr "Unsere Ideen"
 
 #: 
 msgid "INTRO_DESC"
-msgstr "Werde Teil der Community! Hier geht’s zum Login"
+msgstr "Werde Teil der Community! Hier geht’s zur Registrierung"
 
 #: 
 msgid "INTRO_HEADLINE"
@@ -561,7 +561,7 @@ msgstr "Passwort neu setzen"
 
 #: 
 msgid "REGISTER_AGB"
-msgstr "Hiermit gestatte ich der Axel Springer Ideas Engineering GmbH sowie Axel Springer People & Culture mich für Neuigkeiten (bspw. Start einer Kampagne sowie Status meiner Idee) rund um Axel Springer Crowd  zu kontaktieren. Ich habe die Möglichkeit mich jederzeit vom Newsletter abzumelden. Dazu kann ich den Link in der Fußzeile unserer E-Mails betätigen. Weitere Informationen zum Datenschutz sind der Datenschutzerklärung zu entnehmen."
+msgstr "Hiermit gestatte ich der Axel Springer SE mich für Neuigkeiten (bspw. Start einer Kampagne sowie Status meiner Idee) rund um Axel Springer Crowd  zu kontaktieren. Ich habe die Möglichkeit mich jederzeit vom Newsletter abzumelden. Dazu kann ich den Link in der Fußzeile unserer E-Mails betätigen. Weitere Informationen zum Datenschutz sind der Datenschutzerklärung zu entnehmen."
 
 #: 
 msgid "REGISTER_HEADLINE"
@@ -841,8 +841,9 @@ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_13_PARAGRAPH"
 msgstr "Das Axel Springer Crowd Team gibt Ideen unter Berücksichtigung der entsprechenden Unternehmensrichtlinien frei. Dabei wird geprüft, ob eine Idee den Compliance-Richtlinien entspricht."
 
 #: 
+#, fuzzy
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_14_PARAGRAPH"
-msgstr "Es gilt: Eine Idee muss Compliance-konform sein. Es dürfen weder beleidigende Texte, noch diffamierende Inhalte eingereicht werden. Sollte eine Idee nach der Prüfung durch das Axel Springer Crowd Team abgelehnt werden, erhalten Mitarbeiter eine separate E-Mail inklusive des Grunds der Ablehnung. Entspricht die Idee den Compliance-Richtlinien, wird sie freigegeben und erscheint im Marktplatz. "
+msgstr "Es gilt: Eine Idee muss Compliance-konform sein. Es dürfen weder beleidigende Texte, noch diffamierende Inhalte eingereicht werden. Ideen, die vordergründig auf Eigeninteresse beruhen, werden ebenfalls nicht akzeptiert. Sollte eine Idee nach der Prüfung durch das Axel Springer Crowd Team abgelehnt werden, erhalten Mitarbeiter eine separate E-Mail inklusive des Grunds der Ablehnung. Entspricht die Idee den Compliance-Richtlinien, wird sie freigegeben und erscheint im Marktplatz."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_15_PARAGRAPH"
@@ -853,12 +854,14 @@ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_16_PARAGRAPH"
 msgstr "Ab dem Zeitpunkt der Freigabe durch das Axel Springer Crowd Team bis zum Ende des Zeitraums eines Marktplatzes kann über die Idee abgestimmt werden."
 
 #: 
+#, fuzzy
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_17_PARAGRAPH"
-msgstr ""
+msgstr "Solange ein Marktplatz geöffnet ist, können User ihr Voting für eine Idee nachträglich jederzeit ändern (Erneutes betätigen der Sterne Skala). Da immer weitere neue Ideen hinzukommen, haben Nutzer die Möglichkeit, das Voting neu zu justieren. Die Abstimmung erfolgt über die Auswahl der Sterne-Skala, die vom einen bis zu fünf Sternen reicht."
 
 #: 
+#, fuzzy
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_18_PARAGRAPH"
-msgstr "Bei Fragen zur Ablehung kannst Du Dich an das Axel Springer Crowd Team wenden. Sollte die Problematik nicht geklärt werden können oder solltest Du noch weitergehende Fragen haben, steht Dir auch der Arbeitskreis Betriebliches Vorschlagswesen zur Verfügung."
+msgstr "Bei Fragen zur Ablehnung kannst Du Dich an das AS Crowd Team wenden. Sollte die Problematik nicht geklärt werden können oder Du noch weitergehende Fragen haben, steht Dir auch der Arbeitskreis Betriebliches Vorschlagswesen unter Mailadresse?! zur Verfügung."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_19_PARAGRAPH"
@@ -869,8 +872,9 @@ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_2_PARAGRAPH"
 msgstr "Die <a href=\"#/signup\">Registrierung</a> erfolgt ausschließlich mit der E-Mailadresse des Unternehmens. Nach dem Login erhalten Nutzer per E-Mail einen Link zur Registrierung. Sobald der Prozess abgeschlossen ist, können Ideen eingereicht werden."
 
 #: 
+#, fuzzy
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_20_PARAGRAPH"
-msgstr "Der Arbeitskreis betriebliches Vorschlagswesen hat sich auf ein Budget verständigt, welches für den Marktplatz und die Ideen zur Verfügung steht. Die Höhe des Budgets hängt von der Anzahl der eingereichten Vorschläge ab."
+msgstr "Der Arbeitskreis Betriebliches Vorschlagswesen hat sich auf ein Budget verständigt, welches für den Marktplatz und die Ideen zur Verfügung steht. Die Höhe des Budgets hängt von der Anzahl der eingereichten Vorschläge ab. Gewinne werden in Form von Prämien oder einem Bonus ausgeschüttet."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_3_PARAGRAPH"
@@ -993,8 +997,9 @@ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_22_HEADLINE"
 msgstr "In welchen Ländern ist Axel Springer Crowd verfügbar?"
 
 #: 
+#, fuzzy
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_21_PARAGRAPH"
-msgstr "Bei Fragen rund um das Thema Innovation stehen wir Dir gerne zur Seite. Wir vernetzen dich"
+msgstr "Bei Axel Springer gibt es viele Initiativen zum Thema Innovation, wie zum Beispiel Community of Practices und Hackathons. Gern vernetzen wir euch mit den Ansprechpartnern der einzelnen Projekte. Du beschäftigst dich ebenfalls mit spannenden Projekten rund um Innovation oder möchtest mehr über unsere Arbeit erfahren oder dich vielleicht einbringen? Dann schreib uns gerne einfach per Mail unter <a href=\"mailto:crowd@asideas.de\">crowd@asideas.de</a> an."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_22_PARAGRAPH"
