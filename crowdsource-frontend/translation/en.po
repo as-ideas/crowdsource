@@ -353,7 +353,7 @@ msgstr "Our ideas"
 
 #: 
 msgid "INTRO_DESC"
-msgstr "Become part of the community! Click here to login"
+msgstr "Become part of the community! Click here to register"
 
 #: 
 msgid "INTRO_HEADLINE"
