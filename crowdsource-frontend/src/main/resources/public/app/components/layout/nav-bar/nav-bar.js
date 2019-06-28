@@ -6,9 +6,9 @@ angular.module('crowdsource')
         directive.templateUrl = 'app/components/layout/nav-bar/nav-bar.html';
         directive.controllerAs = 'vm';
         directive.bindToController = true;
-        directive.controller = ['$scope','$rootScope','$window','$filter', '$translate','tmhDynamicLocale','Authentication','Route','Idea','ROUTE_DETAILS','Analytics', NavBarController]
+        directive.controller = ['$scope','$rootScope','$window','$filter', '$translate','$location','tmhDynamicLocale','Authentication','Route','Idea','ROUTE_DETAILS','Analytics', NavBarController]
 
-        function NavBarController($scope, $rootScope, $window, $filter, $translate, tmhDynamicLocale, Authentication, Route, Idea, ROUTE_DETAILS, Analytics) {
+        function NavBarController($scope, $rootScope, $window, $filter, $translate, $location, tmhDynamicLocale, Authentication, Route, Idea, ROUTE_DETAILS, Analytics) {
             var vm = this;
             vm.currentLanguage = $translate.use();
 
@@ -99,7 +99,11 @@ angular.module('crowdsource')
 
             function getIdeasBreadcrumb(currentRoute) {
                 var breadcrumbs = [];
-                breadcrumbs.push({target: '/#/ideas/' + Idea.currentCampaign.id, label: Idea.currentCampaign.contentI18n[vm.currentLanguage].title});
+                if(vm.currentLanguage) {
+                    breadcrumbs.push({target: '/#/ideas/' + Idea.currentCampaign.id, label: Idea.currentCampaign.contentI18n[vm.currentLanguage].title});
+                } else {
+                    console.log("nav-bar.js vm.currentLanguage undefined yet");
+                }
 
                 if (currentRoute[ROUTE_DETAILS.JSON_ROOT]
                     && currentRoute[ROUTE_DETAILS.JSON_ROOT][ROUTE_DETAILS.ATTR_IS_OVERVIEW]
@@ -137,7 +141,7 @@ angular.module('crowdsource')
                     updateNavigationAndWindowTitle(currentRoute);
 
                     // Google Tracking
-                    Analytics.trackPage(currentRoute.originalPath);
+                    Analytics.trackPage($location.$$path);
                 }
             });
         };
