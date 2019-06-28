@@ -58,6 +58,7 @@ angular.module('crowdsource')
                                 $rootScope.$broadcast('VOTE_'+vm.idea.id, { type:'success', message: $filter('translate')('IDEA_VOTE_MESSAGE')});
                             }
                             vm.rating = rating;
+                          vm.rating.averageRating = Math.round(vm.rating.averageRating * 10) / 10;
                         })
                         .finally(function () {
                             $timeout(function () {
