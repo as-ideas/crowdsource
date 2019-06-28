@@ -17,7 +17,7 @@ public class ActivationStepsTest {
         final String activationToken = RandomStringUtils.randomAlphanumeric(UserService.ACTIVATION_TOKEN_LENGTH);
         final String testMail = "Hallo Hans Dampf, Du hast Dich gerade auf der CrowdSource Platform angemeldet. Um Deine Registrierung abzuschließen, öffne bitte diesen Link und setze Dein Passwort: http://localhost:8080#/signup/hans.dampf@crowd.source.de/activation/"
                 + activationToken
-                + " Bei Fragen wende dich an: support@crowd.asideas.de";
+                + " Bei Fragen wende dich an: crowd@asideas.de";
 
         assertEquals(activationToken, new ActivationSteps().extractActivationTokenFromMessage(testMail));
     }
@@ -28,7 +28,7 @@ public class ActivationStepsTest {
         final String activationToken = RandomStringUtils.randomAlphanumeric(UserService.ACTIVATION_TOKEN_LENGTH);
         final String testMail = "Hallo Hans Dampf, Du hast Dich gerade auf der CrowdSource Platform angemeldet. Um Deine Registrierung abzuschließen, öffne bitte diesen Link und setze Dein Passwort: http://localhost:8080#/signup/hans.dampf@crowd.source.de/activation/"
                 + activationToken
-                + " Bei Fragen wende dich an: support@crowd.asideas.de";
+                + " Bei Fragen wende dich an: crowd@asideas.de";
 
         final String expectedLink = "http://localhost:8080#/signup/hans.dampf@crowd.source.de/activation/" + activationToken;
         assertEquals(expectedLink, new ActivationSteps().extractActivationLinkFromMessage(testMail));

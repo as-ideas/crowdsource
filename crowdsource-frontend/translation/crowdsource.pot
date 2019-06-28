@@ -138,7 +138,7 @@ msgstr "Kontakt"
 
 msgctxt ""
 msgid "AS_IMPRINT_CONTACT_P"
-msgstr "support@crowd.asideas.de"
+msgstr "crowd@asideas.de"
 
 msgctxt ""
 msgid "AS_IMPRINT_HEADLINE"
@@ -273,6 +273,20 @@ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_21_PARAGRAPH"
 msgstr "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
 
 msgctxt ""
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_22_HEADLINE"
+msgstr ""
+
+msgctxt ""
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_22_PARAGRAPH"
+msgstr "Lorem ipsum dolor sit amet, consetetur sadipscing
+                elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+                voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+                takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+                elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+                voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+                takimata sanctus est Lorem ipsum dolor sit amet."
+
+msgctxt ""
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_3_HEADLINE"
 msgstr ""
 
@@ -338,7 +352,7 @@ msgstr ""
 
 msgctxt ""
 msgid "AS_SUPPORT_HELP_P1"
-msgstr "support@crowd.asideas.de"
+msgstr "crowd@asideas.de"
 
 msgctxt ""
 msgid "AS_SUPPORT_HELP_P2"
