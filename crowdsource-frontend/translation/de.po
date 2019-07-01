@@ -818,7 +818,7 @@ msgstr "Hilfe"
 
 #: 
 msgid "AS_SUPPORT_HELP_P1"
-msgstr "Wenn Du ein Problem oder eine Frage hast, schau gern in unsere FAQ’s. Vielleicht kannst Du dort schon die passende Antwort finden. Solltest Du wirklich nicht weiterkommen, dann wende Dich gern direkt an uns: {{email}} oder <a href=\"https://teams.microsoft.com/l/channel/19%3a5e30dd1c7dba4b6fb3e91d87f680d827%40thread.skype/Allgemein?groupId=818a67d1-bd8b-4a54-a87f-b6aff587732a&tenantId=a1e7a36c-6a48-4768-9d65-3f679c0f3b12\">Axel Springer Crowd Support Team</a>"
+msgstr "Wenn Du ein Problem oder eine Frage hast, schau gern in unsere FAQ’s. Vielleicht kannst Du dort schon die passende Antwort finden. Solltest Du wirklich nicht weiterkommen, dann wende Dich gern direkt an uns: {{email}} oder <a href=\"https://teams.microsoft.com/l/channel/19%3a5e30dd1c7dba4b6fb3e91d87f680d827%40thread.skype/Allgemein?groupId=818a67d1-bd8b-4a54-a87f-b6aff587732a&tenantId=a1e7a36c-6a48-4768-9d65-3f679c0f3b12\">Microsoft Teams</a>"
 
 #: 
 msgid "AS_SUPPORT_HELP_P2"

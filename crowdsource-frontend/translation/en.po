@@ -867,7 +867,7 @@ msgstr "Help"
 
 #: 
 msgid "AS_SUPPORT_HELP_P1"
-msgstr "If you have a problem or a question, please take a look at our FAQ's. Maybe you can already find the right answer there. If you really don't get ahead, then please contact us directly: {{email}}"
+msgstr "If you have a problem or a question, please take a look at our FAQ's. Maybe you can already find the right answer there. If you really don't get ahead, then please contact us directly: {{email}} or <a href=\"https://teams.microsoft.com/l/channel/19%3a5e30dd1c7dba4b6fb3e91d87f680d827%40thread.skype/Allgemein?groupId=818a67d1-bd8b-4a54-a87f-b6aff587732a&tenantId=a1e7a36c-6a48-4768-9d65-3f679c0f3b12\">Microsoft Teams</a>"
 
 #: 
 msgid "AS_SUPPORT_HELP_P2"
