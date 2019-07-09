@@ -177,11 +177,11 @@ msgstr "Bitte gib deine E-Mail-Adresse ein"
 
 #: 
 msgid "FORM_EMAIL_LABEL"
-msgstr "E-Mail"
+msgstr "E-Mail (geschäftlich)"
 
 #: 
 msgid "FORM_EMAIL_PLACEHOLDER"
-msgstr "E-Mail"
+msgstr "E-Mail (geschäftlich)"
 
 #: 
 msgid "FORM_ERROR_MAX_CHARS"
@@ -878,7 +878,9 @@ msgstr "Der Arbeitskreis Betriebliches Vorschlagswesen hat sich auf ein Budget v
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_3_PARAGRAPH"
-msgstr "Bei Axel Springer Crowd können alle Mitarbeiter der Axel Springer SE sowie der Units teilnehmen, an denen Axel Springer mehrheitlich beteiligt ist."
+msgstr "Bei Axel Springer Crowd können alle Mitarbeiter der Axel Springer SE sowie der Units teilnehmen, an denen Axel Springer mehrheitlich beteiligt ist.</br>\n"
+"</br>\n"
+"Gern helfen wir dir unter <a href=\"mailto:crowd@asideas.de\">crowd@asideas.de</a> oder <a href=\"https://teams.microsoft.com/l/channel/19%7B2%7Da5e30dd1c7dba4b6fb3e91d87f680d827%7B39%7Dthread.skype/Allgemein?groupId=818a67d1-bd8b-4a54-a87f-b6aff587732a&tenantId=a1e7a36c-6a48-4768-9d65-3f679c0f3b12\">Microsoft Teams</a>."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_4_PARAGRAPH"

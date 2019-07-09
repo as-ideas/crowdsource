@@ -177,11 +177,11 @@ msgstr "Please enter your e-mail address"
 
 #: 
 msgid "FORM_EMAIL_LABEL"
-msgstr "E-mail"
+msgstr "E-mail (business)"
 
 #: 
 msgid "FORM_EMAIL_PLACEHOLDER"
-msgstr "E-mail"
+msgstr "E-mail (business)"
 
 #: 
 msgid "FORM_ERROR_MAX_CHARS"
@@ -923,7 +923,9 @@ msgstr "The working group of the company suggestion scheme has agreed on a budge
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_3_PARAGRAPH"
-msgstr "At Axel Springer Crowd, all employees of Axel Springer SE and the units in which Axel Springer holds a majority interest can participate."
+msgstr "At Axel Springer Crowd, all employees of Axel Springer SE and the units in which Axel Springer holds a majority interest can participate.</br>\n"
+"</br>\n"
+"We are happy to help you at <a href=\"mailto:crowd@asideas.de\">crowd@asideas.de</a> or <a href=\"https://teams.microsoft.com/l/channel/19%7B2%7Da5e30dd1c7dba4b6fb3e91d87f680d827%7B39%7Dthread.skype/Allgemein?groupId=818a67d1-bd8b-4a54-a87f-b6aff587732a&tenantId=a1e7a36c-6a48-4768-9d65-3f679c0f3b12\">Microsoft Teams</a>."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_4_PARAGRAPH"
