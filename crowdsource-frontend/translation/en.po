@@ -1065,5 +1065,5 @@ msgstr "On what Agreement is Axel Springer Crowd operated?"
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_23_PARAGRAPH"
-msgstr "A test run until the end of 2019 was agreed with the Konzernbetriebsrat (KBR). The agreement that applies to the test run can be found in <a href=\"https://moveoffice.sharepoint.com/:b:/r/sites/kollektivvereinbarungen/Shared%7B19%7DDocuments/KBV/AS%7B19%7DCrowd/RA%7B19%7DASCrowd%7B2010%7D.06.2019.pdf\">moveoffice</a>."
+msgstr "A test run until the end of 2019 was agreed with the Konzernbetriebsrat (KBR). The agreement that applies to the test run can be found in <a target=“_blank“ href=\"https://moveoffice.sharepoint.com/:b:/r/sites/kollektivvereinbarungen/Shared%20Documents/KBV/AS%20Crowd/RA%20ASCrowd%2011.06.2019.pdf\">moveoffice</a>."
 
