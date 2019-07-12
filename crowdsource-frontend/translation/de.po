@@ -1021,5 +1021,5 @@ msgstr "Auf welcher Grundlage wird Axel Springer Crowd betrieben?"
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_23_PARAGRAPH"
-msgstr "Mit dem Konzernbetriebsrat (KBR) wurde eine Testbetrieb bis Ende 2019 vereinbart. Die Handlungsabrede, welche für den Testbetrieb gilt ist in <a href=\"https://moveoffice.sharepoint.com/:b:/r/sites/kollektivvereinbarungen/Shared%20Documents/KBV/AS%20Crowd/RA%20ASCrowd%2011.06.2019.pdf?csf=1&e=qrWQ5z\">moveoffice</a> zu finden."
+msgstr "Mit dem Konzernbetriebsrat (KBR) wurde eine Testbetrieb bis Ende 2019 vereinbart. Die Handlungsabrede, welche für den Testbetrieb gilt ist in <a href=\"https://moveoffice.sharepoint.com/:b:/r/sites/kollektivvereinbarungen/Shared%7B19%7DDocuments/KBV/AS%7B19%7DCrowd/RA%7B19%7DASCrowd%7B2010%7D.06.2019.pdf\">moveoffice</a> zu finden."
 
