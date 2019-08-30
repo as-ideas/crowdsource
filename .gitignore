@@ -7,3 +7,4 @@ crowdsource-frontend/node
 secring.gpg
 npm-debug.log
 .DS_Store
+crowd-users.csv
