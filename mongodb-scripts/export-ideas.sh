@@ -12,7 +12,7 @@ mongoexport \
   --password $CROWD_PROD_PASSWORD \
   --authenticationDatabase admin \
   --db crowdsource_as_prod \
-  --collection users \
+  --collection ideas \
   --type csv \
-  --out crowd-users.csv \
-  --fields "_id,email,firstName,lastName"
+  --out crowd-ideas.csv \
+  --fields "_id,status,campaignId,contentI18n.original.title,contentI18n.original.pitch"

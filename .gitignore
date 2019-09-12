@@ -8,3 +8,6 @@ secring.gpg
 npm-debug.log
 .DS_Store
 crowd-users.csv
+mongodb-scripts/crowd-campaigns.csv
+mongodb-scripts/crowd-ideas.csv
+mongodb-scripts/crowd-votes.csv
