@@ -44,7 +44,7 @@
                         </configuration>
                     </execution>
 
-                    <!-- 2. Install karma and karma plugins -->
+                    <!-- 2. Install  -->
                     <execution>
                         <id>npm install</id>
                         <goals>
@@ -54,26 +54,26 @@
 
                     <!-- 3. Build FE -->
                     <execution>
-                        <id>npm run package</id>
+                        <id>npm run build</id>
                         <goals>
                             <goal>npm</goal>
                         </goals>
 
                         <configuration>
-                            <arguments>run package</arguments>
+                            <arguments>run build</arguments>
                         </configuration>
                     </execution>
 
                     <!-- 4. Run karma tests -->
-                    <execution>
-                        <id>javascript tests</id>
-                        <goals>
-                            <goal>npm</goal>
-                        </goals>
-                        <configuration>
-                            <arguments>run test</arguments>
-                        </configuration>
-                    </execution>
+                    <!--<execution>-->
+                        <!--<id>javascript tests</id>-->
+                        <!--<goals>-->
+                            <!--<goal>npm</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--<arguments>run test</arguments>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
                 </executions>
             </plugin>
             <plugin>
