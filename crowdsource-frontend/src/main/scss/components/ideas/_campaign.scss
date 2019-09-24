@@ -104,7 +104,7 @@ $icon-color: #3C3C3C;
     background-repeat: no-repeat;
     background-size: rem-calc(22px);
     background-color: $icon-color;
-    background-image: url('../images/icons/time_clock_with_arrow.svg');
+    background-image: url('./images/icons/time_clock_with_arrow.svg');
   }
 
   &__image {
@@ -120,7 +120,7 @@ $icon-color: #3C3C3C;
       height: $image-size;
       width: $image-size;
       background-color: yellow;
-      background-image: url('../images/fallbacks/campaign-image-fallback.svg');
+      background-image: url('./images/fallbacks/campaign-image-fallback.svg');
     }
   }
 

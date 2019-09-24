@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="8px" height="14px" viewBox="0 0 8 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.2.1 (9971) - http://www.bohemiancoding.com/sketch -->
+    <title>range-slider-handle</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="range-slider-handle" sketch:type="MSLayerGroup" transform="translate(-1.000000, 0.000000)" fill="#FFFFFF">
+            <path d="M1.40696192,0.361595817 C0.888182957,0.891936352 0.841021197,1.61512805 1.40696192,2.29010687 L5.79300255,7.01495902 L1.40696192,11.6915984 C0.841021197,12.3665772 0.888182957,13.0897689 1.40696192,13.6201094 C1.92574095,14.1504499 2.82181375,14.1022372 3.29343103,13.6201094 C3.81220999,13.0897689 8.62270614,7.93100181 8.62270614,7.93100181 C8.85851478,7.68993791 8.99999998,7.35244846 8.99999998,7.01495902 C8.99999998,6.62925684 8.85851478,6.29176739 8.62270614,6.05070349 C8.62270614,6.05070349 3.81220999,0.891936352 3.29343103,0.361595817 C2.82181375,-0.120531906 1.92574095,-0.120531906 1.40696192,0.361595817 L1.40696192,0.361595817 Z" id="Arrow" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>

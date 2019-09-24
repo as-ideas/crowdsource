@@ -128,18 +128,18 @@ status-bar {
 /*span*/
 .sbar__icon--location {
     @include sbar__icon();
-    background-image: url('../images/icon-location.svg');
+    background-image: url('./images/icon-location.svg');
 }
 
 /*span*/
 .sbar__icon--box {
     @include sbar__icon(('padding-left': 26px));
-    background-image: url('../images/icon-box.svg');
+    background-image: url('./images/icon-box.svg');
 }
 
 .sbar__icon--edit {
   @include sbar__icon(('padding-left': 26px));
-  background-image: url('../images/icon-edit.svg');
+  background-image: url('./images/icon-edit.svg');
 }
 //
 // Pill
@@ -193,14 +193,14 @@ status-bar {
         @include sbar__icon();
         font-size: $fs-regular;
         padding-left: 1.5rem;
-        background-image: url('../images/icon-hourglass.svg');
+        background-image: url('./images/icon-hourglass.svg');
     }
 
     &__icon--time {
         @include sbar__icon();
         font-size: $fs-regular;
         padding-left: 1.5rem;
-        background-image: url('../images/icons/time_clock_with_arrow.svg');
+        background-image: url('./images/icons/time_clock_with_arrow.svg');
     }
 
 

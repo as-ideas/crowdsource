@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 var _root = path.resolve(__dirname, '..');
 
@@ -19,7 +19,7 @@ module.exports = (env) => {
             vendor: ['react', 'react-dom']
         },
         output: {
-            path: root('./target/classes/public'),
+            path: path.join(__dirname, './target/classes/public'),
             filename: '[name].bundle.js',
         },
         module: {
@@ -29,7 +29,7 @@ module.exports = (env) => {
                 {test: /\.scss$/, exclude: /node_modules/, use: ['style-loader', 'css-loader', 'sass-loader']},
                 {test: /\.(js|jsx)$/, exclude: /node_modules/, use: ['babel-loader'],},
                 {
-                    test: /\.(png|jpe?g|gif|svg|ico)$/, loader: 'file-loader', options: {
+                    test: /\.(png|jpe?g|gif|svg|ico|woff|woff2|ttf|eot)$/, loader: 'file-loader', options: {
                         name: '[path][name].[ext]?[hash]',
                         context: './src/',
                         outputPath: 'images/'
@@ -46,8 +46,8 @@ module.exports = (env) => {
             ]
         },
         plugins: [
-            new CleanWebpackPlugin([root('./target/classes/public')]),
-            new CopyWebpackPlugin([{from: './static/', to: ''}])
+            new CleanWebpackPlugin({cleanOnceBeforeBuildPatterns: root('./target/classes/public')}),
+            // new CopyWebpackPlugin([{from: './static/', to: ''}])
         ],
         devServer: {
             historyApiFallback: true

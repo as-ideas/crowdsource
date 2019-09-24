@@ -125,7 +125,7 @@
     transition: none;
 
     &:hover {
-        background-image: url('../images/icon-edit.svg');
+        background-image: url('./images/icon-edit.svg');
         background-position: right rem-calc(8px) center;
         background-repeat: no-repeat;
         background-color: $clr-bg;
@@ -133,7 +133,7 @@
 
     &:focus {
         border: 1px solid #ccc;
-        background-image: url('../images/icon-edit.svg');
+        background-image: url('./images/icon-edit.svg');
         background-position: right rem-calc(8px) center;
         background-repeat: no-repeat;
         box-shadow: none;
@@ -198,7 +198,7 @@ $rs-handle-bg: $clr-body;
 }
 
 .range-slider-handle {
-    $handle-bg: url('../images/range-slider-handle.svg') #{$rs-handle-bg} calc(50% + 1px) center no-repeat;
+    $handle-bg: url('./images/range-slider-handle.svg') #{$rs-handle-bg} calc(50% + 1px) center no-repeat;
 
     top: -#{($rs-handle-size / 2) - ($rs-height / 2)};
     width: $rs-handle-size;

@@ -34,9 +34,9 @@
 /*span*/
 .project-attachment__icon--delete {
     @include project-form__icon(('padding-left': 24px));
-    background-image: url('../images/icon-delete.png');
+    background-image: url('./images/icon-delete.png');
 
 }.project-attachment__icon--copy {
     @include project-form__icon(('padding-left': 24px));
-    background-image: url('../images/icon-copy.png');
+    background-image: url('./images/icon-copy.png');
 }

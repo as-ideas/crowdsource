@@ -50,7 +50,7 @@
 // This is the default html and body font-size for the base rem value.
 // $rem-base: 16px;
 // Allows the use of rem-calc() or lower-bound() in your settings
-@import "foundation/scss/foundation/functions";
+@import "~foundation-sites/scss/foundation/functions";
 
 // The default font-size is set to 100% of the browser style sheet (usually 16px)
 // for compatibility with browser-based text zoom or user-set defaults.
@@ -465,7 +465,7 @@ $alert-radius: 3px;
 // 06. Button Groups
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
- $include-html-button-classes: $include-html-classes;
+$include-html-button-classes: $include-html-classes;
 
 // Sets the margin for the right side by default, and the left margin if right-to-left direction is used
 // $button-bar-margin-opposite: rem-calc(10);
@@ -1361,7 +1361,7 @@ $topbar-bg-color: $white;
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin
-$topbar-height: 48px;
+$topbar-height: 4rem; // was 48px, FIXME react !!! needs to be REM!
 // $topbar-margin-bottom: 0;
 
 // Controlling the styles for the title in the top bar

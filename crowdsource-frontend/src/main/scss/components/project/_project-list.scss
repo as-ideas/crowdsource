@@ -389,17 +389,17 @@ $intro-box-break: "only screen and (max-width: 740px)";
 
 .intro-box__item-icon--capital {
     @extend %intro-box__item-icon;
-    background-image: url('../images/icon-$$-white.svg');
+    background-image: url('./images/icon-$$-white.svg');
 }
 
 .intro-box__item-icon--user {
     @extend %intro-box__item-icon;
-    background-image: url('../images/icon-user-white.svg');
+    background-image: url('./images/icon-user-white.svg');
 }
 
 .intro-box__item-icon--clock {
     @extend %intro-box__item-icon;
-    background-image: url('../images/icon-clock-white.svg');
+    background-image: url('./images/icon-clock-white.svg');
 }
 
 .intro-box__header {
@@ -409,17 +409,17 @@ $intro-box-break: "only screen and (max-width: 740px)";
 .round-description-box__item-icon--capital {
     @extend %intro-box__item-icon;
     background-color: $clr-green-neon;
-    background-image: url('../images/icons/credit_card.svg');
+    background-image: url('./images/icons/credit_card.svg');
 }
 
 .round-description-box__item-icon--user {
     @extend %intro-box__item-icon;
     background-color: $clr-green-neon;
-    background-image: url('../images/icons/ticket_with_star.svg');
+    background-image: url('./images/icons/ticket_with_star.svg');
 }
 
 .round-description-box__item-icon--clock {
     @extend %intro-box__item-icon;
     background-color: $clr-green-neon;
-    background-image: url('../images/icons/time_clock_with_arrow.svg');
+    background-image: url('./images/icons/time_clock_with_arrow.svg');
 }

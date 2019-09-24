@@ -34,6 +34,6 @@
 /*span*/
 .project-form__icon--preview {
     @include project-form__icon(('padding-left': 24px));
-    background-image: url('../images/icon-preview.svg');
+    background-image: url('./images/icon-preview.svg');
 }
 
