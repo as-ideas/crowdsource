@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 
 // Services
+import RoutingService from "./resources/util/RoutingService";
+import UnauthorizedInterceptor from "./resources/util/UnauthorizedInterceptor";
 
 // Layout & Design
 import './scss/crowdsource.scss';
@@ -12,8 +14,10 @@ import './index.html';
 import IntroPage from "./pages/IntroPage/IntroPage";
 import Layout from "./resources/layout/Layout";
 
+UnauthorizedInterceptor.init();
+
 ReactDOM.render((
-    <BrowserRouter>
+    <BrowserRouter history={ RoutingService.getHistory() }>
         <Layout>
             <Switch>
                 <Route exact path='/intro' component={IntroPage}/>
