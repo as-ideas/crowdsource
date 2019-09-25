@@ -48,7 +48,8 @@ angular.module('crowdsource')
             var wrapperPromise = $q.defer();
             service.currentCampaign = null;
 
-            campaignPromise.then(function (campaign) {
+            campaignPromise.then(
+              function (campaign) {
                 service.currentCampaign = campaign;
                 wrapperPromise.resolve(campaign);
             }, function (response) {

@@ -110,15 +110,12 @@ class AuthService {
         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
       })
       .then((response) => function(response) {
-        this.authTokenService.setAsHeader(response.data);
-        resolve();
-      })
-      .catch((response) =>function (response) {
-        // TODO: Maybe this belongs in the "then" section
-        if (response.status == 400 && response.data && response.data.error && response.data.error == 'invalid_grant') {
+        if(response.status === 200) {
+          this.authTokenService.setAsHeader(response.data);
+          resolve();
+        } else if (response.status === 400 && response.data && response.data.error && response.data.error == 'invalid_grant') {
           reject('bad_credentials');
-        }
-        else {
+        } else {
           reject('unknown');
         }
       })
