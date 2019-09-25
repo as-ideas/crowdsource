@@ -16,6 +16,7 @@ import './index.html';
 // Pages
 import IntroPage from "./pages/IntroPage/IntroPage";
 import Layout from "./layout/Layout";
+import LoginPage from "./pages/LoginPage/LoginPage";
 
 UnauthorizedInterceptor.init();
 
@@ -32,7 +33,7 @@ ReactDOM.render((
                 {/*<Route exact path='/project/new/:projectId' component={ProjectFormSuccessController}/>*/}
                 {/*<Route exact path='/project/:projectId' component={ProjectDetailsController}/>*/}
                 {/*<Route exact path='/project/:projectId/edit' component={ProjectFormController}/>*/}
-                {/*<Route exact path='/login' component={UserLoginController}/>*/}
+                <Route exact path='/login' component={LoginPage}/>
                 {/*<Route exact path='/signup' component={UserSignupController}/>*/}
                 {/*<Route exact path='/signup/:email/:firstName/:lastName/success' component={UserSignupSuccessController}/>*/}
                 {/*<Route exact path='/signup/:email/activation/:activationToken' component={UserActivationController}/>*/}

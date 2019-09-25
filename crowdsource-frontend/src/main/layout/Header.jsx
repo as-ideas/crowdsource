@@ -80,7 +80,7 @@ export default class Header extends React.Component {
 
                             {
                                 this.state.breadcrumbs.map(breadcrumb => {
-                                    return <React.Fragment>
+                                    return <React.Fragment key={breadcrumb}>
                                         <div className="header__breadcrumb-divider"/>
                                         <a ng-class="{'header__nav-active':$last, 'header__breadcrumb-link':!$last}" ng-href="{{breadcrumb.target}}" ng-click="vm.closeMobileMenu()">{TranslationService.translate(breadcrumb)}</a>
                                     </React.Fragment>
