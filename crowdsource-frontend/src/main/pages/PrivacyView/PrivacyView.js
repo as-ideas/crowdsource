@@ -1,7 +1,5 @@
-import React, {Component, PropTypes} from 'react'
+import React from 'react'
 import './PrivacyView.scss'
-
-var HtmlToReactParser = require('html-to-react').Parser
 
 class PrivacyView extends React.Component {
 
