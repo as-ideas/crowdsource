@@ -1,5 +1,5 @@
 import React from "react";
-import TextFormatService from "../../resources/util/TextFromatService";
+import TextFormatService from "../../util/TextFromatService";
 
 
 export default class IntroIdeasCampaignList extends React.Component {
