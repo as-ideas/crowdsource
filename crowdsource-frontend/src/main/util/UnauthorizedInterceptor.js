@@ -19,6 +19,7 @@ UnauthorizedInterceptor.init = () => {
             if (tokens) {
                 config.headers['Authorization'] = tokens.token_type + ' ' + tokens.access_token;
             }
+            return [url, config];
         },
 
         // Called when an error occured during another 'request' interceptor call

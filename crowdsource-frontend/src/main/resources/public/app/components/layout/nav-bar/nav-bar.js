@@ -86,7 +86,6 @@ angular.module('crowdsource')
                     if (Idea.currentCampaign) {
                         vm.breadcrumbs = getIdeasBreadcrumb(currentRoute);
                         vm.localNavItems = getIdeasLocalNavItems();
-
                     }
                 }
 
