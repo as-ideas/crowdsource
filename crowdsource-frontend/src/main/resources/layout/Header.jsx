@@ -1,4 +1,5 @@
 import React from "react";
+import AuthService from "../util/AuthService";
 
 export default class Header extends React.Component {
 
@@ -7,8 +8,7 @@ export default class Header extends React.Component {
     }
 
     isUserLoggedIn() {
-        // FIXME react vm.auth.currentUser.loggedIn
-        return true;
+        return AuthService.currentUser.loggedIn;
     }
 
     localNavItemLabel() {
@@ -46,7 +46,7 @@ export default class Header extends React.Component {
                             </a>
                             <div className="header__breadcrumb-nav-divider"/>
                             <a ng-repeat="localNavItem in vm.localNavItems" className="header__nav-link" ng-href="{{localNavItem.target}}" ng-click="this.closeMobileMenu()">{this.localNavItemLabel()}</a>
-                            <div ng-if="vm.localNavItems.length > 0" className="header__nav-divider"></div>
+                            <div ng-if="vm.localNavItems.length > 0" className="header__nav-divider"/>
                             <a className="header__nav-link" href="#/help" ng-click="vm.closeMobileMenu()" translate="NAV_LABEL_HELP">Hilfe</a>
 
                             {

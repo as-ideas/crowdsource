@@ -31,6 +31,11 @@ class UserService {
     });
   }
 
+  /**
+   * Returns the current user object
+   *
+   * @returns Promise<User> with loggedIn
+   */
   authenticated() {
     /*return new Promise(function(resolve,reject) {
       fetch(`/user/current`,{
@@ -91,5 +96,5 @@ class UserService {
   }
 }
 
-export default UserService
+export default new UserService();
 
