@@ -7,42 +7,19 @@ class AuthTokenService {
     this.headers = Headers.Headers();
   }
 
+  setToken(token) {
+    window.localStorage[TOKENS_LOCAL_STORAGE_KEY] = JSON.stringify(tokens);
+  }
+
   getTokens() {
-    var tokens = null;
-    var storage = Window.localStorage;
-
-    if (!storage) {
-      throw "only browsers with local storage are supported";
-    }
-
-    var tokensAsString = storage[TOKENS_LOCAL_STORAGE_KEY];
+    let tokensAsString = window.localStorage[TOKENS_LOCAL_STORAGE_KEY];
     if (tokensAsString) {
-      try {
-        tokens = JSON.parse(tokensAsString);
-      } catch(e) {
-        tokens = null;
-      }
+        return JSON.parse(tokensAsString);
     }
-    return tokens;
-  }
-
-  load() {
-    var tokens = this.getTokens();
-    if (tokens) {
-      this.setAsHeader(tokens);
-    } else {
-      this.clear();
-    }
-  }
-
-  setAsHeader(tokens) {
-    var authHeader = `${tokens.token_type} ${tokens.access_token}`;
-    this.headers.set('Authorization', authHeader);
-    Window.localStorage[TOKENS_LOCAL_STORAGE_KEY] = JSON.stringify(tokens);
+    return null;
   }
 
   clear() {
-    this.headers.remove('Authorization');
     Window.localStorage.removeItem(TOKENS_LOCAL_STORAGE_KEY);
   }
 
@@ -67,12 +44,6 @@ class AuthTokenService {
 
     return user;
   }
-
-  hasTokenSet() {
-    return this.headers.has('Authorization');
-  }
-
-
 }
 
 class AuthService {
@@ -85,8 +56,11 @@ class AuthService {
   }
 
   init() {
-    this.authTokenService.load();
     this.reloadUser();
+  }
+
+  getToken() {
+    return this.authTokenService.getTokens();
   }
 
   setRolesFromToken() {
@@ -111,7 +85,7 @@ class AuthService {
       })
       .then((response) => function(response) {
         if(response.status === 200) {
-          this.authTokenService.setAsHeader(response.data);
+          this.authTokenService.setToken(response.data);
           resolve();
         } else if (response.status === 400 && response.data && response.data.error && response.data.error == 'invalid_grant') {
           reject('bad_credentials');
@@ -128,7 +102,7 @@ class AuthService {
   reloadUser() {
     // this.currentUser.$resolved = false;
 
-    if (this.authTokenService.hasTokenSet()) {
+    if (this.authTokenService.getTokens()) {
       this.currentUser.loggedIn = true;
       this.setRolesFromToken();
 
