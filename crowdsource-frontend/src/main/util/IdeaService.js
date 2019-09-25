@@ -21,6 +21,10 @@ class IdeaService
     });
   }
 
+  getCurrentCampaign() {
+    return this.currentCampaign;
+  }
+
   getCampaign(id) {
     return new Promise(function (resolve, reject) {
       this.currentCampaign = null;

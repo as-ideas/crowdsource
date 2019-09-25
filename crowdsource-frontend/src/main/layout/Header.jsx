@@ -1,9 +1,49 @@
 import React from "react";
 import AuthService from "../util/AuthService";
+import {NavLink} from "react-router-dom";
+import TranslationService from "../util/TranslationService";
+import IdeaService from "../util/IdeaService";
 
 export default class Header extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isMobileMenuOpen: false,
+            breadcrumbs: [],
+            localNavItems: []
+        }
+
+        this.closeMobileMenu = this.closeMobileMenu.bind(this)
+    }
+
+
+    componentDidMount() {
+        let currentRoute = this.props.location;
+        this.state.breadcrumbs = this.getIdeasBreadcrumb(currentRoute)
+    }
+
+    getIdeasBreadcrumb(currentRoute) {
+        var breadcrumbs = [];
+
+        let currentCampaign = IdeaService.getCurrentCampaign();
+        if (currentCampaign) {
+            breadcrumbs.push({target: '/#/ideas/' + currentCampaign.id, label: currentCampaign.contentI18n[TranslationService.getCurrentLanguage()].title});
+        }
+
+        breadcrumbs.push({target: '/', label: "Übersicht"});
+        return breadcrumbs;
+    }
+
+    isMobile() {
+        // FIXME react
+    }
+
+    toggleMobileMenu() {
+        this.setState({isMobileMenuOpen: !this.state.isMobileMenuOpen});
+    }
 
     closeMobileMenu() {
+        this.setState({isMobileMenuOpen: false});
 
     }
 
@@ -11,21 +51,16 @@ export default class Header extends React.Component {
         return AuthService.currentUser.loggedIn;
     }
 
-    localNavItemLabel() {
-        return "localNavItemLabel"
+    changeLanguageToEn() {
+        TranslationService.changeLanguage('en');
     }
 
-    breadcrumbLabel() {
-        return "breadcrumbLabel";
-    }
-
-    changeLanguage(newValue) {
-        // FIXME react vm.changeLanguage('en')
+    changeLanguageToDe() {
+        TranslationService.changeLanguage('de');
     }
 
     isCurrentLanguage(valueToBeChecked) {
-        // FIXME vm.currentLanguage=='de'
-        return true;
+        return TranslationService.isCurrentLanguage(valueToBeChecked);
     }
 
     render() {
@@ -34,43 +69,67 @@ export default class Header extends React.Component {
                 <div className="content-container">
                     <nav className="header__navigation">
                         <div className="header__header-mobile">
-                            <a className="header__home-link" href="#" ng-click="vm.closeMobileMenu()">
+                            <NavLink className="header__home-link" to="/" ng-click="vm.closeMobileMenu()">
                                 <div className="header__icon-crowdsource"/>
-                            </a>
+                            </NavLink>
                             <button className="header__burger-menu-button" ng-click="vm.toggleMobileMenu()"/>
                         </div>
+
+                        <div className="header__breadcrumb-divider"/>
                         <div className="header__nav-container" ng-show="!vm.isMobile || (vm.isMobile && vm.isMobileMenuOpen)">
-                            <div ng-repeat-start="breadcrumb in vm.breadcrumbs" className="header__breadcrumb-divider"/>
-                            <a ng-repeat-end="" ng-class="{'header__nav-active':$last, 'header__breadcrumb-link':!$last}" ng-href="{{breadcrumb.target}}" onClick={this.closeMobileMenu}>{
-                                this.breadcrumbLabel()}
-                            </a>
+
+                            {
+                                this.state.breadcrumbs.map(breadcrumb => {
+                                    return <React.Fragment>
+                                        <div className="header__breadcrumb-divider"/>
+                                        <a ng-class="{'header__nav-active':$last, 'header__breadcrumb-link':!$last}" ng-href="{{breadcrumb.target}}" ng-click="vm.closeMobileMenu()">{TranslationService.translate(breadcrumb)}</a>
+                                    </React.Fragment>
+                                })
+                            }
+
                             <div className="header__breadcrumb-nav-divider"/>
-                            <a ng-repeat="localNavItem in vm.localNavItems" className="header__nav-link" ng-href="{{localNavItem.target}}" ng-click="this.closeMobileMenu()">{this.localNavItemLabel()}</a>
-                            <div ng-if="vm.localNavItems.length > 0" className="header__nav-divider"/>
-                            <a className="header__nav-link" href="#/help" ng-click="vm.closeMobileMenu()" translate="NAV_LABEL_HELP">Hilfe</a>
+
+                            {
+                                this.state.localNavItems.map(localNavItem => {
+                                    return <NavLink className="header__nav-link" to={localNavItem.target} onClick={this.closeMobileMenu}>
+                                        {TranslationService.translate(localNavItem.label)}
+                                    </NavLink>
+                                })
+                            }
+
+
+                            {
+                                this.state.localNavItems.length > 0 ?
+                                    <div className="header__nav-divider"/>
+                                    : null
+                            }
+
+                            {/* END BREADCRUMB*/}
+
+                            <NavLink className="header__nav-link" to="/help" onClick={this.closeMobileMenu} translate="NAV_LABEL_HELP">Hilfe</NavLink>
 
                             {
                                 !this.isUserLoggedIn() ?
                                     <React.Fragment>
-                                        <a className="header__nav-link" href="#/signup" onClick={this.closeMobileMenu} translate="NAV_LABEL_REGISTER">Registieren</a>
-                                        <a className="header__nav-link" href="#/login" onClick={this.closeMobileMenu} translate="NAV_LABEL_LOGIN">Login</a>
+                                        <NavLink className="header__nav-link" to="/signup" onClick={this.closeMobileMenu} translate="NAV_LABEL_REGISTER">Registieren</NavLink>
+                                        <NavLink className="header__nav-link" to="/login" onClick={this.closeMobileMenu} translate="NAV_LABEL_LOGIN">Login</NavLink>
                                     </React.Fragment>
                                     : null
                             }
                             {
                                 this.isUserLoggedIn() ?
-                                    <a ng-if="vm.auth.currentUser.loggedIn" className="header__nav-link" href="#/logout" ng-click="vm.closeMobileMenu()" translate="NAV_LABEL_LOGOUT">Logout</a>
+                                    <NavLink className="header__nav-link" to="/logout" onClick={this.closeMobileMenu} translate="NAV_LABEL_LOGOUT">Logout</NavLink>
                                     : null
                             }
                             <div className="header__nav-divider"/>
                             {
                                 this.isCurrentLanguage('de') ?
-                                    <a className="header__nav-link" ng-click="vm.changeLanguage('en')" translate="NAV_LANG_ENGLISH">English</a>
+                                    <a className="header__nav-link" onClick={this.changeLanguageToEn} translate="NAV_LANG_ENGLISH">English</a>
                                     : null
                             }
                             {
                                 this.isCurrentLanguage('en') ?
-                                    <a className="header__nav-link" ng-click="vm.changeLanguage('de')" translate="NAV_LANG_GERMAN">Deutsch</a>
+                                    <a className="header__nav-link" onClick={this.changeLanguageToDe} translate="NAV_LANG_GERMAN">Deutsch</a>
                                     : null
                             }
                         </div>

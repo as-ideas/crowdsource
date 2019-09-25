@@ -31,8 +31,8 @@ module.exports = (env) => {
                 {
                     test: /\.(png|jpe?g|gif|svg|ico|woff|woff2|ttf|eot)$/, loader: 'file-loader', options: {
                         name: '[path][name].[ext]?[hash]',
-                        context: './src/',
-                        outputPath: 'images/'
+                        context: './src/main',
+                        outputPath: 'assets/'
                     }
                 },
 
