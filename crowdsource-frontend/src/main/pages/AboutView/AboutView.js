@@ -1,5 +1,6 @@
 import React from 'react'
 import './AboutView.scss'
+import teamfoto from './teamfoto.jpg'
 
 export default class AboutView extends React.Component {
 
@@ -10,7 +11,7 @@ export default class AboutView extends React.Component {
             <div>
 
               <content-row class="ng-scope"><div class="container" ng-transclude="">
-                <img src="teamfoto.jpg" width="100%" class="ng-scope" />
+                <img src={teamfoto} width="100%" class="ng-scope" />
                 <p class="about__image-caption ng-scope" translate="AS_ABOUT_TEAM_CAPTION">from left: Tarek Madany Mamlouk, Martin Bild, Johannes Schrade, Anneke Möhlmann, Jasmin Heumann, Thomas Eisermann, Christian Sell, Julian Godesa, Max Weber, Lars Reith, Thomas Wendzinski, Johannes Burr, Sven Rebbert</p>
                 </div>
               </content-row>
