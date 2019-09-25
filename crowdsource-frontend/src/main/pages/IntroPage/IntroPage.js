@@ -1,10 +1,10 @@
 import React from "react";
 import IntroHero from "./IntroHero";
-import ContentHero from "../../resources/layout/ContentHero";
+import ContentHero from "../../layout/ContentHero";
 import IntroIdeasCampaignList from "./IntroIdeasCampaignList";
-import AuthService from "../../resources/util/AuthService";
-import IdeaService from "../../resources/util/IdeaService";
-import RoutingService from "../../resources/util/RoutingService";
+import AuthService from "../../util/AuthService";
+import IdeaService from "../../util/IdeaService";
+import RoutingService from "../../util/RoutingService";
 
 
 export default class IntroPage extends React.Component {

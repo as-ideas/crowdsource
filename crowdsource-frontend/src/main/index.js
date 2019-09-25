@@ -6,8 +6,8 @@ import PrivacyView from './pages/PrivacyView/PrivacyView.js';
 import AboutView from './pages/AboutView/AboutView.js';
 
 // Services
-import RoutingService from "./resources/util/RoutingService";
-import UnauthorizedInterceptor from "./resources/util/UnauthorizedInterceptor";
+import RoutingService from "./util/RoutingService";
+import UnauthorizedInterceptor from "./util/UnauthorizedInterceptor";
 
 // Layout & Design
 import './scss/crowdsource.scss';
@@ -15,12 +15,12 @@ import './index.html';
 
 // Pages
 import IntroPage from "./pages/IntroPage/IntroPage";
-import Layout from "./resources/layout/Layout";
+import Layout from "./layout/Layout";
 
 UnauthorizedInterceptor.init();
 
 ReactDOM.render((
-    <BrowserRouter history={ RoutingService.getHistory() }>
+    <BrowserRouter history={RoutingService.getHistory()}>
         <Layout>
             <Switch>
                 <Route exact path='/intro' component={IntroPage}/>
@@ -41,7 +41,7 @@ ReactDOM.render((
                 {/*<Route exact path='/login/password-recovery/:email/activation/:activationToken' component={UserActivationController}/>*/}
                 {/*<Route exact path='/financingrounds' component={FinancingRoundsController}/>*/}
                 {/*<Route exact path='/statistics' component={StatisticsController}/>*/}
-                <Route exact path='/about' component={AboutView} />
+                <Route exact path='/about' component={AboutView}/>
                 {/*<Route exact path='/help' component={HelpView}/>*/}
                 <Route exact path='/imprint' component={ImprintView}/>
                 <Route exact path='/privacy' component={PrivacyView}/>
