@@ -3,6 +3,8 @@ import IntroHero from "./IntroHero";
 import ContentHero from "../../resources/layout/ContentHero";
 import IntroIdeasCampaignList from "./IntroIdeasCampaignList";
 import AuthService from "../../resources/util/AuthService";
+import IdeaService from "../../resources/util/IdeaService";
+import RoutingService from "../../resources/util/RoutingService";
 
 
 export default class IntroPage extends React.Component {
@@ -22,17 +24,10 @@ export default class IntroPage extends React.Component {
     }
 
     loadIdeaCampaigns() {
-        // FIXME react
-        // IdeaService.getCampaigns()
-        //     .then(
-        //         function (response) {
-        //             vm.entries = response;
-        //         },
-        //         function () {
-        //             vm.entries = []
-        //         }
-        //     );
-
+        IdeaService.getCampaigns()
+            .then((response) => {
+                this.setState({ideas: response});
+            });
     }
 
     render() {
@@ -45,18 +40,22 @@ export default class IntroPage extends React.Component {
                         this.isLoggedIn() ?
                             <div className="row">
                                 <ContentHero title="OVERVIEW_CAMPAIGN_HEADLINE" description="OVERVIEW_CAMPAIGN_DESCRIPTION"/>
-                                <IntroIdeasCampaignList entries={this.state.ideas}/>
+                                <IntroIdeasCampaignList list={this.state.ideas}/>
                             </div>
                             : null
                     }
 
+                    {
+                        !this.isLoggedIn() ?
+                            <div className="campaign-login__container">
+                                <ContentHero title="INTRO_HEADLINE" description="INTRO_DESC"/>
+                                <button className="button-primary" onClick={RoutingService.goToSignUpPage} translate="BUTTON_LABEL_REGISTER">
+                                    Register
+                                </button>
+                            </div>
+                            : null
+                    }
 
-                    <div ng-if="!intro.isLoggedIn" className="campaign-login__container">
-                        <ContentHero title="INTRO_HEADLINE" description="INTRO_DESC"/>
-                        <button className="button-primary" onClick="window.location='#/signup';" translate="BUTTON_LABEL_REGISTER">
-                            Register
-                        </button>
-                    </div>
                 </div>
             </React.Fragment>
         )

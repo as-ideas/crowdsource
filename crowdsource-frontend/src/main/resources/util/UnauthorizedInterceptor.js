@@ -46,7 +46,7 @@ UnauthorizedInterceptor.init = () => {
 
         // Handle an fetch error
         responseError: function (error) {
-            console.error("RESPONSE ERROR!", error);
+            console.error("RESPONSE ERROR!", JSON.stringify(error));
             return Promise.reject(error);
         },
 

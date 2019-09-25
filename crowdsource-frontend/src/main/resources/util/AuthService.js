@@ -1,13 +1,14 @@
+import UserService from "./UserService";
+
 const TOKENS_LOCAL_STORAGE_KEY = 'tokens';
 
 
 class AuthTokenService {
   constructor() {
     this.roles = {};
-    this.headers = Headers.Headers();
   }
 
-  setToken(token) {
+  setToken(tokens) {
     window.localStorage[TOKENS_LOCAL_STORAGE_KEY] = JSON.stringify(tokens);
   }
 
@@ -47,8 +48,8 @@ class AuthTokenService {
 }
 
 class AuthService {
-  constructor(userService) {
-    this.userService = userService;
+  constructor() {
+    this.userService = UserService;
     this.authTokenService = new AuthTokenService();
 
     // initialize with anonymouse for now. Will be refreshed on init()
@@ -83,7 +84,7 @@ class AuthService {
         body: JSON.stringify(requestBody),
         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
       })
-      .then((response) => function(response) {
+      .then((response) => {
         if(response.status === 200) {
           this.authTokenService.setToken(response.data);
           resolve();

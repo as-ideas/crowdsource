@@ -1,4 +1,5 @@
 import React from "react";
+import RoutingService from "../util/RoutingService";
 
 
 export default class Footer extends React.Component {
@@ -6,6 +7,10 @@ export default class Footer extends React.Component {
     isAdmin() {
         // FIXME React footer.auth.isAdmin()
         return true;
+    }
+
+    goToNewsletter() {
+        RoutingService.openExternal('http://eepurl.com/gglA8X');
     }
 
     render() {
@@ -50,7 +55,7 @@ export default class Footer extends React.Component {
                     </ul>
                     <ul className="footer__col">
                         <li>
-                            <button className="button-primary" onClick="window.open('http://eepurl.com/gglA8X')" translate="AS_BUTTON_LABEL_NEWSLETTER">Newsletter</button>
+                            <button className="button-primary" onClick={this.goToNewsletter} translate="AS_BUTTON_LABEL_NEWSLETTER">Newsletter</button>
                         </li>
                     </ul>
                 </div>
