@@ -156,9 +156,7 @@ class AuthService {
     this.reloadUser();
   };
 
-
-
 }
 
-export default AuthService;
+export default new AuthService();
 
