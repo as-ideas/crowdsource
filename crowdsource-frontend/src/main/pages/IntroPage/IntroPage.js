@@ -5,6 +5,7 @@ import IntroIdeasCampaignList from "./IntroIdeasCampaignList";
 import AuthService from "../../util/AuthService";
 import IdeaService from "../../util/IdeaService";
 import RoutingService from "../../util/RoutingService";
+import { Trans } from '@lingui/macro';
 
 
 export default class IntroPage extends React.Component {
@@ -48,7 +49,10 @@ export default class IntroPage extends React.Component {
                     {
                         !this.isLoggedIn() ?
                             <div className="campaign-login__container">
-                                <ContentHero title="INTRO_HEADLINE" description="INTRO_DESC"/>
+                                <ContentHero
+                                  title={<Trans id='INTRO_HEADLINE' />}
+                                  description={<Trans id="INTRO_DESC" />}
+                                />
                                 <button className="button-primary" onClick={RoutingService.goToSignUpPage} translate="BUTTON_LABEL_REGISTER">
                                     Register
                                 </button>

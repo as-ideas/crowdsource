@@ -5,6 +5,16 @@ import ImprintView from './pages/ImprintView/ImprintView.js';
 import PrivacyView from './pages/PrivacyView/PrivacyView.js';
 import AboutView from './pages/AboutView/AboutView.js';
 
+// I18n
+import { I18nProvider } from '@lingui/react'
+import catalogDe from './locales/de/messages.js'
+import catalogEn from './locales/en/messages.js'
+
+const catalogs = {
+  de: catalogDe,
+  en: catalogEn
+};
+
 // Services
 import RoutingService from "./util/RoutingService";
 import UnauthorizedInterceptor from "./util/UnauthorizedInterceptor";
@@ -21,6 +31,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 UnauthorizedInterceptor.init();
 
 ReactDOM.render((
+  <I18nProvider language="de" catalogs={catalogs}>
     <BrowserRouter history={RoutingService.getHistory()}>
         <Layout>
             <Switch>
@@ -54,5 +65,6 @@ ReactDOM.render((
             </Switch>
         </Layout>
     </BrowserRouter>
+</I18nProvider>
 ), document.getElementById('root'));
 
