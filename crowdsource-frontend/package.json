@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "dependencies": {
+    "@lingui/react": "^2.8.3",
     "fbemitter": "^2.1.1",
     "fetch-intercept": "^2.3.1",
     "html-to-react": "^1.4.2",
@@ -16,7 +17,11 @@
     "@babel/core": "^7.6.2",
     "@babel/preset-env": "^7.6.2",
     "@babel/preset-react": "^7.0.0",
+    "@lingui/cli": "^2.8.3",
+    "@lingui/macro": "^2.8.3",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-loader": "^8.0.6",
+    "babel-plugin-macros": "^2.6.1",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^5.0.4",
     "css-loader": "^3.2.0",
@@ -35,7 +40,10 @@
   "scripts": {
     "start": "webpack-dev-server --inline --progress --port 8080",
     "build": "webpack --env.prod=true",
-    "watch": "webpack -w --env.prod=true"
+    "watch": "webpack -w --env.prod=true",
+    "add-locale": "lingui add-locale",
+    "extract": "lingui extract",
+    "compile": "lingui compile"
   },
   "author": "Axel Springer Ideas Engineering GmbH"
 }
