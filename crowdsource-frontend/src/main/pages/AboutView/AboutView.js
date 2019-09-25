@@ -7,6 +7,7 @@ export default class AboutView extends React.Component {
   render() {
     return (
         <div className='aboutView__container'>
+          <div class="teaser--slim ng-scope"></div>
           <div className='aboutView__content'>
             <div>
 
