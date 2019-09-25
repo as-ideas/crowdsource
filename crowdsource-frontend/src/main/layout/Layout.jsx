@@ -6,17 +6,20 @@ import Footer from "./Footer";
 export default class Layout extends React.Component {
     render() {
         return (
-            <div className="page-wrapper">
-                <Header/>
+            <React.Fragment>
+                <div className="page-wrapper">
+                    <Header/>
 
-                <div className="content">
-                    <div className="container">
+                    <div className="content">
                         {this.props.children}
                     </div>
+
                 </div>
 
                 <Footer/>
-            </div>
+
+
+            </React.Fragment>
         );
     }
 }
