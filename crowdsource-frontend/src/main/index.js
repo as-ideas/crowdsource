@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import ImprintView from './pages/ImprintView/ImprintView.js';
+import PrivacyView from './pages/PrivacyView/PrivacyView.js';
+import AboutView from './pages/AboutView/AboutView.js';
 
 // Services
 import RoutingService from "./resources/util/RoutingService";
@@ -38,10 +41,10 @@ ReactDOM.render((
                 {/*<Route exact path='/login/password-recovery/:email/activation/:activationToken' component={UserActivationController}/>*/}
                 {/*<Route exact path='/financingrounds' component={FinancingRoundsController}/>*/}
                 {/*<Route exact path='/statistics' component={StatisticsController}/>*/}
-                {/*/!*<Route exact path='/about' component={AboutView} />*!/*/}
+                <Route exact path='/about' component={AboutView} />
                 {/*<Route exact path='/help' component={HelpView}/>*/}
-                {/*<Route exact path='/imprint' component={ImprintView}/>*/}
-                {/*<Route exact path='/privacy' component={PrivacyView}/>*/}
+                <Route exact path='/imprint' component={ImprintView}/>
+                <Route exact path='/privacy' component={PrivacyView}/>
                 {/*<Route exact path='/logout' component={UserLogoutController}/>*/}
                 {/*<Route exact path='/error/notfound' component={NotFoundView}/>*/}
                 {/*<Route exact path='/error/forbidden' component={ForbiddenView}/>*/}
