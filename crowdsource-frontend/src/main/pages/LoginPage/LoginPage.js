@@ -2,6 +2,8 @@ import React from "react";
 import TranslationService from "../../util/TranslationService";
 import {NavLink} from "react-router-dom";
 import AuthService from "../../util/AuthService";
+import { i18n } from "../../index"
+import { t } from "@lingui/macro"
 import { Trans } from '@lingui/macro';
 
 export default class LoginPage extends React.Component {
@@ -67,15 +69,15 @@ export default class LoginPage extends React.Component {
         this.state.errors = {};
 
         if (!this.state.input.email) {
-            this.state.errors.email = ["FORM_EMAIL_ERROR_REQUIRED"];
+            this.state.errors.email = ['FORM_EMAIL_ERROR_REQUIRED'];
         } else {
             if (!this.validateEmail(this.state.input.email)) {
-                this.state.errors.email = ["FORM_EMAIL_ERROR_INVALID"];
+                this.state.errors.email = ['FORM_EMAIL_ERROR_INVALID'];
             }
         }
 
         if (!this.state.input.password) {
-            this.state.errors.password = ["FORM_PASSWORD_ERROR_REQUIRED"];
+            this.state.errors.password = ['FORM_PASSWORD_ERROR_REQUIRED'];
         }
 
         this.setState(this.state);
@@ -130,7 +132,7 @@ export default class LoginPage extends React.Component {
                                         <div className="general-error alert-box alert" ng-messages="login.generalErrors">
                                             {
                                                 this.state.errors.general.map(error => {
-                                                    return <span key={error}>{TranslationService.translate(error)}</span>
+                                                    return <span key={error}><Trans id={error} /></span>
                                                 })
                                             }
                                         </div>
@@ -147,11 +149,11 @@ export default class LoginPage extends React.Component {
                                                 <span className="invalid-label">
                                               {
                                                   this.state.errors.email.map(error => {
-                                                      return <span key={error}>{TranslationService.translate(error)}</span>
+                                                      return <span key={error}><Trans id={error} /></span>
                                                   })
                                               }
                                             </span>
-                                                : <span className="valid-label" translate="FORM_EMAIL_LABEL">E-Mail</span>
+                                                : <span className="valid-label"><Trans id='FORM_EMAIL_LABEL'>E-Mail</Trans></span>
                                         }
                                     </label>
 
@@ -160,9 +162,8 @@ export default class LoginPage extends React.Component {
                                                name="email"
                                                value={this.state.input.email}
                                                onChange={this.handleEmailInputChange}
-                                               placeholder="E-Mail"
-                                               required
-                                               translate-attr="{ placeholder: 'FORM_EMAIL_PLACEHOLDER'}"/>
+                                               placeholder={i18n._(t`FORM_EMAIL_PLACEHOLDER`)}
+                                               required/>
                                     </div>
                                 </div>
                             </div>
@@ -177,20 +178,19 @@ export default class LoginPage extends React.Component {
                                                 <span className="invalid-label">
                                                 {
                                                     this.state.errors.password.map(error => {
-                                                        return <div key={error}><span>{TranslationService.translate(error)}</span></div>
+                                                        return <div key={error}><span><Trans id={error} /></span></div>
                                                     })
                                                 }
                                             </span>
-                                                : <span className="valid-label" translate="FORM_PASSWORD_LABEL">Passwort</span>
+                                                : <span className="valid-label"><Trans id='FORM_PASSWORD_LABEL'>Passwort</Trans></span>
                                         }
 
                                         <input type="password"
                                                name="password"
-                                               placeholder="Passwort"
+                                               placeholder={i18n._(t`FORM_PASSWORD_PLACEHOLDER`)}
                                                value={this.state.input.password}
                                                onChange={this.handlePasswordInputChange}
-                                               required
-                                               translate-attr="{ placeholder: 'FORM_PASSWORD_PLACEHOLDER' }"/>
+                                               required />
                                     </label>
                                 </div>
                             </div>

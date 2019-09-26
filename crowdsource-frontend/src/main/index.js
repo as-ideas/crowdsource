@@ -6,14 +6,18 @@ import PrivacyView from './pages/PrivacyView/PrivacyView.js';
 import AboutView from './pages/AboutView/AboutView.js';
 
 // I18n
+import { setupI18n } from "@lingui/core"
 import { I18nProvider } from '@lingui/react'
 import catalogDe from './locales/de/messages.js'
 import catalogEn from './locales/en/messages.js'
 
-const catalogs = {
-  de: catalogDe,
-  en: catalogEn
-};
+export const i18n = setupI18n({
+  language: 'de',
+  catalogs: {
+    de: catalogDe,
+    en: catalogEn
+  }
+});
 
 // Services
 import RoutingService from "./util/RoutingService";
@@ -32,7 +36,7 @@ import SignupPage from "./pages/SignupPage/SignupPage";
 UnauthorizedInterceptor.init();
 
 ReactDOM.render((
-  <I18nProvider language="de" catalogs={catalogs}>
+  <I18nProvider i18n={i18n} >
     <BrowserRouter history={RoutingService.getHistory()}>
         <Layout>
             <Switch>
