@@ -118,7 +118,7 @@ export default class LoginPage extends React.Component {
                                     <h1>
                                         <Trans id='LOGIN_HEADLINE' />
                                         <small className="right push--top">
-                                            <NavLink className="text--small" to="/login/password-recovery"><Trans id='LOGIN_LINK_PASSWORD_RECOVERY'>Passwort vergessen?/Trans></NavLink>
+                                            <NavLink className="text--small" to="/login/password-recovery"><Trans id='LOGIN_LINK_PASSWORD_RECOVERY'>Passwort vergessen?</Trans></NavLink>
                                         </small>
                                     </h1>
                                 </div>
