@@ -9,7 +9,7 @@ export default class IntroIdeasCampaignList extends React.Component {
                 {
                     !this.props.list.entries.length ?
                         <div className="campaign-noentry">
-                            <img className="campaign-noentry__image" src="/images/campaigns-not-available-robot.svg"/>
+                            <img className="campaign-noentry__image" src={require("./campaigns-not-available-robot.svg")}/>
                             <span className="campaign-noentry__description" translate="OVERVIEW_IDEAS_NO_CAMPAIGN">Zurzeit gibt es leider keine Ideen Kampagne</span>
                         </div>
                         : null

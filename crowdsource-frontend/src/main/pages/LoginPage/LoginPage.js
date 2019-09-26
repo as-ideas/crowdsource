@@ -3,6 +3,7 @@ import TranslationService from "../../util/TranslationService";
 import {NavLink} from "react-router-dom";
 import AuthService from "../../util/AuthService";
 import { Trans } from '@lingui/macro';
+import RoutingService from "../../util/RoutingService";
 
 export default class LoginPage extends React.Component {
     constructor(props, context) {
@@ -27,8 +28,7 @@ export default class LoginPage extends React.Component {
             this.state.errors.general = [];
             AuthService.login(this.state.input.email, this.state.input.password)
                 .then(() => {
-                    // Route.redirectToOriginallyRequestedPageOr('/');
-                    console.info("LOGIN SUCCESS!");
+                    RoutingService.redirectToOriginallyRequestedPageOr('/');
                 })
                 .catch((errorCode) => {
                     this.state.errors.general = [this.backendErrorCodeToLabel(errorCode)];

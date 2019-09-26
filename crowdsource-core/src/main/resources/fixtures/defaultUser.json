@@ -1,9 +1,19 @@
 [
   {
-    "firstName":  "Esel",
+    "firstName": "Esel",
     "lastName": "Ein",
     "email": "crowdsource@crowd.source.de",
     "password": "einEselGehtZumBaecker!",
+    "roles": [
+      "ROLE_USER"
+    ],
+    "activated": true
+  },
+  {
+    "firstName": "Esel",
+    "lastName": "Ein",
+    "email": "barriwaschi@web.de",
+    "password": "123456",
     "roles": [
       "ROLE_USER"
     ],

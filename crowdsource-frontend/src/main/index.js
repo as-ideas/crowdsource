@@ -28,8 +28,10 @@ import IntroPage from "./pages/IntroPage/IntroPage";
 import Layout from "./layout/Layout";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import SignupPage from "./pages/SignupPage/SignupPage";
+import AuthService from "./util/AuthService";
 
 UnauthorizedInterceptor.init();
+AuthService.reloadUser();
 
 ReactDOM.render((
   <I18nProvider language="de" catalogs={catalogs}>

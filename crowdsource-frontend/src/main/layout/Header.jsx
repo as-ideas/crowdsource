@@ -11,7 +11,7 @@ export default class Header extends React.Component {
             isMobileMenuOpen: false,
             breadcrumbs: [],
             localNavItems: []
-        }
+        };
 
         this.closeMobileMenu = this.closeMobileMenu.bind(this)
     }

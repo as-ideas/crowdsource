@@ -12,6 +12,14 @@ RoutingService.back = () => {
     return RoutingService.history.goBack();
 };
 
+RoutingService.redirectToOriginallyRequestedPageOr = (fallbackUrl) => {
+    if (RoutingService.history.length > 2) {
+        RoutingService.goBack()
+    } else {
+        RoutingService.goToRoute(fallbackUrl);
+    }
+};
+
 RoutingService.getHistory = () => {
     return RoutingService.history;
 };
@@ -32,7 +40,6 @@ RoutingService.goToSuccessPageForUser = (user) => {
 RoutingService.goToRoute = (route) => {
     return RoutingService.history.push(route);
 };
-
 
 
 export default RoutingService;

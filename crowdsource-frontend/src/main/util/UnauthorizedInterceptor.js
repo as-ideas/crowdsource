@@ -13,7 +13,12 @@ UnauthorizedInterceptor.init = () => {
             if (!config.headers) {
                 config.headers = {};
             }
-            // config.headers["Content-Type"] = 'application/json';
+            if (!config.headers["Accept"]) {
+                config.headers["Accept"] = "application/json, text/plain, */*"
+            }
+            if (!config.headers["Content-Type"]) {
+                config.headers["Content-Type"] = 'application/json';
+            }
 
             let tokens = AuthService.getToken();
             if (tokens) {
