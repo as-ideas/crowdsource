@@ -24,8 +24,15 @@ RoutingService.goToLoginPage = () => {
 RoutingService.goToSignUpPage = () => {
     return RoutingService.history.push('/signup');
 };
+
+RoutingService.goToSuccessPageForUser = (user) => {
+    RoutingService.history.push('/signup/' + user.email + '/' + ser.firstName + '/' + user.lastName + '/success');
+};
+
 RoutingService.goToRoute = (route) => {
     return RoutingService.history.push(route);
 };
+
+
 
 export default RoutingService;

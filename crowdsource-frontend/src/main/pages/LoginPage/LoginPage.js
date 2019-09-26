@@ -52,13 +52,14 @@ export default class LoginPage extends React.Component {
         }
     }
 
-    handlePasswordInputChange(e) {
-        this.state.input.password = e.target.value;
+    handleEmailInputChange(e) {
+        this.state.input.email = e.target.value;
         this.setState(this.state, this.validateForm);
     }
 
-    handleEmailInputChange(e) {
-        this.state.input.email = e.target.value;
+    handlePasswordInputChange(e) {
+        console.info("passwordChane", e.target.value);
+        this.state.input.password = e.target.value;
         this.setState(this.state, this.validateForm);
     }
 
@@ -142,8 +143,6 @@ export default class LoginPage extends React.Component {
                             <div className="row">
                                 <div className="small-12 columns form-controls-email">
                                     <label form-group="email">
-
-
                                         {
                                             this.state.errors.email ?
                                                 <span className="invalid-label">
@@ -189,7 +188,7 @@ export default class LoginPage extends React.Component {
                                         <input type="password"
                                                name="password"
                                                placeholder="Passwort"
-                                               value={this.state.input.email}
+                                               value={this.state.input.password}
                                                onChange={this.handlePasswordInputChange}
                                                required
                                                translate-attr="{ placeholder: 'FORM_PASSWORD_PLACEHOLDER' }"/>
@@ -206,8 +205,6 @@ export default class LoginPage extends React.Component {
                                                 :
                                                 <button className="button-primary" onClick={this.login} translate="BUTTON_LABEL_LOGIN">Login</button>
                                         }
-
-
                                     </div>
                                     <div className="text--small push--top" translate="LOGIN_REGISTER">
                                         {/* FIXME react needs to be translated*/}
