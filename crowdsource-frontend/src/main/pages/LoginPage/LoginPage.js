@@ -2,7 +2,7 @@ import React from "react";
 import TranslationService from "../../util/TranslationService";
 import {NavLink} from "react-router-dom";
 import AuthService from "../../util/AuthService";
-
+import { Trans } from '@lingui/macro';
 
 export default class LoginPage extends React.Component {
     constructor(props, context) {
@@ -116,9 +116,9 @@ export default class LoginPage extends React.Component {
                             <div className="row">
                                 <div className="small-12 columns">
                                     <h1>
-                                        {TranslationService.translate('LOGIN_HEADLINE')}
+                                        <Trans id='LOGIN_HEADLINE' />
                                         <small className="right push--top">
-                                            <NavLink className="text--small" to="/login/password-recovery" translate="LOGIN_LINK_PASSWORD_RECOVERY">Passwort vergessen?</NavLink>
+                                            <NavLink className="text--small" to="/login/password-recovery"><Trans id='LOGIN_LINK_PASSWORD_RECOVERY'>Passwort vergessen?/Trans></NavLink>
                                         </small>
                                     </h1>
                                 </div>
@@ -200,14 +200,13 @@ export default class LoginPage extends React.Component {
                                     <div>
                                         {
                                             this.state.loading ?
-                                                <button className="button-primary" disabled translate="BUTTON_LABEL_LOGGING_IN">Login...</button>
+                                                <button className="button-primary" disabled><Trans id='BUTTON_LABEL_LOGGING_IN'>Login...</Trans></button>
                                                 :
-                                                <button className="button-primary" onClick={this.login} translate="BUTTON_LABEL_LOGIN">Login</button>
+                                                <button className="button-primary" onClick={this.login}><Trans id='BUTTON_LABEL_LOGIN'>Login</Trans></button>
                                         }
                                     </div>
-                                    <div className="text--small push--top" translate="LOGIN_REGISTER">
-                                        {/* FIXME react needs to be translated*/}
-                                        Oder <a href='#/signup' translate='LOGIN_REGISTER_LINK'>hier</a> registrieren
+                                    <div className="text--small push--top">
+                                        <Trans id='LOGIN_REGISTER' values={{ link: <a href='#/signup' ><Trans id='LOGIN_REGISTER_LINK' /></a> }}/>
                                     </div>
                                 </div>
                             </div>
