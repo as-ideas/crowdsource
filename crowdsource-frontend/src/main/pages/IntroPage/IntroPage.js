@@ -40,7 +40,10 @@ export default class IntroPage extends React.Component {
                     {
                         this.isLoggedIn() ?
                             <div className="row">
-                                <ContentHero title="OVERVIEW_CAMPAIGN_HEADLINE" description="OVERVIEW_CAMPAIGN_DESCRIPTION"/>
+                                <ContentHero
+                                  title={<Trans id='OVERVIEW_CAMPAIGN_HEADLINE' />}
+                                  description={<Trans id='OVERVIEW_CAMPAIGN_DESCRIPTION' />}
+                                />
                                 <IntroIdeasCampaignList list={this.state.ideas}/>
                             </div>
                             : null
@@ -53,8 +56,8 @@ export default class IntroPage extends React.Component {
                                   title={<Trans id='INTRO_HEADLINE' />}
                                   description={<Trans id="INTRO_DESC" />}
                                 />
-                                <button className="button-primary" onClick={RoutingService.goToSignUpPage} translate="BUTTON_LABEL_REGISTER">
-                                    Register
+                                <button className="button-primary" onClick={RoutingService.goToSignUpPage}>
+                                    <Trans id='BUTTON_LABEL_REGISTER'>Register</Trans>
                                 </button>
                             </div>
                             : null
