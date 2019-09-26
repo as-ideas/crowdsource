@@ -14,8 +14,8 @@ import catalogEn from './locales/en/messages.js'
 export const i18n = setupI18n({
   language: 'de',
   catalogs: {
-    de: catalogDe,
-    en: catalogEn
+    'de': catalogDe,
+    'en': catalogEn
   }
 });
 

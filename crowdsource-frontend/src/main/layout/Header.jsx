@@ -3,6 +3,10 @@ import AuthService from "../util/AuthService";
 import {NavLink} from "react-router-dom";
 import TranslationService from "../util/TranslationService";
 import IdeaService from "../util/IdeaService";
+import { i18n } from "../index"
+import { t } from "@lingui/macro"
+import { Trans } from '@lingui/macro';
+
 
 export default class Header extends React.Component {
     constructor(props) {
@@ -52,11 +56,13 @@ export default class Header extends React.Component {
     }
 
     changeLanguageToEn() {
-        TranslationService.changeLanguage('en');
+        console.log(i18n.language);
+        i18n.activate('en');
+        console.log(i18n.language);
     }
 
     changeLanguageToDe() {
-        TranslationService.changeLanguage('de');
+        i18n.activate('de');
     }
 
     isCurrentLanguage(valueToBeChecked) {
@@ -106,30 +112,30 @@ export default class Header extends React.Component {
 
                             {/* END BREADCRUMB*/}
 
-                            <NavLink className="header__nav-link" to="/help" onClick={this.closeMobileMenu} translate="NAV_LABEL_HELP">Hilfe</NavLink>
+                            <NavLink className="header__nav-link" to="/help" onClick={this.closeMobileMenu} ><Trans id='NAV_LABEL_HELP'>Hilfe</Trans></NavLink>
 
                             {
                                 !this.isUserLoggedIn() ?
                                     <React.Fragment>
-                                        <NavLink className="header__nav-link" to="/signup" onClick={this.closeMobileMenu} translate="NAV_LABEL_REGISTER">Registieren</NavLink>
-                                        <NavLink className="header__nav-link" to="/login" onClick={this.closeMobileMenu} translate="NAV_LABEL_LOGIN">Login</NavLink>
+                                        <NavLink className="header__nav-link" to="/signup" onClick={this.closeMobileMenu} ><Trans id='NAV_LABEL_REGISTER'>Registieren</Trans></NavLink>
+                                        <NavLink className="header__nav-link" to="/login" onClick={this.closeMobileMenu} ><Trans id='NAV_LABEL_LOGIN'>Login</Trans></NavLink>
                                     </React.Fragment>
                                     : null
                             }
                             {
                                 this.isUserLoggedIn() ?
-                                    <NavLink className="header__nav-link" to="/logout" onClick={this.closeMobileMenu} translate="NAV_LABEL_LOGOUT">Logout</NavLink>
+                                    <NavLink className="header__nav-link" to="/logout" onClick={this.closeMobileMenu} ><Trans id='NAV_LABEL_LOGOUT'>Logout</Trans></NavLink>
                                     : null
                             }
                             <div className="header__nav-divider"/>
                             {
-                                this.isCurrentLanguage('de') ?
-                                    <a className="header__nav-link" onClick={this.changeLanguageToEn} translate="NAV_LANG_ENGLISH">English</a>
+                                i18n.language == 'de' ?
+                                    <a className="header__nav-link" onClick={this.changeLanguageToEn} ><Trans id='NAV_LANG_ENGLISH' /></a>
                                     : null
                             }
                             {
-                                this.isCurrentLanguage('en') ?
-                                    <a className="header__nav-link" onClick={this.changeLanguageToDe} translate="NAV_LANG_GERMAN">Deutsch</a>
+                                i18n.language == 'en' ?
+                                    <a className="header__nav-link" onClick={this.changeLanguageToDe} ><Trans id='NAV_LANG_GERMAN' /></a>
                                     : null
                             }
                         </div>
