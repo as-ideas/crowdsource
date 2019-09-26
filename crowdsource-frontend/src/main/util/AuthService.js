@@ -1,4 +1,5 @@
 import UserService from "./UserService";
+import param from "jquery-param";
 
 const TOKENS_LOCAL_STORAGE_KEY = 'tokens';
 
@@ -71,17 +72,18 @@ class AuthService {
 
   login(email, password) {
 
-    let requestBody = new FormData();
-    requestBody.append('username', email);
-    requestBody.append('password', password);
-    requestBody.append('client_id', 'web');
-    requestBody.append('grant_type', 'password');
+    let requestBody = {
+      username: email,
+      password: password,
+      client_id: 'web',
+      grant_type: 'password'
+    }
 
     return new Promise(function (resolve, reject) {
 
       fetch('/oauth/token',{
         method: 'POST',
-        body: requestBody,
+        body: param(requestBody),
         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
       })
       .then((response) => {
