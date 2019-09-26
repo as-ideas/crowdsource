@@ -1,6 +1,7 @@
 import React from "react";
 import TranslationService from "../../util/TranslationService";
 import {NavLink} from "react-router-dom";
+import AuthService from "../../util/AuthService";
 
 
 export default class LoginPage extends React.Component {
@@ -8,20 +9,88 @@ export default class LoginPage extends React.Component {
         super(props, context);
         this.state = {
             loading: false,
+            input: {email: "", password: ""},
             errors: {}
-        }
+        };
+
+        this.login = this.login.bind(this);
+        this.handlePasswordInputChange = this.handlePasswordInputChange.bind(this);
+        this.handleEmailInputChange = this.handleEmailInputChange.bind(this);
+        this.validateForm = this.validateForm.bind(this);
     }
 
     componentDidMount() {
     }
 
     login() {
+        if (this.validateForm()) {
+            console.info("DO LOGIN!");
+            this.state.errors.general = [];
+            AuthService.login(this.state.input.email, this.state.input.password)
+                .then(() => {
+                    Route.redirectToOriginallyRequestedPageOr('/');
+                })
+                .catch((errorCode) => {
+                    this.state.errors.general = [this.backendErrorCodeToLabel(errorCode)];
+                    this.setState(this.state);
+                })
+                .finally(() => {
+                    this.setState({loading: false});
+                });
+        } else {
+            console.error("Invalid form!");
+        }
+    }
 
+    backendErrorCodeToLabel(errorCode) {
+        if (errorCode === "remote_bad_credentials") {
+            return "LOGIN_ERROR_INVALID_CREDENTIALS"
+        } else if (errorCode === "remote_unknown") {
+            return "FORM_ERROR_UNEXPECTED";
+        } else {
+            return errorCode;
+        }
+    }
+
+    handlePasswordInputChange(e) {
+        this.state.input.password = e.target.value;
+        this.setState(this.state, this.validateForm);
+    }
+
+    handleEmailInputChange(e) {
+        this.state.input.email = e.target.value;
+        this.setState(this.state, this.validateForm);
+    }
+
+    // FIXME react
+    validateForm() {
+        this.state.errors = {};
+
+        if (!this.state.input.email) {
+            this.state.errors.email = ["FORM_EMAIL_ERROR_REQUIRED"];
+        } else {
+            if (!this.validateEmail(this.state.input.email)) {
+                this.state.errors.email = ["FORM_EMAIL_ERROR_INVALID"];
+            }
+        }
+
+        if (!this.state.input.password) {
+            this.state.errors.password = ["FORM_PASSWORD_ERROR_REQUIRED"];
+        }
+
+        this.setState(this.state);
+        return this.isValidForm();
+    }
+
+    validateEmail(email) {
+        return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+    };
+
+    isValidForm() {
+        return Object.keys(this.state.errors).length === 0;
     }
 
     // GENERAL ERRORS
-    //<div ng-message="remote_bad_credentials"><span translate="LOGIN_ERROR_INVALID_CREDENTIALS"></span></div>
-    //<div ng-message="remote_unknown"><span translate="FORM_ERROR_UNEXPECTED"></span></div>
 
     // EMAIL ERRORS
     // <div ng-message="required"><span translate="FORM_EMAIL_ERROR_REQUIRED"></span></div>
@@ -41,92 +110,114 @@ export default class LoginPage extends React.Component {
             <React.Fragment>
                 <div className='teaser--slim'/>
 
-                <div className="login-form">
-                    <form name="login.form" className="box" noValidate>
-                        <div className="row">
+                <content-row className="login-form">
+                    <div className="container">
+                        <div className="box">
+                            <div className="row">
+                                <div className="small-12 columns">
+                                    <h1>
+                                        {TranslationService.translate('LOGIN_HEADLINE')}
+                                        <small className="right push--top">
+                                            <NavLink className="text--small" to="/login/password-recovery" translate="LOGIN_LINK_PASSWORD_RECOVERY">Passwort vergessen?</NavLink>
+                                        </small>
+                                    </h1>
+                                </div>
+                            </div>
+
                             <div className="small-12 columns">
-                                <h1>
-                                    {TranslationService.translate('LOGIN_HEADLINE')}
-                                    <small className="right push--top">
-                                        <NavLink className="text--small" to="/login/password-recovery" translate="LOGIN_LINK_PASSWORD_RECOVERY">Passwort vergessen?</NavLink>
-                                    </small>
-                                </h1>
-                            </div>
-                        </div>
+                                {
+                                    this.state.errors.general ?
+                                        <div className="general-error alert-box alert" ng-messages="login.generalErrors">
+                                            {
+                                                this.state.errors.general.map(error => {
+                                                    return <span key={error}>{TranslationService.translate(error)}</span>
+                                                })
+                                            }
+                                        </div>
+                                        : null
+                                }
 
-                        <div className="small-12 columns">
-                            {
-                                this.state.errors.general ?
-                                    <div className="general-error alert-box alert" ng-messages="login.generalErrors">
-                                        {/* FIXME add this.state.errors.general*/}
+                            </div>
+
+                            <div className="row">
+                                <div className="small-12 columns form-controls-email">
+                                    <label form-group="email">
+
+
+                                        {
+                                            this.state.errors.email ?
+                                                <span className="invalid-label">
+                                              {
+                                                  this.state.errors.email.map(error => {
+                                                      return <span key={error}>{TranslationService.translate(error)}</span>
+                                                  })
+                                              }
+                                            </span>
+                                                : <span className="valid-label" translate="FORM_EMAIL_LABEL">E-Mail</span>
+                                        }
+                                    </label>
+
+                                    <div className="full-width">
+                                        <input type="email"
+                                               name="email"
+                                               value={this.state.input.email}
+                                               onChange={this.handleEmailInputChange}
+                                               placeholder="E-Mail"
+                                               required
+                                               translate-attr="{ placeholder: 'FORM_EMAIL_PLACEHOLDER'}"/>
                                     </div>
-                                    : null
-                            }
+                                </div>
+                            </div>
 
-                        </div>
+                            <div className="row">
+                                <div className="small-12 columns form-controls-password">
+                                    <label form-group="password">
 
-                        <div className="row">
-                            <div className="small-12 columns form-controls-email">
-                                <label form-group="email">
 
-                                    <span form-label-valid="email" translate="FORM_EMAIL_LABEL">E-Mail</span>
-
-                                    {
-                                        this.state.errors.email ?
-                                            <span>
-                                                {/* FIXME add this.state.errors.email*/}
+                                        {
+                                            this.state.errors.password ?
+                                                <span className="invalid-label">
+                                                {
+                                                    this.state.errors.password.map(error => {
+                                                        return <div key={error}><span>{TranslationService.translate(error)}</span></div>
+                                                    })
+                                                }
                                             </span>
-                                            : null
-                                    }
-                                </label>
+                                                : <span className="valid-label" translate="FORM_PASSWORD_LABEL">Passwort</span>
+                                        }
 
-                                <div className="full-width">
-                                    <input type="email" name="email" placeholder="E-Mail" required
-                                           translate-attr="{ placeholder: 'FORM_EMAIL_PLACEHOLDER'}"/>
+                                        <input type="password"
+                                               name="password"
+                                               placeholder="Passwort"
+                                               value={this.state.input.email}
+                                               onChange={this.handlePasswordInputChange}
+                                               required
+                                               translate-attr="{ placeholder: 'FORM_PASSWORD_PLACEHOLDER' }"/>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div className="row">
+                                <div className="small-12 columns text-center">
+                                    <div>
+                                        {
+                                            this.state.loading ?
+                                                <button className="button-primary" disabled translate="BUTTON_LABEL_LOGGING_IN">Login...</button>
+                                                :
+                                                <button className="button-primary" onClick={this.login} translate="BUTTON_LABEL_LOGIN">Login</button>
+                                        }
+
+
+                                    </div>
+                                    <div className="text--small push--top" translate="LOGIN_REGISTER">
+                                        {/* FIXME react needs to be translated*/}
+                                        Oder <a href='#/signup' translate='LOGIN_REGISTER_LINK'>hier</a> registrieren
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div className="row">
-                            <div className="small-12 columns form-controls-password">
-                                <label form-group="password">
-
-                                    <span translate="FORM_PASSWORD_LABEL">Passwort</span>
-
-                                    {
-                                        this.state.errors.password ?
-                                            <span>
-                                                {/* FIXME add this.state.errors.password*/}
-                                            </span>
-                                            : null
-                                    }
-
-                                    <input type="password" name="password" placeholder="Passwort"
-                                           required translate-attr="{ placeholder: 'FORM_PASSWORD_PLACEHOLDER' }"/>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div className="row">
-                            <div className="small-12 columns text-center">
-                                <div>
-                                    {
-                                        this.state.loading ?
-                                            <button type="submit" className="button-primary" disabled translate="BUTTON_LABEL_LOGGING_IN">Login...</button>
-                                            :
-                                            <button type="submit" className="button-primary" onClick={this.login} translate="BUTTON_LABEL_LOGIN">Login</button>
-                                    }
-
-
-                                </div>
-                                <div className="text--small push--top" translate="LOGIN_REGISTER">
-                                    {/* FIXME react needs to be translated*/}
-                                    Oder <a href='#/signup' translate='LOGIN_REGISTER_LINK'>hier</a> registrieren
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                </content-row>
             </React.Fragment>
         );
     };

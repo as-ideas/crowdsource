@@ -35,28 +35,30 @@ export default class IntroPage extends React.Component {
             <React.Fragment>
                 <IntroHero/>
 
-                <div className="campaign">
-                    {
-                        this.isLoggedIn() ?
-                            <div className="row">
-                                <ContentHero title="OVERVIEW_CAMPAIGN_HEADLINE" description="OVERVIEW_CAMPAIGN_DESCRIPTION"/>
-                                <IntroIdeasCampaignList list={this.state.ideas}/>
-                            </div>
-                            : null
-                    }
+                <content-row className="campaign">
+                    <div className="container">
+                        {
+                            this.isLoggedIn() ?
+                                <div className="row">
+                                    <ContentHero title="OVERVIEW_CAMPAIGN_HEADLINE" description="OVERVIEW_CAMPAIGN_DESCRIPTION"/>
+                                    <IntroIdeasCampaignList list={this.state.ideas}/>
+                                </div>
+                                : null
+                        }
 
-                    {
-                        !this.isLoggedIn() ?
-                            <div className="campaign-login__container">
-                                <ContentHero title="INTRO_HEADLINE" description="INTRO_DESC"/>
-                                <button className="button-primary" onClick={RoutingService.goToSignUpPage} translate="BUTTON_LABEL_REGISTER">
-                                    Register
-                                </button>
-                            </div>
-                            : null
-                    }
+                        {
+                            !this.isLoggedIn() ?
+                                <div className="campaign-login__container">
+                                    <ContentHero title="INTRO_HEADLINE" description="INTRO_DESC"/>
+                                    <button className="button-primary" onClick={RoutingService.goToSignUpPage} translate="BUTTON_LABEL_REGISTER">
+                                        Register
+                                    </button>
+                                </div>
+                                : null
+                        }
 
-                </div>
+                    </div>
+                </content-row>
             </React.Fragment>
         )
     };

@@ -71,11 +71,11 @@ class AuthService {
 
   login(email, password) {
 
-    var requestBody = new FormData();
-    requesetBody.append('username', email);
-    requesetBody.append('password', password);
-    requesetBody.append('client_id', 'web');
-    requesetBody.append('grant_type', 'password');
+    let requestBody = new FormData();
+    requestBody.append('username', email);
+    requestBody.append('password', password);
+    requestBody.append('client_id', 'web');
+    requestBody.append('grant_type', 'password');
 
     return new Promise(function (resolve, reject) {
 
