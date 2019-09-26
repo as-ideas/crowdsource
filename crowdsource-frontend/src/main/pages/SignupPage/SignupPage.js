@@ -55,7 +55,6 @@ export default class SignupPage extends React.Component {
 
     signUp() {
         if (this.validateForm()) {
-            console.info("DO LOGIN!");
             this.state.errors.general = [];
 
             let user = this.state.input;

@@ -5,40 +5,41 @@ const RoutingService = {};
 RoutingService.history = createHistory({basename: '/'});
 
 RoutingService.openExternal = (url) => {
-    window.open(url);
+  window.open(url);
 };
 
-RoutingService.back = () => {
-    return RoutingService.history.goBack();
+RoutingService.goBack = () => {
+  return RoutingService.history.goBack();
 };
 
 RoutingService.redirectToOriginallyRequestedPageOr = (fallbackUrl) => {
-    if (RoutingService.history.length > 2) {
-        RoutingService.goBack()
-    } else {
-        RoutingService.goToRoute(fallbackUrl);
-    }
+  console.info("redirectToOriginallyRequestedPageOr", RoutingService.history.length);
+  if (RoutingService.history.length > 2) {
+    RoutingService.goBack()
+  } else {
+    RoutingService.goToRoute(fallbackUrl);
+  }
 };
 
 RoutingService.getHistory = () => {
-    return RoutingService.history;
+  return RoutingService.history;
 };
 
 RoutingService.goToLoginPage = () => {
-    return RoutingService.history.push('/login');
+  return RoutingService.history.push('/login');
 };
 
 
 RoutingService.goToSignUpPage = () => {
-    return RoutingService.history.push('/signup');
+  return RoutingService.history.push('/signup');
 };
 
 RoutingService.goToSuccessPageForUser = (user) => {
-    RoutingService.history.push('/signup/' + user.email + '/' + ser.firstName + '/' + user.lastName + '/success');
+  RoutingService.history.push('/signup/' + user.email + '/' + ser.firstName + '/' + user.lastName + '/success');
 };
 
 RoutingService.goToRoute = (route) => {
-    return RoutingService.history.push(route);
+  return RoutingService.history.push(route);
 };
 
 

@@ -5,15 +5,12 @@ class UserService {
             fetch(`/user/:id`, {
                 method: 'POST',
                 body: JSON.stringify(user)
-            })
-                .then((response) => {
+            }).then((response) => {
                     return response.json();
-                })
-                .then(jsonData => {
+                })                .then(jsonData => {
                     jsonData.loggedIn = true;
                     resolve(this.augmentUser(jsonData));
-                })
-                .catch(error => {
+                })                .catch(error => {
                     reject(error);
                 });
         })
