@@ -24,11 +24,11 @@ export default class LoginPage extends React.Component {
 
     login() {
         if (this.validateForm()) {
-            console.info("DO LOGIN!");
             this.state.errors.general = [];
             AuthService.login(this.state.input.email, this.state.input.password)
                 .then(() => {
-                    Route.redirectToOriginallyRequestedPageOr('/');
+                    // Route.redirectToOriginallyRequestedPageOr('/');
+                    console.info("LOGIN SUCCESS!");
                 })
                 .catch((errorCode) => {
                     this.state.errors.general = [this.backendErrorCodeToLabel(errorCode)];
@@ -58,7 +58,6 @@ export default class LoginPage extends React.Component {
     }
 
     handlePasswordInputChange(e) {
-        console.info("passwordChane", e.target.value);
         this.state.input.password = e.target.value;
         this.setState(this.state, this.validateForm);
     }

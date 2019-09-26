@@ -66,46 +66,14 @@
 
                     <!-- 4. Run karma tests -->
                     <!--<execution>-->
-                        <!--<id>javascript tests</id>-->
-                        <!--<goals>-->
-                            <!--<goal>npm</goal>-->
-                        <!--</goals>-->
-                        <!--<configuration>-->
-                            <!--<arguments>run test</arguments>-->
-                        <!--</configuration>-->
+                    <!--<id>javascript tests</id>-->
+                    <!--<goals>-->
+                    <!--<goal>npm</goal>-->
+                    <!--</goals>-->
+                    <!--<configuration>-->
+                    <!--<arguments>run test</arguments>-->
+                    <!--</configuration>-->
                     <!--</execution>-->
-                </executions>
-            </plugin>
-            <plugin>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>2.7</version>
-                <executions>
-                    <execution>
-                        <id>copy-frontend-sources</id>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${project.build.outputDirectory}</outputDirectory>
-                            <resources>
-                                <resource>
-                                    <directory>src/main</directory>
-                                    <includes>
-                                        <include>**/*.scss</include>
-                                    </includes>
-                                    <filtering>false</filtering>
-                                </resource>
-                                <resource>
-                                    <directory>${project.basedir}</directory>
-                                    <includes>
-                                        <include>config.js</include>
-                                    </includes>
-                                    <filtering>false</filtering>
-                                </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
                 </executions>
             </plugin>
         </plugins>

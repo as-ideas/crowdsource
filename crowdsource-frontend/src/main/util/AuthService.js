@@ -81,7 +81,7 @@ class AuthService {
 
       fetch('/oauth/token',{
         method: 'POST',
-        body: JSON.stringify(requestBody),
+        body: requestBody,
         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
       })
       .then((response) => {

@@ -110,7 +110,7 @@ angular.module('crowdsource')
 
         service.login = function (email, password) {
             // $.param creates a form encoded string, e.g. "username=xyz&password=secret&..."
-            var requestBody = $.param({
+            let requestBody = $.param({
                 username: email,
                 password: password,
                 client_id: 'web',
