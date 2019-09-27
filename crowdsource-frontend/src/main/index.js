@@ -4,6 +4,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import ImprintView from './pages/ImprintView/ImprintView.js';
 import PrivacyView from './pages/PrivacyView/PrivacyView.js';
 import AboutView from './pages/AboutView/AboutView.js';
+import HelpView from './pages/HelpView/HelpView.js';
 
 // I18n
 import {setupI18n} from "@lingui/core"
@@ -63,7 +64,7 @@ ReactDOM.render((
           {/*<Route exact path='/financingrounds' component={FinancingRoundsController}/>*/}
           {/*<Route exact path='/statistics' component={StatisticsController}/>*/}
           <Route exact path='/about' component={AboutView}/>
-          {/*<Route exact path='/help' component={HelpView}/>*/}
+          <Route exact path='/help' component={HelpView}/>
           <Route exact path='/imprint' component={ImprintView}/>
           <Route exact path='/privacy' component={PrivacyView}/>
           {/*<Route exact path='/error/notfound' component={NotFoundView}/>*/}
