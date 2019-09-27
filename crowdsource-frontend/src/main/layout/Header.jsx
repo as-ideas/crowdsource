@@ -6,6 +6,7 @@ import IdeaService from "../util/IdeaService";
 import {i18n} from "../index"
 import {t} from "@lingui/macro"
 import {Trans} from '@lingui/macro';
+import Events from "../util/Events";
 
 
 export default class Header extends React.Component {
@@ -20,18 +21,31 @@ export default class Header extends React.Component {
     this.closeMobileMenu = this.closeMobileMenu.bind(this)
   }
 
-
   componentDidMount() {
+    this.userChangedListener = Events.addUserStateChangedListener(this.userChanged.bind(this));
+
     let currentRoute = this.props.location;
     this.state.breadcrumbs = this.getIdeasBreadcrumb(currentRoute)
   }
 
+  componentWillUnmount() {
+    this.userChangedListener.remove();
+  }
+
+  userChanged() {
+    this.state.loggedIn = AuthService.currentUser.loggedIn;
+    this.setState(this.state);
+  }
+
   getIdeasBreadcrumb(currentRoute) {
-    var breadcrumbs = [];
+    let breadcrumbs = [];
 
     let currentCampaign = IdeaService.getCurrentCampaign();
     if (currentCampaign) {
-      breadcrumbs.push({target: '/#/ideas/' + currentCampaign.id, label: currentCampaign.contentI18n[TranslationService.getCurrentLanguage()].title});
+      breadcrumbs.push({
+        target: '/#/ideas/' + currentCampaign.id,
+        label: currentCampaign.contentI18n[TranslationService.getCurrentLanguage()].title
+      });
     }
 
     breadcrumbs.push({target: '/', label: "Übersicht"});
@@ -48,11 +62,10 @@ export default class Header extends React.Component {
 
   closeMobileMenu() {
     this.setState({isMobileMenuOpen: false});
-
   }
 
   isUserLoggedIn() {
-    return AuthService.currentUser.loggedIn;
+    return this.state.loggedIn;
   }
 
   changeLanguageToEn() {

@@ -37,10 +37,7 @@ export default class LoginPage extends React.Component {
             RoutingService.redirectToOriginallyRequestedPageOr('/');
           }
         })
-        .catch((errorCode) => {
-          console.error("Error", errorCode);
-          this.state.errors.general = [errorCode];
-        })
+        .catch(console.error)
         .finally(() => {
           this.setState({loading: false});
         });
@@ -196,7 +193,7 @@ export default class LoginPage extends React.Component {
                     }
                   </div>
                   <div className="text--small push--top">
-                    <Trans id='LOGIN_REGISTER' values={{link: <a href='#/signup'><Trans id='LOGIN_REGISTER_LINK'/></a>}}/>
+                    <Trans id='LOGIN_REGISTER' values={{link: <NavLink to='/signup'><Trans id='LOGIN_REGISTER_LINK'/></NavLink>}}/>
                   </div>
                 </div>
               </div>

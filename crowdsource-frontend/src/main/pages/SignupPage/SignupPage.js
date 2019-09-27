@@ -307,7 +307,9 @@ export default class SignupPage extends React.Component {
                         <button className="button-primary" onClick={this.signUp} translate="BUTTON_LABEL_REGISTER">Registrieren</button>
                     }
                   </div>
-                  <div className="text--small push--top" translate="REGISTER_LOGIN" translate-compile translate-value-link="<a href='#/login' translate='REGISTER_LOGIN_LINK'></a>"></div>
+                  <div className="text--small push--top">
+                    <Trans id='REGISTER_LOGIN' values={{link: <NavLink to='/signup'><Trans id='LOGIN_REGISTER_LINK'/></NavLink>}}/>
+                  </div>
                 </div>
               </div>
 
