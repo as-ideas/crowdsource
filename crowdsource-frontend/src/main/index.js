@@ -34,6 +34,7 @@ import IntroPage from "./pages/IntroPage/IntroPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LogoutPage from "./pages/LogoutPage/LogoutPage";
+import IdeasListPage from "./pages/IdeasListPage/IdeasListPage";
 
 UnauthorizedInterceptor.init();
 AuthService.reloadUser();
@@ -44,7 +45,7 @@ ReactDOM.render((
       <Layout>
         <Switch>
           <Route exact path='/intro' component={IntroPage}/>
-          {/*<Route exact path='/ideas/:ideasId' component={IdeasListController}/>*/}
+          <Route exact path='/ideas/:ideasId' component={IdeasListPage}/>
           {/*<Route exact path='/ideas/:ideasId/own' component={IdeasOwnController}/>*/}
           {/*<Route exact path='/ideas/:ideasId/admin' component={IdeasAdminController}/>*/}
           {/*<Route exact path='/projects' component={ProjectListController}/>*/}

@@ -60,9 +60,9 @@ export default class SignupPage extends React.Component {
 
       let user = this.state.input;
       UserService.register(user)
-        .then((resposne) => {
-          if (resposne.errorCode) {
-            this.state.errors = ValidationService.errorObjectFromBackend(resposne);
+        .then((response) => {
+          if (response.errorCode) {
+            this.state.errors = ValidationService.errorObjectFromBackend(response);
             this.setState(this.state);
           } else {
             RoutingService.goToSuccessPageForUser(user);

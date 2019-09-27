@@ -29,9 +29,9 @@ export default class LoginPage extends React.Component {
     if (this.validateForm()) {
       this.state.errors.general = [];
       AuthService.login(this.state.input.email, this.state.input.password)
-        .then(() => {
-          if (resposne.errorCode) {
-            this.state.errors = ValidationService.errorObjectFromBackend(resposne);
+        .then((response) => {
+          if (response.errorCode) {
+            this.state.errors = ValidationService.errorObjectFromBackend(response);
             this.setState(this.state);
           } else {
             RoutingService.redirectToOriginallyRequestedPageOr('/');
