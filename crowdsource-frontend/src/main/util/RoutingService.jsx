@@ -13,7 +13,6 @@ RoutingService.goBack = () => {
 };
 
 RoutingService.redirectToOriginallyRequestedPageOr = (fallbackUrl) => {
-  console.info("redirectToOriginallyRequestedPageOr", RoutingService.history.length);
   if (RoutingService.history.length > 2) {
     RoutingService.goBack()
   } else {
@@ -35,7 +34,7 @@ RoutingService.goToSignUpPage = () => {
 };
 
 RoutingService.goToSuccessPageForUser = (user) => {
-  RoutingService.history.push('/signup/' + user.email + '/' + ser.firstName + '/' + user.lastName + '/success');
+  RoutingService.history.push('/signup/' + user.email + '/' + user.firstName + '/' + user.lastName + '/success');
 };
 
 RoutingService.goToRoute = (route) => {

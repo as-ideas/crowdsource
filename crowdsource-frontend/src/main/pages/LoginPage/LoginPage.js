@@ -1,11 +1,11 @@
 import React from "react";
-import TranslationService from "../../util/TranslationService";
 import {NavLink} from "react-router-dom";
 import AuthService from "../../util/AuthService";
 import {i18n} from "../../index"
 import {t} from "@lingui/macro"
 import {Trans} from '@lingui/macro';
 import RoutingService from "../../util/RoutingService";
+import ValidationService from "../../util/ValidationService";
 
 export default class LoginPage extends React.Component {
   constructor(props, context) {
@@ -30,28 +30,22 @@ export default class LoginPage extends React.Component {
       this.state.errors.general = [];
       AuthService.login(this.state.input.email, this.state.input.password)
         .then(() => {
-          RoutingService.redirectToOriginallyRequestedPageOr('/');
+          if (resposne.errorCode) {
+            this.state.errors = ValidationService.errorObjectFromBackend(resposne);
+            this.setState(this.state);
+          } else {
+            RoutingService.redirectToOriginallyRequestedPageOr('/');
+          }
         })
         .catch((errorCode) => {
-          this.state.errors.general = [this.backendErrorCodeToLabel(errorCode)];
-          this.setState(this.state);
+          console.error("Error", errorCode);
+          this.state.errors.general = [errorCode];
         })
         .finally(() => {
           this.setState({loading: false});
         });
     } else {
       console.error("Invalid form!");
-    }
-  }
-
-  backendErrorCodeToLabel(errorCode) {
-    if (errorCode === "remote_bad_credentials") {
-      return "LOGIN_ERROR_INVALID_CREDENTIALS"
-    } else if (errorCode === "remote_unknown") {
-      return "FORM_ERROR_UNEXPECTED";
-    } else {
-      console.error("Error on login, unknown errorCode", errorCode);
-      return errorCode;
     }
   }
 
@@ -71,7 +65,7 @@ export default class LoginPage extends React.Component {
     if (!this.state.input.email) {
       this.state.errors.email = ['FORM_EMAIL_ERROR_REQUIRED'];
     } else {
-      if (!this.validateEmail(this.state.input.email)) {
+      if (!ValidationService.isEmailValid(this.state.input.email)) {
         this.state.errors.email = ['FORM_EMAIL_ERROR_INVALID'];
       }
     }
@@ -83,10 +77,6 @@ export default class LoginPage extends React.Component {
     this.setState(this.state);
     return this.isValidForm();
   }
-
-  validateEmail(email) {
-    return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
-  };
 
   isValidForm() {
     return Object.keys(this.state.errors).length === 0;
