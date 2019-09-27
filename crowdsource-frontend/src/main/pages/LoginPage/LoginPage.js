@@ -1,7 +1,6 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
 import AuthService from "../../util/AuthService";
-import {i18n} from "../../index"
 import {t} from "@lingui/macro"
 import {Trans} from '@lingui/macro';
 import RoutingService from "../../util/RoutingService";
