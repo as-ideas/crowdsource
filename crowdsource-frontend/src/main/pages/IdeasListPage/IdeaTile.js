@@ -2,6 +2,7 @@ import React from "react";
 import TextFormatService from "../../util/TextFromatService";
 import {Trans} from "@lingui/macro";
 import TranslationService from "../../util/TranslationService";
+import IdeaService from "../../util/IdeaService";
 
 const DEFAULT_RATING = {
   ownVote: 0,
@@ -10,6 +11,14 @@ const DEFAULT_RATING = {
 };
 
 export default class IdeaTile extends React.Component {
+
+  constructor(props, context) {
+    super(props, context);
+    this.state = {
+      rating: this.props.idea.rating || DEFAULT_RATING,
+      isVotingDisabled: !this.props.campaign.active || false
+    }
+  }
 
   isTranslated(currentLanguage) {
     let contentI18n = this.props.idea.contentI18n;
@@ -21,8 +30,39 @@ export default class IdeaTile extends React.Component {
     return contentI18n.originalLanguage.toLowerCase() !== currentLanguage.toLowerCase();
   }
 
-  vote(voting) {
+  vote(value) {
+    let campaign = this.props.campaign;
+    let idea = this.props.idea;
 
+    if (this.state.isVotingDisabled) {
+      return;
+    }
+
+    // reset voting by setting value to null, if user clicks on same value
+    if (this.state.rating.ownVote === value) {
+      value = 0;
+    }
+
+    this.state.isVotingDisabled = true;
+    this.setState(this.state);
+
+    IdeaService.voteIdea(campaign.id, idea.id, value)
+      .then((rating) => {
+        if (value === 0) {
+          // FIXME react overlay?
+          // $rootScope.$broadcast('VOTE_' + vm.idea.id, {type: 'success', message: $filter('translate')('IDEA_REMOVE_VOTE_MESSAGE')});
+        } else {
+          // $rootScope.$broadcast('VOTE_' + vm.idea.id, {type: 'success', message: $filter('translate')('IDEA_VOTE_MESSAGE')});
+        }
+        this.state.rating = rating;
+        this.state.rating.averageRating = Math.round(this.state.rating.averageRating * 10) / 10;
+      })
+      .finally(() => {
+        window.setTimeout(() => {
+          this.state.isVotingDisabled = false;
+          this.setState(this.state);
+        }, 1000);
+      });
   }
 
   selectTranslation(value) {
@@ -34,12 +74,10 @@ export default class IdeaTile extends React.Component {
     let campaignId = campaign.id;
     let idea = this.props.idea;
 
-    console.info("idea", idea);
-
-    let rating = idea.rating || DEFAULT_RATING;
+    let isVotingDisabled = this.state.isVotingDisabled;
+    let rating = this.state.rating;
     rating.averageRating = Math.round(rating.averageRating * 10) / 10;
 
-    let isVotingDisabled = !campaign.active || false;
     let rejectionComment = "";
     let isEditable = false;
     let isAdminView = this.props.admin || false;
@@ -72,12 +110,12 @@ export default class IdeaTile extends React.Component {
           {
             idea.status === 'PUBLISHED' ?
               <div>
-                <span className="ideas-grid-tile__title">{this.props.title}</span>
+                <span className="ideas-grid-tile__title">{title}</span>
                 <span className="ideas-grid-tile__votes">
                   <Trans id="IDEA_TILE_AVG_RATING"
                          values={{
-                           ratingplural: rating.averageRating === 1 ? 'one' : 'many',
-                           votesplural: rating.countVotes === 1 ? 'one' : 'many',
+                           ratingplural: rating.averageRating === 1 ? <Trans id='one'/> : <Trans id='many'/>,
+                           votesplural: rating.countVotes === 1 ? <Trans id='one'/> : <Trans id='many'/>,
                            rating: rating.averageRating,
                            votes: rating.countVotes
                          }}/>
@@ -131,33 +169,28 @@ export default class IdeaTile extends React.Component {
                 {
                   !isVotingDisabled ?
                     <React.Fragment>
-                      <div onClick={() => this.vote(5)} className={'star5 ' + rating.ownVote >= 5 ? 'ideas-grid-tile__star--rated' : 'ideas-grid-tile__star--unrated'}/>
+                      <div onClick={() => this.vote(5)} className={'star5 ' + (rating.ownVote >= 5 ? 'ideas-grid-tile__star--rated' : 'ideas-grid-tile__star--unrated')}/>
 
-                      <div onClick={() => this.vote(41)} className={'star5 ' + rating.ownVote >= 4 ? 'ideas-grid-tile__star--rated' : 'ideas-grid-tile__star--unrated'}/>
+                      <div onClick={() => this.vote(4)} className={'star5 ' + (rating.ownVote >= 4 ? 'ideas-grid-tile__star--rated' : 'ideas-grid-tile__star--unrated')}/>
 
-                      <div onClick={() => this.vote(3)} className={'star5 ' + rating.ownVote >= 3 ? 'ideas-grid-tile__star--rated' : 'ideas-grid-tile__star--unrated'}/>
+                      <div onClick={() => this.vote(3)} className={'star5 ' + (rating.ownVote >= 3 ? 'ideas-grid-tile__star--rated' : 'ideas-grid-tile__star--unrated')}/>
 
-                      <div onClick={() => this.vote(2)} className={'star5 ' + rating.ownVote >= 2 ? 'ideas-grid-tile__star--rated' : 'ideas-grid-tile__star--unrated'}/>
+                      <div onClick={() => this.vote(2)} className={'star5 ' + (rating.ownVote >= 2 ? 'ideas-grid-tile__star--rated' : 'ideas-grid-tile__star--unrated')}/>
 
-                      <div onClick={() => this.vote(1)} className={'star5 ' + rating.ownVote >= 1 ? 'ideas-grid-tile__star--rated' : 'ideas-grid-tile__star--unrated'}/>
+                      <div onClick={() => this.vote(1)} className={'star5 ' + (rating.ownVote >= 1 ? 'ideas-grid-tile__star--rated' : 'ideas-grid-tile__star--unrated')}/>
                     </React.Fragment>
-                    : null
-                }
-                {
-                  isVotingDisabled ?
-                    <React.Fragment>
-                      <div className={'star5 ' + rating.ownVote >= 5 ? 'ideas-grid-tile__star--disabled-rated' : 'ideas-grid-tile__star--disabled'}/>
+                    : <React.Fragment>
+                      <div className={'star5 ' + (rating.ownVote >= 5 ? 'ideas-grid-tile__star--disabled-rated' : 'ideas-grid-tile__star--disabled')}/>
 
-                      <div className={'star5 ' + rating.ownVote >= 4 ? 'ideas-grid-tile__star--disabled-rated' : 'ideas-grid-tile__star--disabled'}/>
+                      <div className={'star5 ' + (rating.ownVote >= 4 ? 'ideas-grid-tile__star--disabled-rated' : 'ideas-grid-tile__star--disabled')}/>
 
-                      <div className={'star5 ' + rating.ownVote >= 3 ? 'ideas-grid-tile__star--disabled-rated' : 'ideas-grid-tile__star--disabled'}/>
+                      <div className={'star5 ' + (rating.ownVote >= 3 ? 'ideas-grid-tile__star--disabled-rated' : 'ideas-grid-tile__star--disabled')}/>
 
-                      <div className={'star5 ' + rating.ownVote >= 2 ? 'ideas-grid-tile__star--disabled-rated' : 'ideas-grid-tile__star--disabled'}/>
+                      <div className={'star5 ' + (rating.ownVote >= 2 ? 'ideas-grid-tile__star--disabled-rated' : 'ideas-grid-tile__star--disabled')}/>
 
 
                       <div className={'star5 ' + rating.ownVote >= 1 ? 'ideas-grid-tile__star--disabled-rated' : 'ideas-grid-tile__star--disabled'}/>
                     </React.Fragment>
-                    : null
                 }
               </div>
               : null
@@ -167,7 +200,7 @@ export default class IdeaTile extends React.Component {
             isEditable ?
               <div className="ideas-grid-tile__approval-container">
                 {/* FIXME react */}
-                {/*<idea-edit idea="vm.idea" cancel-fn="vm.cancelEdit" submit-fn="vm.update"></idea-edit>*/}
+                {/*<idea-edit idea="vm.idea" cancel-callback="vm.cancelEdit" submit-callback="vm.update"></idea-edit>*/}
               </div>
               : null
 

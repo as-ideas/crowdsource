@@ -4,8 +4,13 @@ import ContentHero from "../../layout/ContentHero";
 import ValidationService from "../../util/ValidationService";
 import IdeaService from "../../util/IdeaService";
 
-
-export default class IdeaAdd extends React.Component {
+/**
+ * Props:
+ *  idea
+ *  cancel-callback
+ *  submit-callback
+ */
+export default class IdeaEdit extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {

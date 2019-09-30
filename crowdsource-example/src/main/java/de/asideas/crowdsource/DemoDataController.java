@@ -113,6 +113,7 @@ public class DemoDataController {
             contentI18n.setDe(contentI18n.getOriginal());
             contentI18n.setEn(contentI18n.getOriginal());
             contentI18n.setOriginalLanguage("de");
+
             ideaRepository.save(ideaEntity);
         }
     }

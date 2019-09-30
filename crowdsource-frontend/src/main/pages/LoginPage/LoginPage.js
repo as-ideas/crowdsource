@@ -78,21 +78,6 @@ export default class LoginPage extends React.Component {
     return Object.keys(this.state.errors).length === 0;
   }
 
-  // GENERAL ERRORS
-
-  // EMAIL ERRORS
-  // <div ng-message="required"><span translate="FORM_EMAIL_ERROR_REQUIRED"></span></div>
-  // <div ng-message="email"><span translate="FORM_EMAIL_ERROR_INVALID"></span></div>
-  // <div ng-message="remote_eligible"><span translate="FORM_EMAIL_ERROR_INVALID_UNIT"></span></div>
-  // <div ng-message="non_blacklisted_email"><span translate="FORM_EMAIL_ERROR_INVALID_BLACKLIST"></span></div>
-  // <div ng-message="remote_not_activated">
-  //      <span translate="FORM_EMAIL_ERROR_ALREADY_ACTIVATED_1">
-  //         <NavLink to="/passwordrecovery">{TranslationService.translate('FORM_EMAIL_ERROR_ALREADY_ACTIVATED_2')}</NavLink>
-  //      </span>
-  // </div>
-
-  // PASSWORD ERRORS
-  // <div ng-message="required"><span translate="FORM_PASSWORD_ERROR_REQUIRED"></span></div>
   render() {
     return (
       <React.Fragment>
