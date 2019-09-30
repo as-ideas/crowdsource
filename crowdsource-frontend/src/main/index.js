@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Helmet} from "react-helmet";
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import ImprintView from './pages/ImprintView/ImprintView.js';
 import PrivacyView from './pages/PrivacyView/PrivacyView.js';
 import AboutView from './pages/AboutView/AboutView.js';
 import HelpView from './pages/HelpView/HelpView';
+
 
 
 // Services
@@ -36,7 +38,8 @@ ReactDOM.render((
   <I18nProvider language={ language } catalogs={ catalogs }>
     <BrowserRouter history={RoutingService.getHistory()}>
       <Layout>
-        <Switch>
+      <Helmet defaultTitle="Crowdsource" titleTemplate="Crowdsource - %s" />
+      <Switch>
           <Route exact path='/intro' component={IntroPage}/>
           <Route exact path='/ideas/:ideasId' component={IdeasListPage}/>
           {/*<Route exact path='/ideas/:ideasId/own' component={IdeasOwnController}/>*/}
@@ -65,7 +68,7 @@ ReactDOM.render((
           {/*<Route exact path='/error/unknown' component={UnknownView}/>*/}
           <Route component={IntroPage}/>
         </Switch>
-      </Layout>
+  </Layout>
     </BrowserRouter>
   </I18nProvider>
   )}

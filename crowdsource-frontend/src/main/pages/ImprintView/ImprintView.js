@@ -1,12 +1,21 @@
 import React from 'react'
 import './ImprintView.scss'
-import { Trans } from '@lingui/macro';
+import {t, Trans} from '@lingui/macro';
+import {I18n} from "@lingui/react";
+import {Helmet} from "react-helmet";
 
 export default class ImprintView extends React.Component {
 
   render () {
     return (
       <div className="content ng-scope" data-ng-view="" autoscroll="true">
+      <I18n>
+      {({ i18n }) => (
+        <Helmet>
+        <title>{i18n._(t("NAV_LABEL_IMPRINT")`Impressum`)}</title>
+        </Helmet>
+      )}
+      </I18n>
         <div className="teaser--slim ng-scope"></div>
         <content-row className="imprint ng-scope">
           <div className="container" ng-transclude="">
