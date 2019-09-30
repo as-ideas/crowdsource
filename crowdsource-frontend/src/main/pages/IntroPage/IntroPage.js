@@ -6,6 +6,8 @@ import AuthService from "../../util/AuthService";
 import {Helmet} from "react-helmet";
 import {Trans, t} from '@lingui/macro';
 import { I18n } from "@lingui/react"
+import RoutingService from "../../util/RoutingService";
+
 
 
 export default class IntroPage extends React.Component {

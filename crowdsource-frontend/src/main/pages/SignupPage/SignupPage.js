@@ -3,8 +3,10 @@ import TranslationService from "../../util/TranslationService";
 import {NavLink} from "react-router-dom";
 import UserService from "../../util/UserService";
 import RoutingService from "../../util/RoutingService";
-import {Trans} from '@lingui/macro';
+import {t, Trans} from '@lingui/macro';
 import ValidationService from "../../util/ValidationService";
+import {I18n} from "@lingui/react";
+import {Helmet} from "react-helmet";
 
 
 export default class SignupPage extends React.Component {
@@ -121,6 +123,13 @@ export default class SignupPage extends React.Component {
   render() {
     return (
       <React.Fragment>
+      <I18n>
+      {({ i18n }) => (
+        <Helmet>
+        <title>{i18n._(t("NAV_LABEL_REGISTER")`Registrieren`)}</title>
+        </Helmet>
+      )}
+      </I18n>
         <div className='teaser--slim'/>
 
         <content-row className="signup-form">
@@ -256,10 +265,10 @@ export default class SignupPage extends React.Component {
                                                     {
                                                       error === 'FORM_AGB_ERROR_REQUIRED' ?
                                                         <Trans id={error} values={{
-                                                          link: <NavLink className='crowd-tos-link'
+                                                          link: <a className='crowd-tos-link'
                                                                          onClick={this.toggleTerms}>
                                                             <Trans id='FORM_AGB_LABEL_LINK'>Nutzungsbedingung</Trans>
-                                                          </NavLink>
+                                                          </a>
                                                         }}/>
 
                                                         : <Trans id={error}/>
@@ -274,10 +283,10 @@ export default class SignupPage extends React.Component {
                                                     <Trans id='FORM_AGB_LABEL'
                                                            values={{
                                                              link:
-                                                               <NavLink className='crowd-tos-link'
+                                                               <a className='crowd-tos-link'
                                                                         onClick={this.toggleTerms}>
                                                                  <Trans id='FORM_AGB_LABEL_LINK'>Nutzungsbedingung</Trans>
-                                                               </NavLink>
+                                                               </a>
                                                            }}/>
                                                     </span>
                       }

@@ -1,5 +1,8 @@
 import React from "react";
 import AuthService from "../../util/AuthService";
+import {I18n} from "@lingui/react";
+import {Helmet} from "react-helmet";
+import {t} from "@lingui/macro";
 
 export default class LogoutPage extends React.Component {
   constructor(props, context) {
@@ -13,6 +16,13 @@ export default class LogoutPage extends React.Component {
   render() {
     return (
       <React.Fragment>
+      <I18n>
+      {({ i18n }) => (
+        <Helmet>
+        <title>{i18n._(t("NAV_LABEL_LOGOUT")`Logout`)}</title>
+        </Helmet>
+      )}
+      </I18n>
         <div className='teaser--slim'/>
 
         <content-row className="logout-success">
