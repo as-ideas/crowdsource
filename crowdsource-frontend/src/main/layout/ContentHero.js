@@ -3,9 +3,11 @@ import {Trans} from "@lingui/macro";
 
 
 export default class ContentHero extends React.Component {
+
+
   render() {
-    let description = this.props.description;
     let title = this.props.title;
+    let description = this.props.description;
 
     return (
       <content-hero>
@@ -13,8 +15,9 @@ export default class ContentHero extends React.Component {
           <h2 className={description ? 'content-hero__headline' : 'content-hero__headline--solo'}>
             <Trans id={title}/>
           </h2>
-          <p className="content-hero__description"/>
-          {this.props.children}
+          <p className="content-hero__description">
+            <Trans id={description}/>
+          </p>
         </div>
       </content-hero>
     )

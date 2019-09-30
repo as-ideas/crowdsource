@@ -1,18 +1,21 @@
 package de.asideas.crowdsource.service.ideascampaign;
 
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
-
+import de.asideas.crowdsource.domain.exception.ResourceNotFoundException;
+import de.asideas.crowdsource.domain.model.UserEntity;
+import de.asideas.crowdsource.domain.model.ideascampaign.IdeaEntity;
 import de.asideas.crowdsource.domain.model.ideascampaign.IdeasCampaignEntity;
 import de.asideas.crowdsource.domain.model.ideascampaign.VoteEntity;
 import de.asideas.crowdsource.domain.service.ideascampaign.VotingService;
 import de.asideas.crowdsource.domain.service.user.UserNotificationService;
+import de.asideas.crowdsource.domain.shared.ideascampaign.IdeaStatus;
 import de.asideas.crowdsource.presentation.ideascampaign.IdeaIn;
 import de.asideas.crowdsource.presentation.ideascampaign.IdeaOut;
 import de.asideas.crowdsource.presentation.ideascampaign.VoteCmd;
 import de.asideas.crowdsource.repository.UserRepository;
-
+import de.asideas.crowdsource.repository.ideascampaign.IdeaRepository;
+import de.asideas.crowdsource.repository.ideascampaign.IdeasCampaignRepository;
+import de.asideas.crowdsource.repository.ideascampaign.VoteRepository;
+import de.asideas.crowdsource.security.Roles;
 import de.asideas.crowdsource.service.translation.TranslationService;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,14 +26,9 @@ import org.springframework.security.access.AuthorizationServiceException;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
-import de.asideas.crowdsource.domain.exception.ResourceNotFoundException;
-import de.asideas.crowdsource.domain.model.UserEntity;
-import de.asideas.crowdsource.domain.model.ideascampaign.IdeaEntity;
-import de.asideas.crowdsource.domain.shared.ideascampaign.IdeaStatus;
-import de.asideas.crowdsource.repository.ideascampaign.IdeaRepository;
-import de.asideas.crowdsource.repository.ideascampaign.IdeasCampaignRepository;
-import de.asideas.crowdsource.repository.ideascampaign.VoteRepository;
-import de.asideas.crowdsource.security.Roles;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
@@ -125,7 +123,7 @@ public class IdeaService {
         final IdeaEntity result = campaign.createIdea(cmd, creator);
 
         // TODO: Fix according to translation concept
-        log.info("Create new idea: campaign: " + campaign.toString());
+        log.info("Create new idea for campaign: " + campaign.getId());
         notifyAdminsOnNewIdea(result, campaign.getContent().getDe().getTitle());
         return new IdeaOut(ideaRepository.save(result));
     }

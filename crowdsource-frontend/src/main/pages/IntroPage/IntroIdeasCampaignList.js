@@ -3,6 +3,7 @@ import TextFormatService from "../../util/TextFromatService";
 import IdeaService from "../../util/IdeaService";
 import {Trans} from '@lingui/macro';
 import {NavLink} from "react-router-dom";
+import TranslationService from "../../util/TranslationService";
 
 
 export default class IntroIdeasCampaignList extends React.Component {
@@ -21,6 +22,8 @@ export default class IntroIdeasCampaignList extends React.Component {
   }
 
   render() {
+    let currentLanguage = TranslationService.getCurrentLanguage();
+
     return (
       <React.Fragment>
         {
@@ -31,16 +34,16 @@ export default class IntroIdeasCampaignList extends React.Component {
             </div>
             : <div className="campaign-list__container">
               {
-                this.state.ideas.length.map(entry => {
+                this.state.ideas.map(entry => {
                   return <div className="campaign__container">
                     <NavLink to={'/ideas/' + entry.id}>
                       <article className="campaign__item">
                         <div className="campaign__image-container">
-                          <img className="campaign__image" src={entry.contentI18n[this.props.list.currentLanguage].teaserImageReference}/>
+                          <img className="campaign__image" src={entry.contentI18n[currentLanguage].teaserImageReference}/>
                         </div>
 
                         <div className="campaign__details-container">
-                          <h1 className="campaign__title">{entry.contentI18n[this.props.list.currentLanguage].title}</h1>
+                          <h1 className="campaign__title">{entry.contentI18n[currentLanguage].title}</h1>
                           <p className="campaign__sponsor">{entry.sponsor}</p>
                           <p className="campaign__date">{TextFormatService.shortDate(entry.startDate)} - {TextFormatService.shortDate(entry.endDate)}
                             {

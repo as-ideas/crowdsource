@@ -1,14 +1,15 @@
 package de.asideas.crowdsource.presentation.ideascampaign;
 
-import java.util.Objects;
+import de.asideas.crowdsource.domain.model.ideascampaign.IdeasCampaignContentI18nMap;
+import de.asideas.crowdsource.domain.model.ideascampaign.IdeasCampaignEntity;
+import org.joda.time.DateTime;
+import org.slf4j.Logger;
+
 import javax.validation.Valid;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
-import de.asideas.crowdsource.controller.ideascampaign.IdeaController;
-import de.asideas.crowdsource.domain.model.ideascampaign.IdeasCampaignContentI18nMap;
-import org.joda.time.DateTime;
-import de.asideas.crowdsource.domain.model.ideascampaign.IdeasCampaignEntity;
-import org.slf4j.Logger;
+import java.util.Objects;
+
 import static org.slf4j.LoggerFactory.getLogger;
 
 
@@ -35,7 +36,7 @@ public class IdeasCampaign {
     private IdeasCampaignContentI18nMap contentI18n;
 
 
-    private static final Logger log = getLogger(IdeaController.class);
+    private static final Logger log = getLogger(IdeasCampaign.class);
 
 
     private IdeasCampaign() {
@@ -43,8 +44,8 @@ public class IdeasCampaign {
 
     public IdeasCampaign(IdeasCampaignEntity input) {
 
-        log.debug(input.toString());
-        log.info(input.toString());
+//        log.debug(input.toString());
+//        log.info(input.toString());
 
         this.id = input.getId();
         this.startDate = input.getStartDate();

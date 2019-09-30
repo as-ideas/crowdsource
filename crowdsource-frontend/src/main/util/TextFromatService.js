@@ -7,6 +7,7 @@ TextFormatService.shortDate = (date) => {
   }
 
   date = (typeof date === 'string') ? new Date(date) : date;
+  date = (typeof date === 'number') ? new Date(date) : date;
 
   let year = date.getFullYear();
   let mm = date.getMonth() + 1;

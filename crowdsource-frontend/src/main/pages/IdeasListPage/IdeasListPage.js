@@ -1,10 +1,11 @@
 import React from "react";
 import IdeaTeaser from "./IdeaTeaser";
 import ContentHero from "../../layout/ContentHero";
-import IdeaTitle from "./IdeaTitle";
+import IdeaTile from "./IdeaTile";
 import IdeaService from "../../util/IdeaService";
 import {Trans} from '@lingui/macro';
 import LoadMore from "../../layout/LoadMore";
+import IdeaAdd from "./IdeaAdd";
 
 export default class IdeasListPage extends React.Component {
   constructor(props, context) {
@@ -18,16 +19,25 @@ export default class IdeasListPage extends React.Component {
 
     this.loadMore = this.loadMore.bind(this);
     this.setFilter = this.setFilter.bind(this);
+    this.useIdeasResponse = this.useIdeasResponse.bind(this);
   }
 
   componentDidMount() {
-    // this is the current campaign!
-    let ideaId = this.props.match.params.ideasId;
+    // this is the current campaign id!
+    let ideaId = this.getCurrentCampaignId();
+
     IdeaService.getCampaign(ideaId)
       .then((campaign) => {
         this.state.campaign = campaign;
+        this.setState(this.state);
       })
       .catch(error => console.error(error));
+
+    this.setFilter('ALL');
+  }
+
+  getCurrentCampaignId() {
+    return this.props.match.params.ideasId;
   }
 
   setFilter(filter) {
@@ -38,41 +48,51 @@ export default class IdeasListPage extends React.Component {
     this.loadMore(0);
   }
 
+  useIdeasResponse(ideasResponse) {
+    this.state.ideas = [...ideasResponse.content];
+
+    // delete the content, we only want the PAGE object stuff
+    delete ideasResponse.content;
+    this.state.paging = ideasResponse;
+
+    this.setState(this.state);
+  };
+
   loadMore(page) {
-    let useIdeasResponse = (ideas) => {
-      this.state.ideas = [...ideas.content];
-      delete ideas.content;
-      this.state.paging = ideas;
-    };
+    let campaignId = this.getCurrentCampaignId();
 
     switch (this.state.selectedFilter) {
-      case 'FILTER_ALL': {
-        IdeaService.getAll(this.state.campaign.id, page)
-          .then(useIdeasResponse)
+      case 'ALL': {
+        IdeaService.getAll(campaignId, page)
+          .then(this.useIdeasResponse)
           .catch(console.error);
         break;
       }
-      case 'FILTER_VOTED': {
-        IdeaService.getAlreadyVoted(this.state.campaign.id, true, page)
-          .then(useIdeasResponse)
+      case 'VOTED': {
+        IdeaService.getAlreadyVoted(campaignId, true, page)
+          .then(this.useIdeasResponse)
           .catch(console.error);
         break;
       }
-      case 'FILTER_NOT_VOTED': {
-        IdeaService.getAlreadyVoted(this.state.campaign.id, false, page)
-          .then(useIdeasResponse)
+      case 'NOT_VOTED': {
+        IdeaService.getAlreadyVoted(campaignId, false, page)
+          .then(this.useIdeasResponse)
           .catch(console.error);
         break;
       }
       default:
-        console.error("Unkown filter!");
+        console.error("Unkown filter!", this.state.selectedFilter);
     }
   }
 
+  reloadOwnIdeas() {
+    console.info("reloadOwnIdeas");
+  }
 
   render() {
     let campaign = this.state.campaign;
     let selectedFilter = this.state.selectedFilter;
+    let ideas = this.state.ideas;
 
     return (
       <React.Fragment>
@@ -80,8 +100,7 @@ export default class IdeasListPage extends React.Component {
 
         <content-row overlay="ADD_IDEA_SUCCESS">
           <div className="container">
-            {/* FIXME add component*/}
-            <idea-add campaign={campaign} success-fn="ideasList.reloadOwnIdeas"/>
+            <IdeaAdd campaign={campaign} success-callback={this.reloadOwnIdeas}/>
           </div>
         </content-row>
 
@@ -115,9 +134,9 @@ export default class IdeasListPage extends React.Component {
               </ul>
               <div className="ideas-grid__container">
                 {
-                  this.state.ideas.map(idea => {
+                  ideas.map(idea => {
                     return <div className="ideas-grid__box" overlay="{{'VOTE_'+idea.id}}">
-                      <IdeaTitle campaign={ideasList.campaign} idea={idea}/>
+                      <IdeaTile campaign={campaign} idea={idea}/>
                     </div>
                   })
                 }
@@ -126,14 +145,14 @@ export default class IdeasListPage extends React.Component {
             </section>
 
             {
-              !ideasList.ideas.length ?
+              !ideas.length ?
                 <div className="ideas-grid__empty-label campaign-noentry">
                   <img className=" campaign-noentry__image" src={require('./../IntroPage/campaigns-not-available-robot.svg')}/>
                 </div> : null
             }
 
             {
-              !ideasList.paging.last ?
+              !this.state.paging.last ?
                 <LoadMore paging={this.state.paging}
                           no-more-label="IDEAS_LOAD_MORE_LABEL_NO_MORE"
                           load-more-label="'IDEAS_LOAD_MORE_LABEL'"

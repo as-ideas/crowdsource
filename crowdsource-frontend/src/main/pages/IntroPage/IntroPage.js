@@ -32,17 +32,12 @@ export default class IntroPage extends React.Component {
               this.isLoggedIn() ?
                 <div className="row">
                   <ContentHero
-                    title={<Trans id='OVERVIEW_CAMPAIGN_HEADLINE'/>}
-                    description={<Trans id='OVERVIEW_CAMPAIGN_DESCRIPTION'/>}
+                    title='OVERVIEW_CAMPAIGN_HEADLINE'
+                    description='OVERVIEW_CAMPAIGN_DESCRIPTION'
                   />
                   <IntroIdeasCampaignList/>
                 </div>
-                : null
-            }
-
-            {
-              !this.isLoggedIn() ?
-                <div className="campaign-login__container">
+                : <div className="campaign-login__container">
                   <ContentHero
                     title={<Trans id='INTRO_HEADLINE'/>}
                     description={<Trans id="INTRO_DESC"/>}
@@ -51,9 +46,7 @@ export default class IntroPage extends React.Component {
                     <Trans id='BUTTON_LABEL_REGISTER'>Register</Trans>
                   </button>
                 </div>
-                : null
             }
-
           </div>
         </content-row>
       </React.Fragment>

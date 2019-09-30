@@ -3,8 +3,13 @@ import TextFormatService from "../../util/TextFromatService";
 import {Trans} from "@lingui/macro";
 import TranslationService from "../../util/TranslationService";
 
+const DEFAULT_RATING = {
+  ownVote: 0,
+  averageRating: 0,
+  countVotes: 0
+};
 
-export default class IdeaTitle extends React.Component {
+export default class IdeaTile extends React.Component {
 
   isTranslated(currentLanguage) {
     let contentI18n = this.props.idea.contentI18n;
@@ -28,8 +33,11 @@ export default class IdeaTitle extends React.Component {
     let campaign = this.props.campaign;
     let campaignId = campaign.id;
     let idea = this.props.idea;
-    let rating = $scope.idea.rating || DEFAULT_RATING;
-    rating.averageRating = Math.round(vm.rating.averageRating * 10) / 10;
+
+    console.info("idea", idea);
+
+    let rating = idea.rating || DEFAULT_RATING;
+    rating.averageRating = Math.round(rating.averageRating * 10) / 10;
 
     let isVotingDisabled = !campaign.active || false;
     let rejectionComment = "";
@@ -102,7 +110,7 @@ export default class IdeaTitle extends React.Component {
 
 
           {
-            !(vm.idea.status === 'PUBLISHED') && vm.isAdminView ?
+            !(idea.status === 'PUBLISHED') && isAdminView ?
               <p className={idea.status === 'REJECTED' ? 'ideas-grid-tile__text--rejected' : 'ideas-grid-tile__text'}>
                 {idea.contentI18n.original.pitch} ({idea.creatorName})
               </p>
@@ -158,7 +166,8 @@ export default class IdeaTitle extends React.Component {
           {
             isEditable ?
               <div className="ideas-grid-tile__approval-container">
-                <idea-edit idea="vm.idea" cancel-fn="vm.cancelEdit" submit-fn="vm.update"></idea-edit>
+                {/* FIXME react */}
+                {/*<idea-edit idea="vm.idea" cancel-fn="vm.cancelEdit" submit-fn="vm.update"></idea-edit>*/}
               </div>
               : null
 
@@ -219,7 +228,7 @@ export default class IdeaTitle extends React.Component {
           }
 
           {
-            isTranslated && vm.isTranslationSelected && currentLanguage === 'en' ?
+            isTranslated && isTranslationSelected && currentLanguage === 'en' ?
               <div className="ideas-grid-tile__deepl_en" onClick={() => {
                 this.selectTranslation(false)
               }}/>
