@@ -5,6 +5,8 @@ import {t} from "@lingui/macro"
 import {Trans} from '@lingui/macro';
 import RoutingService from "../../util/RoutingService";
 import ValidationService from "../../util/ValidationService";
+import {I18n} from "@lingui/react";
+import {Helmet} from "react-helmet";
 
 export default class LoginPage extends React.Component {
   constructor(props, context) {
@@ -96,6 +98,13 @@ export default class LoginPage extends React.Component {
   render() {
     return (
       <React.Fragment>
+      <I18n>
+      {({ i18n }) => (
+        <Helmet>
+        <title>{i18n._(t("NAV_LABEL_LOGIN")`Login`)}</title>
+        </Helmet>
+      )}
+      </I18n>
         <div className='teaser--slim'/>
 
         <content-row className="login-form">
@@ -144,12 +153,16 @@ export default class LoginPage extends React.Component {
                   </label>
 
                   <div className="full-width">
+      <I18n>
+      {({ i18n }) => (
                     <input type="email"
                            name="email"
                            value={this.state.input.email}
                            onChange={this.handleEmailInputChange}
                            placeholder={i18n._(t`FORM_EMAIL_PLACEHOLDER`)}
                            required/>
+  )}
+  </I18n>
                   </div>
                 </div>
               </div>
@@ -170,13 +183,16 @@ export default class LoginPage extends React.Component {
                                             </span>
                         : <span className="valid-label"><Trans id='FORM_PASSWORD_LABEL'>Passwort</Trans></span>
                     }
-
+  <I18n>
+    {({ i18n }) => (
                     <input type="password"
                            name="password"
                            placeholder={i18n._(t`FORM_PASSWORD_PLACEHOLDER`)}
                            value={this.state.input.password}
                            onChange={this.handlePasswordInputChange}
                            required/>
+  )}
+  </I18n>
                   </label>
                 </div>
               </div>
