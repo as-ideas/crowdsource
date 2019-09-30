@@ -1,12 +1,21 @@
 import React from 'react'
 import './HelpView.scss'
-import { Trans } from '@lingui/macro';
+import {Helmet} from "react-helmet";
+import { I18n } from "@lingui/react"
+import { Trans,t } from '@lingui/macro';
 
 export default class HelpView extends React.Component {
 
   render () {
     return (
       <div className="content ng-scope" data-ng-view="" autoscroll="true">
+      <I18n>
+      {({ i18n }) => (
+        <Helmet>
+        <title>{i18n._(t("NAV_LABEL_HELP")`Übersicht`)}</title>
+        </Helmet>
+      )}
+      </I18n>
         <div className="teaser--slim ng-scope"></div>
 
         <content-row className="ng-scope">

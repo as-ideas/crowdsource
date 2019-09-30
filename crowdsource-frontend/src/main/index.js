@@ -4,21 +4,8 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import ImprintView from './pages/ImprintView/ImprintView.js';
 import PrivacyView from './pages/PrivacyView/PrivacyView.js';
 import AboutView from './pages/AboutView/AboutView.js';
-import HelpView from './pages/HelpView/HelpView.js';
+import HelpView from './pages/HelpView/HelpView';
 
-// I18n
-import {setupI18n} from "@lingui/core"
-import {I18nProvider} from '@lingui/react'
-import catalogDe from './locales/de/messages.js'
-import catalogEn from './locales/en/messages.js'
-
-export const i18n = setupI18n({
-  language: 'de',
-  catalogs: {
-    'de': catalogDe,
-    'en': catalogEn
-  }
-});
 
 // Services
 import RoutingService from "./util/RoutingService";
@@ -36,12 +23,17 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LogoutPage from "./pages/LogoutPage/LogoutPage";
 import IdeasListPage from "./pages/IdeasListPage/IdeasListPage";
+import {I18nProvider} from "@lingui/react";
+import {I18nContextConsumer, I18nContextProvider} from "./contexts/I18nContext";
 
 UnauthorizedInterceptor.init();
 AuthService.reloadUser();
 
 ReactDOM.render((
-  <I18nProvider i18n={i18n}>
+<I18nContextProvider>
+  <I18nContextConsumer>
+  { ({ language, catalogs, i18n }) => (
+  <I18nProvider language={ language } catalogs={ catalogs }>
     <BrowserRouter history={RoutingService.getHistory()}>
       <Layout>
         <Switch>
@@ -76,5 +68,9 @@ ReactDOM.render((
       </Layout>
     </BrowserRouter>
   </I18nProvider>
+  )}
+</I18nContextConsumer>
+</I18nContextProvider>
+
 ), document.getElementById('root'));
 

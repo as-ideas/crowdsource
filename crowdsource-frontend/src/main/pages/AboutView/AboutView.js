@@ -1,13 +1,23 @@
 import React from 'react'
 import './AboutView.scss'
-import { Trans } from '@lingui/macro';
 import teamfoto from './teamfoto.jpg'
+import {Helmet} from "react-helmet";
+import { I18n } from "@lingui/react"
+import { Trans,t } from '@lingui/macro';
 
 export default class AboutView extends React.Component {
 
   render() {
     return (
         <div className="content ng-scope" data-ng-view="" autoscroll="true">
+        <I18n>
+        {({ i18n }) => (
+          <Helmet>
+          <title>{i18n._(t("NAV_LABEL_ABOUT_US")`Über uns`)}</title>
+          </Helmet>
+        )}
+        </I18n>
+
           <div className="teaser--slim ng-scope"></div>
 
           <content-row className="ng-scope">
