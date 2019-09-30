@@ -3,9 +3,9 @@ import IntroHero from "./IntroHero";
 import ContentHero from "../../layout/ContentHero";
 import IntroIdeasCampaignList from "./IntroIdeasCampaignList";
 import AuthService from "../../util/AuthService";
-import IdeaService from "../../util/IdeaService";
-import RoutingService from "../../util/RoutingService";
-import {Trans} from '@lingui/macro';
+import {Helmet} from "react-helmet";
+import {Trans, t} from '@lingui/macro';
+import { I18n } from "@lingui/react"
 
 
 export default class IntroPage extends React.Component {
@@ -24,8 +24,14 @@ export default class IntroPage extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <IntroHero/>
-
+      <I18n>
+        {({ i18n }) => (
+        <Helmet>
+          <title>{i18n._(t("NAV_LABEL_OVERVIEW")`Übersicht`)}</title>
+        </Helmet>
+        )}
+      </I18n>
+      <IntroHero/>
         <content-row className="campaign">
           <div className="container">
             {
