@@ -3,70 +3,61 @@ import IntroHero from "./IntroHero";
 import ContentHero from "../../layout/ContentHero";
 import IntroIdeasCampaignList from "./IntroIdeasCampaignList";
 import AuthService from "../../util/AuthService";
-import IdeaService from "../../util/IdeaService";
+import {Helmet} from "react-helmet";
+import {Trans, t} from '@lingui/macro';
+import { I18n } from "@lingui/react"
 import RoutingService from "../../util/RoutingService";
-import { Trans } from '@lingui/macro';
+
 
 
 export default class IntroPage extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+  }
+
+  componentDidMount() {
+  }
+
+  isLoggedIn() {
+    return AuthService.currentUser.loggedIn;
+  }
 
 
-    constructor(props, context) {
-        super(props, context);
-        this.state = {ideas: []};
-    }
-
-    componentDidMount() {
-        this.loadIdeaCampaigns();
-    }
-
-    isLoggedIn() {
-        return AuthService.currentUser.loggedIn;
-    }
-
-    loadIdeaCampaigns() {
-        IdeaService.getCampaigns()
-            .then((response) => {
-                this.setState({ideas: response});
-            });
-    }
-
-    render() {
-        return (
-            <React.Fragment>
-                <IntroHero/>
-
-                <content-row className="campaign">
-                    <div className="container">
-                        {
-                            this.isLoggedIn() ?
-                                <div className="row">
-                                    <ContentHero
-                                        title={<Trans id='OVERVIEW_CAMPAIGN_HEADLINE' />}
-                                        description={<Trans id='OVERVIEW_CAMPAIGN_DESCRIPTION' />}
-                                    />
-                                    <IntroIdeasCampaignList list={this.state.ideas}/>
-                                </div>
-                                : null
-                        }
-
-                        {
-                            !this.isLoggedIn() ?
-                                <div className="campaign-login__container">
-                                    <ContentHero
-                                        title={<Trans id='INTRO_HEADLINE' />}
-                                        description={<Trans id="INTRO_DESC" />}
-                                    />
-                                    <button className="button-primary" onClick={RoutingService.goToSignUpPage} translate="BUTTON_LABEL_REGISTER">
-                                        <Trans id='BUTTON_LABEL_REGISTER'>Register</Trans>
-                                    </button>
-                                </div>
-                                : null
-                        }
-
-                    </div>
-                </content-row>
-            </React.Fragment>
-        )
-    };
+  render() {
+    return (
+      <React.Fragment>
+      <I18n>
+        {({ i18n }) => (
+        <Helmet>
+          <title>{i18n._(t("NAV_LABEL_OVERVIEW")`Übersicht`)}</title>
+        </Helmet>
+        )}
+      </I18n>
+      <IntroHero/>
+        <content-row className="campaign">
+          <div className="container">
+            {
+              this.isLoggedIn() ?
+                <div className="row">
+                  <ContentHero
+                    title='OVERVIEW_CAMPAIGN_HEADLINE'
+                    description='OVERVIEW_CAMPAIGN_DESCRIPTION'
+                  />
+                  <IntroIdeasCampaignList/>
+                </div>
+                : <div className="campaign-login__container">
+                  <ContentHero
+                    title={<Trans id='INTRO_HEADLINE'/>}
+                    description={<Trans id="INTRO_DESC"/>}
+                  />
+                  <button className="button-primary" onClick={RoutingService.goToSignUpPage}>
+                    <Trans id='BUTTON_LABEL_REGISTER'>Register</Trans>
+                  </button>
+                </div>
+            }
+          </div>
+        </content-row>
+      </React.Fragment>
+    )
+  };
 };

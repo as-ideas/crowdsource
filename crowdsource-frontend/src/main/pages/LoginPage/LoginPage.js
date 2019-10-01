@@ -1,11 +1,12 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
 import AuthService from "../../util/AuthService";
-import {i18n} from "../../index"
 import {t} from "@lingui/macro"
 import {Trans} from '@lingui/macro';
 import RoutingService from "../../util/RoutingService";
 import ValidationService from "../../util/ValidationService";
+import {I18n} from "@lingui/react";
+import {Helmet} from "react-helmet";
 
 export default class LoginPage extends React.Component {
   constructor(props, context) {
@@ -29,18 +30,15 @@ export default class LoginPage extends React.Component {
     if (this.validateForm()) {
       this.state.errors.general = [];
       AuthService.login(this.state.input.email, this.state.input.password)
-        .then(() => {
-          if (resposne.errorCode) {
-            this.state.errors = ValidationService.errorObjectFromBackend(resposne);
+        .then((response) => {
+          if (response.errorCode) {
+            this.state.errors = ValidationService.errorObjectFromBackend(response);
             this.setState(this.state);
           } else {
             RoutingService.redirectToOriginallyRequestedPageOr('/');
           }
         })
-        .catch((errorCode) => {
-          console.error("Error", errorCode);
-          this.state.errors.general = [errorCode];
-        })
+        .catch(console.error)
         .finally(() => {
           this.setState({loading: false});
         });
@@ -82,24 +80,16 @@ export default class LoginPage extends React.Component {
     return Object.keys(this.state.errors).length === 0;
   }
 
-  // GENERAL ERRORS
-
-  // EMAIL ERRORS
-  // <div ng-message="required"><span translate="FORM_EMAIL_ERROR_REQUIRED"></span></div>
-  // <div ng-message="email"><span translate="FORM_EMAIL_ERROR_INVALID"></span></div>
-  // <div ng-message="remote_eligible"><span translate="FORM_EMAIL_ERROR_INVALID_UNIT"></span></div>
-  // <div ng-message="non_blacklisted_email"><span translate="FORM_EMAIL_ERROR_INVALID_BLACKLIST"></span></div>
-  // <div ng-message="remote_not_activated">
-  //      <span translate="FORM_EMAIL_ERROR_ALREADY_ACTIVATED_1">
-  //         <NavLink to="/passwordrecovery">{TranslationService.translate('FORM_EMAIL_ERROR_ALREADY_ACTIVATED_2')}</NavLink>
-  //      </span>
-  // </div>
-
-  // PASSWORD ERRORS
-  // <div ng-message="required"><span translate="FORM_PASSWORD_ERROR_REQUIRED"></span></div>
   render() {
     return (
       <React.Fragment>
+      <I18n>
+      {({ i18n }) => (
+        <Helmet>
+        <title>{i18n._(t("NAV_LABEL_LOGIN")`Login`)}</title>
+        </Helmet>
+      )}
+      </I18n>
         <div className='teaser--slim'/>
 
         <content-row className="login-form">
@@ -148,12 +138,16 @@ export default class LoginPage extends React.Component {
                   </label>
 
                   <div className="full-width">
+      <I18n>
+      {({ i18n }) => (
                     <input type="email"
                            name="email"
                            value={this.state.input.email}
                            onChange={this.handleEmailInputChange}
                            placeholder={i18n._(t`FORM_EMAIL_PLACEHOLDER`)}
                            required/>
+  )}
+  </I18n>
                   </div>
                 </div>
               </div>
@@ -174,13 +168,16 @@ export default class LoginPage extends React.Component {
                                             </span>
                         : <span className="valid-label"><Trans id='FORM_PASSWORD_LABEL'>Passwort</Trans></span>
                     }
-
+  <I18n>
+    {({ i18n }) => (
                     <input type="password"
                            name="password"
                            placeholder={i18n._(t`FORM_PASSWORD_PLACEHOLDER`)}
                            value={this.state.input.password}
                            onChange={this.handlePasswordInputChange}
                            required/>
+  )}
+  </I18n>
                   </label>
                 </div>
               </div>
@@ -196,7 +193,7 @@ export default class LoginPage extends React.Component {
                     }
                   </div>
                   <div className="text--small push--top">
-                    <Trans id='LOGIN_REGISTER' values={{link: <a href='#/signup'><Trans id='LOGIN_REGISTER_LINK'/></a>}}/>
+                    <Trans id='LOGIN_REGISTER' values={{link: <NavLink to='/signup'><Trans id='LOGIN_REGISTER_LINK'/></NavLink>}}/>
                   </div>
                 </div>
               </div>

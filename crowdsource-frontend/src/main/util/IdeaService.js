@@ -28,7 +28,7 @@ class IdeaService {
 
 
   getCampaign(id) {
-    return new Promise(function (resolve, reject) {
+    return new Promise((resolve, reject) => {
       this.currentCampaign = null;
 
       fetch(`/ideas_campaigns/${id}`, {
@@ -36,12 +36,11 @@ class IdeaService {
       }).then(response => {
         return response.json()
       }).then((jsonData) => {
-          this.currentCampaign = jsonData;
-          resolve(this.currentCampaign);
-        },
-        function (response) {
-          reject(response);
-        })
+        this.currentCampaign = jsonData;
+        resolve(this.currentCampaign);
+      }).catch(error => {
+        reject(error);
+      });
     });
   }
 
@@ -64,7 +63,7 @@ class IdeaService {
   }
 
   getOwnIdeas(campaignId) {
-    fetch(`/ideas_campaigns/${campaignId}/my_ideas`, {
+    return fetch(`/ideas_campaigns/${campaignId}/my_ideas`, {
       method: 'GET'
     }).then(response => {
       return response.json()
@@ -72,41 +71,49 @@ class IdeaService {
   }
 
   getIdeasWithStatus(campaignId, status) {
-    fetch(`/ideas_campaigns/${campaignId}/ideas}`, {
+    let url = `/ideas_campaigns/${campaignId}/ideas}`;
+    let params = {
+      status: status
+    };
+    url = this.appendParameterToUrl(url, params);
+
+    return fetch(url, {
       method: 'GET',
-      body: JSON.stringify({
-        status: status
-      })
     }).then(response => {
       return response.json()
     })
   }
 
   getAll(campaignId, _page) {
-    var page = _page === undefined ? 0 : _page;
+    let url = `/ideas_campaigns/${campaignId}/ideas`;
+    let page = _page === undefined ? 0 : _page;
+    let params = {
+      page: page,
+      pageSize: DEFAULT_PAGE_SIZE
+    };
+    url = this.appendParameterToUrl(url, params);
 
-    fetch(`/ideas_campaigns/${campaignId}/ideas`, {
+
+    return fetch(url, {
       method: 'GET',
-      body: JSON.stringify({
-        page: page,
-        pageSize: DEFAULT_PAGE_SIZE
-      })
     }).then(response => {
       return response.json()
     })
   }
 
   getAlreadyVoted(campaignId, alreadyVoted, page) {
-    fetch(`/ideas_campaigns/${campaignId}/ideas/filtered`, {
-      method: 'GET',
-      body: JSON.stringify({
-        alreadyVoted: alreadyVoted,
-        page: page,
-        pageSize: DEFAULT_PAGE_SIZE
+    let url = `/ideas_campaigns/${campaignId}/ideas/filtered`;
+    let params = {
+      alreadyVoted: alreadyVoted,
+      page: page,
+      pageSize: DEFAULT_PAGE_SIZE
+    };
+    url = this.appendParameterToUrl(url, params);
+
+    return fetch(url)
+      .then(response => {
+        return response.json()
       })
-    }).then(response => {
-      return response.json()
-    })
   }
 
   voteIdea(campaignId, ideaId, voting) {
@@ -138,6 +145,15 @@ class IdeaService {
     }).then(response => {
       return response.json()
     })
+  }
+
+  appendParameterToUrl(url, params) {
+    url += "?";
+    let paramArray = [];
+    Object.keys(params).forEach(key => paramArray.push("" + key + "=" + params[key]));
+    url += paramArray.join("&");
+    console.info("appendParameterToUrl", url);
+    return url;
   }
 }
 

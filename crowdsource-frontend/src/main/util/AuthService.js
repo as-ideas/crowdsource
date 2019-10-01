@@ -1,5 +1,6 @@
 import UserService from "./UserService";
 import param from "jquery-param";
+import Events from "./Events";
 
 const TOKENS_LOCAL_STORAGE_KEY = 'tokens';
 
@@ -101,7 +102,7 @@ class AuthService {
         }
       }).then(jsonData => {
         this.authTokenService.setToken(jsonData);
-        resolve();
+        resolve(jsonData);
       }).finally(() => {
         this.reloadUser();
       });
@@ -117,6 +118,7 @@ class AuthService {
       this.userService.authenticated()
         .then((user) => {
           this.currentUser = user;
+          Events.emitUserStateListener();
         });
     } else {
       this.currentUser = this.userService.anonymous();
@@ -131,6 +133,7 @@ class AuthService {
   logout() {
     this.authTokenService.clear();
     this.currentUser = this.userService.anonymous();
+    Events.emitUserStateListener();
   };
 
 }

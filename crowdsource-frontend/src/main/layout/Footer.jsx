@@ -1,12 +1,33 @@
 import React from "react";
 import RoutingService from "../util/RoutingService";
+import AuthService from "../util/AuthService";
+import Events from "../util/Events";
 
 
 export default class Footer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isAdmin: false
+    }
+  }
+
+  componentDidMount() {
+    this.userChangedListener = Events.addUserStateChangedListener(this.userChanged.bind(this));
+  }
+
+  componentWillUnmount() {
+    this.userChangedListener.remove();
+  }
+
+  userChanged() {
+    this.state.isAdmin = AuthService.isAdmin();
+    this.setState(this.state);
+  }
 
     isAdmin() {
         // FIXME React footer.auth.isAdmin()
-        return true;
+        return this.state.isAdmin;
     }
 
     goToNewsletter() {
