@@ -1,8 +1,59 @@
 import React from 'react'
 import './HelpView.scss'
 import { Trans } from '@lingui/macro';
+//import {$, jQuery} from 'jquery';
+import 'foundation-sites';
+import Foundation from 'foundation-sites';
+//import { Accordion, AccordionItem, AccordionTitle, AccordionContent } from 'react-foundation';
+import { Accordion, AccordionItem, AccordionTitle, AccordionContent } from 'foundation-sites/js/foundation/foundation.accordion.js'
 
 export default class HelpView extends React.Component {
+
+  loadJsFile(filename){
+    var fileref=document.createElement('script')
+    fileref.setAttribute("type","text/javascript")
+    fileref.setAttribute("src", filename)
+
+    if (typeof fileref!="undefined"){
+      document.getElementsByTagName("head")[0].appendChild(fileref)
+    }
+  }
+
+
+
+
+  componentDidMount() {
+    console.log("load js")
+//    this.loadJsFile("https://code.jquery.com/jquery-3.4.1.min.js")
+//    this.loadJsFile("https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.3/js/foundation.min.js")
+//    this.loadJsFile("https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.3/js/plugins/foundation.core.min.js")
+//    this.loadJsFile("https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.3/js/plugins/foundation.util.mediaQuery.min.js")
+//    this.loadJsFile("https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.3/js/plugins/foundation.accordion.min.js")
+//    this.loadJsFile("https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.3/css/foundation.css")
+
+
+    $(document).ready(function () {
+      console.log("initialize foundation...")
+//      Foundation.addToJquery($);
+/*      $(document).foundation({
+        equalizer: {
+          // required to work with block grids
+          equalize_on_stack: true
+        }
+      });
+      console.log("foundation initialized")
+*/
+    });
+
+  }
+
+
+
+
+
+
+
+
 
   render () {
     return (
@@ -13,7 +64,7 @@ export default class HelpView extends React.Component {
           <div className="container" ng-transclude="">
             <content-hero className="ng-scope ng-isolate-scope">
               <div className="content-hero__container">
-                <h2 ng-className="{'content-hero__headline' : description, 'content-hero__headline--solo' : !description}" className="ng-binding content-hero__headline--solo">
+                <h2 className="ng-binding content-hero__headline--solo">
                   <Trans id="AS_SUPPORT_HELP_HEADLINE">Hilfe</Trans>
                 </h2>
                 <p className="content-hero__description ng-binding"></p>
@@ -32,16 +83,28 @@ export default class HelpView extends React.Component {
           <div className="container" ng-transclude="">
             <content-hero className="ng-scope ng-isolate-scope">
               <div className="content-hero__container">
-                <h2 ng-className="{'content-hero__headline' : description, 'content-hero__headline--solo' : !description}" className="ng-binding content-hero__headline--solo">
+                <h2 className="ng-binding content-hero__headline--solo">
                   <Trans id="AS_SUPPORT_FAQ_HEADLINE">FAQ</Trans>
                 </h2>
                 <p className="content-hero__description ng-binding"></p>
               </div>
             </content-hero>
 
-            <ul className="accordion flush ng-scope">
+
+
+
+
+
+            <ul className="accordion flush">
+
+              <accordion-item>
+                  <Trans id="AS_SUPPORT_FAQ_ACCORDION_ITEM_1_HEADLINE">Was ist die Axel Springer Crowd?</Trans>
+              </accordion-item>
+
+
+
               <accordion-item className="ng-isolate-scope">
-                <li className="accordion-navigation accordion-active" ng-className="{ 'accordion-active': accordion.showContent }">
+                <li className="accordion-navigation accordion-item">
                   <a ng-click="accordion.showContent = !accordion.showContent" className="ng-binding">
                     <Trans id="AS_SUPPORT_FAQ_ACCORDION_ITEM_1_HEADLINE">Was ist die Axel Springer Crowd?</Trans>
                   </a>
@@ -53,7 +116,7 @@ export default class HelpView extends React.Component {
                 </li>
               </accordion-item>
               <accordion-item className="ng-isolate-scope">
-                <li className="accordion-navigation accordion-active" ng-className="{ 'accordion-active': accordion.showContent }">
+                <li className="accordion-navigation accordion-item">
                   <a ng-click="accordion.showContent = !accordion.showContent" className="ng-binding">
                     <Trans id="AS_SUPPORT_FAQ_ACCORDION_ITEM_2_HEADLINE">Wie kann ich mich bei Axel Springer Crowd registrieren?</Trans>
                   </a>
@@ -65,7 +128,7 @@ export default class HelpView extends React.Component {
                 </li>
               </accordion-item>
               <accordion-item className="ng-isolate-scope">
-                <li className="accordion-navigation accordion-active" ng-className="{ 'accordion-active': accordion.showContent }">
+                <li className="accordion-navigation accordion-active" >
                   <a ng-click="accordion.showContent = !accordion.showContent" className="ng-binding">
                     <Trans id="AS_SUPPORT_FAQ_ACCORDION_ITEM_3_HEADLINE">Which Axel Springer companies can participate?</Trans>
                   </a>
@@ -77,7 +140,7 @@ export default class HelpView extends React.Component {
                 </li>
               </accordion-item>
               <accordion-item className="ng-isolate-scope">
-                <li className="accordion-navigation accordion-active" ng-className="{ 'accordion-active': accordion.showContent }">
+                <li className="accordion-navigation accordion-active" >
                   <a ng-click="accordion.showContent = !accordion.showContent" className="ng-binding">
                     <Trans id="AS_SUPPORT_FAQ_ACCORDION_ITEM_4_HEADLINE">What is a marketplace?</Trans>
                   </a>
@@ -89,7 +152,7 @@ export default class HelpView extends React.Component {
                 </li>
               </accordion-item>
               <accordion-item className="ng-isolate-scope">
-                <li className="accordion-navigation accordion-active" ng-className="{ 'accordion-active': accordion.showContent }">
+                <li className="accordion-navigation accordion-active" >
                   <a ng-click="accordion.showContent = !accordion.showContent" className="ng-binding">
                     <Trans id="AS_SUPPORT_FAQ_ACCORDION_ITEM_5_HEADLINE">What's the deal with the "One more idea" marketplace?</Trans>
                   </a>
@@ -101,7 +164,7 @@ export default class HelpView extends React.Component {
                 </li>
               </accordion-item>
               <accordion-item className="ng-isolate-scope">
-                <li className="accordion-navigation accordion-active" ng-className="{ 'accordion-active': accordion.showContent }">
+                <li className="accordion-navigation accordion-active" >
                   <a ng-click="accordion.showContent = !accordion.showContent" className="ng-binding">
                     <Trans id="AS_SUPPORT_FAQ_ACCORDION_ITEM_6_HEADLINE">How often do new marketplaces appear?</Trans>
                   </a>
@@ -113,7 +176,7 @@ export default class HelpView extends React.Component {
                 </li>
               </accordion-item>
               <accordion-item className="ng-isolate-scope">
-                <li className="accordion-navigation accordion-active" ng-className="{ 'accordion-active': accordion.showContent }">
+                <li className="accordion-navigation accordion-active" >
                   <a ng-click="accordion.showContent = !accordion.showContent" className="ng-binding">
                     <Trans id="AS_SUPPORT_FAQ_ACCORDION_ITEM_7_HEADLINE">Can I also submit ideas for a marketplace?</Trans>
                   </a>
@@ -125,7 +188,7 @@ export default class HelpView extends React.Component {
                 </li>
               </accordion-item>
               <accordion-item className="ng-isolate-scope">
-                <li className="accordion-navigation accordion-active" ng-className="{ 'accordion-active': accordion.showContent }">
+                <li className="accordion-navigation accordion-active" >
                   <a ng-click="accordion.showContent = !accordion.showContent" className="ng-binding">
                     <Trans id="AS_SUPPORT_FAQ_ACCORDION_ITEM_8_HEADLINE">In which format do I submit ideas?</Trans>
                   </a>
@@ -137,7 +200,7 @@ export default class HelpView extends React.Component {
                 </li>
               </accordion-item>
               <accordion-item className="ng-isolate-scope">
-                <li className="accordion-navigation accordion-active" ng-className="{ 'accordion-active': accordion.showContent }">
+                <li className="accordion-navigation accordion-active" >
                   <a ng-click="accordion.showContent = !accordion.showContent" className="ng-binding">
                     <Trans id="AS_SUPPORT_FAQ_ACCORDION_ITEM_9_HEADLINE">Why is the number of characters for an idea limited?</Trans>
                   </a>
@@ -149,7 +212,7 @@ export default class HelpView extends React.Component {
                 </li>
               </accordion-item>
               <accordion-item className="ng-isolate-scope">
-                <li className="accordion-navigation accordion-active" ng-className="{ 'accordion-active': accordion.showContent }">
+                <li className="accordion-navigation accordion-active" >
                   <a ng-click="accordion.showContent = !accordion.showContent" className="ng-binding">
                     <Trans id="AS_SUPPORT_FAQ_ACCORDION_ITEM_10_HEADLINE">In which language should I submit my idea?</Trans>
                   </a>
@@ -161,7 +224,7 @@ export default class HelpView extends React.Component {
                 </li>
               </accordion-item>
               <accordion-item className="ng-isolate-scope">
-                <li className="accordion-navigation accordion-active" ng-className="{ 'accordion-active': accordion.showContent }">
+                <li className="accordion-navigation accordion-active" >
                   <a ng-click="accordion.showContent = !accordion.showContent" className="ng-binding">
                     <Trans id="AS_SUPPORT_FAQ_ACCORDION_ITEM_11_HEADLINE">How is my idea translated and what is DeepL?</Trans>
                   </a>
@@ -173,7 +236,7 @@ export default class HelpView extends React.Component {
                 </li>
               </accordion-item>
               <accordion-item className="ng-isolate-scope">
-                <li className="accordion-navigation accordion-active" ng-className="{ 'accordion-active': accordion.showContent }">
+                <li className="accordion-navigation accordion-active" >
                   <a ng-click="accordion.showContent = !accordion.showContent" className="ng-binding">
                     <Trans id="AS_SUPPORT_FAQ_ACCORDION_ITEM_12_HEADLINE">Can I edit my idea later on?</Trans>
                   </a>
@@ -185,7 +248,7 @@ export default class HelpView extends React.Component {
                 </li>
               </accordion-item>
               <accordion-item className="ng-isolate-scope">
-                <li className="accordion-navigation accordion-active" ng-className="{ 'accordion-active': accordion.showContent }">
+                <li className="accordion-navigation accordion-active" >
                   <a ng-click="accordion.showContent = !accordion.showContent" className="ng-binding">
                     <Trans id="AS_SUPPORT_FAQ_ACCORDION_ITEM_13_HEADLINE">Who is releasing my idea?</Trans>
                   </a>
@@ -197,7 +260,7 @@ export default class HelpView extends React.Component {
                 </li>
               </accordion-item>
               <accordion-item className="ng-isolate-scope">
-                <li className="accordion-navigation accordion-active" ng-className="{ 'accordion-active': accordion.showContent }">
+                <li className="accordion-navigation accordion-active" >
                   <a ng-click="accordion.showContent = !accordion.showContent" className="ng-binding">
                     <Trans id="AS_SUPPORT_FAQ_ACCORDION_ITEM_14_HEADLINE">Which rules apply to the release and rejection of an idea?</Trans>
                   </a>
@@ -209,7 +272,7 @@ export default class HelpView extends React.Component {
                 </li>
               </accordion-item>
               <accordion-item className="ng-isolate-scope">
-                <li className="accordion-navigation accordion-active" ng-className="{ 'accordion-active': accordion.showContent }">
+                <li className="accordion-navigation accordion-active" >
                   <a ng-click="accordion.showContent = !accordion.showContent" className="ng-binding">
                     <Trans id="AS_SUPPORT_FAQ_ACCORDION_ITEM_15_HEADLINE">How long does take until my idea is released?</Trans>
                   </a>
@@ -221,7 +284,7 @@ export default class HelpView extends React.Component {
                 </li>
               </accordion-item>
               <accordion-item className="ng-isolate-scope">
-                <li className="accordion-navigation accordion-active" ng-className="{ 'accordion-active': accordion.showContent }">
+                <li className="accordion-navigation accordion-active" >
                   <a ng-click="accordion.showContent = !accordion.showContent" className="ng-binding">
                     <Trans id="AS_SUPPORT_FAQ_ACCORDION_ITEM_16_HEADLINE">When can an idea be voted on?</Trans>
                   </a>
@@ -233,7 +296,7 @@ export default class HelpView extends React.Component {
                 </li>
               </accordion-item>
               <accordion-item className="ng-isolate-scope">
-                <li className="accordion-navigation accordion-active" ng-className="{ 'accordion-active': accordion.showContent }">
+                <li className="accordion-navigation accordion-active" >
                   <a ng-click="accordion.showContent = !accordion.showContent" className="ng-binding">
                     <Trans id="AS_SUPPORT_FAQ_ACCORDION_ITEM_17_HEADLINE">Can I change my voting later on?</Trans>
                   </a>
@@ -245,7 +308,7 @@ export default class HelpView extends React.Component {
                 </li>
               </accordion-item>
               <accordion-item className="ng-isolate-scope">
-                <li className="accordion-navigation accordion-active" ng-className="{ 'accordion-active': accordion.showContent }">
+                <li className="accordion-navigation accordion-active" >
                   <a ng-click="accordion.showContent = !accordion.showContent" className="ng-binding">
                     <Trans id="AS_SUPPORT_FAQ_ACCORDION_ITEM_18_HEADLINE">Who should I contact if I have any questions about a rejection?</Trans>
                   </a>
@@ -257,7 +320,7 @@ export default class HelpView extends React.Component {
                 </li>
               </accordion-item>
               <accordion-item className="ng-isolate-scope">
-                <li className="accordion-navigation accordion-active" ng-className="{ 'accordion-active': accordion.showContent }">
+                <li className="accordion-navigation accordion-active" >
                   <a ng-click="accordion.showContent = !accordion.showContent" className="ng-binding">
                     <Trans id="AS_SUPPORT_FAQ_ACCORDION_ITEM_19_HEADLINE">How are the winners of a marketplace selected?</Trans>
                   </a>
@@ -269,7 +332,7 @@ export default class HelpView extends React.Component {
                 </li>
               </accordion-item>
               <accordion-item className="ng-isolate-scope">
-                <li className="accordion-navigation accordion-active" ng-className="{ 'accordion-active': accordion.showContent }">
+                <li className="accordion-navigation accordion-active" >
                   <a ng-click="accordion.showContent = !accordion.showContent" className="ng-binding">
                     <Trans id="AS_SUPPORT_FAQ_ACCORDION_ITEM_20_HEADLINE">Do winners receive a reward or bonus?</Trans>
                   </a>
@@ -281,7 +344,7 @@ export default class HelpView extends React.Component {
                 </li>
               </accordion-item>
               <accordion-item className="ng-isolate-scope">
-                <li className="accordion-navigation accordion-active" ng-className="{ 'accordion-active': accordion.showContent }">
+                <li className="accordion-navigation accordion-active" >
                   <a ng-click="accordion.showContent = !accordion.showContent" className="ng-binding">
                     <Trans id="AS_SUPPORT_FAQ_ACCORDION_ITEM_21_HEADLINE">Where can I find information about innovation?</Trans>
                   </a>
@@ -293,7 +356,7 @@ export default class HelpView extends React.Component {
                 </li>
               </accordion-item>
               <accordion-item className="ng-isolate-scope">
-                <li className="accordion-navigation accordion-active" ng-className="{ 'accordion-active': accordion.showContent }">
+                <li className="accordion-navigation accordion-active" >
                   <a ng-click="accordion.showContent = !accordion.showContent" className="ng-binding">
                     <Trans id="AS_SUPPORT_FAQ_ACCORDION_ITEM_22_HEADLINE">In which countries is Axel Springer Crowd available?</Trans>
                   </a>
@@ -305,7 +368,7 @@ export default class HelpView extends React.Component {
                 </li>
               </accordion-item>
               <accordion-item className="ng-isolate-scope">
-                <li className="accordion-navigation accordion-active" ng-className="{ 'accordion-active': accordion.showContent }">
+                <li className="accordion-navigation accordion-active" >
                   <a ng-click="accordion.showContent = !accordion.showContent" className="ng-binding">
                     <Trans id="AS_SUPPORT_FAQ_ACCORDION_ITEM_23_HEADLINE">On what Agreement is Axel Springer Crowd operated?</Trans>
                   </a>
