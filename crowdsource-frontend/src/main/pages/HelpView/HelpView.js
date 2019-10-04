@@ -12,7 +12,7 @@ export default class HelpView extends React.Component {
 
   render() {
 
-    var numberOfItems = 23;
+    var numberOfItems = 22;
     var accordionList = [];
 
     for (var i = 1; i <= numberOfItems; i++) {
