@@ -57,13 +57,13 @@ export default class Footer extends React.Component {
                         </ul>
                         <ul className="footer__col">
                             <li className="footer__item-head" translate="AS_FOOTER_SITEMAP">Sitemap</li>
-                            <li><a className="footer-link" href="#/intro" translate="AS_FOOTER_LINK_INTRO">Entdecken</a></li>
-                            <li><a className="footer-link" href="#/help" translate="AS_FOOTER_LINK_SUPPORT">Hilfe</a></li>
+                            <li><a className="footer-link" href="/intro" translate="AS_FOOTER_LINK_INTRO">Entdecken</a></li>
+                            <li><a className="footer-link" href="/help" translate="AS_FOOTER_LINK_SUPPORT">Hilfe</a></li>
                             {
                                 this.isAdmin() ?
                                     <React.Fragment>
                                         <li className="footer__item-head--nextrow">Admin</li>
-                                        <li><a className="footer-link" href="#/statistics">Statistik</a></li>
+                                        <li><a className="footer-link" href="/statistics">Statistik</a></li>
                                     </React.Fragment>
                                     : null
                             }
