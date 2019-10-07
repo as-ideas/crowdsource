@@ -71,9 +71,9 @@ export default class Footer extends React.Component {
                         </ul>
                         <ul className="footer__col">
                             <li className="footer__item-head" translate="AS_FOOTER_INFORMATION">Informationen</li>
-                            <li><a className="footer-link" href="#/about" translate="AS_FOOTER_LINK_ABOUT_US">Über uns</a></li>
-                            <li><a className="footer-link" href="#/imprint" translate="AS_FOOTER_LINK_IMPRINT">Impressum</a></li>
-                            <li><a className="footer-link" href="#/privacy" translate="AS_FOOTER_LINK_PRIVACY_POLICY">Datenschutzerklärung</a></li>
+                            <li><a className="footer-link" href="/about" translate="AS_FOOTER_LINK_ABOUT_US">Über uns</a></li>
+                            <li><a className="footer-link" href="/imprint" translate="AS_FOOTER_LINK_IMPRINT">Impressum</a></li>
+                            <li><a className="footer-link" href="/privacy" translate="AS_FOOTER_LINK_PRIVACY_POLICY">Datenschutzerklärung</a></li>
                         </ul>
                         <ul className="footer__col">
                             <li>
