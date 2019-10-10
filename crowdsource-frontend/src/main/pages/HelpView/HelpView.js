@@ -18,16 +18,14 @@ export default class HelpView extends React.Component {
     for (var i = 1; i <= numberOfItems; i++) {
       const titleString = "AS_SUPPORT_FAQ_ACCORDION_ITEM_" + i + "_HEADLINE";
       const contentString = "AS_SUPPORT_FAQ_ACCORDION_ITEM_" + i + "_PARAGRAPH";
-      const contentBody =
-        <I18n>
-          {({ i18n }) => (
-            <div dangerouslySetInnerHTML={{__html: i18n._(contentString)}} />
-          )}
-        </I18n>
 
       accordionList.push(
         <AccordionComponent title={<Trans id={titleString}/>} key={titleString}>
-          {contentBody}
+          <I18n>
+            {({ i18n }) => (
+              <div dangerouslySetInnerHTML={{__html: i18n._(contentString)}} />
+            )}
+          </I18n>
         </AccordionComponent>
       )
     }
