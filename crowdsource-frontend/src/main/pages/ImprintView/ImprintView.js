@@ -62,14 +62,6 @@ export default class ImprintView extends React.Component {
 
             <br className="ng-scope" />
 
-            <h4 className="ng-scope">
-              <Trans id="AS_IMPRINT_COPYRIGHTS_HEADLINE">
-                Bildrechte
-              </Trans>
-            </h4>
-
-            <p className="ng-scope"><Trans id="AS_IMPRINT_COPYRIGHTS_P" /></p>
-
           </div>
         </content-row>
       </div>

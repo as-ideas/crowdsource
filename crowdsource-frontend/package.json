@@ -6,7 +6,6 @@
     "@lingui/react": "^2.8.3",
     "fbemitter": "^2.1.1",
     "fetch-intercept": "^2.3.1",
-    "html-to-react": "^1.4.2",
     "jquery-param": "^1.0.2",
     "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
