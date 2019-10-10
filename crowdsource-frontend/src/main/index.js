@@ -27,6 +27,7 @@ import LogoutPage from "./pages/LogoutPage/LogoutPage";
 import IdeasListPage from "./pages/IdeasListPage/IdeasListPage";
 import {I18nProvider} from "@lingui/react";
 import {I18nContextConsumer, I18nContextProvider} from "./contexts/I18nContext";
+import DebugView from "./pages/DebugView/DebugView";
 
 UnauthorizedInterceptor.init();
 AuthService.reloadUser();
@@ -65,7 +66,8 @@ ReactDOM.render((
           <Route exact path='/privacy' component={PrivacyView}/>
           {/*<Route exact path='/error/notfound' component={NotFoundView}/>*/}
           {/*<Route exact path='/error/forbidden' component={ForbiddenView}/>*/}
-          {/*<Route exact path='/error/unknown' component={UnknownView}/>*/}
+        {/*<Route exact path='/error/unknown' component={UnknownView}/>*/}
+        <Route exact path='/debug' component={DebugView}/>
           <Route component={IntroPage}/>
         </Switch>
   </Layout>
