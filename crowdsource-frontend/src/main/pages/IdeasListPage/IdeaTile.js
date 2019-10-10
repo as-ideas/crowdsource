@@ -209,7 +209,7 @@ export default class IdeaTile extends React.Component {
           {
             !isAdminView && (idea.status === 'PROPOSED') && !isEditable ?
               <div className="ideas-grid-tile__edit-container">
-                <button campaign-active-aware
+                <button disabled={!campaign.active}
                         ng-click="vm.edit()"
                         className="button-secondary--fullwidth">
                   <Trans id="BUTTON_LABEL_EDIT">Bearbeiten</Trans>
