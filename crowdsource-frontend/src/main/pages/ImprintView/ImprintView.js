@@ -33,8 +33,8 @@ export default class ImprintView extends React.Component {
             </address>
 
             <h4 className="ng-scope"><Trans id="AS_IMPRINT_CONTACT_HEADLINE">Kontakt</Trans></h4>
-            <p translate-value-email="<a href='mailto:crowd@asideas.de'>crowd@asideas.de</a>" className="ng-scope">
-              <Trans id="AS_IMPRINT_CONTACT_P">
+            <p className="ng-scope">
+              <Trans id="AS_IMPRINT_CONTACT_P" values={{email: <a href='mailto:crowd@asideas.de'>crowd@asideas.de</a>}}>
                 E-Mail: <a href="mailto:crowd@asideas.de">crowd@asideas.de</a><br/>
                 Telefon: 030 - 2591 78100<br/>
               </Trans>
