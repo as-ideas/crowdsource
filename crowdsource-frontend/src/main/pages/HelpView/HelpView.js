@@ -52,11 +52,9 @@ export default class HelpView extends React.Component {
               </div>
             </content-hero>
 
-            <I18n>
-              {({ i18n }) => (
-                <p translate-value-email="<a href='mailto:crowd@asideas.de'>crowd@asideas.de</a>" className="ng-scope" dangerouslySetInnerHTML={{__html: i18n._("AS_SUPPORT_HELP_P1")}} />
-              )}
-            </I18n>
+            <p className="ng-scope" >
+              <Trans id='AS_SUPPORT_HELP_P1' values={{email: <a href='mailto:crowd@asideas.de'>crowd@asideas.de</a>}}/>
+            </p>
 
             <p className="ng-scope">
               <Trans id="AS_SUPPORT_HELP_P2">Wir versuchen in jedem Fall, eine Lösung für Dein Problem zu
