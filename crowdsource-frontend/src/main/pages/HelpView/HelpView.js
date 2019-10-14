@@ -35,7 +35,7 @@ export default class HelpView extends React.Component {
         <I18n>
           {({i18n}) => (
             <Helmet>
-              <title>{i18n._(t("NAV_LABEL_HELP")`Übersicht`)}</title>
+              <title>{i18n._(t("NAV_LABEL_HELP")`Hilfe`)}</title>
             </Helmet>
           )}
         </I18n>
