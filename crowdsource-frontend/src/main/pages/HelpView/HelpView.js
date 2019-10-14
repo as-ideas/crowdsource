@@ -53,7 +53,7 @@ export default class HelpView extends React.Component {
             </content-hero>
 
             <p className="ng-scope" >
-              <Trans id='AS_SUPPORT_HELP_P1' values={{email: <a href='mailto:crowd@asideas.de'>crowd@asideas.de</a>}}/>
+              <Trans id='AS_SUPPORT_HELP_P1' values={{email: <a href='mailto:crowd@asideas.de'>crowd@asideas.de</a>, teams: <a href='https://teams.microsoft.com/l/channel/19%3a5e30dd1c7dba4b6fb3e91d87f680d827%40thread.skype/Allgemein?groupId=818a67d1-bd8b-4a54-a87f-b6aff587732a&tenantId=a1e7a36c-6a48-4768-9d65-3f679c0f3b12'>Microsoft Teams</a>}}/>
             </p>
 
             <p className="ng-scope">

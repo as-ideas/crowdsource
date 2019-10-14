@@ -169,19 +169,19 @@ msgstr "Dieser Service kann nur von Mitarbeitern mit einer E-Mail-Adresse mit g�
 
 #: 
 msgid "FORM_EMAIL_ERROR_INVALID_UNIT"
-msgstr "Deine Unit wird noch nicht unterstützt"
+msgstr "Dein Unternehmen wird noch nicht unterstützt. Weitere Informationen findest du in der FAQ."
 
 #: 
 msgid "FORM_EMAIL_ERROR_REQUIRED"
-msgstr "Bitte gib Deine E-Mail-Adresse ein"
+msgstr "Bitte gib deine E-Mail-Adresse ein"
 
 #: 
 msgid "FORM_EMAIL_LABEL"
-msgstr "E-Mail"
+msgstr "E-Mail (geschäftlich)"
 
 #: 
 msgid "FORM_EMAIL_PLACEHOLDER"
-msgstr "E-Mail"
+msgstr "E-Mail (geschäftlich)"
 
 #: 
 msgid "FORM_ERROR_MAX_CHARS"
@@ -197,7 +197,7 @@ msgstr "Es ist ein Fehler aufgetreten. Bitte versuche es erneut"
 
 #: 
 msgid "FORM_FORENAME_ERROR_REQUIRED"
-msgstr "Bitte gib Deinen Vornamen ein"
+msgstr "Bitte gib deinen Vornamen ein"
 
 #: 
 msgid "FORM_FORENAME_LABEL"
@@ -257,7 +257,7 @@ msgstr "Passwort wiederholen"
 
 #: 
 msgid "FORM_SURNAME_ERROR_REQUIRED"
-msgstr "Bitte gib Deinen Nachnamen ein"
+msgstr "Bitte gib deinen Nachnamen ein"
 
 #: 
 msgid "FORM_SURNAME_LABEL"
@@ -325,15 +325,15 @@ msgstr "Abgelehnte Ideen"
 
 #: 
 msgid "IDEAS_OWN_STATISTIC_LABEL_IDEAS_APPROVED"
-msgstr "Freigegebene Ideen"
+msgstr "Freigegeben"
 
 #: 
 msgid "IDEAS_OWN_STATISTIC_LABEL_IDEAS_PENDING"
-msgstr "Ausstehende Ideen"
+msgstr "Ausstehend"
 
 #: 
 msgid "IDEAS_OWN_STATISTIC_LABEL_IDEAS_REJECTED"
-msgstr "Abgelehnte Ideen"
+msgstr "Abgelehnt"
 
 #: 
 msgid "IDEAS_OWN_SUBMITTED_DESC"
@@ -353,7 +353,7 @@ msgstr "Unsere Ideen"
 
 #: 
 msgid "INTRO_DESC"
-msgstr "Werde Teil der Community! Hier geht’s zur Registrierung"
+msgstr "Sei dabei! Registriere dich jetzt!"
 
 #: 
 msgid "INTRO_HEADLINE"
@@ -525,7 +525,7 @@ msgstr "registrieren"
 
 #: 
 msgid "PASSWORD_RECOVERY_HEADLINE"
-msgstr "Passwort vergessen"
+msgstr "Passwort vergessen?"
 
 #: 
 msgid "PASSWORD_RECOVERY_LOGIN"
@@ -561,7 +561,7 @@ msgstr "Passwort neu setzen"
 
 #: 
 msgid "REGISTER_AGB"
-msgstr "Hiermit gestatte ich der Axel Springer SE mich für Neuigkeiten (bspw. Start einer Kampagne sowie Status meiner Idee) rund um Axel Springer Crowd  zu kontaktieren. Ich habe die Möglichkeit mich jederzeit vom Newsletter abzumelden. Dazu kann ich den Link in der Fußzeile unserer E-Mails betätigen. Weitere Informationen zum Datenschutz sind der Datenschutzerklärung zu entnehmen."
+msgstr "Hiermit gestatte ich der Axel Springer SE mich für Neuigkeiten (bspw. Start eines Marktplatzes sowie Status meiner Idee) rund um Axel Springer Crowd  zu kontaktieren. Ich habe die Möglichkeit mich jederzeit vom Newsletter abzumelden. Dazu kann ich den Link in der Fußzeile unserer E-Mails betätigen. Weitere Informationen zum Datenschutz sind der Datenschutzerklärung zu entnehmen."
 
 #: 
 msgid "REGISTER_HEADLINE"
@@ -585,7 +585,7 @@ msgstr "Registrierung erfolgreich"
 
 #: 
 msgid "OVERVIEW_CAMPAIGN_DESCRIPTION"
-msgstr "Alle Kampagnen auf einen Blick"
+msgstr "Alle aktuellen Themen auf einem Blick"
 
 #: 
 msgid "OVERVIEW_CAMPAIGN_HEADLINE"
@@ -597,13 +597,13 @@ msgstr "AS IT"
 
 #: 
 msgid "AS_ABOUT_AS_IT_HEADLINE_DESC"
-msgstr "Wir von der Axel Springer IT konzentrieren uns darauf, Potenziale der digitalen Transformation sowie disruptiver Technologien zu erkennen und sie für die verschiedenen Geschäftsbereiche der Axel-Springer-Familie nutzbar zu machen. Die digitale Disruption ist allgegenwärtig und setzt uns einem starken Wettbewerb in vielen Bereichen unserer täglichen Arbeit aus. Gleichzeitig bietet sie uns ungeahnte Chancen und Möglichkeiten, die wir aktiv gestalten wollen. Diese Entwicklungen reichen von zukunftsweisenden Technologien, über Vorteile durch die Nutzung von Daten, bis hin zu wegweisenden Trends in der Kollaboration zwischen Mitarbeitern. Wir unterstützen unsere Kunden, ihre täglichen Herausforderungen im Markt erfolgreich zu meistern, damit wir unsere führende Position als digitaler Verlag weiter festigen und ausbauen können. Mit unserer Expertise wollen wir die AS.Crowd erfolgreich begleiten."
+msgstr "Wir von der Axel Springer IT konzentrieren uns darauf, Potenziale der digitalen Transformation sowie disruptiver Technologien zu erkennen und sie für die verschiedenen Geschäftsbereiche der Axel-Springer-Familie nutzbar zu machen. Die digitale Disruption ist allgegenwärtig und setzt uns einem starken Wettbewerb in vielen Bereichen unserer täglichen Arbeit aus. Gleichzeitig bietet sie uns ungeahnte Chancen und Möglichkeiten, die wir aktiv gestalten wollen. Diese Entwicklungen reichen von zukunftsweisenden Technologien, über Vorteile durch die Nutzung von Daten, bis hin zu wegweisenden Trends in der Kollaboration zwischen Mitarbeitern. Wir unterstützen unsere Kunden, ihre täglichen Herausforderungen im Markt erfolgreich zu meistern, damit wir unsere führende Position als digitaler Verlag weiter festigen und ausbauen können. Mit unserer Expertise wollen wir die Axel Springer Crowd erfolgreich begleiten."
 
 #: 
 msgid "AS_ABOUT_IDEAS_ENGINEERING_DESC"
 msgstr "Wir fokussieren uns auf die Entwicklung neuer Produkte. Dabei haben wir zum besseren Verständnis der sich immer schneller entwickelnden Märkte die neuesten Technologie-Phänomene wie beispielsweise VR, AI, Chatbots, Big Data und Blockchain im Visier. Wir verstehen uns auch als Inkubator für digitale, innovative Produkte im Hinblick auf reale unternehmerische Herausforderungen für die Axel Springer-Familie. Und darüber hinaus.\n"
 "\n"
-"Dass wir mit unserem Wissen den Konzern aktiv mitgestalten wollen, zeigt nicht nur AS.Crowd.\n"
+"Dass wir mit unserem Wissen den Konzern aktiv mitgestalten wollen, zeigt nicht nur Axel Springer Crowd.\n"
 "\n"
 "Du willst andere innovative Produkte kennenlernen? Komm mit uns bei einer guten Tasse Kaffee ins Gespräch."
 
@@ -615,7 +615,7 @@ msgstr "Ideas Engineering"
 msgid "AS_ABOUT_NEWS_MEDIA_PRINT_DESC"
 msgstr "Die Personalabteilung des Verlagsbereichs News Media Print begleitet Mitarbeiterinnen und Mitarbeiter mit Kompetenz, Erfahrung und Weitblick von der Bewerbung über Elternzeit, Sabbatical und Fachkarriere bis hin zum Renteneintritt auf ihrem Weg in der Axel Springer-Familie.\n"
 "\n"
-"Weil Kreativität und Austausch Grundpfeiler unserer Arbeit sind, unterstützen wir AS.Crowd."
+"Weil Kreativität und Austausch Grundpfeiler unserer Arbeit sind, unterstützen wir Axel Springer Crowd."
 
 #: 
 msgid "AS_ABOUT_NEWS_MEDIA_PRINT_HEADLINE"
@@ -623,7 +623,7 @@ msgstr "News Media Print"
 
 #: 
 msgid "AS_ABOUT_PEOPLE_AND_CULTURE_DESC"
-msgstr "People & Culture steht für die unternehmensweite Vernetzung und den Austausch der Mitarbeiter untereinander, für lebenslanges Lernen und die Potentialentfaltung von Teams und jedem Einzelnen sowie für das Erleben modernen Arbeitens. Mit Leidenschaft setzen wir uns dafür ein, neue Impulse und Innovationen ins Unternehmen zu tragen, die Lust auf Neues machen."
+msgstr "People & Culture steht für die unternehmensweite Vernetzung  und den Austausch der Mitarbeiter untereinander, für lebenslanges Lernen  und die Potentialentfaltung von Teams und jedem Einzelnen sowie für das  Erleben modernen Arbeitens. Mit Leidenschaft setzen wir uns dafür ein, neue Impulse und Innovationen ins Unternehmen zu tragen, die Lust auf Neues machen."
 
 #: 
 msgid "AS_ABOUT_PEOPLE_AND_CULTURE_HEADLINE"
@@ -818,7 +818,7 @@ msgstr "Hilfe"
 
 #: 
 msgid "AS_SUPPORT_HELP_P1"
-msgstr "Wenn Du ein Problem oder eine Frage hast, schau gern in unsere FAQ’s. Vielleicht kannst Du dort schon die passende Antwort finden. Solltest Du wirklich nicht weiterkommen, dann wende Dich gern direkt an uns: {email}"
+msgstr "Wenn Du ein Problem oder eine Frage hast, schau gern in unsere FAQ’s. Vielleicht kannst Du dort schon die passende Antwort finden. Solltest Du wirklich nicht weiterkommen, dann wende Dich gern direkt an uns: {email} oder {teams}"
 
 #: 
 msgid "AS_SUPPORT_HELP_P2"
@@ -878,7 +878,9 @@ msgstr "Der Arbeitskreis Betriebliches Vorschlagswesen hat sich auf ein Budget v
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_3_PARAGRAPH"
-msgstr "Bei Axel Springer Crowd können alle Mitarbeiter der Axel Springer SE sowie der Units teilnehmen, an denen Axel Springer mehrheitlich beteiligt ist."
+msgstr "Bei Axel Springer Crowd können alle Mitarbeiter der Axel Springer SE sowie der Units teilnehmen, an denen Axel Springer mehrheitlich beteiligt ist.</br>\n"
+"</br>\n"
+"Gern helfen wir dir unter <a href=\"mailto:crowd@asideas.de\">crowd@asideas.de</a> oder <a href=\"https://teams.microsoft.com/l/channel/19%7B2%7Da5e30dd1c7dba4b6fb3e91d87f680d827%7B39%7Dthread.skype/Allgemein?groupId=818a67d1-bd8b-4a54-a87f-b6aff587732a&tenantId=a1e7a36c-6a48-4768-9d65-3f679c0f3b12\">Microsoft Teams</a>."
 
 #: 
 msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_4_PARAGRAPH"
@@ -1012,4 +1014,12 @@ msgstr "&nbsp;"
 #: 
 msgid "AS_IMPRINT_COPYRIGHTS_P"
 msgstr "&nbsp;"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_23_HEADLINE"
+msgstr "Auf welcher Grundlage wird Axel Springer Crowd betrieben?"
+
+#: 
+msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_23_PARAGRAPH"
+msgstr "Mit dem Konzernbetriebsrat (KBR) wurde eine Testbetrieb bis Ende 2019 vereinbart. Die Handlungsabrede, welche für den Testbetrieb gilt ist in <a target=“_blank“ href=\"https://moveoffice.sharepoint.com/:b:/r/sites/kollektivvereinbarungen/Shared%20Documents/KBV/AS%20Crowd/RA%20ASCrowd%2011.06.2019.pdf\">moveoffice</a> zu finden."
 
