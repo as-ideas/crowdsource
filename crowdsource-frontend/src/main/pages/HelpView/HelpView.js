@@ -51,13 +51,13 @@ export default class HelpView extends React.Component {
                 <p className="content-hero__description ng-binding"></p>
               </div>
             </content-hero>
-            <p translate-value-email="<a href='mailto:crowd@asideas.de'>crowd@asideas.de</a>" className="ng-scope">
-              <Trans id="AS_SUPPORT_HELP_P1">Wenn Du ein Problem oder eine Frage hast, schau gern in unsere FAQ’s.
-                Vielleicht kannst Du dort schon die passende Antwort finden. Solltest Du wirklich nicht weiterkommen,
-                dann wende Dich gern direkt an uns: <a href="mailto:crowd@asideas.de">crowd@asideas.de</a> oder <a
-                  href="https://teams.microsoft.com/l/channel/19{2}a5e30dd1c7dba4b6fb3e91d87f680d827{39}thread.skype/Allgemein?groupId=818a67d1-bd8b-4a54-a87f-b6aff587732a&amp;tenantId=a1e7a36c-6a48-4768-9d65-3f679c0f3b12">Microsoft
-                  Teams</a></Trans>
-            </p>
+
+            <I18n>
+              {({ i18n }) => (
+                <p translate-value-email="<a href='mailto:crowd@asideas.de'>crowd@asideas.de</a>" className="ng-scope" dangerouslySetInnerHTML={{__html: i18n._("AS_SUPPORT_HELP_P1")}} />
+              )}
+            </I18n>
+
             <p className="ng-scope">
               <Trans id="AS_SUPPORT_HELP_P2">Wir versuchen in jedem Fall, eine Lösung für Dein Problem zu
                 finden.</Trans>
