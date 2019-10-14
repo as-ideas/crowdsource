@@ -121,7 +121,7 @@ export default class Header extends React.Component {
                             {
                                 !this.isUserLoggedIn() ?
                                     <React.Fragment>
-                                        <NavLink className="header__nav-link" to="/signup" onClick={this.closeMobileMenu} ><Trans id='NAV_LABEL_REGISTER'>Registieren</Trans></NavLink>
+                                        <NavLink className="header__nav-link" to="/signup" onClick={this.closeMobileMenu} ><Trans id='NAV_LABEL_REGISTER'>Registrieren</Trans></NavLink>
                                         <NavLink className="header__nav-link" to="/login" onClick={this.closeMobileMenu} ><Trans id='NAV_LABEL_LOGIN'>Login</Trans></NavLink>
                                     </React.Fragment>
                                     : null
