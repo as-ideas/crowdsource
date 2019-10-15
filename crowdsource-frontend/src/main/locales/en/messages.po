@@ -6,696 +6,187 @@ msgstr ""
 "X-Generator: POEditor.com\n"
 "Project-Id-Version: crowdsource\n"
 "Language: en\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: 
-msgid "ACTIVATION_DESC"
-msgstr "Please enter a password to complete the activation of your account."
+#~ msgid "ACTIVATION_DESC"
+#~ msgstr "Please enter a password to complete the activation of your account."
 
 #: 
-msgid "ACTIVATION_ERROR_ALREADY_ACTIVE"
-msgstr "Your account has already been activated. You can log in using your e-mail address and password {link}."
+#~ msgid "ACTIVATION_ERROR_ALREADY_ACTIVE"
+#~ msgstr "Your account has already been activated. You can log in using your e-mail address and password {link}."
 
 #: 
-msgid "ACTIVATION_ERROR_ALREADY_ACTIVE_LINK"
-msgstr "Log in"
+#~ msgid "ACTIVATION_ERROR_ALREADY_ACTIVE_LINK"
+#~ msgstr "Log in"
 
 #: 
-msgid "ACTIVATION_ERROR_INVALID_LINK"
-msgstr "The activation link is invalid."
+#~ msgid "ACTIVATION_ERROR_INVALID_LINK"
+#~ msgstr "The activation link is invalid."
 
 #: 
-msgid "ACTIVATION_ERROR_NOT_REGISTERED"
-msgstr "Please register with your e-mail address first {link}."
+#~ msgid "ACTIVATION_ERROR_NOT_REGISTERED"
+#~ msgstr "Please register with your e-mail address first {link}."
 
 #: 
-msgid "ACTIVATION_ERROR_NOT_REGISTERED_LINK"
-msgstr "Register"
+#~ msgid "ACTIVATION_ERROR_NOT_REGISTERED_LINK"
+#~ msgstr "Register"
 
 #: 
-msgid "ACTIVATION_HEADLINE"
-msgstr "Registration - final steps"
+#~ msgid "ACTIVATION_HEADLINE"
+#~ msgstr "Registration - final steps"
 
 #: 
-msgid "ADMIN_IDEA_PUBLISH_MESSAGE"
-msgstr "The idea has been published."
+#~ msgid "ADMIN_IDEAS_DENIED_DESC"
+#~ msgstr "Ideas that unfortunately have been rejected: {value}"
 
 #: 
-msgid "ADMIN_IDEA_REJECT_MESSAGE"
-msgstr "The idea has been rejected."
+#~ msgid "ADMIN_IDEAS_DENIED_HEADLINE"
+#~ msgstr "Rejected ideas"
 
 #: 
-msgid "ADMIN_IDEAS_DENIED_DESC"
-msgstr "Ideas that unfortunately have been rejected: {value}"
+#~ msgid "ADMIN_IDEAS_PENDING_DESC"
+#~ msgstr "Ideas still pending: {value}"
 
 #: 
-msgid "ADMIN_IDEAS_DENIED_HEADLINE"
-msgstr "Rejected ideas"
+#~ msgid "ADMIN_IDEAS_PENDING_HEADLINE"
+#~ msgstr "Pending ideas"
 
 #: 
-msgid "ADMIN_IDEAS_PENDING_DESC"
-msgstr "Ideas still pending: {value}"
+#~ msgid "ADMIN_IDEA_PUBLISH_MESSAGE"
+#~ msgstr "The idea has been published."
 
 #: 
-msgid "ADMIN_IDEAS_PENDING_HEADLINE"
-msgstr "Pending ideas"
+#~ msgid "ADMIN_IDEA_REJECT_MESSAGE"
+#~ msgstr "The idea has been rejected."
 
-#: 
-msgid "BUTTON_LABEL_APPROVE"
-msgstr "Release"
-
-#: 
-msgid "BUTTON_LABEL_CANCEL"
-msgstr "Cancel"
-
-#: 
-msgid "BUTTON_LABEL_EDIT"
-msgstr "Edit"
-
-#: 
-msgid "BUTTON_LABEL_LOGGING_IN"
-msgstr "Login..."
-
-#: 
-msgid "BUTTON_LABEL_LOGIN"
-msgstr "Login"
-
-#: 
-msgid "BUTTON_LABEL_REGISTER"
-msgstr "Register"
-
-#: 
-msgid "BUTTON_LABEL_REGISTERING"
-msgstr "Register..."
-
-#: 
-msgid "BUTTON_LABEL_REJECT"
-msgstr "Reject"
-
-#: 
-msgid "BUTTON_LABEL_SAVE"
-msgstr "Save"
-
-#: 
-msgid "BUTTON_LABEL_SAVING"
-msgstr "Save..."
-
-#: 
-msgid "BUTTON_LABEL_SUBMIT"
-msgstr "Submit"
-
-#: 
-msgid "BUTTON_LABEL_SUBMITTING"
-msgstr "Submit..."
-
-#: 
-msgid "CAMPAIGN_LABEL_ENDED"
-msgstr "(completed)"
-
-#: 
-msgid "FILTER_ALL_LABEL"
-msgstr "All"
-
-#: 
-msgid "FILTER_NOT_VOTED_LABEL"
-msgstr "Not rated yet"
-
-#: 
-msgid "FILTER_VOTED_LABEL"
-msgstr "Already rated"
-
-#: 
-msgid "FORM_ADMIN_IDEA_REJECT_REASON_ERROR_REQUIRED"
-msgstr "Please give reason for refusal"
-
-#: 
-msgid "FORM_ADMIN_IDEA_REJECT_REASON_LABEL"
-msgstr "Reason for refusal"
-
-#: 
-msgid "FORM_ADMIN_IDEA_REJECT_REASON_PLACEHOLDER"
-msgstr "Reason for refusal"
-
-#: 
-msgid "FORM_AGB_ERROR_REQUIRED"
-msgstr "Please accept the {link}"
-
-#: 
-msgid "FORM_AGB_ERROR_REQUIRED_LINK"
-msgstr "Terms of use"
-
-#: 
-msgid "FORM_AGB_LABEL"
-msgstr "I accept the {link}"
-
-#: 
-msgid "FORM_AGB_LABEL_LINK"
-msgstr "Terms of use"
-
-#: 
-msgid "FORM_EMAIL_ERROR_ALREADY_ACTIVATED_1"
-msgstr "The e-mail address has already been activated. You can log in with your password. If you have forgotten your password, please click "
-
-#: 
-msgid "FORM_EMAIL_ERROR_ALREADY_ACTIVATED_2"
-msgstr "here"
-
-#: 
-msgid "FORM_EMAIL_ERROR_INVALID"
-msgstr "Please enter a valid e-mail address"
-
-#: 
-msgid "FORM_EMAIL_ERROR_INVALID_BLACKLIST"
-msgstr "This service can only be used by employees with an e-mail address with a valid domain name."
-
-#: 
-msgid "FORM_EMAIL_ERROR_INVALID_UNIT"
-msgstr "Your company is not yet supported. For further information just visit FAQ."
-
-#: 
-msgid "FORM_EMAIL_ERROR_REQUIRED"
-msgstr "Please enter your e-mail address"
-
-#: 
-msgid "FORM_EMAIL_LABEL"
-msgstr "E-mail (business)"
-
-#: 
-msgid "FORM_EMAIL_PLACEHOLDER"
-msgstr "E-mail (business)"
-
-#: 
-msgid "FORM_ERROR_MAX_CHARS"
-msgstr "Maximum {value} characters"
-
-#: 
-msgid "FORM_ERROR_MIN_CHARS"
-msgstr "At least {value} characters"
-
-#: 
-msgid "FORM_ERROR_UNEXPECTED"
-msgstr "An error has occurred. Please try again."
-
-#: 
-msgid "FORM_FORENAME_ERROR_REQUIRED"
-msgstr "Please enter your first name"
-
-#: 
-msgid "FORM_FORENAME_LABEL"
-msgstr "First name"
-
-#: 
-msgid "FORM_FORENAME_PLACEHOLDER"
-msgstr "First name"
-
-#: 
-msgid "FORM_IDEA_EDIT_PITCH_ERROR_REQUIRED"
-msgstr "Please enter a concise description"
-
-#: 
-msgid "FORM_IDEA_EDIT_PITCH_LABEL"
-msgstr "Your idea in detail"
-
-#: 
-msgid "FORM_IDEA_EDIT_TITLE_ERROR_REQUIRED"
-msgstr "Please enter a title"
-
-#: 
-msgid "FORM_IDEA_EDIT_TITLE_LABEL"
-msgstr "Title of your idea"
-
-#: 
-msgid "FORM_PASSWORD_ERROR_PATTERN"
-msgstr "The password must consist of at least 8 characters and a special character."
-
-#: 
-msgid "FORM_PASSWORD_ERROR_REQUIRED"
-msgstr "Please enter your password"
-
-#: 
-msgid "FORM_PASSWORD_LABEL"
-msgstr "Password"
-
-#: 
-msgid "FORM_PASSWORD_PLACEHOLDER"
-msgstr "Password"
-
-#: 
-msgid "FORM_PASSWORD_REPEAT_ERROR_NOT_EQUAL"
-msgstr "The passwords do not match"
-
-#: 
-msgid "FORM_PASSWORD_REPEAT_ERROR_REQUIRED"
-msgstr "Please enter your password again"
-
-#: 
-msgid "FORM_PASSWORD_REPEAT_LABEL"
-msgstr "Repeat password"
-
-#: 
-msgid "FORM_PASSWORD_REPEAT_PLACEHOLDER"
-msgstr "Repeat password"
-
-#: 
-msgid "FORM_SURNAME_ERROR_REQUIRED"
-msgstr "Please enter your last name"
-
-#: 
-msgid "FORM_SURNAME_LABEL"
-msgstr "Last name"
-
-#: 
-msgid "FORM_SURNAME_PLACEHOLDER"
-msgstr "Last name"
-
-#: 
-msgid "IDEA_ADD_MESSAGE_1"
-msgstr "Your idea has been successfully submitted."
-
-#: 
-msgid "IDEA_ADD_MESSAGE_2"
-msgstr "Your idea will be published soon, we'll just check it quickly."
-
-#: 
-msgid "IDEA_REMOVE_VOTE_MESSAGE"
-msgstr "We have removed your rating."
-
-#: 
-msgid "IDEA_TILE_AVG_RATING"
-msgstr "{rating} {ratingplural, select, many{stars} one{star} other {stars} by {votes} {votesplural, select, many{persons} one{person} other {persons}"
-
-#: 
-msgid "IDEA_UPDATE_MESSAGE"
-msgstr "Your change has been saved successfully."
-
-#: 
-msgid "IDEA_VOTE_MESSAGE"
-msgstr "Thank you very much for your rating."
-
-#: 
-msgid "IDEAS_ADD_DESC"
-msgstr "You got an idea? Then submit it right here."
-
-#: 
-msgid "IDEAS_ADD_HEADLINE"
-msgstr "Submit an idea"
-
-#: 
-msgid "IDEAS_LOAD_MORE_LABEL"
-msgstr "Load more ideas"
-
-#: 
-msgid "IDEAS_LOAD_MORE_LABEL_NO_MORE"
-msgstr "There are no other ideas available"
-
-#: 
-msgid "IDEAS_OWN_PUBLISHED_DESC"
-msgstr "Ideas that are still being voted on: {value}"
-
-#: 
-msgid "IDEAS_OWN_PUBLISHED_HEADLINE"
-msgstr "Published ideas"
-
-#: 
-msgid "IDEAS_OWN_REJECTED_DESC"
-msgstr "Ideas that unfortunately have been rejected: {value}"
-
-#: 
-msgid "IDEAS_OWN_REJECTED_HEADLINE"
-msgstr "Rejected ideas"
-
-#: 
-msgid "IDEAS_OWN_STATISTIC_LABEL_IDEAS_APPROVED"
-msgstr "Published"
-
-#: 
-msgid "IDEAS_OWN_STATISTIC_LABEL_IDEAS_PENDING"
-msgstr "Pending"
-
-#: 
-msgid "IDEAS_OWN_STATISTIC_LABEL_IDEAS_REJECTED"
-msgstr "Rejected"
-
-#: 
-msgid "IDEAS_OWN_SUBMITTED_DESC"
-msgstr "Ideas still pending: {value}"
-
-#: 
-msgid "IDEAS_OWN_SUBMITTED_HEADLINE"
-msgstr "Submitted Ideas"
-
-#: 
-msgid "IDEAS_VOTE_DESC"
-msgstr "Here you can rate submitted ideas. Every vote counts!"
-
-#: 
-msgid "IDEAS_VOTE_HEADLINE"
-msgstr "Our ideas"
-
-#: 
-msgid "INTRO_DESC"
-msgstr "Be a part! Register now!"
-
-#: 
-msgid "INTRO_HEADLINE"
-msgstr "Join Crowd"
-
-#: 
-msgid "LOGIN_ERROR_INVALID_CREDENTIALS"
-msgstr "Your login information is invalid. Please check the data you have entered."
-
-#: 
-msgid "LOGIN_HEADLINE"
-msgstr "Login"
-
-#: 
-msgid "LOGIN_LINK_PASSWORD_RECOVERY"
-msgstr "Forgot your password?"
-
-#: 
-msgid "LOGIN_REGISTER"
-msgstr "or register {link}"
-
-#: 
-msgid "LOGIN_REGISTER_LINK"
-msgstr "here"
-
-#: 
-msgid "LOGOUT_HEADLINE"
-msgstr "You have been logged out."
-
-#: 
-msgid "LOGOUT_LINK_LOGIN"
-msgstr "You can log in again {link}."
-
-#: 
-msgid "LOGOUT_LINK_LOGIN_LINK"
-msgstr "here"
-
-#: 
-msgid "NAV_LABEL_ABOUT_US"
-msgstr "About us"
-
-#: 
-msgid "NAV_LABEL_ACTIVATE"
-msgstr "Activation"
-
-#: 
-msgid "NAV_LABEL_ADMIN"
-msgstr "Admin"
-
-#: 
-msgid "NAV_LABEL_ERROR_FORBIDDEN"
-msgstr "Access denied"
-
-#: 
-msgid "NAV_LABEL_ERROR_PAGE_NOT_FOUND"
-msgstr "Page not found"
-
-#: 
-msgid "NAV_LABEL_ERROR_UNEXPECTED"
-msgstr "Technical error"
-
-#: 
-msgid "NAV_LABEL_FINANCING"
-msgstr "Financing rounds"
-
-#: 
-msgid "NAV_LABEL_HELP"
-msgstr "Help"
-
-#: 
-msgid "NAV_LABEL_IDEAS_OWN"
-msgstr "Your ideas"
-
-#: 
-msgid "NAV_LABEL_IMPRINT"
-msgstr "Imprint"
-
-#: 
-msgid "NAV_LABEL_LOGIN"
-msgstr "Login"
-
-#: 
-msgid "NAV_LABEL_LOGOUT"
-msgstr "Logout"
-
-#: 
-msgid "NAV_LABEL_OVERVIEW"
-msgstr "Overview"
-
-#: 
-msgid "NAV_LABEL_PASSWORD_RECOVERY"
-msgstr "Forgot password"
-
-#: 
-msgid "NAV_LABEL_PASSWORD_RECOVERY_SUCCESS"
-msgstr "Forgot password successful"
-
-#: 
-msgid "NAV_LABEL_PASSWORD_RESET"
-msgstr "Set password"
-
-#: 
-msgid "NAV_LABEL_PRIVACY"
-msgstr "Privacy policy"
-
-#: 
-msgid "NAV_LABEL_PROJECT_ADDED"
-msgstr "New project created"
-
-#: 
-msgid "NAV_LABEL_PROJECT_DETAILS"
-msgstr "Project details"
-
-#: 
-msgid "NAV_LABEL_PROJECT_EDIT"
-msgstr "Edit project"
-
-#: 
-msgid "NAV_LABEL_PROJECT_NEW"
-msgstr "New project"
-
-#: 
-msgid "NAV_LABEL_PROJECTS"
-msgstr "Project"
-
-#: 
-msgid "NAV_LABEL_REGISTER"
-msgstr "Register"
-
-#: 
-msgid "NAV_LABEL_REGISTER_SUCCESS"
-msgstr "Registration successful"
-
-#: 
-msgid "NAV_LABEL_STATISTIC"
-msgstr "Statistics"
-
-#: 
-msgid "NAV_LANG_ENGLISH"
-msgstr "English"
-
-#: 
-msgid "NAV_LANG_GERMAN"
-msgstr "Deutsch"
-
-#: 
-msgid "OVERVIEW_IDEAS_NO_CAMPAIGN"
-msgstr "Currently there are no idea campaigns available"
-
-#: 
-msgid "OVERVIEW_PROTOTYPES_HEADLINE"
-msgstr "Prototypes"
-
-#: 
-msgid "OVERVIEW_PROTOTYPES_NO_CAMPAIGN"
-msgstr "Unfortunately there is no prototype campaign at the moment."
-
-#: 
-msgid "PASSWORD_RECOVERY_DESC"
-msgstr "Enter the e-mail address by which you registered. You will receive an e-mail from us with a confirmation link to reset your password."
-
-#: 
-msgid "PASSWORD_RECOVERY_ERROR_EMAIL_NOT_REGISTERED"
-msgstr "The e-mail address has not been registered yet. Just try {link}."
-
-#: 
-msgid "PASSWORD_RECOVERY_ERROR_EMAIL_NOT_REGISTERED_LINK"
-msgstr "register"
-
-#: 
-msgid "PASSWORD_RECOVERY_HEADLINE"
-msgstr "Forgot password?"
-
-#: 
-msgid "PASSWORD_RECOVERY_LOGIN"
-msgstr "or login {link}"
-
-#: 
-msgid "PASSWORD_RECOVERY_LOGIN_LINK"
-msgstr "here"
-
-#: 
-msgid "PASSWORD_RECOVERY_SUCCESS_DESC"
-msgstr "We have sent an e-mail with a confirmation link to {email}. Please open your mailbox and click on the link to reset your password."
-
-#: 
-msgid "PASSWORD_RECOVERY_SUCCESS_HEADLINE"
-msgstr "Forgot password"
-
-#: 
-msgid "PASSWORD_RESET_DESC"
-msgstr "Please enter a new password now."
-
-#: 
-msgid "PASSWORD_RESET_ERROR_ALREADY_RESET"
-msgstr "You have already reset your password with the link from your e-mail. You can use the {link} function again to get a new link."
-
-#: 
-msgid "PASSWORD_RESET_ERROR_ALREADY_RESET_LINK"
-msgstr "Forgot password"
-
-#: 
-msgid "PASSWORD_RESET_HEADLINE"
-msgstr "Reset password"
-
-#: 
-msgid "REGISTER_AGB"
-msgstr "I allow Axel Springer SE to contact me for news (e.g. start of a marketplace and status of my idea) concerning Axel Springer Crowd. I have the possibility to unsubscribe from the newsletter at any time. To do this, I can click on the link in the footer of those e-mails. Further information on data protection can be found in the data protection declaration."
-
-#: 
-msgid "REGISTER_HEADLINE"
-msgstr "Registration"
-
-#: 
-msgid "REGISTER_LOGIN"
-msgstr "or login {link}"
-
-#: 
-msgid "REGISTER_LOGIN_LINK"
-msgstr "here"
-
-#: 
-msgid "REGISTER_SUCCESS_DESC"
-msgstr "Your registration under the name {forename} {surname} was successful. We sent an e-mail with a confirmation link to {email}. Please open your mailbox and click on the link to complete the registration."
-
-#: 
-msgid "REGISTER_SUCCESS_HEADLINE"
-msgstr "Registration successful"
-
-#: 
-msgid "OVERVIEW_CAMPAIGN_DESCRIPTION"
-msgstr "All active topics at a glance"
-
-#: 
-msgid "OVERVIEW_CAMPAIGN_HEADLINE"
-msgstr "Marketplaces"
-
-#: 
+#: src/main/pages/AboutView/AboutView.js:61
 msgid "AS_ABOUT_AS_IT_HEADLINE"
 msgstr "AS IT"
 
-#: 
+#: src/main/pages/AboutView/AboutView.js:62
 msgid "AS_ABOUT_AS_IT_HEADLINE_DESC"
 msgstr "At Axel Springer IT, we focus on recognizing the potential of digital transformation and disruptive technologies and making them available to the various business units of the Axel Springer family. Digital disruption is omnipresent and exposes us to strong competition in many areas of our daily work. At the same time, it offers us unexpected opportunities that we actively want to shape. These developments range from future-oriented technologies, over advantages through the use of data to groundbreaking trends in collaboration between employees. We support our customers in successfully mastering their daily challenges in the market so that we can further strengthen and expand our leading position as a digital publishing house. With our expertise we want to support the Axel Springer Crowd effectively."
 
-#: 
+#: src/main/pages/AboutView/AboutView.js:37
 msgid "AS_ABOUT_IDEAS_ENGINEERING_DESC"
-msgstr "We focus on the development of new products. In order to gain a better understanding of the rapidly developing markets, we target the latest technology phenomena such as VR, AI, Chatbots, Big Data and Blockchain. We also consider ourselves as an incubator for digital and innovative products regarding business challenges of the Axel Springer family. And way beyond.\n"
+msgstr ""
+"We focus on the development of new products. In order to gain a better understanding of the rapidly developing markets, we target the latest technology phenomena such as VR, AI, Chatbots, Big Data and Blockchain. We also consider ourselves as an incubator for digital and innovative products regarding business challenges of the Axel Springer family. And way beyond.\n"
 "\n"
 "The aim of actively shaping the Axel Springer Group with our knowledge is not only shown by Axel Springer Crowd.\n"
 "\n"
 "You want to get to know other innovative products? Let's grab a cup of coffee and have a chat."
 
-#: 
+#: src/main/pages/AboutView/AboutView.js:34
 msgid "AS_ABOUT_IDEAS_ENGINEERING_HEADLINE"
 msgstr "Ideas Engineering"
 
-#: 
+#: src/main/pages/AboutView/AboutView.js:76
 msgid "AS_ABOUT_NEWS_MEDIA_PRINT_DESC"
-msgstr "The human resources department of the News Media Print division accompanies all employees with competence, experience and foresight on their journey through the Axel Springer family. From their application, parental leave, sabbatical and specialist career to retirement.\n"
+msgstr ""
+"The human resources department of the News Media Print division accompanies all employees with competence, experience and foresight on their journey through the Axel Springer family. From their application, parental leave, sabbatical and specialist career to retirement.\n"
 "\n"
 "As creativity and exchange are the cornerstones of our work, we support Axel Springer Crowd."
 
-#: 
+#: src/main/pages/AboutView/AboutView.js:73
 msgid "AS_ABOUT_NEWS_MEDIA_PRINT_HEADLINE"
 msgstr "News Media Print"
 
-#: 
+#: src/main/pages/AboutView/AboutView.js:51
 msgid "AS_ABOUT_PEOPLE_AND_CULTURE_DESC"
 msgstr "People & Culture stands for company-wide networking and exchange among employees, for lifelong learning and the increase of potential of teams and each individual as well as for experiencing modern work. We are passionately committed to bring new impulses and innovations into the company that encourage our enthusiasm for new things."
 
-#: 
+#: src/main/pages/AboutView/AboutView.js:50
 msgid "AS_ABOUT_PEOPLE_AND_CULTURE_HEADLINE"
 msgstr "People & Culture"
 
-#: 
-msgid "AS_BUTTON_LABEL_NEWSLETTER"
-msgstr "Newsletter"
+#: src/main/pages/AboutView/AboutView.js:26
+msgid "AS_ABOUT_TEAM_CAPTION"
+msgstr "from left: Tarek Madany Mamlouk, Martin Bild, Johannes Schrade, Anneke Möhlmann, Jasmin Heumann, Thomas Eisermann, Christian Sell, Julian Godesa, Max Weber, Lars Reith, Thomas Wendzinski, Johannes Burr, Sven Rebbert"
 
 #: 
-msgid "AS_FOOTER_INFORMATION"
-msgstr "Information"
+#~ msgid "AS_BUTTON_LABEL_NEWSLETTER"
+#~ msgstr "Newsletter"
 
 #: 
-msgid "AS_FOOTER_LINK_ABOUT_US"
-msgstr "About us"
+#~ msgid "AS_FOOTER_INFORMATION"
+#~ msgstr "Information"
 
 #: 
-msgid "AS_FOOTER_LINK_IMPRINT"
-msgstr "Imprint"
+#~ msgid "AS_FOOTER_LINK_ABOUT_US"
+#~ msgstr "About us"
 
 #: 
-msgid "AS_FOOTER_LINK_INTRO"
-msgstr "Discover"
+#~ msgid "AS_FOOTER_LINK_IMPRINT"
+#~ msgstr "Imprint"
 
 #: 
-msgid "AS_FOOTER_LINK_PRIVACY_POLICY"
-msgstr "Privacy policy"
+#~ msgid "AS_FOOTER_LINK_INTRO"
+#~ msgstr "Discover"
 
 #: 
-msgid "AS_FOOTER_LINK_SUPPORT"
-msgstr "Help"
+#~ msgid "AS_FOOTER_LINK_PRIVACY_POLICY"
+#~ msgstr "Privacy policy"
 
 #: 
-msgid "AS_FOOTER_PARTNER"
-msgstr "Partners"
+#~ msgid "AS_FOOTER_LINK_SUPPORT"
+#~ msgstr "Help"
 
 #: 
-msgid "AS_FOOTER_SITEMAP"
-msgstr "Sitemap"
+#~ msgid "AS_FOOTER_PARTNER"
+#~ msgstr "Partners"
 
 #: 
+#~ msgid "AS_FOOTER_SITEMAP"
+#~ msgstr "Sitemap"
+
+#: src/main/pages/ImprintView/ImprintView.js:28
 msgid "AS_IMPRINT_ADDRESS"
-msgstr "Axel Springer Ideas Engineering GmbH\n"
+msgstr ""
+"Axel Springer Ideas Engineering GmbH\n"
 "A company of Axel Springer SE\n"
 "Axel-Springer-Strasse 65\n"
 "10888 Berlin"
 
-#: 
+#: src/main/pages/ImprintView/ImprintView.js:32
 msgid "AS_IMPRINT_CONTACT_HEADLINE"
 msgstr "Contact Information"
 
-#: 
+#: src/main/pages/ImprintView/ImprintView.js:36
 msgid "AS_IMPRINT_CONTACT_P"
-msgstr "E-mail: <a href=\"crowd@asideas.de\">crowd@asideas.de</a>\n"
+msgstr ""
+"E-mail: <a href=\"crowd@asideas.de\">crowd@asideas.de</a>\n"
 "Phone: 030 - 2591 78100"
 
 #: 
+#~ msgid "AS_IMPRINT_COPYRIGHTS_HEADLINE"
+#~ msgstr "&nbsp;"
+
+#: 
+#~ msgid "AS_IMPRINT_COPYRIGHTS_P"
+#~ msgstr "&nbsp;"
+
+#: src/main/pages/ImprintView/ImprintView.js:22
 msgid "AS_IMPRINT_HEADLINE"
 msgstr "Imprint"
 
-#: 
+#: src/main/pages/ImprintView/ImprintView.js:24
 msgid "AS_IMPRINT_PROVIDER"
 msgstr "Provider"
 
-#: 
+#: src/main/pages/ImprintView/ImprintView.js:41
 msgid "AS_IMPRINT_RESPONSIBLE_HEADLINE"
 msgstr "Responsible for the content according to § 6 Abs.2 MDStV"
 
-#: 
+#: src/main/pages/ImprintView/ImprintView.js:48
 msgid "AS_IMPRINT_RESPONSIBLE_P"
-msgstr "Michael Alber\n"
+msgstr ""
+"Michael Alber\n"
 "COO\n"
 "Axel-Springer-Strasse 65\n"
 "10888 Berlin\n"
@@ -705,9 +196,10 @@ msgstr "Michael Alber\n"
 "VAT ID No. DE 287499537\n"
 "Executive Directors: Samir Fadlallah, Michael Alber"
 
-#: 
+#: src/main/pages/PrivacyView/PrivacyView.js:24
 msgid "AS_PRIVACY_POLICY_HTML"
-msgstr "<h1>Privacy policy of Axel Springer Crowd</h1>\n"
+msgstr ""
+"<h1>Privacy policy of Axel Springer Crowd</h1>\n"
 "<p>We are very pleased about your interest in Axel Springer Crowd. To be able to offer Axel Springer Crowd, we of course require certain data about you. We take the protection of personal data very seriously and always process it in compliance with applicable data protection regulations, in particular the European Union General Data Protection Regulation (GDPR). With this privacy policy, we aim to fully inform you about how, why and to what extent we process personal data, and what your rights are as a data subject.</p>\n"
 "    <h2>1. Data controller and general information</h2>\n"
 "    <p>Your data will be processed by Axel Springer Ideas Engineering GmbH, Axel Springer Str. 65, 10969 Berlin, phone: +49 2591 71000, email: crowd@asideas.de (service provider for the purposes of the Act for Telecommunication Media Services (TMG) and data controller for the purposes of the General Data Protection Regulation (GDPR).</p>\n"
@@ -854,216 +346,744 @@ msgstr "<h1>Privacy policy of Axel Springer Crowd</h1>\n"
 "        <i>Last revised: June 11, 2019</i>"
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_1_PARAGRAPH"
-msgstr "Axel Springer Crowd is an Axel Springer platform that offers employees the opportunity to submit innovative ideas on various topics in so-called \"marketplaces\". The platform will initially be tested until the end of the year."
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_10_HEADLINE"
+#~ msgstr "In which language should I submit my idea?"
 
 #: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_10_PARAGRAPH"
+#~ msgstr "Ideas can be submitted in the language you feel most comfortable with. They will be translated automatically and directly on our platform."
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_11_HEADLINE"
+#~ msgstr "How is my idea translated and what is DeepL?"
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_11_PARAGRAPH"
+#~ msgstr "Ideas will be translated by the integrated program DeepL. DeepL is a machine translation system that is freely available and translates texts from one language to another."
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_12_HEADLINE"
+#~ msgstr "Can I edit my idea later on?"
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_12_PARAGRAPH"
+#~ msgstr "As long as your idea has not yet been released, you can edit your idea at any time under \"My Ideas\". The menu item \"My Ideas\" becomes visible as soon as you are in the corresponding marketplace for which you submitted the idea."
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_13_HEADLINE"
+#~ msgstr "Who is releasing my idea?"
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_13_PARAGRAPH"
+#~ msgstr "The Axel Springer Crowd Team releases ideas in accordance with the corporate guidelines. It will be checked if an idea corresponds to the compliance guidelines. "
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_14_HEADLINE"
+#~ msgstr "Which rules apply to the release and rejection of an idea?"
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_14_PARAGRAPH"
+#~ msgstr "It applies: An idea must be compliance-conform. Neither offensive texts nor defamatory contents may be submitted. If an idea is rejected after being reviewed by the Axel Springer Crowd Team, employees will receive a separate e-mail including the reason for the rejection. If the idea complies with the compliance guidelines, it is released and appears in the marketplace."
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_15_HEADLINE"
+#~ msgstr "How long does take until my idea is released?"
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_15_PARAGRAPH"
+#~ msgstr "The release of an idea takes a maximum of 72 hours."
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_16_HEADLINE"
+#~ msgstr "When can an idea be voted on?"
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_16_PARAGRAPH"
+#~ msgstr "From the time of release by the Axel Springer Crowd Team until the end of the period of a marketplace, the idea can be voted on."
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_17_HEADLINE"
+#~ msgstr "Can I change my voting later on?"
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_17_PARAGRAPH"
+#~ msgstr "As long as a marketplace is open, users can change their voting for an idea at any time (use the star scale again). As more and more new ideas are added, users have the possibility to adjust their voting. Voting is done by selecting the star scale, which ranges from one to five stars."
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_18_HEADLINE"
+#~ msgstr "Who should I contact if I have any questions about a rejection?"
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_18_PARAGRAPH"
+#~ msgstr "If you have any questions regarding the rejection, please contact the Axel Springer Crowd Team. If the problem cannot be clarified or if you have further questions, you can also contact the working group of the company suggestion scheme."
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_19_HEADLINE"
+#~ msgstr "How are the winners of a marketplace selected?"
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_19_PARAGRAPH"
+#~ msgstr "The majority of the winners will be determined by the voting of the users in Axel Springer Crowd. The works council also decides on a certain percentage of the winning ideas."
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_1_HEADLINE"
+#~ msgstr "What is the Axel Springer Crowd?"
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_1_PARAGRAPH"
+#~ msgstr "Axel Springer Crowd is an Axel Springer platform that offers employees the opportunity to submit innovative ideas on various topics in so-called \"marketplaces\". The platform will initially be tested until the end of the year."
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_20_HEADLINE"
+#~ msgstr "Do winners receive a reward or bonus?"
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_20_PARAGRAPH"
+#~ msgstr "The working group of the company suggestion scheme has agreed on a budget which is available for the marketplace and the ideas. The amount of the budget depends on the number of proposals submitted."
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_21_HEADLINE"
+#~ msgstr "Where can I find information about innovation?"
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_21_PARAGRAPH"
+#~ msgstr "At Axel Springer, there are many initiatives related to innovation, such as Community of Practices and Hackathons. We would be happy to connect you with the contact persons of each of these projects. Are you also involved in exciting projects related to innovation? Would you like to learn more about our work or perhaps get involved? Then do not hesitate to send us an email at <a href=\"mailto:crowd@asideas.de\">crowd@asideas.de</a>."
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_22_HEADLINE"
+#~ msgstr "In which countries is Axel Springer Crowd available?"
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_22_PARAGRAPH"
+#~ msgstr "Axel Springer Crowd is currently only available in German-speaking countries. Other countries will follow."
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_23_HEADLINE"
+#~ msgstr "On what Agreement is Axel Springer Crowd operated?"
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_23_PARAGRAPH"
+#~ msgstr "A test run until the end of 2019 was agreed with the Konzernbetriebsrat (KBR). The agreement that applies to the test run can be found in <a target=“_blank“ href=\"https://moveoffice.sharepoint.com/:b:/r/sites/kollektivvereinbarungen/Shared%20Documents/KBV/AS%20Crowd/RA%20ASCrowd%2011.06.2019.pdf\">moveoffice</a>."
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_2_HEADLINE"
+#~ msgstr "How can I register at Axel Springer Crowd?"
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_2_PARAGRAPH"
+#~ msgstr "The <a href=\"#/signup\">Registration</a> is carried out exclusively with the e-mail address of the company. After login, users will receive an e-mail with a link for registration. Once the process is completed, ideas can be submitted."
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_3_HEADLINE"
+#~ msgstr "Which Axel Springer companies can participate?"
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_3_PARAGRAPH"
+#~ msgstr ""
+#~ "At Axel Springer Crowd, all employees of Axel Springer SE and the units in which Axel Springer holds a majority interest can participate.\n"
+#~ "\n"
+#~ "We are happy to help you at <a href=\"mailto:crowd@asideas.de\">crowd@asideas.de</a> or <a href=\"https://teams.microsoft.com/l/channel/19%7B2%7Da5e30dd1c7dba4b6fb3e91d87f680d827%7B39%7Dthread.skype/Allgemein?groupId=818a67d1-bd8b-4a54-a87f-b6aff587732a&tenantId=a1e7a36c-6a48-4768-9d65-3f679c0f3b12\">Microsoft Teams</a>."
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_4_HEADLINE"
+#~ msgstr "What is a marketplace?"
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_4_PARAGRAPH"
+#~ msgstr "A marketplace is a collection point where Axel Springer employees can submit their ideas on a specific topic."
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_5_HEADLINE"
+#~ msgstr "What's the deal with the \"One more idea\" marketplace?"
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_5_PARAGRAPH"
+#~ msgstr "The \"One more idea\" marketplace is a collecting point for all ideas that cannot be thematically assigned to a current marketplace."
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_6_HEADLINE"
+#~ msgstr "How often do new marketplaces appear?"
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_6_PARAGRAPH"
+#~ msgstr "At Axel Springer Crowd, new marketplaces are continuously being activated. Employees can use the platform to find out about new marketplaces. In addition, you will be updated on new marketplaces by newsletter. <a href=\"https://axelspringerideas.us13.list-manage.com/subscribe?u=d4ff5f1c1f7d849d773d43835&id=7658a69b81\">Here you can register for the newsletter</a>."
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_7_HEADLINE"
+#~ msgstr "Can I also submit ideas for a marketplace?"
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_7_PARAGRAPH"
+#~ msgstr "You can submit ideas and suggestions for a new marketplace here: <a href=\"mailto:crowd@asideas.de\">crowd@asideas.de</a>."
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_8_HEADLINE"
+#~ msgstr "In which format do I submit ideas?"
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_8_PARAGRAPH"
+#~ msgstr "An idea consists of a title and a short description (maximum 255 characters), which makes clear what it is about."
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_9_HEADLINE"
+#~ msgstr "Why is the number of characters for an idea limited?"
+
+#: 
+#~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_9_PARAGRAPH"
+#~ msgstr "As is well known, brevity is the soul of wit. That is why we have limited the number of characters for an idea. You don't have to submit a mature concept, because it's just about your ideas."
+
+#: src/main/pages/HelpView/HelpView.js:71
 msgid "AS_SUPPORT_FAQ_HEADLINE"
 msgstr "FAQ"
 
-#: 
+#: src/main/pages/HelpView/HelpView.js:49
 msgid "AS_SUPPORT_HELP_HEADLINE"
 msgstr "Help"
 
-#: 
+#: src/main/pages/HelpView/HelpView.js:56
 msgid "AS_SUPPORT_HELP_P1"
 msgstr "If you have a problem or a question, please take a look at our FAQ's. Maybe you can already find the right answer there. If you really don't get ahead, then please contact us directly: {emails} or {teams}"
 
-#: 
+#: src/main/pages/HelpView/HelpView.js:60
 msgid "AS_SUPPORT_HELP_P2"
 msgstr "In any case we will try to find a solution for your problem."
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_10_PARAGRAPH"
-msgstr "Ideas can be submitted in the language you feel most comfortable with. They will be translated automatically and directly on our platform."
+#~ msgid "BUTTON_LABEL_APPROVE"
+#~ msgstr "Release"
+
+#: src/main/pages/IdeasListPage/IdeasEditComponent.js:163
+msgid "BUTTON_LABEL_CANCEL"
+msgstr "Cancel"
+
+#: src/main/pages/IdeasListPage/IdeaTile.js:213
+msgid "BUTTON_LABEL_EDIT"
+msgstr "Edit"
+
+#: src/main/pages/LoginPage/LoginPage.js:190
+msgid "BUTTON_LABEL_LOGGING_IN"
+msgstr "Login..."
+
+#: src/main/pages/LoginPage/LoginPage.js:192
+msgid "BUTTON_LABEL_LOGIN"
+msgstr "Login"
+
+#: src/main/pages/IntroPage/IntroPage.js:54
+msgid "BUTTON_LABEL_REGISTER"
+msgstr "Register"
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_11_PARAGRAPH"
-msgstr "Ideas will be translated by the integrated program DeepL. DeepL is a machine translation system that is freely available and translates texts from one language to another."
+#~ msgid "BUTTON_LABEL_REGISTERING"
+#~ msgstr "Register..."
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_12_PARAGRAPH"
-msgstr "As long as your idea has not yet been released, you can edit your idea at any time under \"My Ideas\". The menu item \"My Ideas\" becomes visible as soon as you are in the corresponding marketplace for which you submitted the idea."
+#~ msgid "BUTTON_LABEL_REJECT"
+#~ msgstr "Reject"
+
+#: src/main/pages/IdeasListPage/IdeasEditComponent.js:170
+msgid "BUTTON_LABEL_SAVE"
+msgstr "Save"
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_13_PARAGRAPH"
-msgstr "The Axel Springer Crowd Team releases ideas in accordance with the corporate guidelines. It will be checked if an idea corresponds to the compliance guidelines. "
+#~ msgid "BUTTON_LABEL_SAVING"
+#~ msgstr "Save..."
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_14_PARAGRAPH"
-msgstr "It applies: An idea must be compliance-conform. Neither offensive texts nor defamatory contents may be submitted. If an idea is rejected after being reviewed by the Axel Springer Crowd Team, employees will receive a separate e-mail including the reason for the rejection. If the idea complies with the compliance guidelines, it is released and appears in the marketplace."
+#~ msgid "BUTTON_LABEL_SUBMIT"
+#~ msgstr "Submit"
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_15_PARAGRAPH"
-msgstr "The release of an idea takes a maximum of 72 hours."
+#~ msgid "BUTTON_LABEL_SUBMITTING"
+#~ msgstr "Submit..."
+
+#: src/main/pages/IdeasListPage/IdeaTeaser.js:62
+#: src/main/pages/IntroPage/IntroIdeasCampaignList.js:51
+msgid "CAMPAIGN_LABEL_ENDED"
+msgstr "(completed)"
+
+#: src/main/pages/IdeasListPage/IdeasListPage.js:117
+msgid "FILTER_ALL_LABEL"
+msgstr "All"
+
+#: src/main/pages/IdeasListPage/IdeasListPage.js:124
+msgid "FILTER_NOT_VOTED_LABEL"
+msgstr "Not rated yet"
+
+#: src/main/pages/IdeasListPage/IdeasListPage.js:131
+msgid "FILTER_VOTED_LABEL"
+msgstr "Already rated"
+
+#: src/main/pages/IdeasListPage/IdeaTile.js:239
+msgid "FORM_ADMIN_IDEA_REJECT_REASON_ERROR_REQUIRED"
+msgstr "Please give reason for refusal"
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_16_PARAGRAPH"
-msgstr "From the time of release by the Axel Springer Crowd Team until the end of the period of a marketplace, the idea can be voted on."
+#~ msgid "FORM_ADMIN_IDEA_REJECT_REASON_LABEL"
+#~ msgstr "Reason for refusal"
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_17_PARAGRAPH"
-msgstr "As long as a marketplace is open, users can change their voting for an idea at any time (use the star scale again). As more and more new ideas are added, users have the possibility to adjust their voting. Voting is done by selecting the star scale, which ranges from one to five stars."
+#~ msgid "FORM_ADMIN_IDEA_REJECT_REASON_PLACEHOLDER"
+#~ msgstr "Reason for refusal"
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_18_PARAGRAPH"
-msgstr "If you have any questions regarding the rejection, please contact the Axel Springer Crowd Team. If the problem cannot be clarified or if you have further questions, you can also contact the working group of the company suggestion scheme."
+#~ msgid "FORM_AGB_ERROR_REQUIRED"
+#~ msgstr "Please accept the {link}"
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_19_PARAGRAPH"
-msgstr "The majority of the winners will be determined by the voting of the users in Axel Springer Crowd. The works council also decides on a certain percentage of the winning ideas."
+#~ msgid "FORM_AGB_ERROR_REQUIRED_LINK"
+#~ msgstr "Terms of use"
+
+#: src/main/pages/SignupPage/SignupPage.js:283
+msgid "FORM_AGB_LABEL"
+msgstr "I accept the {link}"
+
+#: src/main/pages/SignupPage/SignupPage.js:270
+#: src/main/pages/SignupPage/SignupPage.js:288
+msgid "FORM_AGB_LABEL_LINK"
+msgstr "Terms of use"
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_2_PARAGRAPH"
-msgstr "The <a href=\"#/signup\">Registration</a> is carried out exclusively with the e-mail address of the company. After login, users will receive an e-mail with a link for registration. Once the process is completed, ideas can be submitted."
+#~ msgid "FORM_EMAIL_ERROR_ALREADY_ACTIVATED_1"
+#~ msgstr "The e-mail address has already been activated. You can log in with your password. If you have forgotten your password, please click "
+
+#: src/main/pages/SignupPage/SignupPage.js:224
+msgid "FORM_EMAIL_ERROR_ALREADY_ACTIVATED_2"
+msgstr "here"
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_20_PARAGRAPH"
-msgstr "The working group of the company suggestion scheme has agreed on a budget which is available for the marketplace and the ideas. The amount of the budget depends on the number of proposals submitted."
+#~ msgid "FORM_EMAIL_ERROR_INVALID"
+#~ msgstr "Please enter a valid e-mail address"
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_3_PARAGRAPH"
-msgstr "At Axel Springer Crowd, all employees of Axel Springer SE and the units in which Axel Springer holds a majority interest can participate.\n"
-"\n"
-"We are happy to help you at <a href=\"mailto:crowd@asideas.de\">crowd@asideas.de</a> or <a href=\"https://teams.microsoft.com/l/channel/19%7B2%7Da5e30dd1c7dba4b6fb3e91d87f680d827%7B39%7Dthread.skype/Allgemein?groupId=818a67d1-bd8b-4a54-a87f-b6aff587732a&tenantId=a1e7a36c-6a48-4768-9d65-3f679c0f3b12\">Microsoft Teams</a>."
+#~ msgid "FORM_EMAIL_ERROR_INVALID_BLACKLIST"
+#~ msgstr "This service can only be used by employees with an e-mail address with a valid domain name."
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_4_PARAGRAPH"
-msgstr "A marketplace is a collection point where Axel Springer employees can submit their ideas on a specific topic."
+#~ msgid "FORM_EMAIL_ERROR_INVALID_UNIT"
+#~ msgstr "Your company is not yet supported. For further information just visit FAQ."
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_5_PARAGRAPH"
-msgstr "The \"One more idea\" marketplace is a collecting point for all ideas that cannot be thematically assigned to a current marketplace."
+#~ msgid "FORM_EMAIL_ERROR_REQUIRED"
+#~ msgstr "Please enter your e-mail address"
+
+#: src/main/pages/LoginPage/LoginPage.js:136
+#: src/main/pages/SignupPage/SignupPage.js:233
+msgid "FORM_EMAIL_LABEL"
+msgstr "E-mail (business)"
+
+#: src/main/pages/LoginPage/LoginPage.js:147
+msgid "FORM_EMAIL_PLACEHOLDER"
+msgstr "E-mail (business)"
+
+#: src/main/pages/IdeasListPage/IdeaTile.js:238
+msgid "FORM_ERROR_MAX_CHARS"
+msgstr "Maximum {value} characters"
+
+#: src/main/pages/IdeasListPage/IdeaTile.js:237
+msgid "FORM_ERROR_MIN_CHARS"
+msgstr "At least {value} characters"
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_6_PARAGRAPH"
-msgstr "At Axel Springer Crowd, new marketplaces are continuously being activated. Employees can use the platform to find out about new marketplaces. In addition, you will be updated on new marketplaces by newsletter. <a href=\"https://axelspringerideas.us13.list-manage.com/subscribe?u=d4ff5f1c1f7d849d773d43835&id=7658a69b81\">Here you can register for the newsletter</a>."
+#~ msgid "FORM_ERROR_UNEXPECTED"
+#~ msgstr "An error has occurred. Please try again."
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_7_PARAGRAPH"
-msgstr "You can submit ideas and suggestions for a new marketplace here: <a href=\"mailto:crowd@asideas.de\">crowd@asideas.de</a>."
+#~ msgid "FORM_FORENAME_ERROR_REQUIRED"
+#~ msgstr "Please enter your first name"
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_8_PARAGRAPH"
-msgstr "An idea consists of a title and a short description (maximum 255 characters), which makes clear what it is about."
+#~ msgid "FORM_FORENAME_LABEL"
+#~ msgstr "First name"
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_9_PARAGRAPH"
-msgstr "As is well known, brevity is the soul of wit. That is why we have limited the number of characters for an idea. You don't have to submit a mature concept, because it's just about your ideas."
+#~ msgid "FORM_FORENAME_PLACEHOLDER"
+#~ msgstr "First name"
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_1_HEADLINE"
-msgstr "What is the Axel Springer Crowd?"
+#~ msgid "FORM_IDEA_EDIT_PITCH_ERROR_REQUIRED"
+#~ msgstr "Please enter a concise description"
+
+#: src/main/pages/IdeasListPage/IdeasEditComponent.js:148
+msgid "FORM_IDEA_EDIT_PITCH_LABEL"
+msgstr "Your idea in detail"
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_2_HEADLINE"
-msgstr "How can I register at Axel Springer Crowd?"
+#~ msgid "FORM_IDEA_EDIT_TITLE_ERROR_REQUIRED"
+#~ msgstr "Please enter a title"
+
+#: src/main/pages/IdeasListPage/IdeasEditComponent.js:128
+msgid "FORM_IDEA_EDIT_TITLE_LABEL"
+msgstr "Title of your idea"
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_3_HEADLINE"
-msgstr "Which Axel Springer companies can participate?"
+#~ msgid "FORM_PASSWORD_ERROR_PATTERN"
+#~ msgstr "The password must consist of at least 8 characters and a special character."
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_4_HEADLINE"
-msgstr "What is a marketplace?"
+#~ msgid "FORM_PASSWORD_ERROR_REQUIRED"
+#~ msgstr "Please enter your password"
+
+#: src/main/pages/LoginPage/LoginPage.js:169
+msgid "FORM_PASSWORD_LABEL"
+msgstr "Password"
+
+#: src/main/pages/LoginPage/LoginPage.js:175
+msgid "FORM_PASSWORD_PLACEHOLDER"
+msgstr "Password"
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_5_HEADLINE"
-msgstr "What's the deal with the \"One more idea\" marketplace?"
+#~ msgid "FORM_PASSWORD_REPEAT_ERROR_NOT_EQUAL"
+#~ msgstr "The passwords do not match"
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_6_HEADLINE"
-msgstr "How often do new marketplaces appear?"
+#~ msgid "FORM_PASSWORD_REPEAT_ERROR_REQUIRED"
+#~ msgstr "Please enter your password again"
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_7_HEADLINE"
-msgstr "Can I also submit ideas for a marketplace?"
+#~ msgid "FORM_PASSWORD_REPEAT_LABEL"
+#~ msgstr "Repeat password"
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_8_HEADLINE"
-msgstr "In which format do I submit ideas?"
+#~ msgid "FORM_PASSWORD_REPEAT_PLACEHOLDER"
+#~ msgstr "Repeat password"
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_9_HEADLINE"
-msgstr "Why is the number of characters for an idea limited?"
+#~ msgid "FORM_SURNAME_ERROR_REQUIRED"
+#~ msgstr "Please enter your last name"
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_10_HEADLINE"
-msgstr "In which language should I submit my idea?"
+#~ msgid "FORM_SURNAME_LABEL"
+#~ msgstr "Last name"
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_11_HEADLINE"
-msgstr "How is my idea translated and what is DeepL?"
+#~ msgid "FORM_SURNAME_PLACEHOLDER"
+#~ msgstr "Last name"
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_12_HEADLINE"
-msgstr "Can I edit my idea later on?"
+#~ msgid "IDEAS_ADD_DESC"
+#~ msgstr "You got an idea? Then submit it right here."
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_13_HEADLINE"
-msgstr "Who is releasing my idea?"
+#~ msgid "IDEAS_ADD_HEADLINE"
+#~ msgstr "Submit an idea"
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_14_HEADLINE"
-msgstr "Which rules apply to the release and rejection of an idea?"
+#~ msgid "IDEAS_LOAD_MORE_LABEL"
+#~ msgstr "Load more ideas"
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_15_HEADLINE"
-msgstr "How long does take until my idea is released?"
+#~ msgid "IDEAS_LOAD_MORE_LABEL_NO_MORE"
+#~ msgstr "There are no other ideas available"
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_16_HEADLINE"
-msgstr "When can an idea be voted on?"
+#~ msgid "IDEAS_OWN_PUBLISHED_DESC"
+#~ msgstr "Ideas that are still being voted on: {value}"
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_17_HEADLINE"
-msgstr "Can I change my voting later on?"
+#~ msgid "IDEAS_OWN_PUBLISHED_HEADLINE"
+#~ msgstr "Published ideas"
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_18_HEADLINE"
-msgstr "Who should I contact if I have any questions about a rejection?"
+#~ msgid "IDEAS_OWN_REJECTED_DESC"
+#~ msgstr "Ideas that unfortunately have been rejected: {value}"
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_19_HEADLINE"
-msgstr "How are the winners of a marketplace selected?"
+#~ msgid "IDEAS_OWN_REJECTED_HEADLINE"
+#~ msgstr "Rejected ideas"
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_20_HEADLINE"
-msgstr "Do winners receive a reward or bonus?"
+#~ msgid "IDEAS_OWN_STATISTIC_LABEL_IDEAS_APPROVED"
+#~ msgstr "Published"
 
 #: 
-msgid "AS_ABOUT_TEAM_CAPTION"
-msgstr "from left: Tarek Madany Mamlouk, Martin Bild, Johannes Schrade, Anneke Möhlmann, Jasmin Heumann, Thomas Eisermann, Christian Sell, Julian Godesa, Max Weber, Lars Reith, Thomas Wendzinski, Johannes Burr, Sven Rebbert"
+#~ msgid "IDEAS_OWN_STATISTIC_LABEL_IDEAS_PENDING"
+#~ msgstr "Pending"
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_21_HEADLINE"
-msgstr "Where can I find information about innovation?"
+#~ msgid "IDEAS_OWN_STATISTIC_LABEL_IDEAS_REJECTED"
+#~ msgstr "Rejected"
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_22_HEADLINE"
-msgstr "In which countries is Axel Springer Crowd available?"
+#~ msgid "IDEAS_OWN_SUBMITTED_DESC"
+#~ msgstr "Ideas still pending: {value}"
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_21_PARAGRAPH"
-msgstr "At Axel Springer, there are many initiatives related to innovation, such as Community of Practices and Hackathons. We would be happy to connect you with the contact persons of each of these projects. Are you also involved in exciting projects related to innovation? Would you like to learn more about our work or perhaps get involved? Then do not hesitate to send us an email at <a href=\"mailto:crowd@asideas.de\">crowd@asideas.de</a>."
+#~ msgid "IDEAS_OWN_SUBMITTED_HEADLINE"
+#~ msgstr "Submitted Ideas"
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_22_PARAGRAPH"
-msgstr "Axel Springer Crowd is currently only available in German-speaking countries. Other countries will follow."
+#~ msgid "IDEAS_VOTE_DESC"
+#~ msgstr "Here you can rate submitted ideas. Every vote counts!"
 
 #: 
-msgid "AS_IMPRINT_COPYRIGHTS_HEADLINE"
-msgstr "&nbsp;"
+#~ msgid "IDEAS_VOTE_HEADLINE"
+#~ msgstr "Our ideas"
 
 #: 
-msgid "AS_IMPRINT_COPYRIGHTS_P"
-msgstr "&nbsp;"
+#~ msgid "IDEA_ADD_MESSAGE_1"
+#~ msgstr "Your idea has been successfully submitted."
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_23_HEADLINE"
-msgstr "On what Agreement is Axel Springer Crowd operated?"
+#~ msgid "IDEA_ADD_MESSAGE_2"
+#~ msgstr "Your idea will be published soon, we'll just check it quickly."
 
 #: 
-msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_23_PARAGRAPH"
-msgstr "A test run until the end of 2019 was agreed with the Konzernbetriebsrat (KBR). The agreement that applies to the test run can be found in <a target=“_blank“ href=\"https://moveoffice.sharepoint.com/:b:/r/sites/kollektivvereinbarungen/Shared%20Documents/KBV/AS%20Crowd/RA%20ASCrowd%2011.06.2019.pdf\">moveoffice</a>."
+#~ msgid "IDEA_REMOVE_VOTE_MESSAGE"
+#~ msgstr "We have removed your rating."
 
+#: src/main/pages/IdeasListPage/IdeaTile.js:115
+msgid "IDEA_TILE_AVG_RATING"
+msgstr "{rating} {ratingplural, select, many{stars} one{star} other {stars} by {votes} {votesplural, select, many{persons} one{person} other {persons}"
+
+#: 
+#~ msgid "IDEA_UPDATE_MESSAGE"
+#~ msgstr "Your change has been saved successfully."
+
+#: 
+#~ msgid "IDEA_VOTE_MESSAGE"
+#~ msgstr "Thank you very much for your rating."
+
+#: src/main/pages/IntroPage/IntroPage.js:51
+msgid "INTRO_DESC"
+msgstr "Be a part! Register now!"
+
+#: src/main/pages/IntroPage/IntroPage.js:50
+msgid "INTRO_HEADLINE"
+msgstr "Join Crowd"
+
+#: 
+#~ msgid "LOGIN_ERROR_INVALID_CREDENTIALS"
+#~ msgstr "Your login information is invalid. Please check the data you have entered."
+
+#: src/main/pages/LoginPage/LoginPage.js:101
+msgid "LOGIN_HEADLINE"
+msgstr "Login"
+
+#: src/main/pages/LoginPage/LoginPage.js:103
+msgid "LOGIN_LINK_PASSWORD_RECOVERY"
+msgstr "Forgot your password?"
+
+#: src/main/pages/LoginPage/LoginPage.js:196
+msgid "LOGIN_REGISTER"
+msgstr "or register {link}"
+
+#: src/main/pages/LoginPage/LoginPage.js:196
+#: src/main/pages/SignupPage/SignupPage.js:320
+msgid "LOGIN_REGISTER_LINK"
+msgstr "here"
+
+#: 
+#~ msgid "LOGOUT_HEADLINE"
+#~ msgstr "You have been logged out."
+
+#: src/main/pages/LogoutPage/LogoutPage.js:32
+msgid "LOGOUT_LINK_LOGIN"
+msgstr "You can log in again {link}."
+
+#: 
+#~ msgid "LOGOUT_LINK_LOGIN_LINK"
+#~ msgstr "here"
+
+#: src/main/pages/AboutView/AboutView.js:16
+msgid "NAV_LABEL_ABOUT_US"
+msgstr "About us"
+
+#: 
+#~ msgid "NAV_LABEL_ACTIVATE"
+#~ msgstr "Activation"
+
+#: 
+#~ msgid "NAV_LABEL_ADMIN"
+#~ msgstr "Admin"
+
+#: 
+#~ msgid "NAV_LABEL_ERROR_FORBIDDEN"
+#~ msgstr "Access denied"
+
+#: 
+#~ msgid "NAV_LABEL_ERROR_PAGE_NOT_FOUND"
+#~ msgstr "Page not found"
+
+#: 
+#~ msgid "NAV_LABEL_ERROR_UNEXPECTED"
+#~ msgstr "Technical error"
+
+#: 
+#~ msgid "NAV_LABEL_FINANCING"
+#~ msgstr "Financing rounds"
+
+#: src/main/layout/Header.jsx:119
+#: src/main/pages/HelpView/HelpView.js:38
+msgid "NAV_LABEL_HELP"
+msgstr "Help"
+
+#: 
+#~ msgid "NAV_LABEL_IDEAS_OWN"
+#~ msgstr "Your ideas"
+
+#: src/main/pages/ImprintView/ImprintView.js:15
+msgid "NAV_LABEL_IMPRINT"
+msgstr "Imprint"
+
+#: src/main/layout/Header.jsx:125
+#: src/main/pages/LoginPage/LoginPage.js:89
+msgid "NAV_LABEL_LOGIN"
+msgstr "Login"
+
+#: src/main/layout/Header.jsx:131
+#: src/main/pages/LogoutPage/LogoutPage.js:22
+msgid "NAV_LABEL_LOGOUT"
+msgstr "Logout"
+
+#: src/main/pages/IntroPage/IntroPage.js:32
+msgid "NAV_LABEL_OVERVIEW"
+msgstr "Overview"
+
+#: 
+#~ msgid "NAV_LABEL_PASSWORD_RECOVERY"
+#~ msgstr "Forgot password"
+
+#: 
+#~ msgid "NAV_LABEL_PASSWORD_RECOVERY_SUCCESS"
+#~ msgstr "Forgot password successful"
+
+#: 
+#~ msgid "NAV_LABEL_PASSWORD_RESET"
+#~ msgstr "Set password"
+
+#: src/main/pages/PrivacyView/PrivacyView.js:15
+msgid "NAV_LABEL_PRIVACY"
+msgstr "Privacy policy"
+
+#: 
+#~ msgid "NAV_LABEL_PROJECTS"
+#~ msgstr "Project"
+
+#: 
+#~ msgid "NAV_LABEL_PROJECT_ADDED"
+#~ msgstr "New project created"
+
+#: 
+#~ msgid "NAV_LABEL_PROJECT_DETAILS"
+#~ msgstr "Project details"
+
+#: 
+#~ msgid "NAV_LABEL_PROJECT_EDIT"
+#~ msgstr "Edit project"
+
+#: 
+#~ msgid "NAV_LABEL_PROJECT_NEW"
+#~ msgstr "New project"
+
+#: src/main/layout/Header.jsx:124
+#: src/main/pages/SignupPage/SignupPage.js:129
+msgid "NAV_LABEL_REGISTER"
+msgstr "Register"
+
+#: 
+#~ msgid "NAV_LABEL_REGISTER_SUCCESS"
+#~ msgstr "Registration successful"
+
+#: 
+#~ msgid "NAV_LABEL_STATISTIC"
+#~ msgstr "Statistics"
+
+#: src/main/layout/Header.jsx:137
+msgid "NAV_LANG_ENGLISH"
+msgstr "English"
+
+#: src/main/layout/Header.jsx:142
+msgid "NAV_LANG_GERMAN"
+msgstr "Deutsch"
+
+#: 
+#~ msgid "OVERVIEW_CAMPAIGN_DESCRIPTION"
+#~ msgstr "All active topics at a glance"
+
+#: 
+#~ msgid "OVERVIEW_CAMPAIGN_HEADLINE"
+#~ msgstr "Marketplaces"
+
+#: src/main/pages/IntroPage/IntroIdeasCampaignList.js:33
+msgid "OVERVIEW_IDEAS_NO_CAMPAIGN"
+msgstr "Currently there are no idea campaigns available"
+
+#: 
+#~ msgid "OVERVIEW_PROTOTYPES_HEADLINE"
+#~ msgstr "Prototypes"
+
+#: 
+#~ msgid "OVERVIEW_PROTOTYPES_NO_CAMPAIGN"
+#~ msgstr "Unfortunately there is no prototype campaign at the moment."
+
+#: 
+#~ msgid "PASSWORD_RECOVERY_DESC"
+#~ msgstr "Enter the e-mail address by which you registered. You will receive an e-mail from us with a confirmation link to reset your password."
+
+#: 
+#~ msgid "PASSWORD_RECOVERY_ERROR_EMAIL_NOT_REGISTERED"
+#~ msgstr "The e-mail address has not been registered yet. Just try {link}."
+
+#: 
+#~ msgid "PASSWORD_RECOVERY_ERROR_EMAIL_NOT_REGISTERED_LINK"
+#~ msgstr "register"
+
+#: 
+#~ msgid "PASSWORD_RECOVERY_HEADLINE"
+#~ msgstr "Forgot password?"
+
+#: 
+#~ msgid "PASSWORD_RECOVERY_LOGIN"
+#~ msgstr "or login {link}"
+
+#: 
+#~ msgid "PASSWORD_RECOVERY_LOGIN_LINK"
+#~ msgstr "here"
+
+#: 
+#~ msgid "PASSWORD_RECOVERY_SUCCESS_DESC"
+#~ msgstr "We have sent an e-mail with a confirmation link to {email}. Please open your mailbox and click on the link to reset your password."
+
+#: 
+#~ msgid "PASSWORD_RECOVERY_SUCCESS_HEADLINE"
+#~ msgstr "Forgot password"
+
+#: 
+#~ msgid "PASSWORD_RESET_DESC"
+#~ msgstr "Please enter a new password now."
+
+#: 
+#~ msgid "PASSWORD_RESET_ERROR_ALREADY_RESET"
+#~ msgstr "You have already reset your password with the link from your e-mail. You can use the {link} function again to get a new link."
+
+#: 
+#~ msgid "PASSWORD_RESET_ERROR_ALREADY_RESET_LINK"
+#~ msgstr "Forgot password"
+
+#: 
+#~ msgid "PASSWORD_RESET_HEADLINE"
+#~ msgstr "Reset password"
+
+#: 
+#~ msgid "REGISTER_AGB"
+#~ msgstr "I allow Axel Springer SE to contact me for news (e.g. start of a marketplace and status of my idea) concerning Axel Springer Crowd. I have the possibility to unsubscribe from the newsletter at any time. To do this, I can click on the link in the footer of those e-mails. Further information on data protection can be found in the data protection declaration."
+
+#: src/main/pages/SignupPage/SignupPage.js:141
+msgid "REGISTER_HEADLINE"
+msgstr "Registration"
+
+#: src/main/pages/SignupPage/SignupPage.js:320
+msgid "REGISTER_LOGIN"
+msgstr "or login {link}"
+
+#: 
+#~ msgid "REGISTER_LOGIN_LINK"
+#~ msgstr "here"
+
+#: 
+#~ msgid "REGISTER_SUCCESS_DESC"
+#~ msgstr "Your registration under the name {forename} {surname} was successful. We sent an e-mail with a confirmation link to {email}. Please open your mailbox and click on the link to complete the registration."
+
+#: 
+#~ msgid "REGISTER_SUCCESS_HEADLINE"
+#~ msgstr "Registration successful"

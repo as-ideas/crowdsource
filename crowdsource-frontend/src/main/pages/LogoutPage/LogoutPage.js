@@ -29,7 +29,7 @@ export default class LogoutPage extends React.Component {
           <div className="container">
             <div className="box--centered">
               <h1 translate="LOGOUT_HEADLINE">Du wurdest ausgeloggt</h1>
-              <p translate="LOGOUT_LINK_LOGIN" translate-compile translate-values="{ link: '<a href=\'#/login\' class=\'relogin\' translate=\'LOGOUT_LINK_LOGIN_LINK\' translate-compile>temp</a>'}"></p>
+              <p><Trans id="LOGOUT_LINK_LOGIN" values={{link: '<a href=\'login\' class=\'relogin\' translate=\'LOGOUT_LINK_LOGIN_LINK\' translate-compile>temp</a>'}}></Trans></p>
             </div>
           </div>
         </content-row>
