@@ -789,7 +789,7 @@ msgstr "Passwort"
 
 #: src/main/pages/IdeasListPage/IdeaTile.js:115
 msgid "IDEA_TILE_AVG_RATING"
-msgstr "{rating} {ratingplural, select, many{Sterne} one{Stern} other {Sterne} von {votes} {votesplural, select, many{Personen} one{Person} other {Personen}"
+msgstr "{rating, plural, one {# Stern} other {# Sterne}} von {votes, plural, one {# Person} other {# Personen}}"
 
 #: 
 #~ msgid "IDEA_UPDATE_MESSAGE"

@@ -1,6 +1,6 @@
 import React from "react";
 import TextFormatService from "../../util/TextFromatService";
-import {Trans} from "@lingui/macro";
+import {Tran, Plural} from "@lingui/macro";
 import TranslationService from "../../util/TranslationService";
 import IdeaService from "../../util/IdeaService";
 
@@ -114,8 +114,6 @@ export default class IdeaTile extends React.Component {
                 <span className="ideas-grid-tile__votes">
                   <Trans id="IDEA_TILE_AVG_RATING"
                          values={{
-                           ratingplural: rating.averageRating === 1 ? <Trans id='one'/> : <Trans id='many'/>,
-                           votesplural: rating.countVotes === 1 ? <Trans id='one'/> : <Trans id='many'/>,
                            rating: rating.averageRating,
                            votes: rating.countVotes
                          }}/>
