@@ -10,6 +10,7 @@ export default class DebugView extends React.Component {
     }).catch(console.error);
   }
 
+
   clearData() {
     fetch(`/demo`, {
       method: 'DELETE',
@@ -23,8 +24,8 @@ export default class DebugView extends React.Component {
       <div className="content ng-scope" data-ng-view="" autoscroll="true">
         <content-row className="ng-scope">
           <div className="container">
-            <button onClick={this.createDevData.bind(this)}>Create test data</button>
-            <button onClick={this.createDevData.bind(this)}>Delete all data</button>
+            <button onClick={this.createDevData.bind(this)} style={{margin: "4px"}}>Create Test Data</button>
+            <button onClick={this.clearData.bind(this)} style={{margin: "4px"}}>Delete all data</button>
           </div>
         </content-row>
       </div>

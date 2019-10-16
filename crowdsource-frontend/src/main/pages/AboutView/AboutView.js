@@ -32,7 +32,11 @@ export default class AboutView extends React.Component {
               <div className="about__container ng-scope">
                 <div className="about__item">
                   <h2 className="about__headline ng-scope"><Trans id="AS_ABOUT_IDEAS_ENGINEERING_HEADLINE">Ideas Engineering</Trans></h2>
-                  <p className="about__text ng-scope"><Trans id="AS_ABOUT_IDEAS_ENGINEERING_DESC">Wir fokussieren uns auf die Entwicklung neuer Produkte. Dabei haben wir zum besseren Verständnis der sich immer schneller entwickelnden Märkte die neuesten Technologie-Phänomene wie beispielsweise VR, AI, Chatbots, Big Data und Blockchain im Visier. Wir verstehen uns auch als Inkubator für digitale innovative Produkte im Hinblick auf reale unternehmerische Herausforderungen für die Axel Springer-Familie und darüber hinaus.</Trans></p>
+                  <I18n>
+                    {({i18n}) => (
+                        <p className="about__text ng-scope" dangerouslySetInnerHTML={{__html: i18n._("AS_ABOUT_IDEAS_ENGINEERING_DESC")}} />
+                    )}
+                  </I18n>
                   <social-links className="about__social-links--left" website="hhttps://axelspringerideas.de/" twitter="https://www.twitter.com/as_ideas" facebook="https://www.facebook.com/AxelSpringerIdeas" instagram="https://www.instagram.com/ideas_engineering"></social-links>
                 </div>
               </div>
@@ -67,7 +71,11 @@ export default class AboutView extends React.Component {
               <div className="about__container ng-scope">
                 <div className="about__item">
                   <h2 className="about__headline ng-scope"><Trans id="AS_ABOUT_NEWS_MEDIA_PRINT_HEADLINE">News Media Print</Trans></h2>
-                  <p className="about__text ng-scope"><Trans id="AS_ABOUT_NEWS_MEDIA_PRINT_DESC">Die Personalabteilung des Verlagsbereichs News Media Print begleitet Mitarbeiterinnen und Mitarbeiter mit Kompetenz, Erfahrung und Weitblick von der Bewerbung über Elternzeit, Sabbatical und Fachkarriere bis hin zum Renteneintritt auf ihrem Weg in der Axel Springer-Familie.</Trans></p>
+                  <I18n>
+                    {({i18n}) => (
+                      <p className="about__text ng-scope" dangerouslySetInnerHTML={{__html: i18n._("AS_ABOUT_NEWS_MEDIA_PRINT_DESC")}} />
+                    )}
+                  </I18n>
                   <social-links className="about__social-links--left" website="https://moveoffice.sharepoint.com/sites/b60/SitePages/Home.aspx?e=1:56e0357a6aef4283a4fa96847a159e25"></social-links>
                 </div>
               </div>

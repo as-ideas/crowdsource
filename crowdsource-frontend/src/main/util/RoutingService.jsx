@@ -28,6 +28,9 @@ RoutingService.goToLoginPage = () => {
   return RoutingService.history.push('/login');
 };
 
+RoutingService.goToLogoutPage = () => {
+  return RoutingService.history.push('/user-logout');
+};
 
 RoutingService.goToSignUpPage = () => {
   return RoutingService.history.push('/signup');

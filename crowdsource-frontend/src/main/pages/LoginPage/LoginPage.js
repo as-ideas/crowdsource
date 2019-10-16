@@ -1,89 +1,45 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
-import AuthService from "../../util/AuthService";
 import {t} from "@lingui/macro"
 import {Trans} from '@lingui/macro';
-import RoutingService from "../../util/RoutingService";
-import ValidationService from "../../util/ValidationService";
 import {I18n} from "@lingui/react";
 import {Helmet} from "react-helmet";
+import {AuthContextConsumer} from "../../contexts/AuthContext";
 
 export default class LoginPage extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      loading: false,
       input: {email: "", password: ""},
-      errors: {}
     };
 
-    this.login = this.login.bind(this);
     this.handlePasswordInputChange = this.handlePasswordInputChange.bind(this);
     this.handleEmailInputChange = this.handleEmailInputChange.bind(this);
-    this.validateForm = this.validateForm.bind(this);
   }
 
   componentDidMount() {
   }
 
-  login() {
-    if (this.validateForm()) {
-      this.state.errors.general = [];
-      AuthService.login(this.state.input.email, this.state.input.password)
-        .then((response) => {
-          if (response.errorCode) {
-            this.state.errors = ValidationService.errorObjectFromBackend(response);
-            this.setState(this.state);
-          } else {
-            RoutingService.redirectToOriginallyRequestedPageOr('/');
-          }
-        })
-        .catch(console.error)
-        .finally(() => {
-          this.setState({loading: false});
-        });
-    } else {
-      console.error("Invalid form!");
-    }
-  }
 
   handleEmailInputChange(e) {
     this.state.input.email = e.target.value;
-    this.setState(this.state, this.validateForm);
+    console.log("Email: " + e.target.value)
+    //this.setState(this.state, this.validateForm);
   }
 
   handlePasswordInputChange(e) {
     this.state.input.password = e.target.value;
-    this.setState(this.state, this.validateForm);
+    //this.setState(this.state, this.validateForm);
   }
 
-  validateForm() {
-    this.state.errors = {};
-
-    if (!this.state.input.email) {
-      this.state.errors.email = ['FORM_EMAIL_ERROR_REQUIRED'];
-    } else {
-      if (!ValidationService.isEmailValid(this.state.input.email)) {
-        this.state.errors.email = ['FORM_EMAIL_ERROR_INVALID'];
-      }
-    }
-
-    if (!this.state.input.password) {
-      this.state.errors.password = ['FORM_PASSWORD_ERROR_REQUIRED'];
-    }
-
-    this.setState(this.state);
-    return this.isValidForm();
-  }
-
-  isValidForm() {
-    return Object.keys(this.state.errors).length === 0;
-  }
 
   render() {
     return (
+      <AuthContextConsumer>
+        { ({ isLoading, login, errors }) => (
       <React.Fragment>
-      <I18n>
+
+        <I18n>
       {({ i18n }) => (
         <Helmet>
         <title>{i18n._(t("NAV_LABEL_LOGIN")`Login`)}</title>
@@ -108,10 +64,10 @@ export default class LoginPage extends React.Component {
 
               <div className="small-12 columns">
                 {
-                  this.state.errors.general ?
-                    <div className="general-error alert-box alert" ng-messages="login.generalErrors">
+                  errors.general ?
+                    <div className="general-error alert-box alert">
                       {
-                        this.state.errors.general.map(error => {
+                        errors.general.map(error => {
                           return <span key={error}><Trans id={error}/></span>
                         })
                       }
@@ -125,10 +81,10 @@ export default class LoginPage extends React.Component {
                 <div className="small-12 columns form-controls-email">
                   <label form-group="email">
                     {
-                      this.state.errors.email ?
+                      errors.email ?
                         <span className="invalid-label">
                                               {
-                                                this.state.errors.email.map(error => {
+                                                errors.email.map(error => {
                                                   return <span key={error}><Trans id={error}/></span>
                                                 })
                                               }
@@ -142,7 +98,6 @@ export default class LoginPage extends React.Component {
       {({ i18n }) => (
                     <input type="email"
                            name="email"
-                           value={this.state.input.email}
                            onChange={this.handleEmailInputChange}
                            placeholder={i18n._(t`FORM_EMAIL_PLACEHOLDER`)}
                            required/>
@@ -158,10 +113,10 @@ export default class LoginPage extends React.Component {
 
 
                     {
-                      this.state.errors.password ?
+                      errors.password ?
                         <span className="invalid-label">
                                                 {
-                                                  this.state.errors.password.map(error => {
+                                                  errors.password.map(error => {
                                                     return <div key={error}><span><Trans id={error}/></span></div>
                                                   })
                                                 }
@@ -173,7 +128,6 @@ export default class LoginPage extends React.Component {
                     <input type="password"
                            name="password"
                            placeholder={i18n._(t`FORM_PASSWORD_PLACEHOLDER`)}
-                           value={this.state.input.password}
                            onChange={this.handlePasswordInputChange}
                            required/>
   )}
@@ -186,10 +140,10 @@ export default class LoginPage extends React.Component {
                 <div className="small-12 columns text-center">
                   <div>
                     {
-                      this.state.loading ?
+                      isLoading ?
                         <button className="button-primary" disabled><Trans id='BUTTON_LABEL_LOGGING_IN'>Login...</Trans></button>
                         :
-                        <button className="button-primary" onClick={this.login}><Trans id='BUTTON_LABEL_LOGIN'>Login</Trans></button>
+                        <button className="button-primary" onClick={() => login(this.state.input.email, this.state.input.password)}><Trans id='BUTTON_LABEL_LOGIN'>Login</Trans></button>
                     }
                   </div>
                   <div className="text--small push--top">
@@ -201,6 +155,8 @@ export default class LoginPage extends React.Component {
           </div>
         </content-row>
       </React.Fragment>
+        )}
+    </AuthContextConsumer>
     );
   };
 };

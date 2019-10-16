@@ -3,6 +3,7 @@ const path = require('path');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 var _root = path.resolve(__dirname, '..');
 
@@ -16,12 +17,26 @@ module.exports = (env) => {
     mode: 'development',
     entry: {
       app: './src/main/index.js',
-      vendor: ['react', 'react-dom']
+      css: './src/main/scss/crowdsource.scss'
     },
     output: {
       path: path.join(__dirname, './target/classes/public'),
       filename: '[name].bundle.js',
     },
+    optimization: {
+      splitChunks: {
+        cacheGroups: {
+          vendor: {
+            test: /node_modules/,
+            chunks: 'initial',
+            name: 'vendor',
+            enforce: true
+          },
+        }
+      }
+    },
+    stats: 'minimal',
+    performance: {hints: false},
     module: {
       rules: [
         {test: /\.html$/, exclude: /node_modules/, use: {loader: 'file-loader', query: {name: '[name].[ext]'},},},
@@ -48,6 +63,16 @@ module.exports = (env) => {
     plugins: [
       new CleanWebpackPlugin({cleanOnceBeforeBuildPatterns: root('./target/classes/public')}),
       // new CopyWebpackPlugin([{from: './static/', to: ''}])
+      // new BundleAnalyzerPlugin(),
+      new webpack.ProgressPlugin({
+        entries: true,
+        modules: true,
+        modulesCount: 100,
+        profile: true,
+        // handler: (percentage, message, ...args) => {
+        //   // custom logic
+        // }
+      })
     ],
     devServer: {
       historyApiFallback: true
