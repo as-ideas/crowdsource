@@ -234,10 +234,10 @@ export default class IdeaTile extends React.Component {
                       <label>
                         <span form-label-valid="rejectionMessage" translate="FORM_ADMIN_IDEA_REJECT_REASON_LABEL">Ablehnungsgrund</span>
                         <span form-label-invalid="rejectionMessage" ng-messages="rejectionForm.rejectionMessage.$error">
-                                <span ng-message="minlength"><span translate="FORM_ERROR_MIN_CHARS" translate-value-value="10">Mindestens 10 Zeichen</span></span>
-                                <span ng-message="maxlength"><span translate="FORM_ERROR_MAX_CHARS" translate-value-value="1000">Maximal 10000 Zeichen</span></span>
-                                <span ng-message="required"><span translate="FORM_ADMIN_IDEA_REJECT_REASON_ERROR_REQUIRED">Bitte Ablehnungsgrund angeben</span></span>
-                    </span>
+                          <span ng-message="minlength"><span><Trans id="FORM_ERROR_MIN_CHARS" values={{value: "10"}}>Mindestens 10 Zeichen</Trans></span></span>
+                          <span ng-message="maxlength"><span><Trans id="FORM_ERROR_MAX_CHARS" values={{value: "1000"}}>Maximal 10000 Zeichen</Trans></span></span>
+                          <span ng-message="required"><span><Trans id="FORM_ADMIN_IDEA_REJECT_REASON_ERROR_REQUIRED">Bitte Ablehnungsgrund angeben</Trans></span></span>
+                        </span>
                         <textarea campaign-active-aware rows="3" className="ideas-grid-tile__reject-textarea" ng-minlength="10" ng-model="vm.rejectionComment" name="rejectionMessage" placeholder="Ablehnungsgrund" translate-attr="{ placeholder: 'FORM_ADMIN_IDEA_REJECT_REASON_PLACEHOLDER' }"></textarea>
                       </label>
                     </form>

@@ -13,7 +13,6 @@ import AuthService from "./util/AuthService";
 
 // Layout & Design
 import Layout from "./layout/Layout";
-import './scss/crowdsource.scss';
 import './index.html';
 
 // Pages

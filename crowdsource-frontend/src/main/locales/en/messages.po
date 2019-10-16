@@ -73,7 +73,7 @@ msgstr "AS IT"
 msgid "AS_ABOUT_AS_IT_HEADLINE_DESC"
 msgstr "At Axel Springer IT, we focus on recognizing the potential of digital transformation and disruptive technologies and making them available to the various business units of the Axel Springer family. Digital disruption is omnipresent and exposes us to strong competition in many areas of our daily work. At the same time, it offers us unexpected opportunities that we actively want to shape. These developments range from future-oriented technologies, over advantages through the use of data to groundbreaking trends in collaboration between employees. We support our customers in successfully mastering their daily challenges in the market so that we can further strengthen and expand our leading position as a digital publishing house. With our expertise we want to support the Axel Springer Crowd effectively."
 
-#: src/main/pages/AboutView/AboutView.js:39
+#: src/main/pages/AboutView/AboutView.js:37
 msgid "AS_ABOUT_IDEAS_ENGINEERING_DESC"
 msgstr ""
 "We focus on the development of new products. In order to gain a better understanding of the rapidly developing markets, we target the latest technology phenomena such as VR, AI, Chatbots, Big Data and Blockchain. We also consider ourselves as an incubator for digital and innovative products regarding business challenges of the Axel Springer family. And way beyond.\n"
@@ -82,11 +82,11 @@ msgstr ""
 "\n"
 "You want to get to know other innovative products? Let's grab a cup of coffee and have a chat."
 
-#: src/main/pages/AboutView/AboutView.js:38
+#: src/main/pages/AboutView/AboutView.js:34
 msgid "AS_ABOUT_IDEAS_ENGINEERING_HEADLINE"
 msgstr "Ideas Engineering"
 
-#: src/main/pages/AboutView/AboutView.js:74
+#: src/main/pages/AboutView/AboutView.js:76
 msgid "AS_ABOUT_NEWS_MEDIA_PRINT_DESC"
 msgstr ""
 "The human resources department of the News Media Print division accompanies all employees with competence, experience and foresight on their journey through the Axel Springer family. From their application, parental leave, sabbatical and specialist career to retirement.\n"
@@ -105,7 +105,7 @@ msgstr "People & Culture stands for company-wide networking and exchange among e
 msgid "AS_ABOUT_PEOPLE_AND_CULTURE_HEADLINE"
 msgstr "People & Culture"
 
-#: src/main/pages/AboutView/AboutView.js:30
+#: src/main/pages/AboutView/AboutView.js:26
 msgid "AS_ABOUT_TEAM_CAPTION"
 msgstr "from left: Tarek Madany Mamlouk, Martin Bild, Johannes Schrade, Anneke Möhlmann, Jasmin Heumann, Thomas Eisermann, Christian Sell, Julian Godesa, Max Weber, Lars Reith, Thomas Wendzinski, Johannes Burr, Sven Rebbert"
 
@@ -145,7 +145,7 @@ msgstr "from left: Tarek Madany Mamlouk, Martin Bild, Johannes Schrade, Anneke M
 #~ msgid "AS_FOOTER_SITEMAP"
 #~ msgstr "Sitemap"
 
-#: src/main/pages/ImprintView/ImprintView.js:27
+#: src/main/pages/ImprintView/ImprintView.js:28
 msgid "AS_IMPRINT_ADDRESS"
 msgstr ""
 "Axel Springer Ideas Engineering GmbH\n"
@@ -153,14 +153,14 @@ msgstr ""
 "Axel-Springer-Strasse 65\n"
 "10888 Berlin"
 
-#: src/main/pages/ImprintView/ImprintView.js:35
+#: src/main/pages/ImprintView/ImprintView.js:32
 msgid "AS_IMPRINT_CONTACT_HEADLINE"
 msgstr "Contact Information"
 
-#: src/main/pages/ImprintView/ImprintView.js:37
+#: src/main/pages/ImprintView/ImprintView.js:36
 msgid "AS_IMPRINT_CONTACT_P"
 msgstr ""
-"E-mail: {email}\n"
+"E-mail: <a href=\"crowd@asideas.de\">crowd@asideas.de</a>\n"
 "Phone: 030 - 2591 78100"
 
 #: 
@@ -179,11 +179,11 @@ msgstr "Imprint"
 msgid "AS_IMPRINT_PROVIDER"
 msgstr "Provider"
 
-#: src/main/pages/ImprintView/ImprintView.js:44
+#: src/main/pages/ImprintView/ImprintView.js:41
 msgid "AS_IMPRINT_RESPONSIBLE_HEADLINE"
 msgstr "Responsible for the content according to § 6 Abs.2 MDStV"
 
-#: src/main/pages/ImprintView/ImprintView.js:50
+#: src/main/pages/ImprintView/ImprintView.js:48
 msgid "AS_IMPRINT_RESPONSIBLE_P"
 msgstr ""
 "Michael Alber\n"
@@ -480,8 +480,8 @@ msgstr ""
 #: 
 #~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_3_PARAGRAPH"
 #~ msgstr ""
-#~ "At Axel Springer Crowd, all employees of Axel Springer SE and the units in which Axel Springer holds a majority interest can participate.</br>\n"
-#~ "</br>\n"
+#~ "At Axel Springer Crowd, all employees of Axel Springer SE and the units in which Axel Springer holds a majority interest can participate.\n"
+#~ "\n"
 #~ "We are happy to help you at <a href=\"mailto:crowd@asideas.de\">crowd@asideas.de</a> or <a href=\"https://teams.microsoft.com/l/channel/19%7B2%7Da5e30dd1c7dba4b6fb3e91d87f680d827%7B39%7Dthread.skype/Allgemein?groupId=818a67d1-bd8b-4a54-a87f-b6aff587732a&tenantId=a1e7a36c-6a48-4768-9d65-3f679c0f3b12\">Microsoft Teams</a>."
 
 #: 
@@ -556,7 +556,7 @@ msgstr "In any case we will try to find a solution for your problem."
 msgid "BUTTON_LABEL_CANCEL"
 msgstr "Cancel"
 
-#: src/main/pages/IdeasListPage/IdeaTile.js:215
+#: src/main/pages/IdeasListPage/IdeaTile.js:213
 msgid "BUTTON_LABEL_EDIT"
 msgstr "Edit"
 
@@ -613,9 +613,9 @@ msgstr "Not rated yet"
 msgid "FILTER_VOTED_LABEL"
 msgstr "Already rated"
 
-#: 
-#~ msgid "FORM_ADMIN_IDEA_REJECT_REASON_ERROR_REQUIRED"
-#~ msgstr "Please give reason for refusal"
+#: src/main/pages/IdeasListPage/IdeaTile.js:239
+msgid "FORM_ADMIN_IDEA_REJECT_REASON_ERROR_REQUIRED"
+msgstr "Please give reason for refusal"
 
 #: 
 #~ msgid "FORM_ADMIN_IDEA_REJECT_REASON_LABEL"
@@ -675,13 +675,13 @@ msgstr "E-mail (business)"
 msgid "FORM_EMAIL_PLACEHOLDER"
 msgstr "E-mail (business)"
 
-#: 
-#~ msgid "FORM_ERROR_MAX_CHARS"
-#~ msgstr "Maximum {value} characters"
+#: src/main/pages/IdeasListPage/IdeaTile.js:238
+msgid "FORM_ERROR_MAX_CHARS"
+msgstr "Maximum {value} characters"
 
-#: 
-#~ msgid "FORM_ERROR_MIN_CHARS"
-#~ msgstr "At least {value} characters"
+#: src/main/pages/IdeasListPage/IdeaTile.js:237
+msgid "FORM_ERROR_MIN_CHARS"
+msgstr "At least {value} characters"
 
 #: 
 #~ msgid "FORM_ERROR_UNEXPECTED"
@@ -833,7 +833,7 @@ msgstr "Password"
 
 #: src/main/pages/IdeasListPage/IdeaTile.js:115
 msgid "IDEA_TILE_AVG_RATING"
-msgstr "{rating, plural, one {# star} other {# stars}} by {votes, plural, one {# person} other {# persons}}"
+msgstr "{rating} {ratingplural, select, many{stars} one{star} other {stars} by {votes} {votesplural, select, many{persons} one{person} other {persons}"
 
 #: 
 #~ msgid "IDEA_UPDATE_MESSAGE"
@@ -876,15 +876,15 @@ msgstr "here"
 #~ msgid "LOGOUT_HEADLINE"
 #~ msgstr "You have been logged out."
 
-#: 
-#~ msgid "LOGOUT_LINK_LOGIN"
-#~ msgstr "You can log in again {link}."
+#: src/main/pages/LogoutPage/LogoutPage.js:32
+msgid "LOGOUT_LINK_LOGIN"
+msgstr "You can log in again {link}."
 
 #: 
 #~ msgid "LOGOUT_LINK_LOGIN_LINK"
 #~ msgstr "here"
 
-#: src/main/pages/AboutView/AboutView.js:20
+#: src/main/pages/AboutView/AboutView.js:16
 msgid "NAV_LABEL_ABOUT_US"
 msgstr "About us"
 
@@ -1087,13 +1087,3 @@ msgstr "or login {link}"
 #: 
 #~ msgid "REGISTER_SUCCESS_HEADLINE"
 #~ msgstr "Registration successful"
-
-#: src/main/pages/IdeasListPage/IdeaTile.js:117
-#: src/main/pages/IdeasListPage/IdeaTile.js:118
-msgid "many"
-msgstr ""
-
-#: src/main/pages/IdeasListPage/IdeaTile.js:117
-#: src/main/pages/IdeasListPage/IdeaTile.js:118
-msgid "one"
-msgstr ""
