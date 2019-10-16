@@ -111,13 +111,13 @@ class AuthService {
     if (this.authTokenService.getTokens()) {
       // prevents the user's details to be set to undefined while loading
       // and therefore flickering of e.g. the user budget in the status-bar
-      this.currentUser = this.userService.augmentUser(this.authTokenService.getUserFromToken());
-      this.currentUser.loggedIn = true;
-      this.setRolesFromToken();
-    } else {
-      this.currentUser = this.userService.anonymous();
+      let currentUser = this.authTokenService.getUserFromToken();
+      if(currentUser) {
+        this.currentUser = this.userService.augmentUser(currentUser);
+        this.currentUser.loggedIn = true;
+        this.setRolesFromToken();
+      }
     }
-    return this.currentUser;
   };
 
   validateCurrentUser() {
