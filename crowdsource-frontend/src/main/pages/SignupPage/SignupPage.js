@@ -317,7 +317,7 @@ export default class SignupPage extends React.Component {
                     }
                   </div>
                   <div className="text--small push--top">
-                    <Trans id='REGISTER_LOGIN' values={{link: <NavLink to='/signup'><Trans id='LOGIN_REGISTER_LINK'/></NavLink>}}/>
+                    <Trans id='REGISTER_LOGIN' values={{link: <NavLink to='/login'><Trans id='LOGIN_REGISTER_LINK'/></NavLink>}}/>
                   </div>
                 </div>
               </div>
