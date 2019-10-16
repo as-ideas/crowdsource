@@ -1,5 +1,6 @@
-const DEFAULT_PAGE_SIZE = 50;
+import RequestUtil from "./RequestUtil";
 
+const DEFAULT_PAGE_SIZE = 50;
 
 class IdeaService {
   constructor() {
@@ -75,7 +76,7 @@ class IdeaService {
     let params = {
       status: status
     };
-    url = this.appendParameterToUrl(url, params);
+    url = RequestUtil.appendParameterToUrl(url, params);
 
     return fetch(url, {
       method: 'GET',
@@ -91,7 +92,7 @@ class IdeaService {
       page: page,
       pageSize: DEFAULT_PAGE_SIZE
     };
-    url = this.appendParameterToUrl(url, params);
+    url = RequestUtil.appendParameterToUrl(url, params);
 
 
     return fetch(url, {
@@ -108,7 +109,7 @@ class IdeaService {
       page: page,
       pageSize: DEFAULT_PAGE_SIZE
     };
-    url = this.appendParameterToUrl(url, params);
+    url = RequestUtil.appendParameterToUrl(url, params);
 
     return fetch(url)
       .then(response => {
@@ -147,14 +148,7 @@ class IdeaService {
     })
   }
 
-  appendParameterToUrl(url, params) {
-    url += "?";
-    let paramArray = [];
-    Object.keys(params).forEach(key => paramArray.push("" + key + "=" + params[key]));
-    url += paramArray.join("&");
-    console.info("appendParameterToUrl", url);
-    return url;
-  }
+
 }
 
 export default new IdeaService();

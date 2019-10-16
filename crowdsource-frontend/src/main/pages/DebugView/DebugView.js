@@ -23,8 +23,8 @@ export default class DebugView extends React.Component {
       <div className="content ng-scope" data-ng-view="" autoscroll="true">
         <content-row className="ng-scope">
           <div className="container">
-            <button onClick={this.createDevData.bind(this)} value="CREATE"/>
-            <button onClick={this.createDevData.bind(this)} value="DELETE"/>
+            <button onClick={this.createDevData.bind(this)}>Create test data</button>
+            <button onClick={this.createDevData.bind(this)}>Delete all data</button>
           </div>
         </content-row>
       </div>
