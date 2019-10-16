@@ -2,6 +2,7 @@ const ValidationService = {};
 
 
 ValidationService.isEmailValid = (email) => {
+  console.log("validate: " + email);
   return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
 };
 

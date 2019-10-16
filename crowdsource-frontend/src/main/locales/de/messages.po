@@ -874,8 +874,8 @@ msgid "NAV_LABEL_HELP"
 msgstr "Hilfe"
 
 #: 
-#~ msgid "NAV_LABEL_IDEAS_OWN"
-#~ msgstr "Deine Ideen"
+msgid "NAV_LABEL_IDEAS_OWN"
+msgstr "Deine Ideen"
 
 #: src/main/pages/ImprintView/ImprintView.js:15
 msgid "NAV_LABEL_IMPRINT"

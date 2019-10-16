@@ -1,16 +1,15 @@
 import React from "react";
-import AuthService from "../../util/AuthService";
 import {I18n} from "@lingui/react";
+import {AuthContextConsumer} from "../../contexts/AuthContext";
 import {Helmet} from "react-helmet";
 import {t} from "@lingui/macro";
+import {Trans} from '@lingui/react';
+
 
 export default class LogoutPage extends React.Component {
+
   constructor(props, context) {
     super(props, context);
-    AuthService.logout();
-  }
-
-  componentDidMount() {
   }
 
   render() {
@@ -23,16 +22,24 @@ export default class LogoutPage extends React.Component {
         </Helmet>
       )}
       </I18n>
-        <div className='teaser--slim'/>
-
-        <content-row className="logout-success">
-          <div className="container">
-            <div className="box--centered">
-              <h1 translate="LOGOUT_HEADLINE">Du wurdest ausgeloggt</h1>
-              <p translate="LOGOUT_LINK_LOGIN" translate-compile translate-values="{ link: '<a href=\'#/login\' class=\'relogin\' translate=\'LOGOUT_LINK_LOGIN_LINK\' translate-compile>temp</a>'}"></p>
+      <AuthContextConsumer>
+      { ({ isLoggedIn, logout }) => (
+        <React.Fragment>
+          {
+            isLoggedIn ? logout() : null
+          }
+          <div className='teaser--slim'/>
+          <content-row className="logout-success">
+            <div className="container">
+              <div className="box--centered">
+                <h1 translate="LOGOUT_HEADLINE">Du wurdest ausgeloggt</h1>
+                <p><Trans id="LOGOUT_LINK_LOGIN" values={{ link: <a href='/login' class='relogin'><Trans id="LOGOUT_LINK_LOGIN_LINK" /></a>}}/></p>
+              </div>
             </div>
-          </div>
-        </content-row>
+          </content-row>
+        </React.Fragment>
+      )}
+      </AuthContextConsumer>
       </React.Fragment>
     );
   };

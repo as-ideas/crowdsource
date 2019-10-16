@@ -36,8 +36,10 @@ UnauthorizedInterceptor.init = () => {
 
     // Modify the reponse object
     response: function (response) {
+      console.log("Interceptor logout");
       if (response.status === 401) {
         // Clear current JWT
+        console.log("UnauthorizedInterceptor -> logout")
         AuthService.logout();
 
         // redirect to login
