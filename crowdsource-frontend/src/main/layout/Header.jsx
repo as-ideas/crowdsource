@@ -1,6 +1,5 @@
 import React from "react";
-import AuthService from "../util/AuthService";
-import {NavLink, Route, useParams } from "react-router-dom";
+import {NavLink, Route } from "react-router-dom";
 import TranslationService from "../util/TranslationService";
 import IdeaService from "../util/IdeaService";
 import { Trans } from '@lingui/macro';
@@ -53,17 +52,13 @@ export default class Header extends React.Component {
 
     }
 
-    isUserLoggedIn() {
-        return AuthService.currentUser.loggedIn;
-    }
-
 
     render() {
         return (
           <I18nContextConsumer>
           { ({ language, i18n, switchLanguage }) => (
             <AuthContextConsumer>
-              { ({ isLoggedIn, logout }) => (
+              { ({ isLoggedIn, isAdmin }) => (
               <div className="header__content-spacer">
                 <header className="header__header-container">
                     <div className="content-container">
@@ -92,13 +87,19 @@ export default class Header extends React.Component {
                                 {/* END BREADCRUMB*/}
 
                                 <Route path='/ideas/:ideasId' render={({ match }) => {
-                                  return <NavLink className="header__nav-link" to={'/ideas/' + match.params.ideasId + '/own'} onClick={this.closeMobileMenu}>
-                                    <Trans id="NAV_LABEL_IDEAS_OWN" />
-                                  </NavLink>
-                                }} />
-
-                                <Route path='/ideas/:ideasId' render={({ match }) => {
-                                  return <div className="header__nav-divider"/>
+                                  return <React.Fragment>
+                                      <NavLink className="header__nav-link" to={'/ideas/' + match.params.ideasId + '/own'} onClick={this.closeMobileMenu}>
+                                        <Trans id="NAV_LABEL_IDEAS_OWN" />
+                                      </NavLink>
+                                      {
+                                        isAdmin ?
+                                          <NavLink className="header__nav-link" to={'/ideas/' + match.params.ideasId + '/admin'} onClick={this.closeMobileMenu}>
+                                            <Trans id="NAV_LABEL_ADMIN" />
+                                          </NavLink>
+                                          : null
+                                      }
+                                      <div className="header__nav-divider"/>
+                                    </React.Fragment>
                                 }} />
 
                                 {/* END IDEAS SUB NAVIGATION*/}

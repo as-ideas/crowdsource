@@ -40,7 +40,10 @@ class AuthContextProvider extends React.Component {
           this.setState({errors: ValidationService.errorObjectFromBackend(response)});
         } else {
           console.log("login")
-          this.setState({isLoggedIn: true})
+          this.setState({
+            isLoggedIn: true,
+            isAdmin: AuthService.isAdmin()
+          })
           RoutingService.redirectToOriginallyRequestedPageOr('/');
         }
       })
@@ -52,7 +55,6 @@ class AuthContextProvider extends React.Component {
 
   logout() {
     AuthService.logout();
-    console.log("Logout")
     this.setState({
       isLoggedIn: false,
       isAdmin: false

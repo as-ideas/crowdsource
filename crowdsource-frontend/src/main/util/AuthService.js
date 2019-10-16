@@ -102,10 +102,9 @@ class AuthService {
         }
       }).then(jsonData => {
         this.authTokenService.setToken(jsonData);
-        resolve(jsonData);
-      }).finally(() => {
         this.reloadUser();
-      });
+        resolve(jsonData);
+      })
     });
   };
 

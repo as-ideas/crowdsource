@@ -849,8 +849,8 @@ msgstr "Über uns"
 #~ msgstr "Aktivierung"
 
 #: 
-#~ msgid "NAV_LABEL_ADMIN"
-#~ msgstr "Admin"
+msgid "NAV_LABEL_ADMIN"
+msgstr "Admin"
 
 #: 
 #~ msgid "NAV_LABEL_ERROR_FORBIDDEN"
