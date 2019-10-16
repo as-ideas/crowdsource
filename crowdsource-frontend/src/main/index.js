@@ -9,7 +9,6 @@ import {I18nContextConsumer, I18nContextProvider} from "./contexts/I18nContext";
 // Services
 import RoutingService from "./util/RoutingService";
 import UnauthorizedInterceptor from "./util/UnauthorizedInterceptor";
-import AuthService from "./util/AuthService";
 
 // Layout & Design
 import Layout from "./layout/Layout";
@@ -31,7 +30,6 @@ import HelpView from './pages/HelpView/HelpView';
 import StatisticsPage from "./pages/StatisticsPage/StatisticsPage";
 
 UnauthorizedInterceptor.init();
-AuthService.reloadUser();
 
 ReactDOM.render((
   <I18nContextProvider>

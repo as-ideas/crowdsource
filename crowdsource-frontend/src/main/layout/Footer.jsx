@@ -1,7 +1,5 @@
 import React from "react";
 import RoutingService from "../util/RoutingService";
-import AuthService from "../util/AuthService";
-import Events from "../util/Events";
 import {AuthContextConsumer} from "../contexts/AuthContext";
 
 

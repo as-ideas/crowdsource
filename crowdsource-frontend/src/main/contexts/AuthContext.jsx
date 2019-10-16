@@ -2,6 +2,7 @@ import React from 'react'
 import AuthService from "../util/AuthService";
 import ValidationService from "../util/ValidationService";
 import RoutingService from "../util/RoutingService";
+import Events from "../util/Events";
 
 const AuthContext = React.createContext();
 
@@ -17,8 +18,18 @@ class AuthContextProvider extends React.Component {
     this.state = {
       errors: {},
       isLoading: false,
-      isLoggedIn: false,
-      isAdmin: false
+      isLoggedIn: AuthService.isLoggedIn(),
+      isAdmin: AuthService.isAdmin()
+    }
+
+    if(AuthService.isLoggedIn()) {
+      AuthService.validateCurrentUser()
+        .then((response) => {
+          this.setState({
+            isLoggedIn: AuthService.isLoggedIn(),
+            isAdmin: AuthService.isAdmin()
+          })
+        });
     }
   }
 
