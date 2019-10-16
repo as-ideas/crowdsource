@@ -2,33 +2,10 @@ import React from "react";
 import RoutingService from "../util/RoutingService";
 import AuthService from "../util/AuthService";
 import Events from "../util/Events";
+import {AuthContextConsumer} from "../contexts/AuthContext";
 
 
 export default class Footer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isAdmin: false
-    }
-  }
-
-  componentDidMount() {
-    this.userChangedListener = Events.addUserStateChangedListener(this.userChanged.bind(this));
-  }
-
-  componentWillUnmount() {
-    this.userChangedListener.remove();
-  }
-
-  userChanged() {
-    this.state.isAdmin = AuthService.isAdmin();
-    this.setState(this.state);
-  }
-
-    isAdmin() {
-        // FIXME React footer.auth.isAdmin()
-        return this.state.isAdmin;
-    }
 
     goToNewsletter() {
         RoutingService.openExternal('http://eepurl.com/gglA8X');
@@ -59,15 +36,16 @@ export default class Footer extends React.Component {
                             <li className="footer__item-head" translate="AS_FOOTER_SITEMAP">Sitemap</li>
                             <li><a className="footer-link" href="/intro" translate="AS_FOOTER_LINK_INTRO">Entdecken</a></li>
                             <li><a className="footer-link" href="/help" translate="AS_FOOTER_LINK_SUPPORT">Hilfe</a></li>
-                            {
-                                this.isAdmin() ?
-                                    <React.Fragment>
-                                        <li className="footer__item-head--nextrow">Admin</li>
-                                        <li><a className="footer-link" href="/statistics">Statistik</a></li>
-                                    </React.Fragment>
-                                    : null
-                            }
-
+                            <AuthContextConsumer>
+                            { ({ isAdmin }) => (
+                                isAdmin ?
+                                <React.Fragment>
+                                  <li className="footer__item-head--nextrow">Admin</li>
+                                  <li><a className="footer-link" href="/statistics">Statistik</a></li>
+                                </React.Fragment>
+                                : null
+                            )}
+                            </AuthContextConsumer>
                         </ul>
                         <ul className="footer__col">
                             <li className="footer__item-head" translate="AS_FOOTER_INFORMATION">Informationen</li>
