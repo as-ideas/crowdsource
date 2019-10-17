@@ -264,8 +264,8 @@ export default class StatisticsPage extends React.Component {
     return (
       <content-row>
         <I18n>
-          {({ i18n }) => (
-            <PageMeta title={i18n._(t("NAV_LABEL_STATISTIC")`Statistiken`)} />
+          {({i18n}) => (
+            <PageMeta title={i18n._(t("NAV_LABEL_STATISTIC")`Statistiken`)}/>
           )}
         </I18n>
         <div className="container">

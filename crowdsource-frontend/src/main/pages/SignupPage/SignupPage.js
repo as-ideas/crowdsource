@@ -123,8 +123,8 @@ export default class SignupPage extends React.Component {
     return (
       <React.Fragment>
         <I18n>
-          {({ i18n }) => (
-            <PageMeta title={i18n._(t("NAV_LABEL_REGISTER")`Registrieren`)} />
+          {({i18n}) => (
+            <PageMeta title={i18n._(t("NAV_LABEL_REGISTER")`Registrieren`)}/>
           )}
         </I18n>
         <div className='teaser--slim'/>
@@ -263,7 +263,7 @@ export default class SignupPage extends React.Component {
                                                       error === 'FORM_AGB_ERROR_REQUIRED' ?
                                                         <Trans id={error} values={{
                                                           link: <a className='crowd-tos-link'
-                                                                         onClick={this.toggleTerms}>
+                                                                   onClick={this.toggleTerms}>
                                                             <Trans id='FORM_AGB_LABEL_LINK'>Nutzungsbedingung</Trans>
                                                           </a>
                                                         }}/>
@@ -281,8 +281,9 @@ export default class SignupPage extends React.Component {
                                                            values={{
                                                              link:
                                                                <a className='crowd-tos-link'
-                                                                        onClick={this.toggleTerms}>
-                                                                 <Trans id='FORM_AGB_LABEL_LINK'>Nutzungsbedingung</Trans>
+                                                                  onClick={this.toggleTerms}>
+                                                                 <Trans
+                                                                   id='FORM_AGB_LABEL_LINK'>Nutzungsbedingung</Trans>
                                                                </a>
                                                            }}/>
                                                     </span>
@@ -296,7 +297,12 @@ export default class SignupPage extends React.Component {
                 this.state.showTermsOfService ?
                   <div className="row">
                     <div className="small-12 columns">
-                      <div className="acceptTOSPanel" translate="REGISTER_AGB">Hiermit gestatte ich der Axel Springer Ideas Engineering GmbH mich für Neuigkeiten (bspw. Start einer Kampagne sowie Status meiner Idee) rund um AS.Crowd zu kontaktieren. Ich habe die Möglichkeit mich jederzeit vom Newsletter abzumelden. Dazu kann ich den Link in der Fußzeile unserer E-Mails betätigen. Weitere Informationen zum Datenschutz sind der Datenschutzerklärung zu entnehmen.</div>
+                      <div className="acceptTOSPanel" translate="REGISTER_AGB">Hiermit gestatte ich der Axel Springer
+                        Ideas Engineering GmbH mich für Neuigkeiten (bspw. Start einer Kampagne sowie Status meiner
+                        Idee) rund um AS.Crowd zu kontaktieren. Ich habe die Möglichkeit mich jederzeit vom Newsletter
+                        abzumelden. Dazu kann ich den Link in der Fußzeile unserer E-Mails betätigen. Weitere
+                        Informationen zum Datenschutz sind der Datenschutzerklärung zu entnehmen.
+                      </div>
                     </div>
                   </div>
                   : null
@@ -308,13 +314,16 @@ export default class SignupPage extends React.Component {
                   <div>
                     {
                       this.state.loading ?
-                        <button className="button-primary" disabled translate="BUTTON_LABEL_REGISTERING">Registrieren...</button>
+                        <button className="button-primary" disabled
+                                translate="BUTTON_LABEL_REGISTERING">Registrieren...</button>
                         :
-                        <button className="button-primary" onClick={this.signUp} translate="BUTTON_LABEL_REGISTER">Registrieren</button>
+                        <button className="button-primary" onClick={this.signUp}
+                                translate="BUTTON_LABEL_REGISTER">Registrieren</button>
                     }
                   </div>
                   <div className="text--small push--top">
-                    <Trans id='REGISTER_LOGIN' values={{link: <NavLink to='/login'><Trans id='LOGIN_REGISTER_LINK'/></NavLink>}}/>
+                    <Trans id='REGISTER_LOGIN'
+                           values={{link: <NavLink to='/login'><Trans id='LOGIN_REGISTER_LINK'/></NavLink>}}/>
                   </div>
                 </div>
               </div>

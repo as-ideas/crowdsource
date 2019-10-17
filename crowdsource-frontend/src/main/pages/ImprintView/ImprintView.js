@@ -6,12 +6,12 @@ import PageMeta from "../../layout/PageMeta";
 
 export default class ImprintView extends React.Component {
 
-  render () {
+  render() {
     return (
       <div className="content ng-scope" data-ng-view="" autoscroll="true">
         <I18n>
-          {({ i18n }) => (
-            <PageMeta title={i18n._(t("NAV_LABEL_IMPRINT")`Impressum`)} />
+          {({i18n}) => (
+            <PageMeta title={i18n._(t("NAV_LABEL_IMPRINT")`Impressum`)}/>
           )}
         </I18n>
         <div className="teaser--slim ng-scope"></div>
@@ -22,16 +22,16 @@ export default class ImprintView extends React.Component {
             <h4 className="ng-scope"><Trans id="AS_IMPRINT_PROVIDER">Anbieter</Trans></h4>
 
             <I18n>
-              {({ i18n }) => (
-                <address className="ng-scope" dangerouslySetInnerHTML={{__html: i18n._("AS_IMPRINT_ADDRESS")}} />
+              {({i18n}) => (
+                <address className="ng-scope" dangerouslySetInnerHTML={{__html: i18n._("AS_IMPRINT_ADDRESS")}}/>
               )}
             </I18n>
 
             <h4 className="ng-scope"><Trans id="AS_IMPRINT_CONTACT_HEADLINE">Kontakt</Trans></h4>
 
             <I18n>
-              {({ i18n }) => (
-                <p className="ng-scope" dangerouslySetInnerHTML={{__html: i18n._("AS_IMPRINT_CONTACT_P")}} />
+              {({i18n}) => (
+                <p className="ng-scope" dangerouslySetInnerHTML={{__html: i18n._("AS_IMPRINT_CONTACT_P")}}/>
               )}
             </I18n>
 
@@ -42,12 +42,12 @@ export default class ImprintView extends React.Component {
             </h4>
 
             <I18n>
-              {({ i18n }) => (
-                <p className="ng-scope" dangerouslySetInnerHTML={{__html: i18n._("AS_IMPRINT_RESPONSIBLE_P")}} />
+              {({i18n}) => (
+                <p className="ng-scope" dangerouslySetInnerHTML={{__html: i18n._("AS_IMPRINT_RESPONSIBLE_P")}}/>
               )}
             </I18n>
 
-            <br className="ng-scope" />
+            <br className="ng-scope"/>
 
           </div>
         </content-row>

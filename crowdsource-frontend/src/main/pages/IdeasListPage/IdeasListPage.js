@@ -147,7 +147,8 @@ export default class IdeasListPage extends React.Component {
             {
               !ideas.length ?
                 <div className="ideas-grid__empty-label campaign-noentry">
-                  <img className=" campaign-noentry__image" src={require('./../IntroPage/campaigns-not-available-robot.svg')}/>
+                  <img className=" campaign-noentry__image"
+                       src={require('./../IntroPage/campaigns-not-available-robot.svg')}/>
                 </div> : null
             }
 
