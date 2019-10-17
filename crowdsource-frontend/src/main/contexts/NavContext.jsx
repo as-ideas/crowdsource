@@ -34,4 +34,4 @@ class NavContextProvider extends React.Component {
 
 const NavContextConsumer = NavContext.Consumer;
 
-export { NavContextProvider, NavContextConsumer }
+export { NavContextProvider, NavContextConsumer, NavContext }
