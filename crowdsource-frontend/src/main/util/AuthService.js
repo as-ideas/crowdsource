@@ -16,7 +16,6 @@ class AuthTokenService {
     } else {
       console.error("Trying to set empty jwt!")
     }
-
   }
 
   getTokens() {
@@ -90,20 +89,20 @@ class AuthService {
         }
       }).then((response) => {
         if (response.status === 200) {
-          return response.json();
+          response.json().then(jsonData => {
+            this.authTokenService.setToken(jsonData);
+            this.setRolesFromToken();
+            this.currentUser.loggedIn = true;
+            resolve(jsonData);
+          });
         } else if (response.status === 400) {
-          console.log("Bad credentials")
-          console.log(response)
-          reject('bad_credentials');
+          reject('LOGIN_ERROR_INVALID_CREDENTIALS');
         } else {
-          reject('unknown');
+          reject('FORM_ERROR_UNEXPECTED');
         }
-      }).then(jsonData => {
-        console.log("does it get here?")
-        this.authTokenService.setToken(jsonData);
-        this.setRolesFromToken();
-        this.currentUser.loggedIn = true;
-        resolve(jsonData);
+      }).catch(error => {
+        console.error("Error while trying to login", error);
+        reject('FORM_ERROR_UNEXPECTED');
       })
     });
   };
@@ -113,7 +112,7 @@ class AuthService {
       // prevents the user's details to be set to undefined while loading
       // and therefore flickering of e.g. the user budget in the status-bar
       let currentUser = this.authTokenService.getUserFromToken();
-      if(currentUser) {
+      if (currentUser) {
         this.currentUser = this.userService.augmentUser(currentUser);
         this.currentUser.loggedIn = true;
         this.setRolesFromToken();
@@ -131,7 +130,7 @@ class AuthService {
           resolve();
         })
     })
-   }
+  }
 
   isAdmin() {
     console.log("isAdmin");

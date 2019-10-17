@@ -29,6 +29,7 @@ import AboutView from './pages/AboutView/AboutView.js';
 import HelpView from './pages/HelpView/HelpView';
 import StatisticsPage from "./pages/StatisticsPage/StatisticsPage";
 import {NavContextProvider} from "./contexts/NavContext";
+import IdeasOwnPage from "./pages/IdeasOwnPage/IdeasOwnPage";
 
 UnauthorizedInterceptor.init();
 
@@ -45,7 +46,7 @@ ReactDOM.render((
                 <Switch>
                   <Route exact path='/intro' component={IntroPage}/>
                   <Route exact path='/ideas/:ideasId' component={IdeasListPage}/>
-                  {/*<Route exact path='/ideas/:ideasId/own' component={IdeasOwnController}/>*/}
+                  <Route exact path='/ideas/:ideasId/own' component={IdeasOwnPage}/>
                   {/*<Route exact path='/ideas/:ideasId/admin' component={IdeasAdminController}/>*/}
                   {/*<Route exact path='/projects' component={ProjectListController}/>*/}
                   {/*<Route exact path='/project/new' component={ProjectFormController}/>*/}

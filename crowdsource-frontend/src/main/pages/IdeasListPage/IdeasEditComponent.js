@@ -11,6 +11,7 @@ export default class IdeasEditComponent extends React.Component {
       title: PropTypes.string.isRequired,
       pitch: PropTypes.string.isRequired
     }),
+    campaign: PropTypes.object.isRequired,
     submitCallback: PropTypes.func.isRequired,
     cancelCallback: PropTypes.func,
   };
@@ -100,7 +101,7 @@ export default class IdeasEditComponent extends React.Component {
 
   // FIXME react what does cancel do?!
   cancel() {
-    this.props.cancelCallback ?this.props.cancelCallback() : null;
+    this.props.cancelCallback ? this.props.cancelCallback() : null;
     // this.input.idea.contentI18n.original.title = vm.resetTitle;
     // this.input.idea.contentI18n.original.pitch = vm.resetPitch;
     // $scope.cancelFn();
@@ -115,6 +116,8 @@ export default class IdeasEditComponent extends React.Component {
     let campaign = this.props.campaign ? this.props.campaign : {};
     let cancelEnabled = null; // FIXME react what is cancel?
     // success-fn="ideasList.reloadOwnIdeas"
+    console.info("Render IdeasEditComponent camp", campaign);
+    console.info("Render IdeasEditComponent erros", this.state.errors);
 
     return (
       <idea-edit>
@@ -164,7 +167,7 @@ export default class IdeasEditComponent extends React.Component {
               : null
           }
 
-          <button disabled={!this.state.errors.title || !this.state.errors.pitch}
+          <button disabled={this.state.errors.title || this.state.errors.pitch}
                   onClick={this.submit}
                   className={cancelEnabled ? 'button-primary--halfwidth' : 'button-primary'}>
             <Trans id="BUTTON_LABEL_SAVE">Absenden</Trans>

@@ -22,7 +22,7 @@ class AuthContextProvider extends React.Component {
       isAdmin: AuthService.isAdmin()
     }
 
-    if(AuthService.isLoggedIn()) {
+    if (AuthService.isLoggedIn()) {
       AuthService.validateCurrentUser()
         .then((response) => {
           this.setState({
@@ -36,7 +36,7 @@ class AuthContextProvider extends React.Component {
   login(email, password) {
     this.validate(email, password);
 
-    if(!this.isValid()) {
+    if (!this.isValid()) {
       this.setState(this.state);
       return;
     }
@@ -45,20 +45,20 @@ class AuthContextProvider extends React.Component {
 
     AuthService.login(email, password)
       .then((response) => {
-        console.log("response")
         if (response.errorCode) {
-          console.log("login error")
           this.setState({errors: ValidationService.errorObjectFromBackend(response)});
         } else {
-          console.log("login")
           this.setState({
             isLoggedIn: true,
             isAdmin: AuthService.isAdmin()
-          })
+          });
           RoutingService.redirectToOriginallyRequestedPageOr('/');
         }
       })
-      .catch(console.error)
+      .catch(error => {
+        console.log("Login did not work", error);
+        this.setState({errors: {general: [error]}})
+      })
       .finally(() => {
         this.setState({isLoading: false});
       });
@@ -86,7 +86,7 @@ class AuthContextProvider extends React.Component {
   }
 
 
-  render () {
+  render() {
     return (
       <AuthContext.Provider value={{
         errors: this.state.errors,
@@ -105,4 +105,4 @@ class AuthContextProvider extends React.Component {
 
 const AuthContextConsumer = AuthContext.Consumer;
 
-export { AuthContextProvider, AuthContextConsumer }
+export {AuthContextProvider, AuthContextConsumer}

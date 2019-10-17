@@ -17,10 +17,6 @@ export default class LoginPage extends React.Component {
     this.handleEmailInputChange = this.handleEmailInputChange.bind(this);
   }
 
-  componentDidMount() {
-  }
-
-
   handleEmailInputChange(e) {
     this.state.input.email = e.target.value;
     console.log("Email: " + e.target.value)

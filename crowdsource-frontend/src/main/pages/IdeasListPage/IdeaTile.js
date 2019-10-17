@@ -3,6 +3,7 @@ import TextFormatService from "../../util/TextFromatService";
 import {Tran, Plural} from "@lingui/macro";
 import TranslationService from "../../util/TranslationService";
 import IdeaService from "../../util/IdeaService";
+import PropTypes from "prop-types";
 
 const DEFAULT_RATING = {
   ownVote: 0,
@@ -11,6 +12,11 @@ const DEFAULT_RATING = {
 };
 
 export default class IdeaTile extends React.Component {
+  static propTypes = {
+    idea: PropTypes.object,
+    campaign: PropTypes.object,
+    own: PropTypes.bool,
+  };
 
   constructor(props, context) {
     super(props, context);

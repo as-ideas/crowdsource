@@ -13,7 +13,12 @@ RoutingService.goBack = () => {
 };
 
 RoutingService.redirectToOriginallyRequestedPageOr = (fallbackUrl) => {
-  if (RoutingService.history.length > 2) {
+  // HINT: It's not possible to store the old routes (without a huge effort and bugs)
+  // To prevent a deadlock logout -> login -> redirect to logout, as it's the last page
+  // the redirectToOriginallyRequestedPageOr function only works while accessing the app
+  // with direct links without beeing logged in. Otherwise you will always be redirected to the
+  // landingpage
+  if (RoutingService.history.length < 2) {
     RoutingService.goBack()
   } else {
     RoutingService.goToRoute(fallbackUrl);

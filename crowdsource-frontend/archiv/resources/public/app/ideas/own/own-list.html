@@ -38,9 +38,11 @@
                 <idea-tile campaign="ideasList.campaign" idea="idea" own="true"></idea-tile>
             </div>
         </div>
+        {
         <div class="ideas-grid__empty-label campaign-noentry" ng-if="!ideasList.published.length">
             <img class="campaign-noentry__image" src="/images/campaigns-not-available-robot.svg">
         </div>
+        }
     </section>
 </content-row>
 

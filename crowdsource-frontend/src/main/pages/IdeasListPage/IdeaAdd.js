@@ -21,7 +21,7 @@ export default class IdeaAdd extends React.Component {
         <ContentHero title="IDEAS_ADD_HEADLINE" description="IDEAS_ADD_DESC"/>
 
         <div className="idea-add__container">
-          <IdeasEditComponent idea={EMPTY_IDEA} submitCallback={this.submit.bind(this)}/>
+          <IdeasEditComponent idea={EMPTY_IDEA} campaign={this.props.campaign} submitCallback={this.submit.bind(this)}/>
         </div>
       </idea-add>
     )
