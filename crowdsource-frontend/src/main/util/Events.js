@@ -6,6 +6,10 @@ const Events = {
     return emitter;
   },
 
+  emitEvent: (eventId, ...args) => {
+    return emitter.emit(eventId, args);
+  },
+
   addLanguageChangedListener: (listener) => {
     return emitter.addListener('text-changed', listener);
   },
@@ -21,6 +25,8 @@ const Events = {
   emitUserStateListener: (text) => {
     return emitter.emit('user-changed', text);
   },
+
+
 };
 
 export default Events;

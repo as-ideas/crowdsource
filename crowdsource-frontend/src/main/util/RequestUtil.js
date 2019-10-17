@@ -8,12 +8,10 @@ RequestUtil.appendParameterToUrl = (url, params) => {
     if (value instanceof Date) {
       value = JSON.stringify(value)
         .replace(/"/g, "");
-      console.info("Converted date", params[key], "to", value);
     }
     paramArray.push("" + key + "=" + value)
   });
   url += paramArray.join("&");
-  console.info("appendParameterToUrl", url);
   return url;
 };
 

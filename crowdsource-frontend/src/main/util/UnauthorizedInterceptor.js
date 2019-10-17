@@ -8,6 +8,8 @@ UnauthorizedInterceptor.init = () => {
   fetchIntercept.register({
     // Modify the url or config here
     request: function (url, config) {
+      console.log("Interceptor request", url);
+
       if (!config) {
         config = {};
       }
@@ -36,10 +38,10 @@ UnauthorizedInterceptor.init = () => {
 
     // Modify the reponse object
     response: function (response) {
-      console.log("Interceptor logout");
+      console.log("Interceptor logout", Object.keys(response));
       if (response.status === 401) {
         // Clear current JWT
-        console.log("UnauthorizedInterceptor -> logout")
+        console.log("UnauthorizedInterceptor 401 Unauthorized -> logout");
         AuthService.logout();
 
         // redirect to login
@@ -47,6 +49,7 @@ UnauthorizedInterceptor.init = () => {
       }
 
       if (response.status === 403) {
+        console.log("UnauthorizedInterceptor 403 Forbidden -> got to login");
         RoutingService.goToLoginPage();
       }
 

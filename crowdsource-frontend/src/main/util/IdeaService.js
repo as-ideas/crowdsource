@@ -151,4 +151,11 @@ class IdeaService {
 
 }
 
+
+export const IDEAS_STATUS = {
+  PROPOSED: 'PROPOSED',
+  REJECTED: 'REJECTED',
+  PUBLISHED: 'PUBLISHED'
+};
+
 export default new IdeaService();

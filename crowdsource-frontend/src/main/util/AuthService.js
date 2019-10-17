@@ -16,7 +16,6 @@ class AuthTokenService {
     } else {
       console.error("Trying to set empty jwt!")
     }
-
   }
 
   getTokens() {
