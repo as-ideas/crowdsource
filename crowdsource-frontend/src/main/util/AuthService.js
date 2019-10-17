@@ -58,12 +58,8 @@ class AuthService {
     this.userService = UserService;
     this.authTokenService = new AuthTokenService();
 
-    // initialize with anonymouse for now. Will be refreshed on init()
     this.currentUser = this.userService.anonymous();
-  }
-
-  init() {
-    this.reloadUser();
+    this.initCurrentUser();
   }
 
   getToken() {
@@ -95,38 +91,55 @@ class AuthService {
         if (response.status === 200) {
           return response.json();
         } else if (response.status === 400) {
+          console.log("Bad credentials")
           reject('bad_credentials');
         } else {
           reject('unknown');
         }
       }).then(jsonData => {
+        console.log("does it get here?")
         this.authTokenService.setToken(jsonData);
-        this.reloadUser();
+        this.setRolesFromToken();
+        this.currentUser.loggedIn = true;
         resolve(jsonData);
       })
     });
   };
 
-  reloadUser() {
+  initCurrentUser() {
     if (this.authTokenService.getTokens()) {
       // prevents the user's details to be set to undefined while loading
       // and therefore flickering of e.g. the user budget in the status-bar
-      this.currentUser.loggedIn = true;
-      this.setRolesFromToken();
+      let currentUser = this.authTokenService.getUserFromToken();
+      if(currentUser) {
+        this.currentUser = this.userService.augmentUser(currentUser);
+        this.currentUser.loggedIn = true;
+        this.setRolesFromToken();
+      }
+    }
+  };
+
+  validateCurrentUser() {
+    return new Promise((resolve, reject) => {
       this.userService.authenticated()
         .then((user) => {
           this.currentUser = user;
-          Events.emitUserStateListener();
-        });
-    } else {
-      this.currentUser = this.userService.anonymous();
-    }
-    return this.currentUser;
-  };
+        })
+        .finally(() => {
+          resolve();
+        })
+    })
+   }
 
   isAdmin() {
+    console.log("isAdmin");
+    console.log(JSON.stringify(this.currentUser));
     return this.currentUser && this.currentUser.hasRole('ADMIN');
   };
+
+  isLoggedIn() {
+    return this.currentUser && this.currentUser.loggedIn;
+  }
 
   logout() {
     this.authTokenService.clear();
