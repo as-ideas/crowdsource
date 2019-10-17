@@ -22,11 +22,11 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LogoutPage from "./pages/LogoutPage/LogoutPage";
 import IdeasListPage from "./pages/IdeasListPage/IdeasListPage";
-import DebugView from "./pages/DebugView/DebugView";
-import ImprintView from './pages/ImprintView/ImprintView.js';
-import PrivacyView from './pages/PrivacyView/PrivacyView.js';
-import AboutView from './pages/AboutView/AboutView.js';
-import HelpView from './pages/HelpView/HelpView';
+import DebugView from "./pages/DebugPage/DebugPage";
+import ImprintPage from './pages/ImprintPage/ImprintPage.js';
+import PrivacyPage from './pages/PrivacyPage/PrivacyPage.js';
+import AboutPage from './pages/AboutPage/AboutPage.js';
+import HelpPage from './pages/HelpPage/HelpPage';
 import StatisticsPage from "./pages/StatisticsPage/StatisticsPage";
 import {NavContextProvider} from "./contexts/NavContext";
 import IdeasOwnPage from "./pages/IdeasOwnPage/IdeasOwnPage";
@@ -63,10 +63,10 @@ ReactDOM.render((
                   {/*<Route exact path='/login/password-recovery/:email/activation/:activationToken' component={UserActivationController}/>*/}
                   {/*<Route exact path='/financingrounds' component={FinancingRoundsController}/>*/}
                   <Route exact path='/statistics' component={StatisticsPage}/>
-                  <Route exact path='/about' component={AboutView}/>
-                  <Route exact path='/help' component={HelpView}/>
-                  <Route exact path='/imprint' component={ImprintView}/>
-                  <Route exact path='/privacy' component={PrivacyView}/>
+                  <Route exact path='/about' component={AboutPage}/>
+                  <Route exact path='/help' component={HelpPage}/>
+                  <Route exact path='/imprint' component={ImprintPage}/>
+                  <Route exact path='/privacy' component={PrivacyPage}/>
                   {/*<Route exact path='/error/notfound' component={NotFoundView}/>*/}
                   {/*<Route exact path='/error/forbidden' component={ForbiddenView}/>*/}
                   {/*<Route exact path='/error/unknown' component={UnknownView}/>*/}

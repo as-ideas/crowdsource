@@ -1,11 +1,11 @@
 import React from 'react'
-import './HelpView.scss'
+import './HelpPage.scss'
 import {I18n} from "@lingui/react"
 import {Trans, t} from '@lingui/macro';
 import AccordionComponent from "../../layout/AccordionComponent";
 import PageMeta from "../../layout/PageMeta";
 
-export default class HelpView extends React.Component {
+export default class HelpPage extends React.Component {
 
   componentDidMount() {
   }

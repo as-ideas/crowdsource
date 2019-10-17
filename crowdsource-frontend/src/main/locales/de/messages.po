@@ -65,15 +65,15 @@ msgstr ""
 #~ msgid "ADMIN_IDEA_REJECT_MESSAGE"
 #~ msgstr "Die Idee wurde abgelehnt."
 
-#: src/main/pages/AboutView/AboutView.js:61
+#: src/main/pages/AboutPage/AboutPage.js:61
 msgid "AS_ABOUT_AS_IT_HEADLINE"
 msgstr "AS IT"
 
-#: src/main/pages/AboutView/AboutView.js:62
+#: src/main/pages/AboutPage/AboutPage.js:62
 msgid "AS_ABOUT_AS_IT_HEADLINE_DESC"
 msgstr "Wir von der Axel Springer IT konzentrieren uns darauf, Potenziale der digitalen Transformation sowie disruptiver Technologien zu erkennen und sie für die verschiedenen Geschäftsbereiche der Axel-Springer-Familie nutzbar zu machen. Die digitale Disruption ist allgegenwärtig und setzt uns einem starken Wettbewerb in vielen Bereichen unserer täglichen Arbeit aus. Gleichzeitig bietet sie uns ungeahnte Chancen und Möglichkeiten, die wir aktiv gestalten wollen. Diese Entwicklungen reichen von zukunftsweisenden Technologien, über Vorteile durch die Nutzung von Daten, bis hin zu wegweisenden Trends in der Kollaboration zwischen Mitarbeitern. Wir unterstützen unsere Kunden, ihre täglichen Herausforderungen im Markt erfolgreich zu meistern, damit wir unsere führende Position als digitaler Verlag weiter festigen und ausbauen können. Mit unserer Expertise wollen wir die Axel Springer Crowd erfolgreich begleiten."
 
-#: src/main/pages/AboutView/AboutView.js:37
+#: src/main/pages/AboutPage/AboutPage.js:37
 msgid "AS_ABOUT_IDEAS_ENGINEERING_DESC"
 msgstr ""
 "Wir fokussieren uns auf die Entwicklung neuer Produkte. Dabei haben wir zum besseren Verständnis der sich immer schneller entwickelnden Märkte die neuesten Technologie-Phänomene wie beispielsweise VR, AI, Chatbots, Big Data und Blockchain im Visier. Wir verstehen uns auch als Inkubator für digitale, innovative Produkte im Hinblick auf reale unternehmerische Herausforderungen für die Axel Springer-Familie. Und darüber hinaus.\n"
@@ -82,30 +82,30 @@ msgstr ""
 "\n"
 "Du willst andere innovative Produkte kennenlernen? Komm mit uns bei einer guten Tasse Kaffee ins Gespräch."
 
-#: src/main/pages/AboutView/AboutView.js:34
+#: src/main/pages/AboutPage/AboutPage.js:34
 msgid "AS_ABOUT_IDEAS_ENGINEERING_HEADLINE"
 msgstr "Ideas Engineering"
 
-#: src/main/pages/AboutView/AboutView.js:76
+#: src/main/pages/AboutPage/AboutPage.js:76
 msgid "AS_ABOUT_NEWS_MEDIA_PRINT_DESC"
 msgstr ""
 "Die Personalabteilung des Verlagsbereichs News Media Print begleitet Mitarbeiterinnen und Mitarbeiter mit Kompetenz, Erfahrung und Weitblick von der Bewerbung über Elternzeit, Sabbatical und Fachkarriere bis hin zum Renteneintritt auf ihrem Weg in der Axel Springer-Familie.\n"
 "\n"
 "Weil Kreativität und Austausch Grundpfeiler unserer Arbeit sind, unterstützen wir Axel Springer Crowd."
 
-#: src/main/pages/AboutView/AboutView.js:73
+#: src/main/pages/AboutPage/AboutPage.js:73
 msgid "AS_ABOUT_NEWS_MEDIA_PRINT_HEADLINE"
 msgstr "News Media Print"
 
-#: src/main/pages/AboutView/AboutView.js:51
+#: src/main/pages/AboutPage/AboutPage.js:51
 msgid "AS_ABOUT_PEOPLE_AND_CULTURE_DESC"
 msgstr "People & Culture steht für die unternehmensweite Vernetzung  und den Austausch der Mitarbeiter untereinander, für lebenslanges Lernen  und die Potentialentfaltung von Teams und jedem Einzelnen sowie für das  Erleben modernen Arbeitens. Mit Leidenschaft setzen wir uns dafür ein, neue Impulse und Innovationen ins Unternehmen zu tragen, die Lust auf Neues machen."
 
-#: src/main/pages/AboutView/AboutView.js:50
+#: src/main/pages/AboutPage/AboutPage.js:50
 msgid "AS_ABOUT_PEOPLE_AND_CULTURE_HEADLINE"
 msgstr "People & Culture"
 
-#: src/main/pages/AboutView/AboutView.js:26
+#: src/main/pages/AboutPage/AboutPage.js:26
 msgid "AS_ABOUT_TEAM_CAPTION"
 msgstr "v.l.n.r. Tarek Madany Mamlouk, Martin Bild, Johannes Schrade, Anneke Möhlmann, Jasmin Heumann, Thomas Eisermann, Christian Sell, Julian Godesa, Max Weber, Lars Reith, Thomas Wendzinski, Johannes Burr, Sven Rebbert"
 
@@ -145,7 +145,7 @@ msgstr "v.l.n.r. Tarek Madany Mamlouk, Martin Bild, Johannes Schrade, Anneke Mö
 #~ msgid "AS_FOOTER_SITEMAP"
 #~ msgstr "Sitemap"
 
-#: src/main/pages/ImprintView/ImprintView.js:28
+#: src/main/pages/ImprintPage/ImprintPage.js:28
 msgid "AS_IMPRINT_ADDRESS"
 msgstr ""
 "Axel Springer Ideas Engineering GmbH\n"
@@ -153,11 +153,11 @@ msgstr ""
 "Axel-Springer-Straße 65\n"
 "10888 Berlin"
 
-#: src/main/pages/ImprintView/ImprintView.js:32
+#: src/main/pages/ImprintPage/ImprintPage.js:32
 msgid "AS_IMPRINT_CONTACT_HEADLINE"
 msgstr "Kontakt"
 
-#: src/main/pages/ImprintView/ImprintView.js:36
+#: src/main/pages/ImprintPage/ImprintPage.js:36
 msgid "AS_IMPRINT_CONTACT_P"
 msgstr ""
 "E-Mail: <a href=\"crowd@asideas.de\">crowd@asideas.de</a>\n"
@@ -171,19 +171,19 @@ msgstr ""
 #~ msgid "AS_IMPRINT_COPYRIGHTS_P"
 #~ msgstr "&nbsp;"
 
-#: src/main/pages/ImprintView/ImprintView.js:22
+#: src/main/pages/ImprintPage/ImprintPage.js:22
 msgid "AS_IMPRINT_HEADLINE"
 msgstr "Impressum"
 
-#: src/main/pages/ImprintView/ImprintView.js:24
+#: src/main/pages/ImprintPage/ImprintPage.js:24
 msgid "AS_IMPRINT_PROVIDER"
 msgstr "Anbieter"
 
-#: src/main/pages/ImprintView/ImprintView.js:41
+#: src/main/pages/ImprintPage/ImprintPage.js:41
 msgid "AS_IMPRINT_RESPONSIBLE_HEADLINE"
 msgstr "Verantwortlich für den Inhalt nach § 6 Abs.2 MDStV"
 
-#: src/main/pages/ImprintView/ImprintView.js:48
+#: src/main/pages/ImprintPage/ImprintPage.js:48
 msgid "AS_IMPRINT_RESPONSIBLE_P"
 msgstr ""
 "Michael Alber\n"
@@ -196,7 +196,7 @@ msgstr ""
 "USt-IdNr. DE 287499537\n"
 "Geschäftsführer: Samir Fadlallah, Michael Alber"
 
-#: src/main/pages/PrivacyView/PrivacyView.js:24
+#: src/main/pages/PrivacyPage/PrivacyPage.js:24
 msgid "AS_PRIVACY_POLICY_HTML"
 msgstr ""
 "<h1>Datenschutzerklärung Axel Springer Crowd</h1>\n"
@@ -488,19 +488,19 @@ msgstr ""
 #~ msgid "AS_SUPPORT_FAQ_ACCORDION_ITEM_9_PARAGRAPH"
 #~ msgstr "In der Kürze liegt bekanntlich die Würze. Darum haben wir die Zeichenanzahl für eine Idee beschränkt. Es muss kein ausgereiftes Konzept eingereicht werden, denn es geht hier zunächst um Eure Ideen."
 
-#: src/main/pages/HelpView/HelpView.js:71
+#: src/main/pages/HelpPage/HelpPage.js:71
 msgid "AS_SUPPORT_FAQ_HEADLINE"
 msgstr "FAQ"
 
-#: src/main/pages/HelpView/HelpView.js:49
+#: src/main/pages/HelpPage/HelpPage.js:49
 msgid "AS_SUPPORT_HELP_HEADLINE"
 msgstr "Hilfe"
 
-#: src/main/pages/HelpView/HelpView.js:56
+#: src/main/pages/HelpPage/HelpPage.js:56
 msgid "AS_SUPPORT_HELP_P1"
 msgstr "Wenn Du ein Problem oder eine Frage hast, schau gern in unsere FAQ’s. Vielleicht kannst Du dort schon die passende Antwort finden. Solltest Du wirklich nicht weiterkommen, dann wende Dich gern direkt an uns: {email} oder {teams}"
 
-#: src/main/pages/HelpView/HelpView.js:60
+#: src/main/pages/HelpPage/HelpPage.js:60
 msgid "AS_SUPPORT_HELP_P2"
 msgstr "Wir versuchen in jedem Fall, eine Lösung für Dein Problem zu finden."
 
@@ -840,7 +840,7 @@ msgstr "Du kannst Dich {link} wieder einloggen."
 #~ msgid "LOGOUT_LINK_LOGIN_LINK"
 #~ msgstr "hier"
 
-#: src/main/pages/AboutView/AboutView.js:16
+#: src/main/pages/AboutPage/AboutPage.js:16
 msgid "NAV_LABEL_ABOUT_US"
 msgstr "Über uns"
 
@@ -869,7 +869,7 @@ msgstr "Admin"
 #~ msgstr "Finanzierungsrunden"
 
 #: src/main/layout/Header.jsx:119
-#: src/main/pages/HelpView/HelpView.js:38
+#: src/main/pages/HelpPage/HelpPage.js:38
 msgid "NAV_LABEL_HELP"
 msgstr "Hilfe"
 
@@ -877,7 +877,7 @@ msgstr "Hilfe"
 msgid "NAV_LABEL_IDEAS_OWN"
 msgstr "Deine Ideen"
 
-#: src/main/pages/ImprintView/ImprintView.js:15
+#: src/main/pages/ImprintPage/ImprintPage.js:15
 msgid "NAV_LABEL_IMPRINT"
 msgstr "Impressum"
 
@@ -907,7 +907,7 @@ msgstr "Übersicht"
 #~ msgid "NAV_LABEL_PASSWORD_RESET"
 #~ msgstr "Passwort setzen"
 
-#: src/main/pages/PrivacyView/PrivacyView.js:15
+#: src/main/pages/PrivacyPage/PrivacyPage.js:15
 msgid "NAV_LABEL_PRIVACY"
 msgstr "Datenschutzerklärung"
 

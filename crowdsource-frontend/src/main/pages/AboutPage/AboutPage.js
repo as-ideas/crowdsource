@@ -1,11 +1,11 @@
 import React from 'react'
-import './AboutView.scss'
+import './AboutPage.scss'
 import teamfoto from './teamfoto.jpg'
 import {I18n} from "@lingui/react"
 import {Trans, t} from '@lingui/macro';
 import PageMeta from "../../layout/PageMeta";
 
-export default class AboutView extends React.Component {
+export default class AboutPage extends React.Component {
 
   render() {
     return (

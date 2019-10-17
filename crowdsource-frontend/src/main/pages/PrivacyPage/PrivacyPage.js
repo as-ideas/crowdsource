@@ -1,10 +1,10 @@
 import React from 'react'
-import './PrivacyView.scss'
+import './PrivacyPage.scss'
 import {t} from '@lingui/macro';
 import {I18n} from "@lingui/react";
 import PageMeta from "../../layout/PageMeta";
 
-export default class PrivacyView extends React.Component {
+export default class PrivacyPage extends React.Component {
 
   render() {
     return (

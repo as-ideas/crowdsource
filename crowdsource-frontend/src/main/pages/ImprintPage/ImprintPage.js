@@ -1,10 +1,10 @@
 import React from 'react'
-import './ImprintView.scss'
+import './ImprintPage.scss'
 import {t, Trans} from '@lingui/macro';
 import {I18n} from "@lingui/react";
 import PageMeta from "../../layout/PageMeta";
 
-export default class ImprintView extends React.Component {
+export default class ImprintPage extends React.Component {
 
   render() {
     return (
