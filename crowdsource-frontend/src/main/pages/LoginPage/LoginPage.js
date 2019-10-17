@@ -3,8 +3,8 @@ import {NavLink} from "react-router-dom";
 import {t} from "@lingui/macro"
 import {Trans} from '@lingui/macro';
 import {I18n} from "@lingui/react";
-import {Helmet} from "react-helmet";
 import {AuthContextConsumer} from "../../contexts/AuthContext";
+import PageMeta from "../../layout/PageMeta";
 
 export default class LoginPage extends React.Component {
   constructor(props, context) {
@@ -38,14 +38,11 @@ export default class LoginPage extends React.Component {
       <AuthContextConsumer>
         { ({ isLoading, login, errors }) => (
       <React.Fragment>
-
         <I18n>
-      {({ i18n }) => (
-        <Helmet>
-        <title>{i18n._(t("NAV_LABEL_LOGIN")`Login`)}</title>
-        </Helmet>
-      )}
-      </I18n>
+          {({ i18n }) => (
+            <PageMeta title={i18n._(t("NAV_LABEL_LOGIN")`Login`)} />
+          )}
+        </I18n>
         <div className='teaser--slim'/>
 
         <content-row className="login-form">

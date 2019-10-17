@@ -2,6 +2,9 @@ import React from 'react'
 import StatisticsService from "../../util/StatisticsService";
 import DatePicker from "react-datepicker";
 import {Bar, Line} from "react-chartjs-2";
+import {I18n} from "@lingui/react";
+import PageMeta from "../../layout/PageMeta";
+import {t} from "@lingui/macro";
 
 const STATISTICS_CONST = {
   TIME_PRECISION_TYPE: {
@@ -260,6 +263,11 @@ export default class StatisticsPage extends React.Component {
 
     return (
       <content-row>
+        <I18n>
+          {({ i18n }) => (
+            <PageMeta title={i18n._(t("NAV_LABEL_STATISTIC")`Statistiken`)} />
+          )}
+        </I18n>
         <div className="container">
           <statistics-form>
             <h2 className="plist__heading push-dble--bottom">Statistiken</h2>

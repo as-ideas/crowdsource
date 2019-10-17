@@ -1,9 +1,9 @@
 import React from 'react'
 import './HelpView.scss'
-import {Helmet} from "react-helmet";
 import {I18n} from "@lingui/react"
 import {Trans, t} from '@lingui/macro';
 import AccordionComponent from "../../layout/AccordionComponent";
+import PageMeta from "../../layout/PageMeta";
 
 export default class HelpView extends React.Component {
 
@@ -33,10 +33,8 @@ export default class HelpView extends React.Component {
     return (
       <div className="content" data-ng-view="" autoscroll="true">
         <I18n>
-          {({i18n}) => (
-            <Helmet>
-              <title>{i18n._(t("NAV_LABEL_HELP")`Hilfe`)}</title>
-            </Helmet>
+          {({ i18n }) => (
+            <PageMeta title={i18n._(t("NAV_LABEL_HELP")`Hilfe`)} />
           )}
         </I18n>
         <div className="teaser--slim"></div>

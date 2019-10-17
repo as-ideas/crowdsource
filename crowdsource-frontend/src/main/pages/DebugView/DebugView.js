@@ -1,4 +1,7 @@
 import React from 'react'
+import {I18n} from "@lingui/react";
+import PageMeta from "../../layout/PageMeta";
+import {t} from "@lingui/macro";
 
 export default class DebugView extends React.Component {
 
@@ -21,14 +24,17 @@ export default class DebugView extends React.Component {
 
   render() {
     return (
-      <div className="content ng-scope" data-ng-view="" autoscroll="true">
-        <content-row className="ng-scope">
-          <div className="container">
-            <button onClick={this.createDevData.bind(this)} style={{margin: "4px"}}>Create Test Data</button>
-            <button onClick={this.clearData.bind(this)} style={{margin: "4px"}}>Delete all data</button>
-          </div>
-        </content-row>
-      </div>
+      <React.Fragment>
+        <PageMeta title="Debug" />
+        <div className="content ng-scope" data-ng-view="" autoscroll="true">
+          <content-row className="ng-scope">
+            <div className="container">
+              <button onClick={this.createDevData.bind(this)} style={{margin: "4px"}}>Create Test Data</button>
+              <button onClick={this.clearData.bind(this)} style={{margin: "4px"}}>Delete all data</button>
+            </div>
+          </content-row>
+        </div>
+      </React.Fragment>
     )
   };
 

@@ -1,12 +1,11 @@
 import React from "react";
-import TranslationService from "../../util/TranslationService";
 import {NavLink} from "react-router-dom";
 import UserService from "../../util/UserService";
 import RoutingService from "../../util/RoutingService";
 import {t, Trans} from '@lingui/macro';
 import ValidationService from "../../util/ValidationService";
 import {I18n} from "@lingui/react";
-import {Helmet} from "react-helmet";
+import PageMeta from "../../layout/PageMeta";
 
 
 export default class SignupPage extends React.Component {
@@ -123,13 +122,11 @@ export default class SignupPage extends React.Component {
   render() {
     return (
       <React.Fragment>
-      <I18n>
-      {({ i18n }) => (
-        <Helmet>
-        <title>{i18n._(t("NAV_LABEL_REGISTER")`Registrieren`)}</title>
-        </Helmet>
-      )}
-      </I18n>
+        <I18n>
+          {({ i18n }) => (
+            <PageMeta title={i18n._(t("NAV_LABEL_REGISTER")`Registrieren`)} />
+          )}
+        </I18n>
         <div className='teaser--slim'/>
 
         <content-row className="signup-form">

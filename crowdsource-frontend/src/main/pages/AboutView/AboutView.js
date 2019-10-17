@@ -1,9 +1,9 @@
 import React from 'react'
 import './AboutView.scss'
 import teamfoto from './teamfoto.jpg'
-import {Helmet} from "react-helmet";
 import { I18n } from "@lingui/react"
 import { Trans,t } from '@lingui/macro';
+import PageMeta from "../../layout/PageMeta";
 
 export default class AboutView extends React.Component {
 
@@ -12,9 +12,7 @@ export default class AboutView extends React.Component {
         <div className="content ng-scope" data-ng-view="" autoscroll="true">
         <I18n>
         {({ i18n }) => (
-          <Helmet>
-          <title>{i18n._(t("NAV_LABEL_ABOUT_US")`Über uns`)}</title>
-          </Helmet>
+          <PageMeta title={i18n._(t("NAV_LABEL_ABOUT_US")`Über uns`)} />
         )}
         </I18n>
 

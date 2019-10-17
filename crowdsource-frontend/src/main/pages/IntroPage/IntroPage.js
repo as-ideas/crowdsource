@@ -2,11 +2,11 @@ import React from "react";
 import IntroHero from "./IntroHero";
 import ContentHero from "../../layout/ContentHero";
 import IntroIdeasCampaignList from "./IntroIdeasCampaignList";
-import {Helmet} from "react-helmet";
 import {Trans, t} from '@lingui/macro';
 import { I18n } from "@lingui/react"
 import RoutingService from "../../util/RoutingService";
 import { AuthContextConsumer } from "../../contexts/AuthContext";
+import PageMeta from "../../layout/PageMeta";
 
 
 export default class IntroPage extends React.Component {
@@ -20,13 +20,11 @@ export default class IntroPage extends React.Component {
   render() {
     return (
       <React.Fragment>
-      <I18n>
-        {({ i18n }) => (
-        <Helmet>
-          <title>{i18n._(t("NAV_LABEL_OVERVIEW")`Übersicht`)}</title>
-        </Helmet>
-        )}
-      </I18n>
+        <I18n>
+          {({ i18n }) => (
+            <PageMeta title={i18n._(t("NAV_LABEL_OVERVIEW")`Übersicht`)} />
+          )}
+        </I18n>
       <AuthContextConsumer>
         { ({ isLoggedIn }) => (
         <React.Fragment>

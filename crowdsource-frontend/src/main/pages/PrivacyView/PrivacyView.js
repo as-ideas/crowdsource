@@ -1,21 +1,19 @@
 import React from 'react'
 import './PrivacyView.scss'
-import {t, Trans} from '@lingui/macro';
+import {t} from '@lingui/macro';
 import {I18n} from "@lingui/react";
-import {Helmet} from "react-helmet";
+import PageMeta from "../../layout/PageMeta";
 
 export default class PrivacyView extends React.Component {
 
     render() {
         return (
           <div className="content ng-scope" data-ng-view="" autoscroll="true">
-          <I18n>
-          {({ i18n }) => (
-            <Helmet>
-            <title>{i18n._(t("NAV_LABEL_PRIVACY")`Datenschutzerklärung`)}</title>
-            </Helmet>
-          )}
-          </I18n>
+            <I18n>
+              {({ i18n }) => (
+                <PageMeta title={i18n._(t("NAV_LABEL_PRIVACY")`Datenschutzerklärung`)} />
+              )}
+            </I18n>
             <div className="teaser--slim ng-scope"></div>
             <content-row className="privacy ng-scope">
               <div className="container" ng-transclude="">

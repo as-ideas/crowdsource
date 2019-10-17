@@ -2,20 +2,18 @@ import React from 'react'
 import './ImprintView.scss'
 import {t, Trans} from '@lingui/macro';
 import {I18n} from "@lingui/react";
-import {Helmet} from "react-helmet";
+import PageMeta from "../../layout/PageMeta";
 
 export default class ImprintView extends React.Component {
 
   render () {
     return (
       <div className="content ng-scope" data-ng-view="" autoscroll="true">
-      <I18n>
-      {({ i18n }) => (
-        <Helmet>
-        <title>{i18n._(t("NAV_LABEL_IMPRINT")`Impressum`)}</title>
-        </Helmet>
-      )}
-      </I18n>
+        <I18n>
+          {({ i18n }) => (
+            <PageMeta title={i18n._(t("NAV_LABEL_IMPRINT")`Impressum`)} />
+          )}
+        </I18n>
         <div className="teaser--slim ng-scope"></div>
         <content-row className="imprint ng-scope">
           <div className="container" ng-transclude="">

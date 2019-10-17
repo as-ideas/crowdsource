@@ -93,6 +93,7 @@ class AuthService {
           return response.json();
         } else if (response.status === 400) {
           console.log("Bad credentials")
+          console.log(response)
           reject('bad_credentials');
         } else {
           reject('unknown');

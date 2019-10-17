@@ -1,9 +1,9 @@
 import React from "react";
 import {I18n} from "@lingui/react";
 import {AuthContextConsumer} from "../../contexts/AuthContext";
-import {Helmet} from "react-helmet";
 import {t} from "@lingui/macro";
 import {Trans} from '@lingui/react';
+import PageMeta from "../../layout/PageMeta";
 
 
 export default class LogoutPage extends React.Component {
@@ -15,13 +15,11 @@ export default class LogoutPage extends React.Component {
   render() {
     return (
       <React.Fragment>
-      <I18n>
-      {({ i18n }) => (
-        <Helmet>
-        <title>{i18n._(t("NAV_LABEL_LOGOUT")`Logout`)}</title>
-        </Helmet>
-      )}
-      </I18n>
+        <I18n>
+          {({ i18n }) => (
+            <PageMeta title={i18n._(t("NAV_LABEL_LOGOUT")`Logout`)} />
+          )}
+        </I18n>
       <AuthContextConsumer>
       { ({ isLoggedIn, logout }) => (
         <React.Fragment>

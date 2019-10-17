@@ -5,6 +5,7 @@ import IdeaService from "../util/IdeaService";
 import { Trans } from '@lingui/macro';
 import {I18nContextConsumer} from "../contexts/I18nContext";
 import {AuthContextConsumer} from "../contexts/AuthContext";
+import {NavContextConsumer} from "../contexts/NavContext";
 
 
 export default class Header extends React.Component {
@@ -72,15 +73,13 @@ export default class Header extends React.Component {
 
                             <div className="header__breadcrumb-divider"/>
                             <div className="header__nav-container" ng-show="!vm.isMobile || (vm.isMobile && vm.isMobileMenuOpen)">
-
-                                {
-                                    this.state.breadcrumbs.map(breadcrumb => {
-                                        return <React.Fragment key={breadcrumb}>
-                                            <div className="header__breadcrumb-divider"/>
-                                            <a ng-class="{'header__nav-active':$last, 'header__breadcrumb-link':!$last}" ng-click="vm.closeMobileMenu()">{TranslationService.translate(breadcrumb)}</a>
-                                        </React.Fragment>
-                                    })
-                                }
+                              <NavContextConsumer>
+                                { ({ pageTitle }) => (
+                                  <React.Fragment>
+                                    <a className="header__nav-active">{ pageTitle }</a>
+                                  </React.Fragment>
+                                )}
+                              </NavContextConsumer>
 
                                 <div className="header__breadcrumb-nav-divider"/>
 

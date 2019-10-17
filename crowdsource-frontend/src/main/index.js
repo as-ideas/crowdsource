@@ -28,6 +28,7 @@ import PrivacyView from './pages/PrivacyView/PrivacyView.js';
 import AboutView from './pages/AboutView/AboutView.js';
 import HelpView from './pages/HelpView/HelpView';
 import StatisticsPage from "./pages/StatisticsPage/StatisticsPage";
+import {NavContextProvider} from "./contexts/NavContext";
 
 UnauthorizedInterceptor.init();
 
@@ -38,6 +39,7 @@ ReactDOM.render((
         <I18nProvider language={language} catalogs={catalogs}>
           <BrowserRouter history={RoutingService.getHistory()}>
             <AuthContextProvider>
+              <NavContextProvider>
               <Layout>
                 <Helmet defaultTitle="Crowdsource" titleTemplate="Crowdsource - %s"/>
                 <Switch>
@@ -71,6 +73,7 @@ ReactDOM.render((
                   <Route component={IntroPage}/>
                 </Switch>
               </Layout>
+              </NavContextProvider>
             </AuthContextProvider>
           </BrowserRouter>
         </I18nProvider>
