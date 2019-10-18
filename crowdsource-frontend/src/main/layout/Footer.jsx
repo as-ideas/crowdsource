@@ -1,7 +1,7 @@
 import React from "react";
+import {NavLink}from 'react-router-dom';
 import RoutingService from "../util/RoutingService";
 import {AuthContextConsumer} from "../contexts/AuthContext";
-
 
 export default class Footer extends React.Component {
 
@@ -32,14 +32,14 @@ export default class Footer extends React.Component {
                         </ul>
                         <ul className="footer__col">
                             <li className="footer__item-head" translate="AS_FOOTER_SITEMAP">Sitemap</li>
-                            <li><a className="footer-link" href="/intro" translate="AS_FOOTER_LINK_INTRO">Entdecken</a></li>
-                            <li><a className="footer-link" href="/help" translate="AS_FOOTER_LINK_SUPPORT">Hilfe</a></li>
+                            <li><NavLink className="footer-link" to="/intro" translate="AS_FOOTER_LINK_INTRO">Entdecken</NavLink></li>
+                            <li><NavLink className="footer-link" to="/help" translate="AS_FOOTER_LINK_SUPPORT">Hilfe</NavLink></li>
                             <AuthContextConsumer>
                             { ({ isAdmin }) => (
                                 isAdmin ?
                                 <React.Fragment>
                                   <li className="footer__item-head--nextrow">Admin</li>
-                                  <li><a className="footer-link" href="/statistics">Statistik</a></li>
+                                  <li><NavLink className="footer-link" to="/statistics">Statistik</NavLink></li>
                                 </React.Fragment>
                                 : null
                             )}
@@ -47,9 +47,9 @@ export default class Footer extends React.Component {
                         </ul>
                         <ul className="footer__col">
                             <li className="footer__item-head" translate="AS_FOOTER_INFORMATION">Informationen</li>
-                            <li><a className="footer-link" href="/about" translate="AS_FOOTER_LINK_ABOUT_US">Über uns</a></li>
-                            <li><a className="footer-link" href="/imprint" translate="AS_FOOTER_LINK_IMPRINT">Impressum</a></li>
-                            <li><a className="footer-link" href="/privacy" translate="AS_FOOTER_LINK_PRIVACY_POLICY">Datenschutzerklärung</a></li>
+                            <li><NavLink className="footer-link" to="/about" translate="AS_FOOTER_LINK_ABOUT_US">Über uns</NavLink></li>
+                            <li><NavLink className="footer-link" to="/imprint" translate="AS_FOOTER_LINK_IMPRINT">Impressum</NavLink></li>
+                            <li><NavLink className="footer-link" to="/privacy" translate="AS_FOOTER_LINK_PRIVACY_POLICY">Datenschutzerklärung</NavLink></li>
                         </ul>
                         <ul className="footer__col">
                             <li>
