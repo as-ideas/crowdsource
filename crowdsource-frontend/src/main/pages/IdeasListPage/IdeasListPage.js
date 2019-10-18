@@ -7,6 +7,7 @@ import {t, Trans} from '@lingui/macro';
 import LoadMore from "../../layout/LoadMore";
 import IdeaAdd from "./IdeaAdd";
 import PageMeta from "../../layout/PageMeta";
+import {I18nContextConsumer} from "../../contexts/I18nContext";
 
 export default class IdeasListPage extends React.Component {
   constructor(props, context) {
@@ -92,13 +93,16 @@ export default class IdeasListPage extends React.Component {
 
   render() {
     let campaign = this.state.campaign;
-    let title = this.state.campaign.contentI18n ? this.state.campaign.contentI18n.de.title : "";
     let selectedFilter = this.state.selectedFilter;
     let ideas = this.state.ideas;
 
     return (
       <React.Fragment>
-        <PageMeta title={title}/>
+        <I18nContextConsumer>
+          {({language}) => (
+            <PageMeta title={this.state.campaign.contentI18n ? this.state.campaign.contentI18n[language].title : ""}/>
+          )}
+        </I18nContextConsumer>
 
         <IdeaTeaser campaign={this.state.campaign}/>
 
