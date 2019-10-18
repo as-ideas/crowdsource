@@ -74,8 +74,17 @@ export default class Header extends React.Component {
                             <div className="header__breadcrumb-divider"/>
                             <div className="header__nav-container" ng-show="!vm.isMobile || (vm.isMobile && vm.isMobileMenuOpen)">
                               <NavContextConsumer>
-                                { ({ pageTitle }) => (
+                                { ({ breadcrumb, pageTitle }) => (
                                   <React.Fragment>
+                                    {
+                                      breadcrumb ? breadcrumb.map(function(item, i) {
+                                        return <React.Fragment key={i} >
+                                          <a className="header__breadcrumb-link" href={ item.url }>{ item.title }</a>
+                                          <div className="header__breadcrumb-divider"/>
+                                        </React.Fragment>
+                                      })
+                                        : null
+                                    }
                                     <a className="header__nav-active">{ pageTitle }</a>
                                   </React.Fragment>
                                 )}

@@ -3,9 +3,10 @@ import IdeaTeaser from "./IdeaTeaser";
 import ContentHero from "../../layout/ContentHero";
 import IdeaTile from "./IdeaTile";
 import IdeaService from "../../util/IdeaService";
-import {Trans} from '@lingui/macro';
+import {t, Trans} from '@lingui/macro';
 import LoadMore from "../../layout/LoadMore";
 import IdeaAdd from "./IdeaAdd";
+import PageMeta from "../../layout/PageMeta";
 
 export default class IdeasListPage extends React.Component {
   constructor(props, context) {
@@ -91,11 +92,14 @@ export default class IdeasListPage extends React.Component {
 
   render() {
     let campaign = this.state.campaign;
+    let title = this.state.campaign.contentI18n ? this.state.campaign.contentI18n.de.title : "";
     let selectedFilter = this.state.selectedFilter;
     let ideas = this.state.ideas;
 
     return (
       <React.Fragment>
+        <PageMeta title={title}/>
+
         <IdeaTeaser campaign={this.state.campaign}/>
 
         <content-row overlay="ADD_IDEA_SUCCESS">

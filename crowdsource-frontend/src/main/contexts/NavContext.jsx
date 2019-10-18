@@ -7,8 +7,10 @@ class NavContextProvider extends React.Component {
   constructor() {
     super()
     this.updatePageTitle = this.updatePageTitle.bind(this)
+    this.updateBreadcrumb = this.updateBreadcrumb.bind(this)
 
     this.state = {
+      breadcrumb: null,
       pageTitle: 'Crowdsource',
     }
   }
@@ -19,10 +21,21 @@ class NavContextProvider extends React.Component {
     })
   }
 
-  render () {
+  /*
+    Breadcrumb is of the form [{title: '', url: ''},{title: '', url: ''}]
+   */
+  updateBreadcrumb(bcArray) {
+    this.setState({
+      breadcrumb: bcArray
+    })
+  }
+
+  render() {
     return (
       <NavContext.Provider value={{
+        breadcrumb: this.state.breadcrumb,
         pageTitle: this.state.pageTitle,
+        updateBreadcrumb: this.updateBreadcrumb,
         updatePageTitle: this.updatePageTitle
       }}>
         {this.props.children}
@@ -34,4 +47,4 @@ class NavContextProvider extends React.Component {
 
 const NavContextConsumer = NavContext.Consumer;
 
-export { NavContextProvider, NavContextConsumer, NavContext }
+export {NavContextProvider, NavContextConsumer, NavContext}

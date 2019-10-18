@@ -9,10 +9,15 @@ export default class PageMeta extends React.Component {
   }
 
   componentDidMount() {
+    this.context.updateBreadcrumb(this.props.breadcrumb)
     this.context.updatePageTitle(this.props.title)
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
+    if (prevProps.breadcrumb != this.props.breadcrumb) {
+      this.context.updateBreadcrumb(this.props.breadcrumb)
+    }
+
     if (prevProps.title != this.props.title) {
       this.context.updatePageTitle(this.props.title)
     }
