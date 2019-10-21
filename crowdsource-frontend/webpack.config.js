@@ -72,7 +72,11 @@ module.exports = (env) => {
         // handler: (percentage, message, ...args) => {
         //   // custom logic
         // }
-      })
+      }),
+      new DefinePlugin({
+        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+        'process.env.ENV': JSON.stringify(process.env.NODE_ENV),
+      }),
     ],
     devServer: {
       historyApiFallback: true

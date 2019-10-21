@@ -35,11 +35,22 @@ import ReactGA from "react-ga";
 
 UnauthorizedInterceptor.init();
 
-ReactGA.initialize('UA-124834155-5');
+/* Google Analytics START */
+
+let googleAnalyticsId = 'UA-124834155-5';
+if (process.env.NODE_ENV === 'production') {
+  googleAnalyticsId = 'id=UA-124834155-4';
+}
+
+ReactGA.initialize(googleAnalyticsId);
+ReactGA.pageview(location.pathname);
+
 RoutingService.history.listen(location => {
   console.log("Track: " + location.pathname);
-  ReactGA.pageview(location.pathname);
 });
+
+/* Google Analytics END */
+
 
 ReactDOM.render((
   <I18nContextProvider>
