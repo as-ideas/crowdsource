@@ -2,6 +2,8 @@ import React from "react";
 import ContentHero from "../../layout/ContentHero";
 import IdeaService from "../../util/IdeaService";
 import IdeasEditComponent from "./IdeasEditComponent";
+import Events from "../../util/Events";
+import {Trans} from '@lingui/macro';
 
 
 const EMPTY_IDEA = {title: "", pitch: ""};
@@ -12,7 +14,18 @@ export default class IdeaAdd extends React.Component {
   }
 
   submit(idea) {
-    return IdeaService.createIdea(this.props.campaign.id, idea);
+    return IdeaService.createIdea(this.props.campaign.id, idea)
+      .then((newIdeaResponse) => {
+        if (!newIdeaResponse.errorCode) {
+          Events.emitEvent('UPDATE_OWN_STATISTICS');
+          Events.emitEvent('ADD_IDEA_SUCCESS', {
+            type: 'success',
+            message: <Trans id="IDEA_ADD_MESSAGE_1"/> + '<br>' + 'IDEA_ADD_MESSAGE_2'
+          });
+        }
+        return newIdeaResponse;
+      })
+      .catch(error => console.info("FEHLER BEI EMIT EVENT", error));
   }
 
   render() {

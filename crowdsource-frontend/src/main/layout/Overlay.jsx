@@ -6,9 +6,7 @@ const OVERLAY_ANIMATION_DURATION = 2500;
 
 export default class Overlay extends React.Component {
   static propTypes = {
-    eventId: PropTypes.string,
-    message: PropTypes.string,
-    type: PropTypes.string,
+    eventId: PropTypes.string
   };
 
   constructor(props) {
@@ -24,17 +22,24 @@ export default class Overlay extends React.Component {
     this.eventEmitter.remove();
   }
 
-  showOverlay(...args) {
-    console.info("showOverlay", args);
-    this.setState({show: true});
+  showOverlay(args) {
+    if (args && args.length) {
+      let message = args[0];
+      this.setState({
+        show: true,
+        message: message.message,
+        type: message.type
+      });
+
+    }
     window.setTimeout(() => {
       this.setState({show: false});
     }, OVERLAY_ANIMATION_DURATION);
   }
 
   render() {
-    let message = this.props.message;
-    let type = this.props.type;
+    let message = this.state.message;
+    let type = this.state.type;
 
     let classForOverlay = "overlay__container overlay--hidden";
     classForOverlay += (type === 'failure' ? ' overlay--failure' : ' overlay--success');

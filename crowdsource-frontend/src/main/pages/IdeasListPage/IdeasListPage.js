@@ -8,6 +8,7 @@ import LoadMore from "../../layout/LoadMore";
 import IdeaAdd from "./IdeaAdd";
 import PageMeta from "../../layout/PageMeta";
 import {I18nContextConsumer} from "../../contexts/I18nContext";
+import Overlay from "../../layout/Overlay";
 
 export default class IdeasListPage extends React.Component {
   constructor(props, context) {
@@ -106,7 +107,9 @@ export default class IdeasListPage extends React.Component {
 
         <IdeaTeaser campaign={this.state.campaign}/>
 
-        <content-row overlay="ADD_IDEA_SUCCESS">
+        <content-row>
+          <Overlay eventId="ADD_IDEA_SUCCESS"/>
+
           <div className="container">
             <IdeaAdd campaign={campaign} success-callback={this.reloadOwnIdeas}/>
           </div>
