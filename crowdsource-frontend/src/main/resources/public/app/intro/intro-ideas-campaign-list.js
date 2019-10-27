@@ -10,23 +10,35 @@ angular.module('crowdsource')
             controller: function ($scope, $rootScope, $translate) {
                 var vm = this;
 
-                $rootScope.$on('$translateChangeSuccess', function (event,data) {
-                  vm.currentLanguage = data.language;
-                  console.log("language change: " + vm.currentLanguage);
+                $rootScope.$on('$translateChangeSuccess', function (event, data) {
+                    vm.currentLanguage = data.language;
+                    console.log("language change: " + vm.currentLanguage);
                 });
 
-              vm.currentLanguage = $translate.use();
-                vm.entries = [];
+                vm.currentLanguage = $translate.use();
+                vm.entriesOngoing = [];
+                vm.entriesFinished = [];
+
+                vm.hasNoCampaigns = function () {
+                    return ((!vm.entriesOngoing) && (!vm.entriesFinished))
+                };
 
                 getIdeaCampaigns();
 
                 function getIdeaCampaigns() {
                     Idea.getCampaigns().then(
-                        function(response) {
-                            vm.entries = response;
+                        function (response) {
+                            var entries = response;
+                            vm.entriesOngoing = entries.filter(function (entry) {
+                                return !entry.expired;
+                            });
+                            vm.entriesFinished = entries.filter(function (entry) {
+                                return entry.expired;
+                            });
                         },
-                        function() {
-                            vm.entries = []
+                        function () {
+                            vm.entriesOngoing = [];
+                            vm.entriesFinished = [];
                         }
                     );
 

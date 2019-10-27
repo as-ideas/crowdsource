@@ -1,0 +1,1990 @@
+[
+  {
+    "id": "5d1a02b34105586626567b41",
+    "creatorName": "Tom",
+    "status": "PUBLISHED",
+    "creationDate": 1561985715099,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d1a02b34105586626567b41",
+      "countVotes": 119,
+      "ownVote": 5,
+      "averageRating": 4.420168
+    },
+    "contentI18n": {
+      "originalLanguage": "EN",
+      "original": {
+        "title": "Drink(Upgraded) Tap Water",
+        "pitch": "Springer consumes bottled water. The prod. of which has an environm. price. Berlin's water are of great quality we should drink more tap water. Let's test the quality of tap water in the complex Get water dispensers Springers can ask 4 refillable bottles."
+      },
+      "de": {
+        "title": "Getränk (aufgerüstet) Leitungswasser",
+        "pitch": "Springer verbraucht Wasser in Flaschen. Das Produkt davon hat einen Umgebungspreis. Berlins Wasser ist von hervorragender Qualität, wir sollten mehr Leitungswasser trinken. Lassen Sie uns die Qualität des Leitungswassers im Komplex testen Get Wasserspender Springers können 4 Mehrwegflaschen verlangen."
+      },
+      "en": {
+        "title": "Drink(Upgraded) Tap Water",
+        "pitch": "Springer consumes bottled water. The prod. of which has an environm. price. Berlin's water are of great quality we should drink more tap water. Let's test the quality of tap water in the complex Get water dispensers Springers can ask 4 refillable bottles."
+      }
+    }
+  },
+  {
+    "id": "5d1a03809126ed581073dd26",
+    "creatorName": "Tom",
+    "status": "PUBLISHED",
+    "creationDate": 1561985920172,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d1a03809126ed581073dd26",
+      "countVotes": 78,
+      "ownVote": 5,
+      "averageRating": 3.371795
+    },
+    "contentI18n": {
+      "originalLanguage": "EN",
+      "original": {
+        "title": "Less plastic more peanuts",
+        "pitch": "Many AS companies consume small personal packed treats (Studentenfutter, Peanuts...) these can cause a big amount of plastic packs. We suggest using peanut dispensers instead."
+      },
+      "de": {
+        "title": "Weniger Kunststoff mehr Erdnüsse",
+        "pitch": "Viele AS-Unternehmen konsumieren kleine, persönlich verpackte Leckereien (Studentenfutter, Erdnüsse...), die eine große Menge an Plastikverpackungen verursachen können. Wir empfehlen stattdessen die Verwendung von Erdnuss-Spendern."
+      },
+      "en": {
+        "title": "Less plastic more peanuts",
+        "pitch": "Many AS companies consume small personal packed treats (Studentenfutter, Peanuts...) these can cause a big amount of plastic packs. We suggest using peanut dispensers instead."
+      }
+    }
+  },
+  {
+    "id": "5d1a052018c37b67f693866f",
+    "creatorName": "Tom",
+    "status": "PUBLISHED",
+    "creationDate": 1561986336796,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d1a052018c37b67f693866f",
+      "countVotes": 95,
+      "ownVote": 1,
+      "averageRating": 4.2421055
+    },
+    "contentI18n": {
+      "originalLanguage": "EN",
+      "original": {
+        "title": "Flight CO2 offsetting",
+        "pitch": "Compensate the environment for our (huge) flight carbon emissions by offsetting the damage using organizations like atmosfair.de"
+      },
+      "de": {
+        "title": "Flug CO2-Kompensation",
+        "pitch": "Kompensieren Sie die Umwelt für unsere (riesigen) Flug CO2-Emissionen, indem Sie die Schäden durch Organisationen wie atmosfair.de ausgleichen."
+      },
+      "en": {
+        "title": "Flight CO2 offsetting",
+        "pitch": "Compensate the environment for our (huge) flight carbon emissions by offsetting the damage using organizations like atmosfair.de"
+      }
+    }
+  },
+  {
+    "id": "5d1a1b1c9126ed581073dd27",
+    "creatorName": "Julian",
+    "status": "PUBLISHED",
+    "creationDate": 1561991964915,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d1a1b1c9126ed581073dd27",
+      "countVotes": 110,
+      "ownVote": 5,
+      "averageRating": 4.3636365
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Fernseher aus!",
+        "pitch": "Ab 20 Uhr sollten sich die Fernseher automatisch aus und morgens um 7 Uhr wieder anschalten. Spart Strom und es wird keine unnötige Wärme erzeugt, die dann wieder von der Klimaanlage gekühlt werden muss!"
+      },
+      "de": {
+        "title": "Fernseher aus!",
+        "pitch": "Ab 20 Uhr sollten sich die Fernseher automatisch aus und morgens um 7 Uhr wieder anschalten. Spart Strom und es wird keine unnötige Wärme erzeugt, die dann wieder von der Klimaanlage gekühlt werden muss!"
+      },
+      "en": {
+        "title": "TV off!",
+        "pitch": "From 8 p.m. on, the televisions should switch off automatically and switch on again in the morning at 7 a.m. Saves electricity and no unnecessary heat is generated, which then has to be cooled again by the air conditioning system!"
+      }
+    }
+  },
+  {
+    "id": "5d1c5d3b9126ed581073dd29",
+    "creatorName": "Henry",
+    "status": "PUBLISHED",
+    "creationDate": 1562139963775,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d1c5d3b9126ed581073dd29",
+      "countVotes": 61,
+      "ownVote": 0,
+      "averageRating": 3.5409837
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "spam in hardcopy form",
+        "pitch": "täglich bekommen wir unnütze werbeschreiben in briefform. wir können sensibilsieren und versenden an alle postfächer aukleberbögen \"zurück an absender, bitte per email versenden\". die schreiben werden damit versehen und gehen zurück."
+      },
+      "de": {
+        "title": "Spam in Papierform",
+        "pitch": "täglich bekommen wir unnütze werbeschreiben in briefform. wir können sensibilsieren und versenden an alle postfächer aukleberbögen \"zurück an absender, bitte per email versenden\". die schreiben werden damit versehen und gehen zurück."
+      },
+      "en": {
+        "title": "spam in hardcopy form",
+        "pitch": "daily we receive useless advertising letters in letter form. we can sensitize and send adhesive sheets \"back to sender, please send by email\" to all mailboxes. the letters are provided with it and go back."
+      }
+    }
+  },
+  {
+    "id": "5d1c5e1718c37b67f6938671",
+    "creatorName": "Tarek",
+    "status": "PUBLISHED",
+    "creationDate": 1562140183806,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d1c5e1718c37b67f6938671",
+      "countVotes": 91,
+      "ownVote": 1,
+      "averageRating": 4.2087913
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Keine Werbemittel drucken",
+        "pitch": "Für interne Kampagnen und Vorträge werden Werbemittel gedruckt und verteilt nur um direkt danach in den Abfall zu wandern. Wir sollten mit gutem Beispiel voran gehen und diese Art von Müll nicht mehr produzieren."
+      },
+      "de": {
+        "title": "Keine Werbemittel drucken",
+        "pitch": "Für interne Kampagnen und Vorträge werden Werbemittel gedruckt und verteilt nur um direkt danach in den Abfall zu wandern. Wir sollten mit gutem Beispiel voran gehen und diese Art von Müll nicht mehr produzieren."
+      },
+      "en": {
+        "title": "Do not print advertising material",
+        "pitch": "For internal campaigns and presentations, advertising material is printed and distributed only to be disposed of directly afterwards. We should set a good example and stop producing this kind of waste."
+      }
+    }
+  },
+  {
+    "id": "5d1cc52a18c37b67f6938676",
+    "creatorName": "Thomas",
+    "status": "PUBLISHED",
+    "creationDate": 1562166570018,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d1cc52a18c37b67f6938676",
+      "countVotes": 60,
+      "ownVote": 5,
+      "averageRating": 2.8833334
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Personalisierte Tassen",
+        "pitch": "Jeder Mitarbeiter möge eine personalisierte Tasse erhalten, die er stets wiederverwenden kann. Dies soll die Vermeidung von Müll fördern."
+      },
+      "de": {
+        "title": "Personalisierte Tassen",
+        "pitch": "Jeder Mitarbeiter möge eine personalisierte Tasse erhalten, die er stets wiederverwenden kann. Dies soll die Vermeidung von Müll fördern."
+      },
+      "en": {
+        "title": "Personalized cups",
+        "pitch": "Every employee should receive a personalized mug that can be reused at any time. This is to promote the avoidance of garbage."
+      }
+    }
+  },
+  {
+    "id": "5d1cc66e9126ed581073dd2c",
+    "creatorName": "Thomas",
+    "status": "PUBLISHED",
+    "creationDate": 1562166894910,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d1cc66e9126ed581073dd2c",
+      "countVotes": 44,
+      "ownVote": 0,
+      "averageRating": 2.75
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Green Recup",
+        "pitch": "Mit dem Erwerb Green ReCup (wiederverwendbare ) Tasse spendet der Konsument je nach Farbe und Design der Tasse unterschiedliche Beträge zum Zwecke der Nachhaltigkeit gemeinnützigen Vereinen und Organisationen."
+      },
+      "de": {
+        "title": "Grüne Erholung",
+        "pitch": "Mit dem Erwerb Green ReCup (wiederverwendbare ) Tasse spendet der Konsument je nach Farbe und Design der Tasse unterschiedliche Beträge zum Zwecke der Nachhaltigkeit gemeinnützigen Vereinen und Organisationen."
+      },
+      "en": {
+        "title": "Green Recup",
+        "pitch": "With the purchase of Green ReCup (reusable) mug, the consumer donates different amounts depending on the color and design of the mug for the purpose of sustainability to non-profit associations and organizations."
+      }
+    }
+  },
+  {
+    "id": "5d1dfe309126ed581073dd30",
+    "creatorName": "Adrian",
+    "status": "PUBLISHED",
+    "creationDate": 1562246704125,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d1dfe309126ed581073dd30",
+      "countVotes": 79,
+      "ownVote": 0,
+      "averageRating": 4.278481
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "EcoBased Reinigungsmittel",
+        "pitch": "Jede Küche, jede Toilette als auch die Putztruppe, sollten naturbelassen und umweltfreundliche Reinigungsmittel verwenden anstatt mit Chemiekeulen umher zu reinigen."
+      },
+      "de": {
+        "title": "EcoBased Reinigungsmittel",
+        "pitch": "Jede Küche, jede Toilette als auch die Putztruppe, sollten naturbelassen und umweltfreundliche Reinigungsmittel verwenden anstatt mit Chemiekeulen umher zu reinigen."
+      },
+      "en": {
+        "title": "EcoBased Cleaning Agent",
+        "pitch": "Every kitchen, every toilet as well as the cleaning team should use natural and environmentally friendly cleaning agents instead of cleaning around with chemical clubs."
+      }
+    }
+  },
+  {
+    "id": "5d1e30189126ed581073dd31",
+    "creatorName": "Adrian",
+    "status": "PUBLISHED",
+    "creationDate": 1562259480452,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d1e30189126ed581073dd31",
+      "countVotes": 86,
+      "ownVote": 0,
+      "averageRating": 4.523256
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Nachhaltiger Strom",
+        "pitch": "Nachhaltiger Stromanbieter der 100% Energie aus erneuerbarer Energie herstellt, sich nicht an Atomkraftwerken beteiligt hat und nach 2016 keine direkte Beteiligung an einem Kohlekraftwerk erworben, der aktiv den Ausbau erneuerbarer Energie fördert etc.."
+      },
+      "de": {
+        "title": "Nachhaltiger Strom",
+        "pitch": "Nachhaltiger Stromanbieter der 100% Energie aus erneuerbarer Energie herstellt, sich nicht an Atomkraftwerken beteiligt hat und nach 2016 keine direkte Beteiligung an einem Kohlekraftwerk erworben, der aktiv den Ausbau erneuerbarer Energie fördert etc.."
+      },
+      "en": {
+        "title": "Sustainable electricity",
+        "pitch": "Sustainable electricity provider that produces 100% energy from renewable energy, has not participated in nuclear power plants and after 2016 has not acquired a direct stake in a coal-fired power plant that actively promotes the expansion of renewable energy etc..."
+      }
+    }
+  },
+  {
+    "id": "5d233b769126ed581073dd33",
+    "creatorName": "Matthias",
+    "status": "PUBLISHED",
+    "creationDate": 1562590070882,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d233b769126ed581073dd33",
+      "countVotes": 69,
+      "ownVote": 0,
+      "averageRating": 3.4347825
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Email löschen= CO2 senken",
+        "pitch": "Aktionstage zum löschen von Emails einrichten, da jede Email durch Speicherung bis zu 10g CO2 erzeugen soll, Energieressourcen in Rechenzentren verbraucht. Durch eine gemeinsame Aktion der Springer Familie  könnten sehr viele Kilos CO2 eingespart werden."
+      },
+      "de": {
+        "title": "Email löschen= CO2 senken",
+        "pitch": "Aktionstage zum löschen von Emails einrichten, da jede Email durch Speicherung bis zu 10g CO2 erzeugen soll, Energieressourcen in Rechenzentren verbraucht. Durch eine gemeinsame Aktion der Springer Familie könnten sehr viele Kilos CO2 eingespart werden."
+      },
+      "en": {
+        "title": "Delete email= reduce CO2",
+        "pitch": "Set up action days to delete emails, since each email should generate up to 10g CO2 by storing, consumes energy resources in data centers. A joint campaign by the Springer family could save many kilos of CO2."
+      }
+    }
+  },
+  {
+    "id": "5d2351084105586626567b50",
+    "creatorName": "Sophia",
+    "status": "PUBLISHED",
+    "creationDate": 1562595592370,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d2351084105586626567b50",
+      "countVotes": 111,
+      "ownVote": 5,
+      "averageRating": 4.720721
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "papierfreies Paparazzi",
+        "pitch": "Bisher bekommt jeder Mitarbeiter, der zur Mittagszeit im Paparazzi Essen geht, beim Bezahlvorgang den Bon (Papier) automatisch mit ausgehändigt. Warum lässt man diesen nicht weg bzw. stellt ihn nur bei Nachfrage aus?"
+      },
+      "de": {
+        "title": "papierfreies Paparazzi",
+        "pitch": "Bisher bekommt jeder Mitarbeiter, der zur Mittagszeit im Paparazzi Essen geht, beim Bezahlvorgang den Bon (Papier) automatisch mit ausgehändigt. Warum lässt man diesen nicht weg bzw. stellt ihn nur bei Nachfrage aus?"
+      },
+      "en": {
+        "title": "paperless paparazzi",
+        "pitch": "Until now, every employee who goes to the paparazzi at lunchtime automatically receives the receipt (paper) with the payment process. Why don't you leave it out or only display it when there is demand?"
+      }
+    }
+  },
+  {
+    "id": "5d246caa410558432d74a3ef",
+    "creatorName": "Jan",
+    "status": "PUBLISHED",
+    "creationDate": 1562668202394,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d246caa410558432d74a3ef",
+      "countVotes": 94,
+      "ownVote": 5,
+      "averageRating": 4.5319147
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Bike Parking",
+        "pitch": "Mehr Fahrradparkplätze um das Verlagsgebäude herum anbieten. AUCH an der Rudi Dutschke Strasse.\nVermeidet Chaos am Eingang Markgrafenstrasse."
+      },
+      "de": {
+        "title": "Fahrradabstellplatz",
+        "pitch": "Mehr Fahrradparkplätze um das Verlagsgebäude herum anbieten. AUCH an der Rudi Dutschke Strasse.\nVermeidet Chaos am Eingang Markgrafenstrasse."
+      },
+      "en": {
+        "title": "Bike Parking",
+        "pitch": "Offer more bicycle parking around the publishing building. Also on Rudi Dutschke Street.\nAvoids chaos at the entrance Markgrafenstrasse."
+      }
+    }
+  },
+  {
+    "id": "5d246ea79126ed4687977765",
+    "creatorName": "Thomas",
+    "status": "PUBLISHED",
+    "creationDate": 1562668711403,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d246ea79126ed4687977765",
+      "countVotes": 72,
+      "ownVote": 5,
+      "averageRating": 4.7222223
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Neues Firmenticket",
+        "pitch": "Mehr Mobilität am Standort Berlin für weniger Geld! Ab 1. September gibt es ein \"neues Firmenticket-Programm\" der BVG. Die Einsparung der Mitarbeiter liegt bei bis zu 38% - der Arbeitgeber zahlt einen Zuschuss. Ich beteilige mich gern an der Umsetzung..."
+      },
+      "de": {
+        "title": "Neues Firmenticket",
+        "pitch": "Mehr Mobilität am Standort Berlin für weniger Geld! Ab 1. September gibt es ein \"neues Firmenticket-Programm\" der BVG. Die Einsparung der Mitarbeiter liegt bei bis zu 38% - der Arbeitgeber zahlt einen Zuschuss. Ich beteilige mich gern an der Umsetzung..."
+      },
+      "en": {
+        "title": "New company ticket",
+        "pitch": "More mobility in Berlin for less money! From 1 September there will be a \"new BVG company ticket programme\". The savings for employees are up to 38% - the employer pays a subsidy. I participate gladly in the conversion..."
+      }
+    }
+  },
+  {
+    "id": "5d2478fc18c37b4a5003f806",
+    "creatorName": "Richa",
+    "status": "PUBLISHED",
+    "creationDate": 1562671356849,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d2478fc18c37b4a5003f806",
+      "countVotes": 39,
+      "ownVote": 5,
+      "averageRating": 3.5641026
+    },
+    "contentI18n": {
+      "originalLanguage": "EN",
+      "original": {
+        "title": "Carpool or ride a bike",
+        "pitch": "Leave your car at home. Get a lift with a colleague. Split the gas cost and reduce emmisions. \nOn a pleasant day take a bike and turn your commute into your workout. Stay healthy and save the environment (Richa)"
+      },
+      "de": {
+        "title": "Mitfahrgelegenheit oder Radfahren",
+        "pitch": "Lassen Sie Ihr Auto zu Hause. Nimm mit einem Kollegen mit. Teilen Sie die Gaskosten auf und reduzieren Sie die Emissionen.\nAn einem angenehmen Tag nehmen Sie ein Fahrrad und machen Sie Ihre Pendeltour zu Ihrem Training. Gesund bleiben und die Umwelt schonen (Richa)"
+      },
+      "en": {
+        "title": "Carpool or ride a bike",
+        "pitch": "Leave your car at home. Get a lift with a colleague. Split the gas cost and reduce emmisions. \nOn a pleasant day take a bike and turn your commute into your workout. Stay healthy and save the environment (Richa)"
+      }
+    }
+  },
+  {
+    "id": "5d247b1118c37b4a5003f80a",
+    "creatorName": "Richa",
+    "status": "PUBLISHED",
+    "creationDate": 1562671889606,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d247b1118c37b4a5003f80a",
+      "countVotes": 63,
+      "ownVote": 5,
+      "averageRating": 3.5714285
+    },
+    "contentI18n": {
+      "originalLanguage": "EN",
+      "original": {
+        "title": "Eat More Green less Red",
+        "pitch": "Reducing diary and (especially red) meat consumption is the single greatest impact you can have on your personal carbon footprint. You don't have to give it up completely. Reducing to one meal per day makes all the difference. (Richa)"
+      },
+      "de": {
+        "title": "Mehr Grün essen weniger Rot",
+        "pitch": "Die Reduzierung des Milch- und (vor allem des roten) Fleischkonsums ist der größte Einfluss, den Sie auf Ihren persönlichen CO2-Fußabdruck haben können. Du musst es nicht ganz aufgeben. Die Reduzierung auf eine Mahlzeit pro Tag macht den Unterschied. (Richa)"
+      },
+      "en": {
+        "title": "Eat More Green less Red",
+        "pitch": "Reducing diary and (especially red) meat consumption is the single greatest impact you can have on your personal carbon footprint. You don't have to give it up completely. Reducing to one meal per day makes all the difference. (Richa)"
+      }
+    }
+  },
+  {
+    "id": "5d247db89126ed468797778a",
+    "creatorName": "Moritz",
+    "status": "PUBLISHED",
+    "creationDate": 1562672568741,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d247db89126ed468797778a",
+      "countVotes": 51,
+      "ownVote": 5,
+      "averageRating": 2.4705882
+    },
+    "contentI18n": {
+      "originalLanguage": "EN",
+      "original": {
+        "title": "\"Your own CO2 balance\"",
+        "pitch": "Each employee is allocated a personal quota of CO2 emissions. Those who need more(e.g. travel more than once/month) have to expand this quota: Either by “buying\" another quota (AS could use a symbolic value) or by \"buying\" the quota from someone else"
+      },
+      "de": {
+        "title": "\" Ihre eigene CO2-Bilanz\".",
+        "pitch": "Jedem Mitarbeiter wird eine persönliche Quote an CO2-Emissionen zugewiesen. Wer mehr braucht (z.B. mehr als einmal pro Monat reisen), muss diese Quote erweitern: Entweder durch \"Kauf\" einer anderen Quote (AS könnte einen symbolischen Wert verwenden) oder durch \"Kauf\" der Quote von jemand anderem."
+      },
+      "en": {
+        "title": "\"Your own CO2 balance\"",
+        "pitch": "Each employee is allocated a personal quota of CO2 emissions. Those who need more(e.g. travel more than once/month) have to expand this quota: Either by “buying\" another quota (AS could use a symbolic value) or by \"buying\" the quota from someone else"
+      }
+    }
+  },
+  {
+    "id": "5d247f55410558432d74a40b",
+    "creatorName": "Sabine",
+    "status": "PUBLISHED",
+    "creationDate": 1562672981819,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d247f55410558432d74a40b",
+      "countVotes": 78,
+      "ownVote": 5,
+      "averageRating": 4.4102564
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Solarzellen auf dem Dach",
+        "pitch": "Ich fände eine teilweise Versorgung des Axel-Springer-Gebäudes aus Solarzellen eine gute Idee. Man könnte vor Allem die Flächen auf der Passage nutzen und eventuell auch gleichzeitig Photovoltaik-Flächen als \"Sonnendach\" über Sitzgelegenheiten nutzen."
+      },
+      "de": {
+        "title": "Solarzellen auf dem Dach",
+        "pitch": "Ich fände eine teilweise Versorgung des Axel-Springer-Gebäudes aus Solarzellen eine gute Idee. Man könnte vor Allem die Flächen auf der Passage nutzen und eventuell auch gleichzeitig Photovoltaik-Flächen als \"Sonnendach\" über Sitzgelegenheiten nutzen."
+      },
+      "en": {
+        "title": "Solar cells on the roof",
+        "pitch": "I think a partial supply of the Axel Springer building with solar cells would be a good idea. One could above all use the surfaces on the passage and possibly also use photovoltaic surfaces at the same time as \"sun roofs\" over seats."
+      }
+    }
+  },
+  {
+    "id": "5d248113410558432d74a40d",
+    "creatorName": "Sabine",
+    "status": "PUBLISHED",
+    "creationDate": 1562673427537,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d248113410558432d74a40d",
+      "countVotes": 92,
+      "ownVote": 5,
+      "averageRating": 4.3913045
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Wasser aus der Leitung",
+        "pitch": "Wir haben in Berlin eine ausgezeichnete Wasserqualität und könnten das Wasser aus der Leitung konsumieren. Noch besser wäre eine Zwischenschaltung eines Carbon-Filters, der auch noch letzte Reste von Verunreinigungen aus dem Wasser nimmt."
+      },
+      "de": {
+        "title": "Wasser aus der Leitung",
+        "pitch": "Wir haben in Berlin eine ausgezeichnete Wasserqualität und könnten das Wasser aus der Leitung konsumieren. Noch besser wäre eine Zwischenschaltung eines Carbon-Filters, der auch noch letzte Reste von Verunreinigungen aus dem Wasser nimmt."
+      },
+      "en": {
+        "title": "Water from the tap",
+        "pitch": "We have an excellent water quality in Berlin and could consume the water from the tap. An even better solution would be to connect a carbon filter that removes even the last residues of impurities from the water."
+      }
+    }
+  },
+  {
+    "id": "5d2488af18c37b4a5003f81b",
+    "creatorName": "Eva Maria",
+    "status": "PUBLISHED",
+    "creationDate": 1562675375697,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d2488af18c37b4a5003f81b",
+      "countVotes": 84,
+      "ownVote": 1,
+      "averageRating": 4.4404764
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Springer-Kleinanzeigen",
+        "pitch": "Kleinanzeigen sind super! Gebrauchte, noch gute Sachen einfach weiterverkaufen. Lukrativ für beide Parteien & spart Ressourcen. Ein interner, digitaler Marktplatz, spart zusätzlich Versand-bzw. Abholweg und Zeit! Ressourcennutzung im eigenen Haus."
+      },
+      "de": {
+        "title": "Springer-Kleinanzeigen",
+        "pitch": "Kleinanzeigen sind super! Gebrauchte, noch gute Sachen einfach weiterverkaufen. Lukrativ für beide Parteien & spart Ressourcen. Ein interner, digitaler Marktplatz, spart zusätzlich Versand-bzw. Abholweg und Zeit! Ressourcennutzung im eigenen Haus."
+      },
+      "en": {
+        "title": "Springer Classifieds",
+        "pitch": "Classifieds are great! Used, still good things simply resell. Lucrative for both parties & saves resources. An internal, digital marketplace additionally saves shipping and pick-up distance and time! Use of resources in own house."
+      }
+    }
+  },
+  {
+    "id": "5d24a1c018c37b4a5003f822",
+    "creatorName": "Jan",
+    "status": "PUBLISHED",
+    "creationDate": 1562681792133,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d24a1c018c37b4a5003f822",
+      "countVotes": 43,
+      "ownVote": 1,
+      "averageRating": 3.9767442
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Ordner Recycling",
+        "pitch": "Im Zuge des papierlosen Büros werden viele (auch leere) Ordner überflüssig. Aktuell werden diese einfach entsorgt über das Facility Management. Wäre Gratis-Angebot über Marktplatz hier nicht hilfreich."
+      },
+      "de": {
+        "title": "Ordner Recycling",
+        "pitch": "Im Zuge des papierlosen Büros werden viele (auch leere) Ordner überflüssig. Aktuell werden diese einfach entsorgt über das Facility Management. Wäre Gratis-Angebot über Marktplatz hier nicht hilfreich."
+      },
+      "en": {
+        "title": "Folder Recycling",
+        "pitch": "In the course of the paperless office, many (even empty) folders become superfluous. Currently, these are simply disposed of via facility management. Wouldn't be helpful to get a free quote from the marketplace here."
+      }
+    }
+  },
+  {
+    "id": "5d24a3cb410558432d74a41d",
+    "creatorName": "Adrian",
+    "status": "PUBLISHED",
+    "creationDate": 1562682315242,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d24a3cb410558432d74a41d",
+      "countVotes": 60,
+      "ownVote": 5,
+      "averageRating": 4.2166667
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Dienstreisen ohne Flieger",
+        "pitch": "Dienstreisen innerhalb und in der Nähe von Deutschland nur noch mit der Bahn oder einem CO2 neutralen gemieteten Auto, anstatt mit dem Flugzeug."
+      },
+      "de": {
+        "title": "Dienstreisen ohne Flieger",
+        "pitch": "Dienstreisen innerhalb und in der Nähe von Deutschland nur noch mit der Bahn oder einem CO2 neutralen gemieteten Auto, anstatt mit dem Flugzeug."
+      },
+      "en": {
+        "title": "Business trips without a plane",
+        "pitch": "Business trips within and near Germany only by train or a CO2 neutral rented car, instead of by plane."
+      }
+    }
+  },
+  {
+    "id": "5d24a8bc410558432d74a420",
+    "creatorName": "Eva Maria",
+    "status": "PUBLISHED",
+    "creationDate": 1562683580138,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d24a8bc410558432d74a420",
+      "countVotes": 84,
+      "ownVote": 4,
+      "averageRating": 4.5238094
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Lebensmittel weitergeben",
+        "pitch": "Übrig geblieben Backwaren aus dem Deli bei \"Too good to go\" anbieten."
+      },
+      "de": {
+        "title": "Lebensmittel weitergeben",
+        "pitch": "Übrig geblieben Backwaren aus dem Deli bei \"Too good to go\" anbieten."
+      },
+      "en": {
+        "title": "Passing on food",
+        "pitch": "Remained to offer baked goods from the Deli at \"Too good to go\"."
+      }
+    }
+  },
+  {
+    "id": "5d24abe99126ed46879777a0",
+    "creatorName": "Johannes",
+    "status": "PUBLISHED",
+    "creationDate": 1562684393043,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d24abe99126ed46879777a0",
+      "countVotes": 67,
+      "ownVote": 5,
+      "averageRating": 4.432836
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Der letzte macht...",
+        "pitch": "...das Licht aus. Abends und am Wochenende ist in den Küchen, Gängen und Toiletten oft Festbeleuchtung angesagt und kann mit etwas mehr Sensibilisierung bei uns allen (und externen Dienstleistern) abgeschalten werden."
+      },
+      "de": {
+        "title": "Der letzte macht...",
+        "pitch": "...das Licht aus. Abends und am Wochenende ist in den Küchen, Gängen und Toiletten oft Festbeleuchtung angesagt und kann mit etwas mehr Sensibilisierung bei uns allen (und externen Dienstleistern) abgeschalten werden."
+      },
+      "en": {
+        "title": "The last one makes...",
+        "pitch": "...the light out. In the evenings and at weekends, the kitchens, corridors and toilets are often illuminated and can be switched off with a little more sensitisation from all of us (and external service providers)."
+      }
+    }
+  },
+  {
+    "id": "5d25ca21410558432d74a431",
+    "creatorName": "Angelika",
+    "status": "PUBLISHED",
+    "creationDate": 1562757665892,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d25ca21410558432d74a431",
+      "countVotes": 66,
+      "ownVote": 5,
+      "averageRating": 4.469697
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Licht aus",
+        "pitch": "In den Räumen von AS brennt häufig das Licht. Ob jemand anwesend ist oder nicht und u.U. die ganze Nacht. Mitarbeiter zur Lichtschalterbetätigung sensibilisieren bzw. alternativ Lichtsteuerung automatisieren. Das gilt für alle Stromverbraucher."
+      },
+      "de": {
+        "title": "Licht aus",
+        "pitch": "In den Räumen von AS brennt häufig das Licht. Ob jemand anwesend ist oder nicht und u.U. die ganze Nacht. Mitarbeiter zur Lichtschalterbetätigung sensibilisieren bzw. alternativ Lichtsteuerung automatisieren. Das gilt für alle Stromverbraucher."
+      },
+      "en": {
+        "title": "Light off",
+        "pitch": "In AS rooms the light is often on. Whether someone is present or not and possibly all night long. Sensitize employees to light switch actuation or alternatively automate lighting control. This applies to all electricity consumers."
+      }
+    }
+  },
+  {
+    "id": "5d25cb179126ed46879777b1",
+    "creatorName": "Juliane",
+    "status": "PUBLISHED",
+    "creationDate": 1562757911275,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d25cb179126ed46879777b1",
+      "countVotes": 63,
+      "ownVote": 5,
+      "averageRating": 4.015873
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Flygskam / Flugscham",
+        "pitch": "Die Buchung aller innerdeutschen Flüge sollten laut Reiserichtlinie nicht mehr möglich sein. Stattdessen erhalten alle reisenden Axel Springer Mitarbeiter eine BahnCard und erledigen alle innerdeutschen Geschäftsreisen mit der Bahn."
+      },
+      "de": {
+        "title": "Flygskam / Flugscham",
+        "pitch": "Die Buchung aller innerdeutschen Flüge sollten laut Reiserichtlinie nicht mehr möglich sein. Stattdessen erhalten alle reisenden Axel Springer Mitarbeiter eine BahnCard und erledigen alle innerdeutschen Geschäftsreisen mit der Bahn."
+      },
+      "en": {
+        "title": "Flygskam / flying sham",
+        "pitch": "The booking of all domestic flights should no longer be possible according to the travel policy. Instead, all travelling Axel Springer employees receive a BahnCard and take care of all business trips within Germany by train."
+      }
+    }
+  },
+  {
+    "id": "5d25cb98410558432d74a432",
+    "creatorName": "Juliane",
+    "status": "PUBLISHED",
+    "creationDate": 1562758040120,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d25cb98410558432d74a432",
+      "countVotes": 90,
+      "ownVote": 5,
+      "averageRating": 4.5666666
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "\"Grüner\" Fuhrpark",
+        "pitch": "Statt Dienstwagen für einige wenige Axel Springer Mitarbeiter gibt es für ALLE Axel Springer Mitarbeiter ein ÖPNV Ticket. Für unbedingt mit dem Auto zurückzulegende Wege gibt es entweder CarSharing Mitgliedschaften oder einen Firmenwagen-Pool."
+      },
+      "de": {
+        "title": "\"Grüner\" Fuhrpark",
+        "pitch": "Statt Dienstwagen für einige wenige Axel Springer Mitarbeiter gibt es für ALLE Axel Springer Mitarbeiter ein ÖPNV Ticket. Für unbedingt mit dem Auto zurückzulegende Wege gibt es entweder CarSharing Mitgliedschaften oder einen Firmenwagen-Pool."
+      },
+      "en": {
+        "title": "\"Green\" vehicle fleet",
+        "pitch": "Instead of a company car for a few Axel Springer employees there is a public transport ticket for ALL Axel Springer employees. There are either CarSharing memberships or a pool of company cars for those who have to travel by car."
+      }
+    }
+  },
+  {
+    "id": "5d25dbc69126ed46879777b4",
+    "creatorName": "Lara Louise",
+    "status": "PUBLISHED",
+    "creationDate": 1562762182512,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d25dbc69126ed46879777b4",
+      "countVotes": 152,
+      "ownVote": 5,
+      "averageRating": 4.618421
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Make Hummeln great again!",
+        "pitch": "Wir wünschen uns eine insektenfreundliche Bepflanzung inkl. Insektenhotel auf der Dachterrasse des AS Neubaus. Vor allem Hummeln haben es im Sommer schwer, daher wünschen wir uns eine Bepflanzung der Dachterrasse, die für Insekten eine kleine Oase bietet."
+      },
+      "de": {
+        "title": "Mache Hummeln wieder großartig!",
+        "pitch": "Wir wünschen uns eine insektenfreundliche Bepflanzung inkl. Insektenhotel auf der Dachterrasse des AS Neubaus. Vor allem Hummeln haben es im Sommer schwer, daher wünschen wir uns eine Bepflanzung der Dachterrasse, die für Insekten eine kleine Oase bietet."
+      },
+      "en": {
+        "title": "Make Hummeln great again!",
+        "pitch": "We wish for an insect-friendly planting including an insect hotel on the roof terrace of the new AS building. Especially bumble bees have a hard time in summer, so we would like to plant the roof terrace, which offers a small oasis for insects."
+      }
+    }
+  },
+  {
+    "id": "5d25e328410558432d74a43b",
+    "creatorName": "Thomas",
+    "status": "PUBLISHED",
+    "creationDate": 1562764072088,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d25e328410558432d74a43b",
+      "countVotes": 74,
+      "ownVote": 5,
+      "averageRating": 3.7027028
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Sonderurlaub",
+        "pitch": "Ökologisches Verhalten soll honoriert werden. Wie kann ein Unternehmen seine MA motivieren? Die Berliner Frauengenossenschaft \"WeiberWirtschaft eG\" macht's vor: Verzichten Mitarbeiter*inne das ganze Jahr auf Flugreisen, gibt es als Belohnung 3 Tage Urlaub"
+      },
+      "de": {
+        "title": "Sonderurlaub",
+        "pitch": "Ökologisches Verhalten soll honoriert werden. Wie kann ein Unternehmen seine MA motivieren? Die Berliner Frauengenossenschaft \"WeiberWirtschaft eG\" macht's vor: Verzichten Mitarbeiter*inne das ganze Jahr auf Flugreisen, gibt es als Belohnung 3 Tage Urlaub"
+      },
+      "en": {
+        "title": "special leave",
+        "pitch": "Ecological behaviour should be rewarded. How can a company motivate its employees? The Berlin women's cooperative \"WeiberWirtschaft eG\" shows the way: If employees* waive air travel all year round, the reward is a 3-day holiday"
+      }
+    }
+  },
+  {
+    "id": "5d25e508410558432d74a43e",
+    "creatorName": "Thomas",
+    "status": "PUBLISHED",
+    "creationDate": 1562764552290,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d25e508410558432d74a43e",
+      "countVotes": 49,
+      "ownVote": 5,
+      "averageRating": 4.265306
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Alternativen zum Taxi",
+        "pitch": "In Berlin gibt es mit Berlkönig und Clever Shuttle günstigere und umweltschonendere Alternativen zum Taxi. Warum nicht einen Rahmenvertrag verhandeln, von dem Unternehmen und Mitarbeiter sowohl beruflich als auch privat profitieren können?"
+      },
+      "de": {
+        "title": "Alternativen zum Taxi",
+        "pitch": "In Berlin gibt es mit Berlkönig und Clever Shuttle günstigere und umweltschonendere Alternativen zum Taxi. Warum nicht einen Rahmenvertrag verhandeln, von dem Unternehmen und Mitarbeiter sowohl beruflich als auch privat profitieren können?"
+      },
+      "en": {
+        "title": "Alternatives to Taxi",
+        "pitch": "With Berlkönig and Clever Shuttle there are cheaper and more environmentally friendly alternatives to taxis in Berlin. Why not negotiate a framework agreement from which companies and employees can benefit both professionally and privately?"
+      }
+    }
+  },
+  {
+    "id": "5d25e57b18c37b4a5003f83c",
+    "creatorName": "Lukas",
+    "status": "PUBLISHED",
+    "creationDate": 1562764667637,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d25e57b18c37b4a5003f83c",
+      "countVotes": 56,
+      "ownVote": 2,
+      "averageRating": 3.0357144
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Tag Urlaub für Bahnreise",
+        "pitch": "Man sollte als Mitarbeiter einen zusätzlichen Urlaubstag erhalten, wenn man seine Reise nicht mit dem Flugzeug, sondern mit der Bahn antritt. Da Zeit heutzutage das wichtigste Gut ist, wäre das eine tolle Initiative von Springer."
+      },
+      "de": {
+        "title": "Tag Urlaub für Bahnreise",
+        "pitch": "Man sollte als Mitarbeiter einen zusätzlichen Urlaubstag erhalten, wenn man seine Reise nicht mit dem Flugzeug, sondern mit der Bahn antritt. Da Zeit heutzutage das wichtigste Gut ist, wäre das eine tolle Initiative von Springer."
+      },
+      "en": {
+        "title": "Day holiday for train journey",
+        "pitch": "As an employee, you should receive an additional day's holiday if you do not travel by plane, but by train. Since time is the most important commodity today, it would be a great initiative from Springer."
+      }
+    }
+  },
+  {
+    "id": "5d25f62918c37b4a5003f841",
+    "creatorName": "Gerrit",
+    "status": "PUBLISHED",
+    "creationDate": 1562768937514,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d25f62918c37b4a5003f841",
+      "countVotes": 36,
+      "ownVote": 5,
+      "averageRating": 3.4444444
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Prof. Büro/Gebäude-Check",
+        "pitch": "Es gibt Anbieter, die Büros und Gebäude professionell auf Energiespar-Potentiale untersuchen und beraten, wenn es um die wirksamsten Maßnahmen geht. Bei idealo haben wir dies im letzten Jahr gemacht."
+      },
+      "de": {
+        "title": "Prof. Büro/Gebäude-Check",
+        "pitch": "Es gibt Anbieter, die Büros und Gebäude professionell auf Energiespar-Potentiale untersuchen und beraten, wenn es um die wirksamsten Maßnahmen geht. Bei idealo haben wir dies im letzten Jahr gemacht."
+      },
+      "en": {
+        "title": "Prof. Office/Building Check",
+        "pitch": "There are providers who professionally investigate and advise offices and buildings on energy-saving potentials when it comes to the most effective measures. At idealo we did this last year."
+      }
+    }
+  },
+  {
+    "id": "5d25f6939126ed46879777b9",
+    "creatorName": "Stefan",
+    "status": "PUBLISHED",
+    "creationDate": 1562769043906,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d25f6939126ed46879777b9",
+      "countVotes": 77,
+      "ownVote": 5,
+      "averageRating": 4.194805
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "2 Tage Home Office/Woche",
+        "pitch": "Ich fahre 125Km(Eine Tour) jeden Tag zur Arbeit = bedeutet 15KG CO2 je Tag für mich// je Woche 30KG Ersparnis bei 2 Tagen Homeoffice // *44 Arbeitswochen =1,3 Tonnen CO2 Ersparnis, das für 1000 Mitarbeiter....."
+      },
+      "de": {
+        "title": "2 Tage Home Office/Woche",
+        "pitch": "Ich fahre 125Km(Eine Tour) jeden Tag zur Arbeit = bedeutet 15KG CO2 je Tag für mich// je Woche 30KG Ersparnis bei 2 Tagen Homeoffice // *44 Arbeitswochen =1,3 Tonnen CO2 Ersparnis, das für 1000 Mitarbeiter....."
+      },
+      "en": {
+        "title": "2 days Home Office/Week",
+        "pitch": "I drive 125Km(one tour) every day to work = 15KG CO2 per day for me// per week 30KG saving for 2 days home office // *44 working weeks =1.3 tons CO2 saving for 1000 employees....."
+      }
+    }
+  },
+  {
+    "id": "5d2600ea410558432d74a448",
+    "creatorName": "Clarissa",
+    "status": "PUBLISHED",
+    "creationDate": 1562771690621,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d2600ea410558432d74a448",
+      "countVotes": 94,
+      "ownVote": 1,
+      "averageRating": 4.574468
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Axel Springer Forst",
+        "pitch": "Nach der neuesten Studie:AS kauft ein Stück Land in Brandenburg & forstet dieses auf - jeder MA pflanzt einen Baum und in ein paar Jahren haben wir einen Wald. Vielleicht wird das sogar noch zusätzlich subventioniert?! Afforsten als wirksamen Klimaschutz!"
+      },
+      "de": {
+        "title": "Axel Springer Forst",
+        "pitch": "Nach der neuesten Studie:AS kauft ein Stück Land in Brandenburg & forstet dieses auf - jeder MA pflanzt einen Baum und in ein paar Jahren haben wir einen Wald. Vielleicht wird das sogar noch zusätzlich subventioniert?! Afforsten als wirksamen Klimaschutz!"
+      },
+      "en": {
+        "title": "Axel Springer Forest",
+        "pitch": "According to the latest study:AS buys a piece of land in Brandenburg & reforests it - each MA plants a tree and in a few years we will have a forest. Maybe they'll even get an extra subsidy?! Afforst as effective climate protection!"
+      }
+    }
+  },
+  {
+    "id": "5d2603ce18c37b4a5003f848",
+    "creatorName": "Philipp",
+    "status": "PUBLISHED",
+    "creationDate": 1562772430993,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d2603ce18c37b4a5003f848",
+      "countVotes": 41,
+      "ownVote": 0,
+      "averageRating": 4.1463413
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Nachhaltige Messestände",
+        "pitch": "Für alle Personalmessen, Media Impact & andere Marketingmesse-Ständen sollte ein nachhaltiges Nutzungskonzept gebaut werden, so dass Messe-Elemente immer wieder genutzt und nicht ständig neu aufgebaut und weggeworfen werden müssten."
+      },
+      "de": {
+        "title": "Nachhaltige Messestände",
+        "pitch": "Für alle Personalmessen, Media Impact & andere Marketingmesse-Ständen sollte ein nachhaltiges Nutzungskonzept gebaut werden, so dass Messe-Elemente immer wieder genutzt und nicht ständig neu aufgebaut und weggeworfen werden müssten."
+      },
+      "en": {
+        "title": "Sustainable exhibition stands",
+        "pitch": "For all personnel fairs, media impact & other marketing fair stands, a sustainable utilisation concept should be built, so that fair elements would be used again and again and would not have to be constantly rebuilt and discarded."
+      }
+    }
+  },
+  {
+    "id": "5d26187c18c37b4a5003f84c",
+    "creatorName": "Marco",
+    "status": "PUBLISHED",
+    "creationDate": 1562777724833,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d26187c18c37b4a5003f84c",
+      "countVotes": 52,
+      "ownVote": 1,
+      "averageRating": 3.4423077
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Klimaanlage regulieren",
+        "pitch": "Energie sparen\n\nDie Klimaanlage sollte maximal 5 Grad kälter als draußen sein. Gerade zu den heissen Zeiten ist es wie eine Wand gegen die man läuft (rein/raus).Es sollten alle wissen, dass die Anlage nur effektiv ist wenn die Fenster geschlossen bleiben."
+      },
+      "de": {
+        "title": "Klimaanlage regulieren",
+        "pitch": "Energie sparen\n\nDie Klimaanlage sollte maximal 5 Grad kälter als draußen sein. Gerade zu den heissen Zeiten ist es wie eine Wand gegen die man läuft (rein/raus).Es sollten alle wissen, dass die Anlage nur effektiv ist wenn die Fenster geschlossen bleiben."
+      },
+      "en": {
+        "title": "Regulate air conditioning",
+        "pitch": "save energy\n\nThe air conditioner should be a maximum of 5 degrees colder than outside. Especially in the hot times it is like a wall against which you walk (in/out), everyone should know that the system is only effective if the windows remain closed."
+      }
+    }
+  },
+  {
+    "id": "5d2619219126ed46879777c0",
+    "creatorName": "Marco",
+    "status": "PUBLISHED",
+    "creationDate": 1562777889592,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d2619219126ed46879777c0",
+      "countVotes": 53,
+      "ownVote": 5,
+      "averageRating": 3.7735848
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Computer aus @ Feierabend",
+        "pitch": "Alle Computer die sich im Firmennetzwerk befinden und sich länger als x Minuten im Bildschirmschoner Modus befinden sollten sich herunterfahren. Mitarbeiter lernen, dass sie beim gehen alles ordentlich speichern und den Rechner herunterfahren sollten"
+      },
+      "de": {
+        "title": "Computer aus @ Feierabend",
+        "pitch": "Alle Computer die sich im Firmennetzwerk befinden und sich länger als x Minuten im Bildschirmschoner Modus befinden sollten sich herunterfahren. Mitarbeiter lernen, dass sie beim gehen alles ordentlich speichern und den Rechner herunterfahren sollten"
+      },
+      "en": {
+        "title": "Computer Off @ Closing Time",
+        "pitch": "All computers that are in the corporate network and have been in screensaver mode for more than x minutes should shut down. Employees learn that when they walk, they should save everything properly and shut down the computer."
+      }
+    }
+  },
+  {
+    "id": "5d26aadb9126ed46879777c4",
+    "creatorName": "Martin",
+    "status": "PUBLISHED",
+    "creationDate": 1562815195962,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d26aadb9126ed46879777c4",
+      "countVotes": 60,
+      "ownVote": 5,
+      "averageRating": 3.4166667
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Journ.-Club rauchfrei",
+        "pitch": "Für die Umwelt bestimmt auch schlecht, für die Gesundheit in jedem Fall schädlich. Passivrauchen. Das ausgrenzende Rauchen im Journalisten-Club ist nicht lässig, sondern aus der Zeit gefallen. Gesundheit!"
+      },
+      "de": {
+        "title": "Journ.-Club rauchfrei",
+        "pitch": "Für die Umwelt bestimmt auch schlecht, für die Gesundheit in jedem Fall schädlich. Passivrauchen. Das ausgrenzende Rauchen im Journalisten-Club ist nicht lässig, sondern aus der Zeit gefallen. Gesundheit!"
+      },
+      "en": {
+        "title": "Journ.-Club smokeless",
+        "pitch": "Also bad for the environment, harmful to health in any case. Passive smoking. The exclusionary smoking in the journalists' club is not casual, but out of time. Bless you!"
+      }
+    }
+  },
+  {
+    "id": "5d283a1118c37b4a5003f865",
+    "creatorName": "Robert",
+    "status": "PUBLISHED",
+    "creationDate": 1562917393291,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d283a1118c37b4a5003f865",
+      "countVotes": 30,
+      "ownVote": 5,
+      "averageRating": 3.6333334
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "CO2 Spiel",
+        "pitch": "Wer kann d. Unterschied zwischen 1KG, 1 oder 10 Tonnen CO2 einschätzen? Wir haben kein Gefühl für den Unterschied zw. 1 Flug oder 1 Stück Fleisch ist. Lasst uns über ein Online Spiel aufklären, den Unterschied so einordnen zu können wie zw. 1 € oder 1000€"
+      },
+      "de": {
+        "title": "CO2 Spiel",
+        "pitch": "Wer kann d. Unterschied zwischen 1KG, 1 oder 10 Tonnen CO2 einschätzen? Wir haben kein Gefühl für den Unterschied zw. 1 Flug oder 1 Stück Fleisch ist. Lasst uns über ein Online Spiel aufklären, den Unterschied so einordnen zu können wie zw. 1 € oder 1000€"
+      },
+      "en": {
+        "title": "CO2 game",
+        "pitch": "Who can estimate the difference between 1KG, 1 or 10 tons of CO2? We have no feeling for the difference between 1 flight or 1 piece of meat. Let's explain about an online game to be able to classify the difference as between 1 € or 1000 €."
+      }
+    }
+  },
+  {
+    "id": "5d283fb518c37b4a5003f868",
+    "creatorName": "Barbara",
+    "status": "PUBLISHED",
+    "creationDate": 1562918837874,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d283fb518c37b4a5003f868",
+      "countVotes": 35,
+      "ownVote": 1,
+      "averageRating": 4.0285716
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Sustainability BILD WELT",
+        "pitch": "Der viel größere Hebel sind die journalistischen Produkte und es wäre schön, wenn das Thema Sustainability dort positiv besetzt werden würde, statt über FFF zu lästern und Vorschläge der Grünen wie einen Veggie Day in Kantinen zu diskreditieren."
+      },
+      "de": {
+        "title": "Nachhaltigkeit BILD WELT",
+        "pitch": "Der viel größere Hebel sind die journalistischen Produkte und es wäre schön, wenn das Thema Sustainability dort positiv besetzt werden würde, statt über FFF zu lästern und Vorschläge der Grünen wie einen Veggie Day in Kantinen zu diskreditieren."
+      },
+      "en": {
+        "title": "Sustainability BILD WELT",
+        "pitch": "The much bigger lever are the journalistic products and it would be nice if the topic of sustainability could be positively addressed there instead of blaspheming about FFF and discrediting Green proposals like a Veggie Day in canteens."
+      }
+    }
+  },
+  {
+    "id": "5d285520410558432d74a465",
+    "creatorName": "Göksu",
+    "status": "PUBLISHED",
+    "creationDate": 1562924320842,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d285520410558432d74a465",
+      "countVotes": 30,
+      "ownVote": 5,
+      "averageRating": 3.7
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "AS weite GREENchallenge",
+        "pitch": "Bewusster leben soll Spaß machen und in meinen persönlichen Alltag passen! Wenn mir eine coole App dabei helfen könnte, jeden Tag ein bisschen grüner zu leben und meine Erfolge messbar macht, könnte das eine echte Motivation für mich darstellen."
+      },
+      "de": {
+        "title": "AS weite GREENchallenge",
+        "pitch": "Bewusster leben soll Spaß machen und in meinen persönlichen Alltag passen! Wenn mir eine coole App dabei helfen könnte, jeden Tag ein bisschen grüner zu leben und meine Erfolge messbar macht, könnte das eine echte Motivation für mich darstellen."
+      },
+      "en": {
+        "title": "AS wide GREENchallenge",
+        "pitch": "Living more consciously should be fun and fit into my personal everyday life! If a cool app could help me to live a bit greener every day and make my success measurable, it could be a real motivation for me."
+      }
+    }
+  },
+  {
+    "id": "5d285edc410558432d74a467",
+    "creatorName": "Serge",
+    "status": "PUBLISHED",
+    "creationDate": 1562926812179,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d285edc410558432d74a467",
+      "countVotes": 37,
+      "ownVote": 5,
+      "averageRating": 4.675676
+    },
+    "contentI18n": {
+      "originalLanguage": "EN",
+      "original": {
+        "title": "Video vs Travel",
+        "pitch": "Define strong corporate guidelines on the use of video conferencing vs business travel. Face2face meetings are certainly an added value at the start of a journey. But at some point, continuing via video conferencing should be almost mandatory."
+      },
+      "de": {
+        "title": "Video vs Travel",
+        "pitch": "Definieren Sie starke Unternehmensrichtlinien für den Einsatz von Videokonferenzen im Vergleich zu Geschäftsreisen. Face2face-Meetings sind sicherlich ein Mehrwert zu Beginn einer Reise. Aber irgendwann sollte die Weiterführung über Videokonferenzen fast obligatorisch sein."
+      },
+      "en": {
+        "title": "Video vs Travel",
+        "pitch": "Define strong corporate guidelines on the use of video conferencing vs business travel. Face2face meetings are certainly an added value at the start of a journey. But at some point, continuing via video conferencing should be almost mandatory."
+      }
+    }
+  },
+  {
+    "id": "5d2875ef410558432d74a469",
+    "creatorName": "Nils Iver",
+    "status": "PUBLISHED",
+    "creationDate": 1562932719658,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d2875ef410558432d74a469",
+      "countVotes": 27,
+      "ownVote": 5,
+      "averageRating": 3.7777777
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Keine To-Go Angebote mehr",
+        "pitch": "Wir haben ja bereits das Recup-Angebot etc bei Pace (super!!!) aber bitte alle To-Go-Angebote streichen und nicht mehr parallel anbieten."
+      },
+      "de": {
+        "title": "Keine To-Go Angebote mehr",
+        "pitch": "Wir haben ja bereits das Recup-Angebot etc bei Pace (super!!!) aber bitte alle To-Go-Angebote streichen und nicht mehr parallel anbieten."
+      },
+      "en": {
+        "title": "No more to-go offers",
+        "pitch": "We already have the Recup offer etc at Pace (great!!!) but please delete all To-Go offers and no longer offer them in parallel."
+      }
+    }
+  },
+  {
+    "id": "5d28786d18c37b4a5003f86d",
+    "creatorName": "Nils Iver",
+    "status": "PUBLISHED",
+    "creationDate": 1562933357436,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d28786d18c37b4a5003f86d",
+      "countVotes": 25,
+      "ownVote": 5,
+      "averageRating": 4.76
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Print-Belege reduzieren",
+        "pitch": "Es gibt Etagen wo im Flur durchgehend ein Müll-Containerwagen steht, weil die Belege massenweise (ungelesen) in den Müll wandern teils inkl. CD. Idee: Es gibt EINE zentrale Stelle wo Belege ausliegen. Nach Erfahrungs-Werten wird dann die Menge reduziert."
+      },
+      "de": {
+        "title": "Print-Belege reduzieren",
+        "pitch": "Es gibt Etagen wo im Flur durchgehend ein Müll-Containerwagen steht, weil die Belege massenweise (ungelesen) in den Müll wandern teils inkl. CD. Idee: Es gibt EINE zentrale Stelle wo Belege ausliegen. Nach Erfahrungs-Werten wird dann die Menge reduziert."
+      },
+      "en": {
+        "title": "Reduce print receipts",
+        "pitch": "There are floors where there is a garbage container truck in the hallway, because the documents go into the garbage in masses (unread), partly incl. CD. Idea: There is ONE central place where documents are available. The amount is then reduced according to experience values."
+      }
+    }
+  },
+  {
+    "id": "5d28889918c37b4a5003f872",
+    "creatorName": "Petra",
+    "status": "PUBLISHED",
+    "creationDate": 1562937497254,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d28889918c37b4a5003f872",
+      "countVotes": 31,
+      "ownVote": 5,
+      "averageRating": 3.548387
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Treppe statt Aufzug",
+        "pitch": "Viele Kollegen nutzen auch für eine Etage den Aufzug. Um CO2 zu sparen und für die persönliche Fitness einfach mal öfter die Treppe nehmen."
+      },
+      "de": {
+        "title": "Treppe statt Aufzug",
+        "pitch": "Viele Kollegen nutzen auch für eine Etage den Aufzug. Um CO2 zu sparen und für die persönliche Fitness einfach mal öfter die Treppe nehmen."
+      },
+      "en": {
+        "title": "Stairs instead of elevators",
+        "pitch": "Many colleagues also use the elevator for one floor. To save CO2 and for personal fitness simply take the stairs more often."
+      }
+    }
+  },
+  {
+    "id": "5d2893ea410558432d74a46d",
+    "creatorName": "Tobias",
+    "status": "PUBLISHED",
+    "creationDate": 1562940394824,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d2893ea410558432d74a46d",
+      "countVotes": 55,
+      "ownVote": 5,
+      "averageRating": 4.6
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Nespresso abschaffen",
+        "pitch": "Viele Abteilungen nutzen Nespresso Maschinen. Diese produzieren Unmengen an Alu Müll, der in der Herstellung sehr energiefressend ist. Durch den Einsatz von Filter- oder Vollautomaten kann nicht nur Müll eingespart werden sondern longterm auch Kosten."
+      },
+      "de": {
+        "title": "Nespresso abschaffen",
+        "pitch": "Viele Abteilungen nutzen Nespresso Maschinen. Diese produzieren Unmengen an Alu Müll, der in der Herstellung sehr energiefressend ist. Durch den Einsatz von Filter- oder Vollautomaten kann nicht nur Müll eingespart werden sondern longterm auch Kosten."
+      },
+      "en": {
+        "title": "Abolish Nespresso",
+        "pitch": "Many departments use Nespresso machines. They produce vast amounts of aluminium waste, which is very energy-guzzling in production. Through the use of filter or fully automatic machines not only waste can be saved but also costs."
+      }
+    }
+  },
+  {
+    "id": "5d28b6df9126ed46879777ec",
+    "creatorName": "Jan",
+    "status": "PUBLISHED",
+    "creationDate": 1562949343289,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d28b6df9126ed46879777ec",
+      "countVotes": 33,
+      "ownVote": 1,
+      "averageRating": 3.3030303
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Aufkleber \"ein Handtuch\"",
+        "pitch": "Viele Kollegen nutzen nach dem Händewaschen vier, fünf, sechs Papierhandtücher, um sich die Hände abzutrocknen - dabei würden meistens ein oder zwei genügen. Ein kleiner Aufkleber mit der Aufschrift \"Reicht ein Handtuch?\" würde hier helfen (Jan)"
+      },
+      "de": {
+        "title": "Aufkleber \"ein Handtuch\"",
+        "pitch": "Viele Kollegen nutzen nach dem Händewaschen vier, fünf, sechs Papierhandtücher, um sich die Hände abzutrocknen - dabei würden meistens ein oder zwei genügen. Ein kleiner Aufkleber mit der Aufschrift \"Reicht ein Handtuch?\" würde hier helfen (Jan)"
+      },
+      "en": {
+        "title": "Sticker \"a towel\"",
+        "pitch": "After washing their hands, many colleagues use four, five or six paper towels to dry their hands - usually one or two would be enough. A small sticker with the inscription \"Is a towel enough?\" would help here (Jan)"
+      }
+    }
+  },
+  {
+    "id": "5d29d03418c37b24d75cffd2",
+    "creatorName": "Adrian",
+    "status": "PUBLISHED",
+    "creationDate": 1563021364157,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d29d03418c37b24d75cffd2",
+      "countVotes": 27,
+      "ownVote": 4,
+      "averageRating": 3.7777777
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Nachhaltiges Inventar",
+        "pitch": "Beim Erwerb von Inventar auf Herstellungsweise bzw. Produktionsstätte/-wege achten."
+      },
+      "de": {
+        "title": "Nachhaltiges Inventar",
+        "pitch": "Beim Erwerb von Inventar auf Herstellungsweise bzw. Produktionsstätte/-wege achten."
+      },
+      "en": {
+        "title": "Sustainable inventory",
+        "pitch": "When purchasing inventory, pay attention to manufacturing method or production site / routes."
+      }
+    }
+  },
+  {
+    "id": "5d2c37d841055821bd70e588",
+    "creatorName": "Michelle",
+    "status": "PUBLISHED",
+    "creationDate": 1563178968721,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d2c37d841055821bd70e588",
+      "countVotes": 28,
+      "ownVote": 5,
+      "averageRating": 4.25
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Nachhaltige Verpackungen",
+        "pitch": "Wie hofft nehmt ihr euer Lunch mit auf die Terrasse in einer Verpackung? Gerade hier sollten nachhaltige Alternativen gefunden werden oder die To-Go-Verpackung sogar abgeschafft werden und Geschirr genutzt werden. (Michelle)"
+      },
+      "de": {
+        "title": "Nachhaltige Verpackungen",
+        "pitch": "Wie hofft nehmt ihr euer Lunch mit auf die Terrasse in einer Verpackung? Gerade hier sollten nachhaltige Alternativen gefunden werden oder die To-Go-Verpackung sogar abgeschafft werden und Geschirr genutzt werden. (Michelle)"
+      },
+      "en": {
+        "title": "Sustainable packaging",
+        "pitch": "How do you hope to take your lunch to the terrace in a box? Here in particular, sustainable alternatives should be found or to-go packaging should even be abolished and crockery used. Michelle."
+      }
+    }
+  },
+  {
+    "id": "5d2c39699126ed24f33f32a3",
+    "creatorName": "eva",
+    "status": "PUBLISHED",
+    "creationDate": 1563179369106,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d2c39699126ed24f33f32a3",
+      "countVotes": 31,
+      "ownVote": 1,
+      "averageRating": 2.483871
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Stückseife in den Bädern",
+        "pitch": "Die Vorteile von Stückseife liegen auf der Hand: Verpackung gibt es nicht! Und nichts bleibt übrig. Verträglichkeit für Haut/Umwelt. 100% Naturprodukt. Durch die alkalischen Oberfläche bleibt die Seife keimfrei. Stückseife im Corporate Design."
+      },
+      "de": {
+        "title": "Stückseife in den Bädern",
+        "pitch": "Die Vorteile von Stückseife liegen auf der Hand: Verpackung gibt es nicht! Und nichts bleibt übrig. Verträglichkeit für Haut/Umwelt. 100% Naturprodukt. Durch die alkalischen Oberfläche bleibt die Seife keimfrei. Stückseife im Corporate Design."
+      },
+      "en": {
+        "title": "soap in the bathrooms",
+        "pitch": "The advantages of piece soap are obvious: there is no packaging! And there's nothing left. Compatibility for skin/environment. 100% natural product. The alkaline surface keeps the soap sterile. Soap in Corporate Design."
+      }
+    }
+  },
+  {
+    "id": "5d2c4f4641055821bd70e589",
+    "creatorName": "Johannes",
+    "status": "PUBLISHED",
+    "creationDate": 1563184966329,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d2c4f4641055821bd70e589",
+      "countVotes": 22,
+      "ownVote": 0,
+      "averageRating": 4.2727275
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "CO2 im Schrank",
+        "pitch": "Viel IT Zubehör (Maus, Tastatur, Headset, Kabel) liegt in den Schränken der Mitarbeiter. \nIdee: Schrank ausmisten und z.B. zum Serivce Point. bringen. Dort können Kollegen kostenlos (gebrauchtes) IT Zubehör abholen und sparen das Neugerät."
+      },
+      "de": {
+        "title": "CO2 im Schrank",
+        "pitch": "Viel IT Zubehör (Maus, Tastatur, Headset, Kabel) liegt in den Schränken der Mitarbeiter. \nIdee: Schrank ausmisten und z.B. zum Serivce Point. bringen. Dort können Kollegen kostenlos (gebrauchtes) IT Zubehör abholen und sparen das Neugerät."
+      },
+      "en": {
+        "title": "CO2 in the cabinet",
+        "pitch": "A lot of IT accessories (mouse, keyboard, headset, cable) are in the cabinets of the employees.\nIdea: Clean out the cupboard and bring it to the service point. Colleagues can pick up (used) IT accessories free of charge and save on new equipment."
+      }
+    }
+  },
+  {
+    "id": "5d2c5f9941055821bd70e58a",
+    "creatorName": "Ingo",
+    "status": "PUBLISHED",
+    "creationDate": 1563189145078,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d2c5f9941055821bd70e58a",
+      "countVotes": 20,
+      "ownVote": 0,
+      "averageRating": 4.35
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Transparente Solarzelle",
+        "pitch": "Damit könnten die Sonnenseiten des Gebäudes ausgestattet werden.\n-> https://www.ingenieur.de/technik/fachbereiche/energie/leipziger-forscher-entwickeln-transparente-solarzelle/"
+      },
+      "de": {
+        "title": "Transparente Solarzelle",
+        "pitch": "Damit könnten die Sonnenseiten des Gebäudes ausgestattet werden.\n-> https://www.ingenieur.de/technik/fachbereiche/energie/leipziger-forscher-entwickeln-transparente-solarzelle/"
+      },
+      "en": {
+        "title": "Transparent solar cell",
+        "pitch": "This could be used to equip the sunny sides of the building.\n-> &lt;font color=\"#ffff00\"&gt;-=https://www.ingenieur.de/technik/fachbereiche/energie/leipziger-forscher-entwickeln-transparente-solarzelle/=- sync:ßÇÈâÈâ"
+      }
+    }
+  },
+  {
+    "id": "5d2c747618c37b24d75cffd9",
+    "creatorName": "Sebastian",
+    "status": "PUBLISHED",
+    "creationDate": 1563194486740,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d2c747618c37b24d75cffd9",
+      "countVotes": 24,
+      "ownVote": 5,
+      "averageRating": 4.4583335
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "AS Fahrrad-Fuhrpark",
+        "pitch": "Gutes Beispiel idealo: Dort gibt es einen Fahrrad-Fuhrpark, bei dem man sich am Empfang Räder für Fahrten innerhalb von Berlin leihen kann. So reduziert man die Taxi- und Drive-Now Fahrten innerhalb von Berlin."
+      },
+      "de": {
+        "title": "AS Fahrrad-Fuhrpark",
+        "pitch": "Gutes Beispiel idealo: Dort gibt es einen Fahrrad-Fuhrpark, bei dem man sich am Empfang Räder für Fahrten innerhalb von Berlin leihen kann. So reduziert man die Taxi- und Drive-Now Fahrten innerhalb von Berlin."
+      },
+      "en": {
+        "title": "AS bicycle fleet",
+        "pitch": "Good example idealo: There is a bicycle fleet, with which one can borrow bikes at the reception for journeys within Berlin. This reduces the taxi and drive-now journeys within Berlin."
+      }
+    }
+  },
+  {
+    "id": "5d2ca2c941055821bd70e58f",
+    "creatorName": "Adrian",
+    "status": "PUBLISHED",
+    "creationDate": 1563206345356,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d2ca2c941055821bd70e58f",
+      "countVotes": 19,
+      "ownVote": 0,
+      "averageRating": 3.7894738
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Nachhaltiges Banking",
+        "pitch": "Nachhaltige Banken, die ihre Geldgeschäfte fair, ethisch und ökologisch abwickeln, anstatt in die Rüstungsindustrie investieren bzw. auf absurde Geschäfte spekulieren."
+      },
+      "de": {
+        "title": "Nachhaltiges Banking",
+        "pitch": "Nachhaltige Banken, die ihre Geldgeschäfte fair, ethisch und ökologisch abwickeln, anstatt in die Rüstungsindustrie investieren bzw. auf absurde Geschäfte spekulieren."
+      },
+      "en": {
+        "title": "Sustainable banking",
+        "pitch": "Sustainable banks that conduct their financial transactions fairly, ethically and ecologically, instead of investing in the defence industry or speculating on absurd transactions."
+      }
+    }
+  },
+  {
+    "id": "5d2d96429126ed24f33f32a9",
+    "creatorName": "Franziska",
+    "status": "PUBLISHED",
+    "creationDate": 1563268674556,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d2d96429126ed24f33f32a9",
+      "countVotes": 16,
+      "ownVote": 1,
+      "averageRating": 3.5625
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Bücher digital",
+        "pitch": "Bücher zur Weiterbildung und Inspiration sind super, Neuanschaffungen können aber digital gemacht werden, um keine Bäume abzuholzen. Es müssten ein paar Geräte gekauft werden, dann können aber sogar mehrere Leute auf das gleiche Buch zugreifen."
+      },
+      "de": {
+        "title": "Bücher digital",
+        "pitch": "Bücher zur Weiterbildung und Inspiration sind super, Neuanschaffungen können aber digital gemacht werden, um keine Bäume abzuholzen. Es müssten ein paar Geräte gekauft werden, dann können aber sogar mehrere Leute auf das gleiche Buch zugreifen."
+      },
+      "en": {
+        "title": "Books digital",
+        "pitch": "Books for further education and inspiration are great, but new acquisitions can be made digitally to avoid cutting down trees. A few devices would have to be bought, but then even several people can access the same book."
+      }
+    }
+  },
+  {
+    "id": "5d2dee649126ed24f33f32ae",
+    "creatorName": "Andy",
+    "status": "PUBLISHED",
+    "creationDate": 1563291236745,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d2dee649126ed24f33f32ae",
+      "countVotes": 18,
+      "ownVote": 0,
+      "averageRating": 4.2777777
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "\"Tupperware\" im Paparazzi",
+        "pitch": "Angebot von wiederverwendbare Behälter im Paparazzi. Die neuen Packungen sind suboptimal, da sie nicht richtig schließen & den Geschmack verändern. Idee: ein Angebot mit 3-4 Dosen in unterschiedlichen Größen, die man für Salat, Obst etc. nutzen kann."
+      },
+      "de": {
+        "title": "\"Tupperware\" im Paparazzi",
+        "pitch": "Angebot von wiederverwendbare Behälter im Paparazzi. Die neuen Packungen sind suboptimal, da sie nicht richtig schließen & den Geschmack verändern. Idee: ein Angebot mit 3-4 Dosen in unterschiedlichen Größen, die man für Salat, Obst etc. nutzen kann."
+      },
+      "en": {
+        "title": "\"Tupperware in the paparazzi.",
+        "pitch": "Offer of reusable containers in paparazzi. The new packs are suboptimal because they don't close properly & change the taste. Idea: an offer with 3-4 cans in different sizes, which can be used for salad, fruit etc.."
+      }
+    }
+  },
+  {
+    "id": "5d2ed4b018c37b24d75cffdf",
+    "creatorName": "Philipp",
+    "status": "PUBLISHED",
+    "creationDate": 1563350192442,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d2ed4b018c37b24d75cffdf",
+      "countVotes": 18,
+      "ownVote": 5,
+      "averageRating": 4.1666665
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Papierkörbe beschriften",
+        "pitch": "In vielen Büros stehen nur zwei Papierkörbe nebeneinander, die sich optisch nicht all zu stark unterscheiden. Um ein Durcheinander bei der Mülltrennung zu vermeiden, wäre es gut, sie zu benennen und einen Dritten aufzustellen (Papier/Plastik/Restmüll)."
+      },
+      "de": {
+        "title": "Papierkörbe beschriften",
+        "pitch": "In vielen Büros stehen nur zwei Papierkörbe nebeneinander, die sich optisch nicht all zu stark unterscheiden. Um ein Durcheinander bei der Mülltrennung zu vermeiden, wäre es gut, sie zu benennen und einen Dritten aufzustellen (Papier/Plastik/Restmüll)."
+      },
+      "en": {
+        "title": "Labelling wastebaskets",
+        "pitch": "In many offices there are only two wastebaskets next to each other, which do not differ too much optically. In order to avoid confusion during the separation of waste, it would be good to name them and to set up a third party (paper/plastic/remaining waste)."
+      }
+    }
+  },
+  {
+    "id": "5d35bd139126ed5ba7eee0aa",
+    "creatorName": "Felix",
+    "status": "PUBLISHED",
+    "creationDate": 1563802899330,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d35bd139126ed5ba7eee0aa",
+      "countVotes": 12,
+      "ownVote": 0,
+      "averageRating": 3.9166667
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "100% CO2 neutrale Firma",
+        "pitch": "Emissionen aus allen Geschäftstätigkeiten berechnen/schätzen\nz.B. Dienstreisen, Server, Gebäude, Fuhrpark...\nund alle kompensieren!\n\nKlingt teuer und unmöglich?\nAtlas (die Firma die Stripe entwickelt hat) ist CO2 neutral:\nhttps://stripe.com/de/environment"
+      },
+      "de": {
+        "title": "100% CO2-neutral Firma",
+        "pitch": "Emissionen aus allen Geschäftstätigkeiten berechnen/schätzen\nz.B. Dienstreisen, Server, Gebäude, Fuhrpark...\nund alle kompensieren!\n\nKlingt teuer und unmöglich?\nAtlas (die Firma die Stripe entwickelt hat) ist CO2 neutral:\nhttps://stripe.com/de/environment"
+      },
+      "en": {
+        "title": "100% CO2 neutrale Firma",
+        "pitch": "Calculate/estimate emissions from all business activities\ne.g. business trips, servers, buildings, vehicle fleet...\nand all compensate!\n\nSounds expensive and impossible?\nAtlas (the company that developed Stripe) is CO2 neutral:\nhttps://stripe.com/de/environment"
+      }
+    }
+  },
+  {
+    "id": "5d3aa7ae9126ed5ba7eee0ae",
+    "creatorName": "Tarek",
+    "status": "PUBLISHED",
+    "creationDate": 1564125102271,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d3aa7ae9126ed5ba7eee0ae",
+      "countVotes": 21,
+      "ownVote": 1,
+      "averageRating": 4.2380953
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "150kg Konfetti vermeiden",
+        "pitch": "Auf dem CSD verschießen wir (laut inside.wrap) 150kg Konfetti. Ich sehe hier das Potential, 150kg Papiermüll auf der Straße zu vermeiden."
+      },
+      "de": {
+        "title": "150kg Konfetti vermeiden",
+        "pitch": "Auf dem CSD verschießen wir (laut inside.wrap) 150kg Konfetti. Ich sehe hier das Potential, 150kg Papiermüll auf der Straße zu vermeiden."
+      },
+      "en": {
+        "title": "150kg Avoid confetti",
+        "pitch": "On the CSD we shoot (according to inside.wrap) 150kg confetti. I see here the potential to avoid 150kg of paper waste on the road."
+      }
+    }
+  },
+  {
+    "id": "5d3ec42518c37b4f22d17a59",
+    "creatorName": "Sebastian",
+    "status": "PUBLISHED",
+    "creationDate": 1564394533710,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d3ec42518c37b4f22d17a59",
+      "countVotes": 15,
+      "ownVote": 5,
+      "averageRating": 2.9333334
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Längere Nutzung von IT",
+        "pitch": "Smartphones sollten 4 Jahre genutzt werden, Laptops 5 Jahre. Aktuell bekommt man alle 3 Jahre einen neuen Laptop und alle 2 Jahre ein Smartphone."
+      },
+      "de": {
+        "title": "Längere Nutzung von IT",
+        "pitch": "Smartphones sollten 4 Jahre genutzt werden, Laptops 5 Jahre. Aktuell bekommt man alle 3 Jahre einen neuen Laptop und alle 2 Jahre ein Smartphone."
+      },
+      "en": {
+        "title": "Longer use of IT",
+        "pitch": "Smartphones should be used for 4 years, laptops for 5 years. Currently you get a new laptop every 3 years and a smartphone every 2 years."
+      }
+    }
+  },
+  {
+    "id": "5d3ec45618c37b4f22d17a5a",
+    "creatorName": "Sebastian",
+    "status": "PUBLISHED",
+    "creationDate": 1564394582601,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d3ec45618c37b4f22d17a5a",
+      "countVotes": 13,
+      "ownVote": 1,
+      "averageRating": 1.9230769
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Nur noch 1 Monitor",
+        "pitch": "Zwei Monitore sind schlecht für den Nacken, helfen nicht beim Fokus (Deep-Work!) und verbrauchen extra Strom. Alle Mitarbeiter, auch IT, sollten nur noch 1 Monitor haben. Dafür aber 4k."
+      },
+      "de": {
+        "title": "Nur noch 1 Monitor",
+        "pitch": "Zwei Monitore sind schlecht für den Nacken, helfen nicht beim Fokus (Deep-Work!) und verbrauchen extra Strom. Alle Mitarbeiter, auch IT, sollten nur noch 1 Monitor haben. Dafür aber 4k."
+      },
+      "en": {
+        "title": "Only 1 monitor left",
+        "pitch": "Two monitors are bad for the neck, don't help with focus (deep work!) and consume extra power. All employees, including IT, should have only 1 monitor. But it's 4k."
+      }
+    }
+  },
+  {
+    "id": "5d3ec48718c37b4f22d17a5b",
+    "creatorName": "Sebastian",
+    "status": "PUBLISHED",
+    "creationDate": 1564394631527,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d3ec48718c37b4f22d17a5b",
+      "countVotes": 11,
+      "ownVote": 5,
+      "averageRating": 3.5454545
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Solar-Panel für Wasser",
+        "pitch": "Wir sollten Wasser mit Solar-Panel auf dem Dach erhitzen. Und dann gleich noch Duschen im Hauptgebäude einbauen!"
+      },
+      "de": {
+        "title": "Solar-Panel für Wasser",
+        "pitch": "Wir sollten Wasser mit Solar-Panel auf dem Dach erhitzen. Und dann gleich noch Duschen im Hauptgebäude einbauen!"
+      },
+      "en": {
+        "title": "Solar panel for water",
+        "pitch": "We should heat water with solar panel on the roof. And then install showers in the main building!"
+      }
+    }
+  },
+  {
+    "id": "5d3ec4bd4105585013a1bf6c",
+    "creatorName": "Sebastian",
+    "status": "PUBLISHED",
+    "creationDate": 1564394685502,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d3ec4bd4105585013a1bf6c",
+      "countVotes": 10,
+      "ownVote": 5,
+      "averageRating": 3.6
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Nachhaltige IT-Technik",
+        "pitch": "Wir sollten nur noch Geräte, Smartphones und Laptops mit Blauem Engel kaufen."
+      },
+      "de": {
+        "title": "Nachhaltige IT-Technik",
+        "pitch": "Wir sollten nur noch Geräte, Smartphones und Laptops mit Blauem Engel kaufen."
+      },
+      "en": {
+        "title": "Sustainable IT technology",
+        "pitch": "We should only buy Blue Angel devices, smartphones and laptops."
+      }
+    }
+  },
+  {
+    "id": "5d3ec53318c37b4f22d17a5c",
+    "creatorName": "Sebastian",
+    "status": "PUBLISHED",
+    "creationDate": 1564394803521,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d3ec53318c37b4f22d17a5c",
+      "countVotes": 13,
+      "ownVote": 5,
+      "averageRating": 3.5384614
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Druck-Kontingente",
+        "pitch": "Pro Mitarbeiter sollten es maximal möglich sein 100 Seiten pro Monat zu drucken. Für mehr sollte es zentrale extra Drucker geben."
+      },
+      "de": {
+        "title": "Druck-Kontingente",
+        "pitch": "Pro Mitarbeiter sollten es maximal möglich sein 100 Seiten pro Monat zu drucken. Für mehr sollte es zentrale extra Drucker geben."
+      },
+      "en": {
+        "title": "print quotas",
+        "pitch": "Per employee it should be possible to print a maximum of 100 pages per month. For more there should be central extra printers."
+      }
+    }
+  },
+  {
+    "id": "5d3ed5614105585013a1bf6d",
+    "creatorName": "Sebastian",
+    "status": "PUBLISHED",
+    "creationDate": 1564398945750,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d3ed5614105585013a1bf6d",
+      "countVotes": 20,
+      "ownVote": 5,
+      "averageRating": 4.7
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Keine (Zwangs-)Quittungen",
+        "pitch": "Bei PACE bekomme ich immer auf umweltunfreundlichem Thermopapier ungefragt eine Quittung ausgedruckt. Die will ich nicht! Und wenn dann digital im einer App."
+      },
+      "de": {
+        "title": "Keine (Zwangs-)Quittungen",
+        "pitch": "Bei PACE bekomme ich immer auf umweltunfreundlichem Thermopapier ungefragt eine Quittung ausgedruckt. Die will ich nicht! Und wenn dann digital im einer App."
+      },
+      "en": {
+        "title": "No (compulsory) receipts",
+        "pitch": "At PACE I always get a receipt printed out on environmentally unfriendly thermal paper without being asked. I don't want them! And if then digitally in an App."
+      }
+    }
+  },
+  {
+    "id": "5d3fe9ec18c37b4f22d17a5e",
+    "creatorName": "Florian",
+    "status": "PUBLISHED",
+    "creationDate": 1564469740290,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d3fe9ec18c37b4f22d17a5e",
+      "countVotes": 17,
+      "ownVote": 0,
+      "averageRating": 4.470588
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Regulierbarkeit des Klima",
+        "pitch": "Die Klimaanlage kühlt die Büros soweit runter, dass Kollegen Extrakleidung für Arbeit mitbringen um nicht zu frieren. Durch moderne Thermostate zur Steuerung der Intensität und Temperatur, könnte man weniger Strom verbrauchen"
+      },
+      "de": {
+        "title": "Regulierbarkeit des Klima",
+        "pitch": "Die Klimaanlage kühlt die Büros soweit runter, dass Kollegen Extrakleidung für Arbeit mitbringen um nicht zu frieren. Durch moderne Thermostate zur Steuerung der Intensität und Temperatur, könnte man weniger Strom verbrauchen"
+      },
+      "en": {
+        "title": "Adjustability of the climate",
+        "pitch": "The air conditioner cools down the offices so that colleagues bring extra clothes for work so as not to freeze. By using modern thermostats to control intensity and temperature, less electricity could be consumed."
+      }
+    }
+  },
+  {
+    "id": "5d3feae418c37b4f22d17a5f",
+    "creatorName": "Florian",
+    "status": "PUBLISHED",
+    "creationDate": 1564469988998,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d3feae418c37b4f22d17a5f",
+      "countVotes": 16,
+      "ownVote": 0,
+      "averageRating": 4.1875
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Kostenpfl. Einwegbehälter",
+        "pitch": "Die Nutzung von Einwegbehältern sollte kostenpflichtig werden. Die Kosten sollten dabei auch hoch angesetzt sein, so dass die Nutzung stärker überdacht wird."
+      },
+      "de": {
+        "title": "Kostenpfl. Einwegbehälter",
+        "pitch": "Die Nutzung von Einwegbehältern sollte kostenpflichtig werden. Die Kosten sollten dabei auch hoch angesetzt sein, so dass die Nutzung stärker überdacht wird."
+      },
+      "en": {
+        "title": "Cost saving disposable container",
+        "pitch": "The use of disposable containers should be subject to a charge. The costs should also be high, so that the use of the system is given greater consideration."
+      }
+    }
+  },
+  {
+    "id": "5d4a94db9126ed5ba7eee0b7",
+    "creatorName": "Stephanie",
+    "status": "PUBLISHED",
+    "creationDate": 1565168859155,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d4a94db9126ed5ba7eee0b7",
+      "countVotes": 11,
+      "ownVote": 5,
+      "averageRating": 4.090909
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "plasticfree day",
+        "pitch": "AS kommittet sich, an einem festen Tag in der Woche plastikfrei zu sein, bedeutet, man benutzt/konsumiert keine Produkte, die neuen Plastikabfall verursachen. Darüber hinaus Mitarbeiter motivieren, den kompletten Tag plastikfrei zu gestalten."
+      },
+      "de": {
+        "title": "kunststofffreier Tag",
+        "pitch": "AS kommittet sich, an einem festen Tag in der Woche plastikfrei zu sein, bedeutet, man benutzt/konsumiert keine Produkte, die neuen Plastikabfall verursachen. Darüber hinaus Mitarbeiter motivieren, den kompletten Tag plastikfrei zu gestalten."
+      },
+      "en": {
+        "title": "plasticfree day",
+        "pitch": "AS commits itself to be plastic-free on a fixed day of the week, which means that it does not use/consume products that generate new plastic waste. In addition, motivate employees to spend the entire day plastic-free."
+      }
+    }
+  },
+  {
+    "id": "5d5101059126ed5ba7eee0bc",
+    "creatorName": "Sebastian",
+    "status": "PUBLISHED",
+    "creationDate": 1565589765869,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d5101059126ed5ba7eee0bc",
+      "countVotes": 8,
+      "ownVote": 5,
+      "averageRating": 4.25
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Energie-positiver Neubau",
+        "pitch": "Der Neubau sollte z.B. von Edge Texhnologies überarbeitet werden damit er klimafreundlich und Energie-positiv wird."
+      },
+      "de": {
+        "title": "Energie-positiver Neubau",
+        "pitch": "Der Neubau sollte z.B. von Edge Texhnologies überarbeitet werden damit er klimafreundlich und Energie-positiv wird."
+      },
+      "en": {
+        "title": "Energy-positive new building",
+        "pitch": "The new building should be revised by Edge Texhnologies, for example, so that it becomes climate-friendly and energy-positive."
+      }
+    }
+  },
+  {
+    "id": "5d5129d64105585013a1bf7a",
+    "creatorName": "eva",
+    "status": "PUBLISHED",
+    "creationDate": 1565600214481,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d5129d64105585013a1bf7a",
+      "countVotes": 12,
+      "ownVote": 1,
+      "averageRating": 3.0
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Fahrradwege zu AS",
+        "pitch": "Es wäre super wenn AS den Ausbau von Radwegen selber in die Hand nimmt und in einem Radius (erweiterbar) von 5 Km um das AS Gebäude für sichere und gute Radwege sorgen könnte."
+      },
+      "de": {
+        "title": "Fahrradwege zu AS",
+        "pitch": "Es wäre super wenn AS den Ausbau von Radwegen selber in die Hand nimmt und in einem Radius (erweiterbar) von 5 Km um das AS Gebäude für sichere und gute Radwege sorgen könnte."
+      },
+      "en": {
+        "title": "Bicycle paths to AS",
+        "pitch": "It would be great if AS would take the development of cycle paths into its own hands and could provide safe and good cycle paths within a radius (extendable) of 5 km around the AS building."
+      }
+    }
+  },
+  {
+    "id": "5d5183839126ed5ba7eee0be",
+    "creatorName": "Janina",
+    "status": "PUBLISHED",
+    "creationDate": 1565623171163,
+    "rejectionComment": null,
+    "rating": {
+      "ideaId": "5d5183839126ed5ba7eee0be",
+      "countVotes": 15,
+      "ownVote": 5,
+      "averageRating": 3.7333333
+    },
+    "contentI18n": {
+      "originalLanguage": "DE",
+      "original": {
+        "title": "Bienenstöcke leasen",
+        "pitch": "Wenn die Bienen sterben, sterben auch wir! Springer sollte Bienenstöcke mieten (bee-rent.de). Interessant für Neubau, Kitaprojekt, Passage... Für knapp 200 Euro monatlich kann ein großer ökologischer Beitrag geleistet werden. Und Honig gibts auch noch!"
+      },
+      "de": {
+        "title": "Bienenstöcke leasen",
+        "pitch": "Wenn die Bienen sterben, sterben auch wir! Springer sollte Bienenstöcke mieten (bee-rent.de). Interessant für Neubau, Kitaprojekt, Passage... Für knapp 200 Euro monatlich kann ein großer ökologischer Beitrag geleistet werden. Und Honig gibts auch noch!"
+      },
+      "en": {
+        "title": "Lease beehives",
+        "pitch": "If the bees die, we die too! Springer should rent beehives (bee-rent.de). Interesting for new construction, kitaproject, passage... A large ecological contribution can be made for just under 200 euros per month. And there's honey too!"
+      }
+    }
+  }
+]

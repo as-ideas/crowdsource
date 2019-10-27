@@ -829,6 +829,14 @@ msgid "OVERVIEW_CAMPAIGN_HEADLINE"
 msgstr ""
 
 msgctxt ""
+msgid "OVERVIEW_CAMPAIGN_EXPIRED_DESCRIPTION"
+msgstr ""
+
+msgctxt ""
+msgid "OVERVIEW_CAMPAIGN_EXPIRED_HEADLINE"
+msgstr ""
+
+msgctxt ""
 msgid "OVERVIEW_IDEAS_NO_CAMPAIGN"
 msgstr "Zurzeit gibt es leider keine Ideen Kampagne"
 

@@ -1,0 +1,226 @@
+[
+  {
+    "id": "5d15ff2d9126ed3149802ffe",
+    "startDate": 1561939200000,
+    "endDate": 1577829540000,
+    "campaignInitiator": {
+      "id": "5d1366939126ed6471d2567b",
+      "name": "Martin Bild"
+    },
+    "active": true,
+    "expired": false,
+    "sponsor": "Axel Springer SE",
+    "contentI18n": {
+      "de": {
+        "title": "One more idea",
+        "description": "<strong>Wir sind sicher, dass Du vor fantastischen Ideen sprühst und schon immer einem Ort gesucht hast, wo Du diese transparent loswerden kannst. </strong></br></br>Der „One more idea“ Marktplatz ist die Heimat, wo Du deine Ideen mit der Crowd teilen kannst. Achte bitte darauf, ob deine Idee inhaltlich einem anderen Marktplatz zugeordnet werden kann.</br></br>Gerade in der Zeit, wo Purpose, People, Speed, Tech sowie Customer Focus immer wichtiger werden, sind wir sicher, dass wir diese Treiber gemeinsam durch unsere Ideen zum Leben erwecken.</br></br>Es gibt kein Richtig oder Falsch! Jede Idee ist willkommen!",
+        "teaserImageReference": "https://crowdsource-assets.s3.amazonaws.com/prod/campaigns/one-more-idea/de/preview_image.png",
+        "videoReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/prod/campaigns/one-more-idea/de/sustainability_de.mp4",
+        "videoImageReference": "https://crowdsource-assets.s3.amazonaws.com/prod/campaigns/one-more-idea/de/videoImage_de.jpg"
+      },
+      "en": {
+        "title": "One more idea",
+        "description": "<strong>We are sure that you are full of fantastic ideas and therefore searching for a place to distribute them transparently.</strong></br></br>„One more idea“ is the way for you to share all your ideas with the „crowd“. Please check if another marketplace would also be fitting for your idea.</br></br>Especially when purpose, people, speed, tech and costumer focus are getting more important every day, we are confident that this platform and your creativity will help us bringing those values to life.</br></br>There is no right or wrong! Every idea makes a difference!",
+        "teaserImageReference": "https://crowdsource-assets.s3.amazonaws.com/prod/campaigns/one-more-idea/de/preview_image.png",
+        "videoReference": "https://crowdsource-assets.s3.amazonaws.com/prod/campaigns/one-more-idea/en/one-more-idea_en.mp4",
+        "videoImageReference": "https://crowdsource-assets.s3.amazonaws.com/prod/campaigns/one-more-idea/en/videoImage_en.jpg"
+      }
+    }
+  },
+  {
+    "id": "5d68e1469126ed5ba7eee0c6",
+    "startDate": 1567176300000,
+    "endDate": 1568584740000,
+    "campaignInitiator": {
+      "id": "5d1366939126ed6471d2567b",
+      "name": "Martin Bild"
+    },
+    "active": false,
+    "expired": true,
+    "sponsor": "EMPEX festival",
+    "contentI18n": {
+      "de": {
+        "title": "EMPEX 2020",
+        "description": "Ideas for next EMPEX - Wir erleben gerade eine intensive Woche voller Austausch, Ideen und Impressionen mit mehr als 77 Sessions. EMPEX wäre ohne euch nicht möglich - deshalb wollen wir von Euch wissen: Welche Ideen habt Ihr jetzt schon für das nächste EMPEX Festival? ",
+        "teaserImageReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/empex-daily-crowd/preview_image_Empex_Daily_Crowd.png",
+        "videoReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/empex-daily-crowd/empex-festival.mp4",
+        "videoImageReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/empex-daily-crowd/videoImage_empex-2020.png"
+      },
+      "en": {
+        "title": "EMPEX 2020",
+        "description": "Ideas for next EMPEX – We are currently experiencing an intensive week \nfull of exchanges, ideas and impressions with more than 77 sessions. But \nEMPEX wouldn't be possible without you – that's why we want to know \nfrom you: Which ideas do you already have for the next EMPEX Festival?",
+        "teaserImageReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/empex-daily-crowd/preview_image_Empex_Daily_Crowd.png",
+        "videoReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/empex-daily-crowd/empex-festival.mp4",
+        "videoImageReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/empex-daily-crowd/videoImage_empex-2020.png"
+      }
+    }
+  },
+  {
+    "id": "5d68e3fe18c37b4f22d17a6e",
+    "startDate": 1567176300000,
+    "endDate": 1568584740000,
+    "campaignInitiator": {
+      "id": "5d1366939126ed6471d2567b",
+      "name": "Martin Bild"
+    },
+    "active": false,
+    "expired": true,
+    "sponsor": "EMPEX festival",
+    "contentI18n": {
+      "de": {
+        "title": "Empathie",
+        "description": "<strong>Was braucht es, um eine emphatische Organisation zu werden?</strong></br></br>Empathie zählt seit 2019 zu unseren Unternehmenswerten und nun ist es unsere gemeinsame Aufgabe diesen Wert mit Leben zu füllen. Umsatz und Gewinn sind die ersten Dinge die mit einem erfolgreichen Unternehmen verbunden werden. Empathie und Respekt sind jedoch die eigentliche Basis, die ein erfolgreiches Unternehmen ausmachen. Was sind deine Ideen für ein emphatischeres Miteinander?",
+        "teaserImageReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/empex-daily-crowd/preview_image_Empex_Daily_Crowd-empathie.jpg",
+        "videoReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/empex-daily-crowd/empex-festival.mp4",
+        "videoImageReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/empex-daily-crowd/videoImage_empathie.png"
+      },
+      "en": {
+        "title": "Empathy",
+        "description": "<strong>What does it take to become an empathetic organization?</strong></br></br>Since 2019, empathy has been one of our corporate values and now it is \nour joint mission to bring this value to life. Revenue and profit are the first \nattributes associated with a successful company. Empathy and respect, \nhowever, are the actual foundation of a prosperous enterprise. Which are \nyour ideas for a more empathetic coexistence?",
+        "teaserImageReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/empex-daily-crowd/preview_image_Empex_Daily_Crowd.png",
+        "videoReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/empex-daily-crowd/empex-festival.mp4",
+        "videoImageReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/empex-daily-crowd/videoImage_empathie.png"
+      }
+    }
+  },
+  {
+    "id": "5d68e6d218c37b4f22d17a6f",
+    "startDate": 1567176300000,
+    "endDate": 1568584740000,
+    "campaignInitiator": {
+      "id": "5d1366939126ed6471d2567b",
+      "name": "Martin Bild"
+    },
+    "active": false,
+    "expired": true,
+    "sponsor": "EMPEX festival",
+    "contentI18n": {
+      "de": {
+        "title": "How to foster Innovation",
+        "description": "<strong>Wie können wir innovativer werden?</strong></br></br>\"Die beste Möglichkeit, die Zukunft vorherzusagen, ist sie zu gestalten\" \n(Abraham Lincoln). Innovation gibt es in vielen Ausprägungen und jeder \nkann dazu beitragen, Innovationen hervorzubringen. Was brauchen wir bei\nAxel Springer, um innovativer zu werden?",
+        "teaserImageReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/empex-daily-crowd/preview_image_Empex_Daily_Crowd-innovation.jpg",
+        "videoReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/empex-daily-crowd/empex-festival.mp4",
+        "videoImageReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/empex-daily-crowd/videoImage_innovation.png"
+      },
+      "en": {
+        "title": "How to foster Innovation",
+        "description": "<strong>How can we become more innovative?</strong></br></br>\"The best way to predict the future is to create it\" (Abraham Lincoln). \nThere are many facets of innovation and everyone can contribute to \ncreating one. What do we need at Axel Springer to become more \ninnovative?",
+        "teaserImageReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/empex-daily-crowd/preview_image_Empex_Daily_Crowd-innovation.jpg",
+        "videoReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/empex-daily-crowd/videoImage_innovation.png",
+        "videoImageReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/empex-daily-crowd/videoImage_innovation.png"
+      }
+    }
+  },
+  {
+    "id": "5d68e8e04105585013a1bf81",
+    "startDate": 1567176300000,
+    "endDate": 1568584740000,
+    "campaignInitiator": {
+      "id": "5d1366939126ed6471d2567b",
+      "name": "Martin Bild"
+    },
+    "active": false,
+    "expired": true,
+    "sponsor": "EMPEX festival",
+    "contentI18n": {
+      "de": {
+        "title": "Tech Company",
+        "description": "<strong>Was brauchen wir, um eine Technik-Company zu sein?</strong></br></br>Axel Springer, Europas größter Verlag, ist jetzt auch noch Tech Company! Aber was konkret braucht es, um als Tech Company wahrgenommen zu werden und bestehen zu können? Welche Ideen hast Du für Axel Springer als Tech Company?",
+        "teaserImageReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/empex-daily-crowd/preview_image_Empex_Daily_Crowd-tech.jpg",
+        "videoReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/empex-daily-crowd/empex-festival.mp4",
+        "videoImageReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/empex-daily-crowd/videoImage_tech-company.png"
+      },
+      "en": {
+        "title": "Tech Company",
+        "description": "<strong>What do we need to be a tech company?</strong></br></br>Axel Springer, Europe’s largest publisher, now is also a tech company! But what exactly does it take to be perceived and exist as a tech company? And which ideas do you have for Axel Springer as tech company?",
+        "teaserImageReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/empex-daily-crowd/preview_image_Empex_Daily_Crowd-tech.jpg",
+        "videoReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/empex-daily-crowd/videoImage_innovation.png",
+        "videoImageReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/empex-daily-crowd/videoImage_tech-company.png"
+      }
+    }
+  },
+  {
+    "id": "5d68eb464105585013a1bf82",
+    "startDate": 1567176300000,
+    "endDate": 1568584740000,
+    "campaignInitiator": {
+      "id": "5d1366939126ed6471d2567b",
+      "name": "Martin Bild"
+    },
+    "active": false,
+    "expired": true,
+    "sponsor": "EMPEX festival",
+    "contentI18n": {
+      "de": {
+        "title": "Release the brake",
+        "description": "<strong>Wie werden wir schneller und agiler?</strong></br></br>Speed ist einer der neuen Growth Driver bei Axel Springer. Aber was genau bedeutet das in der Umsetzung? Welche Ideen hast du, um das Gefühl, nur mit angezogener Handbremse zu fahren, loszuwerden, um noch schneller und agiler zu werden?",
+        "teaserImageReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/empex-daily-crowd/preview_image_Empex_Daily_Crowd-agile.jpg",
+        "videoReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/empex-daily-crowd/empex-festival.mp4",
+        "videoImageReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/empex-daily-crowd/videoImage_agile.png"
+      },
+      "en": {
+        "title": "Release the brake",
+        "description": "<strong>How can we become faster and more agile?</strong></br></br>Speed is one of the new growth drivers at Axel Springer. But what exactly does this mean in terms of realization? Which ideas do you have to get rid of the feeling of driving with the handbrake on in order to become even faster and more agile?",
+        "teaserImageReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/empex-daily-crowd/preview_image_Empex_Daily_Crowd-agile.jpg",
+        "videoReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/empex-daily-crowd/videoImage_innovation.png",
+        "videoImageReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/empex-daily-crowd/videoImage_agile.png"
+      }
+    }
+  },
+  {
+    "id": "5d68ec679126ed5ba7eee0c7",
+    "startDate": 1567176300000,
+    "endDate": 1568584740000,
+    "campaignInitiator": {
+      "id": "5d1366939126ed6471d2567b",
+      "name": "Martin Bild"
+    },
+    "active": false,
+    "expired": true,
+    "sponsor": "EMPEX festival",
+    "contentI18n": {
+      "de": {
+        "title": "New Work",
+        "description": "<strong>Eines der netten Buzzwörter des 21. Jahrhundert. Geht das nicht?</strong></br></br>Das funktioniert bei uns nicht! Das haben wir schon immer so gemacht! Geht doch, denkst du dir? Super! Das interessiert uns. Welche Ideen hast du, damit New Work sein Klischee als Buzzword verliert und wirklich gelebt werden kann?",
+        "teaserImageReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/empex-daily-crowd/preview_image_Empex_Daily_Crowd-new-work.jpg",
+        "videoReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/empex-daily-crowd/empex-festival.mp4",
+        "videoImageReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/empex-daily-crowd/videoImage_new-work.png"
+      },
+      "en": {
+        "title": "New Work",
+        "description": "<strong>One of the nice buzzwords of the 21st century. Isn't it possible?</strong></br></br>That doesn't work for us! We have always done it that way! But you think it's possible? Great! We are very interested in your thoughts. Which ideas do you have for New Work to lose its cliché as a buzzword and actually be practiced?",
+        "teaserImageReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/empex-daily-crowd/preview_image_Empex_Daily_Crowd-new-work.jpg",
+        "videoReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/empex-daily-crowd/videoImage_innovation.png",
+        "videoImageReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/stage/campaigns/empex-daily-crowd/videoImage_new-work.png"
+      }
+    }
+  },
+  {
+    "id": "5d15ff4218c37b40b7544f32",
+    "startDate": 1561939200000,
+    "endDate": 1567202340000,
+    "campaignInitiator": {
+      "id": "5d1366939126ed6471d2567b",
+      "name": "Martin Bild"
+    },
+    "active": false,
+    "expired": true,
+    "sponsor": "Corporate Sustainability ",
+    "contentI18n": {
+      "de": {
+        "title": "Nachhaltigkeit - Es kommt auf dich an!",
+        "description": "<strong>Was kann jede(r) Einzelne im Arbeitsalltag tun, um Axel Springer zu einem umweltfreundlicheren Unternehmen zu machen?</strong></br></br>In Zeiten von Fridays for Future hast Du dir bestimmt bereits Gedanken darüber gemacht, was Du tun kannst, um die Umwelt zu schützen. Da wir alle einen erheblichen Teil unserer Zeit bei der Arbeit verbringen, schließt das sicher auch Maßnahmen für den Arbeitsplatz ein.</br></br>Wir möchten gerne von dir wissen, welche Maßnahmen Du bereits ergriffen hast und/oder eine gute Idee für die Zukunft wären? Im besten Fall können deine Kollegen diese ebenfalls einfach in ihren Arbeitsalltag integrieren.</br></br>Um die Umsetzung eurer Ideen zu unterstützen, vergibt der Bereich Nachhaltigkeit eine finanzielle Belohnung für die beliebtesten Ideen. Wir werden diese veröffentlichen und unternehmensweit teilen.",
+        "teaserImageReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/prod/campaigns/sustainability/de/preview_image.png",
+        "videoReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/prod/campaigns/sustainability/de/sustainability_de.mp4",
+        "videoImageReference": "https://crowdsource-assets.s3.amazonaws.com/prod/campaigns/sustainability/de/videoImage_de.jpg"
+      },
+      "en": {
+        "title": "Sustainability - It depends on you!",
+        "description": "<strong>What can every single employee do in his or her daily work life to contribute to a greener corporate future?</strong></br>\n</br>\nFor certain, in times of Fridays for Future you have come up with some thoughts on what you could do to protect the environment. As we all spend a considerable amount of our time in the office, this surely includes measures regarding the work space.</br>\n</br>\nWe would like to know from you, what actions have you already undertaken and/or would be a great idea for the future? In the best case, your colleagues could also easily implement them in their daily work life.</br>\n</br>\nTo support the implementation of your ideas, the Sustainability department will contribute a financial reward to the most popular ideas. And we will showcase those ideas to spread them across the whole group.",
+        "teaserImageReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/prod/campaigns/sustainability/de/preview_image.png",
+        "videoReference": "https://crowdsource-assets.s3.eu-central-1.amazonaws.com/prod/campaigns/sustainability/en/sustainability_en.mp4",
+        "videoImageReference": "https://crowdsource-assets.s3.amazonaws.com/prod/campaigns/sustainability/en/videoImage_en.jpg"
+      }
+    }
+  }
+]

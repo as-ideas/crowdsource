@@ -1,10 +1,10 @@
-<div class="campaign-noentry" ng-if="!list.entries.length">
+<div class="campaign-noentry" ng-if="list.hasNoCampaigns()">
     <img class="campaign-noentry__image" src="/images/campaigns-not-available-robot.svg">
     <span class="campaign-noentry__description" translate="OVERVIEW_IDEAS_NO_CAMPAIGN">Zurzeit gibt es leider keine Ideen Kampagne</span>
 </div>
 
-<div ng-if="list.entries.length" class="campaign-list__container">
-    <div ng-repeat="entry in list.entries" class="campaign__container">
+<div ng-if="list.entriesOngoing.length" class="campaign-list__container">
+    <div ng-repeat="entry in list.entriesOngoing" class="campaign__container">
         <a href="" ng-href="#/ideas/{{entry.id}}">
             <article class="campaign__item">
                 <div class="campaign__image-container">
@@ -14,7 +14,32 @@
                 <div class="campaign__details-container">
                     <h1 class="campaign__title">{{ entry.contentI18n[list.currentLanguage].title }}</h1>
                     <p class="campaign__sponsor">{{ entry.sponsor }}</p>
-                    <p class="campaign__date">{{ entry.startDate | date: 'shortDate'}} - {{ entry.endDate | date: 'shortDate' }} <span ng-if="entry.expired" translate="CAMPAIGN_LABEL_ENDED"> (beendet)</span></p>
+                    <p class="campaign__date">{{ entry.startDate | date: 'shortDate'}} - {{ entry.endDate | date: 'shortDate' }}
+                        <span ng-if="entry.expired" translate="CAMPAIGN_LABEL_ENDED"> (beendet)</span></p>
+                </div>
+            </article>
+        </a>
+    </div>
+</div>
+
+<br />
+<br />
+
+<content-hero ng-if="list.entriesFinished.length" title="'OVERVIEW_CAMPAIGN_EXPIRED_HEADLINE'" description="'OVERVIEW_CAMPAIGN_EXPIRED_DESCRIPTION'"></content-hero>
+
+<div ng-if="list.entriesFinished.length" class="campaign-list__container">
+    <div ng-repeat="entry in list.entriesFinished" class="campaign__container">
+        <a href="" ng-href="#/ideas/{{entry.id}}">
+            <article class="campaign__item">
+                <div class="campaign__image-container">
+                    <img class="campaign__image" ng-src="{{ entry.contentI18n[list.currentLanguage].teaserImageReference }}">
+                </div>
+
+                <div class="campaign__details-container">
+                    <h1 class="campaign__title">{{ entry.contentI18n[list.currentLanguage].title }}</h1>
+                    <p class="campaign__sponsor">{{ entry.sponsor }}</p>
+                    <p class="campaign__date">{{ entry.startDate | date: 'shortDate'}} - {{ entry.endDate | date: 'shortDate' }}
+                        <span ng-if="entry.expired" translate="CAMPAIGN_LABEL_ENDED"> (beendet)</span></p>
                 </div>
             </article>
         </a>
