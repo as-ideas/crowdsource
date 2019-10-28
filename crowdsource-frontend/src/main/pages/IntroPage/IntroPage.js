@@ -42,8 +42,8 @@ export default class IntroPage extends React.Component {
                       </div>
                       : <div className="campaign-login__container">
                         <ContentHero
-                          title={<Trans id='INTRO_HEADLINE'/>}
-                          description={<Trans id="INTRO_DESC"/>}
+                          title="INTRO_HEADLINE"
+                          description="INTRO_DESC"
                         />
                         <button className="button-primary" onClick={RoutingService.goToSignUpPage}>
                           <Trans id='BUTTON_LABEL_REGISTER'>Register</Trans>

@@ -5,6 +5,7 @@ import {Router, Route, Switch} from 'react-router-dom'
 import {AuthContextProvider} from "./contexts/AuthContext";
 import {I18nProvider} from "@lingui/react";
 import {I18nContextConsumer, I18nContextProvider} from "./contexts/I18nContext";
+import ReactGA from "react-ga";
 
 
 // Services
@@ -31,9 +32,11 @@ import HelpPage from './pages/HelpPage/HelpPage';
 import StatisticsPage from "./pages/StatisticsPage/StatisticsPage";
 import {NavContextProvider} from "./contexts/NavContext";
 import IdeasOwnPage from "./pages/IdeasOwnPage/IdeasOwnPage";
-import ReactGA from "react-ga";
+import IdeasAdminPage from "./pages/IdeasAdminPage/IdeasAdminPage";
 
+/* Security START */
 UnauthorizedInterceptor.init();
+/* Security END */
 
 /* Google Analytics START */
 
@@ -51,7 +54,6 @@ RoutingService.history.listen(location => {
 
 /* Google Analytics END */
 
-
 ReactDOM.render((
   <I18nContextProvider>
     <I18nContextConsumer>
@@ -66,7 +68,7 @@ ReactDOM.render((
                     <Route exact path='/intro' component={IntroPage}/>
                     <Route exact path='/ideas/:ideasId' component={IdeasListPage}/>
                     <Route exact path='/ideas/:ideasId/own' component={IdeasOwnPage}/>
-                    {/*<Route exact path='/ideas/:ideasId/admin' component={IdeasAdminController}/>*/}
+                    <Route exact path='/ideas/:ideasId/admin' component={IdeasAdminPage}/>
                     {/*<Route exact path='/projects' component={ProjectListController}/>*/}
                     {/*<Route exact path='/project/new' component={ProjectFormController}/>*/}
                     {/*<Route exact path='/project/new/:projectId' component={ProjectFormSuccessController}/>*/}

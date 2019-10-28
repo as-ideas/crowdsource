@@ -1,11 +1,16 @@
 package de.asideas.crowdsource.controller.ideascampaign;
 
-import java.security.Principal;
-import java.util.Collections;
-import java.util.List;
-import javax.validation.Valid;
-
-import de.asideas.crowdsource.presentation.ideascampaign.*;
+import de.asideas.crowdsource.domain.exception.ForbiddenException;
+import de.asideas.crowdsource.domain.model.UserEntity;
+import de.asideas.crowdsource.domain.shared.ideascampaign.IdeaStatus;
+import de.asideas.crowdsource.presentation.ideascampaign.IdeaIn;
+import de.asideas.crowdsource.presentation.ideascampaign.IdeaOut;
+import de.asideas.crowdsource.presentation.ideascampaign.IdeaRejectCmd;
+import de.asideas.crowdsource.presentation.ideascampaign.Rating;
+import de.asideas.crowdsource.presentation.ideascampaign.VoteCmd;
+import de.asideas.crowdsource.security.Roles;
+import de.asideas.crowdsource.service.UserService;
+import de.asideas.crowdsource.service.ideascampaign.IdeaService;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -14,14 +19,19 @@ import org.springframework.http.MediaType;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
-import de.asideas.crowdsource.domain.exception.ForbiddenException;
-import de.asideas.crowdsource.domain.model.UserEntity;
-import de.asideas.crowdsource.domain.shared.ideascampaign.IdeaStatus;
-import de.asideas.crowdsource.security.Roles;
-import de.asideas.crowdsource.service.UserService;
-import de.asideas.crowdsource.service.ideascampaign.IdeaService;
+import javax.validation.Valid;
+import java.security.Principal;
+import java.util.Collections;
+import java.util.List;
 
 import static de.asideas.crowdsource.security.Roles.ROLE_ADMIN;
 import static de.asideas.crowdsource.security.Roles.ROLE_USER;
@@ -41,10 +51,10 @@ public class IdeaController {
     @Secured(Roles.ROLE_USER)
     @GetMapping(value = Paths.IDEAS, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public Page<IdeaOut> fetchIdeas(@PathVariable String campaignId,
-                                 @RequestParam(value = "page", required = false) Integer page,
-                                 @RequestParam(value = "pageSize", required = false) Integer pageSize,
-                                 @RequestParam(value = "status", required = false) IdeaStatus status,
-                                 Authentication auth, Principal principal ) {
+                                    @RequestParam(value = "page", required = false) Integer page,
+                                    @RequestParam(value = "pageSize", required = false) Integer pageSize,
+                                    @RequestParam(value = "status", required = false) IdeaStatus status,
+                                    Authentication auth, Principal principal) {
 
         log.debug("Fetching Ideas: campaignId={}", campaignId);
         if (status == null) {
@@ -64,7 +74,7 @@ public class IdeaController {
                                             @RequestParam(value = "page", required = false) Integer page,
                                             @RequestParam(value = "pageSize", required = false) Integer pageSize,
                                             @RequestParam(value = "alreadyVoted", required = true) Boolean alreadyVotedFor,
-                                            Principal principal ) {
+                                            Principal principal) {
 
         log.info("Fetching filtered Ideas: campaignId={}", campaignId);
         return ideaService.fetchIdeasByRequestorHasVoted(campaignId, alreadyVotedFor, page, pageSize, userByPrincipal(principal));
@@ -90,6 +100,13 @@ public class IdeaController {
     public IdeaOut modifyIdea(@Valid @RequestBody IdeaIn cmd, @PathVariable String campaignId, @PathVariable String ideaId, Principal principal) {
         log.info("Going to modify idea by cmd: {}", cmd);
         return ideaService.modifyIdea(ideaId, cmd, userByPrincipal(principal));
+    }
+
+    @Secured(Roles.ROLE_USER)
+    @GetMapping(value = Paths.IDEA, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public IdeaOut getIdea(@PathVariable String campaignId, @PathVariable String ideaId, Principal principal) {
+        log.info("Going to load idea by id: {}", ideaId);
+        return ideaService.fetchIdea(ideaId, userByPrincipal(principal));
     }
 
     @Secured(ROLE_ADMIN)

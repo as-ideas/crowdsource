@@ -48,9 +48,8 @@ export default class Overlay extends React.Component {
     return <div className={classForOverlay}>
       <div className="overlay__content">
         <div className="overlay__icon"/>
-        <div className={type === 'failure' ? 'overlay__text--failure' : 'overlay__text--success'}>
-          {message}
-        </div>
+        <div className={type === 'failure' ? 'overlay__text--failure' : 'overlay__text--success'}
+             dangerouslySetInnerHTML={{__html: message}}/>
       </div>
     </div>
   };

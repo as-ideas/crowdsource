@@ -15,6 +15,11 @@ class IdeaService {
     }
   }
 
+  setTitleAndPitchFromI18n(idea) {
+    idea.title = idea.contentI18n.original.title;
+    idea.pitch = idea.contentI18n.original.pitch;
+  }
+
   getCurrentCampaign() {
     return this.currentCampaign;
   }
@@ -26,7 +31,6 @@ class IdeaService {
       return response.json()
     });
   }
-
 
   getCampaign(id) {
     return new Promise((resolve, reject) => {
@@ -54,6 +58,11 @@ class IdeaService {
     })
   }
 
+  /**
+   * @param campaignId The id of the idea campaign
+   * @param idea the idea {id, title, pitch}
+   * @returns {Promise<any>}
+   */
   updateIdea(campaignId, idea) {
     return fetch(`/ideas_campaigns/${campaignId}/ideas/${idea.id}`, {
       method: 'PUT',
@@ -63,16 +72,27 @@ class IdeaService {
     })
   }
 
+  getIdea(campaignId, ideaId) {
+    return fetch(`/ideas_campaigns/${campaignId}/ideas/${ideaId}`)
+      .then(response => {
+        return response.json()
+      })
+  }
+
   getOwnIdeas(campaignId) {
     return fetch(`/ideas_campaigns/${campaignId}/my_ideas`, {
       method: 'GET'
     }).then(response => {
       return response.json()
+    }).then((ideas) => {
+      ideas.forEach(this.setTitleAndPitchFromI18n);
+      return ideas;
     })
+
   }
 
   getIdeasWithStatus(campaignId, status) {
-    let url = `/ideas_campaigns/${campaignId}/ideas}`;
+    let url = `/ideas_campaigns/${campaignId}/ideas`;
     let params = {
       status: status
     };
@@ -82,6 +102,9 @@ class IdeaService {
       method: 'GET',
     }).then(response => {
       return response.json()
+    }).then((pageResponse) => {
+      pageResponse.content.forEach(this.setTitleAndPitchFromI18n);
+      return pageResponse;
     })
   }
 
@@ -99,7 +122,12 @@ class IdeaService {
       method: 'GET',
     }).then(response => {
       return response.json()
+    }).then((ideasResponse) => {
+      ideasResponse.content.forEach(this.setTitleAndPitchFromI18n);
+      return ideasResponse;
     })
+
+
   }
 
   getAlreadyVoted(campaignId, alreadyVoted, page) {

@@ -3,7 +3,7 @@ import {IDEAS_STATUS} from "../../util/IdeaService";
 import {Trans} from '@lingui/macro';
 
 
-export default class IdeasOwnStatistics extends React.Component {
+export default class IdeasStatusBar extends React.Component {
   constructor(props, context) {
     super(props, context);
   }

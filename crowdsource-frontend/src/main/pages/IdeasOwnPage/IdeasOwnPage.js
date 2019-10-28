@@ -9,20 +9,24 @@ import Overlay from "../../layout/Overlay";
 export default class IdeasOwnPage extends React.Component {
   constructor(props, context) {
     super(props, context);
-    this.state = {};
+    this.state = {ideas: []};
 
+    this.loadOwnIdeas = this.loadOwnIdeas.bind(this);
   }
 
   componentDidMount() {
-    let ideaCampaignId = this.props.match.ideasId;
-
+    let ideaCampaignId = this.props.match.params.ideasId;
+    console.info("componentDidMount ideaCampaignId", ideaCampaignId, this.props.match);
 
     IdeaService.getCampaign(ideaCampaignId)
       .then((campaign) => {
-        this.setState({campaign: campaign});
+        this.setState({campaign: campaign}, this.loadOwnIdeas);
       })
       .catch(error => console.error(error));
+  }
 
+  loadOwnIdeas() {
+    let ideaCampaignId = this.props.match.params.ideasId;
     IdeaService.getOwnIdeas(ideaCampaignId)
       .then((res) => {
         this.setState({ideas: res});
@@ -62,8 +66,8 @@ export default class IdeasOwnPage extends React.Component {
               </div>
               <div className="ideas-grid__container">
                 {
-                  proposed.map(idea => {
-                    return <div className="ideas-grid__box ideas-grid__proposed">
+                  proposed.map((idea, i) => {
+                    return <div className="ideas-grid__box ideas-grid__proposed" key={i}>
                       <Overlay type="success"
                                message={<Trans id={"IDEA_ADD_MESSAGE_1"}/> + '<br/>' + <Trans id="IDEA_ADD_MESSAGE_2"/>}
                                eventId={'VOTE_' + idea.id}
@@ -101,12 +105,9 @@ export default class IdeasOwnPage extends React.Component {
 
               <div className="ideas-grid__container">
                 {
-                  published.map(idea => {
-                    return <div className="ideas-grid__box ideas-grid__published">
-                      <Overlay type="success"
-                               message={<Trans id={"IDEA_ADD_MESSAGE_1"}/> + '<br/>' + <Trans id="IDEA_ADD_MESSAGE_2"/>}
-                               eventId={'VOTE_' + idea.id}
-                      />
+                  published.map((idea, i) => {
+                    return <div className="ideas-grid__box ideas-grid__published" key={i}>
+                      <Overlay eventId={'VOTE_' + idea.id}/>
                       <IdeaTile campaign={campaign} idea={idea} own={true}/>
                     </div>
                   })
@@ -137,8 +138,8 @@ export default class IdeasOwnPage extends React.Component {
               </div>
               <div className="ideas-grid__container">
                 {
-                  rejected.map(idea => {
-                    return <div className="ideas-grid__box ideas-grid__rejected">
+                  rejected.map((idea, i) => {
+                    return <div className="ideas-grid__box ideas-grid__rejected" key={i}>
                       <IdeaTile campaign={campaign} idea={idea}/>
                     </div>
                   })

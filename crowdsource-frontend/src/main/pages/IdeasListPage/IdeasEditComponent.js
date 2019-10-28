@@ -47,7 +47,7 @@ export default class IdeasEditComponent extends React.Component {
       this.state.pending = true;
       this.setState(this.state);
 
-      this.props.submitCallback({title: this.state.input.title, pitch: this.state.input.pitch})
+      this.props.submitCallback(this.state.input)
         .then((response) => {
           if (response.errorCode) {
             this.state.errors = ValidationService.errorObjectFromBackend(response);
@@ -116,8 +116,6 @@ export default class IdeasEditComponent extends React.Component {
     let campaign = this.props.campaign ? this.props.campaign : {};
     let cancelEnabled = null; // FIXME react what is cancel?
     // success-fn="ideasList.reloadOwnIdeas"
-    console.info("Render IdeasEditComponent camp", campaign);
-    console.info("Render IdeasEditComponent erros", this.state.errors);
 
     return (
       <idea-edit>

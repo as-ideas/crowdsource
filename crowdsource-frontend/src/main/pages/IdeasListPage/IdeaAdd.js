@@ -4,11 +4,17 @@ import IdeaService from "../../util/IdeaService";
 import IdeasEditComponent from "./IdeasEditComponent";
 import Events from "../../util/Events";
 import {Trans} from '@lingui/macro';
+import {i18n} from "../../contexts/I18nContext";
+import PropTypes from "prop-types";
 
 
 const EMPTY_IDEA = {title: "", pitch: ""};
 
 export default class IdeaAdd extends React.Component {
+  static propTypes = {
+    campaign: PropTypes.object
+  };
+
   constructor(props, context) {
     super(props, context);
   }
@@ -20,7 +26,7 @@ export default class IdeaAdd extends React.Component {
           Events.emitEvent('UPDATE_OWN_STATISTICS');
           Events.emitEvent('ADD_IDEA_SUCCESS', {
             type: 'success',
-            message: <Trans id="IDEA_ADD_MESSAGE_1"/> + '<br>' + 'IDEA_ADD_MESSAGE_2'
+            message: i18n._("IDEA_ADD_MESSAGE_1") + ' <br /> ' + i18n._("IDEA_ADD_MESSAGE_2")
           });
         }
         return newIdeaResponse;

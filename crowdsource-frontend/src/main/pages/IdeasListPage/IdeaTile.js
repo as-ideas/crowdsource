@@ -1,9 +1,12 @@
 import React from "react";
 import TextFormatService from "../../util/TextFromatService";
-import {Tran, Plural} from "@lingui/macro";
+import {Trans, Plural} from "@lingui/macro";
 import TranslationService from "../../util/TranslationService";
 import IdeaService from "../../util/IdeaService";
 import PropTypes from "prop-types";
+import Events from "../../util/Events";
+import {translate} from "../../contexts/I18nContext";
+import IdeaEdit from "./IdeaEdit";
 
 const DEFAULT_RATING = {
   ownVote: 0,
@@ -21,13 +24,19 @@ export default class IdeaTile extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
+      idea: this.props.idea,
       rating: this.props.idea.rating || DEFAULT_RATING,
-      isVotingDisabled: !this.props.campaign.active || false
+      isVotingDisabled: !this.props.campaign.active || false,
+      isEditable: false,
+      input: {
+        rejectionComment: ""
+      },
+      errors: {}
     }
   }
 
   isTranslated(currentLanguage) {
-    let contentI18n = this.props.idea.contentI18n;
+    let contentI18n = this.state.idea.contentI18n;
 
     if (!contentI18n || !contentI18n.originalLanguage) {
       return false;
@@ -38,7 +47,7 @@ export default class IdeaTile extends React.Component {
 
   vote(value) {
     let campaign = this.props.campaign;
-    let idea = this.props.idea;
+    let idea = this.state.idea;
 
     if (this.state.isVotingDisabled) {
       return;
@@ -55,10 +64,9 @@ export default class IdeaTile extends React.Component {
     IdeaService.voteIdea(campaign.id, idea.id, value)
       .then((rating) => {
         if (value === 0) {
-          // FIXME react overlay?
-          // $rootScope.$broadcast('VOTE_' + vm.idea.id, {type: 'success', message: $filter('translate')('IDEA_REMOVE_VOTE_MESSAGE')});
+          Events.emitEvent('VOTE_' + idea.id, {type: 'success', message: translate('IDEA_REMOVE_VOTE_MESSAGE')});
         } else {
-          // $rootScope.$broadcast('VOTE_' + vm.idea.id, {type: 'success', message: $filter('translate')('IDEA_VOTE_MESSAGE')});
+          Events.emitEvent('VOTE_' + idea.id, {type: 'success', message: translate('IDEA_VOTE_MESSAGE')});
         }
         this.state.rating = rating;
         this.state.rating.averageRating = Math.round(this.state.rating.averageRating * 10) / 10;
@@ -71,43 +79,69 @@ export default class IdeaTile extends React.Component {
       });
   }
 
-  selectTranslation(value) {
+  edit() {
+    this.setState({isEditable: true})
+  }
 
+  editDone() {
+    IdeaService.getIdea(this.props.campaign.id, this.state.idea.id)
+      .then((idea) => {
+        this.setState({
+          idea: idea,
+          isEditable: false
+        })
+      });
+  }
+
+  reject() {
+    if (!this.props.admin) {
+      throw Error('rejection is only allowed for admin');
+    }
+    IdeaService.rejectIdea(this.props.campaign.id, this.state.idea.id)
+      .then(() => {
+        Events.emitEvent('ADMIN_' + this.state.idea.id, {type: 'failure', message: translate('ADMIN_IDEA_REJECT_MESSAGE')});
+      });
+  }
+
+  publish() {
+    if (!this.props.admin) {
+      throw Error('publishing is only allowed for admin');
+    }
+    IdeaService.publishIdea(this.props.campaign.id, this.state.idea.id)
+      .then(() => {
+        Events.emitEvent('ADMIN_' + this.state.idea.id, {type: 'success', message: translate('ADMIN_IDEA_PUBLISH_MESSAGE')});
+      });
+  }
+
+  selectTranslation(value) {
+    // FIXME REACT
+  }
+
+  handleRejectionCommentInputChange(e) {
+    this.state.input.rejectionComment = e.target.value;
+    this.setState(this.state, this.validateForm);
   }
 
   render() {
     let campaign = this.props.campaign;
-    let campaignId = campaign.id;
-    let idea = this.props.idea;
+    let idea = this.state.idea;
 
     let isVotingDisabled = this.state.isVotingDisabled;
     let rating = this.state.rating;
     rating.averageRating = Math.round(rating.averageRating * 10) / 10;
 
     let rejectionComment = "";
-    let isEditable = false;
+    let isEditable = this.state.isEditable;
     let isAdminView = this.props.admin || false;
     let isOwnView = this.props.own || false;
 
-    let contentI18n = this.props.idea.contentI18n;
     let currentLanguage = TranslationService.getCurrentLanguage();
 
-    let title = null;
-    let pitch = null;
+    let title = idea.title;
+    let pitch = idea.pitch;
 
     let isTranslated = this.isTranslated(currentLanguage);
     let isTranslationSelected = true;
-
-    if (!contentI18n || !contentI18n.originalLanguage) {
-      title = idea.title;
-      pitch = idea.pitch;
-    } else if (isTranslated && isTranslationSelected) {
-      title = contentI18n[currentLanguage].title;
-      pitch = contentI18n[currentLanguage].pitch;
-    } else {
-      title = contentI18n.original.title;
-      pitch = contentI18n.original.pitch;
-    }
 
     return (
       <idea-title>
@@ -203,8 +237,8 @@ export default class IdeaTile extends React.Component {
           {
             isEditable ?
               <div className="ideas-grid-tile__approval-container">
-                {/* FIXME react */}
                 {/*<idea-edit idea="vm.idea" cancel-callback="vm.cancelEdit" submit-callback="vm.update"></idea-edit>*/}
+                <IdeaEdit campaign={campaign} idea={idea} finishedCallback={this.editDone.bind(this)}/>
               </div>
               : null
 
@@ -214,7 +248,7 @@ export default class IdeaTile extends React.Component {
             !isAdminView && (idea.status === 'PROPOSED') && !isEditable ?
               <div className="ideas-grid-tile__edit-container">
                 <button disabled={!campaign.active}
-                        ng-click="vm.edit()"
+                        onClick={this.edit.bind(this)}
                         className="button-secondary--fullwidth">
                   <Trans id="BUTTON_LABEL_EDIT">Bearbeiten</Trans>
                 </button>
@@ -238,17 +272,36 @@ export default class IdeaTile extends React.Component {
                   <div>
                     <form name="rejectionForm">
                       <label>
-                        <span form-label-valid="rejectionMessage" translate="FORM_ADMIN_IDEA_REJECT_REASON_LABEL">Ablehnungsgrund</span>
-                        <span form-label-invalid="rejectionMessage" ng-messages="rejectionForm.rejectionMessage.$error">
-                          <span ng-message="minlength"><span><Trans id="FORM_ERROR_MIN_CHARS" values={{value: "10"}}>Mindestens 10 Zeichen</Trans></span></span>
-                          <span ng-message="maxlength"><span><Trans id="FORM_ERROR_MAX_CHARS" values={{value: "1000"}}>Maximal 10000 Zeichen</Trans></span></span>
-                          <span ng-message="required"><span><Trans id="FORM_ADMIN_IDEA_REJECT_REASON_ERROR_REQUIRED">Bitte Ablehnungsgrund angeben</Trans></span></span>
-                        </span>
-                        <textarea campaign-active-aware rows="3" className="ideas-grid-tile__reject-textarea" ng-minlength="10" ng-model="vm.rejectionComment" name="rejectionMessage" placeholder="Ablehnungsgrund" translate-attr="{ placeholder: 'FORM_ADMIN_IDEA_REJECT_REASON_PLACEHOLDER' }"></textarea>
+                        {
+                          this.state.errors.rejectionComment ?
+                            this.state.errors.rejectionComment.map(error => {
+                              return <span className="invalid-label" key={error}><Trans id={error.label ? error.label : error} values={error.value}/></span>
+                            })
+                            : <span className="valid-label"><Trans id="FORM_IDEA_EDIT_TITLE_LABEL">Titel Deiner Idee</Trans></span>
+                        }
+                        <textarea campaign-active-aware
+                                  rows="3"
+                                  className="ideas-grid-tile__reject-textarea"
+                                  ng-minlength="10"
+                                  value={this.state.input.rejectionComment}
+                                  onChange={this.handleRejectionCommentInputChange}
+                                  name="rejectionMessage"
+                                  placeholder="Ablehnungsgrund"
+                                  translate-attr="{ placeholder: 'FORM_ADMIN_IDEA_REJECT_REASON_PLACEHOLDER' }"
+                        />
                       </label>
                     </form>
-                    <button campaign-active-aware ng-click="vm.reject()" className="button-reject--halfwidth" ng-disabled="!vm.rejectionComment.length" translate="BUTTON_LABEL_REJECT">Ablehnen</button>
-                    <button campaign-active-aware ng-click="vm.publish()" className="button-accept--halfwidth" translate="BUTTON_LABEL_APPROVE">Freigeben</button>
+                    <button campaign-active-aware
+                            onClick={this.reject.bind(this)}
+                            className="button-reject--halfwidth"
+                            ng-disabled="!vm.rejectionComment.length">
+                      <Trans id="BUTTON_LABEL_REJECT">Ablehnen</Trans>
+                    </button>
+                    <button campaign-active-aware
+                            onClick={this.publish.bind(this)}
+                            className="button-accept--halfwidth">
+                      <Trans id="BUTTON_LABEL_APPROVE">Freigeben</Trans>
+                    </button>
                   </div>
                 </div>
               </div>
